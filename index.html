@@ -41,6 +41,8 @@
     align-items:center;
     justify-content:space-between;
     margin-bottom: 18px;
+    gap: 10px;
+    flex-wrap: wrap;
   }
   .brand{
     display:flex;
@@ -53,7 +55,8 @@
     font-size: 1.4em;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
   }
-  .streak{
+  .header-right{ display:flex; align-items:center; gap:10px; }
+  .streak, .mastered{
     display:flex;
     align-items:center;
     gap:8px;
@@ -62,7 +65,18 @@
     border-radius:999px;
     box-shadow: var(--shadow);
     font-weight:700;
-    font-size: clamp(14px,2.5vw,18px);
+    font-size: clamp(13px,2.5vw,17px);
+  }
+  select#categoryFilter{
+    border:none;
+    background:var(--card-bg);
+    padding:8px 14px;
+    border-radius:999px;
+    box-shadow: var(--shadow);
+    font-weight:700;
+    font-size: clamp(12px,2.5vw,15px);
+    color:var(--ink);
+    max-width: 180px;
   }
   main{
     width:100%;
@@ -82,10 +96,16 @@
   }
   .progress-bar > div{
     height:100%;
-    width:30%;
+    width:0%;
     background:linear-gradient(90deg,#ffca28,var(--accent));
     border-radius:999px;
     transition: width .4s ease;
+  }
+  .progress-label{
+    font-size: 13px;
+    color:#7a7189;
+    align-self:flex-end;
+    margin-top:-14px;
   }
   .prompt-card{
     width:100%;
@@ -109,7 +129,7 @@
   .lang-pill.en{ background:var(--pill-en); }
   .lang-pill.fi{ background:var(--pill-fi); }
   .prompt-word{
-    font-size: clamp(36px, 9vw, 64px);
+    font-size: clamp(32px, 8vw, 58px);
     font-weight:800;
     margin: 6px 0 4px;
     word-break: break-word;
@@ -117,6 +137,11 @@
   .prompt-hint{
     color:#7a7189;
     font-size: clamp(14px,3vw,17px);
+  }
+  .prompt-category{
+    color:#b6adc9;
+    font-size: 13px;
+    margin-top: 4px;
   }
   .speak-btn{
     margin-top:14px;
@@ -269,10 +294,11 @@
     border-radius:20px;
     padding: 10px 16px;
     transition: background .2s ease;
+    text-align:center;
   }
   .feedback.correct{ background:#e8f5e9; color:var(--good); }
   .feedback.incorrect{ background:#ffebee; color:var(--bad); }
-  .feedback .answer-reveal{ font-weight:600; font-size:0.75em; color:#7a7189; }
+  .feedback .answer-reveal{ font-weight:600; font-size:0.75em; color:#7a7189; display:block; }
 
   footer{
     margin-top:26px;
@@ -291,16 +317,24 @@
 
   <header>
     <div class="brand"><span class="mascot">🦊</span> Sanaseikkailu</div>
-    <div class="streak"><span>🔥</span><span id="streakCount">0</span></div>
+    <div class="header-right">
+      <select id="categoryFilter"><option value="all">Kaikki teemat</option></select>
+      <div class="mastered" title="Osattuja sanoja (vähintään 3 oikein putkeen)"><span>⭐</span><span id="masteredCount">0</span>/<span id="totalCount">0</span></div>
+      <div class="streak"><span>🔥</span><span id="streakCount">0</span></div>
+    </div>
   </header>
 
   <main>
-    <div class="progress-bar"><div id="progressFill"></div></div>
+    <div style="width:100%">
+      <div class="progress-bar"><div id="progressFill"></div></div>
+      <div class="progress-label" id="progressLabel">0% opittu</div>
+    </div>
 
     <section class="prompt-card">
       <span class="lang-pill" id="langPill">EN</span>
-      <div class="prompt-word" id="promptWord">apple</div>
-      <div class="prompt-hint" id="promptHint">Kirjoita suomeksi &darr;</div>
+      <div class="prompt-word" id="promptWord">…</div>
+      <div class="prompt-hint" id="promptHint">Ladataan sanastoa…</div>
+      <div class="prompt-category" id="promptCategory"></div>
       <button class="speak-btn" id="hearBtn" title="Kuuntele sana">🔊</button>
     </section>
 
@@ -337,76 +371,256 @@
     </section>
   </main>
 
-  <footer>Sanaseikkailu · pilottiversio · UI-prototyyppi (vaihe 3)</footer>
+  <footer>Sanaseikkailu · pilottiversio · ydinlogiikka (vaihe 4)</footer>
 </div>
 
 <script>
 /*
-  UI-PROTOTYYPPI - vaihe 3
-  ------------------------
-  Tämä tiedosto on käyttöliittymäprototyyppi. Mukana on kevyt näyttelijälogiikka
-  (satunnainen sana pienestä esimerkkilistasta, yksinkertainen tarkistus),
-  jotta ulkoasua voi kokeilla oikeasti tabletilla. Varsinainen ydinlogiikka
-  (koko sanaston käyttö, pisteytys, edistymisen tallennus IndexedDB:hen,
-  oikea käsinkirjoitus- ja puheentunnistus) rakennetaan vaiheissa 4 ja 5.
+  YDINLOGIIKKA - vaihe 4
+  -----------------------
+  - Koko sanasto (en_4lk_v2.json) upotettuna suoraan tiedostoon, jotta sovellus
+    toimii myös avattaessa suoraan tiedostojärjestelmästä (file://) ilman
+    palvelinta - selaimet estävät usein paikallisten JSON-tiedostojen fetch-haun
+    file://-protokollalla. Kun sovellus julkaistaan oikealla web-palvelimella,
+    tämä voidaan tarvittaessa vaihtaa fetch()-hakuun samasta tiedostosta.
+  - Edistyminen tallennetaan selaimen IndexedDB:hen geneerisellä rakenteella
+    (avain = kieli|taso|sanan id), joten sama tietokantarakenne toimii
+    myöhemmin myös saksalle ja muille luokka-asteille.
+  - Sanan valinta painottaa sanoja, joissa on ollut virheitä tai joita ei ole
+    vielä nähty - tämä on yksinkertaistettu pohja, jota laajennetaan vaiheessa 7
+    (kertaus vaikeista sanoista / spaced repetition).
+  - Kynä (käsinkirjoitustunnistus) ja puhe (oikea puheentunnistusintegraatio)
+    ovat edelleen kevyitä demoja - niiden syvempi toteutus tulee vaiheessa 5.
 */
 
-const SAMPLE_WORDS = [
-  { en: "apple", fi: "omena" },
-  { en: "teacher", fi: "opettaja" },
-  { en: "brave", fi: "rohkea" },
-  { en: "friend", fi: "ystävä" },
-  { en: "run", fi: "juosta" },
-  { en: "cheese", fi: "juusto" }
-];
+const VOCAB = {"meta": {"title": "Englannin sanasto - 4. luokka (pilotti)", "language_target": "en", "language_native": "fi", "level": "4lk", "version": 2, "created": "2026-09-02", "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten.", "notes": "Koottu 4. luokan englannin oppikirjan (skannattu, Scan_20260902_162833.pdf) teemojen pohjalta ilman kirjan kuvia tai tekstiä, täydennetty POPS 2014 (Englanti A-oppimäärä vl 3-6) aihepiirien mukaan. Rakenne on geneerinen (language_target/level -kentät), jotta samaa muotoa voi käyttää myöhemmin saksalle ja muille luokka-asteille."}, "categories": [{"id": "school_people", "name_fi": "Koulun ihmiset"}, {"id": "school_subjects", "name_fi": "Kouluaineet"}, {"id": "weekdays", "name_fi": "Viikonpäivät"}, {"id": "personality", "name_fi": "Luonteenpiirteet"}, {"id": "opposites", "name_fi": "Vastakohdat"}, {"id": "verbs_action", "name_fi": "Toimintaverbit"}, {"id": "verbs_communication", "name_fi": "Puhumiseen liittyvät verbit"}, {"id": "places_town", "name_fi": "Paikat kaupungissa"}, {"id": "belongings", "name_fi": "Tavarat ja asusteet"}, {"id": "appearance", "name_fi": "Ulkonäkö"}, {"id": "food_savoury", "name_fi": "Ruoka"}, {"id": "fruit", "name_fi": "Hedelmät ja marjat"}, {"id": "polite_phrases", "name_fi": "Kohteliaat ilmaukset"}, {"id": "time", "name_fi": "Kellonajat"}, {"id": "family", "name_fi": "Perhe"}, {"id": "myself", "name_fi": "Minä itse"}, {"id": "hobbies", "name_fi": "Harrastukset ja vapaa-aika"}, {"id": "greetings_phrases", "name_fi": "Tervehdykset ja arki-ilmaukset"}, {"id": "colours", "name_fi": "Värit"}, {"id": "numbers", "name_fi": "Numerot"}, {"id": "gaming_minecraft", "name_fi": "Pelisanasto: Minecraft"}, {"id": "gaming_fortnite", "name_fi": "Pelisanasto: Fortnite"}], "words": [{"id": "school_people_teacher", "en": "teacher", "fi": "opettaja", "category": "school_people"}, {"id": "school_people_head_teacher", "en": "head teacher", "fi": "rehtori", "category": "school_people"}, {"id": "school_people_nurse", "en": "nurse", "fi": "hoitaja", "category": "school_people"}, {"id": "school_people_cleaner", "en": "cleaner", "fi": "siivooja", "category": "school_people"}, {"id": "school_people_cook", "en": "cook", "fi": "kokki", "category": "school_people"}, {"id": "school_people_student", "en": "student", "fi": "oppilas", "category": "school_people"}, {"id": "school_people_friend", "en": "friend", "fi": "ystävä", "category": "school_people"}, {"id": "school_subjects_maths", "en": "maths", "fi": "matematiikka", "category": "school_subjects"}, {"id": "school_subjects_pe", "en": "PE", "fi": "liikunta", "category": "school_subjects"}, {"id": "school_subjects_english", "en": "English", "fi": "englannin kieli", "category": "school_subjects"}, {"id": "school_subjects_music", "en": "music", "fi": "musiikki", "category": "school_subjects"}, {"id": "school_subjects_finnish", "en": "Finnish", "fi": "suomen kieli", "category": "school_subjects"}, {"id": "school_subjects_re", "en": "RE", "fi": "uskonto", "category": "school_subjects"}, {"id": "school_subjects_ethics", "en": "ethics", "fi": "elämänkatsomustieto", "category": "school_subjects"}, {"id": "school_subjects_science", "en": "science", "fi": "ympäristöoppi", "category": "school_subjects"}, {"id": "school_subjects_art", "en": "art", "fi": "kuvataito", "category": "school_subjects"}, {"id": "school_subjects_civics", "en": "civics", "fi": "yhteiskuntaoppi", "category": "school_subjects"}, {"id": "school_subjects_crafts", "en": "crafts", "fi": "käsityöt", "category": "school_subjects"}, {"id": "school_subjects_history", "en": "history", "fi": "historia", "category": "school_subjects"}, {"id": "school_subjects_break_time", "en": "break time", "fi": "välitunti", "category": "school_subjects"}, {"id": "school_subjects_classroom", "en": "classroom", "fi": "luokkahuone", "category": "school_subjects"}, {"id": "school_subjects_lesson", "en": "lesson", "fi": "oppitunti", "category": "school_subjects"}, {"id": "weekdays_monday", "en": "Monday", "fi": "maanantai", "category": "weekdays"}, {"id": "weekdays_tuesday", "en": "Tuesday", "fi": "tiistai", "category": "weekdays"}, {"id": "weekdays_wednesday", "en": "Wednesday", "fi": "keskiviikko", "category": "weekdays"}, {"id": "weekdays_thursday", "en": "Thursday", "fi": "torstai", "category": "weekdays"}, {"id": "weekdays_friday", "en": "Friday", "fi": "perjantai", "category": "weekdays"}, {"id": "weekdays_saturday", "en": "Saturday", "fi": "lauantai", "category": "weekdays"}, {"id": "weekdays_sunday", "en": "Sunday", "fi": "sunnuntai", "category": "weekdays"}, {"id": "personality_clumsy", "en": "clumsy", "fi": "kömpelö", "category": "personality"}, {"id": "personality_clever", "en": "clever", "fi": "älykäs", "category": "personality"}, {"id": "personality_shy", "en": "shy", "fi": "ujo", "category": "personality"}, {"id": "personality_lazy", "en": "lazy", "fi": "laiska", "category": "personality"}, {"id": "personality_creative", "en": "creative", "fi": "luova", "category": "personality"}, {"id": "personality_funny", "en": "funny", "fi": "hassu", "category": "personality"}, {"id": "personality_active", "en": "active", "fi": "aktiivinen", "category": "personality"}, {"id": "personality_sporty", "en": "sporty", "fi": "urheilullinen", "category": "personality"}, {"id": "personality_brave", "en": "brave", "fi": "rohkea", "category": "personality"}, {"id": "personality_curious", "en": "curious", "fi": "utelias", "category": "personality"}, {"id": "personality_calm", "en": "calm", "fi": "rauhallinen", "category": "personality"}, {"id": "personality_kind", "en": "kind", "fi": "ystävällinen", "category": "personality"}, {"id": "opposites_fast", "en": "fast", "fi": "nopea", "category": "opposites"}, {"id": "opposites_slow", "en": "slow", "fi": "hidas", "category": "opposites"}, {"id": "opposites_strong", "en": "strong", "fi": "vahva", "category": "opposites"}, {"id": "opposites_weak", "en": "weak", "fi": "heikko", "category": "opposites"}, {"id": "opposites_loud", "en": "loud", "fi": "äänekäs", "category": "opposites"}, {"id": "opposites_quiet", "en": "quiet", "fi": "hiljainen", "category": "opposites"}, {"id": "opposites_tall", "en": "tall", "fi": "pitkä", "category": "opposites"}, {"id": "opposites_short", "en": "short", "fi": "lyhyt", "category": "opposites"}, {"id": "verbs_communication_wait", "en": "wait", "fi": "odottaa", "category": "verbs_communication"}, {"id": "verbs_communication_ask", "en": "ask", "fi": "kysyä", "category": "verbs_communication"}, {"id": "verbs_communication_think", "en": "think", "fi": "ajatella", "category": "verbs_communication"}, {"id": "verbs_communication_shout", "en": "shout", "fi": "huutaa", "category": "verbs_communication"}, {"id": "verbs_communication_talk", "en": "talk", "fi": "puhua", "category": "verbs_communication"}, {"id": "verbs_communication_listen", "en": "listen", "fi": "kuunnella", "category": "verbs_communication"}, {"id": "verbs_communication_laugh", "en": "laugh", "fi": "nauraa", "category": "verbs_communication"}, {"id": "verbs_communication_smile", "en": "smile", "fi": "hymyillä", "category": "verbs_communication"}, {"id": "verbs_action_run", "en": "run", "fi": "juosta", "category": "verbs_action"}, {"id": "verbs_action_walk", "en": "walk", "fi": "kävellä", "category": "verbs_action"}, {"id": "verbs_action_look", "en": "look", "fi": "katsoa", "category": "verbs_action"}, {"id": "verbs_action_ride_a_bike", "en": "ride a bike", "fi": "ajaa pyörällä", "category": "verbs_action"}, {"id": "verbs_action_swim", "en": "swim", "fi": "uida", "category": "verbs_action"}, {"id": "verbs_action_watch_tv", "en": "watch TV", "fi": "katsoa televisiota", "category": "verbs_action"}, {"id": "verbs_action_drive_a_car", "en": "drive a car", "fi": "ajaa autoa", "category": "verbs_action"}, {"id": "verbs_action_dance", "en": "dance", "fi": "tanssia", "category": "verbs_action"}, {"id": "verbs_action_climb_a_tree", "en": "climb a tree", "fi": "kiivetä puuhun", "category": "verbs_action"}, {"id": "verbs_action_paint", "en": "paint", "fi": "maalata", "category": "verbs_action"}, {"id": "verbs_action_sleep", "en": "sleep", "fi": "nukkua", "category": "verbs_action"}, {"id": "verbs_action_throw_a_ball", "en": "throw a ball", "fi": "heittää palloa", "category": "verbs_action"}, {"id": "verbs_action_play_basketball", "en": "play basketball", "fi": "pelata koripalloa", "category": "verbs_action"}, {"id": "verbs_action_open_the_door", "en": "open the door", "fi": "avata ovi", "category": "verbs_action"}, {"id": "places_town_caf", "en": "café", "fi": "kahvila", "category": "places_town"}, {"id": "places_town_library", "en": "library", "fi": "kirjasto", "category": "places_town"}, {"id": "places_town_shop", "en": "shop", "fi": "kauppa", "category": "places_town"}, {"id": "places_town_restaurant", "en": "restaurant", "fi": "ravintola", "category": "places_town"}, {"id": "belongings_bag", "en": "bag", "fi": "laukku", "category": "belongings"}, {"id": "belongings_phone", "en": "phone", "fi": "puhelin", "category": "belongings"}, {"id": "belongings_keys", "en": "keys", "fi": "avaimet", "category": "belongings"}, {"id": "belongings_helmet", "en": "helmet", "fi": "kypärä", "category": "belongings"}, {"id": "belongings_watch", "en": "watch", "fi": "rannekello", "category": "belongings"}, {"id": "belongings_bracelet", "en": "bracelet", "fi": "rannekoru", "category": "belongings"}, {"id": "appearance_glasses", "en": "glasses", "fi": "silmälasit", "category": "appearance"}, {"id": "appearance_braces", "en": "braces", "fi": "hammasraudat", "category": "appearance"}, {"id": "appearance_curly_hair", "en": "curly hair", "fi": "kiharat hiukset", "category": "appearance"}, {"id": "appearance_straight_hair", "en": "straight hair", "fi": "suorat hiukset", "category": "appearance"}, {"id": "appearance_long_hair", "en": "long hair", "fi": "pitkät hiukset", "category": "appearance"}, {"id": "appearance_green_eyes", "en": "green eyes", "fi": "vihreät silmät", "category": "appearance"}, {"id": "appearance_brown_eyes", "en": "brown eyes", "fi": "ruskeat silmät", "category": "appearance"}, {"id": "appearance_blue_eyes", "en": "blue eyes", "fi": "siniset silmät", "category": "appearance"}, {"id": "appearance_beard", "en": "beard", "fi": "parta", "category": "appearance"}, {"id": "food_savoury_water", "en": "water", "fi": "vesi", "category": "food_savoury"}, {"id": "food_savoury_juice", "en": "juice", "fi": "mehu", "category": "food_savoury"}, {"id": "food_savoury_pie", "en": "pie", "fi": "piirakka", "category": "food_savoury"}, {"id": "food_savoury_fish", "en": "fish", "fi": "kala", "category": "food_savoury"}, {"id": "food_savoury_chicken", "en": "chicken", "fi": "kana", "category": "food_savoury"}, {"id": "food_savoury_meat", "en": "meat", "fi": "liha", "category": "food_savoury"}, {"id": "food_savoury_cheese", "en": "cheese", "fi": "juusto", "category": "food_savoury"}, {"id": "food_savoury_cucumber", "en": "cucumber", "fi": "kurkku", "category": "food_savoury"}, {"id": "food_savoury_bread", "en": "bread", "fi": "leipä", "category": "food_savoury"}, {"id": "food_savoury_pasta", "en": "pasta", "fi": "pasta", "category": "food_savoury"}, {"id": "food_savoury_tomato", "en": "tomato", "fi": "tomaatti", "category": "food_savoury"}, {"id": "fruit_apple", "en": "apple", "fi": "omena", "category": "fruit"}, {"id": "fruit_banana", "en": "banana", "fi": "banaani", "category": "fruit"}, {"id": "fruit_strawberry", "en": "strawberry", "fi": "mansikka", "category": "fruit"}, {"id": "fruit_kiwi", "en": "kiwi", "fi": "kiivi", "category": "fruit"}, {"id": "fruit_peach", "en": "peach", "fi": "persikka", "category": "fruit"}, {"id": "fruit_grape", "en": "grape", "fi": "viinirypäle", "category": "fruit"}, {"id": "fruit_plum", "en": "plum", "fi": "luumu", "category": "fruit"}, {"id": "fruit_orange", "en": "orange", "fi": "appelsiini", "category": "fruit"}, {"id": "fruit_blueberry", "en": "blueberry", "fi": "mustikka", "category": "fruit"}, {"id": "fruit_raspberry", "en": "raspberry", "fi": "vadelma", "category": "fruit"}, {"id": "fruit_lemon", "en": "lemon", "fi": "sitruuna", "category": "fruit"}, {"id": "fruit_pineapple", "en": "pineapple", "fi": "ananas", "category": "fruit"}, {"id": "fruit_pear", "en": "pear", "fi": "päärynä", "category": "fruit"}, {"id": "polite_phrases_please", "en": "please", "fi": "ole hyvä / kiitos (pyydettäessä)", "category": "polite_phrases"}, {"id": "polite_phrases_thank_you", "en": "thank you", "fi": "kiitos", "category": "polite_phrases"}, {"id": "polite_phrases_sorry", "en": "sorry", "fi": "anteeksi", "category": "polite_phrases"}, {"id": "polite_phrases_excuse_me", "en": "excuse me", "fi": "anteeksi (huomion herättämiseen)", "category": "polite_phrases"}, {"id": "polite_phrases_pardon", "en": "pardon?", "fi": "anteeksi, mitä?", "category": "polite_phrases"}, {"id": "polite_phrases_here_you_are", "en": "here you are", "fi": "ole hyvä (annettaessa jotain)", "category": "polite_phrases"}, {"id": "time_o_clock", "en": "o'clock", "fi": "tasatunti", "category": "time"}, {"id": "time_quarter_past", "en": "quarter past", "fi": "vartin yli", "category": "time"}, {"id": "time_half_past", "en": "half past", "fi": "puoli", "category": "time"}, {"id": "time_late", "en": "late", "fi": "myöhässä", "category": "time"}, {"id": "time_early", "en": "early", "fi": "aikaisin", "category": "time"}, {"id": "family_mother", "en": "mother", "fi": "äiti", "category": "family"}, {"id": "family_father", "en": "father", "fi": "isä", "category": "family"}, {"id": "family_sister", "en": "sister", "fi": "sisko", "category": "family"}, {"id": "family_brother", "en": "brother", "fi": "veli", "category": "family"}, {"id": "family_grandma", "en": "grandma", "fi": "mummi", "category": "family"}, {"id": "family_grandpa", "en": "grandpa", "fi": "pappa", "category": "family"}, {"id": "family_family", "en": "family", "fi": "perhe", "category": "family"}, {"id": "family_cousin", "en": "cousin", "fi": "serkku", "category": "family"}, {"id": "family_baby", "en": "baby", "fi": "vauva", "category": "family"}, {"id": "family_pet", "en": "pet", "fi": "lemmikki", "category": "family"}, {"id": "myself_name", "en": "name", "fi": "nimi", "category": "myself"}, {"id": "myself_age", "en": "age", "fi": "ikä", "category": "myself"}, {"id": "myself_happy", "en": "happy", "fi": "iloinen", "category": "myself"}, {"id": "myself_sad", "en": "sad", "fi": "surullinen", "category": "myself"}, {"id": "myself_tired", "en": "tired", "fi": "väsynyt", "category": "myself"}, {"id": "myself_hungry", "en": "hungry", "fi": "nälkäinen", "category": "myself"}, {"id": "myself_scared", "en": "scared", "fi": "peloissaan", "category": "myself"}, {"id": "myself_excited", "en": "excited", "fi": "innoissaan", "category": "myself"}, {"id": "hobbies_football", "en": "football", "fi": "jalkapallo", "category": "hobbies"}, {"id": "hobbies_reading", "en": "reading", "fi": "lukeminen", "category": "hobbies"}, {"id": "hobbies_drawing", "en": "drawing", "fi": "piirtäminen", "category": "hobbies"}, {"id": "hobbies_gaming", "en": "gaming", "fi": "pelaaminen", "category": "hobbies"}, {"id": "hobbies_riding_a_bike", "en": "riding a bike", "fi": "pyöräily", "category": "hobbies"}, {"id": "hobbies_gymnastics", "en": "gymnastics", "fi": "voimistelu", "category": "hobbies"}, {"id": "hobbies_singing", "en": "singing", "fi": "laulaminen", "category": "hobbies"}, {"id": "hobbies_collecting", "en": "collecting", "fi": "keräily", "category": "hobbies"}, {"id": "greetings_phrases_hello", "en": "hello", "fi": "hei", "category": "greetings_phrases"}, {"id": "greetings_phrases_goodbye", "en": "goodbye", "fi": "näkemiin", "category": "greetings_phrases"}, {"id": "greetings_phrases_good_morning", "en": "good morning", "fi": "huomenta", "category": "greetings_phrases"}, {"id": "greetings_phrases_how_are_you", "en": "how are you?", "fi": "mitä kuuluu?", "category": "greetings_phrases"}, {"id": "greetings_phrases_my_name_is", "en": "my name is ...", "fi": "nimeni on ...", "category": "greetings_phrases"}, {"id": "greetings_phrases_see_you_later", "en": "see you later", "fi": "nähdään myöhemmin", "category": "greetings_phrases"}, {"id": "greetings_phrases_welcome", "en": "welcome", "fi": "tervetuloa", "category": "greetings_phrases"}, {"id": "colours_red", "en": "red", "fi": "punainen", "category": "colours"}, {"id": "colours_blue", "en": "blue", "fi": "sininen", "category": "colours"}, {"id": "colours_green", "en": "green", "fi": "vihreä", "category": "colours"}, {"id": "colours_yellow", "en": "yellow", "fi": "keltainen", "category": "colours"}, {"id": "colours_black", "en": "black", "fi": "musta", "category": "colours"}, {"id": "colours_white", "en": "white", "fi": "valkoinen", "category": "colours"}, {"id": "colours_pink", "en": "pink", "fi": "pinkki", "category": "colours"}, {"id": "colours_orange_colour", "en": "orange", "fi": "oranssi", "category": "colours"}, {"id": "numbers_one", "en": "one", "fi": "yksi", "category": "numbers"}, {"id": "numbers_two", "en": "two", "fi": "kaksi", "category": "numbers"}, {"id": "numbers_three", "en": "three", "fi": "kolme", "category": "numbers"}, {"id": "numbers_four", "en": "four", "fi": "neljä", "category": "numbers"}, {"id": "numbers_five", "en": "five", "fi": "viisi", "category": "numbers"}, {"id": "numbers_six", "en": "six", "fi": "kuusi", "category": "numbers"}, {"id": "numbers_seven", "en": "seven", "fi": "seitsemän", "category": "numbers"}, {"id": "numbers_eight", "en": "eight", "fi": "kahdeksan", "category": "numbers"}, {"id": "numbers_nine", "en": "nine", "fi": "yhdeksän", "category": "numbers"}, {"id": "numbers_ten", "en": "ten", "fi": "kymmenen", "category": "numbers"}, {"id": "gaming_minecraft_creeper", "en": "creeper", "fi": "creeper (Minecraft-hirviö)", "category": "gaming_minecraft"}, {"id": "gaming_minecraft_diamond", "en": "diamond", "fi": "timantti", "category": "gaming_minecraft"}, {"id": "gaming_minecraft_sword", "en": "sword", "fi": "miekka", "category": "gaming_minecraft"}, {"id": "gaming_minecraft_pickaxe", "en": "pickaxe", "fi": "hakku", "category": "gaming_minecraft"}, {"id": "gaming_minecraft_village", "en": "village", "fi": "kylä", "category": "gaming_minecraft"}, {"id": "gaming_minecraft_cave", "en": "cave", "fi": "luola", "category": "gaming_minecraft"}, {"id": "gaming_minecraft_mine", "en": "mine", "fi": "louhia / kaivos", "category": "gaming_minecraft"}, {"id": "gaming_minecraft_build", "en": "build", "fi": "rakentaa", "category": "gaming_minecraft"}, {"id": "gaming_minecraft_craft", "en": "craft", "fi": "askarrella / valmistaa (crafting)", "category": "gaming_minecraft"}, {"id": "gaming_minecraft_survive", "en": "survive", "fi": "selviytyä", "category": "gaming_minecraft"}, {"id": "gaming_fortnite_island", "en": "island", "fi": "saari", "category": "gaming_fortnite"}, {"id": "gaming_fortnite_storm", "en": "storm", "fi": "myrsky", "category": "gaming_fortnite"}, {"id": "gaming_fortnite_build_a_wall", "en": "build a wall", "fi": "rakentaa seinä", "category": "gaming_fortnite"}, {"id": "gaming_fortnite_land", "en": "land", "fi": "laskeutua", "category": "gaming_fortnite"}, {"id": "gaming_fortnite_loot", "en": "loot", "fi": "kerätä tavaraa (loot)", "category": "gaming_fortnite"}, {"id": "gaming_fortnite_shield", "en": "shield", "fi": "suoja", "category": "gaming_fortnite"}, {"id": "gaming_fortnite_victory", "en": "victory", "fi": "voitto", "category": "gaming_fortnite"}, {"id": "gaming_fortnite_teammate", "en": "teammate", "fi": "joukkuekaveri", "category": "gaming_fortnite"}]};
 
+const DB_NAME = "kieliohjelma_db";
+const DB_VERSION = 1;
+const STORE = "word_stats";
+let db = null;
+
+function openDB(){
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onupgradeneeded = (e) => {
+      const _db = e.target.result;
+      if (!_db.objectStoreNames.contains(STORE)){
+        _db.createObjectStore(STORE, { keyPath: "statId" });
+      }
+    };
+    req.onsuccess = (e) => resolve(e.target.result);
+    req.onerror = (e) => reject(e);
+  });
+}
+
+function statId(word){
+  return `${VOCAB.meta.language_target}|${VOCAB.meta.level}|${word.id}`;
+}
+
+function getStat(word){
+  return new Promise((resolve) => {
+    if (!db) return resolve(null);
+    const tx = db.transaction(STORE, "readonly");
+    const req = tx.objectStore(STORE).get(statId(word));
+    req.onsuccess = () => resolve(req.result || null);
+    req.onerror = () => resolve(null);
+  });
+}
+
+function getAllStats(){
+  return new Promise((resolve) => {
+    if (!db) return resolve([]);
+    const tx = db.transaction(STORE, "readonly");
+    const req = tx.objectStore(STORE).getAll();
+    req.onsuccess = () => resolve(req.result || []);
+    req.onerror = () => resolve([]);
+  });
+}
+
+function putStat(stat){
+  return new Promise((resolve) => {
+    if (!db) return resolve();
+    const tx = db.transaction(STORE, "readwrite");
+    tx.objectStore(STORE).put(stat);
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => resolve();
+  });
+}
+
+// --- Sanaston valmistelu: suodata pois mallilauseet (esim. "my name is ...") ---
+const PRACTICE_WORDS = VOCAB.words.filter(w => !w.en.includes("...") && !w.fi.includes("..."));
+
+let statsCache = {}; // statId -> stat
 let current = null;
-let direction = "en-fi"; // en-fi = kysytään englanniksi, vastataan suomeksi
+let direction = "en-fi";
 let streak = 0;
 let activeMode = "keyboard";
+let currentCategory = "all";
 
 const promptWord = document.getElementById("promptWord");
 const promptHint = document.getElementById("promptHint");
+const promptCategory = document.getElementById("promptCategory");
 const langPill = document.getElementById("langPill");
 const answerBox = document.getElementById("answerBox");
 const feedback = document.getElementById("feedback");
 const streakCount = document.getElementById("streakCount");
+const masteredCount = document.getElementById("masteredCount");
+const totalCount = document.getElementById("totalCount");
 const progressFill = document.getElementById("progressFill");
+const progressLabel = document.getElementById("progressLabel");
 const hearBtn = document.getElementById("hearBtn");
+const categoryFilter = document.getElementById("categoryFilter");
 
-function pickWord(){
-  current = SAMPLE_WORDS[Math.floor(Math.random() * SAMPLE_WORDS.length)];
+function categoryName(id){
+  const c = VOCAB.categories.find(c => c.id === id);
+  return c ? c.name_fi : id;
+}
+
+function setupCategoryFilter(){
+  VOCAB.categories.forEach(c => {
+    const opt = document.createElement("option");
+    opt.value = c.id;
+    opt.textContent = c.name_fi;
+    categoryFilter.appendChild(opt);
+  });
+  categoryFilter.addEventListener("change", () => {
+    currentCategory = categoryFilter.value;
+    pickWord();
+  });
+}
+
+function activeWordPool(){
+  const pool = currentCategory === "all"
+    ? PRACTICE_WORDS
+    : PRACTICE_WORDS.filter(w => w.category === currentCategory);
+  return pool.length ? pool : PRACTICE_WORDS;
+}
+
+const MASTERED_THRESHOLD = 3; // peräkkäistä oikein = "osattu"
+
+function isMastered(stat){
+  return !!stat && stat.streakCorrect >= MASTERED_THRESHOLD;
+}
+
+async function updateHeaderStats(){
+  const all = await getAllStats();
+  statsCache = {};
+  all.forEach(s => statsCache[s.statId] = s);
+  const pool = activeWordPool();
+  const masteredN = pool.filter(w => isMastered(statsCache[statId(w)])).length;
+  masteredCount.textContent = masteredN;
+  totalCount.textContent = pool.length;
+  const pct = pool.length ? Math.round((masteredN / pool.length) * 100) : 0;
+  progressFill.style.width = pct + "%";
+  progressLabel.textContent = pct + "% opittu";
+}
+
+function weightFor(word){
+  const s = statsCache[statId(word)];
+  if (!s) return 5; // ei nähty vielä -> näytetään mieluummin
+  let w = 1;
+  w += (s.incorrectCount || 0) * 2;
+  w -= Math.min(s.streakCorrect || 0, 3);
+  return Math.max(1, w);
+}
+
+function weightedPick(pool, avoidId){
+  const candidates = pool.filter(w => w.id !== avoidId);
+  const usable = candidates.length ? candidates : pool;
+  const weights = usable.map(weightFor);
+  const total = weights.reduce((a,b) => a+b, 0);
+  let r = Math.random() * total;
+  for (let i = 0; i < usable.length; i++){
+    r -= weights[i];
+    if (r <= 0) return usable[i];
+  }
+  return usable[usable.length - 1];
+}
+
+async function pickWord(){
+  await updateHeaderStats();
+  const pool = activeWordPool();
+  current = weightedPick(pool, current ? current.id : null);
   direction = Math.random() < 0.5 ? "en-fi" : "fi-en";
   renderPrompt();
+}
+
+function firstAcceptedAnswer(text){
+  // Jos vastauksessa on vaihtoehtoja "/"-merkillä (esim. kohteliaisuusfraasit), näytetään ensimmäinen.
+  return text.split("/")[0].trim();
 }
 
 function renderPrompt(){
   feedback.className = "feedback";
   feedback.textContent = "";
   answerBox.value = "";
+  answerBox.focus({ preventScroll: true });
+  promptCategory.textContent = categoryName(current.category);
   if (direction === "en-fi"){
     promptWord.textContent = current.en;
     langPill.textContent = "EN";
     langPill.className = "lang-pill en";
     promptHint.textContent = "Kirjoita suomeksi ↓";
   } else {
-    promptWord.textContent = current.fi;
+    promptWord.textContent = firstAcceptedAnswer(current.fi);
     langPill.textContent = "FI";
     langPill.className = "lang-pill fi";
     promptHint.textContent = "Kirjoita englanniksi ↓";
   }
-  progressFill.style.width = (10 + Math.random()*80).toFixed(0) + "%";
   clearPenPad();
   document.getElementById("micTranscript").textContent = "";
 }
 
-function correctAnswer(){
-  return direction === "en-fi" ? current.fi : current.en;
+function acceptedAnswers(){
+  const raw = direction === "en-fi" ? current.fi : current.en;
+  return raw.split("/").map(s => s.trim());
 }
 
-function checkAnswer(userAnswer){
-  const normalize = s => s.trim().toLowerCase();
-  const isCorrect = normalize(userAnswer) === normalize(correctAnswer());
+function normalize(s){
+  return s
+    .trim()
+    .toLowerCase()
+    .replace(/[.,!?¿¡]/g, "")
+    .replace(/\s+/g, " ");
+}
+
+// poistaa suluissa olevat tarkennukset vertailua varten, esim. "anteeksi (huomion herättämiseen)" -> "anteeksi"
+function stripParenthetical(s){
+  return s.replace(/\([^)]*\)/g, "").trim();
+}
+
+function isAnswerCorrect(userAnswer){
+  const options = acceptedAnswers().map(a => normalize(stripParenthetical(a)));
+  const userNorm = normalize(stripParenthetical(userAnswer));
+  return options.includes(userNorm);
+}
+
+async function recordResult(isCorrect){
+  const id = statId(current);
+  const prev = statsCache[id] || {
+    statId: id,
+    wordId: current.id,
+    language: VOCAB.meta.language_target,
+    level: VOCAB.meta.level,
+    correctCount: 0,
+    incorrectCount: 0,
+    streakCorrect: 0
+  };
+  if (isCorrect){
+    prev.correctCount += 1;
+    prev.streakCorrect = (prev.streakCorrect || 0) + 1;
+  } else {
+    prev.incorrectCount += 1;
+    prev.streakCorrect = 0;
+  }
+  prev.lastSeen = new Date().toISOString();
+  statsCache[id] = prev;
+  await putStat(prev);
+}
+
+async function checkAnswer(userAnswer){
+  const isCorrect = isAnswerCorrect(userAnswer);
   feedback.className = "feedback " + (isCorrect ? "correct" : "incorrect");
   if (isCorrect){
     streak += 1;
@@ -415,16 +629,16 @@ function checkAnswer(userAnswer){
   } else {
     streak = 0;
     streakCount.textContent = streak;
-    feedback.innerHTML = "🙈 Ei ihan. <span class='answer-reveal'>Oikea vastaus: " + correctAnswer() + "</span>";
+    feedback.innerHTML = "🙈 Ei ihan. <span class='answer-reveal'>Oikea vastaus: " + acceptedAnswers()[0] + "</span>";
   }
-  setTimeout(pickWord, isCorrect ? 900 : 1800);
+  await recordResult(isCorrect);
+  setTimeout(pickWord, isCorrect ? 900 : 2000);
 }
 
 document.getElementById("checkBtn").addEventListener("click", () => {
   if (activeMode === "keyboard"){
     checkAnswer(answerBox.value);
   } else if (activeMode === "pen"){
-    // Prototyypissä ei ole vielä käsinkirjoitustunnistusta (tulee vaiheessa 5).
     feedback.className = "feedback";
     feedback.textContent = "✏️ Käsinkirjoitustunnistus tulee myöhemmin (vaihe 5).";
   } else if (activeMode === "mic"){
@@ -460,7 +674,7 @@ document.querySelectorAll(".mode-btn").forEach(btn => {
   });
 });
 
-// --- Pen pad (kevyt piirtoalusta, ei vielä tunnistusta) ---
+// --- Pen pad (kevyt piirtoalusta, ei vielä tunnistusta - tulee vaiheessa 5) ---
 const penPad = document.getElementById("penPad");
 const penCtx = penPad.getContext("2d");
 let drawing = false;
@@ -537,9 +751,18 @@ micBtn.addEventListener("click", () => {
   }
 });
 
-// init
+// --- init ---
 window.addEventListener("resize", () => { if (activeMode === "pen") setupPenPad(); });
-pickWord();
+
+(async function init(){
+  setupCategoryFilter();
+  try {
+    db = await openDB();
+  } catch (e) {
+    console.warn("IndexedDB ei käytettävissä, edistymistä ei tallenneta:", e);
+  }
+  await pickWord();
+})();
 </script>
 </body>
 </html>
