@@ -32,3 +32,25 @@ Avaa tämä osoite tabletilla ja lisää se aloitusnäytölle. Mikrofonin pitäi
 ## 4. Jatkossa
 
 Kun koodi muuttuu, muutokset menevät julki komennolla `git push`. Osoite pysyy samana, joten aloitusnäytön kuvaketta ei tarvitse vaihtaa.
+
+## Vaihtoehto: julkaisu tabletilta ilman konetta
+
+GitHub Pagesia ei voi kytkeä päälle ennen kuin repossa on vähintään yksi tiedosto. Sovellus toimii yhdellä tiedostolla, koska sanasto on upotettu siihen:
+
+- `index.html` ← tämä riittää sellaisenaan
+
+Vaiheet tabletilla:
+
+1. Lataa `index.html` Claude-keskustelusta tabletille.
+2. GitHub-repo → **Add file** → **Upload files** → valitse `index.html` → **Commit changes**.
+3. **Settings** → **Pages** → Branch: `main`, kansio `/ (root)` → **Save**.
+
+Tiedoston nimen pitää olla tasan `index.html` repon juuressa, jotta Pages tarjoilee sen suoraan osoitteen juuresta.
+
+Loput tiedostot (`sanasto/`, `README.md`, tämä ohje) voi viedä myöhemmin koneelta — ne eivät vaikuta sovelluksen toimintaan, vaan ovat versiohistoriaa ja dokumentaatiota varten.
+
+**Tärkeä huomio myöhempää varten:** kun pushaat samaan repoon koneelta ensimmäisen kerran, aja ensin
+
+    git pull --rebase origin main
+
+koska selaimessa tehty tiedostojen lisäys on commit, jota koneen repossa ei vielä ole. Ilman tätä push hylätään.
