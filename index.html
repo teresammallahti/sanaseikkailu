@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Sanaseikkailu</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&display=swap">
 <style>
   :root{
     --bg-top:#fef6e4;
@@ -251,6 +252,9 @@
     0%{ box-shadow:0 0 0 0 rgba(255,138,101,0.55); }
     70%{ box-shadow:0 0 0 26px rgba(255,138,101,0); }
     100%{ box-shadow:0 0 0 0 rgba(255,138,101,0); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
   }
   .mic-hint{ color:#7a7189; font-size:15px; text-align:center; }
   .mic-transcript{
@@ -539,11 +543,13 @@ function weightedPick(pool, avoidId){
 }
 
 async function pickWord(){
-  await updateHeaderStats();
+  // Valinta tehdään muistissa olevilla tiedoilla ja sana näytetään heti,
+  // mittarit päivitetään tietokannasta vasta sen jälkeen.
   const pool = activeWordPool();
   current = weightedPick(pool, current ? current.id : null);
   direction = Math.random() < 0.5 ? "en-fi" : "fi-en";
   renderPrompt();
+  await updateHeaderStats();
 }
 
 function firstAcceptedAnswer(text){
@@ -756,12 +762,13 @@ window.addEventListener("resize", () => { if (activeMode === "pen") setupPenPad(
 
 (async function init(){
   setupCategoryFilter();
+  pickWord(); // ensimmäinen sana näkyviin heti, ei odoteta tietokantaa
   try {
     db = await openDB();
   } catch (e) {
     console.warn("IndexedDB ei käytettävissä, edistymistä ei tallenneta:", e);
   }
-  await pickWord();
+  await updateHeaderStats();
 })();
 </script>
 </body>
