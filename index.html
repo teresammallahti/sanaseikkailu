@@ -729,12 +729,46 @@ let recognizing = false;
 let recognition = null;
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
+const ERROR_TEXTS = {
+  "not-allowed": "Selain esti mikrofonin käytön (lupa evätty tai sivu on upotetussa kehyksessä).",
+  "service-not-allowed": "Selain esti puheentunnistuspalvelun käytön.",
+  "no-speech": "En kuullut mitään — kokeile uudestaan lähempänä mikrofonia.",
+  "audio-capture": "Mikrofonia ei löytynyt tästä laitteesta.",
+  "network": "Puheentunnistus tarvitsee verkkoyhteyden, eikä se nyt onnistunut.",
+  "aborted": "Puheentunnistus keskeytyi."
+};
+
+// Kertoo miksi mikrofoni ei ole käytettävissä, ennen kuin sitä yritetään käyttää.
+function micBlockedReason(){
+  if (!window.isSecureContext) return "Sivu ei ole https-yhteydessä, joten selain ei anna mikrofonia.";
+  if (!navigator.mediaDevices) return "Selain ei anna mikrofonia tälle sivulle — sivu on todennäköisesti upotetussa kehyksessä. Avaa sovellus omassa https-osoitteessaan.";
+  if (!SpeechRecognition) return "Tämä selain ei tue puheentunnistusta.";
+  return null;
+}
+
+function showMicMessage(text){
+  micTranscript.textContent = text;
+  micTranscript.style.color = "#e53935";
+  micTranscript.style.fontSize = "15px";
+  micTranscript.style.fontWeight = "600";
+}
+
+function clearMicMessage(){
+  micTranscript.style.color = "";
+  micTranscript.style.fontSize = "";
+  micTranscript.style.fontWeight = "";
+}
+
 if (SpeechRecognition){
   recognition = new SpeechRecognition();
   recognition.continuous = false;
   recognition.interimResults = false;
   recognition.onresult = (e) => {
+    clearMicMessage();
     micTranscript.textContent = e.results[0][0].transcript;
+  };
+  recognition.onerror = (e) => {
+    showMicMessage((ERROR_TEXTS[e.error] || "Puheentunnistus ei onnistunut.") + " [" + e.error + "]");
   };
   recognition.onend = () => {
     recognizing = false;
@@ -743,15 +777,22 @@ if (SpeechRecognition){
 }
 
 micBtn.addEventListener("click", () => {
-  if (!recognition){
-    micTranscript.textContent = "(Puheentunnistusta ei tueta tässä selaimessa vielä)";
+  const blocked = micBlockedReason();
+  if (blocked){
+    showMicMessage(blocked);
     return;
   }
   recognition.lang = direction === "en-fi" ? "fi-FI" : "en-GB";
   if (!recognizing){
-    recognition.start();
-    recognizing = true;
-    micBtn.classList.add("listening");
+    clearMicMessage();
+    micTranscript.textContent = "";
+    try {
+      recognition.start();
+      recognizing = true;
+      micBtn.classList.add("listening");
+    } catch (err) {
+      showMicMessage("Puheentunnistusta ei voitu käynnistää: " + err.name);
+    }
   } else {
     recognition.stop();
   }
