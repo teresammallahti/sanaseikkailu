@@ -355,14 +355,17 @@
 
       <div class="pen-pad-wrap" id="mode-pen">
         <canvas class="pen-pad" id="penPad"></canvas>
-        <div class="pen-tools">
+        <div class="pen-tools" id="penTools">
           <button id="penClear">🗑️ Tyhjennä</button>
         </div>
+        <input type="text" class="answer-box" id="penFallbackBox" placeholder="Kirjoita kynällä tähän..." autocomplete="off" hidden>
+        <div class="mic-hint" id="penHint"></div>
+        <div class="mic-transcript" id="penReading"></div>
       </div>
 
       <div class="mic-wrap" id="mode-mic">
         <button class="mic-btn" id="micBtn">🎤</button>
-        <div class="mic-hint">Paina ja sano sana ääneen</div>
+        <div class="mic-hint">Paina ja sano sana ääneen — tarkistan sen heti</div>
         <div class="mic-transcript" id="micTranscript"></div>
       </div>
 
@@ -375,7 +378,7 @@
     </section>
   </main>
 
-  <footer>Sanaseikkailu · pilottiversio · ydinlogiikka (vaihe 4)</footer>
+  <footer>Sanaseikkailu · pilottiversio · kynä- ja puhesyöttö (vaihe 5)</footer>
 </div>
 
 <script>
@@ -583,11 +586,27 @@ function acceptedAnswers(){
   return raw.split("/").map(s => s.trim());
 }
 
+// Vastauksen kieli: jos kysytään englanniksi, vastataan suomeksi ja päinvastoin.
+function answerLang(){
+  return direction === "en-fi" ? "fi" : "en";
+}
+
+// Puheentunnistus palauttaa numerot usein numeroina ("2"), vaikka sana on "kaksi".
+const NUMBER_WORDS = {
+  fi: { "0":"nolla","1":"yksi","2":"kaksi","3":"kolme","4":"neljä","5":"viisi","6":"kuusi","7":"seitsemän","8":"kahdeksan","9":"yhdeksän","10":"kymmenen" },
+  en: { "0":"zero","1":"one","2":"two","3":"three","4":"four","5":"five","6":"six","7":"seven","8":"eight","9":"nine","10":"ten" }
+};
+
+function digitsToWords(text, lang){
+  const map = NUMBER_WORDS[lang] || {};
+  return text.replace(/\d+/g, (d) => map[d] || d);
+}
+
 function normalize(s){
   return s
     .trim()
     .toLowerCase()
-    .replace(/[.,!?¿¡]/g, "")
+    .replace(/[.,!?¿¡'"]/g, "")
     .replace(/\s+/g, " ");
 }
 
@@ -596,10 +615,25 @@ function stripParenthetical(s){
   return s.replace(/\([^)]*\)/g, "").trim();
 }
 
-function isAnswerCorrect(userAnswer){
-  const options = acceptedAnswers().map(a => normalize(stripParenthetical(a)));
-  const userNorm = normalize(stripParenthetical(userAnswer));
-  return options.includes(userNorm);
+function canonical(s){
+  return digitsToWords(normalize(stripParenthetical(s)), answerLang());
+}
+
+function escapeRegExp(s){
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+// mode vaikuttaa siihen, kuinka tarkka vertailu on:
+// näppäimistö ja kynä = oikeinkirjoitus ratkaisee, puhe = sana saa olla lauseen sisällä.
+function matchesAnswer(userAnswer, mode){
+  const user = canonical(userAnswer || "");
+  if (!user) return false;
+  const options = acceptedAnswers().map(canonical).filter(Boolean);
+  if (options.includes(user)) return true;
+  if (mode === "mic"){
+    return options.some(opt => new RegExp("(^|\\s)" + escapeRegExp(opt) + "($|\\s)").test(user));
+  }
+  return false;
 }
 
 async function recordResult(isCorrect){
@@ -625,8 +659,8 @@ async function recordResult(isCorrect){
   await putStat(prev);
 }
 
-async function checkAnswer(userAnswer){
-  const isCorrect = isAnswerCorrect(userAnswer);
+async function checkAnswer(userAnswer, mode){
+  const isCorrect = matchesAnswer(userAnswer, mode || activeMode);
   feedback.className = "feedback " + (isCorrect ? "correct" : "incorrect");
   if (isCorrect){
     streak += 1;
@@ -641,15 +675,43 @@ async function checkAnswer(userAnswer){
   setTimeout(pickWord, isCorrect ? 900 : 2000);
 }
 
-document.getElementById("checkBtn").addEventListener("click", () => {
+function showNote(text){
+  feedback.className = "feedback";
+  feedback.textContent = text;
+}
+
+document.getElementById("checkBtn").addEventListener("click", async () => {
   if (activeMode === "keyboard"){
-    checkAnswer(answerBox.value);
-  } else if (activeMode === "pen"){
-    feedback.className = "feedback";
-    feedback.textContent = "✏️ Käsinkirjoitustunnistus tulee myöhemmin (vaihe 5).";
-  } else if (activeMode === "mic"){
-    const t = document.getElementById("micTranscript").textContent;
-    checkAnswer(t);
+    checkAnswer(answerBox.value, "keyboard");
+    return;
+  }
+  if (activeMode === "pen"){
+    if (!penRecognitionReady){
+      checkAnswer(penFallbackBox.value, "pen");
+      return;
+    }
+    if (!penStrokes.length){
+      showNote("✏️ Kirjoita ensin vastaus ruutuun.");
+      return;
+    }
+    let readings = [];
+    try {
+      readings = await readHandwriting(answerLang());
+    } catch (err){
+      showNote("Käsialan tunnistus ei onnistunut: " + err.name);
+      return;
+    }
+    if (!readings.length){
+      showNote("En saanut käsialasta selvää — kokeile kirjoittaa isommalla.");
+      return;
+    }
+    penReading.textContent = "Luin: " + readings[0];
+    const hit = readings.find(r => matchesAnswer(r, "pen"));
+    checkAnswer(hit || readings[0], "pen");
+    return;
+  }
+  if (activeMode === "mic"){
+    checkAnswer(document.getElementById("micTranscript").textContent, "mic");
   }
 });
 
@@ -676,51 +738,136 @@ document.querySelectorAll(".mode-btn").forEach(btn => {
     document.getElementById("mode-keyboard").classList.toggle("visible", activeMode === "keyboard");
     document.getElementById("mode-pen").classList.toggle("visible", activeMode === "pen");
     document.getElementById("mode-mic").classList.toggle("visible", activeMode === "mic");
-    if (activeMode === "pen") setupPenPad();
+    if (activeMode === "pen") preparePenMode();
   });
 });
 
-// --- Pen pad (kevyt piirtoalusta, ei vielä tunnistusta - tulee vaiheessa 5) ---
+// --- Kynäsyöttö (vaihe 5) ---
+// Vedot talletetaan pisteinä (x, y, aika), koska käsinkirjoitustunnistus tarvitsee
+// kirjoitusliikkeen, ei valmista kuvaa.
 const penPad = document.getElementById("penPad");
 const penCtx = penPad.getContext("2d");
-let drawing = false;
+const penTools = document.getElementById("penTools");
+const penHint = document.getElementById("penHint");
+const penReading = document.getElementById("penReading");
+const penFallbackBox = document.getElementById("penFallbackBox");
+
+let penStrokes = [];
+let activeStroke = null;
+let penInputType = "touch";
+let penRecognitionReady = false;
 
 function setupPenPad(){
   const rect = penPad.getBoundingClientRect();
+  if (!rect.width) return;
   penPad.width = rect.width * devicePixelRatio;
   penPad.height = rect.height * devicePixelRatio;
+  penCtx.setTransform(1, 0, 0, 1, 0, 0);
   penCtx.scale(devicePixelRatio, devicePixelRatio);
   penCtx.lineWidth = 3;
   penCtx.lineCap = "round";
+  penCtx.lineJoin = "round";
   penCtx.strokeStyle = "#2b2140";
+  redrawPen();
 }
 
-function getPos(e){
-  const rect = penPad.getBoundingClientRect();
-  const point = e.touches ? e.touches[0] : e;
-  return { x: point.clientX - rect.left, y: point.clientY - rect.top };
+function redrawPen(){
+  penCtx.clearRect(0, 0, penPad.width, penPad.height);
+  penStrokes.forEach(s => {
+    penCtx.beginPath();
+    s.points.forEach((p, i) => i ? penCtx.lineTo(p.x, p.y) : penCtx.moveTo(p.x, p.y));
+    penCtx.stroke();
+  });
 }
 
 function clearPenPad(){
-  if (penPad.width) penCtx.clearRect(0,0,penPad.width, penPad.height);
+  penStrokes = [];
+  activeStroke = null;
+  if (penPad.width) penCtx.clearRect(0, 0, penPad.width, penPad.height);
+  if (penReading) penReading.textContent = "";
+  if (penFallbackBox) penFallbackBox.value = "";
 }
 
-["mousedown","touchstart"].forEach(evt => penPad.addEventListener(evt, e => {
-  drawing = true;
-  const p = getPos(e);
+function penPoint(e){
+  const rect = penPad.getBoundingClientRect();
+  return {
+    x: Math.round(e.clientX - rect.left),
+    y: Math.round(e.clientY - rect.top),
+    t: Math.round(performance.now())
+  };
+}
+
+penPad.addEventListener("pointerdown", (e) => {
+  e.preventDefault();
+  penPad.setPointerCapture(e.pointerId);
+  penInputType = e.pointerType === "pen" ? "stylus" : (e.pointerType === "mouse" ? "mouse" : "touch");
+  const p = penPoint(e);
+  activeStroke = { points: [p] };
   penCtx.beginPath();
-  penCtx.moveTo(p.x,p.y);
+  penCtx.moveTo(p.x, p.y);
+});
+
+penPad.addEventListener("pointermove", (e) => {
+  if (!activeStroke) return;
   e.preventDefault();
-}));
-["mousemove","touchmove"].forEach(evt => penPad.addEventListener(evt, e => {
-  if (!drawing) return;
-  const p = getPos(e);
-  penCtx.lineTo(p.x,p.y);
+  const p = penPoint(e);
+  activeStroke.points.push(p);
+  penCtx.lineTo(p.x, p.y);
   penCtx.stroke();
-  e.preventDefault();
-}));
-["mouseup","touchend","mouseleave"].forEach(evt => penPad.addEventListener(evt, () => drawing = false));
+});
+
+function endStroke(){
+  if (activeStroke && activeStroke.points.length) penStrokes.push(activeStroke);
+  activeStroke = null;
+}
+["pointerup","pointercancel","pointerleave"].forEach(evt => penPad.addEventListener(evt, endStroke));
+
 document.getElementById("penClear").addEventListener("click", clearPenPad);
+
+// Chromen käsinkirjoitustunnistus. Sitä ei ole kaikilla laitteilla eikä kaikille
+// kielille, joten tuki kysytään ennen käyttöä ja muuten käytetään laitteen omaa
+// kynä-tekstiksi-muunnosta tavallisessa tekstikentässä.
+async function penLanguageSupported(lang){
+  if (!navigator.queryHandwritingRecognizer) return false;
+  try {
+    return !!(await navigator.queryHandwritingRecognizer({ languages: [lang] }));
+  } catch (err){
+    return false;
+  }
+}
+
+async function readHandwriting(lang){
+  const recognizer = await navigator.createHandwritingRecognizer({ languages: [lang] });
+  const drawing = recognizer.startDrawing({
+    recognitionType: "text",
+    inputType: penInputType,
+    alternatives: 3
+  });
+  penStrokes.forEach(s => {
+    const stroke = new HandwritingStroke();
+    s.points.forEach(p => stroke.addPoint(p));
+    drawing.addStroke(stroke);
+  });
+  const predictions = await drawing.getPrediction();
+  drawing.clear();
+  recognizer.finish();
+  return (predictions || []).map(p => p.text).filter(Boolean);
+}
+
+// Sovellus vaihtelee kysymyksen suuntaa, joten piirtoalusta otetaan käyttöön vain
+// jos molemmat kielet ovat tuettuja - muuten syöttötapa vaihtuisi kesken harjoituksen.
+async function preparePenMode(){
+  penRecognitionReady = (await penLanguageSupported("en")) && (await penLanguageSupported("fi"));
+  penPad.hidden = !penRecognitionReady;
+  penTools.hidden = !penRecognitionReady;
+  penFallbackBox.hidden = penRecognitionReady;
+  if (penRecognitionReady){
+    penHint.textContent = "Kirjoita vastaus ruutuun kynällä ja paina Tarkista.";
+    setupPenPad();
+  } else {
+    penHint.textContent = "Kirjoita kynällä suoraan laatikkoon — tabletti muuttaa käsialan tekstiksi.";
+  }
+}
 
 // --- Speech recognition (mic mode) — kevyt demo Web Speech API:lla, jos selain tukee ---
 const micBtn = document.getElementById("micBtn");
@@ -765,7 +912,9 @@ if (SpeechRecognition){
   recognition.interimResults = false;
   recognition.onresult = (e) => {
     clearMicMessage();
-    micTranscript.textContent = e.results[0][0].transcript;
+    const heard = e.results[0][0].transcript;
+    micTranscript.textContent = heard;
+    checkAnswer(heard, "mic"); // tarkistetaan heti, lapsen ei tarvitse painaa mitään
   };
   recognition.onerror = (e) => {
     showMicMessage((ERROR_TEXTS[e.error] || "Puheentunnistus ei onnistunut.") + " [" + e.error + "]");
@@ -786,6 +935,8 @@ micBtn.addEventListener("click", () => {
   if (!recognizing){
     clearMicMessage();
     micTranscript.textContent = "";
+    // Katkaistaan mahdollinen ääneen luku, jottei mikrofoni kuule sovelluksen omaa puhetta.
+    if (window.speechSynthesis) speechSynthesis.cancel();
     try {
       recognition.start();
       recognizing = true;
