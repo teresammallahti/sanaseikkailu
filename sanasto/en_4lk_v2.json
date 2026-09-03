@@ -4,9 +4,9 @@
     "language_target": "en",
     "language_native": "fi",
     "level": "4lk",
-    "version": 2,
+    "version": 3,
     "created": "2026-09-02",
-    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten.",
+    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa.",
     "notes": "Koottu 4. luokan englannin oppikirjan (skannattu, Scan_20260902_162833.pdf) teemojen pohjalta ilman kirjan kuvia tai tekstiä, täydennetty POPS 2014 (Englanti A-oppimäärä vl 3-6) aihepiirien mukaan. Rakenne on geneerinen (language_target/level -kentät), jotta samaa muotoa voi käyttää myöhemmin saksalle ja muille luokka-asteille."
   },
   "categories": [
@@ -150,7 +150,7 @@
     },
     {
       "id": "school_subjects_pe",
-      "en": "PE",
+      "en": "physical education",
       "fi": "liikunta",
       "category": "school_subjects"
     },
@@ -174,7 +174,7 @@
     },
     {
       "id": "school_subjects_re",
-      "en": "RE",
+      "en": "religious education",
       "fi": "uskonto",
       "category": "school_subjects"
     },
@@ -474,7 +474,7 @@
     },
     {
       "id": "verbs_action_watch_tv",
-      "en": "watch TV",
+      "en": "watch television",
       "fi": "katsoa televisiota",
       "category": "verbs_action"
     },
@@ -876,14 +876,14 @@
     },
     {
       "id": "family_grandma",
-      "en": "grandma",
-      "fi": "mummi",
+      "en": "grandmother",
+      "fi": "isoäiti",
       "category": "family"
     },
     {
       "id": "family_grandpa",
-      "en": "grandpa",
-      "fi": "pappa",
+      "en": "grandfather",
+      "fi": "isoisä",
       "category": "family"
     },
     {
@@ -1092,7 +1092,7 @@
     },
     {
       "id": "colours_orange_colour",
-      "en": "orange (colour)",
+      "en": "orange",
       "fi": "oranssi",
       "category": "colours"
     },
