@@ -426,9 +426,9 @@ const VOCAB = {
     "language_target": "en",
     "language_native": "fi",
     "level": "4lk",
-    "version": 3,
+    "version": 4,
     "created": "2026-09-02",
-    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa.",
+    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa. v4: lisätty täydennyksiä olemassa oleviin kategorioihin (colours: purple/brown/grey; opposites: 8 uutta vastaparia) sekä kuusi uutta kategoriaa (weather_seasons, animals, house_rooms, body_parts, clothes, school_objects) POPS 2014 -aihepiirien ja yleisen 4. luokan sanaston perusteella, käyttäjän hyväksynnän jälkeen (ehdotukset_v4.md). Kaikille uusille sanoille pysyvä id, olemassa olevat id:t eivät muuttuneet.",
     "notes": "Koottu 4. luokan englannin oppikirjan (skannattu, Scan_20260902_162833.pdf) teemojen pohjalta ilman kirjan kuvia tai tekstiä, täydennetty POPS 2014 (Englanti A-oppimäärä vl 3-6) aihepiirien mukaan. Rakenne on geneerinen (language_target/level -kentät), jotta samaa muotoa voi käyttää myöhemmin saksalle ja muille luokka-asteille."
   },
   "categories": [
@@ -519,6 +519,30 @@ const VOCAB = {
     {
       "id": "gaming_fortnite",
       "name_fi": "Pelisanasto: Fortnite"
+    },
+    {
+      "id": "weather_seasons",
+      "name_fi": "Sää ja vuodenajat"
+    },
+    {
+      "id": "animals",
+      "name_fi": "Eläimet"
+    },
+    {
+      "id": "house_rooms",
+      "name_fi": "Koti ja huoneet"
+    },
+    {
+      "id": "body_parts",
+      "name_fi": "Kehonosat"
+    },
+    {
+      "id": "clothes",
+      "name_fi": "Vaatteet"
+    },
+    {
+      "id": "school_objects",
+      "name_fi": "Koulutarvikkeet"
     }
   ],
   "words": [
@@ -1685,6 +1709,402 @@ const VOCAB = {
       "en": "teammate",
       "fi": "joukkuekaveri",
       "category": "gaming_fortnite"
+    },
+    {
+      "id": "colours_purple",
+      "en": "purple",
+      "fi": "violetti",
+      "category": "colours"
+    },
+    {
+      "id": "colours_brown",
+      "en": "brown",
+      "fi": "ruskea",
+      "category": "colours"
+    },
+    {
+      "id": "colours_grey",
+      "en": "grey",
+      "fi": "harmaa",
+      "category": "colours"
+    },
+    {
+      "id": "opposites_big",
+      "en": "big",
+      "fi": "iso",
+      "category": "opposites"
+    },
+    {
+      "id": "opposites_small",
+      "en": "small",
+      "fi": "pieni",
+      "category": "opposites"
+    },
+    {
+      "id": "opposites_old",
+      "en": "old",
+      "fi": "vanha",
+      "category": "opposites"
+    },
+    {
+      "id": "opposites_new",
+      "en": "new",
+      "fi": "uusi",
+      "category": "opposites"
+    },
+    {
+      "id": "opposites_good",
+      "en": "good",
+      "fi": "hyvä",
+      "category": "opposites"
+    },
+    {
+      "id": "opposites_bad",
+      "en": "bad",
+      "fi": "huono",
+      "category": "opposites"
+    },
+    {
+      "id": "opposites_easy",
+      "en": "easy",
+      "fi": "helppo",
+      "category": "opposites"
+    },
+    {
+      "id": "opposites_hard",
+      "en": "hard",
+      "fi": "vaikea",
+      "category": "opposites"
+    },
+    {
+      "id": "opposites_hot",
+      "en": "hot",
+      "fi": "kuuma",
+      "category": "opposites"
+    },
+    {
+      "id": "opposites_cold",
+      "en": "cold",
+      "fi": "kylmä",
+      "category": "opposites"
+    },
+    {
+      "id": "opposites_heavy",
+      "en": "heavy",
+      "fi": "raskas",
+      "category": "opposites"
+    },
+    {
+      "id": "opposites_light",
+      "en": "light",
+      "fi": "kevyt",
+      "category": "opposites"
+    },
+    {
+      "id": "opposites_full",
+      "en": "full",
+      "fi": "täysi",
+      "category": "opposites"
+    },
+    {
+      "id": "opposites_empty",
+      "en": "empty",
+      "fi": "tyhjä",
+      "category": "opposites"
+    },
+    {
+      "id": "opposites_clean",
+      "en": "clean",
+      "fi": "puhdas",
+      "category": "opposites"
+    },
+    {
+      "id": "opposites_dirty",
+      "en": "dirty",
+      "fi": "likainen",
+      "category": "opposites"
+    },
+    {
+      "id": "weather_seasons_rain",
+      "en": "rain",
+      "fi": "sade",
+      "category": "weather_seasons"
+    },
+    {
+      "id": "weather_seasons_snow",
+      "en": "snow",
+      "fi": "lumi",
+      "category": "weather_seasons"
+    },
+    {
+      "id": "weather_seasons_sun",
+      "en": "sun",
+      "fi": "aurinko",
+      "category": "weather_seasons"
+    },
+    {
+      "id": "weather_seasons_wind",
+      "en": "wind",
+      "fi": "tuuli",
+      "category": "weather_seasons"
+    },
+    {
+      "id": "weather_seasons_cloud",
+      "en": "cloud",
+      "fi": "pilvi",
+      "category": "weather_seasons"
+    },
+    {
+      "id": "weather_seasons_spring",
+      "en": "spring",
+      "fi": "kevät",
+      "category": "weather_seasons"
+    },
+    {
+      "id": "weather_seasons_summer",
+      "en": "summer",
+      "fi": "kesä",
+      "category": "weather_seasons"
+    },
+    {
+      "id": "weather_seasons_autumn",
+      "en": "autumn",
+      "fi": "syksy",
+      "category": "weather_seasons"
+    },
+    {
+      "id": "weather_seasons_winter",
+      "en": "winter",
+      "fi": "talvi",
+      "category": "weather_seasons"
+    },
+    {
+      "id": "animals_dog",
+      "en": "dog",
+      "fi": "koira",
+      "category": "animals"
+    },
+    {
+      "id": "animals_cat",
+      "en": "cat",
+      "fi": "kissa",
+      "category": "animals"
+    },
+    {
+      "id": "animals_horse",
+      "en": "horse",
+      "fi": "hevonen",
+      "category": "animals"
+    },
+    {
+      "id": "animals_bird",
+      "en": "bird",
+      "fi": "lintu",
+      "category": "animals"
+    },
+    {
+      "id": "animals_cow",
+      "en": "cow",
+      "fi": "lehmä",
+      "category": "animals"
+    },
+    {
+      "id": "animals_sheep",
+      "en": "sheep",
+      "fi": "lammas",
+      "category": "animals"
+    },
+    {
+      "id": "animals_rabbit",
+      "en": "rabbit",
+      "fi": "kani",
+      "category": "animals"
+    },
+    {
+      "id": "animals_mouse",
+      "en": "mouse",
+      "fi": "hiiri",
+      "category": "animals"
+    },
+    {
+      "id": "house_rooms_house",
+      "en": "house",
+      "fi": "talo",
+      "category": "house_rooms"
+    },
+    {
+      "id": "house_rooms_room",
+      "en": "room",
+      "fi": "huone",
+      "category": "house_rooms"
+    },
+    {
+      "id": "house_rooms_kitchen",
+      "en": "kitchen",
+      "fi": "keittiö",
+      "category": "house_rooms"
+    },
+    {
+      "id": "house_rooms_bedroom",
+      "en": "bedroom",
+      "fi": "makuuhuone",
+      "category": "house_rooms"
+    },
+    {
+      "id": "house_rooms_bathroom",
+      "en": "bathroom",
+      "fi": "kylpyhuone",
+      "category": "house_rooms"
+    },
+    {
+      "id": "house_rooms_garden",
+      "en": "garden",
+      "fi": "puutarha",
+      "category": "house_rooms"
+    },
+    {
+      "id": "house_rooms_door",
+      "en": "door",
+      "fi": "ovi",
+      "category": "house_rooms"
+    },
+    {
+      "id": "house_rooms_window",
+      "en": "window",
+      "fi": "ikkuna",
+      "category": "house_rooms"
+    },
+    {
+      "id": "body_parts_head",
+      "en": "head",
+      "fi": "pää",
+      "category": "body_parts"
+    },
+    {
+      "id": "body_parts_hand",
+      "en": "hand",
+      "fi": "käsi",
+      "category": "body_parts"
+    },
+    {
+      "id": "body_parts_foot",
+      "en": "foot",
+      "fi": "jalka",
+      "category": "body_parts"
+    },
+    {
+      "id": "body_parts_eye",
+      "en": "eye",
+      "fi": "silmä",
+      "category": "body_parts"
+    },
+    {
+      "id": "body_parts_ear",
+      "en": "ear",
+      "fi": "korva",
+      "category": "body_parts"
+    },
+    {
+      "id": "body_parts_mouth",
+      "en": "mouth",
+      "fi": "suu",
+      "category": "body_parts"
+    },
+    {
+      "id": "body_parts_nose",
+      "en": "nose",
+      "fi": "nenä",
+      "category": "body_parts"
+    },
+    {
+      "id": "body_parts_hair",
+      "en": "hair",
+      "fi": "hiukset",
+      "category": "body_parts"
+    },
+    {
+      "id": "clothes_shirt",
+      "en": "shirt",
+      "fi": "paita",
+      "category": "clothes"
+    },
+    {
+      "id": "clothes_trousers",
+      "en": "trousers",
+      "fi": "housut",
+      "category": "clothes"
+    },
+    {
+      "id": "clothes_shoes",
+      "en": "shoes",
+      "fi": "kengät",
+      "category": "clothes"
+    },
+    {
+      "id": "clothes_jacket",
+      "en": "jacket",
+      "fi": "takki",
+      "category": "clothes"
+    },
+    {
+      "id": "clothes_hat",
+      "en": "hat",
+      "fi": "pipo/hattu",
+      "category": "clothes"
+    },
+    {
+      "id": "clothes_socks",
+      "en": "socks",
+      "fi": "sukat",
+      "category": "clothes"
+    },
+    {
+      "id": "clothes_dress",
+      "en": "dress",
+      "fi": "mekko",
+      "category": "clothes"
+    },
+    {
+      "id": "clothes_jumper",
+      "en": "jumper",
+      "fi": "neule/villapaita",
+      "category": "clothes"
+    },
+    {
+      "id": "school_objects_book",
+      "en": "book",
+      "fi": "kirja",
+      "category": "school_objects"
+    },
+    {
+      "id": "school_objects_pen",
+      "en": "pen",
+      "fi": "kynä",
+      "category": "school_objects"
+    },
+    {
+      "id": "school_objects_pencil",
+      "en": "pencil",
+      "fi": "lyijykynä",
+      "category": "school_objects"
+    },
+    {
+      "id": "school_objects_ruler",
+      "en": "ruler",
+      "fi": "viivain",
+      "category": "school_objects"
+    },
+    {
+      "id": "school_objects_eraser",
+      "en": "eraser",
+      "fi": "pyyhekumi",
+      "category": "school_objects"
+    },
+    {
+      "id": "school_objects_notebook",
+      "en": "notebook",
+      "fi": "vihko",
+      "category": "school_objects"
     }
   ]
 };
