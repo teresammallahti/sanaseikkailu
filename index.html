@@ -324,6 +324,12 @@
     font-size:19px;
     font-weight:700;
   }
+  .pen-stabilizing{
+    text-align:center;
+    color:var(--accent-dark);
+    font-weight:700;
+    font-size:14px;
+  }
 
   .actions{
     display:flex;
@@ -464,6 +470,7 @@
         </div>
         <input type="text" class="answer-box" id="penFallbackBox" placeholder="Kirjoita kynällä tähän..." autocomplete="off" hidden>
         <div class="mic-hint" id="penHint"></div>
+        <div class="pen-stabilizing" id="penStabilizing" hidden>⏳ Vahvistetaan...</div>
         <div class="mic-transcript" id="penReading"></div>
       </div>
 
@@ -2791,7 +2798,10 @@ function renderPrompt(){
   feedback.className = "feedback";
   feedback.textContent = "";
   answerBox.value = "";
-  answerBox.focus({ preventScroll: true });
+  // Näppäimistö avautuu automaattisesti vain näppäimistövaiheessa - piirto- ja
+  // puhevaiheessa lapsen pitää itse koskettaa oikeaa kenttää, ettei Gboard
+  // ponnahda esiin kutsumatta kesken piirtämisen.
+  if (activeMode === "keyboard") answerBox.focus({ preventScroll: true });
   promptCategory.textContent = categoryName(current.category);
   if (direction === "target-fi"){
     promptWord.textContent = firstAcceptedAnswer(current[targetLang]);
@@ -2943,6 +2953,14 @@ document.getElementById("checkBtn").addEventListener("click", async () => {
   }
   if (activeMode === "pen"){
     if (!penRecognitionReady){
+      if (!penFallbackBox.value.trim()){
+        showNote("✏️ Kirjoita ensin vastaus ruutuun.");
+        return;
+      }
+      // Gboardin käsialantunnistus voi vielä täydentää tai korjata sanaa hetken
+      // painalluksen jälkeen - odotetaan, että teksti on pysynyt muuttumattomana
+      // pari sekuntia, ennen kuin se käsitellään lopullisena vastauksena.
+      await waitForFallbackStable();
       checkAnswer(penFallbackBox.value, "pen");
       return;
     }
@@ -3026,11 +3044,70 @@ const penTools = document.getElementById("penTools");
 const penHint = document.getElementById("penHint");
 const penReading = document.getElementById("penReading");
 const penFallbackBox = document.getElementById("penFallbackBox");
+const penStabilizing = document.getElementById("penStabilizing");
 
 let penStrokes = [];
 let activeStroke = null;
 let penInputType = "touch";
 let penRecognitionReady = false;
+
+// --- Suoja tavallista näppäilyä vastaan piirto-laatikossa ---
+// Selain ei voi tietää, tuottiko Gboard tekstin käsialantunnistuksella vai
+// tavallisella näppäilyllä, mutta ne näkyvät erilaisina input-tapahtumina:
+// käsialantunnistus (ja sanelu) lisää yleensä ison tekstinpätkän kerralla,
+// kun taas tavallinen näppäily tuottaa nopean, tasaisen kirjain-kerrallaan-sarjan.
+// Jos tällainen sarja havaitaan, laatikko tyhjennetään ja pyydetään käyttämään kynää.
+// Tämä ei valitettavasti tunnista Gboardin omaa sanelupainiketta (mikki), koska
+// sekin lisää tekstin isompina pätkinä - vain tavallinen näppäily saadaan estettyä.
+const RAPID_TYPE_GAP_MS = 900;
+const RAPID_TYPE_COUNT = 3;
+let fallbackPrevLength = 0;
+let fallbackRapidCount = 0;
+let fallbackLastSingleCharAt = 0;
+let fallbackLastInputAt = 0;
+
+function resetFallbackTypingGuard(){
+  fallbackPrevLength = penFallbackBox ? penFallbackBox.value.length : 0;
+  fallbackRapidCount = 0;
+  fallbackLastSingleCharAt = 0;
+  fallbackLastInputAt = 0;
+}
+
+function handleFallbackInput(){
+  fallbackLastInputAt = Date.now();
+  const value = penFallbackBox.value;
+  const delta = value.length - fallbackPrevLength;
+  fallbackPrevLength = value.length;
+
+  if (delta === 1){
+    const now = Date.now();
+    fallbackRapidCount = (fallbackLastSingleCharAt && (now - fallbackLastSingleCharAt) < RAPID_TYPE_GAP_MS)
+      ? fallbackRapidCount + 1
+      : 1;
+    fallbackLastSingleCharAt = now;
+    if (fallbackRapidCount >= RAPID_TYPE_COUNT){
+      penFallbackBox.value = "";
+      resetFallbackTypingGuard();
+      showNote("✋ Käytä kynää (Gboardin käsialatilaa) - tavallinen näppäily ei käy tässä vaiheessa.");
+    }
+  } else {
+    // Isompi pätkä kerralla (käsialantunnistus/sanelu) tai poisto - ei epäilyttävää, nollataan laskuri.
+    fallbackRapidCount = 0;
+  }
+}
+
+// Odottaa, että piirtolaatikon teksti on pysynyt muuttumattomana PEN_STABILIZE_MS
+// ajan, ennen kuin se hyväksytään lopulliseksi vastaukseksi - Gboardin käsialan-
+// tunnistus voi vielä täydentää tai korjata sanaa hetken kirjoittamisen jälkeen.
+const PEN_STABILIZE_MS = 2000;
+async function waitForFallbackStable(){
+  penStabilizing.hidden = false;
+  if (!fallbackLastInputAt) fallbackLastInputAt = Date.now();
+  while (Date.now() - fallbackLastInputAt < PEN_STABILIZE_MS){
+    await new Promise(r => setTimeout(r, 150));
+  }
+  penStabilizing.hidden = true;
+}
 
 function setupPenPad(){
   const rect = penPad.getBoundingClientRect();
@@ -3061,7 +3138,11 @@ function clearPenPad(){
   if (penPad.width) penCtx.clearRect(0, 0, penPad.width, penPad.height);
   if (penReading) penReading.textContent = "";
   if (penFallbackBox) penFallbackBox.value = "";
+  if (penStabilizing) penStabilizing.hidden = true;
+  resetFallbackTypingGuard();
 }
+
+penFallbackBox.addEventListener("input", handleFallbackInput);
 
 function penPoint(e){
   const rect = penPad.getBoundingClientRect();
@@ -3140,7 +3221,7 @@ async function preparePenMode(){
     penHint.textContent = "Kirjoita vastaus ruutuun kynällä ja paina Tarkista.";
     setupPenPad();
   } else {
-    penHint.textContent = "Kirjoita kynällä suoraan laatikkoon. Jos näppäimistö avautuu kirjainten sijaan, vaihda Gboardissa näppäimistöksi \"Käsiala\" (näppäimistön asetukset-kuvake → Käsiala).";
+    penHint.textContent = "Kosketa laatikkoa ja vaihda Gboardissa näppäimistöksi \"Käsiala\" (näppäimistön asetukset-kuvake → Käsiala), kirjoita sitten kynällä. Tavallinen näppäily ei kelpaa tässä vaiheessa.";
   }
 }
 
