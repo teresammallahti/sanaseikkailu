@@ -1,8 +1,3 @@
-<!doctype html>
-<html lang="fi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Sanaseikkailu</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&display=swap">
 <style>
@@ -407,8 +402,7 @@
     .prompt-card, .answer-area{ padding:14px 14px; }
   }
 </style>
-</head>
-<body>
+
 <div class="app">
 
   <div class="lang-switch" id="langSwitch">
@@ -519,7 +513,1971 @@
     ovat edelleen kevyitä demoja - niiden syvempi toteutus tulee vaiheessa 5.
 */
 
-const VOCAB = __WORD_DATA__;
+const VOCAB = {
+  "meta": {
+    "title": "Englannin sanasto - 4. luokka (pilotti)",
+    "language_target": "en",
+    "language_native": "fi",
+    "level": "4lk",
+    "version": 6,
+    "created": "2026-09-02",
+    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa. v4: lisätty täydennyksiä olemassa oleviin kategorioihin (colours: purple/brown/grey; opposites: 8 uutta vastaparia) sekä kuusi uutta kategoriaa (weather_seasons, animals, house_rooms, body_parts, clothes, school_objects) POPS 2014 -aihepiirien ja yleisen 4. luokan sanaston perusteella, käyttäjän hyväksynnän jälkeen (ehdotukset_v4.md). Kaikille uusille sanoille pysyvä id, olemassa olevat id:t eivät muuttuneet. v5: lisätty saksankieliset käännökset (kenttä 'de') kaikille 260 sanalle, artikkelien (der/die/das) kanssa substantiiveille - vakiintuneen saksan opetuskäytännön mukaisesti suku opetellaan heti sanan mukana. Sama sanasto ja kategoriat kuin englannissa/suomessa, id:t muuttumattomat. v6: Sanat järjestetty OPSin teemojen mukaan. Teemat personality, opposites, verbs_action ja verbs_communication yhdistetty teemaan 'yleissanat' (group=general). Kaikki muut teemat merkitty group=ops paitsi gaming_minecraft ja gaming_fortnite, jotka merkitty group=hobby (vain manuaalisesti valittavissa, ei mukana 'kaikki teemat' -kierrossa tai yleissanojen varasanastona).",
+    "notes": "Koottu 4. luokan englannin oppikirjan (skannattu, Scan_20260902_162833.pdf) teemojen pohjalta ilman kirjan kuvia tai tekstiä, täydennetty POPS 2014 (Englanti A-oppimäärä vl 3-6) aihepiirien mukaan. Rakenne on geneerinen (language_target/level -kentät), jotta samaa muotoa voi käyttää myöhemmin saksalle ja muille luokka-asteille.",
+    "language_targets": [
+      "en",
+      "de"
+    ]
+  },
+  "categories": [
+    {
+      "id": "school_people",
+      "name_fi": "Koulun ihmiset",
+      "group": "ops"
+    },
+    {
+      "id": "school_subjects",
+      "name_fi": "Kouluaineet",
+      "group": "ops"
+    },
+    {
+      "id": "weekdays",
+      "name_fi": "Viikonpäivät",
+      "group": "ops"
+    },
+    {
+      "id": "places_town",
+      "name_fi": "Paikat kaupungissa",
+      "group": "ops"
+    },
+    {
+      "id": "belongings",
+      "name_fi": "Tavarat ja asusteet",
+      "group": "ops"
+    },
+    {
+      "id": "appearance",
+      "name_fi": "Ulkonäkö",
+      "group": "ops"
+    },
+    {
+      "id": "food_savoury",
+      "name_fi": "Ruoka",
+      "group": "ops"
+    },
+    {
+      "id": "fruit",
+      "name_fi": "Hedelmät ja marjat",
+      "group": "ops"
+    },
+    {
+      "id": "polite_phrases",
+      "name_fi": "Kohteliaat ilmaukset",
+      "group": "ops"
+    },
+    {
+      "id": "time",
+      "name_fi": "Kellonajat",
+      "group": "ops"
+    },
+    {
+      "id": "family",
+      "name_fi": "Perhe",
+      "group": "ops"
+    },
+    {
+      "id": "myself",
+      "name_fi": "Minä itse",
+      "group": "ops"
+    },
+    {
+      "id": "hobbies",
+      "name_fi": "Harrastukset ja vapaa-aika",
+      "group": "ops"
+    },
+    {
+      "id": "greetings_phrases",
+      "name_fi": "Tervehdykset ja arki-ilmaukset",
+      "group": "ops"
+    },
+    {
+      "id": "colours",
+      "name_fi": "Värit",
+      "group": "ops"
+    },
+    {
+      "id": "numbers",
+      "name_fi": "Numerot",
+      "group": "ops"
+    },
+    {
+      "id": "gaming_minecraft",
+      "name_fi": "Pelisanasto: Minecraft",
+      "group": "hobby"
+    },
+    {
+      "id": "gaming_fortnite",
+      "name_fi": "Pelisanasto: Fortnite",
+      "group": "hobby"
+    },
+    {
+      "id": "weather_seasons",
+      "name_fi": "Sää ja vuodenajat",
+      "group": "ops"
+    },
+    {
+      "id": "animals",
+      "name_fi": "Eläimet",
+      "group": "ops"
+    },
+    {
+      "id": "house_rooms",
+      "name_fi": "Koti ja huoneet",
+      "group": "ops"
+    },
+    {
+      "id": "body_parts",
+      "name_fi": "Kehonosat",
+      "group": "ops"
+    },
+    {
+      "id": "clothes",
+      "name_fi": "Vaatteet",
+      "group": "ops"
+    },
+    {
+      "id": "school_objects",
+      "name_fi": "Koulutarvikkeet",
+      "group": "ops"
+    },
+    {
+      "id": "yleissanat",
+      "name_fi": "Yleissanat",
+      "group": "general"
+    }
+  ],
+  "words": [
+    {
+      "id": "school_people_teacher",
+      "en": "teacher",
+      "fi": "opettaja",
+      "category": "school_people",
+      "de": "der Lehrer / die Lehrerin"
+    },
+    {
+      "id": "school_people_head_teacher",
+      "en": "head teacher",
+      "fi": "rehtori",
+      "category": "school_people",
+      "de": "der Rektor / die Rektorin"
+    },
+    {
+      "id": "school_people_nurse",
+      "en": "nurse",
+      "fi": "hoitaja",
+      "category": "school_people",
+      "de": "die Krankenschwester / der Krankenpfleger"
+    },
+    {
+      "id": "school_people_cleaner",
+      "en": "cleaner",
+      "fi": "siivooja",
+      "category": "school_people",
+      "de": "die Reinigungskraft"
+    },
+    {
+      "id": "school_people_cook",
+      "en": "cook",
+      "fi": "kokki",
+      "category": "school_people",
+      "de": "der Koch / die Köchin"
+    },
+    {
+      "id": "school_people_student",
+      "en": "student",
+      "fi": "oppilas",
+      "category": "school_people",
+      "de": "der Schüler / die Schülerin"
+    },
+    {
+      "id": "school_people_friend",
+      "en": "friend",
+      "fi": "ystävä",
+      "category": "school_people",
+      "de": "der Freund / die Freundin"
+    },
+    {
+      "id": "school_subjects_maths",
+      "en": "maths",
+      "fi": "matematiikka",
+      "category": "school_subjects",
+      "de": "die Mathematik"
+    },
+    {
+      "id": "school_subjects_pe",
+      "en": "physical education",
+      "fi": "liikunta",
+      "category": "school_subjects",
+      "de": "der Sport"
+    },
+    {
+      "id": "school_subjects_english",
+      "en": "English",
+      "fi": "englannin kieli",
+      "category": "school_subjects",
+      "de": "Englisch"
+    },
+    {
+      "id": "school_subjects_music",
+      "en": "music",
+      "fi": "musiikki",
+      "category": "school_subjects",
+      "de": "die Musik"
+    },
+    {
+      "id": "school_subjects_finnish",
+      "en": "Finnish",
+      "fi": "suomen kieli",
+      "category": "school_subjects",
+      "de": "Finnisch"
+    },
+    {
+      "id": "school_subjects_re",
+      "en": "religious education",
+      "fi": "uskonto",
+      "category": "school_subjects",
+      "de": "die Religion"
+    },
+    {
+      "id": "school_subjects_ethics",
+      "en": "ethics",
+      "fi": "elämänkatsomustieto",
+      "category": "school_subjects",
+      "de": "die Ethik"
+    },
+    {
+      "id": "school_subjects_science",
+      "en": "science",
+      "fi": "ympäristöoppi",
+      "category": "school_subjects",
+      "de": "der Sachunterricht"
+    },
+    {
+      "id": "school_subjects_art",
+      "en": "art",
+      "fi": "kuvataito",
+      "category": "school_subjects",
+      "de": "die Kunst"
+    },
+    {
+      "id": "school_subjects_civics",
+      "en": "civics",
+      "fi": "yhteiskuntaoppi",
+      "category": "school_subjects",
+      "de": "die Sozialkunde"
+    },
+    {
+      "id": "school_subjects_crafts",
+      "en": "crafts",
+      "fi": "käsityöt",
+      "category": "school_subjects",
+      "de": "das Werken"
+    },
+    {
+      "id": "school_subjects_history",
+      "en": "history",
+      "fi": "historia",
+      "category": "school_subjects",
+      "de": "die Geschichte"
+    },
+    {
+      "id": "school_subjects_break_time",
+      "en": "break time",
+      "fi": "välitunti",
+      "category": "school_subjects",
+      "de": "die Pause"
+    },
+    {
+      "id": "school_subjects_classroom",
+      "en": "classroom",
+      "fi": "luokkahuone",
+      "category": "school_subjects",
+      "de": "das Klassenzimmer"
+    },
+    {
+      "id": "school_subjects_lesson",
+      "en": "lesson",
+      "fi": "oppitunti",
+      "category": "school_subjects",
+      "de": "die Unterrichtsstunde"
+    },
+    {
+      "id": "weekdays_monday",
+      "en": "Monday",
+      "fi": "maanantai",
+      "category": "weekdays",
+      "de": "Montag"
+    },
+    {
+      "id": "weekdays_tuesday",
+      "en": "Tuesday",
+      "fi": "tiistai",
+      "category": "weekdays",
+      "de": "Dienstag"
+    },
+    {
+      "id": "weekdays_wednesday",
+      "en": "Wednesday",
+      "fi": "keskiviikko",
+      "category": "weekdays",
+      "de": "Mittwoch"
+    },
+    {
+      "id": "weekdays_thursday",
+      "en": "Thursday",
+      "fi": "torstai",
+      "category": "weekdays",
+      "de": "Donnerstag"
+    },
+    {
+      "id": "weekdays_friday",
+      "en": "Friday",
+      "fi": "perjantai",
+      "category": "weekdays",
+      "de": "Freitag"
+    },
+    {
+      "id": "weekdays_saturday",
+      "en": "Saturday",
+      "fi": "lauantai",
+      "category": "weekdays",
+      "de": "Samstag"
+    },
+    {
+      "id": "weekdays_sunday",
+      "en": "Sunday",
+      "fi": "sunnuntai",
+      "category": "weekdays",
+      "de": "Sonntag"
+    },
+    {
+      "id": "personality_clumsy",
+      "en": "clumsy",
+      "fi": "kömpelö",
+      "category": "yleissanat",
+      "de": "tollpatschig"
+    },
+    {
+      "id": "personality_clever",
+      "en": "clever",
+      "fi": "älykäs",
+      "category": "yleissanat",
+      "de": "klug"
+    },
+    {
+      "id": "personality_shy",
+      "en": "shy",
+      "fi": "ujo",
+      "category": "yleissanat",
+      "de": "schüchtern"
+    },
+    {
+      "id": "personality_lazy",
+      "en": "lazy",
+      "fi": "laiska",
+      "category": "yleissanat",
+      "de": "faul"
+    },
+    {
+      "id": "personality_creative",
+      "en": "creative",
+      "fi": "luova",
+      "category": "yleissanat",
+      "de": "kreativ"
+    },
+    {
+      "id": "personality_funny",
+      "en": "funny",
+      "fi": "hassu",
+      "category": "yleissanat",
+      "de": "lustig"
+    },
+    {
+      "id": "personality_active",
+      "en": "active",
+      "fi": "aktiivinen",
+      "category": "yleissanat",
+      "de": "aktiv"
+    },
+    {
+      "id": "personality_sporty",
+      "en": "sporty",
+      "fi": "urheilullinen",
+      "category": "yleissanat",
+      "de": "sportlich"
+    },
+    {
+      "id": "personality_brave",
+      "en": "brave",
+      "fi": "rohkea",
+      "category": "yleissanat",
+      "de": "mutig"
+    },
+    {
+      "id": "personality_curious",
+      "en": "curious",
+      "fi": "utelias",
+      "category": "yleissanat",
+      "de": "neugierig"
+    },
+    {
+      "id": "personality_calm",
+      "en": "calm",
+      "fi": "rauhallinen",
+      "category": "yleissanat",
+      "de": "ruhig"
+    },
+    {
+      "id": "personality_kind",
+      "en": "kind",
+      "fi": "ystävällinen",
+      "category": "yleissanat",
+      "de": "freundlich"
+    },
+    {
+      "id": "opposites_fast",
+      "en": "fast",
+      "fi": "nopea",
+      "category": "yleissanat",
+      "de": "schnell"
+    },
+    {
+      "id": "opposites_slow",
+      "en": "slow",
+      "fi": "hidas",
+      "category": "yleissanat",
+      "de": "langsam"
+    },
+    {
+      "id": "opposites_strong",
+      "en": "strong",
+      "fi": "vahva",
+      "category": "yleissanat",
+      "de": "stark"
+    },
+    {
+      "id": "opposites_weak",
+      "en": "weak",
+      "fi": "heikko",
+      "category": "yleissanat",
+      "de": "schwach"
+    },
+    {
+      "id": "opposites_loud",
+      "en": "loud",
+      "fi": "äänekäs",
+      "category": "yleissanat",
+      "de": "laut"
+    },
+    {
+      "id": "opposites_quiet",
+      "en": "quiet",
+      "fi": "hiljainen",
+      "category": "yleissanat",
+      "de": "leise"
+    },
+    {
+      "id": "opposites_tall",
+      "en": "tall",
+      "fi": "pitkä",
+      "category": "yleissanat",
+      "de": "groß"
+    },
+    {
+      "id": "opposites_short",
+      "en": "short",
+      "fi": "lyhyt",
+      "category": "yleissanat",
+      "de": "klein"
+    },
+    {
+      "id": "verbs_communication_wait",
+      "en": "wait",
+      "fi": "odottaa",
+      "category": "yleissanat",
+      "de": "warten"
+    },
+    {
+      "id": "verbs_communication_ask",
+      "en": "ask",
+      "fi": "kysyä",
+      "category": "yleissanat",
+      "de": "fragen"
+    },
+    {
+      "id": "verbs_communication_think",
+      "en": "think",
+      "fi": "ajatella",
+      "category": "yleissanat",
+      "de": "denken"
+    },
+    {
+      "id": "verbs_communication_shout",
+      "en": "shout",
+      "fi": "huutaa",
+      "category": "yleissanat",
+      "de": "schreien"
+    },
+    {
+      "id": "verbs_communication_talk",
+      "en": "talk",
+      "fi": "puhua",
+      "category": "yleissanat",
+      "de": "sprechen"
+    },
+    {
+      "id": "verbs_communication_listen",
+      "en": "listen",
+      "fi": "kuunnella",
+      "category": "yleissanat",
+      "de": "zuhören"
+    },
+    {
+      "id": "verbs_communication_laugh",
+      "en": "laugh",
+      "fi": "nauraa",
+      "category": "yleissanat",
+      "de": "lachen"
+    },
+    {
+      "id": "verbs_communication_smile",
+      "en": "smile",
+      "fi": "hymyillä",
+      "category": "yleissanat",
+      "de": "lächeln"
+    },
+    {
+      "id": "verbs_action_run",
+      "en": "run",
+      "fi": "juosta",
+      "category": "yleissanat",
+      "de": "rennen"
+    },
+    {
+      "id": "verbs_action_walk",
+      "en": "walk",
+      "fi": "kävellä",
+      "category": "yleissanat",
+      "de": "gehen"
+    },
+    {
+      "id": "verbs_action_look",
+      "en": "look",
+      "fi": "katsoa",
+      "category": "yleissanat",
+      "de": "schauen"
+    },
+    {
+      "id": "verbs_action_ride_a_bike",
+      "en": "ride a bike",
+      "fi": "ajaa pyörällä",
+      "category": "yleissanat",
+      "de": "Fahrrad fahren"
+    },
+    {
+      "id": "verbs_action_swim",
+      "en": "swim",
+      "fi": "uida",
+      "category": "yleissanat",
+      "de": "schwimmen"
+    },
+    {
+      "id": "verbs_action_watch_tv",
+      "en": "watch television",
+      "fi": "katsoa televisiota",
+      "category": "yleissanat",
+      "de": "fernsehen"
+    },
+    {
+      "id": "verbs_action_drive_a_car",
+      "en": "drive a car",
+      "fi": "ajaa autoa",
+      "category": "yleissanat",
+      "de": "Auto fahren"
+    },
+    {
+      "id": "verbs_action_dance",
+      "en": "dance",
+      "fi": "tanssia",
+      "category": "yleissanat",
+      "de": "tanzen"
+    },
+    {
+      "id": "verbs_action_climb_a_tree",
+      "en": "climb a tree",
+      "fi": "kiivetä puuhun",
+      "category": "yleissanat",
+      "de": "auf einen Baum klettern"
+    },
+    {
+      "id": "verbs_action_paint",
+      "en": "paint",
+      "fi": "maalata",
+      "category": "yleissanat",
+      "de": "malen"
+    },
+    {
+      "id": "verbs_action_sleep",
+      "en": "sleep",
+      "fi": "nukkua",
+      "category": "yleissanat",
+      "de": "schlafen"
+    },
+    {
+      "id": "verbs_action_throw_a_ball",
+      "en": "throw a ball",
+      "fi": "heittää palloa",
+      "category": "yleissanat",
+      "de": "einen Ball werfen"
+    },
+    {
+      "id": "verbs_action_play_basketball",
+      "en": "play basketball",
+      "fi": "pelata koripalloa",
+      "category": "yleissanat",
+      "de": "Basketball spielen"
+    },
+    {
+      "id": "verbs_action_open_the_door",
+      "en": "open the door",
+      "fi": "avata ovi",
+      "category": "yleissanat",
+      "de": "die Tür öffnen"
+    },
+    {
+      "id": "places_town_caf",
+      "en": "café",
+      "fi": "kahvila",
+      "category": "places_town",
+      "de": "das Café"
+    },
+    {
+      "id": "places_town_library",
+      "en": "library",
+      "fi": "kirjasto",
+      "category": "places_town",
+      "de": "die Bibliothek"
+    },
+    {
+      "id": "places_town_shop",
+      "en": "shop",
+      "fi": "kauppa",
+      "category": "places_town",
+      "de": "das Geschäft"
+    },
+    {
+      "id": "places_town_restaurant",
+      "en": "restaurant",
+      "fi": "ravintola",
+      "category": "places_town",
+      "de": "das Restaurant"
+    },
+    {
+      "id": "belongings_bag",
+      "en": "bag",
+      "fi": "laukku",
+      "category": "belongings",
+      "de": "die Tasche"
+    },
+    {
+      "id": "belongings_phone",
+      "en": "phone",
+      "fi": "puhelin",
+      "category": "belongings",
+      "de": "das Handy"
+    },
+    {
+      "id": "belongings_keys",
+      "en": "keys",
+      "fi": "avaimet",
+      "category": "belongings",
+      "de": "die Schlüssel"
+    },
+    {
+      "id": "belongings_helmet",
+      "en": "helmet",
+      "fi": "kypärä",
+      "category": "belongings",
+      "de": "der Helm"
+    },
+    {
+      "id": "belongings_watch",
+      "en": "watch",
+      "fi": "rannekello",
+      "category": "belongings",
+      "de": "die Armbanduhr"
+    },
+    {
+      "id": "belongings_bracelet",
+      "en": "bracelet",
+      "fi": "rannekoru",
+      "category": "belongings",
+      "de": "das Armband"
+    },
+    {
+      "id": "appearance_glasses",
+      "en": "glasses",
+      "fi": "silmälasit",
+      "category": "appearance",
+      "de": "die Brille"
+    },
+    {
+      "id": "appearance_braces",
+      "en": "braces",
+      "fi": "hammasraudat",
+      "category": "appearance",
+      "de": "die Zahnspange"
+    },
+    {
+      "id": "appearance_curly_hair",
+      "en": "curly hair",
+      "fi": "kiharat hiukset",
+      "category": "appearance",
+      "de": "lockige Haare"
+    },
+    {
+      "id": "appearance_straight_hair",
+      "en": "straight hair",
+      "fi": "suorat hiukset",
+      "category": "appearance",
+      "de": "glatte Haare"
+    },
+    {
+      "id": "appearance_long_hair",
+      "en": "long hair",
+      "fi": "pitkät hiukset",
+      "category": "appearance",
+      "de": "lange Haare"
+    },
+    {
+      "id": "appearance_green_eyes",
+      "en": "green eyes",
+      "fi": "vihreät silmät",
+      "category": "appearance",
+      "de": "grüne Augen"
+    },
+    {
+      "id": "appearance_brown_eyes",
+      "en": "brown eyes",
+      "fi": "ruskeat silmät",
+      "category": "appearance",
+      "de": "braune Augen"
+    },
+    {
+      "id": "appearance_blue_eyes",
+      "en": "blue eyes",
+      "fi": "siniset silmät",
+      "category": "appearance",
+      "de": "blaue Augen"
+    },
+    {
+      "id": "appearance_beard",
+      "en": "beard",
+      "fi": "parta",
+      "category": "appearance",
+      "de": "der Bart"
+    },
+    {
+      "id": "food_savoury_water",
+      "en": "water",
+      "fi": "vesi",
+      "category": "food_savoury",
+      "de": "das Wasser"
+    },
+    {
+      "id": "food_savoury_juice",
+      "en": "juice",
+      "fi": "mehu",
+      "category": "food_savoury",
+      "de": "der Saft"
+    },
+    {
+      "id": "food_savoury_pie",
+      "en": "pie",
+      "fi": "piirakka",
+      "category": "food_savoury",
+      "de": "der Kuchen"
+    },
+    {
+      "id": "food_savoury_fish",
+      "en": "fish",
+      "fi": "kala",
+      "category": "food_savoury",
+      "de": "der Fisch"
+    },
+    {
+      "id": "food_savoury_chicken",
+      "en": "chicken",
+      "fi": "kana",
+      "category": "food_savoury",
+      "de": "das Hähnchen"
+    },
+    {
+      "id": "food_savoury_meat",
+      "en": "meat",
+      "fi": "liha",
+      "category": "food_savoury",
+      "de": "das Fleisch"
+    },
+    {
+      "id": "food_savoury_cheese",
+      "en": "cheese",
+      "fi": "juusto",
+      "category": "food_savoury",
+      "de": "der Käse"
+    },
+    {
+      "id": "food_savoury_cucumber",
+      "en": "cucumber",
+      "fi": "kurkku",
+      "category": "food_savoury",
+      "de": "die Gurke"
+    },
+    {
+      "id": "food_savoury_bread",
+      "en": "bread",
+      "fi": "leipä",
+      "category": "food_savoury",
+      "de": "das Brot"
+    },
+    {
+      "id": "food_savoury_pasta",
+      "en": "pasta",
+      "fi": "pasta",
+      "category": "food_savoury",
+      "de": "die Nudeln"
+    },
+    {
+      "id": "food_savoury_tomato",
+      "en": "tomato",
+      "fi": "tomaatti",
+      "category": "food_savoury",
+      "de": "die Tomate"
+    },
+    {
+      "id": "fruit_apple",
+      "en": "apple",
+      "fi": "omena",
+      "category": "fruit",
+      "de": "der Apfel"
+    },
+    {
+      "id": "fruit_banana",
+      "en": "banana",
+      "fi": "banaani",
+      "category": "fruit",
+      "de": "die Banane"
+    },
+    {
+      "id": "fruit_strawberry",
+      "en": "strawberry",
+      "fi": "mansikka",
+      "category": "fruit",
+      "de": "die Erdbeere"
+    },
+    {
+      "id": "fruit_kiwi",
+      "en": "kiwi",
+      "fi": "kiivi",
+      "category": "fruit",
+      "de": "die Kiwi"
+    },
+    {
+      "id": "fruit_peach",
+      "en": "peach",
+      "fi": "persikka",
+      "category": "fruit",
+      "de": "der Pfirsich"
+    },
+    {
+      "id": "fruit_grape",
+      "en": "grape",
+      "fi": "viinirypäle",
+      "category": "fruit",
+      "de": "die Weintraube"
+    },
+    {
+      "id": "fruit_plum",
+      "en": "plum",
+      "fi": "luumu",
+      "category": "fruit",
+      "de": "die Pflaume"
+    },
+    {
+      "id": "fruit_orange",
+      "en": "orange",
+      "fi": "appelsiini",
+      "category": "fruit",
+      "de": "die Orange"
+    },
+    {
+      "id": "fruit_blueberry",
+      "en": "blueberry",
+      "fi": "mustikka",
+      "category": "fruit",
+      "de": "die Blaubeere"
+    },
+    {
+      "id": "fruit_raspberry",
+      "en": "raspberry",
+      "fi": "vadelma",
+      "category": "fruit",
+      "de": "die Himbeere"
+    },
+    {
+      "id": "fruit_lemon",
+      "en": "lemon",
+      "fi": "sitruuna",
+      "category": "fruit",
+      "de": "die Zitrone"
+    },
+    {
+      "id": "fruit_pineapple",
+      "en": "pineapple",
+      "fi": "ananas",
+      "category": "fruit",
+      "de": "die Ananas"
+    },
+    {
+      "id": "fruit_pear",
+      "en": "pear",
+      "fi": "päärynä",
+      "category": "fruit",
+      "de": "die Birne"
+    },
+    {
+      "id": "polite_phrases_please",
+      "en": "please",
+      "fi": "ole hyvä / kiitos (pyydettäessä)",
+      "category": "polite_phrases",
+      "de": "bitte"
+    },
+    {
+      "id": "polite_phrases_thank_you",
+      "en": "thank you",
+      "fi": "kiitos",
+      "category": "polite_phrases",
+      "de": "danke"
+    },
+    {
+      "id": "polite_phrases_sorry",
+      "en": "sorry",
+      "fi": "anteeksi",
+      "category": "polite_phrases",
+      "de": "Entschuldigung"
+    },
+    {
+      "id": "polite_phrases_excuse_me",
+      "en": "excuse me",
+      "fi": "anteeksi (huomion herättämiseen)",
+      "category": "polite_phrases",
+      "de": "Entschuldigung"
+    },
+    {
+      "id": "polite_phrases_pardon",
+      "en": "pardon?",
+      "fi": "anteeksi, mitä?",
+      "category": "polite_phrases",
+      "de": "wie bitte?"
+    },
+    {
+      "id": "polite_phrases_here_you_are",
+      "en": "here you are",
+      "fi": "ole hyvä (annettaessa jotain)",
+      "category": "polite_phrases",
+      "de": "bitte schön"
+    },
+    {
+      "id": "time_o_clock",
+      "en": "o'clock",
+      "fi": "tasatunti",
+      "category": "time",
+      "de": "Uhr"
+    },
+    {
+      "id": "time_quarter_past",
+      "en": "quarter past",
+      "fi": "vartin yli",
+      "category": "time",
+      "de": "Viertel nach"
+    },
+    {
+      "id": "time_half_past",
+      "en": "half past",
+      "fi": "puoli",
+      "category": "time",
+      "de": "halb"
+    },
+    {
+      "id": "time_late",
+      "en": "late",
+      "fi": "myöhässä",
+      "category": "time",
+      "de": "spät"
+    },
+    {
+      "id": "time_early",
+      "en": "early",
+      "fi": "aikaisin",
+      "category": "time",
+      "de": "früh"
+    },
+    {
+      "id": "family_mother",
+      "en": "mother",
+      "fi": "äiti",
+      "category": "family",
+      "de": "die Mutter"
+    },
+    {
+      "id": "family_father",
+      "en": "father",
+      "fi": "isä",
+      "category": "family",
+      "de": "der Vater"
+    },
+    {
+      "id": "family_sister",
+      "en": "sister",
+      "fi": "sisko",
+      "category": "family",
+      "de": "die Schwester"
+    },
+    {
+      "id": "family_brother",
+      "en": "brother",
+      "fi": "veli",
+      "category": "family",
+      "de": "der Bruder"
+    },
+    {
+      "id": "family_grandma",
+      "en": "grandmother",
+      "fi": "isoäiti",
+      "category": "family",
+      "de": "die Großmutter"
+    },
+    {
+      "id": "family_grandpa",
+      "en": "grandfather",
+      "fi": "isoisä",
+      "category": "family",
+      "de": "der Großvater"
+    },
+    {
+      "id": "family_family",
+      "en": "family",
+      "fi": "perhe",
+      "category": "family",
+      "de": "die Familie"
+    },
+    {
+      "id": "family_cousin",
+      "en": "cousin",
+      "fi": "serkku",
+      "category": "family",
+      "de": "der Cousin / die Cousine"
+    },
+    {
+      "id": "family_baby",
+      "en": "baby",
+      "fi": "vauva",
+      "category": "family",
+      "de": "das Baby"
+    },
+    {
+      "id": "family_pet",
+      "en": "pet",
+      "fi": "lemmikki",
+      "category": "family",
+      "de": "das Haustier"
+    },
+    {
+      "id": "myself_name",
+      "en": "name",
+      "fi": "nimi",
+      "category": "myself",
+      "de": "der Name"
+    },
+    {
+      "id": "myself_age",
+      "en": "age",
+      "fi": "ikä",
+      "category": "myself",
+      "de": "das Alter"
+    },
+    {
+      "id": "myself_happy",
+      "en": "happy",
+      "fi": "iloinen",
+      "category": "myself",
+      "de": "glücklich"
+    },
+    {
+      "id": "myself_sad",
+      "en": "sad",
+      "fi": "surullinen",
+      "category": "myself",
+      "de": "traurig"
+    },
+    {
+      "id": "myself_tired",
+      "en": "tired",
+      "fi": "väsynyt",
+      "category": "myself",
+      "de": "müde"
+    },
+    {
+      "id": "myself_hungry",
+      "en": "hungry",
+      "fi": "nälkäinen",
+      "category": "myself",
+      "de": "hungrig"
+    },
+    {
+      "id": "myself_scared",
+      "en": "scared",
+      "fi": "peloissaan",
+      "category": "myself",
+      "de": "ängstlich"
+    },
+    {
+      "id": "myself_excited",
+      "en": "excited",
+      "fi": "innoissaan",
+      "category": "myself",
+      "de": "aufgeregt"
+    },
+    {
+      "id": "hobbies_football",
+      "en": "football",
+      "fi": "jalkapallo",
+      "category": "hobbies",
+      "de": "der Fußball"
+    },
+    {
+      "id": "hobbies_reading",
+      "en": "reading",
+      "fi": "lukeminen",
+      "category": "hobbies",
+      "de": "das Lesen"
+    },
+    {
+      "id": "hobbies_drawing",
+      "en": "drawing",
+      "fi": "piirtäminen",
+      "category": "hobbies",
+      "de": "das Zeichnen"
+    },
+    {
+      "id": "hobbies_gaming",
+      "en": "gaming",
+      "fi": "pelaaminen",
+      "category": "hobbies",
+      "de": "das Videospielen"
+    },
+    {
+      "id": "hobbies_riding_a_bike",
+      "en": "riding a bike",
+      "fi": "pyöräily",
+      "category": "hobbies",
+      "de": "das Fahrradfahren"
+    },
+    {
+      "id": "hobbies_gymnastics",
+      "en": "gymnastics",
+      "fi": "voimistelu",
+      "category": "hobbies",
+      "de": "das Turnen"
+    },
+    {
+      "id": "hobbies_singing",
+      "en": "singing",
+      "fi": "laulaminen",
+      "category": "hobbies",
+      "de": "das Singen"
+    },
+    {
+      "id": "hobbies_collecting",
+      "en": "collecting",
+      "fi": "keräily",
+      "category": "hobbies",
+      "de": "das Sammeln"
+    },
+    {
+      "id": "greetings_phrases_hello",
+      "en": "hello",
+      "fi": "hei",
+      "category": "greetings_phrases",
+      "de": "hallo"
+    },
+    {
+      "id": "greetings_phrases_goodbye",
+      "en": "goodbye",
+      "fi": "näkemiin",
+      "category": "greetings_phrases",
+      "de": "auf Wiedersehen"
+    },
+    {
+      "id": "greetings_phrases_good_morning",
+      "en": "good morning",
+      "fi": "huomenta",
+      "category": "greetings_phrases",
+      "de": "guten Morgen"
+    },
+    {
+      "id": "greetings_phrases_how_are_you",
+      "en": "how are you?",
+      "fi": "mitä kuuluu?",
+      "category": "greetings_phrases",
+      "de": "wie geht es dir?"
+    },
+    {
+      "id": "greetings_phrases_my_name_is",
+      "en": "my name is ...",
+      "fi": "nimeni on ...",
+      "category": "greetings_phrases",
+      "de": "ich heiße ..."
+    },
+    {
+      "id": "greetings_phrases_see_you_later",
+      "en": "see you later",
+      "fi": "nähdään myöhemmin",
+      "category": "greetings_phrases",
+      "de": "bis später"
+    },
+    {
+      "id": "greetings_phrases_welcome",
+      "en": "welcome",
+      "fi": "tervetuloa",
+      "category": "greetings_phrases",
+      "de": "willkommen"
+    },
+    {
+      "id": "colours_red",
+      "en": "red",
+      "fi": "punainen",
+      "category": "colours",
+      "de": "rot"
+    },
+    {
+      "id": "colours_blue",
+      "en": "blue",
+      "fi": "sininen",
+      "category": "colours",
+      "de": "blau"
+    },
+    {
+      "id": "colours_green",
+      "en": "green",
+      "fi": "vihreä",
+      "category": "colours",
+      "de": "grün"
+    },
+    {
+      "id": "colours_yellow",
+      "en": "yellow",
+      "fi": "keltainen",
+      "category": "colours",
+      "de": "gelb"
+    },
+    {
+      "id": "colours_black",
+      "en": "black",
+      "fi": "musta",
+      "category": "colours",
+      "de": "schwarz"
+    },
+    {
+      "id": "colours_white",
+      "en": "white",
+      "fi": "valkoinen",
+      "category": "colours",
+      "de": "weiß"
+    },
+    {
+      "id": "colours_pink",
+      "en": "pink",
+      "fi": "pinkki",
+      "category": "colours",
+      "de": "rosa"
+    },
+    {
+      "id": "colours_orange_colour",
+      "en": "orange",
+      "fi": "oranssi",
+      "category": "colours",
+      "de": "orange"
+    },
+    {
+      "id": "numbers_one",
+      "en": "one",
+      "fi": "yksi",
+      "category": "numbers",
+      "de": "eins"
+    },
+    {
+      "id": "numbers_two",
+      "en": "two",
+      "fi": "kaksi",
+      "category": "numbers",
+      "de": "zwei"
+    },
+    {
+      "id": "numbers_three",
+      "en": "three",
+      "fi": "kolme",
+      "category": "numbers",
+      "de": "drei"
+    },
+    {
+      "id": "numbers_four",
+      "en": "four",
+      "fi": "neljä",
+      "category": "numbers",
+      "de": "vier"
+    },
+    {
+      "id": "numbers_five",
+      "en": "five",
+      "fi": "viisi",
+      "category": "numbers",
+      "de": "fünf"
+    },
+    {
+      "id": "numbers_six",
+      "en": "six",
+      "fi": "kuusi",
+      "category": "numbers",
+      "de": "sechs"
+    },
+    {
+      "id": "numbers_seven",
+      "en": "seven",
+      "fi": "seitsemän",
+      "category": "numbers",
+      "de": "sieben"
+    },
+    {
+      "id": "numbers_eight",
+      "en": "eight",
+      "fi": "kahdeksan",
+      "category": "numbers",
+      "de": "acht"
+    },
+    {
+      "id": "numbers_nine",
+      "en": "nine",
+      "fi": "yhdeksän",
+      "category": "numbers",
+      "de": "neun"
+    },
+    {
+      "id": "numbers_ten",
+      "en": "ten",
+      "fi": "kymmenen",
+      "category": "numbers",
+      "de": "zehn"
+    },
+    {
+      "id": "gaming_minecraft_creeper",
+      "en": "creeper",
+      "fi": "creeper (Minecraft-hirviö)",
+      "category": "gaming_minecraft",
+      "de": "der Creeper (Minecraft-Monster)"
+    },
+    {
+      "id": "gaming_minecraft_diamond",
+      "en": "diamond",
+      "fi": "timantti",
+      "category": "gaming_minecraft",
+      "de": "der Diamant"
+    },
+    {
+      "id": "gaming_minecraft_sword",
+      "en": "sword",
+      "fi": "miekka",
+      "category": "gaming_minecraft",
+      "de": "das Schwert"
+    },
+    {
+      "id": "gaming_minecraft_pickaxe",
+      "en": "pickaxe",
+      "fi": "hakku",
+      "category": "gaming_minecraft",
+      "de": "die Spitzhacke"
+    },
+    {
+      "id": "gaming_minecraft_village",
+      "en": "village",
+      "fi": "kylä",
+      "category": "gaming_minecraft",
+      "de": "das Dorf"
+    },
+    {
+      "id": "gaming_minecraft_cave",
+      "en": "cave",
+      "fi": "luola",
+      "category": "gaming_minecraft",
+      "de": "die Höhle"
+    },
+    {
+      "id": "gaming_minecraft_mine",
+      "en": "mine",
+      "fi": "louhia / kaivos",
+      "category": "gaming_minecraft",
+      "de": "abbauen / die Mine"
+    },
+    {
+      "id": "gaming_minecraft_build",
+      "en": "build",
+      "fi": "rakentaa",
+      "category": "gaming_minecraft",
+      "de": "bauen"
+    },
+    {
+      "id": "gaming_minecraft_craft",
+      "en": "craft",
+      "fi": "askarrella / valmistaa (crafting)",
+      "category": "gaming_minecraft",
+      "de": "herstellen"
+    },
+    {
+      "id": "gaming_minecraft_survive",
+      "en": "survive",
+      "fi": "selviytyä",
+      "category": "gaming_minecraft",
+      "de": "überleben"
+    },
+    {
+      "id": "gaming_fortnite_island",
+      "en": "island",
+      "fi": "saari",
+      "category": "gaming_fortnite",
+      "de": "die Insel"
+    },
+    {
+      "id": "gaming_fortnite_storm",
+      "en": "storm",
+      "fi": "myrsky",
+      "category": "gaming_fortnite",
+      "de": "der Sturm"
+    },
+    {
+      "id": "gaming_fortnite_build_a_wall",
+      "en": "build a wall",
+      "fi": "rakentaa seinä",
+      "category": "gaming_fortnite",
+      "de": "eine Wand bauen"
+    },
+    {
+      "id": "gaming_fortnite_land",
+      "en": "land",
+      "fi": "laskeutua",
+      "category": "gaming_fortnite",
+      "de": "landen"
+    },
+    {
+      "id": "gaming_fortnite_loot",
+      "en": "loot",
+      "fi": "kerätä tavaraa (loot)",
+      "category": "gaming_fortnite",
+      "de": "Beute sammeln"
+    },
+    {
+      "id": "gaming_fortnite_shield",
+      "en": "shield",
+      "fi": "suoja",
+      "category": "gaming_fortnite",
+      "de": "der Schild"
+    },
+    {
+      "id": "gaming_fortnite_victory",
+      "en": "victory",
+      "fi": "voitto",
+      "category": "gaming_fortnite",
+      "de": "der Sieg"
+    },
+    {
+      "id": "gaming_fortnite_teammate",
+      "en": "teammate",
+      "fi": "joukkuekaveri",
+      "category": "gaming_fortnite",
+      "de": "der Teamkollege / die Teamkollegin"
+    },
+    {
+      "id": "colours_purple",
+      "en": "purple",
+      "fi": "violetti",
+      "category": "colours",
+      "de": "lila"
+    },
+    {
+      "id": "colours_brown",
+      "en": "brown",
+      "fi": "ruskea",
+      "category": "colours",
+      "de": "braun"
+    },
+    {
+      "id": "colours_grey",
+      "en": "grey",
+      "fi": "harmaa",
+      "category": "colours",
+      "de": "grau"
+    },
+    {
+      "id": "opposites_big",
+      "en": "big",
+      "fi": "iso",
+      "category": "yleissanat",
+      "de": "groß"
+    },
+    {
+      "id": "opposites_small",
+      "en": "small",
+      "fi": "pieni",
+      "category": "yleissanat",
+      "de": "klein"
+    },
+    {
+      "id": "opposites_old",
+      "en": "old",
+      "fi": "vanha",
+      "category": "yleissanat",
+      "de": "alt"
+    },
+    {
+      "id": "opposites_new",
+      "en": "new",
+      "fi": "uusi",
+      "category": "yleissanat",
+      "de": "neu"
+    },
+    {
+      "id": "opposites_good",
+      "en": "good",
+      "fi": "hyvä",
+      "category": "yleissanat",
+      "de": "gut"
+    },
+    {
+      "id": "opposites_bad",
+      "en": "bad",
+      "fi": "huono",
+      "category": "yleissanat",
+      "de": "schlecht"
+    },
+    {
+      "id": "opposites_easy",
+      "en": "easy",
+      "fi": "helppo",
+      "category": "yleissanat",
+      "de": "einfach"
+    },
+    {
+      "id": "opposites_hard",
+      "en": "hard",
+      "fi": "vaikea",
+      "category": "yleissanat",
+      "de": "schwer"
+    },
+    {
+      "id": "opposites_hot",
+      "en": "hot",
+      "fi": "kuuma",
+      "category": "yleissanat",
+      "de": "heiß"
+    },
+    {
+      "id": "opposites_cold",
+      "en": "cold",
+      "fi": "kylmä",
+      "category": "yleissanat",
+      "de": "kalt"
+    },
+    {
+      "id": "opposites_heavy",
+      "en": "heavy",
+      "fi": "raskas",
+      "category": "yleissanat",
+      "de": "schwer"
+    },
+    {
+      "id": "opposites_light",
+      "en": "light",
+      "fi": "kevyt",
+      "category": "yleissanat",
+      "de": "leicht"
+    },
+    {
+      "id": "opposites_full",
+      "en": "full",
+      "fi": "täysi",
+      "category": "yleissanat",
+      "de": "voll"
+    },
+    {
+      "id": "opposites_empty",
+      "en": "empty",
+      "fi": "tyhjä",
+      "category": "yleissanat",
+      "de": "leer"
+    },
+    {
+      "id": "opposites_clean",
+      "en": "clean",
+      "fi": "puhdas",
+      "category": "yleissanat",
+      "de": "sauber"
+    },
+    {
+      "id": "opposites_dirty",
+      "en": "dirty",
+      "fi": "likainen",
+      "category": "yleissanat",
+      "de": "schmutzig"
+    },
+    {
+      "id": "weather_seasons_rain",
+      "en": "rain",
+      "fi": "sade",
+      "category": "weather_seasons",
+      "de": "der Regen"
+    },
+    {
+      "id": "weather_seasons_snow",
+      "en": "snow",
+      "fi": "lumi",
+      "category": "weather_seasons",
+      "de": "der Schnee"
+    },
+    {
+      "id": "weather_seasons_sun",
+      "en": "sun",
+      "fi": "aurinko",
+      "category": "weather_seasons",
+      "de": "die Sonne"
+    },
+    {
+      "id": "weather_seasons_wind",
+      "en": "wind",
+      "fi": "tuuli",
+      "category": "weather_seasons",
+      "de": "der Wind"
+    },
+    {
+      "id": "weather_seasons_cloud",
+      "en": "cloud",
+      "fi": "pilvi",
+      "category": "weather_seasons",
+      "de": "die Wolke"
+    },
+    {
+      "id": "weather_seasons_spring",
+      "en": "spring",
+      "fi": "kevät",
+      "category": "weather_seasons",
+      "de": "der Frühling"
+    },
+    {
+      "id": "weather_seasons_summer",
+      "en": "summer",
+      "fi": "kesä",
+      "category": "weather_seasons",
+      "de": "der Sommer"
+    },
+    {
+      "id": "weather_seasons_autumn",
+      "en": "autumn",
+      "fi": "syksy",
+      "category": "weather_seasons",
+      "de": "der Herbst"
+    },
+    {
+      "id": "weather_seasons_winter",
+      "en": "winter",
+      "fi": "talvi",
+      "category": "weather_seasons",
+      "de": "der Winter"
+    },
+    {
+      "id": "animals_dog",
+      "en": "dog",
+      "fi": "koira",
+      "category": "animals",
+      "de": "der Hund"
+    },
+    {
+      "id": "animals_cat",
+      "en": "cat",
+      "fi": "kissa",
+      "category": "animals",
+      "de": "die Katze"
+    },
+    {
+      "id": "animals_horse",
+      "en": "horse",
+      "fi": "hevonen",
+      "category": "animals",
+      "de": "das Pferd"
+    },
+    {
+      "id": "animals_bird",
+      "en": "bird",
+      "fi": "lintu",
+      "category": "animals",
+      "de": "der Vogel"
+    },
+    {
+      "id": "animals_cow",
+      "en": "cow",
+      "fi": "lehmä",
+      "category": "animals",
+      "de": "die Kuh"
+    },
+    {
+      "id": "animals_sheep",
+      "en": "sheep",
+      "fi": "lammas",
+      "category": "animals",
+      "de": "das Schaf"
+    },
+    {
+      "id": "animals_rabbit",
+      "en": "rabbit",
+      "fi": "kani",
+      "category": "animals",
+      "de": "das Kaninchen"
+    },
+    {
+      "id": "animals_mouse",
+      "en": "mouse",
+      "fi": "hiiri",
+      "category": "animals",
+      "de": "die Maus"
+    },
+    {
+      "id": "house_rooms_house",
+      "en": "house",
+      "fi": "talo",
+      "category": "house_rooms",
+      "de": "das Haus"
+    },
+    {
+      "id": "house_rooms_room",
+      "en": "room",
+      "fi": "huone",
+      "category": "house_rooms",
+      "de": "das Zimmer"
+    },
+    {
+      "id": "house_rooms_kitchen",
+      "en": "kitchen",
+      "fi": "keittiö",
+      "category": "house_rooms",
+      "de": "die Küche"
+    },
+    {
+      "id": "house_rooms_bedroom",
+      "en": "bedroom",
+      "fi": "makuuhuone",
+      "category": "house_rooms",
+      "de": "das Schlafzimmer"
+    },
+    {
+      "id": "house_rooms_bathroom",
+      "en": "bathroom",
+      "fi": "kylpyhuone",
+      "category": "house_rooms",
+      "de": "das Badezimmer"
+    },
+    {
+      "id": "house_rooms_garden",
+      "en": "garden",
+      "fi": "puutarha",
+      "category": "house_rooms",
+      "de": "der Garten"
+    },
+    {
+      "id": "house_rooms_door",
+      "en": "door",
+      "fi": "ovi",
+      "category": "house_rooms",
+      "de": "die Tür"
+    },
+    {
+      "id": "house_rooms_window",
+      "en": "window",
+      "fi": "ikkuna",
+      "category": "house_rooms",
+      "de": "das Fenster"
+    },
+    {
+      "id": "body_parts_head",
+      "en": "head",
+      "fi": "pää",
+      "category": "body_parts",
+      "de": "der Kopf"
+    },
+    {
+      "id": "body_parts_hand",
+      "en": "hand",
+      "fi": "käsi",
+      "category": "body_parts",
+      "de": "die Hand"
+    },
+    {
+      "id": "body_parts_foot",
+      "en": "foot",
+      "fi": "jalka",
+      "category": "body_parts",
+      "de": "der Fuß"
+    },
+    {
+      "id": "body_parts_eye",
+      "en": "eye",
+      "fi": "silmä",
+      "category": "body_parts",
+      "de": "das Auge"
+    },
+    {
+      "id": "body_parts_ear",
+      "en": "ear",
+      "fi": "korva",
+      "category": "body_parts",
+      "de": "das Ohr"
+    },
+    {
+      "id": "body_parts_mouth",
+      "en": "mouth",
+      "fi": "suu",
+      "category": "body_parts",
+      "de": "der Mund"
+    },
+    {
+      "id": "body_parts_nose",
+      "en": "nose",
+      "fi": "nenä",
+      "category": "body_parts",
+      "de": "die Nase"
+    },
+    {
+      "id": "body_parts_hair",
+      "en": "hair",
+      "fi": "hiukset",
+      "category": "body_parts",
+      "de": "die Haare"
+    },
+    {
+      "id": "clothes_shirt",
+      "en": "shirt",
+      "fi": "paita",
+      "category": "clothes",
+      "de": "das Hemd"
+    },
+    {
+      "id": "clothes_trousers",
+      "en": "trousers",
+      "fi": "housut",
+      "category": "clothes",
+      "de": "die Hose"
+    },
+    {
+      "id": "clothes_shoes",
+      "en": "shoes",
+      "fi": "kengät",
+      "category": "clothes",
+      "de": "die Schuhe"
+    },
+    {
+      "id": "clothes_jacket",
+      "en": "jacket",
+      "fi": "takki",
+      "category": "clothes",
+      "de": "die Jacke"
+    },
+    {
+      "id": "clothes_hat",
+      "en": "hat",
+      "fi": "pipo/hattu",
+      "category": "clothes",
+      "de": "die Mütze / der Hut"
+    },
+    {
+      "id": "clothes_socks",
+      "en": "socks",
+      "fi": "sukat",
+      "category": "clothes",
+      "de": "die Socken"
+    },
+    {
+      "id": "clothes_dress",
+      "en": "dress",
+      "fi": "mekko",
+      "category": "clothes",
+      "de": "das Kleid"
+    },
+    {
+      "id": "clothes_jumper",
+      "en": "jumper",
+      "fi": "neule/villapaita",
+      "category": "clothes",
+      "de": "der Pullover"
+    },
+    {
+      "id": "school_objects_book",
+      "en": "book",
+      "fi": "kirja",
+      "category": "school_objects",
+      "de": "das Buch"
+    },
+    {
+      "id": "school_objects_pen",
+      "en": "pen",
+      "fi": "kynä",
+      "category": "school_objects",
+      "de": "der Kugelschreiber"
+    },
+    {
+      "id": "school_objects_pencil",
+      "en": "pencil",
+      "fi": "lyijykynä",
+      "category": "school_objects",
+      "de": "der Bleistift"
+    },
+    {
+      "id": "school_objects_ruler",
+      "en": "ruler",
+      "fi": "viivain",
+      "category": "school_objects",
+      "de": "das Lineal"
+    },
+    {
+      "id": "school_objects_eraser",
+      "en": "eraser",
+      "fi": "pyyhekumi",
+      "category": "school_objects",
+      "de": "der Radiergummi"
+    },
+    {
+      "id": "school_objects_notebook",
+      "en": "notebook",
+      "fi": "vihko",
+      "category": "school_objects",
+      "de": "das Heft"
+    }
+  ]
+};
 
 const DB_NAME = "kieliohjelma_db";
 const DB_VERSION = 1;
@@ -1578,5 +3536,3 @@ window.addEventListener("resize", () => { if (activeMode === "pen") setupPenPad(
   initSessionPool(); // rakennetaan pooli uudelleen nyt kun oikea edistyminen on tiedossa
 })();
 </script>
-</body>
-</html>

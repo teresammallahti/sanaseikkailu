@@ -525,9 +525,9 @@ const VOCAB = {
     "language_target": "en",
     "language_native": "fi",
     "level": "4lk",
-    "version": 5,
+    "version": 6,
     "created": "2026-09-02",
-    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa. v4: lisätty täydennyksiä olemassa oleviin kategorioihin (colours: purple/brown/grey; opposites: 8 uutta vastaparia) sekä kuusi uutta kategoriaa (weather_seasons, animals, house_rooms, body_parts, clothes, school_objects) POPS 2014 -aihepiirien ja yleisen 4. luokan sanaston perusteella, käyttäjän hyväksynnän jälkeen (ehdotukset_v4.md). Kaikille uusille sanoille pysyvä id, olemassa olevat id:t eivät muuttuneet. v5: lisätty saksankieliset käännökset (kenttä 'de') kaikille 260 sanalle, artikkelien (der/die/das) kanssa substantiiveille - vakiintuneen saksan opetuskäytännön mukaisesti suku opetellaan heti sanan mukana. Sama sanasto ja kategoriat kuin englannissa/suomessa, id:t muuttumattomat.",
+    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa. v4: lisätty täydennyksiä olemassa oleviin kategorioihin (colours: purple/brown/grey; opposites: 8 uutta vastaparia) sekä kuusi uutta kategoriaa (weather_seasons, animals, house_rooms, body_parts, clothes, school_objects) POPS 2014 -aihepiirien ja yleisen 4. luokan sanaston perusteella, käyttäjän hyväksynnän jälkeen (ehdotukset_v4.md). Kaikille uusille sanoille pysyvä id, olemassa olevat id:t eivät muuttuneet. v5: lisätty saksankieliset käännökset (kenttä 'de') kaikille 260 sanalle, artikkelien (der/die/das) kanssa substantiiveille - vakiintuneen saksan opetuskäytännön mukaisesti suku opetellaan heti sanan mukana. Sama sanasto ja kategoriat kuin englannissa/suomessa, id:t muuttumattomat. v6: Sanat järjestetty OPSin teemojen mukaan. Teemat personality, opposites, verbs_action ja verbs_communication yhdistetty teemaan 'yleissanat' (group=general). Kaikki muut teemat merkitty group=ops paitsi gaming_minecraft ja gaming_fortnite, jotka merkitty group=hobby (vain manuaalisesti valittavissa, ei mukana 'kaikki teemat' -kierrossa tai yleissanojen varasanastona).",
     "notes": "Koottu 4. luokan englannin oppikirjan (skannattu, Scan_20260902_162833.pdf) teemojen pohjalta ilman kirjan kuvia tai tekstiä, täydennetty POPS 2014 (Englanti A-oppimäärä vl 3-6) aihepiirien mukaan. Rakenne on geneerinen (language_target/level -kentät), jotta samaa muotoa voi käyttää myöhemmin saksalle ja muille luokka-asteille.",
     "language_targets": [
       "en",
@@ -537,115 +537,128 @@ const VOCAB = {
   "categories": [
     {
       "id": "school_people",
-      "name_fi": "Koulun ihmiset"
+      "name_fi": "Koulun ihmiset",
+      "group": "ops"
     },
     {
       "id": "school_subjects",
-      "name_fi": "Kouluaineet"
+      "name_fi": "Kouluaineet",
+      "group": "ops"
     },
     {
       "id": "weekdays",
-      "name_fi": "Viikonpäivät"
-    },
-    {
-      "id": "personality",
-      "name_fi": "Luonteenpiirteet"
-    },
-    {
-      "id": "opposites",
-      "name_fi": "Vastakohdat"
-    },
-    {
-      "id": "verbs_action",
-      "name_fi": "Toimintaverbit"
-    },
-    {
-      "id": "verbs_communication",
-      "name_fi": "Puhumiseen liittyvät verbit"
+      "name_fi": "Viikonpäivät",
+      "group": "ops"
     },
     {
       "id": "places_town",
-      "name_fi": "Paikat kaupungissa"
+      "name_fi": "Paikat kaupungissa",
+      "group": "ops"
     },
     {
       "id": "belongings",
-      "name_fi": "Tavarat ja asusteet"
+      "name_fi": "Tavarat ja asusteet",
+      "group": "ops"
     },
     {
       "id": "appearance",
-      "name_fi": "Ulkonäkö"
+      "name_fi": "Ulkonäkö",
+      "group": "ops"
     },
     {
       "id": "food_savoury",
-      "name_fi": "Ruoka"
+      "name_fi": "Ruoka",
+      "group": "ops"
     },
     {
       "id": "fruit",
-      "name_fi": "Hedelmät ja marjat"
+      "name_fi": "Hedelmät ja marjat",
+      "group": "ops"
     },
     {
       "id": "polite_phrases",
-      "name_fi": "Kohteliaat ilmaukset"
+      "name_fi": "Kohteliaat ilmaukset",
+      "group": "ops"
     },
     {
       "id": "time",
-      "name_fi": "Kellonajat"
+      "name_fi": "Kellonajat",
+      "group": "ops"
     },
     {
       "id": "family",
-      "name_fi": "Perhe"
+      "name_fi": "Perhe",
+      "group": "ops"
     },
     {
       "id": "myself",
-      "name_fi": "Minä itse"
+      "name_fi": "Minä itse",
+      "group": "ops"
     },
     {
       "id": "hobbies",
-      "name_fi": "Harrastukset ja vapaa-aika"
+      "name_fi": "Harrastukset ja vapaa-aika",
+      "group": "ops"
     },
     {
       "id": "greetings_phrases",
-      "name_fi": "Tervehdykset ja arki-ilmaukset"
+      "name_fi": "Tervehdykset ja arki-ilmaukset",
+      "group": "ops"
     },
     {
       "id": "colours",
-      "name_fi": "Värit"
+      "name_fi": "Värit",
+      "group": "ops"
     },
     {
       "id": "numbers",
-      "name_fi": "Numerot"
+      "name_fi": "Numerot",
+      "group": "ops"
     },
     {
       "id": "gaming_minecraft",
-      "name_fi": "Pelisanasto: Minecraft"
+      "name_fi": "Pelisanasto: Minecraft",
+      "group": "hobby"
     },
     {
       "id": "gaming_fortnite",
-      "name_fi": "Pelisanasto: Fortnite"
+      "name_fi": "Pelisanasto: Fortnite",
+      "group": "hobby"
     },
     {
       "id": "weather_seasons",
-      "name_fi": "Sää ja vuodenajat"
+      "name_fi": "Sää ja vuodenajat",
+      "group": "ops"
     },
     {
       "id": "animals",
-      "name_fi": "Eläimet"
+      "name_fi": "Eläimet",
+      "group": "ops"
     },
     {
       "id": "house_rooms",
-      "name_fi": "Koti ja huoneet"
+      "name_fi": "Koti ja huoneet",
+      "group": "ops"
     },
     {
       "id": "body_parts",
-      "name_fi": "Kehonosat"
+      "name_fi": "Kehonosat",
+      "group": "ops"
     },
     {
       "id": "clothes",
-      "name_fi": "Vaatteet"
+      "name_fi": "Vaatteet",
+      "group": "ops"
     },
     {
       "id": "school_objects",
-      "name_fi": "Koulutarvikkeet"
+      "name_fi": "Koulutarvikkeet",
+      "group": "ops"
+    },
+    {
+      "id": "yleissanat",
+      "name_fi": "Yleissanat",
+      "group": "general"
     }
   ],
   "words": [
@@ -856,294 +869,294 @@ const VOCAB = {
       "id": "personality_clumsy",
       "en": "clumsy",
       "fi": "kömpelö",
-      "category": "personality",
+      "category": "yleissanat",
       "de": "tollpatschig"
     },
     {
       "id": "personality_clever",
       "en": "clever",
       "fi": "älykäs",
-      "category": "personality",
+      "category": "yleissanat",
       "de": "klug"
     },
     {
       "id": "personality_shy",
       "en": "shy",
       "fi": "ujo",
-      "category": "personality",
+      "category": "yleissanat",
       "de": "schüchtern"
     },
     {
       "id": "personality_lazy",
       "en": "lazy",
       "fi": "laiska",
-      "category": "personality",
+      "category": "yleissanat",
       "de": "faul"
     },
     {
       "id": "personality_creative",
       "en": "creative",
       "fi": "luova",
-      "category": "personality",
+      "category": "yleissanat",
       "de": "kreativ"
     },
     {
       "id": "personality_funny",
       "en": "funny",
       "fi": "hassu",
-      "category": "personality",
+      "category": "yleissanat",
       "de": "lustig"
     },
     {
       "id": "personality_active",
       "en": "active",
       "fi": "aktiivinen",
-      "category": "personality",
+      "category": "yleissanat",
       "de": "aktiv"
     },
     {
       "id": "personality_sporty",
       "en": "sporty",
       "fi": "urheilullinen",
-      "category": "personality",
+      "category": "yleissanat",
       "de": "sportlich"
     },
     {
       "id": "personality_brave",
       "en": "brave",
       "fi": "rohkea",
-      "category": "personality",
+      "category": "yleissanat",
       "de": "mutig"
     },
     {
       "id": "personality_curious",
       "en": "curious",
       "fi": "utelias",
-      "category": "personality",
+      "category": "yleissanat",
       "de": "neugierig"
     },
     {
       "id": "personality_calm",
       "en": "calm",
       "fi": "rauhallinen",
-      "category": "personality",
+      "category": "yleissanat",
       "de": "ruhig"
     },
     {
       "id": "personality_kind",
       "en": "kind",
       "fi": "ystävällinen",
-      "category": "personality",
+      "category": "yleissanat",
       "de": "freundlich"
     },
     {
       "id": "opposites_fast",
       "en": "fast",
       "fi": "nopea",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "schnell"
     },
     {
       "id": "opposites_slow",
       "en": "slow",
       "fi": "hidas",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "langsam"
     },
     {
       "id": "opposites_strong",
       "en": "strong",
       "fi": "vahva",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "stark"
     },
     {
       "id": "opposites_weak",
       "en": "weak",
       "fi": "heikko",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "schwach"
     },
     {
       "id": "opposites_loud",
       "en": "loud",
       "fi": "äänekäs",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "laut"
     },
     {
       "id": "opposites_quiet",
       "en": "quiet",
       "fi": "hiljainen",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "leise"
     },
     {
       "id": "opposites_tall",
       "en": "tall",
       "fi": "pitkä",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "groß"
     },
     {
       "id": "opposites_short",
       "en": "short",
       "fi": "lyhyt",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "klein"
     },
     {
       "id": "verbs_communication_wait",
       "en": "wait",
       "fi": "odottaa",
-      "category": "verbs_communication",
+      "category": "yleissanat",
       "de": "warten"
     },
     {
       "id": "verbs_communication_ask",
       "en": "ask",
       "fi": "kysyä",
-      "category": "verbs_communication",
+      "category": "yleissanat",
       "de": "fragen"
     },
     {
       "id": "verbs_communication_think",
       "en": "think",
       "fi": "ajatella",
-      "category": "verbs_communication",
+      "category": "yleissanat",
       "de": "denken"
     },
     {
       "id": "verbs_communication_shout",
       "en": "shout",
       "fi": "huutaa",
-      "category": "verbs_communication",
+      "category": "yleissanat",
       "de": "schreien"
     },
     {
       "id": "verbs_communication_talk",
       "en": "talk",
       "fi": "puhua",
-      "category": "verbs_communication",
+      "category": "yleissanat",
       "de": "sprechen"
     },
     {
       "id": "verbs_communication_listen",
       "en": "listen",
       "fi": "kuunnella",
-      "category": "verbs_communication",
+      "category": "yleissanat",
       "de": "zuhören"
     },
     {
       "id": "verbs_communication_laugh",
       "en": "laugh",
       "fi": "nauraa",
-      "category": "verbs_communication",
+      "category": "yleissanat",
       "de": "lachen"
     },
     {
       "id": "verbs_communication_smile",
       "en": "smile",
       "fi": "hymyillä",
-      "category": "verbs_communication",
+      "category": "yleissanat",
       "de": "lächeln"
     },
     {
       "id": "verbs_action_run",
       "en": "run",
       "fi": "juosta",
-      "category": "verbs_action",
+      "category": "yleissanat",
       "de": "rennen"
     },
     {
       "id": "verbs_action_walk",
       "en": "walk",
       "fi": "kävellä",
-      "category": "verbs_action",
+      "category": "yleissanat",
       "de": "gehen"
     },
     {
       "id": "verbs_action_look",
       "en": "look",
       "fi": "katsoa",
-      "category": "verbs_action",
+      "category": "yleissanat",
       "de": "schauen"
     },
     {
       "id": "verbs_action_ride_a_bike",
       "en": "ride a bike",
       "fi": "ajaa pyörällä",
-      "category": "verbs_action",
+      "category": "yleissanat",
       "de": "Fahrrad fahren"
     },
     {
       "id": "verbs_action_swim",
       "en": "swim",
       "fi": "uida",
-      "category": "verbs_action",
+      "category": "yleissanat",
       "de": "schwimmen"
     },
     {
       "id": "verbs_action_watch_tv",
       "en": "watch television",
       "fi": "katsoa televisiota",
-      "category": "verbs_action",
+      "category": "yleissanat",
       "de": "fernsehen"
     },
     {
       "id": "verbs_action_drive_a_car",
       "en": "drive a car",
       "fi": "ajaa autoa",
-      "category": "verbs_action",
+      "category": "yleissanat",
       "de": "Auto fahren"
     },
     {
       "id": "verbs_action_dance",
       "en": "dance",
       "fi": "tanssia",
-      "category": "verbs_action",
+      "category": "yleissanat",
       "de": "tanzen"
     },
     {
       "id": "verbs_action_climb_a_tree",
       "en": "climb a tree",
       "fi": "kiivetä puuhun",
-      "category": "verbs_action",
+      "category": "yleissanat",
       "de": "auf einen Baum klettern"
     },
     {
       "id": "verbs_action_paint",
       "en": "paint",
       "fi": "maalata",
-      "category": "verbs_action",
+      "category": "yleissanat",
       "de": "malen"
     },
     {
       "id": "verbs_action_sleep",
       "en": "sleep",
       "fi": "nukkua",
-      "category": "verbs_action",
+      "category": "yleissanat",
       "de": "schlafen"
     },
     {
       "id": "verbs_action_throw_a_ball",
       "en": "throw a ball",
       "fi": "heittää palloa",
-      "category": "verbs_action",
+      "category": "yleissanat",
       "de": "einen Ball werfen"
     },
     {
       "id": "verbs_action_play_basketball",
       "en": "play basketball",
       "fi": "pelata koripalloa",
-      "category": "verbs_action",
+      "category": "yleissanat",
       "de": "Basketball spielen"
     },
     {
       "id": "verbs_action_open_the_door",
       "en": "open the door",
       "fi": "avata ovi",
-      "category": "verbs_action",
+      "category": "yleissanat",
       "de": "die Tür öffnen"
     },
     {
@@ -2032,112 +2045,112 @@ const VOCAB = {
       "id": "opposites_big",
       "en": "big",
       "fi": "iso",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "groß"
     },
     {
       "id": "opposites_small",
       "en": "small",
       "fi": "pieni",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "klein"
     },
     {
       "id": "opposites_old",
       "en": "old",
       "fi": "vanha",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "alt"
     },
     {
       "id": "opposites_new",
       "en": "new",
       "fi": "uusi",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "neu"
     },
     {
       "id": "opposites_good",
       "en": "good",
       "fi": "hyvä",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "gut"
     },
     {
       "id": "opposites_bad",
       "en": "bad",
       "fi": "huono",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "schlecht"
     },
     {
       "id": "opposites_easy",
       "en": "easy",
       "fi": "helppo",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "einfach"
     },
     {
       "id": "opposites_hard",
       "en": "hard",
       "fi": "vaikea",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "schwer"
     },
     {
       "id": "opposites_hot",
       "en": "hot",
       "fi": "kuuma",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "heiß"
     },
     {
       "id": "opposites_cold",
       "en": "cold",
       "fi": "kylmä",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "kalt"
     },
     {
       "id": "opposites_heavy",
       "en": "heavy",
       "fi": "raskas",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "schwer"
     },
     {
       "id": "opposites_light",
       "en": "light",
       "fi": "kevyt",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "leicht"
     },
     {
       "id": "opposites_full",
       "en": "full",
       "fi": "täysi",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "voll"
     },
     {
       "id": "opposites_empty",
       "en": "empty",
       "fi": "tyhjä",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "leer"
     },
     {
       "id": "opposites_clean",
       "en": "clean",
       "fi": "puhdas",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "sauber"
     },
     {
       "id": "opposites_dirty",
       "en": "dirty",
       "fi": "likainen",
-      "category": "opposites",
+      "category": "yleissanat",
       "de": "schmutzig"
     },
     {
@@ -2637,6 +2650,7 @@ function selectTargetLang(lang){
   syncLangButtons();
   PRACTICE_WORDS = practiceWords();
   current = null;
+  initSessionPool();
   pickWord();
 }
 
@@ -2649,6 +2663,13 @@ function categoryName(id){
   return c ? c.name_fi : id;
 }
 
+function categoryGroup(id){
+  const c = VOCAB.categories.find(c => c.id === id);
+  return c ? (c.group || "ops") : "ops";
+}
+
+const GENERAL_CATEGORY_ID = "yleissanat";
+
 function setupCategoryFilter(){
   VOCAB.categories.forEach(c => {
     const opt = document.createElement("option");
@@ -2658,6 +2679,7 @@ function setupCategoryFilter(){
   });
   categoryFilter.addEventListener("change", () => {
     currentCategory = categoryFilter.value;
+    initSessionPool();
     pickWord();
   });
 }
@@ -2669,40 +2691,83 @@ function activeWordPool(){
   return pool.length ? pool : PRACTICE_WORDS;
 }
 
+// Sanat, jotka voivat kiertää automaattisessa aktiivijoukossa valitulla teemarajauksella.
+// "Kaikki teemat" -valinnassa harrasteteemat (group=hobby, esim. Minecraft/Fortnite) jätetään
+// automaattikierron ulkopuolelle - ne ovat vain käsin valittavissa teemavalikosta.
+function eligibleWordsForCategoryScope(catId){
+  if (catId === "all"){
+    return PRACTICE_WORDS.filter(w => categoryGroup(w.category) !== "hobby");
+  }
+  return PRACTICE_WORDS.filter(w => w.category === catId);
+}
+
+function generalFallbackWords(){
+  return PRACTICE_WORDS.filter(w => w.category === GENERAL_CATEGORY_ID);
+}
+
 // --- Kolmivaiheinen oppimispolku: piirrä -> kirjoita -> puhu ---
 // Vaihe 1 (piirto): sana pitää saada kerran oikein KUMPAANKIN suuntaan
 // (kohdekieli->suomi ja suomi->kohdekieli) ilman että väliin tulee väärä
-// vastaus siinä suunnassa - sama suuntapari kuin aiemmassa ⭐-mittarissa,
-// mutta kynnys on nyt 1 (ei 2) ja lasketaan vain piirtotilan vastauksista.
-// Vaihe 2 (näppäimistö) ja vaihe 3 (puhe) eivät erottele suuntaa: kumpi
-// tahansa suunta kelpaa, kunhan peräkkäisiä oikeita vastauksia kertyy
-// vaadittu määrä ilman yhtäkään väärää välissä.
-const PEN_THRESHOLD = 1;
-const KEYBOARD_THRESHOLD = 3;
-const MIC_THRESHOLD = 4;
+// vastaus siinä suunnassa. Vaihe 2 (näppäimistö) ja vaihe 3 (puhe) eivät
+// erottele suuntaa: kumpi tahansa suunta kelpaa, kunhan peräkkäisiä oikeita
+// vastauksia kertyy vaadittu määrä ilman yhtäkään väärää välissä.
+//
+// Jokaisella vaiheella on KAKSI kynnystä:
+// - "Pass": alkuperäinen oppimiskriteeri - kun täyttyy, sanan näyttötiheys
+//   puolittuu, jotta fokus siirtyy muihin vielä opeteltaviin sanoihin.
+// - "Graduate": Pass + 2 lisäkertaa oikein samalla tavalla - kun täyttyy,
+//   sana siirtyy pysyvästi hierarkiassa seuraavalle vaiheelle (piirto -> näppäimistö
+//   -> puhe) eikä sitä enää näytetä alemmalla vaiheella, paitsi harvakseltaan kertauksena.
+const PEN_PASS = 1, PEN_GRADUATE = 3;
+const KEYBOARD_PASS = 3, KEYBOARD_GRADUATE = 5;
+const MIC_PASS = 4, MIC_GRADUATE = 6;
 
-function stagePenDone(stat){
+function stagePenPassed(stat){
   return !!stat
-    && (stat.streakTargetFi || 0) >= PEN_THRESHOLD
-    && (stat.streakFiTarget || 0) >= PEN_THRESHOLD;
+    && (stat.streakTargetFi || 0) >= PEN_PASS
+    && (stat.streakFiTarget || 0) >= PEN_PASS;
 }
-function stageKeyboardDone(stat){
-  return !!stat && (stat.streakKeyboard || 0) >= KEYBOARD_THRESHOLD;
+function stagePenGraduated(stat){
+  return !!stat
+    && (stat.streakTargetFi || 0) >= PEN_GRADUATE
+    && (stat.streakFiTarget || 0) >= PEN_GRADUATE;
 }
-function stageMicDone(stat){
-  return !!stat && (stat.streakMic || 0) >= MIC_THRESHOLD;
+function stageKeyboardPassed(stat){
+  return !!stat && (stat.streakKeyboard || 0) >= KEYBOARD_PASS;
 }
-// Sana on täysin opittu vasta kun kaikki kolme vaihetta on suoritettu.
+function stageKeyboardGraduated(stat){
+  return !!stat && (stat.streakKeyboard || 0) >= KEYBOARD_GRADUATE;
+}
+function stageMicPassed(stat){
+  return !!stat && (stat.streakMic || 0) >= MIC_PASS;
+}
+function stageMicGraduated(stat){
+  return !!stat && (stat.streakMic || 0) >= MIC_GRADUATE;
+}
+// Sana on täysin opittu vasta kun kaikki kolme vaihetta on graduoitu.
 function isFullyLearned(stat){
-  return stagePenDone(stat) && stageKeyboardDone(stat) && stageMicDone(stat);
+  return stagePenGraduated(stat) && stageKeyboardGraduated(stat) && stageMicGraduated(stat);
 }
-// Palauttaa sanan seuraavan harjoitteluvaiheen: "pen" / "keyboard" / "mic" / "learned".
+// Palauttaa sanan nykyisen (vielä graduoimattoman) harjoitteluvaiheen:
+// "pen" / "keyboard" / "mic" / "learned".
 function stageForWord(word){
   const stat = statsCache[statId(word)];
-  if (!stagePenDone(stat)) return "pen";
-  if (!stageKeyboardDone(stat)) return "keyboard";
-  if (!stageMicDone(stat)) return "mic";
+  if (!stagePenGraduated(stat)) return "pen";
+  if (!stageKeyboardGraduated(stat)) return "keyboard";
+  if (!stageMicGraduated(stat)) return "mic";
   return "learned";
+}
+// Kertoo nykyisen vaiheen ja onko sen Pass-kynnys jo täyttynyt (näyttötiheyden
+// puolitusta varten) - Graduate-kynnykseen asti sana on vielä samalla vaiheella.
+function stageStatusForWord(word){
+  const stat = statsCache[statId(word)];
+  const stage = stageForWord(word);
+  let passed = false;
+  if (stage === "pen") passed = stagePenPassed(stat);
+  else if (stage === "keyboard") passed = stageKeyboardPassed(stat);
+  else if (stage === "mic") passed = stageMicPassed(stat);
+  else passed = true; // "learned": täysin graduoitu, näytetään vain harvakseltaan kertauksena
+  return { stage, passed };
 }
 
 // --- Palkintotasot: 6 päätasoa x 5 tähteä = 30 yhtä suurta askelta ---
@@ -2759,9 +2824,9 @@ function weightFor(word){
   w += (s.incorrectCount || 0) * 2;
   w -= Math.min(s.streakCorrect || 0, 3);
   w = Math.max(1, w);
-  // Jo täysin opittu sana näytetään puolet harvemmin, jotta harjoittelu
-  // painottuu vielä kesken oleviin sanoihin - sana kuitenkin kertautuu silloin tällöin.
-  if (isFullyLearned(s)) w *= 0.5;
+  // Kun nykyisen vaiheen Pass-kynnys on täyttynyt, sanaa näytetään puolet harvemmin,
+  // kunnes Graduate-kynnys täyttyy ja sana siirtyy seuraavalle vaiheelle kokonaan.
+  if (stageStatusForWord(word).passed) w *= 0.5;
   return w;
 }
 
@@ -2778,10 +2843,96 @@ function weightedPick(pool, avoidId){
   return usable[usable.length - 1];
 }
 
+// --- Aktiivinen sanaryhmä (rullaava ikkuna) ---
+// Ruudulla kierrätetään kerrallaan enintään ACTIVE_POOL_MAX sanaa, jottei koko
+// teeman (tai koko sanaston) laajuus tee sanojen hyväksytyksi saamisesta liian
+// hidasta - se voisi olla oppijalle demotivoivaa. Kun sana graduoituu pois
+// nykyiseltä vaiheelta, se poistuu aktiivijoukosta ja tilalle otetaan uusi sana
+// samasta teemasta; jos teema loppuu kesken, täydennetään teemasta "yleissanat".
+// Harrasteteemat (group=hobby) eivät koskaan toimi automaattitäydennyksen lähteenä.
+const ACTIVE_POOL_MIN = 10;
+const ACTIVE_POOL_MAX = 15;
+// Todennäköisyys, jolla kierros nostaa harjoitteluun jo täysin opitun (graduoidun)
+// sanan aktiivijoukon sijaan - pitää opitut sanat mielessä ilman että ne vievät
+// tilaa varsinaiselta oppimiselta.
+const REVIEW_CHANCE = 0.15;
+let sessionPool = [];
+let sessionPoolCategory = null;
+
+function isGraduatedWord(word){
+  return isFullyLearned(statsCache[statId(word)]);
+}
+
+function graduatedWordsInScope(catId){
+  return eligibleWordsForCategoryScope(catId).filter(isGraduatedWord);
+}
+
+// Täyttää pool-taulukkoa candidates-listasta needed-kokoon asti, ohittaen jo
+// mukana olevat (excludeIds) ja graduoituneet sanat.
+function fillPoolFrom(candidates, pool, excludeIds, needed){
+  for (const w of candidates){
+    if (pool.length >= needed) break;
+    if (excludeIds.has(w.id) || isGraduatedWord(w)) continue;
+    pool.push(w);
+    excludeIds.add(w.id);
+  }
+}
+
+// Täydentää annettua pool-taulukkoa: ensin nykyisen teemarajauksen (catId) kesken
+// olevista/uusista sanoista, ja jos ACTIVE_POOL_MIN ei täyty eikä rajaus itse ole
+// jo "yleissanat" tai harrasteteema, täydennetään teemasta "yleissanat".
+function topUpPool(pool, catId, excludeIds){
+  const primary = eligibleWordsForCategoryScope(catId).filter(w => !excludeIds.has(w.id));
+  fillPoolFrom(primary.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MAX);
+  fillPoolFrom(primary.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MAX);
+  if (pool.length < ACTIVE_POOL_MIN && catId !== GENERAL_CATEGORY_ID){
+    const scopeGroup = catId === "all" ? "all" : categoryGroup(catId);
+    if (scopeGroup !== "hobby"){
+      const general = generalFallbackWords().filter(w => !excludeIds.has(w.id));
+      fillPoolFrom(general.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
+      fillPoolFrom(general.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
+    }
+  }
+  return pool;
+}
+
+function buildSessionPool(catId){
+  return topUpPool([], catId, new Set());
+}
+
+// Rakentaa aktiivijoukon tyhjästä - kutsutaan sovelluksen käynnistyessä, teeman
+// vaihtuessa ja kohdekielen vaihtuessa.
+function initSessionPool(){
+  sessionPool = buildSessionPool(currentCategory);
+  sessionPoolCategory = currentCategory;
+}
+
+// Kutsutaan joka kierroksella pickWord():ssä. Pooli pysyy vakaana eikä rakennu
+// tyhjästä joka kerta - vain graduoituneet sanat poistetaan ja tilalle täydennetään.
+function pruneAndRefillSessionPool(){
+  if (sessionPoolCategory !== currentCategory){
+    initSessionPool();
+    return;
+  }
+  sessionPool = sessionPool.filter(w => !isGraduatedWord(w));
+  if (sessionPool.length < ACTIVE_POOL_MAX){
+    const excludeIds = new Set(sessionPool.map(w => w.id));
+    topUpPool(sessionPool, currentCategory, excludeIds);
+  }
+}
+
 async function pickWord(){
   // Valinta tehdään muistissa olevilla tiedoilla ja sana näytetään heti,
   // mittarit päivitetään tietokannasta vasta sen jälkeen.
-  const pool = activeWordPool();
+  pruneAndRefillSessionPool();
+  let pool;
+  if (Math.random() < REVIEW_CHANCE){
+    const reviewPool = graduatedWordsInScope(currentCategory);
+    pool = reviewPool.length ? reviewPool : sessionPool;
+  } else {
+    pool = sessionPool;
+  }
+  if (!pool.length) pool = activeWordPool();
   current = weightedPick(pool, current ? current.id : null);
   direction = Math.random() < 0.5 ? "target-fi" : "fi-target";
   applyStageForCurrentWord();
@@ -3380,6 +3531,7 @@ window.addEventListener("resize", () => { if (activeMode === "pen") setupPenPad(
   syncLangButtons(); // varmistaa napin tilan ja tekstin, jos kieli muistettiin laitteelta
   syncModeVisibility(); // näyttää joko tilapainikkeet tai vaiheilmaisimen asetuksen mukaan
   setupCategoryFilter();
+  initSessionPool(); // ensimmäinen pooli ilman tallennettua edistymistä (DB ei vielä ladattu)
   pickWord(); // ensimmäinen sana näkyviin heti, ei odoteta tietokantaa
   try {
     db = await openDB();
@@ -3387,6 +3539,7 @@ window.addEventListener("resize", () => { if (activeMode === "pen") setupPenPad(
     console.warn("IndexedDB ei käytettävissä, edistymistä ei tallenneta:", e);
   }
   await updateHeaderStats();
+  initSessionPool(); // rakennetaan pooli uudelleen nyt kun oikea edistyminen on tiedossa
 })();
 </script>
 </body>
