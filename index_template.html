@@ -446,10 +446,6 @@
         <input type="checkbox" id="autoSpeakToggle" checked>
         <span id="autoSpeakLabel">Lausu englanninkieliset sanat automaattisesti</span>
       </label>
-      <label class="auto-speak-toggle" for="forceOrderToggle">
-        <input type="checkbox" id="forceOrderToggle" checked>
-        Etene järjestyksessä: piirrä → kirjoita → puhu
-      </label>
     </section>
 
     <section class="answer-area">
@@ -458,7 +454,6 @@
         <button class="mode-btn active" data-mode="keyboard">⌨️ Näppäimistö</button>
         <button class="mode-btn" data-mode="mic">🎤 Puhu</button>
       </div>
-      <div class="stage-indicator" id="stageIndicator" hidden></div>
 
       <div class="answer-input-wrap visible" id="mode-keyboard">
         <input type="text" class="answer-box" id="answerBox" placeholder="Kirjoita vastaus tähän..." autocomplete="off">
@@ -618,33 +613,13 @@ const hearBtn = document.getElementById("hearBtn");
 const categoryFilter = document.getElementById("categoryFilter");
 const autoSpeakToggle = document.getElementById("autoSpeakToggle");
 const autoSpeakLabel = document.getElementById("autoSpeakLabel");
-const forceOrderToggle = document.getElementById("forceOrderToggle");
 const inputModesEl = document.getElementById("inputModes");
-const stageIndicatorEl = document.getElementById("stageIndicator");
 let autoSpeakTimer = null;
 
-// Pakotettu harjoittelujärjestys (piirrä -> kirjoita -> puhu) on oletuksena päällä,
-// mutta käyttäjä voi kytkeä sen pois asetuksesta - silloin sanan vaiheet edistyvät
-// silti taustalla riippumatta siitä missä järjestyksessä lapsi harjoittelee.
-let forceOrder = true;
-try {
-  const savedForce = localStorage.getItem("forceOrder");
-  if (savedForce !== null) forceOrder = savedForce === "1";
-} catch (e) { /* localStorage ei käytettävissä - käytetään oletusta */ }
-forceOrderToggle.checked = forceOrder;
-
-function syncModeVisibility(){
-  inputModesEl.hidden = forceOrder;
-  stageIndicatorEl.hidden = !forceOrder;
-}
-
-forceOrderToggle.addEventListener("change", () => {
-  forceOrder = forceOrderToggle.checked;
-  try { localStorage.setItem("forceOrder", forceOrder ? "1" : "0"); }
-  catch (e) { /* ei tallenneta, ei haittaa toimintaa */ }
-  syncModeVisibility();
-  applyStageForCurrentWord();
-});
+// Syöttötapa (kynä/näppäimistö/puhe) vaihtuu VAIN kun lapsi itse valitsee sen
+// tilapainikkeista - sovellus ei koskaan vaihda tilaa automaattisesti kesken
+// harjoittelun, vaikka sana etenisikin taustalla vaiheesta toiseen. Näin lapsi
+// voi pysyä esim. pelkässä kynäkirjoituksessa niin pitkään kuin haluaa.
 
 // Muistetaan valinta laitteella, jos selain sallii (ei vaikuta tallennettuun edistymiseen).
 try {
@@ -786,26 +761,17 @@ function stageMicGraduated(stat){
 function isFullyLearned(stat){
   return stagePenGraduated(stat) && stageKeyboardGraduated(stat) && stageMicGraduated(stat);
 }
-// Palauttaa sanan nykyisen (vielä graduoimattoman) harjoitteluvaiheen:
-// "pen" / "keyboard" / "mic" / "learned".
-function stageForWord(word){
-  const stat = statsCache[statId(word)];
-  if (!stagePenGraduated(stat)) return "pen";
-  if (!stageKeyboardGraduated(stat)) return "keyboard";
-  if (!stageMicGraduated(stat)) return "mic";
-  return "learned";
-}
-// Kertoo nykyisen vaiheen ja onko sen Pass-kynnys jo täyttynyt (näyttötiheyden
-// puolitusta varten) - Graduate-kynnykseen asti sana on vielä samalla vaiheella.
+// Kertoo, onko sana Pass-tasolla PARHAILLAAN VALITUSSA harjoittelutavassa
+// (näyttötiheyden puolitusta varten). Koska syöttötapa ei enää vaihdu
+// automaattisesti (ks. activeMode-kommentti yllä), tämä katsoo aina sitä
+// menetelmää, jonka lapsi on itse valinnut - ei mitään oletettua hierarkiaa.
 function stageStatusForWord(word){
   const stat = statsCache[statId(word)];
-  const stage = stageForWord(word);
   let passed = false;
-  if (stage === "pen") passed = stagePenPassed(stat);
-  else if (stage === "keyboard") passed = stageKeyboardPassed(stat);
-  else if (stage === "mic") passed = stageMicPassed(stat);
-  else passed = true; // "learned": täysin graduoitu, näytetään vain harvakseltaan kertauksena
-  return { stage, passed };
+  if (activeMode === "pen") passed = stagePenPassed(stat);
+  else if (activeMode === "keyboard") passed = stageKeyboardPassed(stat);
+  else if (activeMode === "mic") passed = stageMicPassed(stat);
+  return { stage: activeMode, passed };
 }
 
 // --- Palkintotasot: 6 päätasoa x 5 tähteä = 30 yhtä suurta askelta ---
@@ -927,9 +893,18 @@ const ACTIVE_POOL_MAX = 15;
 const REVIEW_CHANCE = 0.15;
 let sessionPool = [];
 let sessionPoolCategory = null;
+let sessionPoolMode = null;
 
+// Graduoituminen tarkistetaan PARHAILLAAN VALITUSTA harjoittelutavasta, ei
+// kaikista kolmesta yhdessä - koska syöttötapa ei enää vaihdu automaattisesti,
+// aktiivijoukon täytyy tuoda uusia sanoja sitä mukaa kun ne graduoituvat SIINÄ
+// tilassa, jota lapsi juuri harjoittelee (esim. pelkkä kynä), eikä vasta sitten
+// kun kaikki kolme vaihetta on suoritettu.
 function isGraduatedWord(word){
-  return isFullyLearned(statsCache[statId(word)]);
+  const stat = statsCache[statId(word)];
+  if (activeMode === "pen") return stagePenGraduated(stat);
+  if (activeMode === "mic") return stageMicGraduated(stat);
+  return stageKeyboardGraduated(stat);
 }
 
 function graduatedWordsInScope(catId){
@@ -970,16 +945,18 @@ function buildSessionPool(catId){
 }
 
 // Rakentaa aktiivijoukon tyhjästä - kutsutaan sovelluksen käynnistyessä, teeman
-// vaihtuessa ja kohdekielen vaihtuessa.
+// vaihtuessa, kohdekielen vaihtuessa ja aina kun lapsi vaihtaa syöttötapaa
+// käsin (koska graduoitumiskriteeri riippuu nyt valitusta tavasta, ks. yllä).
 function initSessionPool(){
   sessionPool = buildSessionPool(currentCategory);
   sessionPoolCategory = currentCategory;
+  sessionPoolMode = activeMode;
 }
 
 // Kutsutaan joka kierroksella pickWord():ssä. Pooli pysyy vakaana eikä rakennu
 // tyhjästä joka kerta - vain graduoituneet sanat poistetaan ja tilalle täydennetään.
 function pruneAndRefillSessionPool(){
-  if (sessionPoolCategory !== currentCategory){
+  if (sessionPoolCategory !== currentCategory || sessionPoolMode !== activeMode){
     initSessionPool();
     return;
   }
@@ -1004,7 +981,6 @@ async function pickWord(){
   if (!pool.length) pool = activeWordPool();
   current = weightedPick(pool, current ? current.id : null);
   direction = Math.random() < 0.5 ? "target-fi" : "fi-target";
-  applyStageForCurrentWord();
   renderPrompt();
   await updateHeaderStats();
 }
@@ -1218,8 +1194,8 @@ answerBox.addEventListener("keydown", (e) => {
 hearBtn.addEventListener("click", speakWord);
 
 // --- Input mode switching ---
-// setMode() on yhteinen sekä käsivalinnalle (kun järjestystä ei ole pakotettu)
-// että automaattiselle vaiheenvaihdolle (kun pakotettu järjestys on päällä).
+// Syöttötapa vaihtuu VAIN tästä käsivalinnasta - sovellus ei koskaan vaihda
+// tilaa itse kesken harjoittelun (ks. kommentti activeMode-muuttujan luona).
 function setMode(mode){
   activeMode = mode;
   document.querySelectorAll(".mode-btn").forEach(b => b.classList.toggle("active", b.dataset.mode === mode));
@@ -1230,29 +1206,14 @@ function setMode(mode){
   if (mode === "pen") preparePenMode();
 }
 
-const STAGE_LABELS = {
-  pen: "Vaihe 1/3 · ✏️ Piirrä sana",
-  keyboard: "Vaihe 2/3 · ⌨️ Kirjoita sana",
-  mic: "Vaihe 3/3 · 🎤 Sano sana ääneen",
-  learned: "🔁 Kertausta – osaat jo tämän sanan!"
-};
-const REVIEW_MODES = ["keyboard", "pen", "mic"];
-
-// Kun järjestys on pakotettu, sovellus valitsee syöttötavan itse sen mukaan,
-// missä vaiheessa juuri tämä sana on. Täysin opittuja sanoja kerrataan
-// satunnaisesti jollain kolmesta tilasta.
-function applyStageForCurrentWord(){
-  if (!current || !forceOrder) return;
-  const stage = stageForWord(current);
-  const mode = stage === "learned" ? REVIEW_MODES[Math.floor(Math.random() * REVIEW_MODES.length)] : stage;
-  setMode(mode);
-  stageIndicatorEl.textContent = STAGE_LABELS[stage];
-}
-
 document.querySelectorAll(".mode-btn").forEach(btn => {
   btn.addEventListener("click", () => {
-    if (forceOrder) return; // järjestys lukittu - ei vaihdeta käsin
+    if (btn.dataset.mode === activeMode) return; // jo valittuna
     setMode(btn.dataset.mode);
+    // Graduoitumiskriteeri riippuu valitusta tavasta, joten aktiivijoukko
+    // pitää rakentaa uudelleen heti kun lapsi vaihtaa tilaa käsin - muuten
+    // pooli voisi jäädä näyttämään edellisen tilan jo graduoimia sanoja.
+    initSessionPool();
   });
 });
 
@@ -1599,7 +1560,6 @@ window.addEventListener("resize", () => { if (activeMode === "pen") setupPenPad(
 
 (async function init(){
   syncLangButtons(); // varmistaa napin tilan ja tekstin, jos kieli muistettiin laitteelta
-  syncModeVisibility(); // näyttää joko tilapainikkeet tai vaiheilmaisimen asetuksen mukaan
   setupCategoryFilter();
   initSessionPool(); // ensimmäinen pooli ilman tallennettua edistymistä (DB ei vielä ladattu)
   pickWord(); // ensimmäinen sana näkyviin heti, ei odoteta tietokantaa
