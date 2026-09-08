@@ -421,6 +421,7 @@
     <div class="header-right">
       <select id="categoryFilter"><option value="all">Kaikki teemat</option></select>
       <div class="tier-badge" id="tierBadge" title="Palkintotaso koko sanastosta">
+        <span id="tierModeIcon">⌨️</span>
         <span id="tierIcon">🐍</span>
         <span id="tierLabel">Kärmes</span>
         <span class="tier-stars" id="tierStars">☆☆☆☆☆</span>
@@ -453,8 +454,8 @@
 
     <section class="answer-area">
       <div class="input-modes" id="inputModes">
-        <button class="mode-btn active" data-mode="keyboard">⌨️ Näppäimistö</button>
         <button class="mode-btn" data-mode="pen">✏️ Kynä</button>
+        <button class="mode-btn active" data-mode="keyboard">⌨️ Näppäimistö</button>
         <button class="mode-btn" data-mode="mic">🎤 Puhu</button>
       </div>
       <div class="stage-indicator" id="stageIndicator" hidden></div>
@@ -607,6 +608,7 @@ const answerBox = document.getElementById("answerBox");
 const feedback = document.getElementById("feedback");
 const streakCount = document.getElementById("streakCount");
 const tierBadge = document.getElementById("tierBadge");
+const tierModeIcon = document.getElementById("tierModeIcon");
 const tierIcon = document.getElementById("tierIcon");
 const tierLabelEl = document.getElementById("tierLabel");
 const tierStarsEl = document.getElementById("tierStars");
@@ -831,6 +833,33 @@ function tierLabel(majorIndex, stars){
   return stars === 0 ? name : `${STAR_WORDS[stars]} tähden ${name}`;
 }
 
+// --- Erilliset palkintoasteikot per harjoittelutapa (piirrä/kirjoita/puhu) ---
+// Aiemmin yksi yhteinen tähtimittari vaati KAIKKIEN kolmen vaiheen graduoitumista
+// samalta sanalta ennen kuin tähtikään syttyi, mikä teki etenemisestä liian hidasta
+// ja raskasta (yhdeksän sanan kaikki kolme vaihetta per tähti). Nyt jokaisella
+// menetelmällä on oma asteikkonsa, joka täyttyy sitä mukaa kun sanoja graduoituu
+// KYSEISESSÄ vaiheessa - eteneminen näkyy siis heti eikä vaadi muiden vaiheiden
+// valmistumista. Yläpalkin tähtibadge näyttää aina sen menetelmän asteikkoa, joka
+// on parhaillaan valittuna/käytössä (vaihtuu automaattisesti tilan mukana).
+const MODE_GRADUATED_CHECK = {
+  pen: stagePenGraduated,
+  keyboard: stageKeyboardGraduated,
+  mic: stageMicGraduated
+};
+const MODE_ICONS = { pen: "✏️", keyboard: "⌨️", mic: "🎤" };
+const MODE_NAMES = { pen: "Piirto", keyboard: "Näppäimistö", mic: "Puhe" };
+let tierByMode = { pen: null, keyboard: null, mic: null };
+
+function renderTierBadge(){
+  const t = tierByMode[activeMode] || tierByMode.keyboard;
+  if (!t) return; // tilastoja ei vielä ladattu (ensimmäinen renderöinti ennen DB:tä)
+  tierModeIcon.textContent = MODE_ICONS[activeMode] || "";
+  tierIcon.textContent = LEVEL_ICONS[t.majorIndex];
+  tierLabelEl.textContent = tierLabel(t.majorIndex, t.stars);
+  tierStarsEl.textContent = "★".repeat(t.stars) + "☆".repeat(5 - t.stars);
+  tierBadge.title = `${MODE_NAMES[activeMode] || ""}: opittu ${t.n}/${PRACTICE_WORDS.length} sanaa (${LANGS[targetLang].label})`;
+}
+
 async function updateHeaderStats(){
   const all = await getAllStats();
   statsCache = {};
@@ -838,14 +867,18 @@ async function updateHeaderStats(){
 
   // Palkintotaso lasketaan koko kohdekielen sanastosta (ei teemasuodattimesta),
   // jotta taso kuvaa koko ohjelman etenemistä eikä hyppele teemaa vaihtaessa.
-  const allMasteredN = PRACTICE_WORDS.filter(w => isFullyLearned(statsCache[statId(w)])).length;
-  const { majorIndex, stars } = tierState(allMasteredN, PRACTICE_WORDS.length);
-  tierIcon.textContent = LEVEL_ICONS[majorIndex];
-  tierLabelEl.textContent = tierLabel(majorIndex, stars);
-  tierStarsEl.textContent = "★".repeat(stars) + "☆".repeat(5 - stars);
-  tierBadge.title = `Opittu ${allMasteredN}/${PRACTICE_WORDS.length} sanaa (${LANGS[targetLang].label})`;
+  // Jokaiselle menetelmälle laskettu erikseen (ks. yllä).
+  ["pen", "keyboard", "mic"].forEach(mode => {
+    const check = MODE_GRADUATED_CHECK[mode];
+    const n = PRACTICE_WORDS.filter(w => check(statsCache[statId(w)])).length;
+    const { majorIndex, stars } = tierState(n, PRACTICE_WORDS.length);
+    tierByMode[mode] = { n, majorIndex, stars };
+  });
+  renderTierBadge();
 
-  // Edistymispalkki näyttää valitun teeman (tai koko sanaston) tilanteen.
+  // Edistymispalkki näyttää valitun teeman (tai koko sanaston) kokonaisosaamisen
+  // (kaikki kolme vaihetta graduoitu) - tämä pysyy ennallaan, koska se kuvaa
+  // sanan lopullista, kaikki menetelmät kattavaa oppimista, ei yksittäistä tapaa.
   const pool = activeWordPool();
   const masteredN = pool.filter(w => isFullyLearned(statsCache[statId(w)])).length;
   const pct = pool.length ? Math.round((masteredN / pool.length) * 100) : 0;
@@ -1193,6 +1226,7 @@ function setMode(mode){
   document.getElementById("mode-keyboard").classList.toggle("visible", mode === "keyboard");
   document.getElementById("mode-pen").classList.toggle("visible", mode === "pen");
   document.getElementById("mode-mic").classList.toggle("visible", mode === "mic");
+  renderTierBadge(); // tähtibadge vaihtuu näyttämään valitun menetelmän oman asteikon
   if (mode === "pen") preparePenMode();
 }
 
