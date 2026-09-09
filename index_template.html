@@ -372,6 +372,30 @@
   .feedback.incorrect{ background:#ffebee; color:var(--bad); }
   .feedback .answer-reveal{ font-weight:600; font-size:0.75em; color:#7a7189; display:block; }
 
+  /* "Näytä sana" -tila: paljastaa oikean vastauksen ilman että siitä voi
+     kopioida sen kirjoituslaatikkoon - laatikko ja tarkistus piilotetaan,
+     jäljelle jää vain Ohita, jolla pääsee seuraavaan sanaan. */
+  .reveal-box{
+    display:none;
+    text-align:center;
+    font-size: clamp(20px,5vw,26px);
+    font-weight:800;
+    color:var(--accent-dark);
+    background:#fff8e1;
+    border:3px solid #ffe082;
+    border-radius:18px;
+    padding: 14px 18px;
+  }
+  .answer-area.revealed .reveal-box{ display:block; }
+  .answer-area.revealed .input-modes,
+  .answer-area.revealed .answer-input-wrap,
+  .answer-area.revealed .pen-pad-wrap,
+  .answer-area.revealed .mic-wrap,
+  .answer-area.revealed #checkBtn,
+  .answer-area.revealed #revealBtn{
+    display:none !important;
+  }
+
   footer{
     margin-top:14px;
     color:#7a7189cc;
@@ -476,8 +500,11 @@
         <div class="mic-transcript" id="micTranscript"></div>
       </div>
 
+      <div class="reveal-box" id="revealBox"></div>
+
       <div class="actions">
         <button class="btn ghost" id="skipBtn">Ohita</button>
+        <button class="btn ghost" id="revealBtn">👁️ Näytä sana</button>
         <button class="btn primary" id="checkBtn">Tarkista</button>
       </div>
 
@@ -601,6 +628,9 @@ const promptCategory = document.getElementById("promptCategory");
 const langPill = document.getElementById("langPill");
 const answerBox = document.getElementById("answerBox");
 const feedback = document.getElementById("feedback");
+const answerArea = document.querySelector(".answer-area");
+const revealBox = document.getElementById("revealBox");
+const revealBtn = document.getElementById("revealBtn");
 const streakCount = document.getElementById("streakCount");
 const tierBadge = document.getElementById("tierBadge");
 const tierModeIcon = document.getElementById("tierModeIcon");
@@ -994,6 +1024,10 @@ function renderPrompt(){
   feedback.className = "feedback";
   feedback.textContent = "";
   answerBox.value = "";
+  // Uusi sana -> piilotetaan mahdollinen edellisen sanan "Näytä sana" -paljastus
+  // ja palautetaan kirjoituslaatikko näkyviin.
+  answerArea.classList.remove("revealed");
+  revealBox.textContent = "";
   // Näppäimistö avautuu automaattisesti vain näppäimistövaiheessa - piirto- ja
   // puhevaiheessa lapsen pitää itse koskettaa oikeaa kenttää, ettei Gboard
   // ponnahda esiin kutsumatta kesken piirtämisen.
@@ -1186,6 +1220,16 @@ document.getElementById("checkBtn").addEventListener("click", async () => {
 });
 
 document.getElementById("skipBtn").addEventListener("click", pickWord);
+
+// "Näytä sana" -paljastaa oikean vastauksen suoraan, jotta lapsi voi tarkastaa
+// tuntemattoman sanan sen sijaan, että joutuisi arvaamaan sokkona. Tämän
+// jälkeen kirjoituslaatikko/kynä/mikki ja Tarkista-nappi piilotetaan, jottei
+// paljastettua vastausta voi vain kopioida - ainoa tapa jatkaa on Ohita, eikä
+// sana lasketa oikein tai väärin vastatuksi.
+revealBtn.addEventListener("click", () => {
+  revealBox.textContent = "🔤 " + acceptedAnswers()[0];
+  answerArea.classList.add("revealed");
+});
 
 answerBox.addEventListener("keydown", (e) => {
   if (e.key === "Enter") document.getElementById("checkBtn").click();
