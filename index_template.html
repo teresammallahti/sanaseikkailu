@@ -103,7 +103,7 @@
     color:#f0a63a;
     font-size: 1.7em;
   }
-  select#categoryFilter{
+  select#gradeFilter, select#categoryFilter{
     border:none;
     background:var(--card-bg);
     padding:8px 14px;
@@ -443,8 +443,9 @@
   <header>
     <div class="brand"><span class="mascot">🦊</span> Sanaseikkailu</div>
     <div class="header-right">
+      <select id="gradeFilter"></select>
       <select id="categoryFilter"><option value="all">Kaikki teemat</option></select>
-      <div class="tier-badge" id="tierBadge" title="Palkintotaso koko sanastosta">
+      <div class="tier-badge" id="tierBadge" title="Palkintotaso valitulta luokka-asteelta">
         <span id="tierModeIcon">⌨️</span>
         <span id="tierIcon">🐍</span>
         <span id="tierLabel">Kärmes</span>
@@ -689,6 +690,12 @@ function selectTargetLang(lang){
   try { localStorage.setItem("targetLang", targetLang); } catch (e) { /* ei haittaa */ }
   syncLangButtons();
   PRACTICE_WORDS = practiceWords();
+  // Kummallakin kielellä on oma luokka-aste muistissa (esim. saksa voi olla
+  // vasta alkanut, vaikka englanti olisi jo pidemmällä).
+  activeGrade = loadOrDetectGrade(targetLang);
+  currentCategory = "all";
+  populateGradeOptions();
+  populateCategoryOptions();
   current = null;
   initSessionPool();
   pickWord();
@@ -708,15 +715,127 @@ function categoryGroup(id){
   return c ? (c.group || "ops") : "ops";
 }
 
-const GENERAL_CATEGORY_ID = "yleissanat";
+// --- Luokka-asteet: sanasto ryhmitelty peruskoulun luokka-asteille 1-6 ---
+// Jokaisella teemakategorialla on VOCAB.categories-listassa "grade"-kenttä
+// (1-6, tai null harrasteteemoille kuten Minecraft/Fortnite, jotka pysyvät
+// aina käsin valittavissa luokka-asteesta riippumatta). Oppilas valitsee ensin
+// luokka-asteen ja sitten teeman - teemavalikko näyttää vain kyseisen
+// luokka-asteen teemat (+ harrasteteemat, jotka näkyvät aina).
+const GRADES = [1, 2, 3, 4, 5, 6];
+let activeGrade = 1;
+const gradeFilter = document.getElementById("gradeFilter");
+
+function wordGrade(word){
+  const c = VOCAB.categories.find(c => c.id === word.category);
+  return c ? c.grade : null;
+}
+
+function wordsForGrade(g){
+  return PRACTICE_WORDS.filter(w => wordGrade(w) === g);
+}
+
+// Luokka-aste on "valmis" kun KAIKKI sen sanat on opittu kokonaan (kaikki
+// kolme vaihetta graduoitu) - sama tiukka kriteeri kuin kokonaisedistymisessä.
+function isGradeComplete(g){
+  const list = wordsForGrade(g);
+  return list.length > 0 && list.every(w => isFullyLearned(statsCache[statId(w)]));
+}
+
+function gradeStorageKey(lang){ return "grade_" + lang; }
+
+function hasExplicitGradeChoice(lang){
+  try { return localStorage.getItem(gradeStorageKey(lang)) !== null; }
+  catch (e) { return false; }
+}
+
+function saveGradeChoice(lang, grade){
+  try { localStorage.setItem(gradeStorageKey(lang), String(grade)); }
+  catch (e) { /* ei haittaa */ }
+}
+
+// Jos oppilaalle ei ole vielä tällä laitteella valittu luokka-astetta erikseen,
+// päätellään lähtökohta tilastoista: matalin luokka-aste, jota EI ole vielä
+// kokonaan opittu (esim. jos sanasto oli ennen luokka-asteiden lisäystä jo
+// pitkälti opittu, oppilas ei jää jumiin ykkösluokkaan).
+function detectFrontierGrade(){
+  for (const g of GRADES){
+    if (!isGradeComplete(g)) return g;
+  }
+  return GRADES[GRADES.length - 1];
+}
+
+function loadOrDetectGrade(lang){
+  try {
+    const saved = localStorage.getItem(gradeStorageKey(lang));
+    if (saved){
+      const n = parseInt(saved, 10);
+      if (GRADES.includes(n)) return n;
+    }
+  } catch (e) { /* ei haittaa */ }
+  return detectFrontierGrade();
+}
+
+// Rakentaa luokka-astevalikon vaihtoehdot uudelleen - kutsutaan aina kun
+// valmistumistilanne (vihreä teksti) tai valittu luokka-aste voi olla muuttunut.
+function populateGradeOptions(){
+  gradeFilter.innerHTML = "";
+  GRADES.forEach(g => {
+    const opt = document.createElement("option");
+    opt.value = String(g);
+    const complete = isGradeComplete(g);
+    opt.textContent = (complete ? "✅ " : "") + g + ". luokka";
+    opt.style.color = complete ? "#2e7d32" : "";
+    if (g === activeGrade) opt.selected = true;
+    gradeFilter.appendChild(opt);
+  });
+}
+
+function setupGradeFilter(){
+  populateGradeOptions();
+  gradeFilter.addEventListener("change", () => {
+    activeGrade = parseInt(gradeFilter.value, 10);
+    saveGradeChoice(targetLang, activeGrade);
+    currentCategory = "all";
+    populateCategoryOptions();
+    current = null;
+    initSessionPool();
+    pickWord();
+  });
+}
+
+// Kun luokka-aste on kokonaan opittu, oppilas siirtyy automaattisesti seuraavalle
+// luokka-asteelle - tarkistetaan aina ennen uuden sanan valintaa.
+function maybeAdvanceGrade(){
+  if (activeGrade < GRADES.length && isGradeComplete(activeGrade)){
+    activeGrade += 1;
+    saveGradeChoice(targetLang, activeGrade);
+    currentCategory = "all";
+    populateCategoryOptions();
+    initSessionPool();
+  }
+}
+
+// Teemavalikko näyttää vain valitun luokka-asteen teemat, sekä harrasteteemat
+// (group=hobby), jotka näkyvät aina luokka-asteesta riippumatta.
+function populateCategoryOptions(){
+  categoryFilter.innerHTML = "";
+  const allOpt = document.createElement("option");
+  allOpt.value = "all";
+  allOpt.textContent = "Kaikki teemat";
+  categoryFilter.appendChild(allOpt);
+  VOCAB.categories
+    .filter(c => c.grade === activeGrade || c.group === "hobby")
+    .forEach(c => {
+      const opt = document.createElement("option");
+      opt.value = c.id;
+      opt.textContent = c.name_fi;
+      categoryFilter.appendChild(opt);
+    });
+  categoryFilter.value = currentCategory;
+}
 
 function setupCategoryFilter(){
-  VOCAB.categories.forEach(c => {
-    const opt = document.createElement("option");
-    opt.value = c.id;
-    opt.textContent = c.name_fi;
-    categoryFilter.appendChild(opt);
-  });
+  populateCategoryOptions();
   categoryFilter.addEventListener("change", () => {
     currentCategory = categoryFilter.value;
     initSessionPool();
@@ -725,24 +844,33 @@ function setupCategoryFilter(){
 }
 
 function activeWordPool(){
-  const pool = currentCategory === "all"
-    ? PRACTICE_WORDS
-    : PRACTICE_WORDS.filter(w => w.category === currentCategory);
-  return pool.length ? pool : PRACTICE_WORDS;
+  const pool = eligibleWordsForCategoryScope(currentCategory);
+  return pool.length ? pool : wordsForGrade(activeGrade);
 }
 
-// Sanat, jotka voivat kiertää automaattisessa aktiivijoukossa valitulla teemarajauksella.
-// "Kaikki teemat" -valinnassa harrasteteemat (group=hobby, esim. Minecraft/Fortnite) jätetään
-// automaattikierron ulkopuolelle - ne ovat vain käsin valittavissa teemavalikosta.
+// Sanat, jotka voivat kiertää automaattisessa aktiivijoukossa valitulla luokka-asteella
+// ja teemarajauksella. Harrasteteemat (group=hobby, esim. Minecraft/Fortnite) ohittavat
+// luokka-asterajauksen kokonaan - ne ovat vain käsin valittavissa teemavalikosta.
 function eligibleWordsForCategoryScope(catId){
-  if (catId === "all"){
-    return PRACTICE_WORDS.filter(w => categoryGroup(w.category) !== "hobby");
+  if (catId !== "all" && categoryGroup(catId) === "hobby"){
+    return PRACTICE_WORDS.filter(w => w.category === catId);
   }
-  return PRACTICE_WORDS.filter(w => w.category === catId);
+  const gradeScoped = wordsForGrade(activeGrade);
+  return catId === "all" ? gradeScoped : gradeScoped.filter(w => w.category === catId);
 }
 
-function generalFallbackWords(){
-  return PRACTICE_WORDS.filter(w => w.category === GENERAL_CATEGORY_ID);
+// Kun oman luokka-asteen (ja teemarajauksen) sanat alkavat loppua, täydennetään
+// seuraavan ylemmän luokka-asteen sanoista (helpoimmasta päästä, eli siitä
+// järjestyksestä jossa ne on sanastoon kirjoitettu) - oppilas ei koskaan jää
+// ilman uusia sanoja, vaikka oma luokka-aste olisi lähes kokonaan opittu.
+function nextGradeFallbackWords(catId, excludeIds){
+  for (let g = activeGrade + 1; g <= GRADES.length; g++){
+    const gradeWords = wordsForGrade(g);
+    const scoped = catId === "all" ? gradeWords : gradeWords.filter(w => w.category === catId);
+    const usable = (scoped.length ? scoped : gradeWords).filter(w => !excludeIds.has(w.id));
+    if (usable.length) return usable;
+  }
+  return [];
 }
 
 // --- Kolmivaiheinen oppimispolku: piirrä -> kirjoita -> puhu ---
@@ -854,7 +982,7 @@ function renderTierBadge(){
   tierIcon.textContent = LEVEL_ICONS[t.majorIndex];
   tierLabelEl.textContent = tierLabel(t.majorIndex);
   tierStarsEl.textContent = "★".repeat(t.stars) + "☆".repeat(5 - t.stars);
-  tierBadge.title = `${MODE_NAMES[activeMode] || ""}: opittu ${t.n}/${PRACTICE_WORDS.length} sanaa (${LANGS[targetLang].label})`;
+  tierBadge.title = `${MODE_NAMES[activeMode] || ""}: opittu ${t.n}/${wordsForGrade(activeGrade).length} sanaa (${activeGrade}. luokka, ${LANGS[targetLang].label})`;
 
   // Edistymispalkki näyttää parhaillaan valitun menetelmän matkan SEURAAVAAN
   // tähteen (ei enää koko sanaston kokonaisosaamista) - eli exactStepsin
@@ -872,16 +1000,18 @@ async function updateHeaderStats(){
   statsCache = {};
   all.forEach(s => statsCache[s.statId] = s);
 
-  // Palkintotaso lasketaan koko kohdekielen sanastosta (ei teemasuodattimesta),
-  // jotta taso kuvaa koko ohjelman etenemistä eikä hyppele teemaa vaihtaessa.
-  // Jokaiselle menetelmälle laskettu erikseen (ks. yllä).
+  // Palkintotaso lasketaan VALITUN LUOKKA-ASTEEN sanastosta (ei koko kohdekielen
+  // sanastosta eikä teemasuodattimesta), jotta mittari vaihtuu heti kun oppilas
+  // vaihtaa luokka-astetta. Jokaiselle menetelmälle laskettu erikseen (ks. yllä).
+  const gradeWordsList = wordsForGrade(activeGrade);
   ["pen", "keyboard", "mic"].forEach(mode => {
     const check = MODE_GRADUATED_CHECK[mode];
-    const n = PRACTICE_WORDS.filter(w => check(statsCache[statId(w)])).length;
-    const { majorIndex, stars, exactSteps } = tierState(n, PRACTICE_WORDS.length);
+    const n = gradeWordsList.filter(w => check(statsCache[statId(w)])).length;
+    const { majorIndex, stars, exactSteps } = tierState(n, gradeWordsList.length);
     tierByMode[mode] = { n, majorIndex, stars, exactSteps };
   });
   renderTierBadge();
+  populateGradeOptions(); // päivittää valmiiden luokka-asteiden vihreän merkinnän
 }
 
 function weightFor(word){
@@ -926,6 +1056,7 @@ const REVIEW_CHANCE = 0.15;
 let sessionPool = [];
 let sessionPoolCategory = null;
 let sessionPoolMode = null;
+let sessionPoolGrade = null;
 
 // Graduoituminen tarkistetaan PARHAILLAAN VALITUSTA harjoittelutavasta, ei
 // kaikista kolmesta yhdessä - koska syöttötapa ei enää vaihdu automaattisesti,
@@ -954,20 +1085,24 @@ function fillPoolFrom(candidates, pool, excludeIds, needed){
   }
 }
 
-// Täydentää annettua pool-taulukkoa: ensin nykyisen teemarajauksen (catId) kesken
-// olevista/uusista sanoista, ja jos ACTIVE_POOL_MIN ei täyty eikä rajaus itse ole
-// jo "yleissanat" tai harrasteteema, täydennetään teemasta "yleissanat".
+// Täydentää annettua pool-taulukkoa: ensin nykyisen luokka-asteen ja teemarajauksen
+// (catId) kesken olevista/uusista sanoista. Jos ACTIVE_POOL_MIN ei täyty eikä
+// rajaus itse ole harrasteteema, täydennetään ensin saman luokka-asteen muista
+// teemoista, ja jos sekään ei riitä, seuraavan ylemmän luokka-asteen sanoista.
 function topUpPool(pool, catId, excludeIds){
+  const isHobby = catId !== "all" && categoryGroup(catId) === "hobby";
   const primary = eligibleWordsForCategoryScope(catId).filter(w => !excludeIds.has(w.id));
   fillPoolFrom(primary.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MAX);
   fillPoolFrom(primary.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MAX);
-  if (pool.length < ACTIVE_POOL_MIN && catId !== GENERAL_CATEGORY_ID){
-    const scopeGroup = catId === "all" ? "all" : categoryGroup(catId);
-    if (scopeGroup !== "hobby"){
-      const general = generalFallbackWords().filter(w => !excludeIds.has(w.id));
-      fillPoolFrom(general.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
-      fillPoolFrom(general.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
-    }
+  if (pool.length < ACTIVE_POOL_MIN && !isHobby && catId !== "all"){
+    const sameGrade = wordsForGrade(activeGrade).filter(w => !excludeIds.has(w.id));
+    fillPoolFrom(sameGrade.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
+    fillPoolFrom(sameGrade.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
+  }
+  if (pool.length < ACTIVE_POOL_MIN && !isHobby && activeGrade < GRADES.length){
+    const upper = nextGradeFallbackWords(catId, excludeIds);
+    fillPoolFrom(upper.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
+    fillPoolFrom(upper.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
   }
   return pool;
 }
@@ -983,12 +1118,13 @@ function initSessionPool(){
   sessionPool = buildSessionPool(currentCategory);
   sessionPoolCategory = currentCategory;
   sessionPoolMode = activeMode;
+  sessionPoolGrade = activeGrade;
 }
 
 // Kutsutaan joka kierroksella pickWord():ssä. Pooli pysyy vakaana eikä rakennu
 // tyhjästä joka kerta - vain graduoituneet sanat poistetaan ja tilalle täydennetään.
 function pruneAndRefillSessionPool(){
-  if (sessionPoolCategory !== currentCategory || sessionPoolMode !== activeMode){
+  if (sessionPoolCategory !== currentCategory || sessionPoolMode !== activeMode || sessionPoolGrade !== activeGrade){
     initSessionPool();
     return;
   }
@@ -1000,6 +1136,9 @@ function pruneAndRefillSessionPool(){
 }
 
 async function pickWord(){
+  // Jos edellinen sana juuri täytti koko luokka-asteen, siirrytään ensin
+  // automaattisesti seuraavalle luokka-asteelle (ks. maybeAdvanceGrade).
+  maybeAdvanceGrade();
   // Valinta tehdään muistissa olevilla tiedoilla ja sana näytetään heti,
   // mittarit päivitetään tietokannasta vasta sen jälkeen.
   pruneAndRefillSessionPool();
@@ -1602,6 +1741,8 @@ window.addEventListener("resize", () => { if (activeMode === "pen") setupPenPad(
 
 (async function init(){
   syncLangButtons(); // varmistaa napin tilan ja tekstin, jos kieli muistettiin laitteelta
+  activeGrade = loadOrDetectGrade(targetLang); // ennen DB:tä -> oletus 1. luokka
+  setupGradeFilter();
   setupCategoryFilter();
   initSessionPool(); // ensimmäinen pooli ilman tallennettua edistymistä (DB ei vielä ladattu)
   pickWord(); // ensimmäinen sana näkyviin heti, ei odoteta tietokantaa
@@ -1611,7 +1752,17 @@ window.addEventListener("resize", () => { if (activeMode === "pen") setupPenPad(
     console.warn("IndexedDB ei käytettävissä, edistymistä ei tallenneta:", e);
   }
   await updateHeaderStats();
+  // Nyt kun oikea edistyminen on tiedossa: jos luokka-astetta ei ole erikseen
+  // valittu tällä laitteella, päätellään oppilaan todellinen lähtökohta
+  // tilastoista (ks. detectFrontierGrade) sen sijaan että jäätäisiin ykkösluokkaan.
+  if (!hasExplicitGradeChoice(targetLang)){
+    activeGrade = detectFrontierGrade();
+    populateGradeOptions();
+    currentCategory = "all";
+    populateCategoryOptions();
+  }
   initSessionPool(); // rakennetaan pooli uudelleen nyt kun oikea edistyminen on tiedossa
+  pickWord();
 })();
 </script>
 </body>

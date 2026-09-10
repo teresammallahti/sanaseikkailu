@@ -103,7 +103,7 @@
     color:#f0a63a;
     font-size: 1.7em;
   }
-  select#categoryFilter{
+  select#gradeFilter, select#categoryFilter{
     border:none;
     background:var(--card-bg);
     padding:8px 14px;
@@ -443,8 +443,9 @@
   <header>
     <div class="brand"><span class="mascot">🦊</span> Sanaseikkailu</div>
     <div class="header-right">
+      <select id="gradeFilter"></select>
       <select id="categoryFilter"><option value="all">Kaikki teemat</option></select>
-      <div class="tier-badge" id="tierBadge" title="Palkintotaso koko sanastosta">
+      <div class="tier-badge" id="tierBadge" title="Palkintotaso valitulta luokka-asteelta">
         <span id="tierModeIcon">⌨️</span>
         <span id="tierIcon">🐍</span>
         <span id="tierLabel">Kärmes</span>
@@ -547,9 +548,9 @@ const VOCAB = {
     "language_target": "en",
     "language_native": "fi",
     "level": "4lk",
-    "version": 6,
+    "version": 7,
     "created": "2026-09-02",
-    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa. v4: lisätty täydennyksiä olemassa oleviin kategorioihin (colours: purple/brown/grey; opposites: 8 uutta vastaparia) sekä kuusi uutta kategoriaa (weather_seasons, animals, house_rooms, body_parts, clothes, school_objects) POPS 2014 -aihepiirien ja yleisen 4. luokan sanaston perusteella, käyttäjän hyväksynnän jälkeen (ehdotukset_v4.md). Kaikille uusille sanoille pysyvä id, olemassa olevat id:t eivät muuttuneet. v5: lisätty saksankieliset käännökset (kenttä 'de') kaikille 260 sanalle, artikkelien (der/die/das) kanssa substantiiveille - vakiintuneen saksan opetuskäytännön mukaisesti suku opetellaan heti sanan mukana. Sama sanasto ja kategoriat kuin englannissa/suomessa, id:t muuttumattomat. v6: Sanat järjestetty OPSin teemojen mukaan. Teemat personality, opposites, verbs_action ja verbs_communication yhdistetty teemaan 'yleissanat' (group=general). Kaikki muut teemat merkitty group=ops paitsi gaming_minecraft ja gaming_fortnite, jotka merkitty group=hobby (vain manuaalisesti valittavissa, ei mukana 'kaikki teemat' -kierrossa tai yleissanojen varasanastona).",
+    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa. v4: lisätty täydennyksiä olemassa oleviin kategorioihin (colours: purple/brown/grey; opposites: 8 uutta vastaparia) sekä kuusi uutta kategoriaa (weather_seasons, animals, house_rooms, body_parts, clothes, school_objects) POPS 2014 -aihepiirien ja yleisen 4. luokan sanaston perusteella, käyttäjän hyväksynnän jälkeen (ehdotukset_v4.md). Kaikille uusille sanoille pysyvä id, olemassa olevat id:t eivät muuttuneet. v5: lisätty saksankieliset käännökset (kenttä 'de') kaikille 260 sanalle, artikkelien (der/die/das) kanssa substantiiveille - vakiintuneen saksan opetuskäytännön mukaisesti suku opetellaan heti sanan mukana. Sama sanasto ja kategoriat kuin englannissa/suomessa, id:t muuttumattomat. v6: Sanat järjestetty OPSin teemojen mukaan. Teemat personality, opposites, verbs_action ja verbs_communication yhdistetty teemaan 'yleissanat' (group=general). Kaikki muut teemat merkitty group=ops paitsi gaming_minecraft ja gaming_fortnite, jotka merkitty group=hobby (vain manuaalisesti valittavissa, ei mukana 'kaikki teemat' -kierrossa tai yleissanojen varasanastona). v7: sanasto ryhmitelty peruskoulun luokka-asteille 1-6 (uusi 'grade'-kenttä kategorioilla, group=hobby-kategoriat pysyvät luokka-asteettomina). Palautettu personality/opposites/verbs_action/verbs_communication omiksi kategorioikseen (v6:n yleissanat-yhdistäminen ei ole enää tarpeen, koska luokka-asteet hoitavat täydennyksen). Lisätty 138 uutta sanaa (luokka 1: perusverbit; luokka 4: päivärutiinit; luokka 5: ammatit/urheilu/kulkuvälineet/sijaintisanat/tunteet/ostokset; luokka 6: matkustaminen/teknologia/mennyt aika/kuvailevat sanat/maat ja kansallisuudet/tulevaisuus). Lisätty monimerkityksisille sanoille vaihtoehtoisia suomennoksia (esim. land = laskeutua/maa).",
     "notes": "Koottu 4. luokan englannin oppikirjan (skannattu, Scan_20260902_162833.pdf) teemojen pohjalta ilman kirjan kuvia tai tekstiä, täydennetty POPS 2014 (Englanti A-oppimäärä vl 3-6) aihepiirien mukaan. Rakenne on geneerinen (language_target/level -kentät), jotta samaa muotoa voi käyttää myöhemmin saksalle ja muille luokka-asteille.",
     "language_targets": [
       "en",
@@ -560,127 +561,254 @@ const VOCAB = {
     {
       "id": "school_people",
       "name_fi": "Koulun ihmiset",
-      "group": "ops"
+      "group": "ops",
+      "grade": 3
     },
     {
       "id": "school_subjects",
       "name_fi": "Kouluaineet",
-      "group": "ops"
+      "group": "ops",
+      "grade": 3
     },
     {
       "id": "weekdays",
       "name_fi": "Viikonpäivät",
-      "group": "ops"
+      "group": "ops",
+      "grade": 2
     },
     {
       "id": "places_town",
       "name_fi": "Paikat kaupungissa",
-      "group": "ops"
+      "group": "ops",
+      "grade": 4
     },
     {
       "id": "belongings",
       "name_fi": "Tavarat ja asusteet",
-      "group": "ops"
+      "group": "ops",
+      "grade": 4
     },
     {
       "id": "appearance",
       "name_fi": "Ulkonäkö",
-      "group": "ops"
+      "group": "ops",
+      "grade": 4
     },
     {
       "id": "food_savoury",
       "name_fi": "Ruoka",
-      "group": "ops"
+      "group": "ops",
+      "grade": 3
     },
     {
       "id": "fruit",
       "name_fi": "Hedelmät ja marjat",
-      "group": "ops"
+      "group": "ops",
+      "grade": 2
     },
     {
       "id": "polite_phrases",
       "name_fi": "Kohteliaat ilmaukset",
-      "group": "ops"
+      "group": "ops",
+      "grade": 3
     },
     {
       "id": "time",
       "name_fi": "Kellonajat",
-      "group": "ops"
+      "group": "ops",
+      "grade": 4
     },
     {
       "id": "family",
       "name_fi": "Perhe",
-      "group": "ops"
+      "group": "ops",
+      "grade": 1
     },
     {
       "id": "myself",
       "name_fi": "Minä itse",
-      "group": "ops"
+      "group": "ops",
+      "grade": 3
     },
     {
       "id": "hobbies",
       "name_fi": "Harrastukset ja vapaa-aika",
-      "group": "ops"
+      "group": "ops",
+      "grade": 2
     },
     {
       "id": "greetings_phrases",
       "name_fi": "Tervehdykset ja arki-ilmaukset",
-      "group": "ops"
+      "group": "ops",
+      "grade": 1
     },
     {
       "id": "colours",
       "name_fi": "Värit",
-      "group": "ops"
+      "group": "ops",
+      "grade": 1
     },
     {
       "id": "numbers",
       "name_fi": "Numerot",
-      "group": "ops"
+      "group": "ops",
+      "grade": 1
     },
     {
       "id": "gaming_minecraft",
       "name_fi": "Pelisanasto: Minecraft",
-      "group": "hobby"
+      "group": "hobby",
+      "grade": null
     },
     {
       "id": "gaming_fortnite",
       "name_fi": "Pelisanasto: Fortnite",
-      "group": "hobby"
+      "group": "hobby",
+      "grade": null
     },
     {
       "id": "weather_seasons",
       "name_fi": "Sää ja vuodenajat",
-      "group": "ops"
+      "group": "ops",
+      "grade": 2
     },
     {
       "id": "animals",
       "name_fi": "Eläimet",
-      "group": "ops"
+      "group": "ops",
+      "grade": 1
     },
     {
       "id": "house_rooms",
       "name_fi": "Koti ja huoneet",
-      "group": "ops"
+      "group": "ops",
+      "grade": 2
     },
     {
       "id": "body_parts",
       "name_fi": "Kehonosat",
-      "group": "ops"
+      "group": "ops",
+      "grade": 1
     },
     {
       "id": "clothes",
       "name_fi": "Vaatteet",
-      "group": "ops"
+      "group": "ops",
+      "grade": 2
     },
     {
       "id": "school_objects",
       "name_fi": "Koulutarvikkeet",
-      "group": "ops"
+      "group": "ops",
+      "grade": 2
     },
     {
-      "id": "yleissanat",
-      "name_fi": "Yleissanat",
-      "group": "general"
+      "id": "personality",
+      "name_fi": "Luonteenpiirteet",
+      "group": "ops",
+      "grade": 4
+    },
+    {
+      "id": "opposites",
+      "name_fi": "Vastakohdat",
+      "group": "ops",
+      "grade": 3
+    },
+    {
+      "id": "verbs_action",
+      "name_fi": "Toimintaverbit",
+      "group": "ops",
+      "grade": 4
+    },
+    {
+      "id": "verbs_communication",
+      "name_fi": "Puhumisverbit",
+      "group": "ops",
+      "grade": 4
+    },
+    {
+      "id": "perusverbit_1",
+      "name_fi": "Perusverbit",
+      "group": "ops",
+      "grade": 1
+    },
+    {
+      "id": "paivarutiinit_4",
+      "name_fi": "Päivärutiinit",
+      "group": "ops",
+      "grade": 4
+    },
+    {
+      "id": "professions_5",
+      "name_fi": "Ammatit",
+      "group": "ops",
+      "grade": 5
+    },
+    {
+      "id": "sports_5",
+      "name_fi": "Urheilulajit",
+      "group": "ops",
+      "grade": 5
+    },
+    {
+      "id": "transport_5",
+      "name_fi": "Kulkuvälineet",
+      "group": "ops",
+      "grade": 5
+    },
+    {
+      "id": "prepositions_5",
+      "name_fi": "Sijaintisanat",
+      "group": "ops",
+      "grade": 5
+    },
+    {
+      "id": "feelings_advanced_5",
+      "name_fi": "Tunteet",
+      "group": "ops",
+      "grade": 5
+    },
+    {
+      "id": "shopping_5",
+      "name_fi": "Ostoksilla",
+      "group": "ops",
+      "grade": 5
+    },
+    {
+      "id": "travel_6",
+      "name_fi": "Matkustaminen",
+      "group": "ops",
+      "grade": 6
+    },
+    {
+      "id": "technology_6",
+      "name_fi": "Teknologia",
+      "group": "ops",
+      "grade": 6
+    },
+    {
+      "id": "verbs_past_6",
+      "name_fi": "Verbit (mennyt aika)",
+      "group": "ops",
+      "grade": 6
+    },
+    {
+      "id": "adjectives_advanced_6",
+      "name_fi": "Kuvailevat sanat",
+      "group": "ops",
+      "grade": 6
+    },
+    {
+      "id": "countries_6",
+      "name_fi": "Maat ja kansallisuudet",
+      "group": "ops",
+      "grade": 6
+    },
+    {
+      "id": "future_plans_6",
+      "name_fi": "Tulevaisuuden suunnitelmat",
+      "group": "ops",
+      "grade": 6
     }
   ],
   "words": [
@@ -891,294 +1019,294 @@ const VOCAB = {
       "id": "personality_clumsy",
       "en": "clumsy",
       "fi": "kömpelö",
-      "category": "yleissanat",
+      "category": "personality",
       "de": "tollpatschig"
     },
     {
       "id": "personality_clever",
       "en": "clever",
       "fi": "älykäs",
-      "category": "yleissanat",
+      "category": "personality",
       "de": "klug"
     },
     {
       "id": "personality_shy",
       "en": "shy",
       "fi": "ujo",
-      "category": "yleissanat",
+      "category": "personality",
       "de": "schüchtern"
     },
     {
       "id": "personality_lazy",
       "en": "lazy",
       "fi": "laiska",
-      "category": "yleissanat",
+      "category": "personality",
       "de": "faul"
     },
     {
       "id": "personality_creative",
       "en": "creative",
       "fi": "luova",
-      "category": "yleissanat",
+      "category": "personality",
       "de": "kreativ"
     },
     {
       "id": "personality_funny",
       "en": "funny",
       "fi": "hassu",
-      "category": "yleissanat",
+      "category": "personality",
       "de": "lustig"
     },
     {
       "id": "personality_active",
       "en": "active",
       "fi": "aktiivinen",
-      "category": "yleissanat",
+      "category": "personality",
       "de": "aktiv"
     },
     {
       "id": "personality_sporty",
       "en": "sporty",
       "fi": "urheilullinen",
-      "category": "yleissanat",
+      "category": "personality",
       "de": "sportlich"
     },
     {
       "id": "personality_brave",
       "en": "brave",
       "fi": "rohkea",
-      "category": "yleissanat",
+      "category": "personality",
       "de": "mutig"
     },
     {
       "id": "personality_curious",
       "en": "curious",
       "fi": "utelias",
-      "category": "yleissanat",
+      "category": "personality",
       "de": "neugierig"
     },
     {
       "id": "personality_calm",
       "en": "calm",
       "fi": "rauhallinen",
-      "category": "yleissanat",
+      "category": "personality",
       "de": "ruhig"
     },
     {
       "id": "personality_kind",
       "en": "kind",
-      "fi": "ystävällinen",
-      "category": "yleissanat",
+      "fi": "ystävällinen / laji",
+      "category": "personality",
       "de": "freundlich"
     },
     {
       "id": "opposites_fast",
       "en": "fast",
       "fi": "nopea",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "schnell"
     },
     {
       "id": "opposites_slow",
       "en": "slow",
       "fi": "hidas",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "langsam"
     },
     {
       "id": "opposites_strong",
       "en": "strong",
       "fi": "vahva",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "stark"
     },
     {
       "id": "opposites_weak",
       "en": "weak",
       "fi": "heikko",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "schwach"
     },
     {
       "id": "opposites_loud",
       "en": "loud",
       "fi": "äänekäs",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "laut"
     },
     {
       "id": "opposites_quiet",
       "en": "quiet",
       "fi": "hiljainen",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "leise"
     },
     {
       "id": "opposites_tall",
       "en": "tall",
       "fi": "pitkä",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "groß"
     },
     {
       "id": "opposites_short",
       "en": "short",
       "fi": "lyhyt",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "klein"
     },
     {
       "id": "verbs_communication_wait",
       "en": "wait",
       "fi": "odottaa",
-      "category": "yleissanat",
+      "category": "verbs_communication",
       "de": "warten"
     },
     {
       "id": "verbs_communication_ask",
       "en": "ask",
       "fi": "kysyä",
-      "category": "yleissanat",
+      "category": "verbs_communication",
       "de": "fragen"
     },
     {
       "id": "verbs_communication_think",
       "en": "think",
-      "fi": "ajatella",
-      "category": "yleissanat",
+      "fi": "ajatella / luulla",
+      "category": "verbs_communication",
       "de": "denken"
     },
     {
       "id": "verbs_communication_shout",
       "en": "shout",
       "fi": "huutaa",
-      "category": "yleissanat",
+      "category": "verbs_communication",
       "de": "schreien"
     },
     {
       "id": "verbs_communication_talk",
       "en": "talk",
       "fi": "puhua",
-      "category": "yleissanat",
+      "category": "verbs_communication",
       "de": "sprechen"
     },
     {
       "id": "verbs_communication_listen",
       "en": "listen",
       "fi": "kuunnella",
-      "category": "yleissanat",
+      "category": "verbs_communication",
       "de": "zuhören"
     },
     {
       "id": "verbs_communication_laugh",
       "en": "laugh",
       "fi": "nauraa",
-      "category": "yleissanat",
+      "category": "verbs_communication",
       "de": "lachen"
     },
     {
       "id": "verbs_communication_smile",
       "en": "smile",
       "fi": "hymyillä",
-      "category": "yleissanat",
+      "category": "verbs_communication",
       "de": "lächeln"
     },
     {
       "id": "verbs_action_run",
       "en": "run",
       "fi": "juosta",
-      "category": "yleissanat",
+      "category": "verbs_action",
       "de": "rennen"
     },
     {
       "id": "verbs_action_walk",
       "en": "walk",
       "fi": "kävellä",
-      "category": "yleissanat",
+      "category": "verbs_action",
       "de": "gehen"
     },
     {
       "id": "verbs_action_look",
       "en": "look",
-      "fi": "katsoa",
-      "category": "yleissanat",
+      "fi": "katsoa / ulkonäkö",
+      "category": "verbs_action",
       "de": "schauen"
     },
     {
       "id": "verbs_action_ride_a_bike",
       "en": "ride a bike",
       "fi": "ajaa pyörällä",
-      "category": "yleissanat",
+      "category": "verbs_action",
       "de": "Fahrrad fahren"
     },
     {
       "id": "verbs_action_swim",
       "en": "swim",
       "fi": "uida",
-      "category": "yleissanat",
+      "category": "verbs_action",
       "de": "schwimmen"
     },
     {
       "id": "verbs_action_watch_tv",
       "en": "watch television",
       "fi": "katsoa televisiota",
-      "category": "yleissanat",
+      "category": "verbs_action",
       "de": "fernsehen"
     },
     {
       "id": "verbs_action_drive_a_car",
       "en": "drive a car",
       "fi": "ajaa autoa",
-      "category": "yleissanat",
+      "category": "verbs_action",
       "de": "Auto fahren"
     },
     {
       "id": "verbs_action_dance",
       "en": "dance",
       "fi": "tanssia",
-      "category": "yleissanat",
+      "category": "verbs_action",
       "de": "tanzen"
     },
     {
       "id": "verbs_action_climb_a_tree",
       "en": "climb a tree",
       "fi": "kiivetä puuhun",
-      "category": "yleissanat",
+      "category": "verbs_action",
       "de": "auf einen Baum klettern"
     },
     {
       "id": "verbs_action_paint",
       "en": "paint",
       "fi": "maalata",
-      "category": "yleissanat",
+      "category": "verbs_action",
       "de": "malen"
     },
     {
       "id": "verbs_action_sleep",
       "en": "sleep",
       "fi": "nukkua",
-      "category": "yleissanat",
+      "category": "verbs_action",
       "de": "schlafen"
     },
     {
       "id": "verbs_action_throw_a_ball",
       "en": "throw a ball",
       "fi": "heittää palloa",
-      "category": "yleissanat",
+      "category": "verbs_action",
       "de": "einen Ball werfen"
     },
     {
       "id": "verbs_action_play_basketball",
       "en": "play basketball",
       "fi": "pelata koripalloa",
-      "category": "yleissanat",
+      "category": "verbs_action",
       "de": "Basketball spielen"
     },
     {
       "id": "verbs_action_open_the_door",
       "en": "open the door",
       "fi": "avata ovi",
-      "category": "yleissanat",
+      "category": "verbs_action",
       "de": "die Tür öffnen"
     },
     {
@@ -2010,7 +2138,7 @@ const VOCAB = {
     {
       "id": "gaming_fortnite_land",
       "en": "land",
-      "fi": "laskeutua",
+      "fi": "laskeutua / maa",
       "category": "gaming_fortnite",
       "de": "landen"
     },
@@ -2024,7 +2152,7 @@ const VOCAB = {
     {
       "id": "gaming_fortnite_shield",
       "en": "shield",
-      "fi": "suoja",
+      "fi": "suoja / kilpi",
       "category": "gaming_fortnite",
       "de": "der Schild"
     },
@@ -2067,112 +2195,112 @@ const VOCAB = {
       "id": "opposites_big",
       "en": "big",
       "fi": "iso",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "groß"
     },
     {
       "id": "opposites_small",
       "en": "small",
       "fi": "pieni",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "klein"
     },
     {
       "id": "opposites_old",
       "en": "old",
       "fi": "vanha",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "alt"
     },
     {
       "id": "opposites_new",
       "en": "new",
       "fi": "uusi",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "neu"
     },
     {
       "id": "opposites_good",
       "en": "good",
       "fi": "hyvä",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "gut"
     },
     {
       "id": "opposites_bad",
       "en": "bad",
       "fi": "huono",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "schlecht"
     },
     {
       "id": "opposites_easy",
       "en": "easy",
       "fi": "helppo",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "einfach"
     },
     {
       "id": "opposites_hard",
       "en": "hard",
-      "fi": "vaikea",
-      "category": "yleissanat",
+      "fi": "vaikea / kova",
+      "category": "opposites",
       "de": "schwer"
     },
     {
       "id": "opposites_hot",
       "en": "hot",
-      "fi": "kuuma",
-      "category": "yleissanat",
+      "fi": "kuuma / tulinen",
+      "category": "opposites",
       "de": "heiß"
     },
     {
       "id": "opposites_cold",
       "en": "cold",
       "fi": "kylmä",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "kalt"
     },
     {
       "id": "opposites_heavy",
       "en": "heavy",
       "fi": "raskas",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "schwer"
     },
     {
       "id": "opposites_light",
       "en": "light",
-      "fi": "kevyt",
-      "category": "yleissanat",
+      "fi": "kevyt / vaalea",
+      "category": "opposites",
       "de": "leicht"
     },
     {
       "id": "opposites_full",
       "en": "full",
       "fi": "täysi",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "voll"
     },
     {
       "id": "opposites_empty",
       "en": "empty",
       "fi": "tyhjä",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "leer"
     },
     {
       "id": "opposites_clean",
       "en": "clean",
       "fi": "puhdas",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "sauber"
     },
     {
       "id": "opposites_dirty",
       "en": "dirty",
       "fi": "likainen",
-      "category": "yleissanat",
+      "category": "opposites",
       "de": "schmutzig"
     },
     {
@@ -2213,7 +2341,7 @@ const VOCAB = {
     {
       "id": "weather_seasons_spring",
       "en": "spring",
-      "fi": "kevät",
+      "fi": "kevät / jousi",
       "category": "weather_seasons",
       "de": "der Frühling"
     },
@@ -2465,7 +2593,7 @@ const VOCAB = {
     {
       "id": "school_objects_book",
       "en": "book",
-      "fi": "kirja",
+      "fi": "kirja / varata",
       "category": "school_objects",
       "de": "das Buch"
     },
@@ -2486,7 +2614,7 @@ const VOCAB = {
     {
       "id": "school_objects_ruler",
       "en": "ruler",
-      "fi": "viivain",
+      "fi": "viivain / hallitsija",
       "category": "school_objects",
       "de": "das Lineal"
     },
@@ -2503,6 +2631,972 @@ const VOCAB = {
       "fi": "vihko",
       "category": "school_objects",
       "de": "das Heft"
+    },
+    {
+      "id": "perusverbit_be",
+      "en": "be",
+      "fi": "olla",
+      "de": "sein",
+      "category": "perusverbit_1"
+    },
+    {
+      "id": "perusverbit_have",
+      "en": "have",
+      "fi": "omistaa",
+      "de": "haben",
+      "category": "perusverbit_1"
+    },
+    {
+      "id": "perusverbit_like",
+      "en": "like",
+      "fi": "pitää",
+      "de": "mögen",
+      "category": "perusverbit_1"
+    },
+    {
+      "id": "perusverbit_can",
+      "en": "can",
+      "fi": "osata",
+      "de": "können",
+      "category": "perusverbit_1"
+    },
+    {
+      "id": "perusverbit_want",
+      "en": "want",
+      "fi": "haluta",
+      "de": "wollen",
+      "category": "perusverbit_1"
+    },
+    {
+      "id": "perusverbit_go",
+      "en": "go",
+      "fi": "mennä",
+      "de": "gehen",
+      "category": "perusverbit_1"
+    },
+    {
+      "id": "perusverbit_play",
+      "en": "play",
+      "fi": "leikkiä",
+      "de": "spielen",
+      "category": "perusverbit_1"
+    },
+    {
+      "id": "perusverbit_see",
+      "en": "see",
+      "fi": "nähdä",
+      "de": "sehen",
+      "category": "perusverbit_1"
+    },
+    {
+      "id": "paivarutiinit_wake_up",
+      "en": "wake up",
+      "fi": "herätä",
+      "de": "aufwachen",
+      "category": "paivarutiinit_4"
+    },
+    {
+      "id": "paivarutiinit_get_up",
+      "en": "get up",
+      "fi": "nousta ylös",
+      "de": "aufstehen",
+      "category": "paivarutiinit_4"
+    },
+    {
+      "id": "paivarutiinit_get_dressed",
+      "en": "get dressed",
+      "fi": "pukeutua",
+      "de": "sich anziehen",
+      "category": "paivarutiinit_4"
+    },
+    {
+      "id": "paivarutiinit_brush_teeth",
+      "en": "brush your teeth",
+      "fi": "pestä hampaat",
+      "de": "Zähne putzen",
+      "category": "paivarutiinit_4"
+    },
+    {
+      "id": "paivarutiinit_have_breakfast",
+      "en": "have breakfast",
+      "fi": "syödä aamiaista",
+      "de": "frühstücken",
+      "category": "paivarutiinit_4"
+    },
+    {
+      "id": "paivarutiinit_go_to_school",
+      "en": "go to school",
+      "fi": "mennä kouluun",
+      "de": "zur Schule gehen",
+      "category": "paivarutiinit_4"
+    },
+    {
+      "id": "paivarutiinit_do_homework",
+      "en": "do homework",
+      "fi": "tehdä läksyjä",
+      "de": "Hausaufgaben machen",
+      "category": "paivarutiinit_4"
+    },
+    {
+      "id": "paivarutiinit_have_lunch",
+      "en": "have lunch",
+      "fi": "syödä lounasta",
+      "de": "zu Mittag essen",
+      "category": "paivarutiinit_4"
+    },
+    {
+      "id": "paivarutiinit_take_shower",
+      "en": "take a shower",
+      "fi": "käydä suihkussa",
+      "de": "duschen",
+      "category": "paivarutiinit_4"
+    },
+    {
+      "id": "paivarutiinit_go_to_bed",
+      "en": "go to bed",
+      "fi": "mennä nukkumaan",
+      "de": "ins Bett gehen",
+      "category": "paivarutiinit_4"
+    },
+    {
+      "id": "professions_doctor",
+      "en": "doctor",
+      "fi": "lääkäri",
+      "de": "der Arzt / die Ärztin",
+      "category": "professions_5"
+    },
+    {
+      "id": "professions_dentist",
+      "en": "dentist",
+      "fi": "hammaslääkäri",
+      "de": "der Zahnarzt / die Zahnärztin",
+      "category": "professions_5"
+    },
+    {
+      "id": "professions_police_officer",
+      "en": "police officer",
+      "fi": "poliisi",
+      "de": "der Polizist / die Polizistin",
+      "category": "professions_5"
+    },
+    {
+      "id": "professions_firefighter",
+      "en": "firefighter",
+      "fi": "palomies",
+      "de": "der Feuerwehrmann / die Feuerwehrfrau",
+      "category": "professions_5"
+    },
+    {
+      "id": "professions_engineer",
+      "en": "engineer",
+      "fi": "insinööri",
+      "de": "der Ingenieur / die Ingenieurin",
+      "category": "professions_5"
+    },
+    {
+      "id": "professions_farmer",
+      "en": "farmer",
+      "fi": "maanviljelijä",
+      "de": "der Bauer / die Bäuerin",
+      "category": "professions_5"
+    },
+    {
+      "id": "professions_driver",
+      "en": "driver",
+      "fi": "kuljettaja",
+      "de": "der Fahrer / die Fahrerin",
+      "category": "professions_5"
+    },
+    {
+      "id": "professions_shop_assistant",
+      "en": "shop assistant",
+      "fi": "myyjä",
+      "de": "der Verkäufer / die Verkäuferin",
+      "category": "professions_5"
+    },
+    {
+      "id": "professions_hairdresser",
+      "en": "hairdresser",
+      "fi": "kampaaja",
+      "de": "der Friseur / die Friseurin",
+      "category": "professions_5"
+    },
+    {
+      "id": "professions_vet",
+      "en": "vet",
+      "fi": "eläinlääkäri",
+      "de": "der Tierarzt / die Tierärztin",
+      "category": "professions_5"
+    },
+    {
+      "id": "sports_ice_hockey",
+      "en": "ice hockey",
+      "fi": "jääkiekko",
+      "de": "das Eishockey",
+      "category": "sports_5"
+    },
+    {
+      "id": "sports_skiing",
+      "en": "skiing",
+      "fi": "hiihto",
+      "de": "das Skifahren",
+      "category": "sports_5"
+    },
+    {
+      "id": "sports_skating",
+      "en": "skating",
+      "fi": "luistelu",
+      "de": "das Schlittschuhlaufen",
+      "category": "sports_5"
+    },
+    {
+      "id": "sports_swimming",
+      "en": "swimming",
+      "fi": "uinti",
+      "de": "das Schwimmen",
+      "category": "sports_5"
+    },
+    {
+      "id": "sports_athletics",
+      "en": "athletics",
+      "fi": "yleisurheilu",
+      "de": "die Leichtathletik",
+      "category": "sports_5"
+    },
+    {
+      "id": "sports_tennis",
+      "en": "tennis",
+      "fi": "tennis",
+      "de": "das Tennis",
+      "category": "sports_5"
+    },
+    {
+      "id": "sports_volleyball",
+      "en": "volleyball",
+      "fi": "lentopallo",
+      "de": "der Volleyball",
+      "category": "sports_5"
+    },
+    {
+      "id": "sports_badminton",
+      "en": "badminton",
+      "fi": "sulkapallo",
+      "de": "das Badminton",
+      "category": "sports_5"
+    },
+    {
+      "id": "sports_cycling",
+      "en": "cycling",
+      "fi": "pyöräily",
+      "de": "das Radfahren",
+      "category": "sports_5"
+    },
+    {
+      "id": "sports_running",
+      "en": "running",
+      "fi": "juoksu",
+      "de": "das Laufen",
+      "category": "sports_5"
+    },
+    {
+      "id": "transport_car",
+      "en": "car",
+      "fi": "auto",
+      "de": "das Auto",
+      "category": "transport_5"
+    },
+    {
+      "id": "transport_bus",
+      "en": "bus",
+      "fi": "bussi",
+      "de": "der Bus",
+      "category": "transport_5"
+    },
+    {
+      "id": "transport_train",
+      "en": "train",
+      "fi": "juna",
+      "de": "der Zug",
+      "category": "transport_5"
+    },
+    {
+      "id": "transport_bicycle",
+      "en": "bicycle",
+      "fi": "polkupyörä",
+      "de": "das Fahrrad",
+      "category": "transport_5"
+    },
+    {
+      "id": "transport_airplane",
+      "en": "airplane",
+      "fi": "lentokone",
+      "de": "das Flugzeug",
+      "category": "transport_5"
+    },
+    {
+      "id": "transport_boat",
+      "en": "boat",
+      "fi": "vene",
+      "de": "das Boot",
+      "category": "transport_5"
+    },
+    {
+      "id": "transport_tram",
+      "en": "tram",
+      "fi": "raitiovaunu",
+      "de": "die Straßenbahn",
+      "category": "transport_5"
+    },
+    {
+      "id": "transport_metro",
+      "en": "metro",
+      "fi": "metro",
+      "de": "die U-Bahn",
+      "category": "transport_5"
+    },
+    {
+      "id": "transport_taxi",
+      "en": "taxi",
+      "fi": "taksi",
+      "de": "das Taxi",
+      "category": "transport_5"
+    },
+    {
+      "id": "transport_motorcycle",
+      "en": "motorcycle",
+      "fi": "moottoripyörä",
+      "de": "das Motorrad",
+      "category": "transport_5"
+    },
+    {
+      "id": "prepositions_in",
+      "en": "in",
+      "fi": "sisällä",
+      "de": "in",
+      "category": "prepositions_5"
+    },
+    {
+      "id": "prepositions_on",
+      "en": "on",
+      "fi": "päällä",
+      "de": "auf",
+      "category": "prepositions_5"
+    },
+    {
+      "id": "prepositions_under",
+      "en": "under",
+      "fi": "alla",
+      "de": "unter",
+      "category": "prepositions_5"
+    },
+    {
+      "id": "prepositions_next_to",
+      "en": "next to",
+      "fi": "vieressä",
+      "de": "neben",
+      "category": "prepositions_5"
+    },
+    {
+      "id": "prepositions_between",
+      "en": "between",
+      "fi": "välissä",
+      "de": "zwischen",
+      "category": "prepositions_5"
+    },
+    {
+      "id": "prepositions_behind",
+      "en": "behind",
+      "fi": "takana",
+      "de": "hinter",
+      "category": "prepositions_5"
+    },
+    {
+      "id": "prepositions_in_front_of",
+      "en": "in front of",
+      "fi": "edessä",
+      "de": "vor",
+      "category": "prepositions_5"
+    },
+    {
+      "id": "prepositions_near",
+      "en": "near",
+      "fi": "lähellä",
+      "de": "in der Nähe von",
+      "category": "prepositions_5"
+    },
+    {
+      "id": "prepositions_above",
+      "en": "above",
+      "fi": "yläpuolella",
+      "de": "über",
+      "category": "prepositions_5"
+    },
+    {
+      "id": "prepositions_opposite",
+      "en": "opposite",
+      "fi": "vastapäätä",
+      "de": "gegenüber",
+      "category": "prepositions_5"
+    },
+    {
+      "id": "feelings_worried",
+      "en": "worried",
+      "fi": "huolissaan",
+      "de": "besorgt",
+      "category": "feelings_advanced_5"
+    },
+    {
+      "id": "feelings_proud",
+      "en": "proud",
+      "fi": "ylpeä",
+      "de": "stolz",
+      "category": "feelings_advanced_5"
+    },
+    {
+      "id": "feelings_bored",
+      "en": "bored",
+      "fi": "kyllästynyt",
+      "de": "gelangweilt",
+      "category": "feelings_advanced_5"
+    },
+    {
+      "id": "feelings_confused",
+      "en": "confused",
+      "fi": "hämmentynyt",
+      "de": "verwirrt",
+      "category": "feelings_advanced_5"
+    },
+    {
+      "id": "feelings_disappointed",
+      "en": "disappointed",
+      "fi": "pettynyt",
+      "de": "enttäuscht",
+      "category": "feelings_advanced_5"
+    },
+    {
+      "id": "feelings_relieved",
+      "en": "relieved",
+      "fi": "helpottunut",
+      "de": "erleichtert",
+      "category": "feelings_advanced_5"
+    },
+    {
+      "id": "feelings_jealous",
+      "en": "jealous",
+      "fi": "kateellinen",
+      "de": "eifersüchtig",
+      "category": "feelings_advanced_5"
+    },
+    {
+      "id": "feelings_embarrassed",
+      "en": "embarrassed",
+      "fi": "nolostunut",
+      "de": "verlegen",
+      "category": "feelings_advanced_5"
+    },
+    {
+      "id": "feelings_nervous",
+      "en": "nervous",
+      "fi": "hermostunut",
+      "de": "nervös",
+      "category": "feelings_advanced_5"
+    },
+    {
+      "id": "feelings_surprised",
+      "en": "surprised",
+      "fi": "yllättynyt",
+      "de": "überrascht",
+      "category": "feelings_advanced_5"
+    },
+    {
+      "id": "shopping_money",
+      "en": "money",
+      "fi": "raha",
+      "de": "das Geld",
+      "category": "shopping_5"
+    },
+    {
+      "id": "shopping_price",
+      "en": "price",
+      "fi": "hinta",
+      "de": "der Preis",
+      "category": "shopping_5"
+    },
+    {
+      "id": "shopping_expensive",
+      "en": "expensive",
+      "fi": "kallis",
+      "de": "teuer",
+      "category": "shopping_5"
+    },
+    {
+      "id": "shopping_cheap",
+      "en": "cheap",
+      "fi": "halpa",
+      "de": "billig",
+      "category": "shopping_5"
+    },
+    {
+      "id": "shopping_buy",
+      "en": "buy",
+      "fi": "ostaa",
+      "de": "kaufen",
+      "category": "shopping_5"
+    },
+    {
+      "id": "shopping_sell",
+      "en": "sell",
+      "fi": "myydä",
+      "de": "verkaufen",
+      "category": "shopping_5"
+    },
+    {
+      "id": "shopping_pay",
+      "en": "pay",
+      "fi": "maksaa",
+      "de": "bezahlen",
+      "category": "shopping_5"
+    },
+    {
+      "id": "shopping_coin",
+      "en": "coin",
+      "fi": "kolikko",
+      "de": "die Münze",
+      "category": "shopping_5"
+    },
+    {
+      "id": "shopping_receipt",
+      "en": "receipt",
+      "fi": "kuitti",
+      "de": "die Quittung",
+      "category": "shopping_5"
+    },
+    {
+      "id": "shopping_wallet",
+      "en": "wallet",
+      "fi": "lompakko",
+      "de": "das Portemonnaie",
+      "category": "shopping_5"
+    },
+    {
+      "id": "travel_airport",
+      "en": "airport",
+      "fi": "lentokenttä",
+      "de": "der Flughafen",
+      "category": "travel_6"
+    },
+    {
+      "id": "travel_ticket",
+      "en": "ticket",
+      "fi": "lippu / sakko",
+      "de": "das Ticket",
+      "category": "travel_6"
+    },
+    {
+      "id": "travel_passport",
+      "en": "passport",
+      "fi": "passi",
+      "de": "der Reisepass",
+      "category": "travel_6"
+    },
+    {
+      "id": "travel_luggage",
+      "en": "luggage",
+      "fi": "matkatavarat",
+      "de": "das Gepäck",
+      "category": "travel_6"
+    },
+    {
+      "id": "travel_hotel",
+      "en": "hotel",
+      "fi": "hotelli",
+      "de": "das Hotel",
+      "category": "travel_6"
+    },
+    {
+      "id": "travel_holiday",
+      "en": "holiday",
+      "fi": "loma",
+      "de": "der Urlaub",
+      "category": "travel_6"
+    },
+    {
+      "id": "travel_map",
+      "en": "map",
+      "fi": "kartta",
+      "de": "die Karte",
+      "category": "travel_6"
+    },
+    {
+      "id": "travel_tourist",
+      "en": "tourist",
+      "fi": "turisti",
+      "de": "der Tourist / die Touristin",
+      "category": "travel_6"
+    },
+    {
+      "id": "travel_journey",
+      "en": "journey",
+      "fi": "matka",
+      "de": "die Reise",
+      "category": "travel_6"
+    },
+    {
+      "id": "travel_souvenir",
+      "en": "souvenir",
+      "fi": "matkamuisto",
+      "de": "das Souvenir",
+      "category": "travel_6"
+    },
+    {
+      "id": "technology_computer",
+      "en": "computer",
+      "fi": "tietokone",
+      "de": "der Computer",
+      "category": "technology_6"
+    },
+    {
+      "id": "technology_tablet",
+      "en": "tablet",
+      "fi": "tabletti",
+      "de": "das Tablet",
+      "category": "technology_6"
+    },
+    {
+      "id": "technology_internet",
+      "en": "internet",
+      "fi": "internet",
+      "de": "das Internet",
+      "category": "technology_6"
+    },
+    {
+      "id": "technology_app",
+      "en": "app",
+      "fi": "sovellus",
+      "de": "die App",
+      "category": "technology_6"
+    },
+    {
+      "id": "technology_email",
+      "en": "email",
+      "fi": "sähköposti",
+      "de": "die E-Mail",
+      "category": "technology_6"
+    },
+    {
+      "id": "technology_keyboard",
+      "en": "keyboard",
+      "fi": "näppäimistö",
+      "de": "die Tastatur",
+      "category": "technology_6"
+    },
+    {
+      "id": "technology_screen",
+      "en": "screen",
+      "fi": "näyttö",
+      "de": "der Bildschirm",
+      "category": "technology_6"
+    },
+    {
+      "id": "technology_password",
+      "en": "password",
+      "fi": "salasana",
+      "de": "das Passwort",
+      "category": "technology_6"
+    },
+    {
+      "id": "technology_download",
+      "en": "download",
+      "fi": "ladata",
+      "de": "herunterladen",
+      "category": "technology_6"
+    },
+    {
+      "id": "technology_message",
+      "en": "message",
+      "fi": "viesti",
+      "de": "die Nachricht",
+      "category": "technology_6"
+    },
+    {
+      "id": "verbs_past_went",
+      "en": "went",
+      "fi": "meni",
+      "de": "ging",
+      "category": "verbs_past_6"
+    },
+    {
+      "id": "verbs_past_saw",
+      "en": "saw",
+      "fi": "näki",
+      "de": "sah",
+      "category": "verbs_past_6"
+    },
+    {
+      "id": "verbs_past_ate",
+      "en": "ate",
+      "fi": "söi",
+      "de": "aß",
+      "category": "verbs_past_6"
+    },
+    {
+      "id": "verbs_past_made",
+      "en": "made",
+      "fi": "teki",
+      "de": "machte",
+      "category": "verbs_past_6"
+    },
+    {
+      "id": "verbs_past_wrote",
+      "en": "wrote",
+      "fi": "kirjoitti",
+      "de": "schrieb",
+      "category": "verbs_past_6"
+    },
+    {
+      "id": "verbs_past_read",
+      "en": "read",
+      "fi": "luki",
+      "de": "las",
+      "category": "verbs_past_6"
+    },
+    {
+      "id": "verbs_past_bought",
+      "en": "bought",
+      "fi": "osti",
+      "de": "kaufte",
+      "category": "verbs_past_6"
+    },
+    {
+      "id": "verbs_past_took",
+      "en": "took",
+      "fi": "otti",
+      "de": "nahm",
+      "category": "verbs_past_6"
+    },
+    {
+      "id": "verbs_past_gave",
+      "en": "gave",
+      "fi": "antoi",
+      "de": "gab",
+      "category": "verbs_past_6"
+    },
+    {
+      "id": "verbs_past_found",
+      "en": "found",
+      "fi": "löysi",
+      "de": "fand",
+      "category": "verbs_past_6"
+    },
+    {
+      "id": "adjectives_exciting",
+      "en": "exciting",
+      "fi": "jännittävä",
+      "de": "aufregend",
+      "category": "adjectives_advanced_6"
+    },
+    {
+      "id": "adjectives_boring",
+      "en": "boring",
+      "fi": "tylsä",
+      "de": "langweilig",
+      "category": "adjectives_advanced_6"
+    },
+    {
+      "id": "adjectives_dangerous",
+      "en": "dangerous",
+      "fi": "vaarallinen",
+      "de": "gefährlich",
+      "category": "adjectives_advanced_6"
+    },
+    {
+      "id": "adjectives_comfortable",
+      "en": "comfortable",
+      "fi": "mukava",
+      "de": "bequem",
+      "category": "adjectives_advanced_6"
+    },
+    {
+      "id": "adjectives_crowded",
+      "en": "crowded",
+      "fi": "täynnä väkeä",
+      "de": "überfüllt",
+      "category": "adjectives_advanced_6"
+    },
+    {
+      "id": "adjectives_enormous",
+      "en": "enormous",
+      "fi": "valtava",
+      "de": "riesig",
+      "category": "adjectives_advanced_6"
+    },
+    {
+      "id": "adjectives_ancient",
+      "en": "ancient",
+      "fi": "muinainen",
+      "de": "uralt",
+      "category": "adjectives_advanced_6"
+    },
+    {
+      "id": "adjectives_modern",
+      "en": "modern",
+      "fi": "moderni",
+      "de": "modern",
+      "category": "adjectives_advanced_6"
+    },
+    {
+      "id": "adjectives_famous",
+      "en": "famous",
+      "fi": "kuuluisa",
+      "de": "berühmt",
+      "category": "adjectives_advanced_6"
+    },
+    {
+      "id": "adjectives_popular",
+      "en": "popular",
+      "fi": "suosittu",
+      "de": "beliebt",
+      "category": "adjectives_advanced_6"
+    },
+    {
+      "id": "countries_finland",
+      "en": "Finland",
+      "fi": "Suomi",
+      "de": "Finnland",
+      "category": "countries_6"
+    },
+    {
+      "id": "countries_finnish",
+      "en": "Finnish",
+      "fi": "suomalainen",
+      "de": "finnisch",
+      "category": "countries_6"
+    },
+    {
+      "id": "countries_england",
+      "en": "England",
+      "fi": "Englanti",
+      "de": "England",
+      "category": "countries_6"
+    },
+    {
+      "id": "countries_english",
+      "en": "English",
+      "fi": "englantilainen",
+      "de": "englisch",
+      "category": "countries_6"
+    },
+    {
+      "id": "countries_germany",
+      "en": "Germany",
+      "fi": "Saksa",
+      "de": "Deutschland",
+      "category": "countries_6"
+    },
+    {
+      "id": "countries_german",
+      "en": "German",
+      "fi": "saksalainen",
+      "de": "deutsch",
+      "category": "countries_6"
+    },
+    {
+      "id": "countries_sweden",
+      "en": "Sweden",
+      "fi": "Ruotsi",
+      "de": "Schweden",
+      "category": "countries_6"
+    },
+    {
+      "id": "countries_swedish",
+      "en": "Swedish",
+      "fi": "ruotsalainen",
+      "de": "schwedisch",
+      "category": "countries_6"
+    },
+    {
+      "id": "countries_france",
+      "en": "France",
+      "fi": "Ranska",
+      "de": "Frankreich",
+      "category": "countries_6"
+    },
+    {
+      "id": "countries_french",
+      "en": "French",
+      "fi": "ranskalainen",
+      "de": "französisch",
+      "category": "countries_6"
+    },
+    {
+      "id": "future_dream_job",
+      "en": "dream job",
+      "fi": "unelma-ammatti",
+      "de": "der Traumberuf",
+      "category": "future_plans_6"
+    },
+    {
+      "id": "future_high_school",
+      "en": "high school",
+      "fi": "lukio",
+      "de": "das Gymnasium",
+      "category": "future_plans_6"
+    },
+    {
+      "id": "future_university",
+      "en": "university",
+      "fi": "yliopisto",
+      "de": "die Universität",
+      "category": "future_plans_6"
+    },
+    {
+      "id": "future_exam",
+      "en": "exam",
+      "fi": "koe",
+      "de": "die Prüfung",
+      "category": "future_plans_6"
+    },
+    {
+      "id": "future_graduate",
+      "en": "graduate",
+      "fi": "valmistua",
+      "de": "den Abschluss machen",
+      "category": "future_plans_6"
+    },
+    {
+      "id": "future_career",
+      "en": "career",
+      "fi": "ura",
+      "de": "die Karriere",
+      "category": "future_plans_6"
+    },
+    {
+      "id": "future_decision",
+      "en": "decision",
+      "fi": "päätös",
+      "de": "die Entscheidung",
+      "category": "future_plans_6"
+    },
+    {
+      "id": "future_plan",
+      "en": "plan",
+      "fi": "suunnitelma",
+      "de": "der Plan",
+      "category": "future_plans_6"
+    },
+    {
+      "id": "future_goal",
+      "en": "goal",
+      "fi": "tavoite",
+      "de": "das Ziel",
+      "category": "future_plans_6"
+    },
+    {
+      "id": "future_future",
+      "en": "future",
+      "fi": "tulevaisuus",
+      "de": "die Zukunft",
+      "category": "future_plans_6"
     }
   ]
 };
@@ -2653,6 +3747,12 @@ function selectTargetLang(lang){
   try { localStorage.setItem("targetLang", targetLang); } catch (e) { /* ei haittaa */ }
   syncLangButtons();
   PRACTICE_WORDS = practiceWords();
+  // Kummallakin kielellä on oma luokka-aste muistissa (esim. saksa voi olla
+  // vasta alkanut, vaikka englanti olisi jo pidemmällä).
+  activeGrade = loadOrDetectGrade(targetLang);
+  currentCategory = "all";
+  populateGradeOptions();
+  populateCategoryOptions();
   current = null;
   initSessionPool();
   pickWord();
@@ -2672,15 +3772,127 @@ function categoryGroup(id){
   return c ? (c.group || "ops") : "ops";
 }
 
-const GENERAL_CATEGORY_ID = "yleissanat";
+// --- Luokka-asteet: sanasto ryhmitelty peruskoulun luokka-asteille 1-6 ---
+// Jokaisella teemakategorialla on VOCAB.categories-listassa "grade"-kenttä
+// (1-6, tai null harrasteteemoille kuten Minecraft/Fortnite, jotka pysyvät
+// aina käsin valittavissa luokka-asteesta riippumatta). Oppilas valitsee ensin
+// luokka-asteen ja sitten teeman - teemavalikko näyttää vain kyseisen
+// luokka-asteen teemat (+ harrasteteemat, jotka näkyvät aina).
+const GRADES = [1, 2, 3, 4, 5, 6];
+let activeGrade = 1;
+const gradeFilter = document.getElementById("gradeFilter");
+
+function wordGrade(word){
+  const c = VOCAB.categories.find(c => c.id === word.category);
+  return c ? c.grade : null;
+}
+
+function wordsForGrade(g){
+  return PRACTICE_WORDS.filter(w => wordGrade(w) === g);
+}
+
+// Luokka-aste on "valmis" kun KAIKKI sen sanat on opittu kokonaan (kaikki
+// kolme vaihetta graduoitu) - sama tiukka kriteeri kuin kokonaisedistymisessä.
+function isGradeComplete(g){
+  const list = wordsForGrade(g);
+  return list.length > 0 && list.every(w => isFullyLearned(statsCache[statId(w)]));
+}
+
+function gradeStorageKey(lang){ return "grade_" + lang; }
+
+function hasExplicitGradeChoice(lang){
+  try { return localStorage.getItem(gradeStorageKey(lang)) !== null; }
+  catch (e) { return false; }
+}
+
+function saveGradeChoice(lang, grade){
+  try { localStorage.setItem(gradeStorageKey(lang), String(grade)); }
+  catch (e) { /* ei haittaa */ }
+}
+
+// Jos oppilaalle ei ole vielä tällä laitteella valittu luokka-astetta erikseen,
+// päätellään lähtökohta tilastoista: matalin luokka-aste, jota EI ole vielä
+// kokonaan opittu (esim. jos sanasto oli ennen luokka-asteiden lisäystä jo
+// pitkälti opittu, oppilas ei jää jumiin ykkösluokkaan).
+function detectFrontierGrade(){
+  for (const g of GRADES){
+    if (!isGradeComplete(g)) return g;
+  }
+  return GRADES[GRADES.length - 1];
+}
+
+function loadOrDetectGrade(lang){
+  try {
+    const saved = localStorage.getItem(gradeStorageKey(lang));
+    if (saved){
+      const n = parseInt(saved, 10);
+      if (GRADES.includes(n)) return n;
+    }
+  } catch (e) { /* ei haittaa */ }
+  return detectFrontierGrade();
+}
+
+// Rakentaa luokka-astevalikon vaihtoehdot uudelleen - kutsutaan aina kun
+// valmistumistilanne (vihreä teksti) tai valittu luokka-aste voi olla muuttunut.
+function populateGradeOptions(){
+  gradeFilter.innerHTML = "";
+  GRADES.forEach(g => {
+    const opt = document.createElement("option");
+    opt.value = String(g);
+    const complete = isGradeComplete(g);
+    opt.textContent = (complete ? "✅ " : "") + g + ". luokka";
+    opt.style.color = complete ? "#2e7d32" : "";
+    if (g === activeGrade) opt.selected = true;
+    gradeFilter.appendChild(opt);
+  });
+}
+
+function setupGradeFilter(){
+  populateGradeOptions();
+  gradeFilter.addEventListener("change", () => {
+    activeGrade = parseInt(gradeFilter.value, 10);
+    saveGradeChoice(targetLang, activeGrade);
+    currentCategory = "all";
+    populateCategoryOptions();
+    current = null;
+    initSessionPool();
+    pickWord();
+  });
+}
+
+// Kun luokka-aste on kokonaan opittu, oppilas siirtyy automaattisesti seuraavalle
+// luokka-asteelle - tarkistetaan aina ennen uuden sanan valintaa.
+function maybeAdvanceGrade(){
+  if (activeGrade < GRADES.length && isGradeComplete(activeGrade)){
+    activeGrade += 1;
+    saveGradeChoice(targetLang, activeGrade);
+    currentCategory = "all";
+    populateCategoryOptions();
+    initSessionPool();
+  }
+}
+
+// Teemavalikko näyttää vain valitun luokka-asteen teemat, sekä harrasteteemat
+// (group=hobby), jotka näkyvät aina luokka-asteesta riippumatta.
+function populateCategoryOptions(){
+  categoryFilter.innerHTML = "";
+  const allOpt = document.createElement("option");
+  allOpt.value = "all";
+  allOpt.textContent = "Kaikki teemat";
+  categoryFilter.appendChild(allOpt);
+  VOCAB.categories
+    .filter(c => c.grade === activeGrade || c.group === "hobby")
+    .forEach(c => {
+      const opt = document.createElement("option");
+      opt.value = c.id;
+      opt.textContent = c.name_fi;
+      categoryFilter.appendChild(opt);
+    });
+  categoryFilter.value = currentCategory;
+}
 
 function setupCategoryFilter(){
-  VOCAB.categories.forEach(c => {
-    const opt = document.createElement("option");
-    opt.value = c.id;
-    opt.textContent = c.name_fi;
-    categoryFilter.appendChild(opt);
-  });
+  populateCategoryOptions();
   categoryFilter.addEventListener("change", () => {
     currentCategory = categoryFilter.value;
     initSessionPool();
@@ -2689,24 +3901,33 @@ function setupCategoryFilter(){
 }
 
 function activeWordPool(){
-  const pool = currentCategory === "all"
-    ? PRACTICE_WORDS
-    : PRACTICE_WORDS.filter(w => w.category === currentCategory);
-  return pool.length ? pool : PRACTICE_WORDS;
+  const pool = eligibleWordsForCategoryScope(currentCategory);
+  return pool.length ? pool : wordsForGrade(activeGrade);
 }
 
-// Sanat, jotka voivat kiertää automaattisessa aktiivijoukossa valitulla teemarajauksella.
-// "Kaikki teemat" -valinnassa harrasteteemat (group=hobby, esim. Minecraft/Fortnite) jätetään
-// automaattikierron ulkopuolelle - ne ovat vain käsin valittavissa teemavalikosta.
+// Sanat, jotka voivat kiertää automaattisessa aktiivijoukossa valitulla luokka-asteella
+// ja teemarajauksella. Harrasteteemat (group=hobby, esim. Minecraft/Fortnite) ohittavat
+// luokka-asterajauksen kokonaan - ne ovat vain käsin valittavissa teemavalikosta.
 function eligibleWordsForCategoryScope(catId){
-  if (catId === "all"){
-    return PRACTICE_WORDS.filter(w => categoryGroup(w.category) !== "hobby");
+  if (catId !== "all" && categoryGroup(catId) === "hobby"){
+    return PRACTICE_WORDS.filter(w => w.category === catId);
   }
-  return PRACTICE_WORDS.filter(w => w.category === catId);
+  const gradeScoped = wordsForGrade(activeGrade);
+  return catId === "all" ? gradeScoped : gradeScoped.filter(w => w.category === catId);
 }
 
-function generalFallbackWords(){
-  return PRACTICE_WORDS.filter(w => w.category === GENERAL_CATEGORY_ID);
+// Kun oman luokka-asteen (ja teemarajauksen) sanat alkavat loppua, täydennetään
+// seuraavan ylemmän luokka-asteen sanoista (helpoimmasta päästä, eli siitä
+// järjestyksestä jossa ne on sanastoon kirjoitettu) - oppilas ei koskaan jää
+// ilman uusia sanoja, vaikka oma luokka-aste olisi lähes kokonaan opittu.
+function nextGradeFallbackWords(catId, excludeIds){
+  for (let g = activeGrade + 1; g <= GRADES.length; g++){
+    const gradeWords = wordsForGrade(g);
+    const scoped = catId === "all" ? gradeWords : gradeWords.filter(w => w.category === catId);
+    const usable = (scoped.length ? scoped : gradeWords).filter(w => !excludeIds.has(w.id));
+    if (usable.length) return usable;
+  }
+  return [];
 }
 
 // --- Kolmivaiheinen oppimispolku: piirrä -> kirjoita -> puhu ---
@@ -2818,7 +4039,7 @@ function renderTierBadge(){
   tierIcon.textContent = LEVEL_ICONS[t.majorIndex];
   tierLabelEl.textContent = tierLabel(t.majorIndex);
   tierStarsEl.textContent = "★".repeat(t.stars) + "☆".repeat(5 - t.stars);
-  tierBadge.title = `${MODE_NAMES[activeMode] || ""}: opittu ${t.n}/${PRACTICE_WORDS.length} sanaa (${LANGS[targetLang].label})`;
+  tierBadge.title = `${MODE_NAMES[activeMode] || ""}: opittu ${t.n}/${wordsForGrade(activeGrade).length} sanaa (${activeGrade}. luokka, ${LANGS[targetLang].label})`;
 
   // Edistymispalkki näyttää parhaillaan valitun menetelmän matkan SEURAAVAAN
   // tähteen (ei enää koko sanaston kokonaisosaamista) - eli exactStepsin
@@ -2836,16 +4057,18 @@ async function updateHeaderStats(){
   statsCache = {};
   all.forEach(s => statsCache[s.statId] = s);
 
-  // Palkintotaso lasketaan koko kohdekielen sanastosta (ei teemasuodattimesta),
-  // jotta taso kuvaa koko ohjelman etenemistä eikä hyppele teemaa vaihtaessa.
-  // Jokaiselle menetelmälle laskettu erikseen (ks. yllä).
+  // Palkintotaso lasketaan VALITUN LUOKKA-ASTEEN sanastosta (ei koko kohdekielen
+  // sanastosta eikä teemasuodattimesta), jotta mittari vaihtuu heti kun oppilas
+  // vaihtaa luokka-astetta. Jokaiselle menetelmälle laskettu erikseen (ks. yllä).
+  const gradeWordsList = wordsForGrade(activeGrade);
   ["pen", "keyboard", "mic"].forEach(mode => {
     const check = MODE_GRADUATED_CHECK[mode];
-    const n = PRACTICE_WORDS.filter(w => check(statsCache[statId(w)])).length;
-    const { majorIndex, stars, exactSteps } = tierState(n, PRACTICE_WORDS.length);
+    const n = gradeWordsList.filter(w => check(statsCache[statId(w)])).length;
+    const { majorIndex, stars, exactSteps } = tierState(n, gradeWordsList.length);
     tierByMode[mode] = { n, majorIndex, stars, exactSteps };
   });
   renderTierBadge();
+  populateGradeOptions(); // päivittää valmiiden luokka-asteiden vihreän merkinnän
 }
 
 function weightFor(word){
@@ -2890,6 +4113,7 @@ const REVIEW_CHANCE = 0.15;
 let sessionPool = [];
 let sessionPoolCategory = null;
 let sessionPoolMode = null;
+let sessionPoolGrade = null;
 
 // Graduoituminen tarkistetaan PARHAILLAAN VALITUSTA harjoittelutavasta, ei
 // kaikista kolmesta yhdessä - koska syöttötapa ei enää vaihdu automaattisesti,
@@ -2918,20 +4142,24 @@ function fillPoolFrom(candidates, pool, excludeIds, needed){
   }
 }
 
-// Täydentää annettua pool-taulukkoa: ensin nykyisen teemarajauksen (catId) kesken
-// olevista/uusista sanoista, ja jos ACTIVE_POOL_MIN ei täyty eikä rajaus itse ole
-// jo "yleissanat" tai harrasteteema, täydennetään teemasta "yleissanat".
+// Täydentää annettua pool-taulukkoa: ensin nykyisen luokka-asteen ja teemarajauksen
+// (catId) kesken olevista/uusista sanoista. Jos ACTIVE_POOL_MIN ei täyty eikä
+// rajaus itse ole harrasteteema, täydennetään ensin saman luokka-asteen muista
+// teemoista, ja jos sekään ei riitä, seuraavan ylemmän luokka-asteen sanoista.
 function topUpPool(pool, catId, excludeIds){
+  const isHobby = catId !== "all" && categoryGroup(catId) === "hobby";
   const primary = eligibleWordsForCategoryScope(catId).filter(w => !excludeIds.has(w.id));
   fillPoolFrom(primary.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MAX);
   fillPoolFrom(primary.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MAX);
-  if (pool.length < ACTIVE_POOL_MIN && catId !== GENERAL_CATEGORY_ID){
-    const scopeGroup = catId === "all" ? "all" : categoryGroup(catId);
-    if (scopeGroup !== "hobby"){
-      const general = generalFallbackWords().filter(w => !excludeIds.has(w.id));
-      fillPoolFrom(general.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
-      fillPoolFrom(general.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
-    }
+  if (pool.length < ACTIVE_POOL_MIN && !isHobby && catId !== "all"){
+    const sameGrade = wordsForGrade(activeGrade).filter(w => !excludeIds.has(w.id));
+    fillPoolFrom(sameGrade.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
+    fillPoolFrom(sameGrade.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
+  }
+  if (pool.length < ACTIVE_POOL_MIN && !isHobby && activeGrade < GRADES.length){
+    const upper = nextGradeFallbackWords(catId, excludeIds);
+    fillPoolFrom(upper.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
+    fillPoolFrom(upper.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
   }
   return pool;
 }
@@ -2947,12 +4175,13 @@ function initSessionPool(){
   sessionPool = buildSessionPool(currentCategory);
   sessionPoolCategory = currentCategory;
   sessionPoolMode = activeMode;
+  sessionPoolGrade = activeGrade;
 }
 
 // Kutsutaan joka kierroksella pickWord():ssä. Pooli pysyy vakaana eikä rakennu
 // tyhjästä joka kerta - vain graduoituneet sanat poistetaan ja tilalle täydennetään.
 function pruneAndRefillSessionPool(){
-  if (sessionPoolCategory !== currentCategory || sessionPoolMode !== activeMode){
+  if (sessionPoolCategory !== currentCategory || sessionPoolMode !== activeMode || sessionPoolGrade !== activeGrade){
     initSessionPool();
     return;
   }
@@ -2964,6 +4193,9 @@ function pruneAndRefillSessionPool(){
 }
 
 async function pickWord(){
+  // Jos edellinen sana juuri täytti koko luokka-asteen, siirrytään ensin
+  // automaattisesti seuraavalle luokka-asteelle (ks. maybeAdvanceGrade).
+  maybeAdvanceGrade();
   // Valinta tehdään muistissa olevilla tiedoilla ja sana näytetään heti,
   // mittarit päivitetään tietokannasta vasta sen jälkeen.
   pruneAndRefillSessionPool();
@@ -3566,6 +4798,8 @@ window.addEventListener("resize", () => { if (activeMode === "pen") setupPenPad(
 
 (async function init(){
   syncLangButtons(); // varmistaa napin tilan ja tekstin, jos kieli muistettiin laitteelta
+  activeGrade = loadOrDetectGrade(targetLang); // ennen DB:tä -> oletus 1. luokka
+  setupGradeFilter();
   setupCategoryFilter();
   initSessionPool(); // ensimmäinen pooli ilman tallennettua edistymistä (DB ei vielä ladattu)
   pickWord(); // ensimmäinen sana näkyviin heti, ei odoteta tietokantaa
@@ -3575,7 +4809,17 @@ window.addEventListener("resize", () => { if (activeMode === "pen") setupPenPad(
     console.warn("IndexedDB ei käytettävissä, edistymistä ei tallenneta:", e);
   }
   await updateHeaderStats();
+  // Nyt kun oikea edistyminen on tiedossa: jos luokka-astetta ei ole erikseen
+  // valittu tällä laitteella, päätellään oppilaan todellinen lähtökohta
+  // tilastoista (ks. detectFrontierGrade) sen sijaan että jäätäisiin ykkösluokkaan.
+  if (!hasExplicitGradeChoice(targetLang)){
+    activeGrade = detectFrontierGrade();
+    populateGradeOptions();
+    currentCategory = "all";
+    populateCategoryOptions();
+  }
   initSessionPool(); // rakennetaan pooli uudelleen nyt kun oikea edistyminen on tiedossa
+  pickWord();
 })();
 </script>
 </body>
