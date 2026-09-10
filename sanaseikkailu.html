@@ -91,8 +91,10 @@
     box-shadow: var(--shadow);
     font-weight:700;
     font-size: clamp(13px,2.5vw,17px);
+    cursor:pointer;
   }
   .tier-badge{ gap:6px; }
+  .tier-badge:active{ transform: scale(0.97); }
   .tier-stars{
     letter-spacing:1px;
     color:#f0a63a;
@@ -146,6 +148,27 @@
     padding: 18px 20px;
     text-align:center;
     position:relative;
+    overflow:hidden;
+  }
+  /* Palkintotason maskotti (kärmes, basiliski jne.) isona, himmeänä taustakuvana
+     sana- ja kirjoituslaatikossa - kertoo tason ilman että se häiritsee itse
+     sanan lukemista/kirjoittamista. Päivitetään JS:stä (ks. renderTierBadge)
+     asettamalla --tier-bg-icon-muuttuja juurielementtiin. */
+  .prompt-card::before, .answer-area::before{
+    content: var(--tier-bg-icon, "🐍");
+    position:absolute;
+    top:50%; left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 220px;
+    line-height:1;
+    opacity:0.07;
+    pointer-events:none;
+    user-select:none;
+    z-index:0;
+  }
+  .prompt-card > *, .answer-area > *{
+    position:relative;
+    z-index:1;
   }
   .lang-pill{
     display:inline-block;
@@ -214,6 +237,8 @@
     display:flex;
     flex-direction:column;
     gap:10px;
+    position:relative;
+    overflow:hidden;
   }
   .input-modes{
     display:flex;
@@ -422,6 +447,91 @@
     min-height:14px;
   }
 
+  /* Palkintoasteikko-modaali: avautuu klikkaamalla yläpalkin tähtibadgea,
+     näyttää koko 6-tasoisen asteikon kerralla (ks. vaihe 18). */
+  .modal-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(43,33,64,0.55);
+    align-items:center;
+    justify-content:center;
+    padding:16px;
+    z-index:1000;
+  }
+  .modal-overlay.visible{ display:flex; }
+  .modal-card{
+    background:var(--card-bg);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:26px 22px 22px;
+    max-width:420px;
+    width:100%;
+    max-height:85vh;
+    overflow-y:auto;
+    position:relative;
+  }
+  .modal-close{
+    position:absolute;
+    top:14px; right:14px;
+    border:none;
+    background:#f4f2fa;
+    width:32px; height:32px;
+    border-radius:50%;
+    font-size:16px;
+    line-height:1;
+    cursor:pointer;
+  }
+  .modal-title{
+    margin:0 0 4px;
+    font-size:22px;
+    font-weight:800;
+    text-align:center;
+  }
+  .modal-subtitle{
+    margin:0 0 16px;
+    font-size:13px;
+    color:#7a7189;
+    text-align:center;
+  }
+  .tier-scale-list{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .tier-scale-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:10px 14px;
+    border-radius:16px;
+    background:#f8f6ff;
+    border:2px solid transparent;
+  }
+  .tier-scale-row.current{
+    background:#fff3e0;
+    border-color:var(--accent);
+  }
+  .tier-scale-icon{
+    font-size:28px;
+    width:36px;
+    text-align:center;
+    flex-shrink:0;
+  }
+  .tier-scale-info{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+  }
+  .tier-scale-name{ font-weight:800; }
+  .tier-scale-row.done .tier-scale-name::after{ content: " ✅"; }
+  .tier-scale-stars{
+    color:#f0a63a;
+    letter-spacing:1px;
+    font-size:1.1em;
+  }
+
   @media (max-width: 420px){
     .prompt-card, .answer-area{ padding:14px 14px; }
   }
@@ -515,6 +625,15 @@
     </div>
     <div class="backup-note" id="backupNote"></div>
   </footer>
+
+  <div class="modal-overlay" id="tierModalOverlay">
+    <div class="modal-card">
+      <button class="modal-close" id="tierModalClose" aria-label="Sulje">✕</button>
+      <h2 class="modal-title">Palkintoasteikko</h2>
+      <p class="modal-subtitle" id="tierModalSubtitle"></p>
+      <div class="tier-scale-list" id="tierScaleList"></div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -3688,6 +3807,10 @@ const tierLabelEl = document.getElementById("tierLabel");
 const tierStarsEl = document.getElementById("tierStars");
 const progressFill = document.getElementById("progressFill");
 const progressLabel = document.getElementById("progressLabel");
+const tierModalOverlay = document.getElementById("tierModalOverlay");
+const tierModalClose = document.getElementById("tierModalClose");
+const tierModalSubtitle = document.getElementById("tierModalSubtitle");
+const tierScaleList = document.getElementById("tierScaleList");
 const hearBtn = document.getElementById("hearBtn");
 const categoryFilter = document.getElementById("categoryFilter");
 const autoSpeakToggle = document.getElementById("autoSpeakToggle");
@@ -4033,7 +4156,11 @@ function renderTierBadge(){
   tierIcon.textContent = LEVEL_ICONS[t.majorIndex];
   tierLabelEl.textContent = tierLabel(t.majorIndex);
   tierStarsEl.textContent = "★".repeat(t.stars) + "☆".repeat(5 - t.stars);
-  tierBadge.title = `${MODE_NAMES[activeMode] || ""}: opittu ${t.n}/${wordsForGrade(activeGrade).length} sanaa (${activeGrade}. luokka, ${LANGS[targetLang].label})`;
+  tierBadge.title = `${MODE_NAMES[activeMode] || ""}: opittu ${t.n}/${wordsForGrade(activeGrade).length} sanaa (${activeGrade}. luokka, ${LANGS[targetLang].label}) — klikkaa nähdäksesi koko asteikon`;
+  // Nykyisen tason maskotti isona, himmeänä taustakuvana sana- ja kirjoituslaatikossa (vaihe 18).
+  document.documentElement.style.setProperty("--tier-bg-icon", JSON.stringify(LEVEL_ICONS[t.majorIndex]));
+  // Jos palkintoasteikko-modaali on auki, päivitetään sen sisältö samalla (esim. mode vaihtuu kesken).
+  if (tierModalOverlay.classList.contains("visible")) renderTierModalContent();
 
   // Edistymispalkki näyttää parhaillaan valitun menetelmän matkan SEURAAVAAN
   // tähteen (ei enää koko sanaston kokonaisosaamista) - eli exactStepsin
@@ -4045,6 +4172,61 @@ function renderTierBadge(){
   progressFill.style.width = pct + "%";
   progressLabel.textContent = isMaxed ? "Kaikki tähdet täynnä! ✨" : `Seuraavaan tähteen: ${pct}%`;
 }
+
+// --- Palkintoasteikko-modaali (vaihe 18) ---
+// Yläpalkin tähtibadge kertoo aina vain PARHAILLAAN VALITUN tason ja tähtimäärän,
+// mutta lapsi/vanhempi voi haluta nähdä koko 6-tasoisen asteikon kerralla, jotta
+// näkee mitä seuraavaksi ja kuinka pitkälle vielä on matkaa. Modaali listaa kaikki
+// tasot LEVELS-taulukon järjestyksessä ja korostaa parhaillaan käynnissä olevan.
+function renderTierModalContent(){
+  const t = tierByMode[activeMode] || tierByMode.keyboard;
+  if (!t) return;
+  const gradeWordCount = wordsForGrade(activeGrade).length;
+  tierModalSubtitle.textContent =
+    `${MODE_NAMES[activeMode] || ""} · ${activeGrade}. luokka · ${LANGS[targetLang].label} · opittu ${t.n}/${gradeWordCount} sanaa`;
+  tierScaleList.innerHTML = "";
+  LEVELS.forEach((name, i) => {
+    const row = document.createElement("div");
+    row.className = "tier-scale-row";
+    if (i === t.majorIndex) row.classList.add("current");
+    if (i < t.majorIndex) row.classList.add("done");
+    const stars = i < t.majorIndex ? 5 : (i === t.majorIndex ? t.stars : 0);
+    const icon = document.createElement("div");
+    icon.className = "tier-scale-icon";
+    icon.textContent = LEVEL_ICONS[i];
+    const info = document.createElement("div");
+    info.className = "tier-scale-info";
+    const nameEl = document.createElement("span");
+    nameEl.className = "tier-scale-name";
+    nameEl.textContent = name;
+    const starsEl = document.createElement("span");
+    starsEl.className = "tier-scale-stars";
+    starsEl.textContent = "★".repeat(stars) + "☆".repeat(5 - stars);
+    info.appendChild(nameEl);
+    info.appendChild(starsEl);
+    row.appendChild(icon);
+    row.appendChild(info);
+    tierScaleList.appendChild(row);
+  });
+}
+
+function openTierModal(){
+  renderTierModalContent();
+  tierModalOverlay.classList.add("visible");
+}
+
+function closeTierModal(){
+  tierModalOverlay.classList.remove("visible");
+}
+
+tierBadge.addEventListener("click", openTierModal);
+tierModalClose.addEventListener("click", closeTierModal);
+tierModalOverlay.addEventListener("click", (e) => {
+  if (e.target === tierModalOverlay) closeTierModal(); // klikkaus taustaan sulkee, kortin sisään ei
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && tierModalOverlay.classList.contains("visible")) closeTierModal();
+});
 
 async function updateHeaderStats(){
   const all = await getAllStats();
