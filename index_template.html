@@ -86,7 +86,7 @@
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
   }
   .header-right{ display:flex; align-items:center; gap:10px; }
-  .streak, .tier-badge{
+  .tier-badge{
     display:flex;
     align-items:center;
     gap:8px;
@@ -101,7 +101,7 @@
   .tier-stars{
     letter-spacing:1px;
     color:#f0a63a;
-    font-size: 0.85em;
+    font-size: 1.7em;
   }
   select#categoryFilter{
     border:none;
@@ -450,14 +450,13 @@
         <span id="tierLabel">Kärmes</span>
         <span class="tier-stars" id="tierStars">☆☆☆☆☆</span>
       </div>
-      <div class="streak"><span>🔥</span><span id="streakCount">0</span></div>
     </div>
   </header>
 
   <main>
     <div style="width:100%">
       <div class="progress-bar"><div id="progressFill"></div></div>
-      <div class="progress-label" id="progressLabel">0% opittu</div>
+      <div class="progress-label" id="progressLabel">Seuraavaan tähteen: 0%</div>
     </div>
 
     <section class="prompt-card">
@@ -618,7 +617,6 @@ let PRACTICE_WORDS = practiceWords();
 let statsCache = {}; // statId -> stat
 let current = null;
 let direction = "target-fi";
-let streak = 0;
 let activeMode = "keyboard";
 let currentCategory = "all";
 
@@ -631,7 +629,6 @@ const feedback = document.getElementById("feedback");
 const answerArea = document.querySelector(".answer-area");
 const revealBox = document.getElementById("revealBox");
 const revealBtn = document.getElementById("revealBtn");
-const streakCount = document.getElementById("streakCount");
 const tierBadge = document.getElementById("tierBadge");
 const tierModeIcon = document.getElementById("tierModeIcon");
 const tierIcon = document.getElementById("tierIcon");
@@ -811,22 +808,26 @@ function stageStatusForWord(word){
 // (taso nousee) - eteneminen on tallessa sanakohtaisesti, ei tasoa kohti.
 const LEVELS = ["Kärmes", "Basiliski", "Aarnikotka", "Hydra", "Traakki", "Lohikäärme"];
 const LEVEL_ICONS = ["🐍", "🦎", "🦅", "🐙", "🐊", "🐉"];
-const STAR_WORDS = ["", "yhden", "kahden", "kolmen", "neljän", "viiden"];
 const TOTAL_TIER_STEPS = LEVELS.length * 5; // 30
 
+// exactSteps on liukuluku (ei pyöristetty) - stars/majorIndex tarvitaan kokonaislukuina
+// tähtisymboleja ja tasonimeä varten, mutta edistymispalkki (ks. renderTierBadge)
+// tarvitsee myös murto-osan seuraavaan tähteen, joten se lasketaan tästä erikseen.
 function tierState(masteredN, totalN){
-  if (!totalN) return { majorIndex: 0, stars: 0 };
-  const stepsEarned = masteredN >= totalN
+  if (!totalN) return { majorIndex: 0, stars: 0, exactSteps: 0 };
+  const exactSteps = masteredN >= totalN
     ? TOTAL_TIER_STEPS
-    : Math.floor((masteredN / totalN) * TOTAL_TIER_STEPS);
+    : (masteredN / totalN) * TOTAL_TIER_STEPS;
+  const stepsEarned = Math.floor(exactSteps);
   const majorIndex = Math.min(LEVELS.length - 1, Math.floor(stepsEarned / 5));
   const stars = stepsEarned - majorIndex * 5;
-  return { majorIndex, stars };
+  return { majorIndex, stars, exactSteps };
 }
 
-function tierLabel(majorIndex, stars){
-  const name = LEVELS[majorIndex];
-  return stars === 0 ? name : `${STAR_WORDS[stars]} tähden ${name}`;
+// Tasonimi näytetään aina ilman tähtimäärää sanoina - tähtien määrä näkyy
+// lapselle vain tähtisymbolien täyttymisenä (ks. tierStarsEl), ei tekstinä.
+function tierLabel(majorIndex){
+  return LEVELS[majorIndex];
 }
 
 // --- Erilliset palkintoasteikot per harjoittelutapa (piirrä/kirjoita/puhu) ---
@@ -851,9 +852,19 @@ function renderTierBadge(){
   if (!t) return; // tilastoja ei vielä ladattu (ensimmäinen renderöinti ennen DB:tä)
   tierModeIcon.textContent = MODE_ICONS[activeMode] || "";
   tierIcon.textContent = LEVEL_ICONS[t.majorIndex];
-  tierLabelEl.textContent = tierLabel(t.majorIndex, t.stars);
+  tierLabelEl.textContent = tierLabel(t.majorIndex);
   tierStarsEl.textContent = "★".repeat(t.stars) + "☆".repeat(5 - t.stars);
   tierBadge.title = `${MODE_NAMES[activeMode] || ""}: opittu ${t.n}/${PRACTICE_WORDS.length} sanaa (${LANGS[targetLang].label})`;
+
+  // Edistymispalkki näyttää parhaillaan valitun menetelmän matkan SEURAAVAAN
+  // tähteen (ei enää koko sanaston kokonaisosaamista) - eli exactStepsin
+  // murto-osan nykyisen tähden ja seuraavan välillä. Täysin maksimitasolla
+  // (kaikki tähdet/tasot täynnä) palkki näytetään täytenä.
+  const isMaxed = t.exactSteps >= TOTAL_TIER_STEPS;
+  const progressToNext = isMaxed ? 1 : t.exactSteps - Math.floor(t.exactSteps);
+  const pct = Math.round(progressToNext * 100);
+  progressFill.style.width = pct + "%";
+  progressLabel.textContent = isMaxed ? "Kaikki tähdet täynnä! ✨" : `Seuraavaan tähteen: ${pct}%`;
 }
 
 async function updateHeaderStats(){
@@ -867,19 +878,10 @@ async function updateHeaderStats(){
   ["pen", "keyboard", "mic"].forEach(mode => {
     const check = MODE_GRADUATED_CHECK[mode];
     const n = PRACTICE_WORDS.filter(w => check(statsCache[statId(w)])).length;
-    const { majorIndex, stars } = tierState(n, PRACTICE_WORDS.length);
-    tierByMode[mode] = { n, majorIndex, stars };
+    const { majorIndex, stars, exactSteps } = tierState(n, PRACTICE_WORDS.length);
+    tierByMode[mode] = { n, majorIndex, stars, exactSteps };
   });
   renderTierBadge();
-
-  // Edistymispalkki näyttää valitun teeman (tai koko sanaston) kokonaisosaamisen
-  // (kaikki kolme vaihetta graduoitu) - tämä pysyy ennallaan, koska se kuvaa
-  // sanan lopullista, kaikki menetelmät kattavaa oppimista, ei yksittäistä tapaa.
-  const pool = activeWordPool();
-  const masteredN = pool.filter(w => isFullyLearned(statsCache[statId(w)])).length;
-  const pct = pool.length ? Math.round((masteredN / pool.length) * 100) : 0;
-  progressFill.style.width = pct + "%";
-  progressLabel.textContent = pct + "% opittu";
 }
 
 function weightFor(word){
@@ -1159,12 +1161,8 @@ async function checkAnswer(userAnswer, mode){
   const isCorrect = matchesAnswer(userAnswer, usedMode);
   feedback.className = "feedback " + (isCorrect ? "correct" : "incorrect");
   if (isCorrect){
-    streak += 1;
-    streakCount.textContent = streak;
     feedback.textContent = "🎉 Oikein!";
   } else {
-    streak = 0;
-    streakCount.textContent = streak;
     feedback.innerHTML = "🙈 Ei ihan. <span class='answer-reveal'>Oikea vastaus: " + acceptedAnswers()[0] + "</span>";
   }
   await recordResult(isCorrect, usedMode);
