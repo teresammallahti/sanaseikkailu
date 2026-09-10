@@ -64,6 +64,34 @@
     border-color:var(--accent-dark);
   }
   .lang-switch-btn .flag{ font-size:18px; }
+
+  /* Harjoittelutavan valinta: sanat vs. virkkeet (vaihe 19). Sama tyyli kuin
+     kielivalinnassa, mutta hillitympi väri, ettei se kilpaile kielivalinnan kanssa. */
+  .practice-switch{
+    width:100%;
+    max-width:900px;
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    margin-bottom:10px;
+  }
+  .practice-switch-btn{
+    border:2px solid transparent;
+    background:var(--card-bg);
+    color:var(--ink);
+    padding:6px 16px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow: var(--shadow);
+  }
+  .practice-switch-btn.active{
+    background:#5c6bc0;
+    color:white;
+    border-color:#3f4899;
+  }
+
   header{
     width:100%;
     max-width:900px;
@@ -417,8 +445,69 @@
   .answer-area.revealed .pen-pad-wrap,
   .answer-area.revealed .mic-wrap,
   .answer-area.revealed #checkBtn,
-  .answer-area.revealed #revealBtn{
+  .answer-area.revealed #revealBtn,
+  .answer-area.revealed .sentence-reorder-wrap,
+  .answer-area.revealed .sentence-exercise-label,
+  .answer-area.revealed #sentenceCheckBtn,
+  .answer-area.revealed #sentenceRevealBtn{
     display:none !important;
+  }
+
+  /* Virkeharjoittelu (vaihe 19): täydennä puuttuva sana, järjestä sanat,
+     kuuntele ja toista, sekä suomi->kohdekieli kirjoitus - kaikki jakavat
+     saman .answer-area-rungon sanaharjoittelun kanssa. */
+  .sentence-exercise-label{
+    text-align:center;
+    font-weight:800;
+    color:var(--accent-dark);
+    font-size: clamp(13px,3vw,15px);
+    background:#fff3e0;
+    border-radius:999px;
+    padding:6px 14px;
+  }
+  .sentence-blank-display{
+    text-align:center;
+    font-size: clamp(17px,4.5vw,22px);
+    font-weight:700;
+    line-height:1.5;
+    background:#fbfaff;
+    border:3px solid #e6e1f5;
+    border-radius:18px;
+    padding:14px 16px;
+  }
+  .sentence-reorder-wrap{ display:none; flex-direction:column; gap:10px; }
+  .sentence-reorder-wrap.visible{ display:flex; }
+  .sentence-build-line{
+    min-height:52px;
+    background:#fbfaff;
+    border:3px solid #e6e1f5;
+    border-radius:18px;
+    padding:12px 16px;
+    font-size: clamp(17px,4.5vw,22px);
+    font-weight:700;
+    text-align:center;
+    word-break: break-word;
+  }
+  .sentence-chip-strip{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:center;
+  }
+  .sentence-chip{
+    border:2px solid transparent;
+    background:#f4f2fa;
+    color:var(--ink);
+    padding:8px 14px;
+    border-radius:999px;
+    font-size: clamp(14px,3.5vw,17px);
+    font-weight:700;
+    cursor:pointer;
+  }
+  .sentence-chip.used{
+    opacity:0.35;
+    cursor:default;
+    pointer-events:none;
   }
 
   footer{
@@ -550,6 +639,11 @@
     <button class="lang-switch-btn" data-lang="de" aria-pressed="false"><span class="flag">🇩🇪</span> Deutsch</button>
   </div>
 
+  <div class="practice-switch" id="practiceSwitch">
+    <button class="practice-switch-btn active" data-practice="words" aria-pressed="true">📚 Sanat</button>
+    <button class="practice-switch-btn" data-practice="sentences" aria-pressed="false">📝 Virkkeet</button>
+  </div>
+
   <header>
     <div class="brand"><span class="mascot">🦊</span> Sanaseikkailu</div>
     <div class="header-right">
@@ -565,61 +659,111 @@
   </header>
 
   <main>
-    <div style="width:100%">
-      <div class="progress-bar"><div id="progressFill"></div></div>
-      <div class="progress-label" id="progressLabel">Seuraavaan tähteen: 0%</div>
+    <div id="wordPractice">
+      <div style="width:100%">
+        <div class="progress-bar"><div id="progressFill"></div></div>
+        <div class="progress-label" id="progressLabel">Seuraavaan tähteen: 0%</div>
+      </div>
+
+      <section class="prompt-card">
+        <span class="lang-pill" id="langPill">EN</span>
+        <div class="prompt-word" id="promptWord">…</div>
+        <div class="prompt-hint" id="promptHint">Ladataan sanastoa…</div>
+        <div class="prompt-category" id="promptCategory"></div>
+        <button class="speak-btn" id="hearBtn" title="Kuuntele sana">🔊</button>
+        <label class="auto-speak-toggle" for="autoSpeakToggle">
+          <input type="checkbox" id="autoSpeakToggle" checked>
+          <span id="autoSpeakLabel">Lausu englanninkieliset sanat automaattisesti</span>
+        </label>
+      </section>
+
+      <section class="answer-area">
+        <div class="input-modes" id="inputModes">
+          <button class="mode-btn" data-mode="pen">✏️ Kynä</button>
+          <button class="mode-btn active" data-mode="keyboard">⌨️ Näppäimistö</button>
+          <button class="mode-btn" data-mode="mic">🎤 Puhu</button>
+        </div>
+
+        <div class="answer-input-wrap visible" id="mode-keyboard">
+          <input type="text" class="answer-box" id="answerBox" placeholder="Kirjoita vastaus tähän..." autocomplete="off">
+        </div>
+
+        <div class="pen-pad-wrap" id="mode-pen">
+          <canvas class="pen-pad" id="penPad"></canvas>
+          <div class="pen-tools" id="penTools">
+            <button id="penClear">🗑️ Tyhjennä</button>
+          </div>
+          <input type="text" class="answer-box" id="penFallbackBox" placeholder="Kirjoita kynällä tähän..." autocomplete="off" hidden>
+          <div class="mic-hint" id="penHint"></div>
+          <div class="pen-stabilizing" id="penStabilizing" hidden>⏳ Vahvistetaan...</div>
+          <div class="mic-transcript" id="penReading"></div>
+        </div>
+
+        <div class="mic-wrap" id="mode-mic">
+          <button class="mic-btn" id="micBtn">🎤</button>
+          <div class="mic-hint">Paina ja sano sana ääneen — tarkistan sen heti</div>
+          <div class="mic-transcript" id="micTranscript"></div>
+        </div>
+
+        <div class="reveal-box" id="revealBox"></div>
+
+        <div class="actions">
+          <button class="btn ghost" id="skipBtn">Ohita</button>
+          <button class="btn ghost" id="revealBtn">👁️ Näytä sana</button>
+          <button class="btn primary" id="checkBtn">Tarkista</button>
+        </div>
+
+        <div class="feedback" id="feedback"></div>
+      </section>
     </div>
 
-    <section class="prompt-card">
-      <span class="lang-pill" id="langPill">EN</span>
-      <div class="prompt-word" id="promptWord">…</div>
-      <div class="prompt-hint" id="promptHint">Ladataan sanastoa…</div>
-      <div class="prompt-category" id="promptCategory"></div>
-      <button class="speak-btn" id="hearBtn" title="Kuuntele sana">🔊</button>
-      <label class="auto-speak-toggle" for="autoSpeakToggle">
-        <input type="checkbox" id="autoSpeakToggle" checked>
-        <span id="autoSpeakLabel">Lausu englanninkieliset sanat automaattisesti</span>
-      </label>
-    </section>
-
-    <section class="answer-area">
-      <div class="input-modes" id="inputModes">
-        <button class="mode-btn" data-mode="pen">✏️ Kynä</button>
-        <button class="mode-btn active" data-mode="keyboard">⌨️ Näppäimistö</button>
-        <button class="mode-btn" data-mode="mic">🎤 Puhu</button>
+    <div id="sentencePractice" hidden>
+      <div style="width:100%">
+        <div class="progress-label" id="sentenceProgressLabel" style="align-self:center; margin-top:0;">Ladataan virkkeitä…</div>
       </div>
 
-      <div class="answer-input-wrap visible" id="mode-keyboard">
-        <input type="text" class="answer-box" id="answerBox" placeholder="Kirjoita vastaus tähän..." autocomplete="off">
-      </div>
+      <section class="prompt-card">
+        <span class="lang-pill" id="sentenceLangPill">EN</span>
+        <div class="sentence-exercise-label" id="sentenceExerciseLabel"></div>
+        <div class="prompt-word" id="sentenceFiPrompt" style="font-size:clamp(20px,5vw,28px);">…</div>
+        <div class="prompt-hint" id="sentencePromptHint"></div>
+        <div class="prompt-category" id="sentenceGradeLabel"></div>
+        <button class="speak-btn" id="sentenceHearBtn" title="Kuuntele virke">🔊</button>
+      </section>
 
-      <div class="pen-pad-wrap" id="mode-pen">
-        <canvas class="pen-pad" id="penPad"></canvas>
-        <div class="pen-tools" id="penTools">
-          <button id="penClear">🗑️ Tyhjennä</button>
+      <section class="answer-area" id="sentenceAnswerArea">
+        <div class="answer-input-wrap visible" id="sentence-mode-write">
+          <input type="text" class="answer-box" id="sentenceAnswerBox" placeholder="Kirjoita virke tähän..." autocomplete="off">
         </div>
-        <input type="text" class="answer-box" id="penFallbackBox" placeholder="Kirjoita kynällä tähän..." autocomplete="off" hidden>
-        <div class="mic-hint" id="penHint"></div>
-        <div class="pen-stabilizing" id="penStabilizing" hidden>⏳ Vahvistetaan...</div>
-        <div class="mic-transcript" id="penReading"></div>
-      </div>
 
-      <div class="mic-wrap" id="mode-mic">
-        <button class="mic-btn" id="micBtn">🎤</button>
-        <div class="mic-hint">Paina ja sano sana ääneen — tarkistan sen heti</div>
-        <div class="mic-transcript" id="micTranscript"></div>
-      </div>
+        <div class="answer-input-wrap" id="sentence-mode-blank">
+          <div class="sentence-blank-display" id="sentenceBlankDisplay"></div>
+          <input type="text" class="answer-box" id="sentenceBlankBox" placeholder="Kirjoita puuttuva sana..." autocomplete="off">
+        </div>
 
-      <div class="reveal-box" id="revealBox"></div>
+        <div class="sentence-reorder-wrap" id="sentence-mode-reorder">
+          <div class="sentence-build-line" id="sentenceBuildLine"></div>
+          <div class="sentence-chip-strip" id="sentenceChipStrip"></div>
+          <button class="btn ghost" id="sentenceReorderUndo">↩️ Poista viimeinen</button>
+        </div>
 
-      <div class="actions">
-        <button class="btn ghost" id="skipBtn">Ohita</button>
-        <button class="btn ghost" id="revealBtn">👁️ Näytä sana</button>
-        <button class="btn primary" id="checkBtn">Tarkista</button>
-      </div>
+        <div class="mic-wrap" id="sentence-mode-listen">
+          <button class="mic-btn" id="sentenceMicBtn">🎤</button>
+          <div class="mic-hint">Kuuntele ja toista virke ääneen</div>
+          <div class="mic-transcript" id="sentenceMicTranscript"></div>
+        </div>
 
-      <div class="feedback" id="feedback"></div>
-    </section>
+        <div class="reveal-box" id="sentenceRevealBox"></div>
+
+        <div class="actions">
+          <button class="btn ghost" id="sentenceSkipBtn">Ohita</button>
+          <button class="btn ghost" id="sentenceRevealBtn">👁️ Näytä virke</button>
+          <button class="btn primary" id="sentenceCheckBtn">Tarkista</button>
+        </div>
+
+        <div class="feedback" id="sentenceFeedback"></div>
+      </section>
+    </div>
   </main>
 
   <footer>
@@ -3824,6 +3968,30 @@ const autoSpeakLabel = document.getElementById("autoSpeakLabel");
 const inputModesEl = document.getElementById("inputModes");
 let autoSpeakTimer = null;
 
+// --- Virkeharjoittelu (vaihe 19): DOM-viittaukset ---
+const wordPracticeEl = document.getElementById("wordPractice");
+const sentencePracticeEl = document.getElementById("sentencePractice");
+const practiceSwitchButtons = document.querySelectorAll(".practice-switch-btn");
+const sentenceProgressLabel = document.getElementById("sentenceProgressLabel");
+const sentenceLangPill = document.getElementById("sentenceLangPill");
+const sentenceExerciseLabel = document.getElementById("sentenceExerciseLabel");
+const sentenceFiPrompt = document.getElementById("sentenceFiPrompt");
+const sentencePromptHint = document.getElementById("sentencePromptHint");
+const sentenceGradeLabel = document.getElementById("sentenceGradeLabel");
+const sentenceHearBtn = document.getElementById("sentenceHearBtn");
+const sentenceAnswerArea = document.getElementById("sentenceAnswerArea");
+const sentenceAnswerBox = document.getElementById("sentenceAnswerBox");
+const sentenceBlankDisplay = document.getElementById("sentenceBlankDisplay");
+const sentenceBlankBox = document.getElementById("sentenceBlankBox");
+const sentenceBuildLine = document.getElementById("sentenceBuildLine");
+const sentenceChipStrip = document.getElementById("sentenceChipStrip");
+const sentenceReorderUndo = document.getElementById("sentenceReorderUndo");
+const sentenceMicBtn = document.getElementById("sentenceMicBtn");
+const sentenceMicTranscript = document.getElementById("sentenceMicTranscript");
+const sentenceRevealBox = document.getElementById("sentenceRevealBox");
+const sentenceRevealBtn = document.getElementById("sentenceRevealBtn");
+const sentenceFeedback = document.getElementById("sentenceFeedback");
+
 // Syöttötapa (kynä/näppäimistö/puhe) vaihtuu VAIN kun lapsi itse valitsee sen
 // tilapainikkeista - sovellus ei koskaan vaihda tilaa automaattisesti kesken
 // harjoittelun, vaikka sana etenisikin taustalla vaiheesta toiseen. Näin lapsi
@@ -3879,6 +4047,10 @@ function selectTargetLang(lang){
   current = null;
   initSessionPool();
   pickWord();
+  if (practiceMode === "sentences"){
+    currentSentence = null;
+    pickSentenceRound();
+  }
 }
 
 langSwitchButtons.forEach(btn => {
@@ -3980,6 +4152,10 @@ function setupGradeFilter(){
     current = null;
     initSessionPool();
     pickWord();
+    if (practiceMode === "sentences"){
+      currentSentence = null;
+      pickSentenceRound();
+    }
   });
 }
 
@@ -4251,6 +4427,7 @@ async function updateHeaderStats(){
   });
   renderTierBadge();
   populateGradeOptions(); // päivittää valmiiden luokka-asteiden vihreän merkinnän
+  if (practiceMode === "sentences") updateSentenceProgressLabel();
 }
 
 function weightFor(word){
@@ -4973,6 +5150,416 @@ document.getElementById("importFile").addEventListener("change", (e) => {
   const file = e.target.files[0];
   if (file) importBackupFile(file);
   e.target.value = "";
+});
+
+// --- Virkeharjoittelu (vaihe 19) ---
+// Oma harjoitustyökalu kokonaisille virkkeille, ei vain yksittäisille sanoille.
+// Vaikeustaso etenee luokka-asteittain (POPS 2014 -pohjainen, ks. projektisuunnitelma):
+// 1.-2. luokka hyvin yksinkertaisia perusvirkkeitä, 3.-4. luokka arkisia toiminta-
+// virkkeitä ja kysymyksiä, 5.-6. luokka mielipiteitä ja monimutkaisempia sivulauseita.
+// Aluksi vain englanti (saksa lisätään myöhemmin, kun englanti on koeteltu käytössä).
+// Sama IndexedDB-taulu (word_stats) kelpaa myös virkkeille, koska statId erottaa
+// ne sanoista "sentence|"-etuliitteellä - ei vaadi tietokantamuutosta.
+const SENTENCE_DATA = {
+  en: [
+    { id: "en_g1_1", grade: 1, en: "I am happy.", fi: "Olen iloinen." },
+    { id: "en_g1_2", grade: 1, en: "This is a cat.", fi: "Tämä on kissa." },
+    { id: "en_g1_3", grade: 1, en: "I have a dog.", fi: "Minulla on koira." },
+    { id: "en_g1_4", grade: 1, en: "The sun is hot.", fi: "Aurinko on kuuma." },
+    { id: "en_g1_5", grade: 1, en: "I like apples.", fi: "Pidän omenoista." },
+    { id: "en_g1_6", grade: 1, en: "She is my friend.", fi: "Hän on ystäväni." },
+    { id: "en_g1_7", grade: 1, en: "We are at school.", fi: "Olemme koulussa." },
+    { id: "en_g1_8", grade: 1, en: "He has a red ball.", fi: "Hänellä on punainen pallo." },
+    { id: "en_g1_9", grade: 1, en: "It is a big house.", fi: "Se on iso talo." },
+    { id: "en_g1_10", grade: 1, en: "I can jump.", fi: "Osaan hypätä." },
+
+    { id: "en_g2_1", grade: 2, en: "I can swim very well.", fi: "Osaan uida todella hyvin." },
+    { id: "en_g2_2", grade: 2, en: "My brother likes pizza.", fi: "Veljeni pitää pizzasta." },
+    { id: "en_g2_3", grade: 2, en: "The dog is under the table.", fi: "Koira on pöydän alla." },
+    { id: "en_g2_4", grade: 2, en: "We go to school every day.", fi: "Menemme kouluun joka päivä." },
+    { id: "en_g2_5", grade: 2, en: "I don't like spiders.", fi: "En pidä hämähäkeistä." },
+    { id: "en_g2_6", grade: 2, en: "She has a new bike.", fi: "Hänellä on uusi pyörä." },
+    { id: "en_g2_7", grade: 2, en: "My favorite color is blue.", fi: "Suosikkiväriini on sininen." },
+    { id: "en_g2_8", grade: 2, en: "The cat is sleeping on the sofa.", fi: "Kissa nukkuu sohvalla." },
+    { id: "en_g2_9", grade: 2, en: "I can't find my shoes.", fi: "En löydä kenkiäni." },
+    { id: "en_g2_10", grade: 2, en: "It is raining today.", fi: "Tänään sataa." },
+
+    { id: "en_g3_1", grade: 3, en: "I played football yesterday.", fi: "Pelasin jalkapalloa eilen." },
+    { id: "en_g3_2", grade: 3, en: "My mom is cooking dinner.", fi: "Äitini valmistaa illallista." },
+    { id: "en_g3_3", grade: 3, en: "We watched a movie last night.", fi: "Katsoimme elokuvan eilen illalla." },
+    { id: "en_g3_4", grade: 3, en: "He always brushes his teeth.", fi: "Hän harjaa aina hampaansa." },
+    { id: "en_g3_5", grade: 3, en: "I want to be a doctor.", fi: "Haluan tulla lääkäriksi." },
+    { id: "en_g3_6", grade: 3, en: "The children are playing in the garden.", fi: "Lapset leikkivät puutarhassa." },
+    { id: "en_g3_7", grade: 3, en: "She reads a book every evening.", fi: "Hän lukee kirjaa joka ilta." },
+    { id: "en_g3_8", grade: 3, en: "My birthday is in June.", fi: "Syntymäpäiväni on kesäkuussa." },
+    { id: "en_g3_9", grade: 3, en: "I helped my dad in the garden.", fi: "Autoin isääni puutarhassa." },
+    { id: "en_g3_10", grade: 3, en: "They live in a small town.", fi: "He asuvat pienessä kaupungissa." },
+
+    { id: "en_g4_1", grade: 4, en: "What time do you go to bed?", fi: "Mihin aikaan menet nukkumaan?" },
+    { id: "en_g4_2", grade: 4, en: "I have never been to Germany.", fi: "En ole koskaan käynyt Saksassa." },
+    { id: "en_g4_3", grade: 4, en: "My sister is taller than me.", fi: "Siskoni on minua pidempi." },
+    { id: "en_g4_4", grade: 4, en: "We are going to visit our grandparents this weekend.", fi: "Menemme viikonloppuna vierailemaan isovanhempiemme luona." },
+    { id: "en_g4_5", grade: 4, en: "Can you help me with my homework?", fi: "Voitko auttaa minua läksyissä?" },
+    { id: "en_g4_6", grade: 4, en: "I usually walk to school, but today I took the bus.", fi: "Yleensä kävelen kouluun, mutta tänään menin bussilla." },
+    { id: "en_g4_7", grade: 4, en: "She was very tired after the trip.", fi: "Hän oli hyvin väsynyt matkan jälkeen." },
+    { id: "en_g4_8", grade: 4, en: "Do you have any pets at home?", fi: "Onko sinulla lemmikkejä kotona?" },
+    { id: "en_g4_9", grade: 4, en: "My favorite subject is math because it is fun.", fi: "Suosikkiaineeni on matematiikka, koska se on hauskaa." },
+    { id: "en_g4_10", grade: 4, en: "We need to buy some milk and bread.", fi: "Meidän täytyy ostaa maitoa ja leipää." },
+
+    { id: "en_g5_1", grade: 5, en: "If it rains tomorrow, we will stay at home.", fi: "Jos huomenna sataa, jäämme kotiin." },
+    { id: "en_g5_2", grade: 5, en: "I would like to visit London someday.", fi: "Haluaisin joskus käydä Lontoossa." },
+    { id: "en_g5_3", grade: 5, en: "My best friend and I are planning a surprise party.", fi: "Parhain ystäväni ja minä suunnittelemme yllätysjuhlia." },
+    { id: "en_g5_4", grade: 5, en: "Although I was scared, I still went on the roller coaster.", fi: "Vaikka pelkäsin, menin silti vuoristoradalle." },
+    { id: "en_g5_5", grade: 5, en: "She has been learning English for three years.", fi: "Hän on opiskellut englantia kolme vuotta." },
+    { id: "en_g5_6", grade: 5, en: "We should recycle more to protect the environment.", fi: "Meidän pitäisi kierrättää enemmän suojellaksemme ympäristöä." },
+    { id: "en_g5_7", grade: 5, en: "He is not only smart but also very kind.", fi: "Hän ei ole vain fiksu, vaan myös hyvin ystävällinen." },
+    { id: "en_g5_8", grade: 5, en: "I have already finished my homework for tomorrow.", fi: "Olen jo tehnyt huomisen läksyni." },
+    { id: "en_g5_9", grade: 5, en: "The weather was so bad that the match was cancelled.", fi: "Sää oli niin huono, että ottelu peruttiin." },
+    { id: "en_g5_10", grade: 5, en: "You should ask your teacher if you don't understand something.", fi: "Sinun kannattaa kysyä opettajaltasi, jos et ymmärrä jotain." },
+
+    { id: "en_g6_1", grade: 6, en: "In my opinion, video games can be both fun and educational.", fi: "Mielestäni videopelit voivat olla sekä hauskoja että opettavaisia." },
+    { id: "en_g6_2", grade: 6, en: "By the time we arrive, the movie will have already started.", fi: "Siihen mennessä kun saavumme, elokuva on jo alkanut." },
+    { id: "en_g6_3", grade: 6, en: "I have been thinking about joining a sports team next year.", fi: "Olen miettinyt liittymistä urheilujoukkueeseen ensi vuonna." },
+    { id: "en_g6_4", grade: 6, en: "Even though I practiced a lot, I still made some mistakes.", fi: "Vaikka harjoittelin paljon, tein silti muutamia virheitä." },
+    { id: "en_g6_5", grade: 6, en: "My parents said that I could go to the concert if I finish my chores.", fi: "Vanhempani sanoivat, että voisin mennä konserttiin, jos teen kotityöni." },
+    { id: "en_g6_6", grade: 6, en: "We are looking forward to our summer holiday in Finland.", fi: "Odotamme innolla kesälomaamme Suomessa." },
+    { id: "en_g6_7", grade: 6, en: "She explained the rules clearly, so everyone understood the game.", fi: "Hän selitti säännöt selkeästi, joten kaikki ymmärsivät pelin." },
+    { id: "en_g6_8", grade: 6, en: "If I had more time, I would learn to play the guitar.", fi: "Jos minulla olisi enemmän aikaa, opettelisin soittamaan kitaraa." },
+    { id: "en_g6_9", grade: 6, en: "Technology has changed the way we communicate with each other.", fi: "Teknologia on muuttanut tapaamme kommunikoida keskenämme." },
+    { id: "en_g6_10", grade: 6, en: "It is important to be honest, even when it is difficult.", fi: "On tärkeää olla rehellinen, vaikka se olisi vaikeaa." }
+  ],
+  de: [] // Saksa lisätään myöhemmin, kun englanninkielinen versio on koeteltu (käyttäjän päätös).
+};
+
+const EXERCISE_TYPES = ["write", "blank", "reorder", "listen"];
+const EXERCISE_TYPE_LABELS = {
+  write: "Kirjoita koko virke",
+  blank: "Täydennä puuttuva sana",
+  reorder: "Järjestä sanat oikein",
+  listen: "Kuuntele ja toista"
+};
+const SENTENCE_GRADUATE = 4; // 4 peräkkäistä oikein (mistä tahansa harjoitustyypistä) -> virke "opittu"
+// Yleisimmät pikkusanat, joita ei kannata valita täydennettäväksi aukoksi -
+// aukon pitää osua sisältösanaan, jotta tehtävä on mielekäs.
+const SENTENCE_STOPWORDS = new Set([
+  "a","an","the","is","am","are","was","were","to","of","in","on","at","it","i",
+  "my","we","he","she","they","and","but","or","do","does","did","have","has",
+  "had","not","this","that","if","so","be","been","will","would","should","can",
+  "could","for","with","as","than","also","by"
+]);
+
+let practiceMode = "words"; // "words" | "sentences"
+let currentSentence = null;
+let currentExerciseType = null;
+let sentenceBlankIndex = -1;
+let sentenceReorderWords = [];
+let sentenceBuiltIndices = [];
+let sentenceRecognizing = false;
+let sentenceRecognition = null;
+
+function sentencesForLang(){ return SENTENCE_DATA[targetLang] || []; }
+function sentencesForGrade(g){ return sentencesForLang().filter(s => s.grade === g); }
+function sentenceStatId(sentence){ return `sentence|${targetLang}|${sentence.id}`; }
+function sentenceStat(sentence){ return statsCache[sentenceStatId(sentence)] || null; }
+function isSentenceLearned(sentence){
+  const s = sentenceStat(sentence);
+  return !!s && (s.streak || 0) >= SENTENCE_GRADUATE;
+}
+
+// Virke pilkotaan sanoiksi VÄLILYÖNNEISTÄ, välimerkit jätetään sanaan kiinni -
+// näin virke voidaan koota takaisin yhteen samalla tavalla (järjestämistehtävä)
+// eikä välimerkkien sijoittelua tarvitse käsitellä erikseen.
+function sentenceWords(sentence){
+  return sentence.split(/\s+/);
+}
+
+// Valitsee täydennystehtävään aukotettavan sanan: suositaan sisältösanoja
+// (ei "a", "the", "is" -tyyppisiä pikkusanoja), jotta tehtävä on mielekäs.
+function blankIndexFor(sentence){
+  const words = sentenceWords(sentence);
+  const candidates = words
+    .map((w, i) => ({ i, clean: w.replace(/[.,!?]/g, "").toLowerCase() }))
+    .filter(c => c.clean.length >= 3 && !SENTENCE_STOPWORDS.has(c.clean));
+  const pool = candidates.length ? candidates : words.map((w, i) => ({ i, clean: w }));
+  return pool[Math.floor(Math.random() * pool.length)].i;
+}
+
+function shuffleArray(arr){
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function sentenceExactMatch(userAnswer, target){
+  return normalize(userAnswer || "") === normalize(target || "");
+}
+
+function sentenceTokenOverlap(userAnswer, target){
+  const targetTokens = normalize(target || "").split(" ").filter(Boolean);
+  if (!targetTokens.length) return 0;
+  const userTokens = new Set(normalize(userAnswer || "").split(" ").filter(Boolean));
+  const hits = targetTokens.filter(t => userTokens.has(t)).length;
+  return hits / targetTokens.length;
+}
+
+function speakSentence(text){
+  if (!("speechSynthesis" in window)) return;
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = LANGS[targetLang].speech;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(utter);
+}
+
+function updateSentenceProgressLabel(){
+  const pool = sentencesForGrade(activeGrade);
+  const learned = pool.filter(isSentenceLearned).length;
+  sentenceProgressLabel.textContent = pool.length
+    ? `Opittu ${learned}/${pool.length} virkettä (${activeGrade}. luokka, ${LANGS[targetLang].label})`
+    : "Ei vielä virkkeitä tälle luokka-asteelle.";
+}
+
+function renderBlankDisplay(){
+  const words = sentenceWords(currentSentence[targetLang]);
+  sentenceBlankDisplay.textContent = words.map((w, i) => i === sentenceBlankIndex ? "____" : w).join(" ");
+}
+
+function renderBuildLine(){
+  sentenceBuildLine.textContent = sentenceBuiltIndices.map(i => sentenceReorderWords[i]).join(" ");
+}
+
+function setupReorderChips(){
+  sentenceReorderWords = sentenceWords(currentSentence[targetLang]);
+  sentenceBuiltIndices = [];
+  const order = shuffleArray(sentenceReorderWords.map((_, i) => i));
+  sentenceChipStrip.innerHTML = "";
+  order.forEach(i => {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "sentence-chip";
+    chip.textContent = sentenceReorderWords[i];
+    chip.dataset.index = String(i);
+    chip.addEventListener("click", () => {
+      if (chip.classList.contains("used")) return;
+      chip.classList.add("used");
+      sentenceBuiltIndices.push(i);
+      renderBuildLine();
+    });
+    sentenceChipStrip.appendChild(chip);
+  });
+  renderBuildLine();
+}
+
+sentenceReorderUndo.addEventListener("click", () => {
+  const last = sentenceBuiltIndices.pop();
+  if (last === undefined) return;
+  const chip = sentenceChipStrip.querySelector(`.sentence-chip[data-index="${last}"]`);
+  if (chip) chip.classList.remove("used");
+  renderBuildLine();
+});
+
+function renderSentenceRound(){
+  sentenceFeedback.className = "feedback";
+  sentenceFeedback.textContent = "";
+  sentenceRevealBox.textContent = "";
+  sentenceAnswerArea.classList.remove("revealed");
+  sentenceExerciseLabel.textContent = EXERCISE_TYPE_LABELS[currentExerciseType];
+  sentenceGradeLabel.textContent = `${currentSentence.grade}. luokka`;
+  sentenceLangPill.textContent = targetLang.toUpperCase();
+  sentenceLangPill.className = "lang-pill " + targetLang;
+  sentenceFiPrompt.textContent = currentSentence.fi;
+
+  ["write", "blank", "reorder", "listen"].forEach(t => {
+    document.getElementById("sentence-mode-" + t).classList.toggle("visible", t === currentExerciseType);
+  });
+
+  sentenceAnswerBox.value = "";
+  sentenceBlankBox.value = "";
+  sentenceMicTranscript.textContent = "";
+  if (currentExerciseType === "write"){
+    sentencePromptHint.textContent = `Kirjoita ${LANGS[targetLang].label} ↓`;
+  } else if (currentExerciseType === "blank"){
+    sentencePromptHint.textContent = "Täydennä puuttuva sana ↓";
+    sentenceBlankIndex = blankIndexFor(currentSentence[targetLang]);
+    renderBlankDisplay();
+  } else if (currentExerciseType === "reorder"){
+    sentencePromptHint.textContent = "Järjestä sanat oikeaan järjestykseen ↓";
+    setupReorderChips();
+  } else if (currentExerciseType === "listen"){
+    sentencePromptHint.textContent = "Kuuntele ja toista virke ääneen ↓";
+    clearTimeout(autoSpeakTimer);
+    autoSpeakTimer = setTimeout(() => speakSentence(currentSentence[targetLang]), 350);
+  }
+}
+
+function pickSentenceRound(){
+  const pool = sentencesForGrade(activeGrade);
+  if (!pool.length){
+    currentSentence = null;
+    sentenceFiPrompt.textContent = "…";
+    sentencePromptHint.textContent = "";
+    sentenceExerciseLabel.textContent = "";
+    updateSentenceProgressLabel();
+    return;
+  }
+  const candidates = currentSentence ? pool.filter(s => s.id !== currentSentence.id) : pool;
+  currentSentence = (candidates.length ? candidates : pool)[Math.floor(Math.random() * (candidates.length ? candidates.length : pool.length))];
+  currentExerciseType = EXERCISE_TYPES[Math.floor(Math.random() * EXERCISE_TYPES.length)];
+  renderSentenceRound();
+  updateSentenceProgressLabel();
+}
+
+async function recordSentenceResult(isCorrect){
+  const id = sentenceStatId(currentSentence);
+  const prev = statsCache[id] || {
+    statId: id,
+    sentenceId: currentSentence.id,
+    language: targetLang,
+    streak: 0,
+    correctCount: 0,
+    incorrectCount: 0
+  };
+  if (isCorrect){
+    prev.correctCount += 1;
+    prev.streak = (prev.streak || 0) + 1;
+  } else {
+    prev.incorrectCount += 1;
+    prev.streak = 0;
+  }
+  prev.lastSeen = new Date().toISOString();
+  statsCache[id] = prev;
+  await putStat(prev);
+  updateSentenceProgressLabel();
+}
+
+function checkSentenceAnswer(){
+  if (!currentSentence) return;
+  let isCorrect = false;
+  if (currentExerciseType === "write"){
+    isCorrect = sentenceExactMatch(sentenceAnswerBox.value, currentSentence[targetLang]);
+  } else if (currentExerciseType === "blank"){
+    const words = sentenceWords(currentSentence[targetLang]);
+    const target = words[sentenceBlankIndex];
+    isCorrect = normalize(sentenceBlankBox.value || "") === normalize(target);
+  } else if (currentExerciseType === "reorder"){
+    const built = sentenceBuiltIndices.map(i => sentenceReorderWords[i]).join(" ");
+    isCorrect = sentenceBuiltIndices.length === sentenceReorderWords.length
+      && sentenceExactMatch(built, currentSentence[targetLang]);
+  } else if (currentExerciseType === "listen"){
+    isCorrect = sentenceTokenOverlap(sentenceMicTranscript.textContent, currentSentence[targetLang]) >= 0.7;
+  }
+  sentenceFeedback.className = "feedback " + (isCorrect ? "correct" : "incorrect");
+  if (isCorrect){
+    sentenceFeedback.textContent = "🎉 Oikein!";
+  } else {
+    sentenceFeedback.innerHTML = "🙈 Ei ihan. <span class='answer-reveal'>Oikea virke: " + currentSentence[targetLang] + "</span>";
+  }
+  recordSentenceResult(isCorrect);
+  setTimeout(pickSentenceRound, isCorrect ? 900 : 2200);
+}
+
+document.getElementById("sentenceCheckBtn").addEventListener("click", () => {
+  if (currentExerciseType === "listen" && !sentenceMicTranscript.textContent.trim()){
+    sentenceFeedback.className = "feedback";
+    sentenceFeedback.textContent = "🎤 Paina mikrofonia ja sano virke ensin.";
+    return;
+  }
+  if (currentExerciseType === "reorder" && !sentenceBuiltIndices.length){
+    sentenceFeedback.className = "feedback";
+    sentenceFeedback.textContent = "👆 Napauta sanoja järjestääksesi virkkeen ensin.";
+    return;
+  }
+  checkSentenceAnswer();
+});
+
+document.getElementById("sentenceSkipBtn").addEventListener("click", pickSentenceRound);
+
+sentenceRevealBtn.addEventListener("click", () => {
+  if (!currentSentence) return;
+  sentenceRevealBox.textContent = "🔤 " + currentSentence[targetLang];
+  sentenceAnswerArea.classList.add("revealed");
+});
+
+sentenceAnswerBox.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") document.getElementById("sentenceCheckBtn").click();
+});
+sentenceBlankBox.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") document.getElementById("sentenceCheckBtn").click();
+});
+
+sentenceHearBtn.addEventListener("click", () => {
+  if (currentSentence) speakSentence(currentSentence[targetLang]);
+});
+
+// Virkeharjoittelun oma puheentunnistus - erillinen sanaharjoittelun mikistä,
+// koska "kuuntele ja toista" tarkistaa heti puheentunnistuksen tuloksesta.
+if (SpeechRecognition){
+  sentenceRecognition = new SpeechRecognition();
+  sentenceRecognition.continuous = false;
+  sentenceRecognition.interimResults = false;
+  sentenceRecognition.onresult = (e) => {
+    const heard = e.results[0][0].transcript;
+    sentenceMicTranscript.textContent = heard;
+    sentenceMicTranscript.style.color = "";
+    checkSentenceAnswer();
+  };
+  sentenceRecognition.onerror = (e) => {
+    sentenceMicTranscript.textContent = (ERROR_TEXTS[e.error] || "Puheentunnistus ei onnistunut.") + " [" + e.error + "]";
+    sentenceMicTranscript.style.color = "#e53935";
+  };
+  sentenceRecognition.onend = () => {
+    sentenceRecognizing = false;
+    sentenceMicBtn.classList.remove("listening");
+  };
+}
+
+sentenceMicBtn.addEventListener("click", () => {
+  const blocked = micBlockedReason();
+  if (blocked){
+    sentenceMicTranscript.textContent = blocked;
+    sentenceMicTranscript.style.color = "#e53935";
+    return;
+  }
+  sentenceRecognition.lang = LANGS[targetLang].speech;
+  if (!sentenceRecognizing){
+    sentenceMicTranscript.textContent = "";
+    sentenceMicTranscript.style.color = "";
+    clearTimeout(autoSpeakTimer);
+    if (window.speechSynthesis) speechSynthesis.cancel();
+    try {
+      sentenceRecognition.start();
+      sentenceRecognizing = true;
+      sentenceMicBtn.classList.add("listening");
+    } catch (err){
+      sentenceMicTranscript.textContent = "Puheentunnistusta ei voitu käynnistää: " + err.name;
+      sentenceMicTranscript.style.color = "#e53935";
+    }
+  } else {
+    sentenceRecognition.stop();
+  }
+});
+
+// --- Harjoittelutavan valinta: sanat / virkkeet ---
+function setPracticeMode(mode){
+  if (mode === practiceMode) return;
+  practiceMode = mode;
+  practiceSwitchButtons.forEach(b => {
+    const active = b.dataset.practice === mode;
+    b.classList.toggle("active", active);
+    b.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+  wordPracticeEl.hidden = mode !== "words";
+  sentencePracticeEl.hidden = mode !== "sentences";
+  categoryFilter.style.display = mode === "words" ? "" : "none";
+  clearTimeout(autoSpeakTimer);
+  if (window.speechSynthesis) speechSynthesis.cancel();
+  if (mode === "sentences") pickSentenceRound();
+}
+
+practiceSwitchButtons.forEach(btn => {
+  btn.addEventListener("click", () => setPracticeMode(btn.dataset.practice));
 });
 
 // --- init ---
