@@ -1,33 +1,24 @@
-Sanaseikkailu data check: 398 words, 42 categories, 120 sentences
+Sanaseikkailu data check: 409 words, 42 categories, 120 sentences
 
 ===== ERRORS (0) =====
 
-===== WARNINGS (6) =====
-
-[Same en, different fi (en->fi ambiguous)] (3)
-  - 'english': 'englannin kieli' [school_subjects]; 'englantilainen' [countries_6]
-  - 'finnish': 'suomen kieli' [school_subjects]; 'suomalainen' [countries_6]
-  - 'orange': 'appelsiini' [fruit]; 'oranssi' [colours]
-
-[Same fi, different en (fi->en ambiguous)] (1)
-  - 'pyöräily' -> 'riding a bike' | 'cycling'
+===== WARNINGS (2) =====
 
 [DE: possible missing article] (2)
   - polite_phrases_sorry: en='sorry' de='Entschuldigung'
   - gaming_fortnite_loot: en='loot' de='Beute sammeln'
 
-===== INFO (56) =====
+===== INFO (55) =====
 
 [Pattern phrases with '...' (filtered from practice)] (1)
   - greetings_phrases_my_name_is: en='my name is ...' fi='nimeni on ...' de='ich heiße ...'
 
-[DE equals EN (eyeball)] (3)
-  - colours_orange_colour: 'orange' = 'orange'
+[DE equals EN (eyeball)] (2)
   - adjectives_modern: 'modern' = 'modern'
   - countries_england: 'England' = 'England'
 
 [Words per grade] (1)
-  - g1: 62, g2: 59, g3: 71, g4: 68, g5: 60, g6: 60, ungraded(hobby): 18
+  - g1: 73, g2: 59, g3: 71, g4: 68, g5: 60, g6: 60, ungraded(hobby): 18
 
 [Words per category] (42)
   - school_people (grade 3, ops): 7
@@ -45,7 +36,7 @@ Sanaseikkailu data check: 398 words, 42 categories, 120 sentences
   - hobbies (grade 2, ops): 8
   - greetings_phrases (grade 1, ops): 7
   - colours (grade 1, ops): 11
-  - numbers (grade 1, ops): 10
+  - numbers (grade 1, ops): 21
   - gaming_minecraft (grade None, hobby): 10
   - gaming_fortnite (grade None, hobby): 8
   - weather_seasons (grade 2, ops): 9
@@ -90,4 +81,4 @@ Sanaseikkailu data check: 398 words, 42 categories, 120 sentences
 [Top 30 sentence words NOT in vocabulary at all] (1)
   - every(4), after(4), before(4), day(3), favourite(3), today(3), leo(3), because(3), match(3), anna(2), max(2), don't(2), mia(2), emma(2), yesterday(2), film(2), last(2), always(2), dad(2), subject(2), taller(2), visit(2), grandparents(2), home(2), fun(2), tomorrow(2), although(2), still(2), more(2), jump(1)
 
-SUMMARY: 0 error(s), 6 warning(s)
+SUMMARY: 0 error(s), 2 warning(s)

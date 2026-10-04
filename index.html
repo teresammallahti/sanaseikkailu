@@ -811,9 +811,9 @@ const VOCAB = {
     "language_target": "en",
     "language_native": "fi",
     "level": "4lk",
-    "version": 7,
+    "version": 8,
     "created": "2026-09-02",
-    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa. v4: lisätty täydennyksiä olemassa oleviin kategorioihin (colours: purple/brown/grey; opposites: 8 uutta vastaparia) sekä kuusi uutta kategoriaa (weather_seasons, animals, house_rooms, body_parts, clothes, school_objects) POPS 2014 -aihepiirien ja yleisen 4. luokan sanaston perusteella, käyttäjän hyväksynnän jälkeen (ehdotukset_v4.md). Kaikille uusille sanoille pysyvä id, olemassa olevat id:t eivät muuttuneet. v5: lisätty saksankieliset käännökset (kenttä 'de') kaikille 260 sanalle, artikkelien (der/die/das) kanssa substantiiveille - vakiintuneen saksan opetuskäytännön mukaisesti suku opetellaan heti sanan mukana. Sama sanasto ja kategoriat kuin englannissa/suomessa, id:t muuttumattomat. v6: Sanat järjestetty OPSin teemojen mukaan. Teemat personality, opposites, verbs_action ja verbs_communication yhdistetty teemaan 'yleissanat' (group=general). Kaikki muut teemat merkitty group=ops paitsi gaming_minecraft ja gaming_fortnite, jotka merkitty group=hobby (vain manuaalisesti valittavissa, ei mukana 'kaikki teemat' -kierrossa tai yleissanojen varasanastona). v7: sanasto ryhmitelty peruskoulun luokka-asteille 1-6 (uusi 'grade'-kenttä kategorioilla, group=hobby-kategoriat pysyvät luokka-asteettomina). Palautettu personality/opposites/verbs_action/verbs_communication omiksi kategorioikseen (v6:n yleissanat-yhdistäminen ei ole enää tarpeen, koska luokka-asteet hoitavat täydennyksen). Lisätty 138 uutta sanaa (luokka 1: perusverbit; luokka 4: päivärutiinit; luokka 5: ammatit/urheilu/kulkuvälineet/sijaintisanat/tunteet/ostokset; luokka 6: matkustaminen/teknologia/mennyt aika/kuvailevat sanat/maat ja kansallisuudet/tulevaisuus). Lisätty monimerkityksisille sanoille vaihtoehtoisia suomennoksia (esim. land = laskeutua/maa).",
+    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa. v4: lisätty täydennyksiä olemassa oleviin kategorioihin (colours: purple/brown/grey; opposites: 8 uutta vastaparia) sekä kuusi uutta kategoriaa (weather_seasons, animals, house_rooms, body_parts, clothes, school_objects) POPS 2014 -aihepiirien ja yleisen 4. luokan sanaston perusteella, käyttäjän hyväksynnän jälkeen (ehdotukset_v4.md). Kaikille uusille sanoille pysyvä id, olemassa olevat id:t eivät muuttuneet. v5: lisätty saksankieliset käännökset (kenttä 'de') kaikille 260 sanalle, artikkelien (der/die/das) kanssa substantiiveille - vakiintuneen saksan opetuskäytännön mukaisesti suku opetellaan heti sanan mukana. Sama sanasto ja kategoriat kuin englannissa/suomessa, id:t muuttumattomat. v6: Sanat järjestetty OPSin teemojen mukaan. Teemat personality, opposites, verbs_action ja verbs_communication yhdistetty teemaan 'yleissanat' (group=general). Kaikki muut teemat merkitty group=ops paitsi gaming_minecraft ja gaming_fortnite, jotka merkitty group=hobby (vain manuaalisesti valittavissa, ei mukana 'kaikki teemat' -kierrossa tai yleissanojen varasanastona). v7: sanasto ryhmitelty peruskoulun luokka-asteille 1-6 (uusi 'grade'-kenttä kategorioilla, group=hobby-kategoriat pysyvät luokka-asteettomina). Palautettu personality/opposites/verbs_action/verbs_communication omiksi kategorioikseen (v6:n yleissanat-yhdistäminen ei ole enää tarpeen, koska luokka-asteet hoitavat täydennyksen). Lisätty 138 uutta sanaa (luokka 1: perusverbit; luokka 4: päivärutiinit; luokka 5: ammatit/urheilu/kulkuvälineet/sijaintisanat/tunteet/ostokset; luokka 6: matkustaminen/teknologia/mennyt aika/kuvailevat sanat/maat ja kansallisuudet/tulevaisuus). Lisätty monimerkityksisille sanoille vaihtoehtoisia suomennoksia (esim. land = laskeutua/maa). v8 (vaihe 21): numerot laajennettu 0-20 (zero, eleven-twenty; uudet id:t, vanhat ennallaan). Monitulkintaiset sanat tarkennettu sulkutarkenteella (English/Finnish kouluaine vs. kansalaisuus, orange hedelmä vs. väri) ja 'pyöräily' eroteltu ('pyörällä ajaminen' = riding a bike, 'pyöräily (urheilulaji)' = cycling). Kategorioiden grade tarkoittaa nyt kielen opiskeluvuotta: englanti alkaa 1. luokalla, saksa 4. luokalla (sovellus siirtää luokka-asteen kielen mukaan).",
     "notes": "Koottu 4. luokan englannin oppikirjan (skannattu, Scan_20260902_162833.pdf) teemojen pohjalta ilman kirjan kuvia tai tekstiä, täydennetty POPS 2014 (Englanti A-oppimäärä vl 3-6) aihepiirien mukaan. Rakenne on geneerinen (language_target/level -kentät), jotta samaa muotoa voi käyttää myöhemmin saksalle ja muille luokka-asteille.",
     "language_targets": [
       "en",
@@ -1140,7 +1140,7 @@ const VOCAB = {
     },
     {
       "id": "school_subjects_english",
-      "en": "English",
+      "en": "English (kouluaine)",
       "fi": "englannin kieli",
       "category": "school_subjects",
       "de": "Englisch"
@@ -1154,7 +1154,7 @@ const VOCAB = {
     },
     {
       "id": "school_subjects_finnish",
-      "en": "Finnish",
+      "en": "Finnish (kouluaine)",
       "fi": "suomen kieli",
       "category": "school_subjects",
       "de": "Finnisch"
@@ -1833,7 +1833,7 @@ const VOCAB = {
     },
     {
       "id": "fruit_orange",
-      "en": "orange",
+      "en": "orange (hedelmä)",
       "fi": "appelsiini",
       "category": "fruit",
       "de": "die Orange"
@@ -2107,7 +2107,7 @@ const VOCAB = {
     {
       "id": "hobbies_riding_a_bike",
       "en": "riding a bike",
-      "fi": "pyöräily",
+      "fi": "pyörällä ajaminen",
       "category": "hobbies",
       "de": "das Fahrradfahren"
     },
@@ -2232,10 +2232,17 @@ const VOCAB = {
     },
     {
       "id": "colours_orange_colour",
-      "en": "orange",
+      "en": "orange (väri)",
       "fi": "oranssi",
       "category": "colours",
       "de": "orange"
+    },
+    {
+      "id": "numbers_zero",
+      "en": "zero",
+      "fi": "nolla",
+      "category": "numbers",
+      "de": "null"
     },
     {
       "id": "numbers_one",
@@ -2306,6 +2313,76 @@ const VOCAB = {
       "fi": "kymmenen",
       "category": "numbers",
       "de": "zehn"
+    },
+    {
+      "id": "numbers_eleven",
+      "en": "eleven",
+      "fi": "yksitoista",
+      "category": "numbers",
+      "de": "elf"
+    },
+    {
+      "id": "numbers_twelve",
+      "en": "twelve",
+      "fi": "kaksitoista",
+      "category": "numbers",
+      "de": "zwölf"
+    },
+    {
+      "id": "numbers_thirteen",
+      "en": "thirteen",
+      "fi": "kolmetoista",
+      "category": "numbers",
+      "de": "dreizehn"
+    },
+    {
+      "id": "numbers_fourteen",
+      "en": "fourteen",
+      "fi": "neljätoista",
+      "category": "numbers",
+      "de": "vierzehn"
+    },
+    {
+      "id": "numbers_fifteen",
+      "en": "fifteen",
+      "fi": "viisitoista",
+      "category": "numbers",
+      "de": "fünfzehn"
+    },
+    {
+      "id": "numbers_sixteen",
+      "en": "sixteen",
+      "fi": "kuusitoista",
+      "category": "numbers",
+      "de": "sechzehn"
+    },
+    {
+      "id": "numbers_seventeen",
+      "en": "seventeen",
+      "fi": "seitsemäntoista",
+      "category": "numbers",
+      "de": "siebzehn"
+    },
+    {
+      "id": "numbers_eighteen",
+      "en": "eighteen",
+      "fi": "kahdeksantoista",
+      "category": "numbers",
+      "de": "achtzehn"
+    },
+    {
+      "id": "numbers_nineteen",
+      "en": "nineteen",
+      "fi": "yhdeksäntoista",
+      "category": "numbers",
+      "de": "neunzehn"
+    },
+    {
+      "id": "numbers_twenty",
+      "en": "twenty",
+      "fi": "kaksikymmentä",
+      "category": "numbers",
+      "de": "zwanzig"
     },
     {
       "id": "gaming_minecraft_creeper",
@@ -3150,7 +3227,7 @@ const VOCAB = {
     {
       "id": "sports_cycling",
       "en": "cycling",
-      "fi": "pyöräily",
+      "fi": "pyöräily (urheilulaji)",
       "de": "das Radfahren",
       "category": "sports_5"
     },
@@ -3730,7 +3807,7 @@ const VOCAB = {
     },
     {
       "id": "countries_finnish",
-      "en": "Finnish",
+      "en": "Finnish (kansalaisuus)",
       "fi": "suomalainen",
       "de": "finnisch",
       "category": "countries_6"
@@ -3744,7 +3821,7 @@ const VOCAB = {
     },
     {
       "id": "countries_english",
-      "en": "English",
+      "en": "English (kansalaisuus)",
       "fi": "englantilainen",
       "de": "englisch",
       "category": "countries_6"
@@ -4014,7 +4091,9 @@ function updateAutoSpeakLabel(){
 
 function speakWord(){
   if (!("speechSynthesis" in window)) return;
-  const utter = new SpeechSynthesisUtterance(promptWord.textContent);
+  // Sulkeissa oleva tarkenne (esim. "English (kouluaine)") on lapselle näkyvä
+  // vihje, ei lausuttava osa sanaa.
+  const utter = new SpeechSynthesisUtterance(stripParenthetical(promptWord.textContent));
   utter.lang = direction === "target-fi" ? LANGS[targetLang].speech : "fi-FI";
   speechSynthesis.cancel();
   speechSynthesis.speak(utter);
@@ -4077,9 +4156,29 @@ const GRADES = [1, 2, 3, 4, 5, 6];
 let activeGrade = 1;
 const gradeFilter = document.getElementById("gradeFilter");
 
+// Kielikohtainen aloitusluokka (vaihe 21): englanti alkaa Suomessa 1. luokalla,
+// saksa vasta 4. luokalla. Kategorioiden "grade"-kenttä kuvaa kielen
+// OPISKELUVUOTTA (1 = ensimmäinen vuosi), ja se siirretään luokka-asteeksi
+// kielen aloitusluokan mukaan: saksan 4. luokka = saksan ensimmäinen vuosi
+// (värit, numerot, perhe...), 5. luokka = toinen vuosi, 6. luokka = kolmas.
+// Opiskeluvuodet 4-6 (englannin 4.-6. luokan teemat) eivät kuulu saksan
+// alakouluun, joten niitä ei näytetä saksalle.
+const LANG_START_GRADE = { en: 1, de: 4 };
+
+function startGrade(){ return LANG_START_GRADE[targetLang] || 1; }
+
+// Valitun kielen luokka-asteet alakoulussa (en: 1-6, de: 4-6).
+function gradesForLang(){ return GRADES.filter(g => g >= startGrade()); }
+function maxGrade(){ return GRADES[GRADES.length - 1]; }
+
+// Kategorian luokka-aste VALITULLA kielellä (null = harrasteteema).
+function categoryGrade(c){
+  if (!c || c.grade == null) return null;
+  return c.grade + startGrade() - 1;
+}
+
 function wordGrade(word){
-  const c = VOCAB.categories.find(c => c.id === word.category);
-  return c ? c.grade : null;
+  return categoryGrade(VOCAB.categories.find(c => c.id === word.category));
 }
 
 function wordsForGrade(g){
@@ -4110,10 +4209,10 @@ function saveGradeChoice(lang, grade){
 // kokonaan opittu (esim. jos sanasto oli ennen luokka-asteiden lisäystä jo
 // pitkälti opittu, oppilas ei jää jumiin ykkösluokkaan).
 function detectFrontierGrade(){
-  for (const g of GRADES){
+  for (const g of gradesForLang()){
     if (!isGradeComplete(g)) return g;
   }
-  return GRADES[GRADES.length - 1];
+  return maxGrade();
 }
 
 function loadOrDetectGrade(lang){
@@ -4121,7 +4220,7 @@ function loadOrDetectGrade(lang){
     const saved = localStorage.getItem(gradeStorageKey(lang));
     if (saved){
       const n = parseInt(saved, 10);
-      if (GRADES.includes(n)) return n;
+      if (gradesForLang().includes(n)) return n; // esim. vanha grade_de=1 ei enää kelpaa
     }
   } catch (e) { /* ei haittaa */ }
   return detectFrontierGrade();
@@ -4131,7 +4230,7 @@ function loadOrDetectGrade(lang){
 // valmistumistilanne (vihreä teksti) tai valittu luokka-aste voi olla muuttunut.
 function populateGradeOptions(){
   gradeFilter.innerHTML = "";
-  GRADES.forEach(g => {
+  gradesForLang().forEach(g => {
     const opt = document.createElement("option");
     opt.value = String(g);
     const complete = isGradeComplete(g);
@@ -4162,7 +4261,7 @@ function setupGradeFilter(){
 // Kun luokka-aste on kokonaan opittu, oppilas siirtyy automaattisesti seuraavalle
 // luokka-asteelle - tarkistetaan aina ennen uuden sanan valintaa.
 function maybeAdvanceGrade(){
-  if (activeGrade < GRADES.length && isGradeComplete(activeGrade)){
+  if (activeGrade < maxGrade() && isGradeComplete(activeGrade)){
     activeGrade += 1;
     saveGradeChoice(targetLang, activeGrade);
     currentCategory = "all";
@@ -4180,7 +4279,7 @@ function populateCategoryOptions(){
   allOpt.textContent = "Kaikki teemat";
   categoryFilter.appendChild(allOpt);
   VOCAB.categories
-    .filter(c => c.grade === activeGrade || c.group === "hobby")
+    .filter(c => categoryGrade(c) === activeGrade || c.group === "hobby")
     .forEach(c => {
       const opt = document.createElement("option");
       opt.value = c.id;
@@ -4220,7 +4319,7 @@ function eligibleWordsForCategoryScope(catId){
 // järjestyksestä jossa ne on sanastoon kirjoitettu) - oppilas ei koskaan jää
 // ilman uusia sanoja, vaikka oma luokka-aste olisi lähes kokonaan opittu.
 function nextGradeFallbackWords(catId, excludeIds){
-  for (let g = activeGrade + 1; g <= GRADES.length; g++){
+  for (let g = activeGrade + 1; g <= maxGrade(); g++){
     const gradeWords = wordsForGrade(g);
     const scoped = catId === "all" ? gradeWords : gradeWords.filter(w => w.category === catId);
     const usable = (scoped.length ? scoped : gradeWords).filter(w => !excludeIds.has(w.id));
@@ -4238,8 +4337,8 @@ function nextGradeFallbackWords(catId, excludeIds){
 // jääneillä sanoilla.
 function fallbackGradeOrder(){
   const order = [];
-  for (let g = activeGrade + 1; g <= GRADES.length; g++) order.push(g);
-  for (let g = activeGrade - 1; g >= 1; g--) order.push(g);
+  for (let g = activeGrade + 1; g <= maxGrade(); g++) order.push(g);
+  for (let g = activeGrade - 1; g >= startGrade(); g--) order.push(g);
   return order;
 }
 
@@ -4647,9 +4746,12 @@ function answerLang(){
 
 // Puheentunnistus palauttaa numerot usein numeroina ("2"), vaikka sana on "kaksi".
 const NUMBER_WORDS = {
-  fi: { "0":"nolla","1":"yksi","2":"kaksi","3":"kolme","4":"neljä","5":"viisi","6":"kuusi","7":"seitsemän","8":"kahdeksan","9":"yhdeksän","10":"kymmenen" },
-  en: { "0":"zero","1":"one","2":"two","3":"three","4":"four","5":"five","6":"six","7":"seven","8":"eight","9":"nine","10":"ten" },
-  de: { "0":"null","1":"eins","2":"zwei","3":"drei","4":"vier","5":"fünf","6":"sechs","7":"sieben","8":"acht","9":"neun","10":"zehn" }
+  fi: { "0":"nolla","1":"yksi","2":"kaksi","3":"kolme","4":"neljä","5":"viisi","6":"kuusi","7":"seitsemän","8":"kahdeksan","9":"yhdeksän","10":"kymmenen",
+        "11":"yksitoista","12":"kaksitoista","13":"kolmetoista","14":"neljätoista","15":"viisitoista","16":"kuusitoista","17":"seitsemäntoista","18":"kahdeksantoista","19":"yhdeksäntoista","20":"kaksikymmentä" },
+  en: { "0":"zero","1":"one","2":"two","3":"three","4":"four","5":"five","6":"six","7":"seven","8":"eight","9":"nine","10":"ten",
+        "11":"eleven","12":"twelve","13":"thirteen","14":"fourteen","15":"fifteen","16":"sixteen","17":"seventeen","18":"eighteen","19":"nineteen","20":"twenty" },
+  de: { "0":"null","1":"eins","2":"zwei","3":"drei","4":"vier","5":"fünf","6":"sechs","7":"sieben","8":"acht","9":"neun","10":"zehn",
+        "11":"elf","12":"zwölf","13":"dreizehn","14":"vierzehn","15":"fünfzehn","16":"sechzehn","17":"siebzehn","18":"achtzehn","19":"neunzehn","20":"zwanzig" }
 };
 
 function digitsToWords(text, lang){
@@ -4670,8 +4772,13 @@ function stripParenthetical(s){
   return s.replace(/\([^)]*\)/g, "").trim();
 }
 
-function canonical(s){
-  return digitsToWords(normalize(stripParenthetical(s)), answerLang());
+// Numeroiden muunto sanoiksi tehdään vain puhetilassa, koska puheentunnistus
+// palauttaa luvut numeroina ("15"). Kirjoitettaessa (näppäimistö/kynä) numero
+// EI kelpaa sanan tilalle - muuten "viisitoista"-kehotteeseen voisi vastata "15"
+// opettelematta itse sanaa (vaihe 21).
+function canonical(s, convertDigits){
+  const base = normalize(stripParenthetical(s));
+  return convertDigits ? digitsToWords(base, answerLang()) : base;
 }
 
 function escapeRegExp(s){
@@ -4681,9 +4788,9 @@ function escapeRegExp(s){
 // mode vaikuttaa siihen, kuinka tarkka vertailu on:
 // näppäimistö ja kynä = oikeinkirjoitus ratkaisee, puhe = sana saa olla lauseen sisällä.
 function matchesAnswer(userAnswer, mode){
-  const user = canonical(userAnswer || "");
+  const user = canonical(userAnswer || "", mode === "mic");
   if (!user) return false;
-  const options = acceptedAnswers().map(canonical).filter(Boolean);
+  const options = acceptedAnswers().map(a => canonical(a, false)).filter(Boolean);
   if (options.includes(user)) return true;
   if (mode === "mic"){
     return options.some(opt => new RegExp("(^|\\s)" + escapeRegExp(opt) + "($|\\s)").test(user));
@@ -5343,7 +5450,8 @@ let sentenceRecognizing = false;
 let sentenceRecognition = null;
 
 function sentencesForLang(){ return SENTENCE_DATA[targetLang] || []; }
-function sentencesForGrade(g){ return sentencesForLang().filter(s => s.grade === g); }
+// Virkkeiden "grade" on samoin opiskeluvuosi (ks. LANG_START_GRADE).
+function sentencesForGrade(g){ return sentencesForLang().filter(s => s.grade + startGrade() - 1 === g); }
 function sentenceStatId(sentence){ return `sentence|${targetLang}|${sentence.id}`; }
 function sentenceStat(sentence){ return statsCache[sentenceStatId(sentence)] || null; }
 function isSentenceLearned(sentence){

@@ -957,7 +957,9 @@ function updateAutoSpeakLabel(){
 
 function speakWord(){
   if (!("speechSynthesis" in window)) return;
-  const utter = new SpeechSynthesisUtterance(promptWord.textContent);
+  // Sulkeissa oleva tarkenne (esim. "English (kouluaine)") on lapselle näkyvä
+  // vihje, ei lausuttava osa sanaa.
+  const utter = new SpeechSynthesisUtterance(stripParenthetical(promptWord.textContent));
   utter.lang = direction === "target-fi" ? LANGS[targetLang].speech : "fi-FI";
   speechSynthesis.cancel();
   speechSynthesis.speak(utter);
@@ -1020,9 +1022,29 @@ const GRADES = [1, 2, 3, 4, 5, 6];
 let activeGrade = 1;
 const gradeFilter = document.getElementById("gradeFilter");
 
+// Kielikohtainen aloitusluokka (vaihe 21): englanti alkaa Suomessa 1. luokalla,
+// saksa vasta 4. luokalla. Kategorioiden "grade"-kenttä kuvaa kielen
+// OPISKELUVUOTTA (1 = ensimmäinen vuosi), ja se siirretään luokka-asteeksi
+// kielen aloitusluokan mukaan: saksan 4. luokka = saksan ensimmäinen vuosi
+// (värit, numerot, perhe...), 5. luokka = toinen vuosi, 6. luokka = kolmas.
+// Opiskeluvuodet 4-6 (englannin 4.-6. luokan teemat) eivät kuulu saksan
+// alakouluun, joten niitä ei näytetä saksalle.
+const LANG_START_GRADE = { en: 1, de: 4 };
+
+function startGrade(){ return LANG_START_GRADE[targetLang] || 1; }
+
+// Valitun kielen luokka-asteet alakoulussa (en: 1-6, de: 4-6).
+function gradesForLang(){ return GRADES.filter(g => g >= startGrade()); }
+function maxGrade(){ return GRADES[GRADES.length - 1]; }
+
+// Kategorian luokka-aste VALITULLA kielellä (null = harrasteteema).
+function categoryGrade(c){
+  if (!c || c.grade == null) return null;
+  return c.grade + startGrade() - 1;
+}
+
 function wordGrade(word){
-  const c = VOCAB.categories.find(c => c.id === word.category);
-  return c ? c.grade : null;
+  return categoryGrade(VOCAB.categories.find(c => c.id === word.category));
 }
 
 function wordsForGrade(g){
@@ -1053,10 +1075,10 @@ function saveGradeChoice(lang, grade){
 // kokonaan opittu (esim. jos sanasto oli ennen luokka-asteiden lisäystä jo
 // pitkälti opittu, oppilas ei jää jumiin ykkösluokkaan).
 function detectFrontierGrade(){
-  for (const g of GRADES){
+  for (const g of gradesForLang()){
     if (!isGradeComplete(g)) return g;
   }
-  return GRADES[GRADES.length - 1];
+  return maxGrade();
 }
 
 function loadOrDetectGrade(lang){
@@ -1064,7 +1086,7 @@ function loadOrDetectGrade(lang){
     const saved = localStorage.getItem(gradeStorageKey(lang));
     if (saved){
       const n = parseInt(saved, 10);
-      if (GRADES.includes(n)) return n;
+      if (gradesForLang().includes(n)) return n; // esim. vanha grade_de=1 ei enää kelpaa
     }
   } catch (e) { /* ei haittaa */ }
   return detectFrontierGrade();
@@ -1074,7 +1096,7 @@ function loadOrDetectGrade(lang){
 // valmistumistilanne (vihreä teksti) tai valittu luokka-aste voi olla muuttunut.
 function populateGradeOptions(){
   gradeFilter.innerHTML = "";
-  GRADES.forEach(g => {
+  gradesForLang().forEach(g => {
     const opt = document.createElement("option");
     opt.value = String(g);
     const complete = isGradeComplete(g);
@@ -1105,7 +1127,7 @@ function setupGradeFilter(){
 // Kun luokka-aste on kokonaan opittu, oppilas siirtyy automaattisesti seuraavalle
 // luokka-asteelle - tarkistetaan aina ennen uuden sanan valintaa.
 function maybeAdvanceGrade(){
-  if (activeGrade < GRADES.length && isGradeComplete(activeGrade)){
+  if (activeGrade < maxGrade() && isGradeComplete(activeGrade)){
     activeGrade += 1;
     saveGradeChoice(targetLang, activeGrade);
     currentCategory = "all";
@@ -1123,7 +1145,7 @@ function populateCategoryOptions(){
   allOpt.textContent = "Kaikki teemat";
   categoryFilter.appendChild(allOpt);
   VOCAB.categories
-    .filter(c => c.grade === activeGrade || c.group === "hobby")
+    .filter(c => categoryGrade(c) === activeGrade || c.group === "hobby")
     .forEach(c => {
       const opt = document.createElement("option");
       opt.value = c.id;
@@ -1163,7 +1185,7 @@ function eligibleWordsForCategoryScope(catId){
 // järjestyksestä jossa ne on sanastoon kirjoitettu) - oppilas ei koskaan jää
 // ilman uusia sanoja, vaikka oma luokka-aste olisi lähes kokonaan opittu.
 function nextGradeFallbackWords(catId, excludeIds){
-  for (let g = activeGrade + 1; g <= GRADES.length; g++){
+  for (let g = activeGrade + 1; g <= maxGrade(); g++){
     const gradeWords = wordsForGrade(g);
     const scoped = catId === "all" ? gradeWords : gradeWords.filter(w => w.category === catId);
     const usable = (scoped.length ? scoped : gradeWords).filter(w => !excludeIds.has(w.id));
@@ -1181,8 +1203,8 @@ function nextGradeFallbackWords(catId, excludeIds){
 // jääneillä sanoilla.
 function fallbackGradeOrder(){
   const order = [];
-  for (let g = activeGrade + 1; g <= GRADES.length; g++) order.push(g);
-  for (let g = activeGrade - 1; g >= 1; g--) order.push(g);
+  for (let g = activeGrade + 1; g <= maxGrade(); g++) order.push(g);
+  for (let g = activeGrade - 1; g >= startGrade(); g--) order.push(g);
   return order;
 }
 
@@ -1590,9 +1612,12 @@ function answerLang(){
 
 // Puheentunnistus palauttaa numerot usein numeroina ("2"), vaikka sana on "kaksi".
 const NUMBER_WORDS = {
-  fi: { "0":"nolla","1":"yksi","2":"kaksi","3":"kolme","4":"neljä","5":"viisi","6":"kuusi","7":"seitsemän","8":"kahdeksan","9":"yhdeksän","10":"kymmenen" },
-  en: { "0":"zero","1":"one","2":"two","3":"three","4":"four","5":"five","6":"six","7":"seven","8":"eight","9":"nine","10":"ten" },
-  de: { "0":"null","1":"eins","2":"zwei","3":"drei","4":"vier","5":"fünf","6":"sechs","7":"sieben","8":"acht","9":"neun","10":"zehn" }
+  fi: { "0":"nolla","1":"yksi","2":"kaksi","3":"kolme","4":"neljä","5":"viisi","6":"kuusi","7":"seitsemän","8":"kahdeksan","9":"yhdeksän","10":"kymmenen",
+        "11":"yksitoista","12":"kaksitoista","13":"kolmetoista","14":"neljätoista","15":"viisitoista","16":"kuusitoista","17":"seitsemäntoista","18":"kahdeksantoista","19":"yhdeksäntoista","20":"kaksikymmentä" },
+  en: { "0":"zero","1":"one","2":"two","3":"three","4":"four","5":"five","6":"six","7":"seven","8":"eight","9":"nine","10":"ten",
+        "11":"eleven","12":"twelve","13":"thirteen","14":"fourteen","15":"fifteen","16":"sixteen","17":"seventeen","18":"eighteen","19":"nineteen","20":"twenty" },
+  de: { "0":"null","1":"eins","2":"zwei","3":"drei","4":"vier","5":"fünf","6":"sechs","7":"sieben","8":"acht","9":"neun","10":"zehn",
+        "11":"elf","12":"zwölf","13":"dreizehn","14":"vierzehn","15":"fünfzehn","16":"sechzehn","17":"siebzehn","18":"achtzehn","19":"neunzehn","20":"zwanzig" }
 };
 
 function digitsToWords(text, lang){
@@ -1613,8 +1638,13 @@ function stripParenthetical(s){
   return s.replace(/\([^)]*\)/g, "").trim();
 }
 
-function canonical(s){
-  return digitsToWords(normalize(stripParenthetical(s)), answerLang());
+// Numeroiden muunto sanoiksi tehdään vain puhetilassa, koska puheentunnistus
+// palauttaa luvut numeroina ("15"). Kirjoitettaessa (näppäimistö/kynä) numero
+// EI kelpaa sanan tilalle - muuten "viisitoista"-kehotteeseen voisi vastata "15"
+// opettelematta itse sanaa (vaihe 21).
+function canonical(s, convertDigits){
+  const base = normalize(stripParenthetical(s));
+  return convertDigits ? digitsToWords(base, answerLang()) : base;
 }
 
 function escapeRegExp(s){
@@ -1624,9 +1654,9 @@ function escapeRegExp(s){
 // mode vaikuttaa siihen, kuinka tarkka vertailu on:
 // näppäimistö ja kynä = oikeinkirjoitus ratkaisee, puhe = sana saa olla lauseen sisällä.
 function matchesAnswer(userAnswer, mode){
-  const user = canonical(userAnswer || "");
+  const user = canonical(userAnswer || "", mode === "mic");
   if (!user) return false;
-  const options = acceptedAnswers().map(canonical).filter(Boolean);
+  const options = acceptedAnswers().map(a => canonical(a, false)).filter(Boolean);
   if (options.includes(user)) return true;
   if (mode === "mic"){
     return options.some(opt => new RegExp("(^|\\s)" + escapeRegExp(opt) + "($|\\s)").test(user));
@@ -2286,7 +2316,8 @@ let sentenceRecognizing = false;
 let sentenceRecognition = null;
 
 function sentencesForLang(){ return SENTENCE_DATA[targetLang] || []; }
-function sentencesForGrade(g){ return sentencesForLang().filter(s => s.grade === g); }
+// Virkkeiden "grade" on samoin opiskeluvuosi (ks. LANG_START_GRADE).
+function sentencesForGrade(g){ return sentencesForLang().filter(s => s.grade + startGrade() - 1 === g); }
 function sentenceStatId(sentence){ return `sentence|${targetLang}|${sentence.id}`; }
 function sentenceStat(sentence){ return statsCache[sentenceStatId(sentence)] || null; }
 function isSentenceLearned(sentence){

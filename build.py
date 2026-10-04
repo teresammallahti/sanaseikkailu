@@ -4,7 +4,7 @@ import json, os, re, sys
 # repokansiosta millä tahansa koneella (ei enää kovakoodattuja /tmp-polkuja).
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "index_template.html")
-VOCAB = os.path.join(HERE, "en_1_6lk_v7.json")
+VOCAB = os.path.join(HERE, "en_1_6lk_v8.json")
 OUT_FULL = os.path.join(HERE, "index.html")
 OUT_FRAGMENT = os.path.join(HERE, "sanaseikkailu.html")
 

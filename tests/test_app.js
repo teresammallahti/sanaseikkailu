@@ -131,7 +131,77 @@ test('Kieli: saksalle päätellään luokka omista tilastoista (en-edistys ei va
   assert.strictEqual(app.run('activeGrade'), 2);
   app.run('selectTargetLang("de")');
   await app.flush();
-  assert.strictEqual(app.run('activeGrade'), 1);
+  assert.strictEqual(app.run('activeGrade'), 4, 'saksa alkaa 4. luokalta eikä en-edistys siirrä sitä');
+  app.dispose();
+});
+
+// ---------------- Saksa alkaa 4. luokalta (vaihe 21) ----------------
+test('Saksa: luokka-asteet ovat vain 4-6, englanti 1-6', async () => {
+  const app = await boot();
+  assert.strictEqual(JSON.stringify(app.run('gradesForLang()')), '[1,2,3,4,5,6]');
+  app.run('selectTargetLang("de")');
+  await app.flush();
+  assert.strictEqual(JSON.stringify(app.run('gradesForLang()')), '[4,5,6]');
+  assert.strictEqual(app.elements.gradeFilter._children.length, 3, 'valikossa 3 luokkaa');
+  assert.strictEqual(app.run('activeGrade'), 4);
+  for (const g of [1, 2, 3]) assert.strictEqual(app.run(`wordsForGrade(${g}).length`), 0, 'ei saksaa luokalla ' + g);
+  app.dispose();
+});
+
+test('Saksa: 4. luokan teemoissa ovat värit ja numerot 0-20', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de' } });
+  assert.strictEqual(app.run('activeGrade'), 4);
+  const ids = J(app, 'wordsForGrade(4).map(w => w.id)');
+  for (const id of ['colours_red', 'colours_blue', 'colours_orange_colour', 'numbers_zero', 'numbers_ten', 'numbers_eleven', 'numbers_sixteen', 'numbers_seventeen', 'numbers_twenty']) {
+    assert.ok(ids.includes(id), id + ' puuttuu saksan 4. luokalta');
+  }
+  const cats = J(app, 'categoryFilter._children.map(o => o.value)');
+  assert.ok(cats.includes('colours') && cats.includes('numbers'), 'teemavalikossa värit ja numerot: ' + cats.join(','));
+  assert.strictEqual(app.run('VOCAB.words.filter(w => w.category === "numbers").length'), 21, 'numerot 0-20');
+  app.dispose();
+});
+
+test('Saksa: vanha tallennettu grade_de (1-3) ei jää voimaan, aloitetaan 4. luokalta', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de', grade_de: '2' } });
+  assert.strictEqual(app.run('activeGrade'), 4);
+  app.dispose();
+});
+
+test('Saksa: englannin 4.-6. luokan teemat eivät näy saksalle, englannissa värit ovat yhä 1. luokalla', async () => {
+  const app = await boot();
+  assert.ok(J(app, 'wordsForGrade(1).map(w => w.id)').includes('colours_red'));
+  app.run('selectTargetLang("de")');
+  await app.flush();
+  const all = J(app, '[4,5,6].flatMap(g => wordsForGrade(g)).map(w => w.category)');
+  for (const c of ['professions_5', 'travel_6', 'paivarutiinit_4']) assert.ok(!all.includes(c), c + ' ei kuulu saksan alakouluun');
+  assert.ok(all.includes('school_subjects'), 'saksan 6. lk = kolmas opiskeluvuosi');
+  app.dispose();
+});
+
+test('Numerot: kirjoitettu numero ei kelpaa sanan tilalle, puheessa kelpaa (vaihe 21)', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de' } });
+  setWord(app, 'numbers_fifteen', 'fi-target');
+  assert.strictEqual(app.run('matchesAnswer("fünfzehn", "keyboard")'), true);
+  assert.strictEqual(app.run('matchesAnswer("15", "keyboard")'), false);
+  assert.strictEqual(app.run('matchesAnswer("15", "pen")'), false);
+  assert.strictEqual(app.run('matchesAnswer("15", "mic")'), true);
+  setWord(app, 'numbers_seventeen', 'fi-target');
+  assert.strictEqual(app.run('matchesAnswer("siebzehn", "keyboard")'), true);
+  assert.strictEqual(app.run('matchesAnswer("siebenzehn", "keyboard")'), false);
+  app.dispose();
+});
+
+test('Tarkenteet: "English (kouluaine)" hyväksyy vastauksen "English" eikä tarkennetta lausuta', async () => {
+  const app = await boot();
+  setWord(app, 'school_subjects_english', 'fi-target');
+  assert.strictEqual(app.run('matchesAnswer("English", "keyboard")'), true);
+  setWord(app, 'school_subjects_english', 'target-fi');
+  app.run('renderPrompt()');
+  assert.strictEqual(app.elements.promptWord.textContent, 'English (kouluaine)');
+  app.run('speakWord()');
+  assert.strictEqual(app.spoken[app.spoken.length - 1].text, 'English');
+  setWord(app, 'sports_cycling', 'target-fi');
+  assert.strictEqual(app.run('matchesAnswer("pyöräily", "keyboard")'), true);
   app.dispose();
 });
 
