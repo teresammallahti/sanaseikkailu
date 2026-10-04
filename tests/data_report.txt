@@ -1,0 +1,93 @@
+Sanaseikkailu data check: 398 words, 42 categories, 120 sentences
+
+===== ERRORS (0) =====
+
+===== WARNINGS (6) =====
+
+[Same en, different fi (en->fi ambiguous)] (3)
+  - 'english': 'englannin kieli' [school_subjects]; 'englantilainen' [countries_6]
+  - 'finnish': 'suomen kieli' [school_subjects]; 'suomalainen' [countries_6]
+  - 'orange': 'appelsiini' [fruit]; 'oranssi' [colours]
+
+[Same fi, different en (fi->en ambiguous)] (1)
+  - 'pyöräily' -> 'riding a bike' | 'cycling'
+
+[DE: possible missing article] (2)
+  - polite_phrases_sorry: en='sorry' de='Entschuldigung'
+  - gaming_fortnite_loot: en='loot' de='Beute sammeln'
+
+===== INFO (56) =====
+
+[Pattern phrases with '...' (filtered from practice)] (1)
+  - greetings_phrases_my_name_is: en='my name is ...' fi='nimeni on ...' de='ich heiße ...'
+
+[DE equals EN (eyeball)] (3)
+  - colours_orange_colour: 'orange' = 'orange'
+  - adjectives_modern: 'modern' = 'modern'
+  - countries_england: 'England' = 'England'
+
+[Words per grade] (1)
+  - g1: 62, g2: 59, g3: 71, g4: 68, g5: 60, g6: 60, ungraded(hobby): 18
+
+[Words per category] (42)
+  - school_people (grade 3, ops): 7
+  - school_subjects (grade 3, ops): 15
+  - weekdays (grade 2, ops): 7
+  - places_town (grade 4, ops): 4
+  - belongings (grade 4, ops): 6
+  - appearance (grade 4, ops): 9
+  - food_savoury (grade 3, ops): 11
+  - fruit (grade 2, ops): 13
+  - polite_phrases (grade 3, ops): 6
+  - time (grade 4, ops): 5
+  - family (grade 1, ops): 10
+  - myself (grade 3, ops): 8
+  - hobbies (grade 2, ops): 8
+  - greetings_phrases (grade 1, ops): 7
+  - colours (grade 1, ops): 11
+  - numbers (grade 1, ops): 10
+  - gaming_minecraft (grade None, hobby): 10
+  - gaming_fortnite (grade None, hobby): 8
+  - weather_seasons (grade 2, ops): 9
+  - animals (grade 1, ops): 8
+  - house_rooms (grade 2, ops): 8
+  - body_parts (grade 1, ops): 8
+  - clothes (grade 2, ops): 8
+  - school_objects (grade 2, ops): 6
+  - personality (grade 4, ops): 12
+  - opposites (grade 3, ops): 24
+  - verbs_action (grade 4, ops): 14
+  - verbs_communication (grade 4, ops): 8
+  - perusverbit_1 (grade 1, ops): 8
+  - paivarutiinit_4 (grade 4, ops): 10
+  - professions_5 (grade 5, ops): 10
+  - sports_5 (grade 5, ops): 10
+  - transport_5 (grade 5, ops): 10
+  - prepositions_5 (grade 5, ops): 10
+  - feelings_advanced_5 (grade 5, ops): 10
+  - shopping_5 (grade 5, ops): 10
+  - travel_6 (grade 6, ops): 10
+  - technology_6 (grade 6, ops): 10
+  - verbs_past_6 (grade 6, ops): 10
+  - adjectives_advanced_6 (grade 6, ops): 10
+  - countries_6 (grade 6, ops): 10
+  - future_plans_6 (grade 6, ops): 10
+
+[Sentences per grade] (1)
+  - g1: 20, g2: 20, g3: 20, g4: 20, g5: 20, g6: 20 (total 120)
+
+[Average sentence length (words)] (1)
+  - g1: 4.05, g2: 5.00, g3: 5.85, g4: 7.70, g5: 8.95, g6: 11.30
+
+[Sentence vocabulary coverage (content words in vocab at grade <= g; light plural/-ing/-ed stemming)] (6)
+  - grade 1: 24/36 = 66.7%
+  - grade 2: 31/53 = 58.5%
+  - grade 3: 32/63 = 50.8%
+  - grade 4: 41/71 = 57.7%
+  - grade 5: 37/89 = 41.6%
+  - grade 6: 48/113 = 42.5%
+
+[Top 30 sentence words NOT in vocabulary at all] (1)
+  - every(4), after(4), before(4), day(3), favourite(3), today(3), leo(3), because(3), match(3), anna(2), max(2), don't(2), mia(2), emma(2), yesterday(2), film(2), last(2), always(2), dad(2), subject(2), taller(2), visit(2), grandparents(2), home(2), fun(2), tomorrow(2), although(2), still(2), more(2), jump(1)
+
+SUMMARY: 0 error(s), 6 warning(s)

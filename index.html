@@ -4229,6 +4229,33 @@ function nextGradeFallbackWords(catId, excludeIds){
   return [];
 }
 
+// Täydennysjärjestys luokka-asteiden yli (korjattu vaiheessa 20): ensin kaikki
+// ylemmät luokka-asteet nousevassa järjestyksessä, sitten alemmat laskevassa.
+// Aiemmin täydennys katsoi vain ENSIMMÄISEN ylemmän luokka-asteen, jolla oli
+// sanoja - jos ne kaikki olivat jo graduoituja valitussa tilassa, pooli jäi
+// vajaaksi eikä haku jatkunut seuraavaan luokka-asteeseen. 6. luokalla ei ollut
+// täydennystä lainkaan; nyt sielläkin täydennetään alempien luokkien kesken
+// jääneillä sanoilla.
+function fallbackGradeOrder(){
+  const order = [];
+  for (let g = activeGrade + 1; g <= GRADES.length; g++) order.push(g);
+  for (let g = activeGrade - 1; g >= 1; g--) order.push(g);
+  return order;
+}
+
+function fillFromOtherGrades(pool, catId, excludeIds){
+  for (const g of fallbackGradeOrder()){
+    if (pool.length >= ACTIVE_POOL_MIN) break;
+    const gradeWords = wordsForGrade(g).filter(w => !excludeIds.has(w.id));
+    // Teemarajauksen mukaiset sanat ensin, sitten muut saman luokka-asteen sanat.
+    const scoped = catId === "all" ? gradeWords : gradeWords.filter(w => w.category === catId);
+    for (const src of (scoped === gradeWords ? [gradeWords] : [scoped, gradeWords])){
+      fillPoolFrom(src.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
+      fillPoolFrom(src.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
+    }
+  }
+}
+
 // --- Kolmivaiheinen oppimispolku: piirrä -> kirjoita -> puhu ---
 // Vaihe 1 (piirto): sana pitää saada kerran oikein KUMPAANKIN suuntaan
 // (kohdekieli->suomi ja suomi->kohdekieli) ilman että väliin tulee väärä
@@ -4504,7 +4531,7 @@ function fillPoolFrom(candidates, pool, excludeIds, needed){
 // Täydentää annettua pool-taulukkoa: ensin nykyisen luokka-asteen ja teemarajauksen
 // (catId) kesken olevista/uusista sanoista. Jos ACTIVE_POOL_MIN ei täyty eikä
 // rajaus itse ole harrasteteema, täydennetään ensin saman luokka-asteen muista
-// teemoista, ja jos sekään ei riitä, seuraavan ylemmän luokka-asteen sanoista.
+// teemoista, ja jos sekään ei riitä, muiden luokka-asteiden sanoista (ks. fallbackGradeOrder).
 function topUpPool(pool, catId, excludeIds){
   const isHobby = catId !== "all" && categoryGroup(catId) === "hobby";
   const primary = eligibleWordsForCategoryScope(catId).filter(w => !excludeIds.has(w.id));
@@ -4515,10 +4542,8 @@ function topUpPool(pool, catId, excludeIds){
     fillPoolFrom(sameGrade.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
     fillPoolFrom(sameGrade.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
   }
-  if (pool.length < ACTIVE_POOL_MIN && !isHobby && activeGrade < GRADES.length){
-    const upper = nextGradeFallbackWords(catId, excludeIds);
-    fillPoolFrom(upper.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
-    fillPoolFrom(upper.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
+  if (pool.length < ACTIVE_POOL_MIN && !isHobby){
+    fillFromOtherGrades(pool, catId, excludeIds);
   }
   return pool;
 }
@@ -5164,69 +5189,129 @@ const SENTENCE_DATA = {
   en: [
     { id: "en_g1_1", grade: 1, en: "I am happy.", fi: "Olen iloinen." },
     { id: "en_g1_2", grade: 1, en: "This is a cat.", fi: "Tämä on kissa." },
-    { id: "en_g1_3", grade: 1, en: "I have a dog.", fi: "Minulla on koira." },
+    { id: "en_g1_3", grade: 1, en: "I have a dog.", fi: "Minulla on koira.", alt: ["I have got a dog."] },
     { id: "en_g1_4", grade: 1, en: "The sun is hot.", fi: "Aurinko on kuuma." },
     { id: "en_g1_5", grade: 1, en: "I like apples.", fi: "Pidän omenoista." },
-    { id: "en_g1_6", grade: 1, en: "She is my friend.", fi: "Hän on ystäväni." },
+    { id: "en_g1_6", grade: 1, en: "Anna is my friend.", fi: "Anna on ystäväni." },
     { id: "en_g1_7", grade: 1, en: "We are at school.", fi: "Olemme koulussa." },
-    { id: "en_g1_8", grade: 1, en: "He has a red ball.", fi: "Hänellä on punainen pallo." },
+    { id: "en_g1_8", grade: 1, en: "Max has a red ball.", fi: "Maxilla on punainen pallo.", alt: ["Max has got a red ball."] },
     { id: "en_g1_9", grade: 1, en: "It is a big house.", fi: "Se on iso talo." },
     { id: "en_g1_10", grade: 1, en: "I can jump.", fi: "Osaan hypätä." },
+    { id: "en_g1_11", grade: 1, en: "My cat is black.", fi: "Kissani on musta." },
+    { id: "en_g1_12", grade: 1, en: "I have two rabbits.", fi: "Minulla on kaksi kania.", alt: ["I have got two rabbits."] },
+    { id: "en_g1_13", grade: 1, en: "I like my grandmother.", fi: "Pidän isoäidistäni." },
+    { id: "en_g1_14", grade: 1, en: "The bird is yellow.", fi: "Lintu on keltainen." },
+    { id: "en_g1_15", grade: 1, en: "I see a cow.", fi: "Näen lehmän." },
+    { id: "en_g1_16", grade: 1, en: "My brother has a dog.", fi: "Veljelläni on koira.", alt: ["My brother has got a dog."] },
+    { id: "en_g1_17", grade: 1, en: "We play with the baby.", fi: "Leikimme vauvan kanssa." },
+    { id: "en_g1_18", grade: 1, en: "I want a pet.", fi: "Haluan lemmikin." },
+    { id: "en_g1_19", grade: 1, en: "The mouse is grey.", fi: "Hiiri on harmaa." },
+    { id: "en_g1_20", grade: 1, en: "My hair is brown.", fi: "Hiukseni ovat ruskeat." },
 
-    { id: "en_g2_1", grade: 2, en: "I can swim very well.", fi: "Osaan uida todella hyvin." },
+    { id: "en_g2_1", grade: 2, en: "I can swim very well.", fi: "Osaan uida oikein hyvin." },
     { id: "en_g2_2", grade: 2, en: "My brother likes pizza.", fi: "Veljeni pitää pizzasta." },
     { id: "en_g2_3", grade: 2, en: "The dog is under the table.", fi: "Koira on pöydän alla." },
-    { id: "en_g2_4", grade: 2, en: "We go to school every day.", fi: "Menemme kouluun joka päivä." },
+    { id: "en_g2_4", grade: 2, en: "We go to school every day.", fi: "Menemme kouluun joka päivä.", alt: ["Every day we go to school."] },
     { id: "en_g2_5", grade: 2, en: "I don't like spiders.", fi: "En pidä hämähäkeistä." },
-    { id: "en_g2_6", grade: 2, en: "She has a new bike.", fi: "Hänellä on uusi pyörä." },
-    { id: "en_g2_7", grade: 2, en: "My favorite color is blue.", fi: "Suosikkiväriini on sininen." },
-    { id: "en_g2_8", grade: 2, en: "The cat is sleeping on the sofa.", fi: "Kissa nukkuu sohvalla." },
+    { id: "en_g2_6", grade: 2, en: "Mia has a new bike.", fi: "Mialla on uusi pyörä.", alt: ["Mia has got a new bike."] },
+    { id: "en_g2_7", grade: 2, en: "My favourite colour is blue.", fi: "Lempivärini on sininen." },
+    { id: "en_g2_8", grade: 2, en: "The cat is sleeping on the sofa.", fi: "Kissa on nukkumassa sohvalla." },
     { id: "en_g2_9", grade: 2, en: "I can't find my shoes.", fi: "En löydä kenkiäni." },
-    { id: "en_g2_10", grade: 2, en: "It is raining today.", fi: "Tänään sataa." },
+    { id: "en_g2_10", grade: 2, en: "It is raining today.", fi: "Tänään sataa.", alt: ["Today it is raining."] },
+    { id: "en_g2_11", grade: 2, en: "I like bananas and apples.", fi: "Pidän banaaneista ja omenoista." },
+    { id: "en_g2_12", grade: 2, en: "Today is Monday.", fi: "Tänään on maanantai." },
+    { id: "en_g2_13", grade: 2, en: "My shoes are in the bedroom.", fi: "Kenkäni ovat makuuhuoneessa." },
+    { id: "en_g2_14", grade: 2, en: "There is snow in winter.", fi: "Talvella on lunta.", alt: ["In winter there is snow."] },
+    { id: "en_g2_15", grade: 2, en: "I play football on Saturday.", fi: "Pelaan jalkapalloa lauantaina.", alt: ["On Saturday I play football."] },
+    { id: "en_g2_16", grade: 2, en: "Where is my pen?", fi: "Missä kynäni on?" },
+    { id: "en_g2_17", grade: 2, en: "Emma has a red jacket.", fi: "Emmalla on punainen takki.", alt: ["Emma has got a red jacket."] },
+    { id: "en_g2_18", grade: 2, en: "The kitchen window is open.", fi: "Keittiön ikkuna on auki." },
+    { id: "en_g2_19", grade: 2, en: "We read books in the garden.", fi: "Luemme kirjoja puutarhassa." },
+    { id: "en_g2_20", grade: 2, en: "Leo can draw a house.", fi: "Leo osaa piirtää talon." },
 
-    { id: "en_g3_1", grade: 3, en: "I played football yesterday.", fi: "Pelasin jalkapalloa eilen." },
-    { id: "en_g3_2", grade: 3, en: "My mom is cooking dinner.", fi: "Äitini valmistaa illallista." },
-    { id: "en_g3_3", grade: 3, en: "We watched a movie last night.", fi: "Katsoimme elokuvan eilen illalla." },
-    { id: "en_g3_4", grade: 3, en: "He always brushes his teeth.", fi: "Hän harjaa aina hampaansa." },
-    { id: "en_g3_5", grade: 3, en: "I want to be a doctor.", fi: "Haluan tulla lääkäriksi." },
-    { id: "en_g3_6", grade: 3, en: "The children are playing in the garden.", fi: "Lapset leikkivät puutarhassa." },
-    { id: "en_g3_7", grade: 3, en: "She reads a book every evening.", fi: "Hän lukee kirjaa joka ilta." },
+    { id: "en_g3_1", grade: 3, en: "I played football yesterday.", fi: "Pelasin jalkapalloa eilen.", alt: ["Yesterday I played football."] },
+    { id: "en_g3_2", grade: 3, en: "My mum is cooking dinner.", fi: "Äitini on laittamassa illallista." },
+    { id: "en_g3_3", grade: 3, en: "We watched a film last night.", fi: "Katsoimme elokuvan eilen illalla.", alt: ["Last night we watched a film.", "We watched a movie last night."] },
+    { id: "en_g3_4", grade: 3, en: "Tom always brushes his teeth.", fi: "Tom pesee aina hampaansa." },
+    { id: "en_g3_5", grade: 3, en: "I want to be a doctor.", fi: "Haluan olla lääkäri." },
+    { id: "en_g3_6", grade: 3, en: "The children are playing in the garden.", fi: "Lapset ovat leikkimässä puutarhassa." },
+    { id: "en_g3_7", grade: 3, en: "Ella reads a book every evening.", fi: "Ella lukee kirjaa joka ilta.", alt: ["Every evening Ella reads a book."] },
     { id: "en_g3_8", grade: 3, en: "My birthday is in June.", fi: "Syntymäpäiväni on kesäkuussa." },
     { id: "en_g3_9", grade: 3, en: "I helped my dad in the garden.", fi: "Autoin isääni puutarhassa." },
     { id: "en_g3_10", grade: 3, en: "They live in a small town.", fi: "He asuvat pienessä kaupungissa." },
+    { id: "en_g3_11", grade: 3, en: "Our teacher is tall and strong.", fi: "Opettajamme on pitkä ja vahva." },
+    { id: "en_g3_12", grade: 3, en: "I am hungry, so I want bread and cheese.", fi: "Minulla on nälkä, joten haluan leipää ja juustoa." },
+    { id: "en_g3_13", grade: 3, en: "Music is my favourite subject.", fi: "Musiikki on lempiaineeni." },
+    { id: "en_g3_14", grade: 3, en: "We ate fish and pasta for lunch.", fi: "Söimme kalaa ja pastaa lounaaksi." },
+    { id: "en_g3_15", grade: 3, en: "The classroom was very quiet.", fi: "Luokkahuone oli hyvin hiljainen." },
+    { id: "en_g3_16", grade: 3, en: "Thank you for the juice.", fi: "Kiitos mehusta.", alt: ["Thanks for the juice."] },
+    { id: "en_g3_17", grade: 3, en: "Leo was tired after school.", fi: "Leo oli väsynyt koulun jälkeen." },
+    { id: "en_g3_18", grade: 3, en: "Excuse me, where is the nurse?", fi: "Anteeksi, missä hoitaja on?" },
+    { id: "en_g3_19", grade: 3, en: "The new book is very heavy.", fi: "Uusi kirja on hyvin painava." },
+    { id: "en_g3_20", grade: 3, en: "My little brother was sad yesterday.", fi: "Pikkuveljeni oli surullinen eilen.", alt: ["Yesterday my little brother was sad."] },
 
     { id: "en_g4_1", grade: 4, en: "What time do you go to bed?", fi: "Mihin aikaan menet nukkumaan?" },
-    { id: "en_g4_2", grade: 4, en: "I have never been to Germany.", fi: "En ole koskaan käynyt Saksassa." },
+    { id: "en_g4_2", grade: 4, en: "I have never been to Germany.", fi: "En ole koskaan ollut Saksassa." },
     { id: "en_g4_3", grade: 4, en: "My sister is taller than me.", fi: "Siskoni on minua pidempi." },
-    { id: "en_g4_4", grade: 4, en: "We are going to visit our grandparents this weekend.", fi: "Menemme viikonloppuna vierailemaan isovanhempiemme luona." },
+    { id: "en_g4_4", grade: 4, en: "We are going to visit our grandparents this weekend.", fi: "Aiomme käydä isovanhempiemme luona tänä viikonloppuna.", alt: ["This weekend we are going to visit our grandparents."] },
     { id: "en_g4_5", grade: 4, en: "Can you help me with my homework?", fi: "Voitko auttaa minua läksyissä?" },
-    { id: "en_g4_6", grade: 4, en: "I usually walk to school, but today I took the bus.", fi: "Yleensä kävelen kouluun, mutta tänään menin bussilla." },
-    { id: "en_g4_7", grade: 4, en: "She was very tired after the trip.", fi: "Hän oli hyvin väsynyt matkan jälkeen." },
-    { id: "en_g4_8", grade: 4, en: "Do you have any pets at home?", fi: "Onko sinulla lemmikkejä kotona?" },
-    { id: "en_g4_9", grade: 4, en: "My favorite subject is math because it is fun.", fi: "Suosikkiaineeni on matematiikka, koska se on hauskaa." },
-    { id: "en_g4_10", grade: 4, en: "We need to buy some milk and bread.", fi: "Meidän täytyy ostaa maitoa ja leipää." },
+    { id: "en_g4_6", grade: 4, en: "I usually walk to school, but today I took the bus.", fi: "Yleensä kävelen kouluun, mutta tänään otin bussin.", alt: ["I usually walk to school, but I took the bus today."] },
+    { id: "en_g4_7", grade: 4, en: "Anna was very tired after the trip.", fi: "Anna oli hyvin väsynyt matkan jälkeen." },
+    { id: "en_g4_8", grade: 4, en: "Do you have any pets at home?", fi: "Onko sinulla lemmikkejä kotona?", alt: ["Have you got any pets at home?"] },
+    { id: "en_g4_9", grade: 4, en: "My favourite subject is maths because it is fun.", fi: "Lempiaineeni on matematiikka, koska se on hauskaa." },
+    { id: "en_g4_10", grade: 4, en: "We need to buy some milk and bread.", fi: "Meidän tarvitsee ostaa maitoa ja leipää." },
+    { id: "en_g4_11", grade: 4, en: "I wake up at seven o'clock every morning.", fi: "Herään kello seitsemän joka aamu.", alt: ["I wake up every morning at seven o'clock.", "Every morning I wake up at seven o'clock."] },
+    { id: "en_g4_12", grade: 4, en: "My sister has long curly hair.", fi: "Siskollani on pitkät kiharat hiukset.", alt: ["My sister has got long curly hair."] },
+    { id: "en_g4_13", grade: 4, en: "Can we go to the library after school?", fi: "Voimmeko mennä kirjastoon koulun jälkeen?" },
+    { id: "en_g4_14", grade: 4, en: "Emma is shy, but she is very brave.", fi: "Emma on ujo, mutta hän on hyvin rohkea." },
+    { id: "en_g4_15", grade: 4, en: "I always brush my teeth before I go to bed.", fi: "Pesen aina hampaat ennen kuin menen nukkumaan.", alt: ["Before I go to bed, I always brush my teeth."] },
+    { id: "en_g4_16", grade: 4, en: "Where are my keys and my phone?", fi: "Missä avaimeni ja puhelimeni ovat?" },
+    { id: "en_g4_17", grade: 4, en: "Leo is taller than his brother.", fi: "Leo on veljeään pidempi." },
+    { id: "en_g4_18", grade: 4, en: "We had lunch at a small restaurant.", fi: "Lounastimme pienessä ravintolassa." },
+    { id: "en_g4_19", grade: 4, en: "Do you want to play basketball with me?", fi: "Haluatko pelata koripalloa kanssani?" },
+    { id: "en_g4_20", grade: 4, en: "It is half past eight, and I am late!", fi: "Kello on puoli yhdeksän, ja olen myöhässä!" },
 
-    { id: "en_g5_1", grade: 5, en: "If it rains tomorrow, we will stay at home.", fi: "Jos huomenna sataa, jäämme kotiin." },
-    { id: "en_g5_2", grade: 5, en: "I would like to visit London someday.", fi: "Haluaisin joskus käydä Lontoossa." },
-    { id: "en_g5_3", grade: 5, en: "My best friend and I are planning a surprise party.", fi: "Parhain ystäväni ja minä suunnittelemme yllätysjuhlia." },
-    { id: "en_g5_4", grade: 5, en: "Although I was scared, I still went on the roller coaster.", fi: "Vaikka pelkäsin, menin silti vuoristoradalle." },
-    { id: "en_g5_5", grade: 5, en: "She has been learning English for three years.", fi: "Hän on opiskellut englantia kolme vuotta." },
+    { id: "en_g5_1", grade: 5, en: "If it rains tomorrow, we will stay at home.", fi: "Jos huomenna sataa, jäämme kotiin.", alt: ["We will stay at home if it rains tomorrow."] },
+    { id: "en_g5_2", grade: 5, en: "I would like to visit London one day.", fi: "Haluaisin jonain päivänä käydä Lontoossa." },
+    { id: "en_g5_3", grade: 5, en: "My best friend and I are planning a surprise party.", fi: "Paras ystäväni ja minä suunnittelemme yllätysjuhlia." },
+    { id: "en_g5_4", grade: 5, en: "Although I was scared, I still went on the roller coaster.", fi: "Vaikka pelkäsin, menin silti vuoristoradalle.", alt: ["I still went on the roller coaster, although I was scared.", "Even though I was scared, I still went on the roller coaster."] },
+    { id: "en_g5_5", grade: 5, en: "Mia has been learning English for three years.", fi: "Mia on opetellut englantia kolme vuotta." },
     { id: "en_g5_6", grade: 5, en: "We should recycle more to protect the environment.", fi: "Meidän pitäisi kierrättää enemmän suojellaksemme ympäristöä." },
-    { id: "en_g5_7", grade: 5, en: "He is not only smart but also very kind.", fi: "Hän ei ole vain fiksu, vaan myös hyvin ystävällinen." },
-    { id: "en_g5_8", grade: 5, en: "I have already finished my homework for tomorrow.", fi: "Olen jo tehnyt huomisen läksyni." },
+    { id: "en_g5_7", grade: 5, en: "Max is not only clever but also very kind.", fi: "Max ei ole vain fiksu, vaan myös hyvin ystävällinen." },
+    { id: "en_g5_8", grade: 5, en: "I have already finished my homework for tomorrow.", fi: "Olen jo saanut huomisen läksyni valmiiksi.", alt: ["I have finished my homework for tomorrow already."] },
     { id: "en_g5_9", grade: 5, en: "The weather was so bad that the match was cancelled.", fi: "Sää oli niin huono, että ottelu peruttiin." },
-    { id: "en_g5_10", grade: 5, en: "You should ask your teacher if you don't understand something.", fi: "Sinun kannattaa kysyä opettajaltasi, jos et ymmärrä jotain." },
+    { id: "en_g5_10", grade: 5, en: "You should ask your teacher if you don't understand something.", fi: "Sinun kannattaa kysyä opettajaltasi, jos et ymmärrä jotain.", alt: ["If you do not understand something, you should ask your teacher."] },
+    { id: "en_g5_11", grade: 5, en: "When I grow up, I want to be a vet because I love animals.", fi: "Kun kasvan isoksi, haluan olla eläinlääkäri, koska rakastan eläimiä.", alt: ["I want to be a vet when I grow up because I love animals."] },
+    { id: "en_g5_12", grade: 5, en: "The bus stop is opposite the library.", fi: "Bussipysäkki on kirjastoa vastapäätä." },
+    { id: "en_g5_13", grade: 5, en: "I was nervous before the ice hockey match.", fi: "Olin hermostunut ennen jääkiekko-ottelua." },
+    { id: "en_g5_14", grade: 5, en: "How much does this wallet cost?", fi: "Paljonko tämä lompakko maksaa?", alt: ["How much is this wallet?"] },
+    { id: "en_g5_15", grade: 5, en: "The keys were between the books on the shelf.", fi: "Avaimet olivat kirjojen välissä hyllyllä." },
+    { id: "en_g5_16", grade: 5, en: "If I have enough money, I will buy a new bicycle.", fi: "Jos minulla on tarpeeksi rahaa, ostan uuden polkupyörän.", alt: ["I will buy a new bicycle if I have enough money."] },
+    { id: "en_g5_17", grade: 5, en: "We took a taxi because the train was late.", fi: "Otimme taksin, koska juna oli myöhässä." },
+    { id: "en_g5_18", grade: 5, en: "My dad was proud when I won the tennis match.", fi: "Isäni oli ylpeä, kun voitin tennisottelun.", alt: ["When I won the tennis match, my dad was proud."] },
+    { id: "en_g5_19", grade: 5, en: "Have you ever been on a plane?", fi: "Oletko koskaan ollut lentokoneessa?", alt: ["Have you ever been on an airplane?", "Have you ever been on an aeroplane?"] },
+    { id: "en_g5_20", grade: 5, en: "The shop assistant gave me the receipt.", fi: "Kaupan myyjä antoi minulle kuitin." },
 
-    { id: "en_g6_1", grade: 6, en: "In my opinion, video games can be both fun and educational.", fi: "Mielestäni videopelit voivat olla sekä hauskoja että opettavaisia." },
-    { id: "en_g6_2", grade: 6, en: "By the time we arrive, the movie will have already started.", fi: "Siihen mennessä kun saavumme, elokuva on jo alkanut." },
+    { id: "en_g6_1", grade: 6, en: "In my opinion, video games can be both fun and educational.", fi: "Mielestäni videopelit voivat olla sekä hauskoja että opettavaisia.", alt: ["I think video games can be both fun and educational.", "I think that video games can be both fun and educational."] },
+    { id: "en_g6_2", grade: 6, en: "Hurry up, or the film will start before we get there.", fi: "Pidä kiirettä, tai elokuva alkaa ennen kuin pääsemme sinne.", alt: ["Hurry up or the film will start before we get there."] },
     { id: "en_g6_3", grade: 6, en: "I have been thinking about joining a sports team next year.", fi: "Olen miettinyt liittymistä urheilujoukkueeseen ensi vuonna." },
-    { id: "en_g6_4", grade: 6, en: "Even though I practiced a lot, I still made some mistakes.", fi: "Vaikka harjoittelin paljon, tein silti muutamia virheitä." },
-    { id: "en_g6_5", grade: 6, en: "My parents said that I could go to the concert if I finish my chores.", fi: "Vanhempani sanoivat, että voisin mennä konserttiin, jos teen kotityöni." },
+    { id: "en_g6_4", grade: 6, en: "Although I practised a lot, I still made some mistakes.", fi: "Vaikka harjoittelin paljon, tein silti joitakin virheitä.", alt: ["I still made some mistakes, although I practised a lot.", "Even though I practised a lot, I still made some mistakes."] },
+    { id: "en_g6_5", grade: 6, en: "My parents say that I can go to the concert if I do my chores.", fi: "Vanhempani sanovat, että voin mennä konserttiin, jos teen kotityöni." },
     { id: "en_g6_6", grade: 6, en: "We are looking forward to our summer holiday in Finland.", fi: "Odotamme innolla kesälomaamme Suomessa." },
-    { id: "en_g6_7", grade: 6, en: "She explained the rules clearly, so everyone understood the game.", fi: "Hän selitti säännöt selkeästi, joten kaikki ymmärsivät pelin." },
-    { id: "en_g6_8", grade: 6, en: "If I had more time, I would learn to play the guitar.", fi: "Jos minulla olisi enemmän aikaa, opettelisin soittamaan kitaraa." },
+    { id: "en_g6_7", grade: 6, en: "The teacher explained the rules clearly, so everyone understood the game.", fi: "Opettaja selitti säännöt selkeästi, joten kaikki ymmärsivät pelin." },
+    { id: "en_g6_8", grade: 6, en: "If I had more time, I would learn to play the guitar.", fi: "Jos minulla olisi enemmän aikaa, opettelisin soittamaan kitaraa.", alt: ["I would learn to play the guitar if I had more time."] },
     { id: "en_g6_9", grade: 6, en: "Technology has changed the way we communicate with each other.", fi: "Teknologia on muuttanut tapaamme kommunikoida keskenämme." },
-    { id: "en_g6_10", grade: 6, en: "It is important to be honest, even when it is difficult.", fi: "On tärkeää olla rehellinen, vaikka se olisi vaikeaa." }
+    { id: "en_g6_10", grade: 6, en: "It is important to be honest, even when it is difficult.", fi: "On tärkeää olla rehellinen silloinkin, kun se on vaikeaa." },
+    { id: "en_g6_11", grade: 6, en: "Last summer we travelled to Sweden, and the journey took ten hours.", fi: "Viime kesänä matkustimme Ruotsiin, ja matka kesti kymmenen tuntia.", alt: ["We travelled to Sweden last summer, and the journey took ten hours."] },
+    { id: "en_g6_12", grade: 6, en: "I forgot my password, so I could not read my email.", fi: "Unohdin salasanani, joten en voinut lukea sähköpostiani." },
+    { id: "en_g6_13", grade: 6, en: "The airport was so crowded that we almost missed our flight.", fi: "Lentokenttä oli niin ruuhkainen, että melkein myöhästyimme lennoltamme." },
+    { id: "en_g6_14", grade: 6, en: "My dream job is to become an engineer who builds bridges.", fi: "Unelma-ammattini on tulla insinööriksi, joka rakentaa siltoja." },
+    { id: "en_g6_15", grade: 6, en: "In France, we bought souvenirs for our grandparents.", fi: "Ranskassa ostimme matkamuistoja isovanhemmillemme.", alt: ["We bought souvenirs for our grandparents in France."] },
+    { id: "en_g6_16", grade: 6, en: "Before the test, I made a plan and studied every day.", fi: "Ennen koetta tein suunnitelman ja opiskelin joka päivä.", alt: ["I made a plan and studied every day before the test."] },
+    { id: "en_g6_17", grade: 6, en: "Some people think that computer games are boring, but I think they are exciting.", fi: "Joidenkin mielestä tietokonepelit ovat tylsiä, mutta minun mielestäni ne ovat jännittäviä." },
+    { id: "en_g6_18", grade: 6, en: "Remember to take your passport and your ticket when you travel.", fi: "Muista ottaa passisi ja lippusi, kun matkustat." },
+    { id: "en_g6_19", grade: 6, en: "The castle that we saw in Germany was huge and very old.", fi: "Linna, jonka näimme Saksassa, oli valtava ja hyvin vanha.", alt: ["The castle which we saw in Germany was huge and very old.", "The castle we saw in Germany was huge and very old."] },
+    { id: "en_g6_20", grade: 6, en: "After high school, I would like to study at a university in England.", fi: "Lukion jälkeen haluaisin opiskella yliopistossa Englannissa.", alt: ["I would like to study at a university in England after high school."] }
   ],
   de: [] // Saksa lisätään myöhemmin, kun englanninkielinen versio on koeteltu (käyttäjän päätös).
 };
@@ -5293,16 +5378,56 @@ function shuffleArray(arr){
   return a;
 }
 
+// Virkkeiden vertailu on armollisempi kuin pelkkä normalize(): lyhennemuodot
+// avataan (I'm = I am, don't = do not, can't = cannot) ja amerikkalaiset
+// kirjoitusasut muutetaan brittiläisiksi (sovelluksen ääntäminen on en-GB),
+// jotta oikein osaava lapsi ei saa "väärin" pelkän kirjoitustavan vuoksi.
+const US_TO_GB = {
+  favorite: "favourite", color: "colour", mom: "mum", math: "maths",
+  practiced: "practised", traveled: "travelled", canceled: "cancelled"
+};
+
+function normalizeSentence(s){
+  let t = (s || "").toLowerCase().replace(/[‘’]/g, "'");
+  t = t
+    .replace(/\bcan't\b/g, "cannot")
+    .replace(/\bwon't\b/g, "will not")
+    .replace(/n't\b/g, " not")
+    .replace(/'m\b/g, " am")
+    .replace(/'re\b/g, " are")
+    .replace(/'ve\b/g, " have")
+    .replace(/'ll\b/g, " will")
+    .replace(/'d\b/g, " would")
+    .replace(/\b(it|that|what|there|where|here|he|she|who|this)'s\b/g, "$1 is")
+    .replace(/\bcan not\b/g, "cannot");
+  t = normalize(t);
+  return t.split(" ").map(w => US_TO_GB[w] || w).join(" ");
+}
+
+// Hyväksytyt muodot: päämuoto + virkkeen valinnainen alt-lista (vaihtoehtoinen
+// sanajärjestys tai yhtä oikea muotoilu, esim. "I have got a dog.").
+function sentenceAcceptedForms(sentence){
+  return [sentence[targetLang], ...(sentence.alt || [])].filter(Boolean);
+}
+
 function sentenceExactMatch(userAnswer, target){
-  return normalize(userAnswer || "") === normalize(target || "");
+  return normalizeSentence(userAnswer) === normalizeSentence(target);
+}
+
+function matchesSentence(userAnswer, sentence){
+  return sentenceAcceptedForms(sentence).some(f => sentenceExactMatch(userAnswer, f));
 }
 
 function sentenceTokenOverlap(userAnswer, target){
-  const targetTokens = normalize(target || "").split(" ").filter(Boolean);
+  const targetTokens = normalizeSentence(target).split(" ").filter(Boolean);
   if (!targetTokens.length) return 0;
-  const userTokens = new Set(normalize(userAnswer || "").split(" ").filter(Boolean));
+  const userTokens = new Set(normalizeSentence(userAnswer).split(" ").filter(Boolean));
   const hits = targetTokens.filter(t => userTokens.has(t)).length;
   return hits / targetTokens.length;
+}
+
+function bestSentenceOverlap(userAnswer, sentence){
+  return Math.max(0, ...sentenceAcceptedForms(sentence).map(f => sentenceTokenOverlap(userAnswer, f)));
 }
 
 function speakSentence(text){
@@ -5438,17 +5563,18 @@ function checkSentenceAnswer(){
   if (!currentSentence) return;
   let isCorrect = false;
   if (currentExerciseType === "write"){
-    isCorrect = sentenceExactMatch(sentenceAnswerBox.value, currentSentence[targetLang]);
+    isCorrect = matchesSentence(sentenceAnswerBox.value, currentSentence);
   } else if (currentExerciseType === "blank"){
     const words = sentenceWords(currentSentence[targetLang]);
     const target = words[sentenceBlankIndex];
-    isCorrect = normalize(sentenceBlankBox.value || "") === normalize(target);
+    isCorrect = normalizeSentence(sentenceBlankBox.value) === normalizeSentence(target);
   } else if (currentExerciseType === "reorder"){
+    // Kelpaa mikä tahansa hyväksytty muoto (esim. "Yesterday I played..." tai "I played ... yesterday").
     const built = sentenceBuiltIndices.map(i => sentenceReorderWords[i]).join(" ");
     isCorrect = sentenceBuiltIndices.length === sentenceReorderWords.length
-      && sentenceExactMatch(built, currentSentence[targetLang]);
+      && matchesSentence(built, currentSentence);
   } else if (currentExerciseType === "listen"){
-    isCorrect = sentenceTokenOverlap(sentenceMicTranscript.textContent, currentSentence[targetLang]) >= 0.7;
+    isCorrect = bestSentenceOverlap(sentenceMicTranscript.textContent, currentSentence) >= 0.7;
   }
   sentenceFeedback.className = "feedback " + (isCorrect ? "correct" : "incorrect");
   if (isCorrect){

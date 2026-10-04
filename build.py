@@ -1,9 +1,12 @@
-import json, re, sys
+import json, os, re, sys
 
-TEMPLATE = "/tmp/kieliohjelma/index_template.html"
-VOCAB = "/tmp/en_4lk_v2.json"
-OUT_FULL = "/tmp/kieliohjelma/index.html"
-OUT_FRAGMENT = "/tmp/kieliohjelma/sanaseikkailu.html"
+# Polut ovat suhteessa tämän skriptin sijaintiin, joten build toimii suoraan
+# repokansiosta millä tahansa koneella (ei enää kovakoodattuja /tmp-polkuja).
+HERE = os.path.dirname(os.path.abspath(__file__))
+TEMPLATE = os.path.join(HERE, "index_template.html")
+VOCAB = os.path.join(HERE, "en_1_6lk_v7.json")
+OUT_FULL = os.path.join(HERE, "index.html")
+OUT_FRAGMENT = os.path.join(HERE, "sanaseikkailu.html")
 
 with open(TEMPLATE, "r", encoding="utf-8") as f:
     template = f.read()
