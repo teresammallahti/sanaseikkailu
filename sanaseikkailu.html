@@ -128,7 +128,36 @@
     color:#f0a63a;
     font-size: 1.7em;
   }
-  select#gradeFilter, select#categoryFilter{
+  button#themeButton{
+    border:none;
+    background:var(--card-bg);
+    padding:8px 14px;
+    border-radius:999px;
+    box-shadow: var(--shadow);
+    font-weight:700;
+    font-size: clamp(12px,2.5vw,15px);
+    color:var(--ink);
+    max-width: 180px;
+    cursor:pointer;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .theme-list{ display:flex; flex-direction:column; gap:6px; margin:12px 0; }
+  .theme-row{
+    display:flex; align-items:center; gap:10px;
+    padding:8px 12px; border-radius:12px; background:#f4f2fa;
+    font-weight:600; cursor:pointer;
+  }
+  .theme-row input{ width:20px; height:20px; }
+  .theme-sep{ font-size:12px; color:#7a7189; margin:6px 0 0; }
+  .theme-actions{ display:flex; gap:8px; margin-bottom:8px; }
+  .theme-actions button{
+    flex:1; border:none; border-radius:999px; padding:8px 12px;
+    background:#e8e2f7; font-weight:700; cursor:pointer;
+  }
+  .theme-strict{ display:flex; gap:10px; align-items:flex-start; padding:10px 12px; border-radius:12px; background:#fff6e0; font-size:14px; }
+  select#gradeFilter{
     border:none;
     background:var(--card-bg);
     padding:8px 14px;
@@ -642,7 +671,7 @@
     <div class="brand"><span class="mascot">🦊</span> Sanaseikkailu</div>
     <div class="header-right">
       <select id="gradeFilter"></select>
-      <select id="categoryFilter"><option value="all">Kaikki teemat</option></select>
+      <button id="themeButton" type="button" title="Valitse teemat">Kaikki teemat</button>
       <div class="tier-badge" id="tierBadge" title="Palkintotaso valitulta luokka-asteelta">
         <span id="tierModeIcon">⌨️</span>
         <span id="tierIcon">🐍</span>
@@ -769,6 +798,22 @@
     </div>
     <div class="backup-note" id="backupNote"></div>
   </footer>
+
+  <div class="modal-overlay" id="themeModalOverlay">
+    <div class="modal-card">
+      <button class="modal-close" id="themeModalClose" aria-label="Sulje">✕</button>
+      <h2 class="modal-title">Valitse teemat</h2>
+      <p class="modal-subtitle" id="themeModalSubtitle">Voit valita useita teemoja. Ei valintaa = kaikki teemat.</p>
+      <div class="theme-actions">
+        <button type="button" id="themeClearBtn">Kaikki teemat</button>
+      </div>
+      <div class="theme-list" id="themeList"></div>
+      <label class="theme-strict">
+        <input type="checkbox" id="themeStrictToggle">
+        <span>Pysy vain valituissa teemoissa (ei täydennetä muista teemoista, vaikka sanoja olisi vähän)</span>
+      </label>
+    </div>
+  </div>
 
   <div class="modal-overlay" id="tierModalOverlay">
     <div class="modal-card">
@@ -4010,7 +4055,9 @@ let statsCache = {}; // statId -> stat
 let current = null;
 let direction = "target-fi";
 let activeMode = "keyboard";
-let currentCategory = "all";
+let selectedThemes = []; // valitut teema-id:t; tyhjä = kaikki teemat
+let themeStrict = false; // true = pysytään tiukasti valituissa teemoissa (ei täydennystä muualta)
+try { themeStrict = localStorage.getItem("themeStrict") === "1"; } catch (e) { /* ei haittaa */ }
 
 const promptWord = document.getElementById("promptWord");
 const promptHint = document.getElementById("promptHint");
@@ -4033,7 +4080,13 @@ const tierModalClose = document.getElementById("tierModalClose");
 const tierModalSubtitle = document.getElementById("tierModalSubtitle");
 const tierScaleList = document.getElementById("tierScaleList");
 const hearBtn = document.getElementById("hearBtn");
-const categoryFilter = document.getElementById("categoryFilter");
+const themeButton = document.getElementById("themeButton");
+const themeModalOverlay = document.getElementById("themeModalOverlay");
+const themeModalClose = document.getElementById("themeModalClose");
+const themeModalSubtitle = document.getElementById("themeModalSubtitle");
+const themeClearBtn = document.getElementById("themeClearBtn");
+const themeList = document.getElementById("themeList");
+const themeStrictToggle = document.getElementById("themeStrictToggle");
 const autoSpeakToggle = document.getElementById("autoSpeakToggle");
 const autoSpeakLabel = document.getElementById("autoSpeakLabel");
 const inputModesEl = document.getElementById("inputModes");
@@ -4114,7 +4167,7 @@ function selectTargetLang(lang){
   // Kummallakin kielellä on oma luokka-aste muistissa (esim. saksa voi olla
   // vasta alkanut, vaikka englanti olisi jo pidemmällä).
   activeGrade = loadOrDetectGrade(targetLang);
-  currentCategory = "all";
+  selectedThemes = [];
   populateGradeOptions();
   populateCategoryOptions();
   current = null;
@@ -4240,7 +4293,7 @@ function setupGradeFilter(){
   gradeFilter.addEventListener("change", () => {
     activeGrade = parseInt(gradeFilter.value, 10);
     saveGradeChoice(targetLang, activeGrade);
-    currentCategory = "all";
+    selectedThemes = [];
     populateCategoryOptions();
     current = null;
     initSessionPool();
@@ -4258,68 +4311,123 @@ function maybeAdvanceGrade(){
   if (activeGrade < maxGrade() && isGradeComplete(activeGrade)){
     activeGrade += 1;
     saveGradeChoice(targetLang, activeGrade);
-    currentCategory = "all";
+    selectedThemes = [];
     populateCategoryOptions();
     initSessionPool();
   }
 }
 
-// Teemavalikko näyttää vain valitun luokka-asteen teemat, sekä harrasteteemat
-// (group=hobby), jotka näkyvät aina luokka-asteesta riippumatta.
-function populateCategoryOptions(){
-  categoryFilter.innerHTML = "";
-  const allOpt = document.createElement("option");
-  allOpt.value = "all";
-  allOpt.textContent = "Kaikki teemat";
-  categoryFilter.appendChild(allOpt);
-  VOCAB.categories
-    .filter(c => categoryGrade(c) === activeGrade || c.group === "hobby")
-    .forEach(c => {
-      const opt = document.createElement("option");
-      opt.value = c.id;
-      opt.textContent = c.name_fi;
-      categoryFilter.appendChild(opt);
-    });
-  categoryFilter.value = currentCategory;
+// Teemavalinta: valittavissa ovat valitun luokka-asteen teemat sekä harrasteteemat
+// (group=hobby), jotka näkyvät aina luokka-asteesta riippumatta. Valittuja teemoja
+// voi olla useita; tyhjä valinta tarkoittaa kaikkia teemoja.
+function selectableCategories(){
+  return VOCAB.categories.filter(c => categoryGrade(c) === activeGrade || c.group === "hobby");
 }
+
+function themeButtonLabel(){
+  if (!selectedThemes.length) return "Kaikki teemat";
+  if (selectedThemes.length === 1) return categoryName(selectedThemes[0]);
+  return selectedThemes.length + " teemaa";
+}
+
+// Poistaa valinnasta teemat, jotka eivät ole valittavissa nykyisellä luokka-asteella.
+function sanitizeSelectedThemes(){
+  const ok = new Set(selectableCategories().map(c => c.id));
+  selectedThemes = selectedThemes.filter(id => ok.has(id));
+}
+
+function populateCategoryOptions(){
+  sanitizeSelectedThemes();
+  themeButton.textContent = themeButtonLabel();
+  themeStrictToggle.checked = themeStrict;
+  themeList.innerHTML = "";
+  const cats = selectableCategories();
+  const addRow = (c) => {
+    const row = document.createElement("label");
+    row.className = "theme-row";
+    row.dataset.cat = c.id;
+    const box = document.createElement("input");
+    box.type = "checkbox";
+    box.checked = selectedThemes.includes(c.id);
+    box.addEventListener("change", () => toggleTheme(c.id, box.checked));
+    const span = document.createElement("span");
+    span.textContent = c.name_fi;
+    row.appendChild(box);
+    row.appendChild(span);
+    themeList.appendChild(row);
+  };
+  cats.filter(c => c.group !== "hobby").forEach(addRow);
+  cats.filter(c => c.group === "hobby").forEach(addRow);
+  themeModalSubtitle.textContent = selectedThemes.length
+    ? `Valittu ${selectedThemes.length} teemaa (${activeGrade}. luokka)`
+    : "Voit valita useita teemoja. Ei valintaa = kaikki teemat.";
+}
+
+function applyThemeChange(){
+  populateCategoryOptions();
+  current = null;
+  initSessionPool();
+  pickWord();
+}
+
+function toggleTheme(id, on){
+  const has = selectedThemes.includes(id);
+  if (on && !has) selectedThemes = selectedThemes.concat([id]);
+  if (!on && has) selectedThemes = selectedThemes.filter(x => x !== id);
+  applyThemeChange();
+}
+
+function setThemeStrict(on){
+  themeStrict = !!on;
+  try { localStorage.setItem("themeStrict", themeStrict ? "1" : "0"); } catch (e) { /* ei haittaa */ }
+  if (selectedThemes.length) applyThemeChange(); else populateCategoryOptions();
+}
+
+function openThemeModal(){
+  populateCategoryOptions();
+  themeModalOverlay.classList.add("visible");
+}
+function closeThemeModal(){ themeModalOverlay.classList.remove("visible"); }
 
 function setupCategoryFilter(){
   populateCategoryOptions();
-  categoryFilter.addEventListener("change", () => {
-    currentCategory = categoryFilter.value;
-    initSessionPool();
-    pickWord();
+  themeButton.addEventListener("click", openThemeModal);
+  themeModalClose.addEventListener("click", closeThemeModal);
+  themeModalOverlay.addEventListener("click", (e) => {
+    if (e.target === themeModalOverlay) closeThemeModal();
+  });
+  themeClearBtn.addEventListener("click", () => {
+    if (selectedThemes.length){ selectedThemes = []; applyThemeChange(); }
+  });
+  themeStrictToggle.addEventListener("change", () => setThemeStrict(themeStrictToggle.checked));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && themeModalOverlay.classList.contains("visible")) closeThemeModal();
   });
 }
 
 function activeWordPool(){
-  const pool = eligibleWordsForCategoryScope(currentCategory);
+  const pool = eligibleWordsForCategoryScope(selectedThemes);
   return pool.length ? pool : wordsForGrade(activeGrade);
 }
 
 // Sanat, jotka voivat kiertää automaattisessa aktiivijoukossa valitulla luokka-asteella
-// ja teemarajauksella. Harrasteteemat (group=hobby, esim. Minecraft/Fortnite) ohittavat
-// luokka-asterajauksen kokonaan - ne ovat vain käsin valittavissa teemavalikosta.
-function eligibleWordsForCategoryScope(catId){
-  if (catId !== "all" && categoryGroup(catId) === "hobby"){
-    return PRACTICE_WORDS.filter(w => w.category === catId);
-  }
-  const gradeScoped = wordsForGrade(activeGrade);
-  return catId === "all" ? gradeScoped : gradeScoped.filter(w => w.category === catId);
+// ja teemarajauksella (sel = lista teema-id:itä, tyhjä = kaikki). Harrasteteemat
+// (group=hobby, esim. Minecraft/Fortnite) ohittavat luokka-asterajauksen - ne ovat
+// vain käsin valittavissa. Usean teeman valinta = teemojen sanat yhdessä.
+function eligibleWordsForCategoryScope(sel){
+  if (!sel || !sel.length) return wordsForGrade(activeGrade);
+  const gradeIds = new Set(wordsForGrade(activeGrade).map(w => w.id));
+  return PRACTICE_WORDS.filter(w => sel.includes(w.category) &&
+    (categoryGroup(w.category) === "hobby" || gradeIds.has(w.id)));
 }
 
-// Kun oman luokka-asteen (ja teemarajauksen) sanat alkavat loppua, täydennetään
-// seuraavan ylemmän luokka-asteen sanoista (helpoimmasta päästä, eli siitä
-// järjestyksestä jossa ne on sanastoon kirjoitettu) - oppilas ei koskaan jää
-// ilman uusia sanoja, vaikka oma luokka-aste olisi lähes kokonaan opittu.
-function nextGradeFallbackWords(catId, excludeIds){
-  for (let g = activeGrade + 1; g <= maxGrade(); g++){
-    const gradeWords = wordsForGrade(g);
-    const scoped = catId === "all" ? gradeWords : gradeWords.filter(w => w.category === catId);
-    const usable = (scoped.length ? scoped : gradeWords).filter(w => !excludeIds.has(w.id));
-    if (usable.length) return usable;
-  }
-  return [];
+// Onko täydennys valittujen teemojen ulkopuolelta sallittu: ei tiukassa tilassa,
+// eikä jos valinta on pelkkiä harrasteteemoja (niiden sanat eivät ole luokka-asteen
+// sanoja, joten täydennys ei olisi mielekästä).
+function outsideTopUpAllowed(sel){
+  if (!sel || !sel.length) return true;
+  if (themeStrict) return false;
+  return sel.some(id => categoryGroup(id) !== "hobby");
 }
 
 // Täydennysjärjestys luokka-asteiden yli (korjattu vaiheessa 20): ensin kaikki
@@ -4336,12 +4444,12 @@ function fallbackGradeOrder(){
   return order;
 }
 
-function fillFromOtherGrades(pool, catId, excludeIds){
+function fillFromOtherGrades(pool, sel, excludeIds){
   for (const g of fallbackGradeOrder()){
     if (pool.length >= ACTIVE_POOL_MIN) break;
     const gradeWords = wordsForGrade(g).filter(w => !excludeIds.has(w.id));
     // Teemarajauksen mukaiset sanat ensin, sitten muut saman luokka-asteen sanat.
-    const scoped = catId === "all" ? gradeWords : gradeWords.filter(w => w.category === catId);
+    const scoped = !sel.length ? gradeWords : gradeWords.filter(w => sel.includes(w.category));
     for (const src of (scoped === gradeWords ? [gradeWords] : [scoped, gradeWords])){
       fillPoolFrom(src.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
       fillPoolFrom(src.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
@@ -4590,7 +4698,9 @@ const ACTIVE_POOL_MAX = 15;
 // tilaa varsinaiselta oppimiselta.
 const REVIEW_CHANCE = 0.15;
 let sessionPool = [];
-let sessionPoolCategory = null;
+let sessionPoolScope = null;
+// Avain, joka muuttuu kun teemavalinta tai tiukka/täydennys-asetus vaihtuu.
+function scopeKey(){ return selectedThemes.join(",") + "|" + (themeStrict ? "strict" : "open"); }
 let sessionPoolMode = null;
 let sessionPoolGrade = null;
 
@@ -4606,8 +4716,8 @@ function isGraduatedWord(word){
   return stageKeyboardGraduated(stat);
 }
 
-function graduatedWordsInScope(catId){
-  return eligibleWordsForCategoryScope(catId).filter(isGraduatedWord);
+function graduatedWordsInScope(sel){
+  return eligibleWordsForCategoryScope(sel).filter(isGraduatedWord);
 }
 
 // Täyttää pool-taulukkoa candidates-listasta needed-kokoon asti, ohittaen jo
@@ -4625,32 +4735,32 @@ function fillPoolFrom(candidates, pool, excludeIds, needed){
 // (catId) kesken olevista/uusista sanoista. Jos ACTIVE_POOL_MIN ei täyty eikä
 // rajaus itse ole harrasteteema, täydennetään ensin saman luokka-asteen muista
 // teemoista, ja jos sekään ei riitä, muiden luokka-asteiden sanoista (ks. fallbackGradeOrder).
-function topUpPool(pool, catId, excludeIds){
-  const isHobby = catId !== "all" && categoryGroup(catId) === "hobby";
-  const primary = eligibleWordsForCategoryScope(catId).filter(w => !excludeIds.has(w.id));
+function topUpPool(pool, sel, excludeIds){
+  const outside = outsideTopUpAllowed(sel);
+  const primary = eligibleWordsForCategoryScope(sel).filter(w => !excludeIds.has(w.id));
   fillPoolFrom(primary.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MAX);
   fillPoolFrom(primary.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MAX);
-  if (pool.length < ACTIVE_POOL_MIN && !isHobby && catId !== "all"){
+  if (pool.length < ACTIVE_POOL_MIN && outside && sel.length){
     const sameGrade = wordsForGrade(activeGrade).filter(w => !excludeIds.has(w.id));
     fillPoolFrom(sameGrade.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
     fillPoolFrom(sameGrade.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
   }
-  if (pool.length < ACTIVE_POOL_MIN && !isHobby){
-    fillFromOtherGrades(pool, catId, excludeIds);
+  if (pool.length < ACTIVE_POOL_MIN && outside){
+    fillFromOtherGrades(pool, sel, excludeIds);
   }
   return pool;
 }
 
-function buildSessionPool(catId){
-  return topUpPool([], catId, new Set());
+function buildSessionPool(sel){
+  return topUpPool([], sel, new Set());
 }
 
 // Rakentaa aktiivijoukon tyhjästä - kutsutaan sovelluksen käynnistyessä, teeman
 // vaihtuessa, kohdekielen vaihtuessa ja aina kun lapsi vaihtaa syöttötapaa
 // käsin (koska graduoitumiskriteeri riippuu nyt valitusta tavasta, ks. yllä).
 function initSessionPool(){
-  sessionPool = buildSessionPool(currentCategory);
-  sessionPoolCategory = currentCategory;
+  sessionPool = buildSessionPool(selectedThemes);
+  sessionPoolScope = scopeKey();
   sessionPoolMode = activeMode;
   sessionPoolGrade = activeGrade;
 }
@@ -4658,14 +4768,14 @@ function initSessionPool(){
 // Kutsutaan joka kierroksella pickWord():ssä. Pooli pysyy vakaana eikä rakennu
 // tyhjästä joka kerta - vain graduoituneet sanat poistetaan ja tilalle täydennetään.
 function pruneAndRefillSessionPool(){
-  if (sessionPoolCategory !== currentCategory || sessionPoolMode !== activeMode || sessionPoolGrade !== activeGrade){
+  if (sessionPoolScope !== scopeKey() || sessionPoolMode !== activeMode || sessionPoolGrade !== activeGrade){
     initSessionPool();
     return;
   }
   sessionPool = sessionPool.filter(w => !isGraduatedWord(w));
   if (sessionPool.length < ACTIVE_POOL_MAX){
     const excludeIds = new Set(sessionPool.map(w => w.id));
-    topUpPool(sessionPool, currentCategory, excludeIds);
+    topUpPool(sessionPool, selectedThemes, excludeIds);
   }
 }
 
@@ -4678,7 +4788,7 @@ async function pickWord(){
   pruneAndRefillSessionPool();
   let pool;
   if (Math.random() < REVIEW_CHANCE){
-    const reviewPool = graduatedWordsInScope(currentCategory);
+    const reviewPool = graduatedWordsInScope(selectedThemes);
     pool = reviewPool.length ? reviewPool : sessionPool;
   } else {
     pool = sessionPool;
@@ -5780,7 +5890,7 @@ function setPracticeMode(mode){
   });
   wordPracticeEl.hidden = mode !== "words";
   sentencePracticeEl.hidden = mode !== "sentences";
-  categoryFilter.style.display = mode === "words" ? "" : "none";
+  themeButton.style.display = mode === "words" ? "" : "none";
   clearTimeout(autoSpeakTimer);
   if (window.speechSynthesis) speechSynthesis.cancel();
   if (mode === "sentences") pickSentenceRound();
@@ -5812,7 +5922,7 @@ window.addEventListener("resize", () => { if (activeMode === "pen") setupPenPad(
   if (!hasExplicitGradeChoice(targetLang)){
     activeGrade = detectFrontierGrade();
     populateGradeOptions();
-    currentCategory = "all";
+    selectedThemes = [];
     populateCategoryOptions();
   }
   initSessionPool(); // rakennetaan pooli uudelleen nyt kun oikea edistyminen on tiedossa

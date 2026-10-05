@@ -51,8 +51,9 @@ test('Boot: luokka-asteen valinnassa 6 vaihtoehtoa', async () => {
 
 test('Boot: teemavalikko sisältää "all" + luokka-asteen teemat + harrasteteemat', async () => {
   const app = await boot();
-  const expected = app.run('VOCAB.categories.filter(c => c.grade === 1 || c.group === "hobby").length') + 1;
-  assert.strictEqual(app.elements.categoryFilter._children.length, expected);
+  const expected = app.run('VOCAB.categories.filter(c => c.grade === 1 || c.group === "hobby").length');
+  assert.strictEqual(app.elements.themeList._children.length, expected);
+  assert.strictEqual(app.elements.themeButton.textContent, 'Kaikki teemat');
   app.dispose();
 });
 
@@ -155,7 +156,7 @@ test('Saksa: 4. luokan teemoissa ovat värit ja numerot 0-20', async () => {
   for (const id of ['colours_red', 'colours_blue', 'colours_orange_colour', 'numbers_zero', 'numbers_ten', 'numbers_eleven', 'numbers_sixteen', 'numbers_seventeen', 'numbers_twenty']) {
     assert.ok(ids.includes(id), id + ' puuttuu saksan 4. luokalta');
   }
-  const cats = J(app, 'categoryFilter._children.map(o => o.value)');
+  const cats = J(app, 'themeList._children.map(o => o.dataset.cat)');
   assert.ok(cats.includes('colours') && cats.includes('numbers'), 'teemavalikossa värit ja numerot: ' + cats.join(','));
   assert.strictEqual(app.run('VOCAB.words.filter(w => w.category === "numbers").length'), 21, 'numerot 0-20');
   app.dispose();
@@ -497,7 +498,7 @@ test('Luokka-asteet: täysin opittu 1. luokka -> complete, frontier 2, maybeAdva
   app.run('maybeAdvanceGrade()');
   assert.strictEqual(app.run('activeGrade'), 2);
   assert.strictEqual(app.storage.getItem('grade_en'), '2');
-  assert.strictEqual(app.run('currentCategory'), 'all');
+  assert.strictEqual(app.run('selectedThemes.length'), 0);
   app.dispose();
 });
 
@@ -538,7 +539,7 @@ test('Luokka-asteet: gradeFilter change tallentaa valinnan ja vaihtaa sanaston',
 // ---------------- Aktiivinen pooli ----------------
 test('Pooli: luokka 1, kaikki teemat -> 10-15 sanaa', async () => {
   const app = await boot();
-  app.run('activeGrade = 1; currentCategory = "all"; initSessionPool();');
+  app.run('activeGrade = 1; selectedThemes = []; initSessionPool();');
   const n = app.run('sessionPool.length');
   assert.ok(n >= 10 && n <= 15, 'koko ' + n);
   assert.strictEqual(app.run('sessionPool.every(w => wordGrade(w) === 1)'), true);
@@ -552,7 +553,7 @@ test('Pooli: pieni yksittäinen teema täydentyy >=10 saman luokan sanoilla', as
     .map(c => ({ id: c.id, n: PRACTICE_WORDS.filter(w => w.category === c.id).length }))
     .sort((a, b) => a.n - b.n)[0]`);
   assert.ok(small.n < 10, 'tarvitaan alle 10 sanan teema, pienin: ' + small.n);
-  app.run(`activeGrade = 1; currentCategory = ${JSON.stringify(small.id)}; initSessionPool();`);
+  app.run(`activeGrade = 1; selectedThemes = [${JSON.stringify(small.id)}]; initSessionPool();`);
   const n = app.run('sessionPool.length');
   assert.ok(n >= 10, 'koko ' + n);
   assert.strictEqual(app.run(`PRACTICE_WORDS.filter(w => w.category === ${JSON.stringify(small.id)}).every(w => sessionPool.some(p => p.id === w.id))`), true,
@@ -564,7 +565,7 @@ test('Pooli: pieni yksittäinen teema täydentyy >=10 saman luokan sanoilla', as
 test('Pooli: täydennys jatkuu seuraavaan luokka-asteeseen, jos väliin jäävä luokka on jo graduoitu (vaihe 20)', async () => {
   const app = await boot();
   // Luokat 1 ja 2 graduoitu näppäimistötilassa -> täydennys pitää hakea luokalta 3.
-  app.run(`activeGrade = 1; currentCategory = "all"; activeMode = "keyboard";
+  app.run(`activeGrade = 1; selectedThemes = []; activeMode = "keyboard";
     [...wordsForGrade(1), ...wordsForGrade(2)].forEach(w => statsCache[statId(w)] = { statId: statId(w), streakKeyboard: 5 });
     initSessionPool();`);
   const n = app.run('sessionPool.length');
@@ -575,7 +576,7 @@ test('Pooli: täydennys jatkuu seuraavaan luokka-asteeseen, jos väliin jäävä
 
 test('Pooli: 6. luokalla täydennetään alempien luokkien kesken jääneillä sanoilla (vaihe 20)', async () => {
   const app = await boot();
-  app.run(`activeGrade = 6; currentCategory = "all"; activeMode = "keyboard";
+  app.run(`activeGrade = 6; selectedThemes = []; activeMode = "keyboard";
     wordsForGrade(6).forEach(w => statsCache[statId(w)] = { statId: statId(w), streakKeyboard: 5 });
     initSessionPool();`);
   const n = app.run('sessionPool.length');
@@ -593,7 +594,7 @@ test('Pooli: täydennysjärjestys = ylemmät nousevasti, sitten alemmat laskevas
 
 test('Pooli: graduoidut sanat (nykyinen tila) jätetään pois', async () => {
   const app = await boot();
-  app.run('activeGrade = 1; currentCategory = "all"; activeMode = "keyboard"; initSessionPool();');
+  app.run('activeGrade = 1; selectedThemes = []; activeMode = "keyboard"; initSessionPool();');
   const firstIds = J(app, 'sessionPool.slice(0, 4).map(w => w.id)');
   for (const id of firstIds) {
     app.run(`statsCache[statId({id: ${JSON.stringify(id)}})] = { streakKeyboard: 5 }`);
@@ -607,7 +608,7 @@ test('Pooli: graduoidut sanat (nykyinen tila) jätetään pois', async () => {
 
 test('Pooli: graduointi katsoo valittua tilaa (pen vs keyboard)', async () => {
   const app = await boot();
-  app.run('activeGrade = 1; currentCategory = "all"; activeMode = "keyboard"; initSessionPool();');
+  app.run('activeGrade = 1; selectedThemes = []; activeMode = "keyboard"; initSessionPool();');
   const id = J(app, 'sessionPool[0].id');
   app.run(`statsCache[statId({id: ${JSON.stringify(id)}})] = { streakKeyboard: 5 }`);
   app.run('initSessionPool()');
@@ -733,13 +734,13 @@ test('Virkkeet: setPracticeMode vaihtaa näkymät molempiin suuntiin', async () 
   app.run('setPracticeMode("sentences")');
   assert.strictEqual(wp.hidden, true);
   assert.strictEqual(sp.hidden, false);
-  assert.strictEqual(app.elements.categoryFilter.style.display, 'none');
+  assert.strictEqual(app.elements.themeButton.style.display, 'none');
   assert.ok(app.run('currentSentence') !== null);
   assert.ok(app.elements.sentenceFiPrompt.textContent.length > 0);
   app.run('setPracticeMode("words")');
   assert.strictEqual(wp.hidden, false);
   assert.strictEqual(sp.hidden, true);
-  assert.notStrictEqual(app.elements.categoryFilter.style.display, 'none');
+  assert.notStrictEqual(app.elements.themeButton.style.display, 'none');
   app.dispose();
 });
 
@@ -1146,6 +1147,147 @@ test('Backup: vienti -> tuonti kierto säilyttää datan', async () => {
   await b.run('importBackupFile').call(null, { text: async () => JSON.stringify({ stats }) });
   assert.strictEqual(b.db.data.get('en|4lk|numbers_two').streakKeyboard, 2);
   b.dispose();
+});
+
+
+// ---------------- Usean teeman valinta (vaihe 22) ----------------
+const smallThemes = (app, n) => J(app, `VOCAB.categories.filter(c => c.grade === 1)
+  .map(c => ({ id: c.id, n: PRACTICE_WORDS.filter(w => w.category === c.id).length }))
+  .sort((a, b) => a.n - b.n).slice(0, ${n})`);
+
+test('Teemat: usean teeman valinta rajaa poolin valittujen teemojen sanoihin (isot teemat)', async () => {
+  const app = await boot();
+  const big = J(app, `VOCAB.categories.filter(c => c.grade === 1)
+    .map(c => ({ id: c.id, n: PRACTICE_WORDS.filter(w => w.category === c.id).length }))
+    .sort((a, b) => b.n - a.n).slice(0, 2)`);
+  const ids = big.map(c => c.id);
+  assert.ok(big[0].n + big[1].n >= 15);
+  app.run(`selectedThemes = ${JSON.stringify(ids)}; initSessionPool();`);
+  const n = app.run('sessionPool.length');
+  assert.ok(n >= 10 && n <= 15, 'koko ' + n);
+  assert.strictEqual(app.run(`sessionPool.every(w => ${JSON.stringify(ids)}.includes(w.category))`), true);
+  assert.strictEqual(app.run(`new Set(sessionPool.map(w => w.category)).size`), 2, 'molemmista teemoista sanoja');
+  app.dispose();
+});
+
+test('Teemat: valintaruudun klikkaus lisää/poistaa teeman ja päivittää napin ja poolin', async () => {
+  const app = await boot();
+  const [a, b] = J(app, 'selectableCategories().filter(c => c.group !== "hobby").slice(0, 2).map(c => c.id)');
+  const rowA = app.elements.themeList._children.find(r => r.dataset.cat === a);
+  const boxA = rowA._children[0];
+  boxA.checked = true; await boxA.dispatch('change');
+  assert.strictEqual(J(app, 'selectedThemes').join(), a);
+  assert.strictEqual(app.elements.themeButton.textContent, J(app, `categoryName(${JSON.stringify(a)})`));
+  const rowB = app.elements.themeList._children.find(r => r.dataset.cat === b);
+  rowB._children[0].checked = true; await rowB._children[0].dispatch('change');
+  assert.strictEqual(J(app, 'selectedThemes').join(), a + ',' + b);
+  assert.strictEqual(app.elements.themeButton.textContent, '2 teemaa');
+  const rowA2 = app.elements.themeList._children.find(r => r.dataset.cat === a);
+  rowA2._children[0].checked = false; await rowA2._children[0].dispatch('change');
+  assert.strictEqual(J(app, 'selectedThemes').join(), b);
+  await app.elements.themeClearBtn.click();
+  assert.strictEqual(J(app, 'selectedThemes').length, 0);
+  assert.strictEqual(app.elements.themeButton.textContent, 'Kaikki teemat');
+  app.dispose();
+});
+
+test('Teemat: harrasteteema ja luokan teema valittavissa yhdessä', async () => {
+  const app = await boot();
+  const hobby = J(app, 'VOCAB.categories.find(c => c.group === "hobby").id');
+  const normal = J(app, 'VOCAB.categories.find(c => c.grade === 1).id');
+  app.run(`selectedThemes = [${JSON.stringify(hobby)}, ${JSON.stringify(normal)}]; initSessionPool();`);
+  const cats = new Set(J(app, 'sessionPool.map(w => w.category)'));
+  assert.ok(cats.has(hobby) && cats.has(normal));
+  app.dispose();
+});
+
+test('Teemat: täydennys sallittu (oletus) -> pieni valinta täydentyy muista teemoista', async () => {
+  const app = await boot();
+  const [s1] = smallThemes(app, 1).map(c => c.id); const s2 = s1;
+  assert.strictEqual(app.run('themeStrict'), false);
+  app.run(`selectedThemes = [${JSON.stringify(s1)}, ${JSON.stringify(s2)}]; initSessionPool();`);
+  const n = app.run('sessionPool.length');
+  assert.ok(n >= 10, 'koko ' + n);
+  assert.strictEqual(app.run(`sessionPool.some(w => ![${JSON.stringify(s1)}, ${JSON.stringify(s2)}].includes(w.category))`), true);
+  app.dispose();
+});
+
+test('Teemat: tiukka tila -> pooliin vain valittujen teemojen sanoja, ei täydennystä', async () => {
+  const app = await boot();
+  const [s1] = smallThemes(app, 1).map(c => c.id); const s2 = s1;
+  app.elements.themeStrictToggle.checked = true;
+  await app.elements.themeStrictToggle.dispatch('change');
+  assert.strictEqual(app.run('themeStrict'), true);
+  assert.strictEqual(app.storage.getItem('themeStrict'), '1');
+  app.run(`selectedThemes = [${JSON.stringify(s1)}, ${JSON.stringify(s2)}]; initSessionPool();`);
+  const total = app.run(`PRACTICE_WORDS.filter(w => [${JSON.stringify(s1)}, ${JSON.stringify(s2)}].includes(w.category) && wordGrade(w) === 1).length`);
+  assert.ok(total < 10, 'testi vaatii alle 10 sanaa, oli ' + total);
+  assert.strictEqual(app.run('sessionPool.length'), total);
+  assert.strictEqual(app.run(`sessionPool.every(w => [${JSON.stringify(s1)}, ${JSON.stringify(s2)}].includes(w.category))`), true);
+  // useita kierroksia: kaikki näytettävät sanat pysyvät valituissa teemoissa
+  for (let i = 0; i < 40; i++) {
+    await app.run('pickWord()');
+    assert.ok(J(app, `[${JSON.stringify(s1)}, ${JSON.stringify(s2)}]`).includes(app.run('current.category')), 'sana valittujen ulkopuolelta');
+  }
+  app.dispose();
+});
+
+test('Teemat: tiukka tila on muistissa localStoragesta', async () => {
+  const app = await boot({ localStorage: { themeStrict: '1' } });
+  assert.strictEqual(app.run('themeStrict'), true);
+  assert.strictEqual(app.elements.themeStrictToggle.checked, true);
+  app.dispose();
+});
+
+test('Teemat: tiukassa tilassa ilman valintaa pooli on normaali (kaikki teemat)', async () => {
+  const app = await boot({ localStorage: { themeStrict: '1' } });
+  const n = app.run('sessionPool.length');
+  assert.ok(n >= 10 && n <= 15, 'koko ' + n);
+  app.dispose();
+});
+
+test('Teemat: tiukan tilan vaihto muuttaa poolin heti (valinta voimassa)', async () => {
+  const app = await boot();
+  const [s1] = smallThemes(app, 1).map(c => c.id);
+  app.run(`selectedThemes = [${JSON.stringify(s1)}]; initSessionPool();`);
+  const open = app.run('sessionPool.length');
+  assert.ok(open >= 10);
+  app.elements.themeStrictToggle.checked = true;
+  await app.elements.themeStrictToggle.dispatch('change');
+  assert.ok(app.run('sessionPool.length') < open);
+  app.elements.themeStrictToggle.checked = false;
+  await app.elements.themeStrictToggle.dispatch('change');
+  assert.strictEqual(app.run('sessionPool.length'), open);
+  app.dispose();
+});
+
+test('Teemat: luokan vaihto nollaa valinnan; harrasteteema säilyy sanitoinnissa', async () => {
+  const app = await boot();
+  const hobby = J(app, 'VOCAB.categories.find(c => c.group === "hobby").id');
+  const normal = J(app, 'VOCAB.categories.find(c => c.grade === 1).id');
+  app.run(`selectedThemes = [${JSON.stringify(hobby)}, ${JSON.stringify(normal)}]; activeGrade = 2; populateCategoryOptions();`);
+  assert.strictEqual(J(app, 'selectedThemes').join(), hobby);
+  app.elements.gradeFilter.value = '3';
+  await app.elements.gradeFilter.dispatch('change');
+  assert.strictEqual(J(app, 'selectedThemes').length, 0);
+  app.dispose();
+});
+
+test('Teemat: pelkkä harrasteteema ei täydennä muualta edes avoimessa tilassa', async () => {
+  const app = await boot();
+  const hobby = J(app, 'VOCAB.categories.find(c => c.group === "hobby").id');
+  app.run(`selectedThemes = [${JSON.stringify(hobby)}]; initSessionPool();`);
+  assert.strictEqual(app.run(`sessionPool.every(w => w.category === ${JSON.stringify(hobby)})`), true);
+  app.dispose();
+});
+
+test('Teemat: teemaikkuna aukeaa ja sulkeutuu; virkemoodissa nappi piilossa', async () => {
+  const app = await boot();
+  await app.elements.themeButton.click();
+  assert.ok(app.elements.themeModalOverlay.classList.contains('visible'));
+  await app.elements.themeModalClose.click();
+  assert.ok(!app.elements.themeModalOverlay.classList.contains('visible'));
+  app.dispose();
 });
 
 // ---------------- Ajo ----------------
