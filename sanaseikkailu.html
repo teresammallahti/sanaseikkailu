@@ -650,13 +650,49 @@
     font-size:1.1em;
   }
 
+
+  /* Tiivis asettelu (vaihe 23): pystysuunnassa tabletilla näytön alareunan
+     näppäimistö peittää Tarkista-napin, joten kaikki ylä- ja välitilat minimoitu. */
+  .top-bar{
+    width:100%; max-width:900px;
+    display:flex; flex-wrap:wrap; align-items:center;
+    justify-content:flex-start; gap:6px 8px; margin-bottom:6px;
+  }
+  .top-bar .lang-switch, .top-bar .practice-switch{ width:auto; margin-bottom:0; gap:6px; }
+  .top-bar header{ width:auto; margin-bottom:0; flex:1 1 auto; }
+  .top-bar .header-right{ flex-wrap:wrap; gap:6px; }
+  .lang-switch-btn, .practice-switch-btn{ padding:4px 12px; font-size:13px; }
+  .tier-badge{ padding:5px 12px; }
+  .tier-stars{ font-size:1.2em; }
+  .lang-pill{ display:none !important; }
+  .app{ padding:6px 10px 12px; }
+  main{ gap:8px; }
+  .prompt-card{ padding:10px 14px 46px; min-height:0; }
+  .prompt-word{ margin:2px 0; }
+  .prompt-card .speak-btn{
+    position:absolute; right:10px; bottom:8px; margin:0;
+    width:38px; height:38px; font-size:18px; z-index:2;
+  }
+  .prompt-card .auto-speak-toggle{
+    position:absolute; left:12px; bottom:8px; margin:0; z-index:2;
+    max-width:calc(100% - 70px); font-size:11px; line-height:1.2; text-align:left;
+  }
+  .answer-area{ padding:10px 12px; gap:8px; }
+  canvas.pen-pad{ height:110px; }
+  .btn{ padding:9px 22px; }
+  .feedback{ min-height:30px; padding:4px 10px; }
+  .feedback:empty{ display:none; }
+  .progress-label{ margin-top:-6px; }
+  footer{ margin-top:6px; }
+
   @media (max-width: 420px){
-    .prompt-card, .answer-area{ padding:14px 14px; }
+    .answer-area{ padding:10px 10px; }
   }
 </style>
 
 <div class="app">
 
+  <div class="top-bar">
   <div class="lang-switch" id="langSwitch">
     <button class="lang-switch-btn active" data-lang="en" aria-pressed="true"><span class="flag">🇬🇧</span> English</button>
     <button class="lang-switch-btn" data-lang="de" aria-pressed="false"><span class="flag">🇩🇪</span> Deutsch</button>
@@ -668,7 +704,6 @@
   </div>
 
   <header>
-    <div class="brand"><span class="mascot">🦊</span> Sanaseikkailu</div>
     <div class="header-right">
       <select id="gradeFilter"></select>
       <button id="themeButton" type="button" title="Valitse teemat">Kaikki teemat</button>
@@ -680,6 +715,7 @@
       </div>
     </div>
   </header>
+  </div>
 
   <main>
     <div id="wordPractice">
