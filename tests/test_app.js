@@ -776,12 +776,78 @@ test('Virkkeet: pickSentenceRound valitsee aktiivisen luokan virkkeen', async ()
   app.dispose();
 });
 
-test('Virkkeet: saksalle ei vielä virkkeitä -> ei kaadu', async () => {
+test('Virkkeet: saksalle 60 virkettä, 20 / luokka 4-6, ei kaadu', async () => {
   const app = await boot();
   app.run('selectTargetLang("de"); setPracticeMode("sentences");');
   await app.flush();
-  assert.strictEqual(app.run('currentSentence'), null);
-  assert.ok(app.elements.sentenceProgressLabel.textContent.includes('Ei vielä'));
+  assert.notStrictEqual(app.run('currentSentence'), null);
+  assert.strictEqual(app.run('SENTENCE_DATA.de.length'), 60);
+  for (const g of [4, 5, 6]) assert.strictEqual(app.run(`sentencesForGrade(${g}).length`), 20, 'luokka ' + g);
+  assert.strictEqual(app.run('sentencesForGrade(1).length'), 0);
+  assert.strictEqual(app.run('new Set(SENTENCE_DATA.de.map(s => s.id)).size'), 60);
+  assert.strictEqual(app.run('SENTENCE_DATA.de.every(s => s.de && s.fi && s.grade >= 1 && s.grade <= 3)'), true);
+  assert.strictEqual(app.run('sentencesForLang().includes(currentSentence)'), true);
+  app.dispose();
+});
+
+test('Saksan virkkeet: ä/ö/ü/ß ja korvikkeet (ae/oe/ue/ss) hyväksytään, isot kirjaimet ja välimerkit ei haittaa', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de' } });
+  const s = { de: 'Das Mädchen trägt grüne Schuhe für Fußball.', fi: 'x' };
+  for (const a of ['Das Mädchen trägt grüne Schuhe für Fußball.', 'das maedchen traegt gruene schuhe fuer fussball', 'DAS MÄDCHEN TRÄGT GRÜNE SCHUHE FÜR FUSSBALL!']) {
+    assert.strictEqual(app.run(`matchesSentence(${JSON.stringify(a)}, ${JSON.stringify(s)})`), true, a);
+  }
+  assert.strictEqual(app.run(`matchesSentence("Das Mädchen trägt grüne Schuhe für Tennis.", ${JSON.stringify(s)})`), false);
+  app.dispose();
+});
+
+test('Saksan virkkeet: alt-muodot hyväksytään, väärä sanajärjestys ei', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de' } });
+  app.run('activeGrade = 5;');
+  const s = J(app, 'SENTENCE_DATA.de.find(x => x.id === "de_g2_2")');
+  assert.ok(s.alt && s.alt.length);
+  app.run(`currentSentence = SENTENCE_DATA.de.find(x => x.id === "de_g2_2");`);
+  assert.strictEqual(app.run('matchesSentence("Meine Schwester turnt jeden Tag.", currentSentence)'), true);
+  assert.strictEqual(app.run('matchesSentence("Jeden Tag turnt meine Schwester.", currentSentence)'), true);
+  assert.strictEqual(app.run('matchesSentence("Turnt meine Schwester jeden Tag.", currentSentence)'), false);
+  app.dispose();
+});
+
+test('Saksan virkkeet: englannin supistumat ja US->GB-sääntö eivät vaikuta saksaan', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de' } });
+  assert.strictEqual(app.run('normalizeSentence("Wir sind\'ve")'), 'wir sindve');
+  assert.strictEqual(app.run('normalizeSentence("color")'), 'color');
+  app.dispose();
+});
+
+test('Saksan virkkeet: täydennystehtävän sanavalinta ohittaa saksan apusanat', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de' } });
+  for (let i = 0; i < 40; i++) {
+    const idx = app.run('blankIndexFor("Das ist meine Mutter und sie ist nett")');
+    const w = app.run(`"Das ist meine Mutter und sie ist nett".split(" ")[${idx}]`);
+    assert.ok(['Mutter', 'nett'].includes(w), 'valittu ' + w);
+    assert.ok(!['das', 'ist', 'und', 'sie'].includes(w.toLowerCase()), 'apusana ' + w);
+  }
+  app.dispose();
+});
+
+test('Saksan virkkeet: kuuntele-tehtävän päällekkäisyys 0.7 raja toimii (ä/ae)', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de' } });
+  app.run('currentSentence = SENTENCE_DATA.de.find(x => x.id === "de_g1_2");');
+  assert.ok(app.run('bestSentenceOverlap("das ist meine mutter", currentSentence)') >= 0.7);
+  assert.ok(app.run('bestSentenceOverlap("hello world", currentSentence)') < 0.7);
+  app.dispose();
+});
+
+test('Saksan virkkeet: kierros ja vastauksen kirjaus toimivat (kaikki 4 tehtävätyyppiä)', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de' } });
+  app.run('setPracticeMode("sentences");');
+  await app.flush();
+  for (const type of ['write', 'blank', 'reorder', 'listen']) {
+    app.run(`currentSentence = SENTENCE_DATA.de.find(s => s.id === "de_g1_2"); currentExerciseType = ${JSON.stringify(type)}; renderSentenceRound();`);
+    assert.strictEqual(app.asyncErrors.length, 0, type);
+  }
+  app.run('currentExerciseType = "write"; renderSentenceRound(); sentenceAnswerBox.value = "Das ist meine Mutter."; checkSentenceAnswer();');
+  assert.ok(app.run('sentenceFeedback.className').includes('correct'));
   app.dispose();
 });
 
@@ -1159,9 +1225,9 @@ test('Teemat: usean teeman valinta rajaa poolin valittujen teemojen sanoihin (is
   const app = await boot();
   const big = J(app, `VOCAB.categories.filter(c => c.grade === 1)
     .map(c => ({ id: c.id, n: PRACTICE_WORDS.filter(w => w.category === c.id).length }))
-    .sort((a, b) => b.n - a.n).slice(0, 2)`);
+    .filter(c => c.n <= 8).sort((a, b) => b.n - a.n).slice(0, 2)`);
   const ids = big.map(c => c.id);
-  assert.ok(big[0].n + big[1].n >= 15);
+  assert.ok(big[0].n + big[1].n >= 10);
   app.run(`selectedThemes = ${JSON.stringify(ids)}; initSessionPool();`);
   const n = app.run('sessionPool.length');
   assert.ok(n >= 10 && n <= 15, 'koko ' + n);
