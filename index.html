@@ -690,6 +690,19 @@
   .progress-label{ margin-top:-6px; }
   footer{ margin-top:6px; }
 
+  button#focusButton{
+    border:none; background:var(--card-bg); padding:8px 14px; border-radius:999px;
+    box-shadow: var(--shadow); font-weight:700; font-size: clamp(12px,2.5vw,15px);
+    color:var(--ink); cursor:pointer; white-space:nowrap;
+  }
+  button#focusButton.active{ background:var(--accent); color:white; }
+  .focus-box{ background:#fff8e1; border-radius:14px; padding:10px 12px; margin:6px 0 4px; }
+  .focus-box textarea{ width:100%; min-height:84px; border-radius:10px; border:2px solid #e6e1f5; padding:8px; font:inherit; font-size:14px; }
+  .focus-actions{ display:flex; gap:8px; margin-top:6px; }
+  .focus-actions button{ flex:1; border:none; border-radius:999px; padding:8px 12px; background:#e8e2f7; font-weight:700; cursor:pointer; }
+  .focus-actions button.primary{ background:var(--accent); color:white; }
+  .focus-status{ font-size:13px; margin-top:6px; }
+  .focus-status .miss{ color:var(--bad); }
   /* Aikuisen näkymä (vaihe 24) */
   .modal-card.wide{ max-width:680px; }
   .adult-section{ margin:14px 0 6px; font-size:15px; font-weight:800; }
@@ -722,6 +735,7 @@
     <div class="header-right">
       <select id="gradeFilter"></select>
       <button id="themeButton" type="button" title="Valitse teemat">Kaikki teemat</button>
+      <button id="focusButton" type="button" title="Harjoittele vain aikuisen valitsemia viikon sanoja" style="display:none">📖 Viikon sanat</button>
       <div class="tier-badge" id="tierBadge" title="Palkintotaso valitulta luokka-asteelta">
         <span id="tierModeIcon">⌨️</span>
         <span id="tierIcon">🐍</span>
@@ -872,6 +886,16 @@
       <button class="modal-close" id="adultModalClose" aria-label="Sulje">✕</button>
       <h2 class="modal-title">Aikuisen näkymä</h2>
       <p class="modal-subtitle" id="adultSubtitle"></p>
+      <div class="adult-section">Viikon sanat (kirjan mukainen harjoituslista)</div>
+      <div class="focus-box">
+        <p class="adult-note">Kirjoita tai liitä sanat (englanniksi/saksaksi tai suomeksi) pilkulla tai rivinvaihdolla erotettuna. Lapsi voi sitten harjoitella vain näitä sanoja painikkeella "📖 Viikon sanat". Lista on kielikohtainen ja tallentuu tälle laitteelle.</p>
+        <textarea id="focusInput" placeholder="esim. teacher, koulu, apple, kolme"></textarea>
+        <div class="focus-actions">
+          <button type="button" class="primary" id="focusSave">Tallenna lista</button>
+          <button type="button" id="focusClear">Tyhjennä lista</button>
+        </div>
+        <div class="focus-status" id="focusStatus"></div>
+      </div>
       <div id="adultContent"></div>
     </div>
   </div>
@@ -4750,6 +4774,9 @@ function selectTargetLang(lang){
   // Kummallakin kielellä on oma luokka-aste muistissa (esim. saksa voi olla
   // vasta alkanut, vaikka englanti olisi jo pidemmällä).
   activeGrade = loadOrDetectGrade(targetLang);
+  loadFocus();
+  updateFocusUI();
+  focusInput.value = "";
   selectedThemes = [];
   populateGradeOptions();
   populateCategoryOptions();
@@ -4998,6 +5025,7 @@ function activeWordPool(){
 // (group=hobby, esim. Minecraft/Fortnite) ohittavat luokka-asterajauksen - ne ovat
 // vain käsin valittavissa. Usean teeman valinta = teemojen sanat yhdessä.
 function eligibleWordsForCategoryScope(sel){
+  if (focusActive()) return PRACTICE_WORDS.filter(w => focusIds.includes(w.id));
   if (!sel || !sel.length) return wordsForGrade(activeGrade);
   const gradeIds = new Set(wordsForGrade(activeGrade).map(w => w.id));
   return PRACTICE_WORDS.filter(w => sel.includes(w.category) &&
@@ -5008,6 +5036,7 @@ function eligibleWordsForCategoryScope(sel){
 // eikä jos valinta on pelkkiä harrasteteemoja (niiden sanat eivät ole luokka-asteen
 // sanoja, joten täydennys ei olisi mielekästä).
 function outsideTopUpAllowed(sel){
+  if (focusActive()) return false;
   if (!sel || !sel.length) return true;
   if (themeStrict) return false;
   return sel.some(id => categoryGroup(id) !== "hobby");
@@ -5283,7 +5312,7 @@ const REVIEW_CHANCE = 0.15;
 let sessionPool = [];
 let sessionPoolScope = null;
 // Avain, joka muuttuu kun teemavalinta tai tiukka/täydennys-asetus vaihtuu.
-function scopeKey(){ return selectedThemes.join(",") + "|" + (themeStrict ? "strict" : "open"); }
+function scopeKey(){ return selectedThemes.join(",") + "|" + (themeStrict ? "strict" : "open") + "|" + (focusActive() ? "focus" : "-"); }
 let sessionPoolMode = null;
 let sessionPoolGrade = null;
 
@@ -6550,7 +6579,7 @@ function setPracticeMode(mode){
   });
   wordPracticeEl.hidden = mode !== "words";
   sentencePracticeEl.hidden = mode !== "sentences";
-  themeButton.style.display = mode === "words" ? "" : "none";
+  updateFocusUI();
   clearTimeout(autoSpeakTimer);
   if (window.speechSynthesis) speechSynthesis.cancel();
   if (mode === "sentences") pickSentenceRound();
@@ -6560,6 +6589,116 @@ practiceSwitchButtons.forEach(btn => {
   btn.addEventListener("click", () => setPracticeMode(btn.dataset.practice));
 });
 
+
+
+// --- Viikon sanat (vaihe 27) ---
+// Aikuinen syöttää kirjan mukaisen viikon sanalistan; lapsi voi harjoitella vain
+// niitä. Lista ja päällä/pois-tila ovat kielikohtaisia (localStorage). Kun tila on
+// päällä, aktiivinen sanaryhmä koostuu vain listan sanoista (ei täydennystä muualta,
+// teemavalinta ohitetaan); kun kaikki on opittu, kierretään kertauksena.
+const focusInput = document.getElementById("focusInput");
+const focusStatus = document.getElementById("focusStatus");
+const focusSave = document.getElementById("focusSave");
+const focusClear = document.getElementById("focusClear");
+const focusButton = document.getElementById("focusButton");
+let focusIds = [];
+let focusOn = false;
+function focusKey(){ return "focusWords_" + targetLang; }
+function focusOnKey(){ return "focusOn_" + targetLang; }
+function loadFocus(){
+  focusIds = []; focusOn = false;
+  try {
+    const raw = JSON.parse(localStorage.getItem(focusKey()) || "[]");
+    const valid = new Set(PRACTICE_WORDS.map(w => w.id));
+    focusIds = (Array.isArray(raw) ? raw : []).filter(id => valid.has(id));
+    focusOn = focusIds.length > 0 && localStorage.getItem(focusOnKey()) === "1";
+  } catch (e) { focusIds = []; focusOn = false; }
+}
+function saveFocus(){
+  try {
+    localStorage.setItem(focusKey(), JSON.stringify(focusIds));
+    localStorage.setItem(focusOnKey(), focusOn ? "1" : "0");
+  } catch (e) { /* ei haittaa */ }
+}
+function focusActive(){ return focusOn && focusIds.length > 0; }
+
+function normFocusToken(t){
+  let x = stripParenthetical(String(t)).toLowerCase().replace(/[.,!?;:"']/g, "").replace(/\s+/g, " ").trim();
+  if (targetLang === "de") x = x.replace(/^(der|die|das)\s+/, "");
+  return x;
+}
+function wordFocusForms(w){
+  const forms = [];
+  [w[targetLang], w.fi].forEach(field => {
+    String(field || "").split("/").forEach(part => { const n = normFocusToken(part); if (n) forms.push(n); });
+  });
+  return forms;
+}
+// Tulkitsee syötetyn tekstin: palauttaa sanojen id:t ja tunnistamattomat sanat.
+function parseFocusInput(text){
+  const tokens = String(text || "").split(/[\n,;]+/).map(t => t.trim()).filter(Boolean);
+  const matched = [], unmatched = [];
+  const index = PRACTICE_WORDS.map(w => ({ id: w.id, forms: wordFocusForms(w) }));
+  tokens.forEach(tok => {
+    const n = normFocusToken(tok);
+    const hits = index.filter(x => x.forms.includes(n));
+    if (!hits.length) unmatched.push(tok);
+    hits.forEach(h => { if (!matched.includes(h.id)) matched.push(h.id); });
+  });
+  return { matched, unmatched };
+}
+
+function updateFocusUI(){
+  const wordsMode = practiceMode === "words";
+  focusButton.style.display = wordsMode && focusIds.length ? "" : "none";
+  focusButton.classList.toggle("active", focusActive());
+  focusButton.setAttribute("aria-pressed", focusActive() ? "true" : "false");
+  themeButton.style.display = wordsMode && !focusActive() ? "" : "none";
+}
+
+function renderFocusSection(){
+  const st = focusStatus;
+  if (!focusIds.length){ st.innerHTML = "Ei viikon sanoja asetettu."; return; }
+  const learned = focusIds.filter(id => {
+    const w = PRACTICE_WORDS.find(x => x.id === id);
+    return w && stageKeyboardGraduated(statsCache[statId(w)]);
+  }).length;
+  st.innerHTML = `Lista: ${focusIds.length} sanaa, joista näppäimistövaiheessa opittu ${learned}. Tila: ${focusActive() ? "päällä" : "pois päältä"}.`;
+}
+
+function applyFocusChange(){
+  updateFocusUI();
+  current = null;
+  initSessionPool();
+  pickWord();
+}
+
+focusSave.addEventListener("click", () => {
+  const r = parseFocusInput(focusInput.value);
+  const st = focusStatus;
+  if (!r.matched.length){
+    st.innerHTML = `<span class="miss">Yhtään sanaa ei tunnistettu sanastosta${r.unmatched.length ? ": " + r.unmatched.map(escHtml).join(", ") : ""}.</span>`;
+    return;
+  }
+  focusIds = r.matched;
+  focusOn = true;
+  saveFocus();
+  applyFocusChange();
+  st.innerHTML = `Tallennettu ${r.matched.length} sanaa, viikon sanat päällä.` +
+    (r.unmatched.length ? ` <span class="miss">Ei löytynyt sanastosta (${r.unmatched.length}): ${r.unmatched.map(escHtml).join(", ")}</span>` : "");
+});
+focusClear.addEventListener("click", () => {
+  focusIds = []; focusOn = false;
+  saveFocus();
+  focusInput.value = "";
+  applyFocusChange();
+  renderFocusSection();
+});
+focusButton.addEventListener("click", () => {
+  focusOn = !focusOn;
+  saveFocus();
+  applyFocusChange();
+});
 
 // --- Aikuisen näkymä (vaihe 24) ---
 // Päiväloki: vastausten määrä ja oikeat vastaukset päivittäin kielen mukaan,
@@ -6688,7 +6827,7 @@ function renderAdultView(){
 }
 
 const adultModalOverlay = document.getElementById("adultModalOverlay");
-function openAdultView(){ renderAdultView(); adultModalOverlay.classList.add("visible"); }
+function openAdultView(){ renderAdultView(); renderFocusSection(); adultModalOverlay.classList.add("visible"); }
 function closeAdultView(){ adultModalOverlay.classList.remove("visible"); }
 document.getElementById("adultBtn").addEventListener("click", openAdultView);
 document.getElementById("adultModalClose").addEventListener("click", closeAdultView);
@@ -6703,6 +6842,8 @@ window.addEventListener("resize", () => { if (activeMode === "pen") setupPenPad(
 (async function init(){
   syncLangButtons(); // varmistaa napin tilan ja tekstin, jos kieli muistettiin laitteelta
   activeGrade = loadOrDetectGrade(targetLang); // ennen DB:tä -> oletus 1. luokka
+  loadFocus();
+  updateFocusUI();
   setupGradeFilter();
   setupCategoryFilter();
   initSessionPool(); // ensimmäinen pooli ilman tallennettua edistymistä (DB ei vielä ladattu)

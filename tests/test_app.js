@@ -1449,6 +1449,125 @@ test('Aikuinen: virkkeet näkyvät raportissa', async () => {
   app.dispose();
 });
 
+
+// ---------------- Viikon sanat (vaihe 27) ----------------
+test('Viikon sanat: syötteen tulkinta (englanti, suomi, pilkut/rivinvaihdot, tunnistamattomat)', async () => {
+  const app = await boot();
+  const r = J(app, 'parseFocusInput("teacher, koulu\\nApple; kolme, olematonsana ,  Teacher")');
+  assert.ok(r.matched.includes('school_people_teacher'));
+  assert.ok(r.matched.includes('fruit_apple'));
+  assert.ok(r.matched.includes('school_subjects_school'), 'koulu -> school');
+  assert.ok(r.matched.some(id => id.startsWith('numbers_three')), 'kolme -> three');
+  assert.deepStrictEqual(r.unmatched, ['olematonsana']);
+  assert.strictEqual(new Set(r.matched).size, r.matched.length, 'ei duplikaatteja');
+  app.dispose();
+});
+
+test('Viikon sanat: saksassa artikkeli ja suomi tunnistetaan', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de' } });
+  const r = J(app, 'parseFocusInput("der Lehrer, Apfel, die Banane, omena")');
+  assert.ok(r.matched.includes('school_people_teacher'));
+  assert.ok(r.matched.includes('fruit_apple'));
+  assert.ok(r.matched.includes('fruit_banana'));
+  assert.deepStrictEqual(r.unmatched, []);
+  app.dispose();
+});
+
+test('Viikon sanat: tallennus rajaa poolin vain listan sanoihin ja kytkee tilan päälle', async () => {
+  const app = await boot();
+  app.elements.focusInput.value = 'apple, banana, teacher, red, blue';
+  await app.elements.focusSave.click();
+  assert.strictEqual(app.run('focusActive()'), true);
+  assert.strictEqual(app.run('focusIds.length'), 5);
+  assert.strictEqual(app.run('sessionPool.length'), 5);
+  assert.strictEqual(app.run('sessionPool.every(w => focusIds.includes(w.id))'), true);
+  for (let i = 0; i < 30; i++) {
+    await app.run('pickWord()');
+    assert.ok(app.run('focusIds.includes(current.id)'), 'sana listan ulkopuolelta');
+  }
+  assert.strictEqual(app.elements.focusButton.style.display, '');
+  assert.strictEqual(app.elements.themeButton.style.display, 'none');
+  assert.ok(app.elements.focusButton.classList.contains('active'));
+  assert.strictEqual(app.storage.getItem('focusOn_en'), '1');
+  app.dispose();
+});
+
+test('Viikon sanat: painike kytkee tilan pois ja takaisin, normaali pooli palaa', async () => {
+  const app = await boot();
+  app.elements.focusInput.value = 'apple, banana, teacher';
+  await app.elements.focusSave.click();
+  await app.elements.focusButton.click();
+  assert.strictEqual(app.run('focusActive()'), false);
+  assert.ok(app.run('sessionPool.length') >= 10);
+  assert.strictEqual(app.elements.themeButton.style.display, '');
+  assert.strictEqual(app.storage.getItem('focusOn_en'), '0');
+  await app.elements.focusButton.click();
+  assert.strictEqual(app.run('sessionPool.length'), 3);
+  app.dispose();
+});
+
+test('Viikon sanat: tyhjennys poistaa listan ja piilottaa painikkeen', async () => {
+  const app = await boot();
+  app.elements.focusInput.value = 'apple, banana';
+  await app.elements.focusSave.click();
+  await app.elements.focusClear.click();
+  assert.strictEqual(app.run('focusIds.length'), 0);
+  assert.strictEqual(app.elements.focusButton.style.display, 'none');
+  assert.ok(app.run('sessionPool.length') >= 10);
+  assert.strictEqual(JSON.parse(app.storage.getItem('focusWords_en')).length, 0);
+  app.dispose();
+});
+
+test('Viikon sanat: tunnistamaton lista ei tallennu; osittain tunnistettu tallentuu ja raportoi puuttuvat', async () => {
+  const app = await boot();
+  app.elements.focusInput.value = 'qqqq, zzzz';
+  await app.elements.focusSave.click();
+  assert.strictEqual(app.run('focusIds.length'), 0);
+  assert.ok(app.elements.focusStatus.innerHTML.includes('qqqq'));
+  app.elements.focusInput.value = 'apple, qqqq';
+  await app.elements.focusSave.click();
+  assert.strictEqual(app.run('focusIds.length'), 1);
+  assert.ok(app.elements.focusStatus.innerHTML.includes('qqqq'));
+  app.dispose();
+});
+
+test('Viikon sanat: tila säilyy uudelleenkäynnistyksessä, kielikohtainen, virheellinen data ei kaada', async () => {
+  const app = await boot({ localStorage: { focusWords_en: JSON.stringify(['fruit_apple', 'tuntematon_id']), focusOn_en: '1' } });
+  assert.strictEqual(app.run('focusIds.length'), 1, 'tuntematon id suodatetaan');
+  assert.strictEqual(app.run('focusActive()'), true);
+  assert.strictEqual(app.run('sessionPool.length'), 1);
+  app.run('selectTargetLang("de")');
+  assert.strictEqual(app.run('focusActive()'), false, 'saksalla oma lista');
+  app.dispose();
+  const bad = await boot({ localStorage: { focusWords_en: '{rikki', focusOn_en: '1' } });
+  assert.strictEqual(bad.run('focusIds.length'), 0);
+  bad.dispose();
+});
+
+test('Viikon sanat: virketila ei kärsi, painike ja teemanappi piilossa virkkeissä', async () => {
+  const app = await boot();
+  app.elements.focusInput.value = 'apple, banana';
+  await app.elements.focusSave.click();
+  app.run('setPracticeMode("sentences");');
+  await app.flush();
+  assert.strictEqual(app.elements.focusButton.style.display, 'none');
+  assert.strictEqual(app.elements.themeButton.style.display, 'none');
+  assert.notStrictEqual(app.run('currentSentence'), null);
+  app.run('setPracticeMode("words");');
+  assert.strictEqual(app.elements.focusButton.style.display, '');
+  app.dispose();
+});
+
+test('Viikon sanat: kun kaikki listan sanat on opittu, harjoitus jatkuu kertauksena (ei tyhjä)', async () => {
+  const app = await boot();
+  app.elements.focusInput.value = 'apple, banana';
+  await app.elements.focusSave.click();
+  app.run(`focusIds.forEach(id => { const w = PRACTICE_WORDS.find(x => x.id === id); statsCache[statId(w)] = { statId: statId(w), language: 'en', correctCount: 9, incorrectCount: 0, streakTargetFi: 3, streakFiTarget: 3, streakKeyboard: 5, streakMic: 6 }; });`);
+  await app.run('pickWord()');
+  assert.ok(app.run('focusIds.includes(current.id)'));
+  app.dispose();
+});
+
 // ---------------- Ajo ----------------
 (async () => {
   const filter = process.argv[2];
