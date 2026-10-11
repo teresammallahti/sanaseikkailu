@@ -998,7 +998,8 @@ try {
 // --- Sanaston valmistelu: suodata pois mallilauseet (esim. "my name is ...") ---
 // Sama sanasto ja samat id:t kaikille kielille - jokaisella sanalla on sekä en- että de-kenttä.
 function practiceWords(){
-  return VOCAB.words.filter(w => !w.fi.includes("...") && !(w[targetLang] || "").includes("..."));
+  // Sanalla täytyy olla kohdekielinen muoto (yläkoulun englanninkielisillä sanoilla ei ole saksaa).
+  return VOCAB.words.filter(w => !!w[targetLang] && !w.fi.includes("...") && !w[targetLang].includes("..."));
 }
 let PRACTICE_WORDS = practiceWords();
 
@@ -1153,7 +1154,7 @@ function categoryGroup(id){
 // aina käsin valittavissa luokka-asteesta riippumatta). Oppilas valitsee ensin
 // luokka-asteen ja sitten teeman - teemavalikko näyttää vain kyseisen
 // luokka-asteen teemat (+ harrasteteemat, jotka näkyvät aina).
-const GRADES = [1, 2, 3, 4, 5, 6];
+const GRADES = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let activeGrade = 1;
 const gradeFilter = document.getElementById("gradeFilter");
 

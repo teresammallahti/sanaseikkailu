@@ -42,9 +42,9 @@ test('Boot: skripti ajautuu ilman virhettä ja sana näkyy', async () => {
   app.dispose();
 });
 
-test('Boot: luokka-asteen valinnassa 6 vaihtoehtoa', async () => {
+test('Boot: luokka-asteen valinnassa 9 vaihtoehtoa', async () => {
   const app = await boot();
-  assert.strictEqual(app.elements.gradeFilter._children.length, 6);
+  assert.strictEqual(app.elements.gradeFilter._children.length, 9);
   assert.strictEqual(app.elements.gradeFilter._children[0].value, '1');
   app.dispose();
 });
@@ -137,13 +137,13 @@ test('Kieli: saksalle päätellään luokka omista tilastoista (en-edistys ei va
 });
 
 // ---------------- Saksa alkaa 4. luokalta (vaihe 21) ----------------
-test('Saksa: luokka-asteet ovat vain 4-6, englanti 1-6', async () => {
+test('Saksa: luokka-asteet 4-9, englanti 1-9', async () => {
   const app = await boot();
-  assert.strictEqual(JSON.stringify(app.run('gradesForLang()')), '[1,2,3,4,5,6]');
+  assert.strictEqual(JSON.stringify(app.run('gradesForLang()')), '[1,2,3,4,5,6,7,8,9]');
   app.run('selectTargetLang("de")');
   await app.flush();
-  assert.strictEqual(JSON.stringify(app.run('gradesForLang()')), '[4,5,6]');
-  assert.strictEqual(app.elements.gradeFilter._children.length, 3, 'valikossa 3 luokkaa');
+  assert.strictEqual(JSON.stringify(app.run('gradesForLang()')), '[4,5,6,7,8,9]');
+  assert.strictEqual(app.elements.gradeFilter._children.length, 6, 'valikossa 6 luokkaa');
   assert.strictEqual(app.run('activeGrade'), 4);
   for (const g of [1, 2, 3]) assert.strictEqual(app.run(`wordsForGrade(${g}).length`), 0, 'ei saksaa luokalla ' + g);
   app.dispose();
@@ -470,7 +470,7 @@ test('Luokka-asteet: harrasteteemat eivät koskaan wordsForGrade:ssa', async () 
 
 test('Luokka-asteet: jokainen sana kuuluu täsmälleen yhteen luokkaan tai harrasteeseen', async () => {
   const app = await boot();
-  const total = [1, 2, 3, 4, 5, 6].reduce((a, g) => a + app.run(`wordsForGrade(${g}).length`), 0);
+  const total = [1, 2, 3, 4, 5, 6, 7, 8, 9].reduce((a, g) => a + app.run(`wordsForGrade(${g}).length`), 0);
   const hobby = app.run('PRACTICE_WORDS.filter(w => categoryGroup(w.category) === "hobby").length');
   assert.strictEqual(total + hobby, app.run('PRACTICE_WORDS.length'));
   app.dispose();
@@ -478,7 +478,7 @@ test('Luokka-asteet: jokainen sana kuuluu täsmälleen yhteen luokkaan tai harra
 
 test('Luokka-asteet: isGradeComplete epätosi tyhjillä tilastoilla', async () => {
   const app = await boot();
-  for (let g = 1; g <= 6; g++) assert.strictEqual(app.run(`isGradeComplete(${g})`), false);
+  for (let g = 1; g <= 9; g++) assert.strictEqual(app.run(`isGradeComplete(${g})`), false);
   assert.strictEqual(app.run('detectFrontierGrade()'), 1);
   app.dispose();
 });
@@ -574,21 +574,21 @@ test('Pooli: täydennys jatkuu seuraavaan luokka-asteeseen, jos väliin jäävä
   app.dispose();
 });
 
-test('Pooli: 6. luokalla täydennetään alempien luokkien kesken jääneillä sanoilla (vaihe 20)', async () => {
+test('Pooli: viimeisellä (9.) luokalla täydennetään alempien luokkien kesken jääneillä sanoilla (vaihe 20)', async () => {
   const app = await boot();
-  app.run(`activeGrade = 6; selectedThemes = []; activeMode = "keyboard";
-    wordsForGrade(6).forEach(w => statsCache[statId(w)] = { statId: statId(w), streakKeyboard: 5 });
+  app.run(`activeGrade = 9; selectedThemes = []; activeMode = "keyboard";
+    wordsForGrade(9).forEach(w => statsCache[statId(w)] = { statId: statId(w), streakKeyboard: 5 });
     initSessionPool();`);
   const n = app.run('sessionPool.length');
   assert.ok(n >= 10, 'pooli vajaa: ' + n);
-  assert.strictEqual(app.run('sessionPool.every(w => wordGrade(w) === 5)'), true, 'lähin alempi luokka ensin');
+  assert.strictEqual(app.run('sessionPool.every(w => wordGrade(w) === 8)'), true, 'lähin alempi luokka ensin');
   app.dispose();
 });
 
 test('Pooli: täydennysjärjestys = ylemmät nousevasti, sitten alemmat laskevasti', async () => {
   const app = await boot();
   app.run('activeGrade = 3;');
-  assert.strictEqual(JSON.stringify(app.run('fallbackGradeOrder()')), '[4,5,6,2,1]');
+  assert.strictEqual(JSON.stringify(app.run('fallbackGradeOrder()')), '[4,5,6,7,8,9,2,1]');
   app.dispose();
 });
 
@@ -1363,7 +1363,7 @@ test('Aikuinen: tyhjä edistyminen -> raportti nollilla, näkymä aukeaa', async
   const r = J(app, 'buildProgressReport()');
   assert.strictEqual(r.all.seen, 0);
   assert.strictEqual(r.all.full, 0);
-  assert.strictEqual(r.grades.length, 6);
+  assert.strictEqual(r.grades.length, 9);
   assert.strictEqual(r.hard.length, 0);
   assert.strictEqual(r.days.length, 14);
   await app.elements.adultBtn.click();
@@ -1431,10 +1431,10 @@ test('Aikuinen: päiväloki säilyttää enintään 60 päivää; virheellinen J
   app2.dispose();
 });
 
-test('Aikuinen: saksan raportissa luokat 4-6 ja ei englannin päivälokia', async () => {
+test('Aikuinen: saksan raportissa luokat 4-9 ja ei englannin päivälokia', async () => {
   const app = await boot({ localStorage: { targetLang: 'de', dayLog: JSON.stringify({ [new Date().getFullYear() + '-01-01']: { en: { a: 5, c: 5 } } }) } });
   const r = J(app, 'buildProgressReport()');
-  assert.deepStrictEqual(r.grades.map(g => g.grade), [4, 5, 6]);
+  assert.deepStrictEqual(r.grades.map(g => g.grade), [4, 5, 6, 7, 8, 9]);
   assert.ok(r.days.every(d => d.answers === 0));
   app.dispose();
 });
@@ -1565,6 +1565,58 @@ test('Viikon sanat: kun kaikki listan sanat on opittu, harjoitus jatkuu kertauks
   app.run(`focusIds.forEach(id => { const w = PRACTICE_WORDS.find(x => x.id === id); statsCache[statId(w)] = { statId: statId(w), language: 'en', correctCount: 9, incorrectCount: 0, streakTargetFi: 3, streakFiTarget: 3, streakKeyboard: 5, streakMic: 6 }; });`);
   await app.run('pickWord()');
   assert.ok(app.run('focusIds.includes(current.id)'));
+  app.dispose();
+});
+
+
+// ---------------- Yläkoulu 7-9 (vaihe 28) ----------------
+test('Yläkoulu: englannissa luokilla 7-9 vähintään 60 sanaa, jokaisella en ja fi', async () => {
+  const app = await boot();
+  for (const g of [7, 8, 9]) {
+    const n = app.run(`wordsForGrade(${g}).length`);
+    assert.ok(n >= 60, 'luokka ' + g + ': ' + n);
+    assert.strictEqual(app.run(`wordsForGrade(${g}).every(w => w.en && w.fi)`), true);
+  }
+  app.dispose();
+});
+
+test('Yläkoulu: saksan sanavarasto sisältää vain sanoja joilla on saksa; luokat 7-9 = opiskeluvuodet 4-6', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de' } });
+  assert.strictEqual(app.run('PRACTICE_WORDS.every(w => !!w.de)'), true);
+  for (const g of [7, 8, 9]) {
+    const n = app.run(`wordsForGrade(${g}).length`);
+    assert.ok(n > 0, 'saksa luokka ' + g);
+    assert.strictEqual(app.run(`wordsForGrade(${g}).every(w => !!w.de)`), true);
+  }
+  assert.strictEqual(app.run('VOCAB.words.filter(w => !w.de).length > 0'), true, 'englanti-vain-sanat olemassa, mutta eivät saksan poolissa');
+  app.dispose();
+});
+
+test('Yläkoulu: etenemisjärjestys 6 -> 7 kun 6. luokka valmis, ja pooli 7. luokalle', async () => {
+  const app = await boot({ localStorage: { grade_en: '6' } });
+  app.run(`wordsForGrade(6).forEach(w => statsCache[statId(w)] = { statId: statId(w), language: 'en', correctCount: 9, incorrectCount: 0, streakTargetFi: 3, streakFiTarget: 3, streakKeyboard: 5, streakMic: 6 });
+    activeGrade = 6; maybeAdvanceGrade();`);
+  assert.strictEqual(app.run('activeGrade'), 7);
+  assert.ok(app.run('sessionPool.length') >= 10);
+  assert.strictEqual(app.run('sessionPool.every(w => wordGrade(w) === 7)'), true);
+  app.dispose();
+});
+
+test('Yläkoulu: virketila 7. luokalla (ei virkkeitä) ei kaadu', async () => {
+  const app = await boot({ localStorage: { grade_en: '7' } });
+  app.run('setPracticeMode("sentences");');
+  await app.flush();
+  assert.strictEqual(app.run('currentSentence'), null);
+  assert.ok(app.elements.sentenceProgressLabel.textContent.includes('Ei vielä'));
+  assert.strictEqual(app.asyncErrors.length, 0);
+  app.dispose();
+});
+
+test('Yläkoulu: aikuisen raportti kattaa luokat 7-9', async () => {
+  const app = await boot();
+  const r = J(app, 'buildProgressReport()');
+  assert.deepStrictEqual(r.grades.map(g => g.grade), [1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  assert.ok(r.grades[8].total >= 60);
   app.dispose();
 });
 

@@ -4,7 +4,7 @@ import json, re, subprocess, sys, collections
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-VOCAB = REPO / "en_1_6lk_v9.json"
+VOCAB = REPO / "en_1_9lk_v10.json"
 TEMPLATE = REPO / "index_template.html"
 
 ERR, WARN, INFO = collections.defaultdict(list), collections.defaultdict(list), collections.defaultdict(list)
@@ -43,6 +43,11 @@ data = json.load(open(VOCAB, encoding="utf-8"))
 SD = load_sentences()
 cats = data["categories"]; words = data["words"]; sents = SD.get("en", []) if SD else []
 catmap = {c["id"]: c for c in cats}
+MAX_GRADE = 9          # englanti 1.-9. lk
+DE_OPTIONAL_FROM = 7   # yläkoulun (grade >= 7) kategorioissa de-kenttä on valinnainen
+def de_optional(w):
+    c = catmap.get(w.get("category")); g = c.get("grade") if c else None
+    return isinstance(g, int) and g >= DE_OPTIONAL_FROM
 
 # ---------- ids ----------
 def dups(seq):
@@ -57,6 +62,7 @@ for w in words:
     wid = w.get("id")
     for f in ("en", "fi", "de"):
         v = w.get(f)
+        if f == "de" and v is None and de_optional(w): continue
         if not isinstance(v, str) or not v.strip(): err("Word fields", f"{wid}: missing/empty '{f}'")
     if w.get("category") not in catmap: err("Word fields", f"{wid}: unknown category {w.get('category')!r}")
 
@@ -66,13 +72,13 @@ for c in cats:
     g, grp = c.get("grade"), c.get("group")
     if grp == "hobby":
         if g is not None: err("Categories", f"hobby category '{c['id']}' has grade {g}")
-    elif not (isinstance(g, int) and 1 <= g <= 6):
+    elif not (isinstance(g, int) and 1 <= g <= MAX_GRADE):
         err("Categories", f"category '{c['id']}' (group={grp}) has invalid grade {g!r}")
 
 def wgrade(w):
     c = catmap.get(w.get("category")); return c.get("grade") if c else None
 wpg = collections.Counter(wgrade(w) for w in words)
-for g in range(1, 7):
+for g in range(1, MAX_GRADE + 1):
     if not wpg[g]: err("Grades", f"grade {g} has no words")
 
 # ---------- sentences ----------
@@ -113,7 +119,7 @@ for w in words:
     for f in ("fi", "en", "de"):
         if "..." in (w.get(f) or ""):
             info("Pattern phrases with '...' (filtered from practice)",
-                 f"{w['id']}: en={w['en']!r} fi={w['fi']!r} de={w['de']!r}"); break
+                 f"{w['id']}: en={w['en']!r} fi={w['fi']!r} de={w.get('de')!r}"); break
 def practicable(w): return "..." not in w["fi"] and "..." not in w["en"]
 
 # ---------- ambiguity ----------
@@ -152,6 +158,7 @@ Schnee Regen Wind Sonne Mond""".split())
 def clean(p): return re.sub(r"\(.*?\)", "", p).strip()
 noun_like = lambda en: bool(re.fullmatch(r"[A-Za-z]+", en.strip()))
 for w in words:
+    if "de" not in w: continue  # yläkoulun sanoilla ei saksaa
     de, en, wid = w["de"], w["en"], w["id"]
     parts = [clean(p) for p in de.split("/") if p.strip()]
     has_art = [bool(re.match(rf"{ART}\s", p)) for p in parts]
@@ -175,7 +182,7 @@ for w in words:
         info("DE equals EN (eyeball)", f"{wid}: {en!r} = {de!r}")
 
 # ---------- stats ----------
-info("Words per grade", ", ".join(f"g{g}: {wpg[g]}" for g in range(1, 7)) + f", ungraded(hobby): {wpg[None]}")
+info("Words per grade", ", ".join(f"g{g}: {wpg[g]}" for g in range(1, MAX_GRADE + 1)) + f", ungraded(hobby): {wpg[None]}")
 for c in cats:
     info("Words per category", f"{c['id']} (grade {c['grade']}, {c['group']}): {used[c['id']]}")
 info("Sentences per grade", ", ".join(f"g{g}: {spg[g]}" for g in range(1, 7)) + f" (total {len(sents)})")
