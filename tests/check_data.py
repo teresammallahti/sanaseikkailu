@@ -88,14 +88,14 @@ for s in sents:
     for f in ("id", "grade", "en", "fi"):
         if s.get(f) in (None, ""): err("Sentences", f"{sid}: missing '{f}'")
     g = s.get("grade")
-    if not (isinstance(g, int) and 1 <= g <= 6): err("Sentences", f"{sid}: invalid grade {g!r}")
+    if not (isinstance(g, int) and 1 <= g <= MAX_GRADE): err("Sentences", f"{sid}: invalid grade {g!r}")
     else: spg[g] += 1
     en, fi = s.get("en") or "", s.get("fi") or ""
     if not en or en[-1] not in ".?!": err("Sentences", f"{sid}: en does not end with . ? or ! -> {en!r}")
     if not fi or fi[-1] not in ".?!": err("Sentences", f"{sid}: fi does not end with . ? or ! -> {fi!r}")
     elif en and en[-1] in ".?!" and (en[-1] == "?") != (fi[-1] == "?"):
         err("Sentences", f"{sid}: question/statement mismatch: {en!r} <-> {fi!r}")
-for g in range(1, 7):
+for g in range(1, MAX_GRADE + 1):
     if spg[g] < 10: err("Grades", f"grade {g} has only {spg[g]} sentences (need >=10)")
 
 # ---------- whitespace / slash ----------
@@ -185,10 +185,10 @@ for w in words:
 info("Words per grade", ", ".join(f"g{g}: {wpg[g]}" for g in range(1, MAX_GRADE + 1)) + f", ungraded(hobby): {wpg[None]}")
 for c in cats:
     info("Words per category", f"{c['id']} (grade {c['grade']}, {c['group']}): {used[c['id']]}")
-info("Sentences per grade", ", ".join(f"g{g}: {spg[g]}" for g in range(1, 7)) + f" (total {len(sents)})")
+info("Sentences per grade", ", ".join(f"g{g}: {spg[g]}" for g in range(1, MAX_GRADE + 1)) + f" (total {len(sents)})")
 tok = lambda t: re.findall(r"[A-Za-z']+", t)
 avg = {}
-for g in range(1, 7):
+for g in range(1, MAX_GRADE + 1):
     ls = [len(tok(s["en"])) for s in sents if s.get("grade") == g]
     if ls: avg[g] = sum(ls) / len(ls)
 info("Average sentence length (words)", ", ".join(f"g{g}: {avg[g]:.2f}" for g in sorted(avg)))
@@ -217,7 +217,7 @@ for w in words:
     if g: vocab_by_grade[g] |= ts
 def known(t, pool): return bool(forms(t) & pool)
 unk = collections.Counter()
-for g in range(1, 7):
+for g in range(1, MAX_GRADE + 1):
     pool = set().union(*(vocab_by_grade[x] for x in range(1, g + 1)))
     tot = hit = 0
     for s in sents:

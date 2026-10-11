@@ -714,13 +714,13 @@ test('Reveal: revealBtn lisää "revealed" ja näyttää vastauksen', async () =
 // ---------------- Virkeharjoittelu ----------------
 test('Virkkeet: SENTENCE_DATA.en >=10 per luokka, kentät ja uniikit id:t', async () => {
   const app = await boot();
-  for (let g = 1; g <= 6; g++) {
+  for (let g = 1; g <= 9; g++) {
     assert.ok(app.run(`SENTENCE_DATA.en.filter(s => s.grade === ${g}).length`) >= 10, 'luokka ' + g);
   }
   const all = J(app, 'SENTENCE_DATA.en');
   for (const s of all) {
     assert.ok(s.id && typeof s.id === 'string', 'id');
-    assert.ok(Number.isInteger(s.grade) && s.grade >= 1 && s.grade <= 6, 'grade ' + s.id);
+    assert.ok(Number.isInteger(s.grade) && s.grade >= 1 && s.grade <= 9, 'grade ' + s.id);
     assert.ok(s.en && s.en.trim(), 'en ' + s.id);
     assert.ok(s.fi && s.fi.trim(), 'fi ' + s.id);
   }
@@ -1445,7 +1445,7 @@ test('Aikuinen: virkkeet näkyvät raportissa', async () => {
   const r = J(app, 'buildProgressReport()');
   assert.strictEqual(r.sentences[0].seen, 1);
   assert.strictEqual(r.sentences[0].mastered, 1);
-  assert.strictEqual(r.sentenceTotal, 120);
+  assert.strictEqual(r.sentenceTotal, 180);
   app.dispose();
 });
 
@@ -1602,13 +1602,33 @@ test('Yläkoulu: etenemisjärjestys 6 -> 7 kun 6. luokka valmis, ja pooli 7. luo
   app.dispose();
 });
 
-test('Yläkoulu: virketila 7. luokalla (ei virkkeitä) ei kaadu', async () => {
+test('Yläkoulu: englannin virkkeet 7-9 (20 / luokka), virketila 7. luokalla toimii', async () => {
   const app = await boot({ localStorage: { grade_en: '7' } });
+  for (const g of [7, 8, 9]) assert.strictEqual(app.run(`sentencesForGrade(${g}).length`), 20, 'luokka ' + g);
+  assert.strictEqual(app.run('SENTENCE_DATA.en.length'), 180);
   app.run('setPracticeMode("sentences");');
   await app.flush();
-  assert.strictEqual(app.run('currentSentence'), null);
-  assert.ok(app.elements.sentenceProgressLabel.textContent.includes('Ei vielä'));
+  assert.notStrictEqual(app.run('currentSentence'), null);
+  assert.strictEqual(app.run('currentSentence.grade'), 7);
   assert.strictEqual(app.asyncErrors.length, 0);
+  app.dispose();
+});
+
+test('Yläkoulu: virkkeiden alt-muodot hyväksytään (suggest that / ilman that, big/large)', async () => {
+  const app = await boot();
+  app.run('currentSentence = SENTENCE_DATA.en.find(s => s.id === "en_g9_18");');
+  for (const a of ['In our conversation, the teacher suggested that I should read more English books.', 'In our conversation the teacher suggested I read more English books']) {
+    assert.strictEqual(app.run(`matchesSentence(${JSON.stringify(a)}, currentSentence)`), true, a);
+  }
+  app.run('currentSentence = SENTENCE_DATA.en.find(s => s.id === "en_g7_4");');
+  assert.strictEqual(app.run('matchesSentence("First, chop the onions and put them in a large bowl.", currentSentence)'), true);
+  assert.strictEqual(app.run('matchesSentence("First, chop the onions and put them in a small bowl.", currentSentence)'), false);
+  app.dispose();
+});
+
+test('Yläkoulu: virkkeissä ei yhdysmerkkejä tai puolipisteitä (eivät sovi vertailuun)', async () => {
+  const app = await boot();
+  assert.strictEqual(app.run('SENTENCE_DATA.en.filter(s => /[-;]/.test(s.en) && s.grade >= 7).length'), 0);
   app.dispose();
 });
 
