@@ -1290,6 +1290,99 @@ test('Teemat: teemaikkuna aukeaa ja sulkeutuu; virkemoodissa nappi piilossa', as
   app.dispose();
 });
 
+
+// ---------------- Aikuisen näkymä (vaihe 24) ----------------
+test('Aikuinen: tyhjä edistyminen -> raportti nollilla, näkymä aukeaa', async () => {
+  const app = await boot();
+  const r = J(app, 'buildProgressReport()');
+  assert.strictEqual(r.all.seen, 0);
+  assert.strictEqual(r.all.full, 0);
+  assert.strictEqual(r.grades.length, 6);
+  assert.strictEqual(r.hard.length, 0);
+  assert.strictEqual(r.days.length, 14);
+  await app.elements.adultBtn.click();
+  assert.ok(app.elements.adultModalOverlay.classList.contains('visible'));
+  const html = app.elements.adultContent.innerHTML;
+  assert.ok(html.includes('Luokka-asteittain') && html.includes('Teemoittain') && html.includes('Ei hankalia sanoja'));
+  await app.elements.adultModalClose.click();
+  assert.ok(!app.elements.adultModalOverlay.classList.contains('visible'));
+  app.dispose();
+});
+
+test('Aikuinen: edistyminen näkyy raportissa (nähty, vaiheet, täysin opittu, hankalat)', async () => {
+  const app = await boot();
+  app.run(`(() => {
+    const ws = wordsForGrade(1);
+    // täysin opittu
+    statsCache[statId(ws[0])] = { statId: statId(ws[0]), language: targetLang, correctCount: 20, incorrectCount: 0,
+      streakTargetFi: 3, streakFiTarget: 3, streakKeyboard: 5, streakMic: 6, lastSeen: '2026-10-10T10:00:00.000Z' };
+    // vain näppäimistö
+    statsCache[statId(ws[1])] = { statId: statId(ws[1]), language: targetLang, correctCount: 5, incorrectCount: 0,
+      streakTargetFi: 0, streakFiTarget: 0, streakKeyboard: 5, streakMic: 0, lastSeen: '2026-10-09T10:00:00.000Z' };
+    // hankala
+    statsCache[statId(ws[2])] = { statId: statId(ws[2]), language: targetLang, correctCount: 1, incorrectCount: 4,
+      streakTargetFi: 0, streakFiTarget: 0, streakKeyboard: 0, streakMic: 0, lastSeen: '2026-10-08T10:00:00.000Z' };
+  })()`);
+  const r = J(app, 'buildProgressReport()');
+  assert.strictEqual(r.all.seen, 3);
+  assert.strictEqual(r.all.full, 1);
+  assert.strictEqual(r.all.keyboard, 2);
+  assert.strictEqual(r.all.mic, 1);
+  assert.strictEqual(r.grades[0].seen, 3);
+  assert.strictEqual(r.hard.length, 1);
+  assert.strictEqual(r.hard[0].wrong, 4);
+  assert.strictEqual(r.lastSeen, '2026-10-10T10:00:00.000Z');
+  assert.strictEqual(r.themes.reduce((a, t) => a + t.seen, 0), 3);
+  app.dispose();
+});
+
+test('Aikuinen: päiväloki kirjaa vastaukset kielen mukaan ja näkyy raportissa', async () => {
+  const app = await boot();
+  app.run('current = wordsForGrade(1)[0]; direction = "target-fi";');
+  await app.run('recordResult(true, "keyboard")');
+  await app.run('recordResult(false, "keyboard")');
+  await app.run('recordResult(true, "keyboard")');
+  const log = JSON.parse(app.storage.getItem('dayLog'));
+  const today = app.run('localDateKey()');
+  assert.deepStrictEqual(log[today].en, { a: 3, c: 2 });
+  const r = J(app, 'buildProgressReport()');
+  assert.strictEqual(r.days[0].date, today);
+  assert.strictEqual(r.days[0].answers, 3);
+  assert.strictEqual(r.days[0].correct, 2);
+  app.dispose();
+});
+
+test('Aikuinen: päiväloki säilyttää enintään 60 päivää; virheellinen JSON ei kaada', async () => {
+  const old = {};
+  for (let i = 1; i <= 70; i++) old['2026-01-' + String(i).padStart(2, '0')] = { en: { a: 1, c: 1 } };
+  const app = await boot({ localStorage: { dayLog: JSON.stringify(old) } });
+  app.run('logPractice(true)');
+  assert.ok(Object.keys(JSON.parse(app.storage.getItem('dayLog'))).length <= 60);
+  app.dispose();
+  const app2 = await boot({ localStorage: { dayLog: '{rikki' } });
+  app2.run('logPractice(true)');
+  assert.strictEqual(JSON.parse(app2.storage.getItem('dayLog'))[app2.run('localDateKey()')].en.a, 1);
+  app2.dispose();
+});
+
+test('Aikuinen: saksan raportissa luokat 4-6 ja ei englannin päivälokia', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de', dayLog: JSON.stringify({ [new Date().getFullYear() + '-01-01']: { en: { a: 5, c: 5 } } }) } });
+  const r = J(app, 'buildProgressReport()');
+  assert.deepStrictEqual(r.grades.map(g => g.grade), [4, 5, 6]);
+  assert.ok(r.days.every(d => d.answers === 0));
+  app.dispose();
+});
+
+test('Aikuinen: virkkeet näkyvät raportissa', async () => {
+  const app = await boot();
+  app.run(`(() => { const s = sentencesForGrade(1)[0]; statsCache[sentenceStatId(s)] = { statId: sentenceStatId(s), language: 'en', streak: 4, correctCount: 4, incorrectCount: 0 }; })()`);
+  const r = J(app, 'buildProgressReport()');
+  assert.strictEqual(r.sentences[0].seen, 1);
+  assert.strictEqual(r.sentences[0].mastered, 1);
+  assert.strictEqual(r.sentenceTotal, 120);
+  app.dispose();
+});
+
 // ---------------- Ajo ----------------
 (async () => {
   const filter = process.argv[2];

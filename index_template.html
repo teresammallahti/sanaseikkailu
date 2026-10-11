@@ -690,6 +690,15 @@
   .progress-label{ margin-top:-6px; }
   footer{ margin-top:6px; }
 
+  /* Aikuisen näkymä (vaihe 24) */
+  .modal-card.wide{ max-width:680px; }
+  .adult-section{ margin:14px 0 6px; font-size:15px; font-weight:800; }
+  .adult-table{ width:100%; border-collapse:collapse; font-size:13px; }
+  .adult-table th, .adult-table td{ padding:5px 6px; text-align:right; border-bottom:1px solid #eee9f7; }
+  .adult-table th:first-child, .adult-table td:first-child{ text-align:left; }
+  .adult-table th{ color:#7a7189; font-weight:700; }
+  .adult-bar{ display:inline-block; height:8px; border-radius:4px; background:linear-gradient(90deg,#ffca28,var(--accent)); vertical-align:middle; }
+  .adult-note{ font-size:12px; color:#7a7189; margin:4px 0; }
   @media (max-width: 420px){
     .answer-area{ padding:10px 10px; }
   }
@@ -834,6 +843,7 @@
   <footer>
     Sanaseikkailu · pilottiversio · kynä- ja puhesyöttö (vaihe 5)
     <div class="backup-row">
+      <button class="backup-btn" id="adultBtn" title="Edistymisen yhteenveto aikuiselle">📊 Aikuisen näkymä</button>
       <button class="backup-btn" id="exportBtn" title="Tallenna edistyminen tiedostoon">💾 Varmuuskopio</button>
       <button class="backup-btn" id="importBtn" title="Tuo edistyminen varmuuskopiotiedostosta">📂 Tuo varmuuskopio</button>
       <input type="file" id="importFile" accept="application/json" hidden>
@@ -854,6 +864,15 @@
         <input type="checkbox" id="themeStrictToggle">
         <span>Pysy vain valituissa teemoissa (ei täydennetä muista teemoista, vaikka sanoja olisi vähän)</span>
       </label>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="adultModalOverlay">
+    <div class="modal-card wide">
+      <button class="modal-close" id="adultModalClose" aria-label="Sulje">✕</button>
+      <h2 class="modal-title">Aikuisen näkymä</h2>
+      <p class="modal-subtitle" id="adultSubtitle"></p>
+      <div id="adultContent"></div>
     </div>
   </div>
 
@@ -1852,6 +1871,7 @@ async function recordResult(isCorrect, mode){
   }
   prev.lastSeen = new Date().toISOString();
   statsCache[id] = prev;
+  logPractice(isCorrect);
   await putStat(prev);
 }
 
@@ -2675,6 +2695,7 @@ async function recordSentenceResult(isCorrect){
   }
   prev.lastSeen = new Date().toISOString();
   statsCache[id] = prev;
+  logPractice(isCorrect);
   await putStat(prev);
   updateSentenceProgressLabel();
 }
@@ -2806,6 +2827,143 @@ function setPracticeMode(mode){
 
 practiceSwitchButtons.forEach(btn => {
   btn.addEventListener("click", () => setPracticeMode(btn.dataset.practice));
+});
+
+
+// --- Aikuisen näkymä (vaihe 24) ---
+// Päiväloki: vastausten määrä ja oikeat vastaukset päivittäin kielen mukaan,
+// laitekohtaisesti localStoragessa (ei IndexedDB:ssä, ei kuulu varmuuskopioon).
+const DAYLOG_KEY = "dayLog";
+const DAYLOG_KEEP_DAYS = 60;
+function localDateKey(d){
+  const dt = d || new Date();
+  const pad = n => String(n).padStart(2, "0");
+  return dt.getFullYear() + "-" + pad(dt.getMonth() + 1) + "-" + pad(dt.getDate());
+}
+function loadDayLog(){
+  try { return JSON.parse(localStorage.getItem(DAYLOG_KEY) || "{}") || {}; }
+  catch (e) { return {}; }
+}
+function logPractice(isCorrect){
+  try {
+    const log = loadDayLog();
+    const day = localDateKey();
+    const entry = (log[day] = log[day] || {});
+    const l = (entry[targetLang] = entry[targetLang] || { a: 0, c: 0 });
+    l.a += 1;
+    if (isCorrect) l.c += 1;
+    const keys = Object.keys(log).sort();
+    while (keys.length > DAYLOG_KEEP_DAYS) delete log[keys.shift()];
+    localStorage.setItem(DAYLOG_KEY, JSON.stringify(log));
+  } catch (e) { /* ei haittaa */ }
+}
+
+function adultStatsFor(words){
+  const r = { total: words.length, seen: 0, pen: 0, keyboard: 0, mic: 0, full: 0 };
+  words.forEach(w => {
+    const st = statsCache[statId(w)];
+    if (!st) return;
+    r.seen += 1;
+    if (stagePenGraduated(st)) r.pen += 1;
+    if (stageKeyboardGraduated(st)) r.keyboard += 1;
+    if (stageMicGraduated(st)) r.mic += 1;
+    if (isFullyLearned(st)) r.full += 1;
+  });
+  return r;
+}
+
+function buildProgressReport(){
+  const grades = gradesForLang().map(g => ({ grade: g, ...adultStatsFor(wordsForGrade(g)) }));
+  const themes = VOCAB.categories
+    .filter(c => PRACTICE_WORDS.some(w => w.category === c.id))
+    .map(c => ({
+      id: c.id, name: c.name_fi, hobby: c.group === "hobby", grade: categoryGrade(c),
+      ...adultStatsFor(PRACTICE_WORDS.filter(w => w.category === c.id))
+    }))
+    .sort((a, b) => (a.hobby - b.hobby) || ((a.grade || 0) - (b.grade || 0)) || a.name.localeCompare(b.name, "fi"));
+  const all = adultStatsFor(PRACTICE_WORDS);
+  // Hankalat sanat: eniten virheitä, joita ei ole vielä graduoitu näppäimistövaiheessa.
+  const hard = PRACTICE_WORDS
+    .map(w => ({ w, st: statsCache[statId(w)] }))
+    .filter(x => x.st && (x.st.incorrectCount || 0) >= 2 && !stageKeyboardGraduated(x.st))
+    .map(x => ({ id: x.w.id, word: firstAcceptedAnswer(x.w[targetLang]), fi: firstAcceptedAnswer(x.w.fi),
+      wrong: x.st.incorrectCount, total: (x.st.correctCount || 0) + (x.st.incorrectCount || 0) }))
+    .sort((a, b) => (b.wrong - a.wrong) || (b.wrong / b.total - a.wrong / a.total))
+    .slice(0, 10);
+  // Päiväloki viimeiseltä 14 päivältä (uusin ensin).
+  const log = loadDayLog();
+  const days = [];
+  for (let i = 0; i < 14; i++){
+    const d = new Date(); d.setDate(d.getDate() - i);
+    const key = localDateKey(d);
+    const e = (log[key] || {})[targetLang] || { a: 0, c: 0 };
+    days.push({ date: key, answers: e.a, correct: e.c });
+  }
+  const sents = sentencesForLang();
+  const sentenceStats = gradesForLang().map(g => {
+    const list = sentencesForGrade(g);
+    let seen = 0, mastered = 0;
+    list.forEach(sn => { const st = statsCache[sentenceStatId(sn)]; if (st){ seen++; if (isSentenceLearned(sn)) mastered++; } });
+    return { grade: g, total: list.length, seen, mastered };
+  });
+  let lastSeen = null;
+  Object.keys(statsCache).forEach(k => {
+    const st = statsCache[k];
+    if (st && st.language === targetLang && st.lastSeen && (!lastSeen || st.lastSeen > lastSeen)) lastSeen = st.lastSeen;
+  });
+  return { language: targetLang, all, grades, themes, hard, days, sentences: sentenceStats, sentenceTotal: sents.length, lastSeen };
+}
+
+function escHtml(t){ return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+function pct(n, d){ return d ? Math.round(100 * n / d) : 0; }
+
+function renderAdultView(){
+  const r = buildProgressReport();
+  const el = document.getElementById("adultContent");
+  document.getElementById("adultSubtitle").textContent =
+    `${LANGS[targetLang].label} · ` + (r.lastSeen ? "viimeksi harjoiteltu " + r.lastSeen.slice(0, 10) : "ei vielä harjoiteltu");
+  const bar = (n, d) => `<span class="adult-bar" style="width:${Math.round(60 * (d ? n / d : 0))}px"></span>`;
+  let h = "";
+  h += `<div class="adult-section">Yhteenveto</div>`;
+  h += `<p class="adult-note">Sanoja nähty ${r.all.seen}/${r.all.total}. Täysin opittu (kynä, näppäimistö ja puhe) ${r.all.full}. `
+     + `Opittu vaiheittain: kynä ${r.all.pen}, näppäimistö ${r.all.keyboard}, puhe ${r.all.mic}.</p>`;
+  h += `<div class="adult-section">Luokka-asteittain</div><table class="adult-table"><tr><th>Luokka</th><th>Sanoja</th><th>Nähty</th><th>Kynä</th><th>Näppäimistö</th><th>Puhe</th><th>Täysin</th></tr>`;
+  r.grades.forEach(g => {
+    h += `<tr><td>${g.grade}. lk</td><td>${g.total}</td><td>${g.seen}</td><td>${g.pen}</td><td>${g.keyboard}</td><td>${g.mic}</td><td>${g.full} ${bar(g.full, g.total)}</td></tr>`;
+  });
+  h += `</table>`;
+  h += `<div class="adult-section">Teemoittain</div><table class="adult-table"><tr><th>Teema</th><th>Luokka</th><th>Sanoja</th><th>Nähty</th><th>Näppäimistö</th><th>Täysin</th></tr>`;
+  r.themes.forEach(t => {
+    h += `<tr><td>${escHtml(t.name)}</td><td>${t.hobby ? "harraste" : t.grade}</td><td>${t.total}</td><td>${t.seen}</td><td>${t.keyboard}</td><td>${t.full} ${bar(t.full, t.total)}</td></tr>`;
+  });
+  h += `</table>`;
+  h += `<div class="adult-section">Hankalat sanat</div>`;
+  if (r.hard.length){
+    h += `<table class="adult-table"><tr><th>Sana</th><th>Suomeksi</th><th>Väärin</th><th>Yrityksiä</th></tr>`;
+    r.hard.forEach(x => { h += `<tr><td>${escHtml(x.word)}</td><td>${escHtml(x.fi)}</td><td>${x.wrong}</td><td>${x.total}</td></tr>`; });
+    h += `</table><p class="adult-note">Sanat, joissa on vähintään 2 virhettä eikä näppäimistövaihe ole vielä opittu.</p>`;
+  } else {
+    h += `<p class="adult-note">Ei hankalia sanoja tällä hetkellä.</p>`;
+  }
+  h += `<div class="adult-section">Viimeiset 14 päivää</div><table class="adult-table"><tr><th>Päivä</th><th>Vastauksia</th><th>Oikein</th><th>%</th></tr>`;
+  r.days.forEach(d => { h += `<tr><td>${d.date}</td><td>${d.answers}</td><td>${d.correct}</td><td>${d.answers ? pct(d.correct, d.answers) + " %" : "–"}</td></tr>`; });
+  h += `</table><p class="adult-note">Päiväloki tallentuu vasta tästä versiosta alkaen ja vain tälle laitteelle (sanat ja virkkeet yhteensä).</p>`;
+  if (r.sentenceTotal){
+    h += `<div class="adult-section">Virkkeet</div><table class="adult-table"><tr><th>Luokka</th><th>Virkkeitä</th><th>Nähty</th><th>Opittu</th></tr>`;
+    r.sentences.forEach(g => { h += `<tr><td>${g.grade}. lk</td><td>${g.total}</td><td>${g.seen}</td><td>${g.mastered}</td></tr>`; });
+    h += `</table>`;
+  }
+  el.innerHTML = h;
+}
+
+const adultModalOverlay = document.getElementById("adultModalOverlay");
+function openAdultView(){ renderAdultView(); adultModalOverlay.classList.add("visible"); }
+function closeAdultView(){ adultModalOverlay.classList.remove("visible"); }
+document.getElementById("adultBtn").addEventListener("click", openAdultView);
+document.getElementById("adultModalClose").addEventListener("click", closeAdultView);
+adultModalOverlay.addEventListener("click", (e) => { if (e.target === adultModalOverlay) closeAdultView(); });
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && adultModalOverlay.classList.contains("visible")) closeAdultView();
 });
 
 // --- init ---
