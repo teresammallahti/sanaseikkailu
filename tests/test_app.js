@@ -51,7 +51,7 @@ test('Boot: luokka-asteen valinnassa 9 vaihtoehtoa', async () => {
 
 test('Boot: teemavalikko sisältää "all" + luokka-asteen teemat + harrasteteemat', async () => {
   const app = await boot();
-  const expected = app.run('VOCAB.categories.filter(c => c.grade === 1 || c.group === "hobby").length');
+  const expected = app.run('VOCAB.categories.filter(c => c.grade === 1 || c.group === "hobby" || c.exam).length');
   assert.strictEqual(app.elements.themeList._children.length, expected);
   assert.strictEqual(app.elements.themeButton.textContent, 'Kaikki teemat');
   app.dispose();
@@ -734,7 +734,7 @@ test('Virkkeet: setPracticeMode vaihtaa näkymät molempiin suuntiin', async () 
   app.run('setPracticeMode("sentences")');
   assert.strictEqual(wp.hidden, true);
   assert.strictEqual(sp.hidden, false);
-  assert.strictEqual(app.elements.themeButton.style.display, 'none');
+  assert.notStrictEqual(app.elements.themeButton.style.display, 'none'); // Koe 1 -virkkeet
   assert.ok(app.run('currentSentence') !== null);
   assert.ok(app.elements.sentenceFiPrompt.textContent.length > 0);
   app.run('setPracticeMode("words")');
@@ -1445,7 +1445,7 @@ test('Aikuinen: virkkeet näkyvät raportissa', async () => {
   const r = J(app, 'buildProgressReport()');
   assert.strictEqual(r.sentences[0].seen, 1);
   assert.strictEqual(r.sentences[0].mastered, 1);
-  assert.strictEqual(r.sentenceTotal, 180);
+  assert.strictEqual(r.sentenceTotal, 218);
   app.dispose();
 });
 
@@ -1551,7 +1551,7 @@ test('Viikon sanat: virketila ei kärsi, painike ja teemanappi piilossa virkkeis
   app.run('setPracticeMode("sentences");');
   await app.flush();
   assert.strictEqual(app.elements.focusButton.style.display, 'none');
-  assert.strictEqual(app.elements.themeButton.style.display, 'none');
+  assert.notStrictEqual(app.elements.themeButton.style.display, 'none'); // Koe 1 -virkkeet (vaihe 31)
   assert.notStrictEqual(app.run('currentSentence'), null);
   app.run('setPracticeMode("words");');
   assert.strictEqual(app.elements.focusButton.style.display, '');
@@ -1605,7 +1605,7 @@ test('Yläkoulu: etenemisjärjestys 6 -> 7 kun 6. luokka valmis, ja pooli 7. luo
 test('Yläkoulu: englannin virkkeet 7-9 (20 / luokka), virketila 7. luokalla toimii', async () => {
   const app = await boot({ localStorage: { grade_en: '7' } });
   for (const g of [7, 8, 9]) assert.strictEqual(app.run(`sentencesForGrade(${g}).length`), 20, 'luokka ' + g);
-  assert.strictEqual(app.run('SENTENCE_DATA.en.length'), 180);
+  assert.strictEqual(app.run('SENTENCE_DATA.en.length'), 218);
   app.run('setPracticeMode("sentences");');
   await app.flush();
   assert.notStrictEqual(app.run('currentSentence'), null);
@@ -1641,6 +1641,77 @@ test('Yläkoulu: aikuisen raportti kattaa luokat 7-9', async () => {
 });
 
 // ---------------- Ajo ----------------
+// ---------- Koe 1 (vaihe 31) ----------
+test('Koe 1: teema näkyy ensimmäisenä englannin teemalistassa luokasta riippumatta, ei saksassa', async () => {
+  const app = await boot();
+  const rows = app.elements.themeList._children;
+  assert.strictEqual(rows[0].dataset.cat, 'koe1_4');
+  assert.strictEqual(J(app, 'categoryName("koe1_4")'), 'Koe 1');
+  app.dispose();
+  const de = await boot();
+  de.run('selectTargetLang("de")');
+  await de.flush();
+  assert.ok(!de.elements.themeList._children.some(r => r.dataset.cat === 'koe1_4'));
+  de.dispose();
+});
+
+test('Koe 1: teeman valinta rajaa poolin vain koealueen sanoihin (myös muiden luokkien sanat), ei täydennystä ulkopuolelta', async () => {
+  const app = await boot();
+  app.run('toggleTheme("koe1_4", true)');
+  await app.flush();
+  const pool = J(app, 'eligibleWordsForCategoryScope(selectedThemes).map(w => w.id)');
+  const n = J(app, 'PRACTICE_WORDS.filter(w => wordInCategory(w, "koe1_4")).length');
+  assert.ok(n >= 100, 'koealueella vähintään 100 sanaa: ' + n);
+  assert.strictEqual(pool.length, n);
+  assert.strictEqual(app.run('outsideTopUpAllowed(selectedThemes)'), false);
+  const sessionIds = J(app, 'sessionPool.map(w => w.id)');
+  assert.ok(sessionIds.length >= 10);
+  assert.ok(sessionIds.every(id => pool.includes(id)), 'istuntopooli vain Koe 1 -sanoja');
+  // sanoja ylemmiltä ja alemmilta luokilta mukana
+  const grades = J(app, 'Array.from(new Set(PRACTICE_WORDS.filter(w => wordInCategory(w, "koe1_4")).map(w => wordGrade(w))))');
+  assert.ok(grades.length >= 3, 'useita luokka-asteita: ' + grades);
+  app.dispose();
+});
+
+test('Koe 1: virketila - teemalla 38 omaa virkettä, tavalliseen luokkapooliin ne eivät kuulu', async () => {
+  const app = await boot();
+  assert.strictEqual(J(app, 'sentencesForLang().filter(s => s.theme === "koe1_4").length'), 38);
+  assert.ok(J(app, '[1,2,3,4,5,6,7,8,9].every(g => sentencesForGrade(g).length === 20)'));
+  app.run('setPracticeMode("sentences")');
+  assert.strictEqual(J(app, 'currentSentence.theme || null'), null);
+  app.run('toggleTheme("koe1_4", true)');
+  await app.flush();
+  for (let i = 0; i < 12; i++){
+    assert.strictEqual(J(app, 'currentSentence.theme'), 'koe1_4');
+    app.run('pickSentenceRound()');
+  }
+  assert.ok(app.elements.sentenceProgressLabel.textContent.includes('Koe 1'));
+  assert.ok(app.elements.sentenceProgressLabel.textContent.includes('/38'));
+  // teeman tyhjennys palauttaa luokan virkkeet
+  app.run('toggleTheme("koe1_4", false)');
+  await app.flush();
+  assert.strictEqual(J(app, 'currentSentence.theme || null'), null);
+  app.dispose();
+});
+
+test('Koe 1: virkkeet hyväksyvät vaihtoehtoiset muodot ja sisältävät vain englanninkielisen datan oikein', async () => {
+  const app = await boot();
+  const s = J(app, 'sentencesForLang().find(x => x.id === "en_k1_22")');
+  assert.ok(app.run(`matchesSentence("Are you watching television?", sentencesForLang().find(x => x.id === "en_k1_22"))`));
+  assert.ok(app.run(`matchesSentence("are you watching tv", sentencesForLang().find(x => x.id === "en_k1_22"))`));
+  assert.ok(s.fi.includes('nyt'));
+  app.dispose();
+});
+
+test('Koe 1: aikuisen raportissa Koe 1 -teema sisältää sanat muilta luokilta', async () => {
+  const app = await boot();
+  const r = J(app, 'buildProgressReport()');
+  const th = r.themes.find(x => x.id === 'koe1_4');
+  assert.ok(th && th.total >= 100, JSON.stringify(th));
+  app.dispose();
+});
+
+
 (async () => {
   const filter = process.argv[2];
   for (const t of tests) {

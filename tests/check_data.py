@@ -4,7 +4,7 @@ import json, re, subprocess, sys, collections
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-VOCAB = REPO / "en_1_9lk_v10.json"
+VOCAB = REPO / "en_1_9lk_v12.json"
 TEMPLATE = REPO / "index_template.html"
 
 ERR, WARN, INFO = collections.defaultdict(list), collections.defaultdict(list), collections.defaultdict(list)
@@ -47,7 +47,7 @@ MAX_GRADE = 9          # englanti 1.-9. lk
 DE_OPTIONAL_FROM = 7   # yläkoulun (grade >= 7) kategorioissa de-kenttä on valinnainen
 def de_optional(w):
     c = catmap.get(w.get("category")); g = c.get("grade") if c else None
-    return isinstance(g, int) and g >= DE_OPTIONAL_FROM
+    return (isinstance(g, int) and g >= DE_OPTIONAL_FROM) or bool(c and c.get("no_de"))
 
 # ---------- ids ----------
 def dups(seq):

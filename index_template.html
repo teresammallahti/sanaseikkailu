@@ -1179,6 +1179,16 @@ function categoryGrade(c){
   return c.grade + startGrade() - 1;
 }
 
+// Sana kuuluu teemaan joko pääkategoriansa kautta tai lisäteemana (word.also,
+// esim. koealueet "Koe 1", joihin poimitaan sanoja eri luokka-asteiden teemoista).
+function wordInCategory(w, id){
+  return w.category === id || (Array.isArray(w.also) && w.also.includes(id));
+}
+function isExamCategory(id){
+  const c = VOCAB.categories.find(x => x.id === id);
+  return !!(c && c.exam);
+}
+
 function wordGrade(word){
   return categoryGrade(VOCAB.categories.find(c => c.id === word.category));
 }
@@ -1276,7 +1286,13 @@ function maybeAdvanceGrade(){
 // (group=hobby), jotka näkyvät aina luokka-asteesta riippumatta. Valittuja teemoja
 // voi olla useita; tyhjä valinta tarkoittaa kaikkia teemoja.
 function selectableCategories(){
-  return VOCAB.categories.filter(c => categoryGrade(c) === activeGrade || c.group === "hobby");
+  const langOk = c => !c.lang || c.lang === targetLang;
+  if (practiceMode === "sentences"){
+    const themed = new Set(sentencesForLang().filter(s => s.theme).map(s => s.theme));
+    return VOCAB.categories.filter(c => themed.has(c.id));
+  }
+  return VOCAB.categories.filter(c => langOk(c) &&
+    (categoryGrade(c) === activeGrade || c.group === "hobby" || c.exam));
 }
 
 function themeButtonLabel(){
@@ -1311,7 +1327,8 @@ function populateCategoryOptions(){
     row.appendChild(span);
     themeList.appendChild(row);
   };
-  cats.filter(c => c.group !== "hobby").forEach(addRow);
+  cats.filter(c => c.exam).forEach(addRow);
+  cats.filter(c => c.group !== "hobby" && !c.exam).forEach(addRow);
   cats.filter(c => c.group === "hobby").forEach(addRow);
   themeModalSubtitle.textContent = selectedThemes.length
     ? `Valittu ${selectedThemes.length} teemaa (${activeGrade}. luokka)`
@@ -1323,6 +1340,10 @@ function applyThemeChange(){
   current = null;
   initSessionPool();
   pickWord();
+  if (practiceMode === "sentences"){
+    currentSentence = null;
+    pickSentenceRound();
+  }
 }
 
 function toggleTheme(id, on){
@@ -1373,8 +1394,8 @@ function eligibleWordsForCategoryScope(sel){
   if (focusActive()) return PRACTICE_WORDS.filter(w => focusIds.includes(w.id));
   if (!sel || !sel.length) return wordsForGrade(activeGrade);
   const gradeIds = new Set(wordsForGrade(activeGrade).map(w => w.id));
-  return PRACTICE_WORDS.filter(w => sel.includes(w.category) &&
-    (categoryGroup(w.category) === "hobby" || gradeIds.has(w.id)));
+  return PRACTICE_WORDS.filter(w => sel.some(id => wordInCategory(w, id) &&
+    (categoryGroup(id) === "hobby" || isExamCategory(id) || gradeIds.has(w.id))));
 }
 
 // Onko täydennys valittujen teemojen ulkopuolelta sallittu: ei tiukassa tilassa,
@@ -1384,7 +1405,7 @@ function outsideTopUpAllowed(sel){
   if (focusActive()) return false;
   if (!sel || !sel.length) return true;
   if (themeStrict) return false;
-  return sel.some(id => categoryGroup(id) !== "hobby");
+  return sel.some(id => categoryGroup(id) !== "hobby" && !isExamCategory(id));
 }
 
 // Täydennysjärjestys luokka-asteiden yli (korjattu vaiheessa 20): ensin kaikki
@@ -1406,7 +1427,7 @@ function fillFromOtherGrades(pool, sel, excludeIds){
     if (pool.length >= ACTIVE_POOL_MIN) break;
     const gradeWords = wordsForGrade(g).filter(w => !excludeIds.has(w.id));
     // Teemarajauksen mukaiset sanat ensin, sitten muut saman luokka-asteen sanat.
-    const scoped = !sel.length ? gradeWords : gradeWords.filter(w => sel.includes(w.category));
+    const scoped = !sel.length ? gradeWords : gradeWords.filter(w => sel.some(id => wordInCategory(w, id)));
     for (const src of (scoped === gradeWords ? [gradeWords] : [scoped, gradeWords])){
       fillPoolFrom(src.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
       fillPoolFrom(src.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
@@ -2540,7 +2561,45 @@ const SENTENCE_DATA = {
     { id: "en_g9_17", grade: 9, en: "Max tried to persuade his parents, but they did not agree with him.", fi: "Max yritti suostutella vanhempiaan, mutta he eivät olleet samaa mieltä hänen kanssaan." },
     { id: "en_g9_18", grade: 9, en: "In our conversation, the teacher suggested that I should read more English books.", fi: "Keskustelussamme opettaja ehdotti, että lukisin enemmän englanninkielisiä kirjoja.", alt: ["In our conversation, the teacher suggested that I read more English books.","In our conversation, the teacher suggested I should read more English books.","In our conversation, the teacher suggested I read more English books."] },
     { id: "en_g9_19", grade: 9, en: "Despite the rain, we carried on walking to the top of the mountain.", fi: "Sateesta huolimatta jatkoimme kävelemistä vuoren huipulle.", alt: ["We carried on walking to the top of the mountain despite the rain."] },
-    { id: "en_g9_20", grade: 9, en: "Unless you study harder, you will probably fail the English exam.", fi: "Ellet opiskele ahkerammin, reputat luultavasti englannin kokeen.", alt: ["Unless you study harder, you will probably fail the English test.","If you do not study harder, you will probably fail the English exam.","If you do not study harder, you will probably fail the English test."] }
+    { id: "en_g9_20", grade: 9, en: "Unless you study harder, you will probably fail the English exam.", fi: "Ellet opiskele ahkerammin, reputat luultavasti englannin kokeen.", alt: ["Unless you study harder, you will probably fail the English test.","If you do not study harder, you will probably fail the English exam.","If you do not study harder, you will probably fail the English test."] },
+    { id: "en_k1_1", grade: 4, theme: "koe1_4", en: "I am shy.", fi: "Olen ujo." },
+    { id: "en_k1_2", grade: 4, theme: "koe1_4", en: "You are not lazy.", fi: "Et ole laiska." },
+    { id: "en_k1_3", grade: 4, theme: "koe1_4", en: "Leo is very brave.", fi: "Leo on hyvin rohkea." },
+    { id: "en_k1_4", grade: 4, theme: "koe1_4", en: "Mia is not clumsy.", fi: "Mia ei ole kömpelö." },
+    { id: "en_k1_5", grade: 4, theme: "koe1_4", en: "Is he sporty?", fi: "Onko hän urheilullinen?" },
+    { id: "en_k1_6", grade: 4, theme: "koe1_4", en: "Are you curious?", fi: "Oletko utelias?" },
+    { id: "en_k1_7", grade: 4, theme: "koe1_4", en: "We are calm and kind.", fi: "Olemme rauhallisia ja ystävällisiä." },
+    { id: "en_k1_8", grade: 4, theme: "koe1_4", en: "They are not late.", fi: "He eivät ole myöhässä." },
+    { id: "en_k1_9", grade: 4, theme: "koe1_4", en: "Is she creative?", fi: "Onko hän luova?" },
+    { id: "en_k1_10", grade: 4, theme: "koe1_4", en: "My friend is funny and clever.", fi: "Ystäväni on hassu ja älykäs." },
+    { id: "en_k1_11", grade: 4, theme: "koe1_4", en: "The dogs are active.", fi: "Koirat ovat aktiivisia." },
+    { id: "en_k1_12", grade: 4, theme: "koe1_4", en: "The cleaner is not weak. He is strong.", fi: "Siivooja ei ole heikko. Hän on vahva." },
+    { id: "en_k1_13", grade: 4, theme: "koe1_4", en: "The snail is slow.", fi: "Etana on hidas." },
+    { id: "en_k1_14", grade: 4, theme: "koe1_4", en: "The music is very loud.", fi: "Musiikki on hyvin äänekästä." },
+    { id: "en_k1_15", grade: 4, theme: "koe1_4", en: "Be quiet, please.", fi: "Ole hiljaa, kiitos.", alt: ["Please be quiet."] },
+    { id: "en_k1_16", grade: 4, theme: "koe1_4", en: "I am painting a picture.", fi: "Maalaan nyt kuvaa." },
+    { id: "en_k1_17", grade: 4, theme: "koe1_4", en: "You are not sleeping.", fi: "Et nuku nyt." },
+    { id: "en_k1_18", grade: 4, theme: "koe1_4", en: "Max is riding a bike.", fi: "Max ajaa nyt pyörällä.", alt: ["Max is riding a bicycle."] },
+    { id: "en_k1_19", grade: 4, theme: "koe1_4", en: "Anna is climbing a tree.", fi: "Anna kiipeää nyt puuhun." },
+    { id: "en_k1_20", grade: 4, theme: "koe1_4", en: "We are looking for the cat.", fi: "Etsimme nyt kissaa.", alt: ["We are looking for a cat."] },
+    { id: "en_k1_21", grade: 4, theme: "koe1_4", en: "They are throwing a ball.", fi: "He heittävät nyt palloa.", alt: ["They are throwing the ball."] },
+    { id: "en_k1_22", grade: 4, theme: "koe1_4", en: "Are you watching TV?", fi: "Katsotko nyt televisiota?", alt: ["Are you watching television?", "Are you watching the TV?"] },
+    { id: "en_k1_23", grade: 4, theme: "koe1_4", en: "What are you doing?", fi: "Mitä sinä teet?" },
+    { id: "en_k1_24", grade: 4, theme: "koe1_4", en: "I am not hiding.", fi: "En ole nyt piilossa." },
+    { id: "en_k1_25", grade: 4, theme: "koe1_4", en: "The teacher is opening the door.", fi: "Opettaja avaa ovea." },
+    { id: "en_k1_26", grade: 4, theme: "koe1_4", en: "Is he listening to music?", fi: "Kuunteleeko hän nyt musiikkia?" },
+    { id: "en_k1_27", grade: 4, theme: "koe1_4", en: "The children are swimming underwater.", fi: "Lapset uivat nyt veden alla." },
+    { id: "en_k1_28", grade: 4, theme: "koe1_4", en: "Grandmother is driving a car.", fi: "Isoäiti ajaa nyt autoa." },
+    { id: "en_k1_29", grade: 4, theme: "koe1_4", en: "We are not closing the window.", fi: "Emme nyt sulje ikkunaa." },
+    { id: "en_k1_30", grade: 4, theme: "koe1_4", en: "I have maths at nine o'clock.", fi: "Minulla on matematiikkaa yhdeksältä.", alt: ["I have maths at nine."] },
+    { id: "en_k1_31", grade: 4, theme: "koe1_4", en: "We have English at half past ten.", fi: "Meillä on englantia puoli yhdeltätoista." },
+    { id: "en_k1_32", grade: 4, theme: "koe1_4", en: "PE is at quarter past eleven.", fi: "Liikunta on vartin yli yksitoista.", alt: ["PE is at a quarter past eleven.", "We have PE at quarter past eleven."] },
+    { id: "en_k1_33", grade: 4, theme: "koe1_4", en: "The history lesson is at two o'clock.", fi: "Historian tunti on kahdelta.", alt: ["The history lesson is at two.", "History is at two o'clock."] },
+    { id: "en_k1_34", grade: 4, theme: "koe1_4", en: "What do you have at quarter to ten?", fi: "Mitä sinulla on varttia vaille kymmenen?", alt: ["What do you have at a quarter to ten?", "What have you got at quarter to ten?", "What have you got at a quarter to ten?"] },
+    { id: "en_k1_35", grade: 4, theme: "koe1_4", en: "I have art on Monday.", fi: "Minulla on kuvaamataitoa maanantaina." },
+    { id: "en_k1_36", grade: 4, theme: "koe1_4", en: "We have music on Wednesday.", fi: "Meillä on musiikkia keskiviikkona." },
+    { id: "en_k1_37", grade: 4, theme: "koe1_4", en: "It is time for the first lesson.", fi: "On ensimmäisen oppitunnin aika." },
+    { id: "en_k1_38", grade: 4, theme: "koe1_4", en: "Are you late for science?", fi: "Oletko myöhässä ympäristöopista?" }
   ],
   de: [
     {id:"de_g1_1", grade:1, de:"Ich heiße Tom.", fi:"Minun nimeni on Tom.", alt:["Mein Name ist Tom."]},
@@ -2641,7 +2700,14 @@ let sentenceRecognition = null;
 
 function sentencesForLang(){ return SENTENCE_DATA[targetLang] || []; }
 // Virkkeiden "grade" on samoin opiskeluvuosi (ks. LANG_START_GRADE).
-function sentencesForGrade(g){ return sentencesForLang().filter(s => s.grade + startGrade() - 1 === g); }
+function sentencesForGrade(g){ return sentencesForLang().filter(s => !s.theme && s.grade + startGrade() - 1 === g); }
+// Koealueen (teeman) virkkeet: jos valittuna on teema, jolla on omia virkkeitä
+// (s.theme), harjoitellaan vain niitä; muuten luokka-asteen tavalliset virkkeet.
+function activeSentenceTheme(){
+  const themed = sentencesForLang().filter(s => s.theme && selectedThemes.includes(s.theme));
+  return themed.length ? themed : null;
+}
+function activeSentencePool(){ return activeSentenceTheme() || sentencesForGrade(activeGrade); }
 function sentenceStatId(sentence){ return `sentence|${targetLang}|${sentence.id}`; }
 function sentenceStat(sentence){ return statsCache[sentenceStatId(sentence)] || null; }
 function isSentenceLearned(sentence){
@@ -2744,10 +2810,11 @@ function speakSentence(text){
 }
 
 function updateSentenceProgressLabel(){
-  const pool = sentencesForGrade(activeGrade);
+  const themedPool = activeSentenceTheme();
+  const pool = activeSentencePool();
   const learned = pool.filter(isSentenceLearned).length;
   sentenceProgressLabel.textContent = pool.length
-    ? `Opittu ${learned}/${pool.length} virkettä (${activeGrade}. luokka, ${LANGS[targetLang].label})`
+    ? `Opittu ${learned}/${pool.length} virkettä (${themedPool ? selectedThemes.filter(id => themedPool.some(s => s.theme === id)).map(categoryName).join(", ") : activeGrade + ". luokka"}, ${LANGS[targetLang].label})`
     : "Ei vielä virkkeitä tälle luokka-asteelle.";
 }
 
@@ -2825,7 +2892,7 @@ function renderSentenceRound(){
 }
 
 function pickSentenceRound(){
-  const pool = sentencesForGrade(activeGrade);
+  const pool = activeSentencePool();
   if (!pool.length){
     currentSentence = null;
     sentenceFiPrompt.textContent = "…";
@@ -2984,6 +3051,7 @@ function setPracticeMode(mode){
   });
   wordPracticeEl.hidden = mode !== "words";
   sentencePracticeEl.hidden = mode !== "sentences";
+  populateCategoryOptions();
   updateFocusUI();
   clearTimeout(autoSpeakTimer);
   if (window.speechSynthesis) speechSynthesis.cancel();
@@ -3058,7 +3126,8 @@ function updateFocusUI(){
   focusButton.style.display = wordsMode && focusIds.length ? "" : "none";
   focusButton.classList.toggle("active", focusActive());
   focusButton.setAttribute("aria-pressed", focusActive() ? "true" : "false");
-  themeButton.style.display = wordsMode && !focusActive() ? "" : "none";
+  const sentenceThemes = !wordsMode && sentencesForLang().some(s => s.theme);
+  themeButton.style.display = (wordsMode && !focusActive()) || sentenceThemes ? "" : "none";
 }
 
 function renderFocusSection(){
@@ -3150,10 +3219,10 @@ function adultStatsFor(words){
 function buildProgressReport(){
   const grades = gradesForLang().map(g => ({ grade: g, ...adultStatsFor(wordsForGrade(g)) }));
   const themes = VOCAB.categories
-    .filter(c => PRACTICE_WORDS.some(w => w.category === c.id))
+    .filter(c => PRACTICE_WORDS.some(w => wordInCategory(w, c.id)))
     .map(c => ({
       id: c.id, name: c.name_fi, hobby: c.group === "hobby", grade: categoryGrade(c),
-      ...adultStatsFor(PRACTICE_WORDS.filter(w => w.category === c.id))
+      ...adultStatsFor(PRACTICE_WORDS.filter(w => wordInCategory(w, c.id)))
     }))
     .sort((a, b) => (a.hobby - b.hobby) || ((a.grade || 0) - (b.grade || 0)) || a.name.localeCompare(b.name, "fi"));
   const all = adultStatsFor(PRACTICE_WORDS);

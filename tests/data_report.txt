@@ -1,33 +1,37 @@
-Sanaseikkailu data check: 476 words, 45 categories, 120 sentences
+Sanaseikkailu data check: 1579 words, 92 categories, 218 sentences
 
 ===== ERRORS (0) =====
 
-===== WARNINGS (2) =====
+===== WARNINGS (3) =====
 
 [DE: possible missing article] (2)
   - polite_phrases_sorry: en='sorry' de='Entschuldigung'
   - gaming_fortnite_loot: en='loot' de='Beute sammeln'
 
-===== INFO (58) =====
+[Sentence length not increasing] (1)
+  - grade 7 avg 10.20 < grade 6 avg 11.30
 
-[Pattern phrases with '...' (filtered from practice)] (1)
+===== INFO (109) =====
+
+[Pattern phrases with '...' (filtered from practice)] (2)
   - greetings_phrases_my_name_is: en='my name is ...' fi='nimeni on ...' de='ich heiße ...'
+  - phrases_4_can_i_have: en='Can I have...?' fi='Saisinko...?' de=None
 
 [DE equals EN (eyeball)] (2)
   - adjectives_modern: 'modern' = 'modern'
   - countries_england: 'England' = 'England'
 
 [Words per grade] (1)
-  - g1: 87, g2: 78, g3: 85, g4: 75, g5: 70, g6: 63, ungraded(hobby): 18
+  - g1: 89, g2: 78, g3: 88, g4: 949, g5: 70, g6: 63, g7: 74, g8: 75, g9: 75, ungraded(hobby): 18
 
-[Words per category] (45)
+[Words per category] (92)
   - school_people (grade 3, ops): 7
-  - school_subjects (grade 3, ops): 16
+  - school_subjects (grade 3, ops): 17
   - weekdays (grade 2, ops): 7
   - places_town (grade 4, ops): 5
   - belongings (grade 4, ops): 6
   - appearance (grade 4, ops): 9
-  - food_savoury (grade 3, ops): 14
+  - food_savoury (grade 3, ops): 15
   - fruit (grade 2, ops): 13
   - polite_phrases (grade 3, ops): 6
   - time (grade 4, ops): 5
@@ -47,9 +51,9 @@ Sanaseikkailu data check: 476 words, 45 categories, 120 sentences
   - school_objects (grade 2, ops): 6
   - personality (grade 4, ops): 12
   - opposites (grade 3, ops): 24
-  - verbs_action (grade 4, ops): 17
-  - verbs_communication (grade 4, ops): 11
-  - perusverbit_1 (grade 1, ops): 14
+  - verbs_action (grade 4, ops): 19
+  - verbs_communication (grade 4, ops): 9
+  - perusverbit_1 (grade 1, ops): 16
   - paivarutiinit_4 (grade 4, ops): 10
   - professions_5 (grade 5, ops): 10
   - sports_5 (grade 5, ops): 12
@@ -64,24 +68,74 @@ Sanaseikkailu data check: 476 words, 45 categories, 120 sentences
   - countries_6 (grade 6, ops): 10
   - future_plans_6 (grade 6, ops): 10
   - aikasanat_2 (grade 2, ops): 10
-  - yleissanat_3 (grade 3, ops): 9
+  - yleissanat_3 (grade 3, ops): 10
   - sidesanat_5 (grade 5, ops): 7
+  - free_time_7 (grade 7, ops): 10
+  - health_7 (grade 7, ops): 11
+  - cooking_7 (grade 7, ops): 11
+  - money_7 (grade 7, ops): 11
+  - town_7 (grade 7, ops): 10
+  - nature_7 (grade 7, ops): 11
+  - relationships_7 (grade 7, ops): 10
+  - media_8 (grade 8, ops): 11
+  - travel_8 (grade 8, ops): 10
+  - environment_8 (grade 8, ops): 11
+  - work_8 (grade 8, ops): 11
+  - culture_8 (grade 8, ops): 10
+  - sports_events_8 (grade 8, ops): 11
+  - opinions_8 (grade 8, ops): 11
+  - society_9 (grade 9, ops): 10
+  - education_9 (grade 9, ops): 10
+  - science_9 (grade 9, ops): 10
+  - sustainability_9 (grade 9, ops): 11
+  - communication_9 (grade 9, ops): 10
+  - connectors_9 (grade 9, ops): 13
+  - phrasal_9 (grade 9, ops): 11
+  - animals_4 (grade 4, ops): 63
+  - food_4 (grade 4, ops): 59
+  - home_4 (grade 4, ops): 37
+  - chores_4 (grade 4, ops): 13
+  - nature_4 (grade 4, ops): 43
+  - body_4 (grade 4, ops): 17
+  - people_4 (grade 4, ops): 27
+  - fantasy_4 (grade 4, ops): 21
+  - places_4 (grade 4, ops): 35
+  - clothes_4 (grade 4, ops): 23
+  - school_4 (grade 4, ops): 40
+  - hobbies_4 (grade 4, ops): 40
+  - sports_4 (grade 4, ops): 36
+  - calendar_4 (grade 4, ops): 19
+  - time_4 (grade 4, ops): 22
+  - numbers_4 (grade 4, ops): 20
+  - countries_4 (grade 4, ops): 24
+  - pronouns_4 (grade 4, ops): 17
+  - little_4 (grade 4, ops): 47
+  - places_dir_4 (grade 4, ops): 23
+  - general_4 (grade 4, ops): 51
+  - verbs1_4 (grade 4, ops): 57
+  - verbs2_4 (grade 4, ops): 63
+  - adj_4 (grade 4, ops): 58
+  - phrases_4 (grade 4, ops): 16
+  - koe1_4 (grade 4, ops): 3
 
 [Sentences per grade] (1)
-  - g1: 20, g2: 20, g3: 20, g4: 20, g5: 20, g6: 20 (total 120)
+  - g1: 20, g2: 20, g3: 20, g4: 58, g5: 20, g6: 20, g7: 20, g8: 20, g9: 20 (total 218)
 
 [Average sentence length (words)] (1)
-  - g1: 4.05, g2: 5.00, g3: 5.85, g4: 7.70, g5: 8.95, g6: 11.30
+  - g1: 4.05, g2: 5.00, g3: 5.85, g4: 5.90, g5: 8.95, g6: 11.30, g7: 10.20, g8: 11.80, g9: 12.25
 
-[Sentence vocabulary coverage (content words in vocab at grade <= g; light plural/-ing/-ed stemming)] (6)
+[Sentence vocabulary coverage (content words in vocab at grade <= g; light plural/-ing/-ed stemming)] (9)
   - grade 1: 25/36 = 69.4%
   - grade 2: 41/53 = 77.4%
-  - grade 3: 50/63 = 79.4%
-  - grade 4: 60/71 = 84.5%
-  - grade 5: 64/89 = 71.9%
-  - grade 6: 74/113 = 65.5%
+  - grade 3: 51/63 = 81.0%
+  - grade 4: 133/153 = 86.9%
+  - grade 5: 73/89 = 82.0%
+  - grade 6: 89/113 = 78.8%
+  - grade 7: 90/112 = 80.4%
+  - grade 8: 107/127 = 84.3%
+  - grade 9: 112/136 = 82.4%
 
 [Top 30 sentence words NOT in vocabulary at all] (1)
-  - leo(3), anna(2), max(2), don't(2), mia(2), emma(2), taller(2), can't(1), tom(1), ella(1), june(1), little(1), going(1), trip(1), london(1), best(1), planning(1), surprise(1), party(1), roller(1), coaster(1), recycle(1), protect(1), environment(1), finished(1), cancelled(1), something(1), grow(1), much(1), cost(1)
+  - max(7), leo(7), anna(6), mia(6), emma(4), going(3), much(3), got(3), taller(2), won(2), way(2), forgot(2), causes(2), can't(1), tom(1), ella(1), tv(1), doing(1), hiding(1), driving(1), pe(1), planning(1), roller(1), coaster(1), cancelled(1), plane(1), educational(1), practised(1), mistakes(1), clearly(1)
 
-SUMMARY: 0 error(s), 2 warning(s)
+SUMMARY: 0 error(s), 3 warning(s)
