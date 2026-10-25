@@ -4,7 +4,7 @@ import json, re, subprocess, sys, collections
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-VOCAB = REPO / "en_1_9lk_v12.json"
+VOCAB = REPO / "en_1_9lk_v13.json"
 TEMPLATE = REPO / "index_template.html"
 
 ERR, WARN, INFO = collections.defaultdict(list), collections.defaultdict(list), collections.defaultdict(list)
@@ -40,8 +40,9 @@ def load_sentences():
     return json.loads(r.stdout)
 
 data = json.load(open(VOCAB, encoding="utf-8"))
+ALLW = data["words"]  # sis. de_only-sanat (vain saksan harjoitukseen)
 SD = load_sentences()
-cats = data["categories"]; words = data["words"]; sents = SD.get("en", []) if SD else []
+cats = data["categories"]; words = data["words"]; ewords = [w for w in words if not w.get("de_only")]; sents = SD.get("en", []) if SD else []
 catmap = {c["id"]: c for c in cats}
 MAX_GRADE = 9          # englanti 1.-9. lk
 DE_OPTIONAL_FROM = 7   # yläkoulun (grade >= 7) kategorioissa de-kenttä on valinnainen
@@ -126,7 +127,7 @@ def practicable(w): return "..." not in w["fi"] and "..." not in w["en"]
 def norm(s): return s.strip().lower()
 def alts(s): return [norm(a) for a in s.split("/") if a.strip()]
 by_en = collections.defaultdict(list)
-for w in words: by_en[norm(w["en"])].append(w)
+for w in ewords: by_en[norm(w["en"])].append(w)
 for en, ws in sorted(by_en.items()):
     if len(ws) > 1:
         fis = {norm(w["fi"]) for w in ws}
@@ -136,7 +137,7 @@ for en, ws in sorted(by_en.items()):
         else:
             warn("Exact duplicate en+fi", f"{en!r}: " + ", ".join(f"{w['id']}" for w in ws))
 fi_map = collections.defaultdict(lambda: collections.defaultdict(list))
-for w in words:
+for w in ewords:
     if not practicable(w): continue
     for a in alts(w["fi"]): fi_map[a][norm(w["en"])].append(w["id"])
 for fi, m in sorted(fi_map.items()):
@@ -208,7 +209,7 @@ def stem(w):
     yield w
 def forms(w): return set(stem(w)) | {w}
 vocab_by_grade = collections.defaultdict(set); allvocab = set()
-for w in words:
+for w in ewords:
     ts = set()
     for a in re.split(r"/", w["en"]):
         for t in tok(a.lower().replace("...", " ")): ts |= forms(t)

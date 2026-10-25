@@ -1,4 +1,4 @@
-Sanaseikkailu data check: 1579 words, 92 categories, 218 sentences
+Sanaseikkailu data check: 1616 words, 93 categories, 218 sentences
 
 ===== ERRORS (0) =====
 
@@ -11,20 +11,23 @@ Sanaseikkailu data check: 1579 words, 92 categories, 218 sentences
 [Sentence length not increasing] (1)
   - grade 7 avg 10.20 < grade 6 avg 11.30
 
-===== INFO (109) =====
+===== INFO (113) =====
 
 [Pattern phrases with '...' (filtered from practice)] (2)
   - greetings_phrases_my_name_is: en='my name is ...' fi='nimeni on ...' de='ich heiße ...'
-  - phrases_4_can_i_have: en='Can I have...?' fi='Saisinko...?' de=None
+  - phrases_4_can_i_have: en='Can I have...?' fi='Saisinko...? / Voinko saada...?' de=None
 
-[DE equals EN (eyeball)] (2)
+[DE equals EN (eyeball)] (5)
   - adjectives_modern: 'modern' = 'modern'
   - countries_england: 'England' = 'England'
+  - de_k1_super: 'super' = 'super'
+  - de_k1_plus: 'plus' = 'plus'
+  - de_k1_minus: 'minus' = 'minus'
 
 [Words per grade] (1)
-  - g1: 89, g2: 78, g3: 88, g4: 949, g5: 70, g6: 63, g7: 74, g8: 75, g9: 75, ungraded(hobby): 18
+  - g1: 126, g2: 78, g3: 88, g4: 949, g5: 70, g6: 63, g7: 74, g8: 75, g9: 75, ungraded(hobby): 18
 
-[Words per category] (92)
+[Words per category] (93)
   - school_people (grade 3, ops): 7
   - school_subjects (grade 3, ops): 17
   - weekdays (grade 2, ops): 7
@@ -117,6 +120,7 @@ Sanaseikkailu data check: 1579 words, 92 categories, 218 sentences
   - adj_4 (grade 4, ops): 58
   - phrases_4 (grade 4, ops): 16
   - koe1_4 (grade 4, ops): 3
+  - koe1_de (grade 1, ops): 37
 
 [Sentences per grade] (1)
   - g1: 20, g2: 20, g3: 20, g4: 58, g5: 20, g6: 20, g7: 20, g8: 20, g9: 20 (total 218)

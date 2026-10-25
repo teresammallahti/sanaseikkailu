@@ -999,7 +999,8 @@ try {
 // Sama sanasto ja samat id:t kaikille kielille - jokaisella sanalla on sekä en- että de-kenttä.
 function practiceWords(){
   // Sanalla täytyy olla kohdekielinen muoto (yläkoulun englanninkielisillä sanoilla ei ole saksaa).
-  return VOCAB.words.filter(w => !!w[targetLang] && !w.fi.includes("...") && !w[targetLang].includes("..."));
+  return VOCAB.words.filter(w => !!w[targetLang] && !(w.de_only && targetLang !== "de") &&
+    !w.fi.includes("...") && !w[targetLang].includes("..."));
 }
 let PRACTICE_WORDS = practiceWords();
 
@@ -2662,6 +2663,46 @@ const SENTENCE_DATA = {
     {id:"de_g3_18", grade:3, de:"Danke für das Abendessen, es war sehr gut.", fi:"Kiitos päivällisestä, se oli todella hyvää."},
     {id:"de_g3_19", grade:3, de:"Unsere neue Schülerin heißt Anna.", fi:"Uuden oppilaamme nimi on Anna."},
     {id:"de_g3_20", grade:3, de:"Die Pizza ist heiß, aber der Saft ist kalt.", fi:"Pizza on kuuma, mutta mehu on kylmä."},
+    {id:"de_k1_1", grade:1, theme:"koe1_de", de:"Guten Morgen, Lena!", fi:"Hyvää huomenta, Lena!"},
+    {id:"de_k1_2", grade:1, theme:"koe1_de", de:"Hallo, Tom! Wie geht's?", fi:"Hei, Tom! Mitä kuuluu?"},
+    {id:"de_k1_3", grade:1, theme:"koe1_de", de:"Danke, gut! Und dir?", fi:"Kiitos, hyvää! Entä sinulle?", alt:["Gut, danke! Und dir?"]},
+    {id:"de_k1_4", grade:1, theme:"koe1_de", de:"Auch gut, danke.", fi:"Hyvää myös, kiitos."},
+    {id:"de_k1_5", grade:1, theme:"koe1_de", de:"Ich heiße Lena.", fi:"Minun nimeni on Lena.", alt:["Ich bin Lena."]},
+    {id:"de_k1_6", grade:1, theme:"koe1_de", de:"Ich bin Tom.", fi:"Minä olen Tom.", alt:["Ich heiße Tom."]},
+    {id:"de_k1_7", grade:1, theme:"koe1_de", de:"Wie heißt du?", fi:"Mikä sinun nimesi on?"},
+    {id:"de_k1_8", grade:1, theme:"koe1_de", de:"Und du? Wie heißt du?", fi:"Entä sinä? Mikä sinun nimesi on?"},
+    {id:"de_k1_9", grade:1, theme:"koe1_de", de:"Wie alt bist du?", fi:"Kuinka vanha sinä olet?"},
+    {id:"de_k1_10", grade:1, theme:"koe1_de", de:"Ich bin zehn.", fi:"Minä olen kymmenen.", alt:["Ich bin 10."]},
+    {id:"de_k1_11", grade:1, theme:"koe1_de", de:"Lena ist elf.", fi:"Lena on yksitoista.", alt:["Lena ist 11."]},
+    {id:"de_k1_12", grade:1, theme:"koe1_de", de:"Ich mag blau.", fi:"Minä pidän sinisestä."},
+    {id:"de_k1_13", grade:1, theme:"koe1_de", de:"Tom mag grün und gelb.", fi:"Tom pitää vihreästä ja keltaisesta.", alt:["Tom mag gelb und grün."]},
+    {id:"de_k1_14", grade:1, theme:"koe1_de", de:"Ich mag rot und schwarz.", fi:"Minä pidän punaisesta ja mustasta.", alt:["Ich mag schwarz und rot."]},
+    {id:"de_k1_15", grade:1, theme:"koe1_de", de:"Was ist deine Lieblingsfarbe?", fi:"Mikä on sinun lempivärisi?"},
+    {id:"de_k1_16", grade:1, theme:"koe1_de", de:"Welche Farbe hat der Trabi?", fi:"Minkä värinen Trabi on?"},
+    {id:"de_k1_17", grade:1, theme:"koe1_de", de:"Der Trabi ist bunt.", fi:"Trabi on värikäs."},
+    {id:"de_k1_18", grade:1, theme:"koe1_de", de:"Das Eis ist rosa.", fi:"Jäätelö on vaaleanpunainen."},
+    {id:"de_k1_19", grade:1, theme:"koe1_de", de:"Der Fußball ist schwarz und weiß.", fi:"Jalkapallo on musta ja valkoinen.", alt:["Der Fußball ist weiß und schwarz."]},
+    {id:"de_k1_20", grade:1, theme:"koe1_de", de:"Wir malen jetzt.", fi:"Me maalaamme nyt.", alt:["Jetzt malen wir."]},
+    {id:"de_k1_21", grade:1, theme:"koe1_de", de:"Super! Das ist toll!", fi:"Mahtavaa! Se on hienoa!"},
+    {id:"de_k1_22", grade:1, theme:"koe1_de", de:"Der Opa mag braun.", fi:"Vaari pitää ruskeasta."},
+    {id:"de_k1_23", grade:1, theme:"koe1_de", de:"Die Oma mag orange und weiß.", fi:"Mummi pitää oranssista ja valkoisesta.", alt:["Die Oma mag weiß und orange."]},
+    {id:"de_k1_24", grade:1, theme:"koe1_de", de:"Ein Eis, bitte!", fi:"Yksi jäätelö, kiitos!"},
+    {id:"de_k1_25", grade:1, theme:"koe1_de", de:"Drei Kugeln, bitte!", fi:"Kolme palloa, kiitos!"},
+    {id:"de_k1_26", grade:1, theme:"koe1_de", de:"Nur eine Kugel, bitte.", fi:"Vain yksi pallo, kiitos.", alt:["Nur eine Kugel Eis, bitte."]},
+    {id:"de_k1_27", grade:1, theme:"koe1_de", de:"Lena, zwei Kugeln?", fi:"Lena, kaksi palloa?"},
+    {id:"de_k1_28", grade:1, theme:"koe1_de", de:"Ja, bitte. Und du?", fi:"Kyllä, kiitos. Entä sinä?"},
+    {id:"de_k1_29", grade:1, theme:"koe1_de", de:"Aha. So viele?", fi:"Ahaa. Niin monta?"},
+    {id:"de_k1_30", grade:1, theme:"koe1_de", de:"Das Eis ist lecker!", fi:"Jäätelö on herkullista!"},
+    {id:"de_k1_31", grade:1, theme:"koe1_de", de:"Zwei plus drei ist fünf.", fi:"Kaksi plus kolme on viisi."},
+    {id:"de_k1_32", grade:1, theme:"koe1_de", de:"Zehn minus vier ist sechs.", fi:"Kymmenen miinus neljä on kuusi."},
+    {id:"de_k1_33", grade:1, theme:"koe1_de", de:"Das sind acht Kugeln.", fi:"Tässä on kahdeksan palloa."},
+    {id:"de_k1_34", grade:1, theme:"koe1_de", de:"Wie spät ist es?", fi:"Paljonko kello on?"},
+    {id:"de_k1_35", grade:1, theme:"koe1_de", de:"Es ist neun Uhr.", fi:"Kello on yhdeksän.", alt:["Es ist neun."]},
+    {id:"de_k1_36", grade:1, theme:"koe1_de", de:"Es ist halb vier.", fi:"Kello on puoli neljä."},
+    {id:"de_k1_37", grade:1, theme:"koe1_de", de:"Es ist ein Uhr.", fi:"Kello on yksi.", alt:["Es ist eins."]},
+    {id:"de_k1_38", grade:1, theme:"koe1_de", de:"Gute Nacht, Tom!", fi:"Hyvää yötä, Tom!"},
+    {id:"de_k1_39", grade:1, theme:"koe1_de", de:"Auf Wiedersehen, Opa!", fi:"Näkemiin, vaari!", alt:["Tschüss, Opa!"]},
+    {id:"de_k1_40", grade:1, theme:"koe1_de", de:"Danke! Bitte schön!", fi:"Kiitos! Ole hyvä!"},
   ]
 };
 

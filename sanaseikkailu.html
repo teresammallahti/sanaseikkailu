@@ -929,9 +929,9 @@ const VOCAB = {
     "language_target": "en",
     "language_native": "fi",
     "level": "4lk",
-    "version": 12,
+    "version": "v13",
     "created": "2026-09-02",
-    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa. v4: lisätty täydennyksiä olemassa oleviin kategorioihin (colours: purple/brown/grey; opposites: 8 uutta vastaparia) sekä kuusi uutta kategoriaa (weather_seasons, animals, house_rooms, body_parts, clothes, school_objects) POPS 2014 -aihepiirien ja yleisen 4. luokan sanaston perusteella, käyttäjän hyväksynnän jälkeen (ehdotukset_v4.md). Kaikille uusille sanoille pysyvä id, olemassa olevat id:t eivät muuttuneet. v5: lisätty saksankieliset käännökset (kenttä 'de') kaikille 260 sanalle, artikkelien (der/die/das) kanssa substantiiveille - vakiintuneen saksan opetuskäytännön mukaisesti suku opetellaan heti sanan mukana. Sama sanasto ja kategoriat kuin englannissa/suomessa, id:t muuttumattomat. v6: Sanat järjestetty OPSin teemojen mukaan. Teemat personality, opposites, verbs_action ja verbs_communication yhdistetty teemaan 'yleissanat' (group=general). Kaikki muut teemat merkitty group=ops paitsi gaming_minecraft ja gaming_fortnite, jotka merkitty group=hobby (vain manuaalisesti valittavissa, ei mukana 'kaikki teemat' -kierrossa tai yleissanojen varasanastona). v7: sanasto ryhmitelty peruskoulun luokka-asteille 1-6 (uusi 'grade'-kenttä kategorioilla, group=hobby-kategoriat pysyvät luokka-asteettomina). Palautettu personality/opposites/verbs_action/verbs_communication omiksi kategorioikseen (v6:n yleissanat-yhdistäminen ei ole enää tarpeen, koska luokka-asteet hoitavat täydennyksen). Lisätty 138 uutta sanaa (luokka 1: perusverbit; luokka 4: päivärutiinit; luokka 5: ammatit/urheilu/kulkuvälineet/sijaintisanat/tunteet/ostokset; luokka 6: matkustaminen/teknologia/mennyt aika/kuvailevat sanat/maat ja kansallisuudet/tulevaisuus). Lisätty monimerkityksisille sanoille vaihtoehtoisia suomennoksia (esim. land = laskeutua/maa). v8 (vaihe 21): numerot laajennettu 0-20 (zero, eleven-twenty; uudet id:t, vanhat ennallaan). Monitulkintaiset sanat tarkennettu sulkutarkenteella (English/Finnish kouluaine vs. kansalaisuus, orange hedelmä vs. väri) ja 'pyöräily' eroteltu ('pyörällä ajaminen' = riding a bike, 'pyöräily (urheilulaji)' = cycling). Kategorioiden grade tarkoittaa nyt kielen opiskeluvuotta: englanti alkaa 1. luokalla, saksa 4. luokalla (sovellus siirtää luokka-asteen kielen mukaan). v9 (vaihe 25): lisätty 67 sanaa, jotka esiintyvät harjoitusvirkkeissä (SENTENCE_DATA.en) mutta puuttuivat sanastosta. Sanat sijoitettu olemassa oleviin kategorioihin (mm. perusverbit, perhe, harrastukset, koti, ruoka) sekä kolmeen uuteen kategoriaan: aikasanat_2 (Aikasanat, 2. lk), yleissanat_3 (Aika- ja yleissanat, 3. lk) ja sidesanat_5 (Sidesanat ja täsmentimet, 5. lk). Sanan luokka on pääsääntöisesti enintään sen virkkeen luokka, jossa sana ensimmäisen kerran esiintyy. Olemassa olevat id:t ennallaan. Fable-tarkistuksen korjaukset: fun = hauskaa / hauskanpito, favourite = lempi / suosikki, learn ja understand siirretty Toimintaverbeihin. Vaihe 26: lisätty eat, drink, very, cake, school (saksan virkkeitä varten); pie-sanan saksa tarkennettu (Kuchen siirretty sanalle cake). v10 (vaihe 28): yläkoulun sanasto 7.–9. lk, englanti, ei saksaa. Lisätty 224 sanaa ja 21 uutta kategoriaa (group=ops, grade 7/8/9) POPS 2014 englannin A1-oppimäärän vuosiluokkien 7–9 aihepiirien ja tavoitetason A2.2–B1.1 mukaan: 7. lk vapaa-aika, terveys, ruoanlaitto, ostokset ja raha, kaupunki ja reittiohjeet, sää ja luonto, ihmissuhteet; 8. lk media, matkailu, ympäristö, työelämä, kulttuuri ja juhlat, urheilutapahtumat, tunteet ja mielipiteet; 9. lk yhteiskunta, koulutus, tiede ja teknologia, kestävä kehitys ja elämäntavat, viestintä, liittosanat ja abstraktit sanat, phrasal verbit. Yläkoulun sanoilla ei ole de-kenttää (saksa ei käytä luokkien 7–9 kategorioita). Olemassa olevat id:t ja kategoriat ennallaan. Fable-tarkistuksen korjaukset: change, far, habit, work experience, scientist; pay ja exam tarkennettu törmäysten vuoksi. v11 (vaihe 30): lisätty 871 sanaa 4. luokan oppikirjan aakkosellisesta sanastosta (suomi–englanti) 25 uuteen 4. luokan kategoriaan (_4, no_de=true: ei saksaa). Opus-karsinta ja Fable-tarkistus (britti-englanti, törmäykset). v12 (vaihe 31): koealue 'Koe 1' (koe1_4, exam=true, lang=en): oppikirjan Unit 1-3 -sanat poimittu olemassa olevista sanoista lisäteemana (word.also) + 3 uutta sanaa; turn = kääntyä / vuoro, hide + olla piilossa.",
+    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa. v4: lisätty täydennyksiä olemassa oleviin kategorioihin (colours: purple/brown/grey; opposites: 8 uutta vastaparia) sekä kuusi uutta kategoriaa (weather_seasons, animals, house_rooms, body_parts, clothes, school_objects) POPS 2014 -aihepiirien ja yleisen 4. luokan sanaston perusteella, käyttäjän hyväksynnän jälkeen (ehdotukset_v4.md). Kaikille uusille sanoille pysyvä id, olemassa olevat id:t eivät muuttuneet. v5: lisätty saksankieliset käännökset (kenttä 'de') kaikille 260 sanalle, artikkelien (der/die/das) kanssa substantiiveille - vakiintuneen saksan opetuskäytännön mukaisesti suku opetellaan heti sanan mukana. Sama sanasto ja kategoriat kuin englannissa/suomessa, id:t muuttumattomat. v6: Sanat järjestetty OPSin teemojen mukaan. Teemat personality, opposites, verbs_action ja verbs_communication yhdistetty teemaan 'yleissanat' (group=general). Kaikki muut teemat merkitty group=ops paitsi gaming_minecraft ja gaming_fortnite, jotka merkitty group=hobby (vain manuaalisesti valittavissa, ei mukana 'kaikki teemat' -kierrossa tai yleissanojen varasanastona). v7: sanasto ryhmitelty peruskoulun luokka-asteille 1-6 (uusi 'grade'-kenttä kategorioilla, group=hobby-kategoriat pysyvät luokka-asteettomina). Palautettu personality/opposites/verbs_action/verbs_communication omiksi kategorioikseen (v6:n yleissanat-yhdistäminen ei ole enää tarpeen, koska luokka-asteet hoitavat täydennyksen). Lisätty 138 uutta sanaa (luokka 1: perusverbit; luokka 4: päivärutiinit; luokka 5: ammatit/urheilu/kulkuvälineet/sijaintisanat/tunteet/ostokset; luokka 6: matkustaminen/teknologia/mennyt aika/kuvailevat sanat/maat ja kansallisuudet/tulevaisuus). Lisätty monimerkityksisille sanoille vaihtoehtoisia suomennoksia (esim. land = laskeutua/maa). v8 (vaihe 21): numerot laajennettu 0-20 (zero, eleven-twenty; uudet id:t, vanhat ennallaan). Monitulkintaiset sanat tarkennettu sulkutarkenteella (English/Finnish kouluaine vs. kansalaisuus, orange hedelmä vs. väri) ja 'pyöräily' eroteltu ('pyörällä ajaminen' = riding a bike, 'pyöräily (urheilulaji)' = cycling). Kategorioiden grade tarkoittaa nyt kielen opiskeluvuotta: englanti alkaa 1. luokalla, saksa 4. luokalla (sovellus siirtää luokka-asteen kielen mukaan). v9 (vaihe 25): lisätty 67 sanaa, jotka esiintyvät harjoitusvirkkeissä (SENTENCE_DATA.en) mutta puuttuivat sanastosta. Sanat sijoitettu olemassa oleviin kategorioihin (mm. perusverbit, perhe, harrastukset, koti, ruoka) sekä kolmeen uuteen kategoriaan: aikasanat_2 (Aikasanat, 2. lk), yleissanat_3 (Aika- ja yleissanat, 3. lk) ja sidesanat_5 (Sidesanat ja täsmentimet, 5. lk). Sanan luokka on pääsääntöisesti enintään sen virkkeen luokka, jossa sana ensimmäisen kerran esiintyy. Olemassa olevat id:t ennallaan. Fable-tarkistuksen korjaukset: fun = hauskaa / hauskanpito, favourite = lempi / suosikki, learn ja understand siirretty Toimintaverbeihin. Vaihe 26: lisätty eat, drink, very, cake, school (saksan virkkeitä varten); pie-sanan saksa tarkennettu (Kuchen siirretty sanalle cake). v10 (vaihe 28): yläkoulun sanasto 7.–9. lk, englanti, ei saksaa. Lisätty 224 sanaa ja 21 uutta kategoriaa (group=ops, grade 7/8/9) POPS 2014 englannin A1-oppimäärän vuosiluokkien 7–9 aihepiirien ja tavoitetason A2.2–B1.1 mukaan: 7. lk vapaa-aika, terveys, ruoanlaitto, ostokset ja raha, kaupunki ja reittiohjeet, sää ja luonto, ihmissuhteet; 8. lk media, matkailu, ympäristö, työelämä, kulttuuri ja juhlat, urheilutapahtumat, tunteet ja mielipiteet; 9. lk yhteiskunta, koulutus, tiede ja teknologia, kestävä kehitys ja elämäntavat, viestintä, liittosanat ja abstraktit sanat, phrasal verbit. Yläkoulun sanoilla ei ole de-kenttää (saksa ei käytä luokkien 7–9 kategorioita). Olemassa olevat id:t ja kategoriat ennallaan. Fable-tarkistuksen korjaukset: change, far, habit, work experience, scientist; pay ja exam tarkennettu törmäysten vuoksi. v11 (vaihe 30): lisätty 871 sanaa 4. luokan oppikirjan aakkosellisesta sanastosta (suomi–englanti) 25 uuteen 4. luokan kategoriaan (_4, no_de=true: ei saksaa). Opus-karsinta ja Fable-tarkistus (britti-englanti, törmäykset). v12 (vaihe 31): koealue 'Koe 1' (koe1_4, exam=true, lang=en): oppikirjan Unit 1-3 -sanat poimittu olemassa olevista sanoista lisäteemana (word.also) + 3 uutta sanaa; turn = kääntyä / vuoro, hide + olla piilossa. v13 (vaihe 32): saksan koealue 'Koe 1' (koe1_de, exam=true, lang=de, grade 1 = app 4. lk): oppikirjan Los geht's! 1 Lektion 1-3 -sanat poimittu olemassa olevista sanoista lisäteemana (word.also) + uudet sanat/fraasit (de_only=true: eivät ilmesty englannin harjoitukseen). Vaihe 32: englannin sanoille lisätty yleisiä suomennossynonyymejä (n. 270 sanaa; esim. funny = hassu / hauska).",
     "notes": "Koottu 4. luokan englannin oppikirjan (skannattu, Scan_20260902_162833.pdf) teemojen pohjalta ilman kirjan kuvia tai tekstiä, täydennetty POPS 2014 (Englanti A-oppimäärä vl 3-6) aihepiirien mukaan. Rakenne on geneerinen (language_target/level -kentät), jotta samaa muotoa voi käyttää myöhemmin saksalle ja muille luokka-asteille.",
     "language_targets": [
       "en",
@@ -1518,6 +1518,14 @@ const VOCAB = {
       "no_de": true,
       "exam": true,
       "lang": "en"
+    },
+    {
+      "id": "koe1_de",
+      "name_fi": "Koe 1",
+      "group": "ops",
+      "grade": 1,
+      "exam": true,
+      "lang": "de"
     }
   ],
   "words": [
@@ -1541,7 +1549,7 @@ const VOCAB = {
     {
       "id": "school_people_nurse",
       "en": "nurse",
-      "fi": "hoitaja",
+      "fi": "hoitaja / sairaanhoitaja / terveydenhoitaja",
       "category": "school_people",
       "de": "die Krankenschwester / der Krankenpfleger",
       "also": [
@@ -1561,7 +1569,7 @@ const VOCAB = {
     {
       "id": "school_people_cook",
       "en": "cook",
-      "fi": "kokki",
+      "fi": "kokki / keittäjä",
       "category": "school_people",
       "de": "der Koch / die Köchin",
       "also": [
@@ -1571,21 +1579,21 @@ const VOCAB = {
     {
       "id": "school_people_student",
       "en": "student",
-      "fi": "oppilas",
+      "fi": "oppilas / opiskelija",
       "category": "school_people",
       "de": "der Schüler / die Schülerin"
     },
     {
       "id": "school_people_friend",
       "en": "friend",
-      "fi": "ystävä",
+      "fi": "ystävä / kaveri",
       "category": "school_people",
       "de": "der Freund / die Freundin"
     },
     {
       "id": "school_subjects_maths",
       "en": "maths",
-      "fi": "matematiikka",
+      "fi": "matematiikka / matikka",
       "category": "school_subjects",
       "de": "die Mathematik",
       "also": [
@@ -1655,7 +1663,7 @@ const VOCAB = {
     {
       "id": "school_subjects_science",
       "en": "science",
-      "fi": "ympäristöoppi",
+      "fi": "ympäristöoppi / luonnontiede",
       "category": "school_subjects",
       "de": "der Sachunterricht",
       "also": [
@@ -1665,7 +1673,7 @@ const VOCAB = {
     {
       "id": "school_subjects_art",
       "en": "art",
-      "fi": "kuvataito",
+      "fi": "kuvataito / taide / kuvaamataito",
       "category": "school_subjects",
       "de": "die Kunst",
       "also": [
@@ -1685,7 +1693,7 @@ const VOCAB = {
     {
       "id": "school_subjects_crafts",
       "en": "crafts",
-      "fi": "käsityöt",
+      "fi": "käsityöt / käsityö",
       "category": "school_subjects",
       "de": "das Werken",
       "also": [
@@ -1806,7 +1814,7 @@ const VOCAB = {
     {
       "id": "personality_clever",
       "en": "clever",
-      "fi": "älykäs",
+      "fi": "älykäs / fiksu / nokkela",
       "category": "personality",
       "de": "klug",
       "also": [
@@ -1846,7 +1854,7 @@ const VOCAB = {
     {
       "id": "personality_funny",
       "en": "funny",
-      "fi": "hassu",
+      "fi": "hassu / hauska",
       "category": "personality",
       "de": "lustig",
       "also": [
@@ -1876,7 +1884,7 @@ const VOCAB = {
     {
       "id": "personality_brave",
       "en": "brave",
-      "fi": "rohkea",
+      "fi": "rohkea / urhea",
       "category": "personality",
       "de": "mutig",
       "also": [
@@ -1896,7 +1904,7 @@ const VOCAB = {
     {
       "id": "personality_calm",
       "en": "calm",
-      "fi": "rauhallinen",
+      "fi": "rauhallinen / tyyni",
       "category": "personality",
       "de": "ruhig",
       "also": [
@@ -1906,7 +1914,7 @@ const VOCAB = {
     {
       "id": "personality_kind",
       "en": "kind",
-      "fi": "ystävällinen / laji",
+      "fi": "ystävällinen / laji / kiltti",
       "category": "personality",
       "de": "freundlich",
       "also": [
@@ -1936,7 +1944,7 @@ const VOCAB = {
     {
       "id": "opposites_strong",
       "en": "strong",
-      "fi": "vahva",
+      "fi": "vahva / voimakas",
       "category": "opposites",
       "de": "stark",
       "also": [
@@ -1956,7 +1964,7 @@ const VOCAB = {
     {
       "id": "opposites_loud",
       "en": "loud",
-      "fi": "äänekäs",
+      "fi": "äänekäs / kovaääninen",
       "category": "opposites",
       "de": "laut",
       "also": [
@@ -2010,7 +2018,7 @@ const VOCAB = {
     {
       "id": "verbs_communication_think",
       "en": "think",
-      "fi": "ajatella / luulla",
+      "fi": "ajatella / luulla / miettiä",
       "category": "verbs_communication",
       "de": "denken",
       "also": [
@@ -2030,7 +2038,7 @@ const VOCAB = {
     {
       "id": "verbs_communication_talk",
       "en": "talk",
-      "fi": "puhua",
+      "fi": "puhua / jutella",
       "category": "verbs_communication",
       "de": "sprechen",
       "also": [
@@ -2100,7 +2108,7 @@ const VOCAB = {
     {
       "id": "verbs_action_ride_a_bike",
       "en": "ride a bike",
-      "fi": "ajaa pyörällä",
+      "fi": "ajaa pyörällä / pyöräillä",
       "category": "verbs_action",
       "de": "Fahrrad fahren",
       "also": [
@@ -2117,7 +2125,7 @@ const VOCAB = {
     {
       "id": "verbs_action_watch_tv",
       "en": "watch television",
-      "fi": "katsoa televisiota",
+      "fi": "katsoa televisiota / katsoa telkkaria / katsoa tv:tä",
       "category": "verbs_action",
       "de": "fernsehen"
     },
@@ -2152,7 +2160,8 @@ const VOCAB = {
       "category": "verbs_action",
       "de": "malen",
       "also": [
-        "koe1_4"
+        "koe1_4",
+        "koe1_de"
       ]
     },
     {
@@ -2203,7 +2212,7 @@ const VOCAB = {
     {
       "id": "places_town_shop",
       "en": "shop",
-      "fi": "kauppa",
+      "fi": "kauppa / myymälä",
       "category": "places_town",
       "de": "das Geschäft"
     },
@@ -2217,14 +2226,14 @@ const VOCAB = {
     {
       "id": "belongings_bag",
       "en": "bag",
-      "fi": "laukku",
+      "fi": "laukku / kassi",
       "category": "belongings",
       "de": "die Tasche"
     },
     {
       "id": "belongings_phone",
       "en": "phone",
-      "fi": "puhelin",
+      "fi": "puhelin / kännykkä",
       "category": "belongings",
       "de": "das Handy"
     },
@@ -2252,14 +2261,14 @@ const VOCAB = {
     {
       "id": "belongings_bracelet",
       "en": "bracelet",
-      "fi": "rannekoru",
+      "fi": "rannekoru / rannerengas",
       "category": "belongings",
       "de": "das Armband"
     },
     {
       "id": "appearance_glasses",
       "en": "glasses",
-      "fi": "silmälasit",
+      "fi": "silmälasit / lasit",
       "category": "appearance",
       "de": "die Brille"
     },
@@ -2273,21 +2282,21 @@ const VOCAB = {
     {
       "id": "appearance_curly_hair",
       "en": "curly hair",
-      "fi": "kiharat hiukset",
+      "fi": "kiharat hiukset / kihara tukka",
       "category": "appearance",
       "de": "lockige Haare"
     },
     {
       "id": "appearance_straight_hair",
       "en": "straight hair",
-      "fi": "suorat hiukset",
+      "fi": "suorat hiukset / suora tukka",
       "category": "appearance",
       "de": "glatte Haare"
     },
     {
       "id": "appearance_long_hair",
       "en": "long hair",
-      "fi": "pitkät hiukset",
+      "fi": "pitkät hiukset / pitkä tukka",
       "category": "appearance",
       "de": "lange Haare"
     },
@@ -2336,7 +2345,7 @@ const VOCAB = {
     {
       "id": "food_savoury_pie",
       "en": "pie",
-      "fi": "piirakka",
+      "fi": "piirakka / piiras",
       "category": "food_savoury",
       "de": "der Obstkuchen / die Pastete"
     },
@@ -2415,12 +2424,15 @@ const VOCAB = {
       "en": "strawberry",
       "fi": "mansikka",
       "category": "fruit",
-      "de": "die Erdbeere"
+      "de": "die Erdbeere",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "fruit_kiwi",
       "en": "kiwi",
-      "fi": "kiivi",
+      "fi": "kiivi / kiwi",
       "category": "fruit",
       "de": "die Kiwi"
     },
@@ -2434,7 +2446,7 @@ const VOCAB = {
     {
       "id": "fruit_grape",
       "en": "grape",
-      "fi": "viinirypäle",
+      "fi": "viinirypäle / rypäle",
       "category": "fruit",
       "de": "die Weintraube"
     },
@@ -2464,14 +2476,20 @@ const VOCAB = {
       "en": "raspberry",
       "fi": "vadelma",
       "category": "fruit",
-      "de": "die Himbeere"
+      "de": "die Himbeere",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "fruit_lemon",
       "en": "lemon",
       "fi": "sitruuna",
       "category": "fruit",
-      "de": "die Zitrone"
+      "de": "die Zitrone",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "fruit_pineapple",
@@ -2490,21 +2508,27 @@ const VOCAB = {
     {
       "id": "polite_phrases_please",
       "en": "please",
-      "fi": "ole hyvä / kiitos (pyydettäessä)",
+      "fi": "ole hyvä / kiitos (pyydettäessä) / ole kiltti",
       "category": "polite_phrases",
-      "de": "bitte"
+      "de": "bitte",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "polite_phrases_thank_you",
       "en": "thank you",
       "fi": "kiitos",
       "category": "polite_phrases",
-      "de": "danke"
+      "de": "danke",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "polite_phrases_sorry",
       "en": "sorry",
-      "fi": "anteeksi",
+      "fi": "anteeksi / olen pahoillani",
       "category": "polite_phrases",
       "de": "Entschuldigung"
     },
@@ -2518,31 +2542,35 @@ const VOCAB = {
     {
       "id": "polite_phrases_pardon",
       "en": "pardon?",
-      "fi": "anteeksi, mitä?",
+      "fi": "anteeksi, mitä? / mitä?",
       "category": "polite_phrases",
       "de": "wie bitte?"
     },
     {
       "id": "polite_phrases_here_you_are",
       "en": "here you are",
-      "fi": "ole hyvä (annettaessa jotain)",
+      "fi": "ole hyvä (annettaessa jotain) / tässä",
       "category": "polite_phrases",
-      "de": "bitte schön"
+      "de": "bitte schön",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "time_o_clock",
       "en": "o'clock",
-      "fi": "tasatunti",
+      "fi": "kello (kellonaika)",
       "category": "time",
       "de": "Uhr",
       "also": [
-        "koe1_4"
+        "koe1_4",
+        "koe1_de"
       ]
     },
     {
       "id": "time_quarter_past",
       "en": "quarter past",
-      "fi": "vartin yli",
+      "fi": "vartin yli / varttia yli",
       "category": "time",
       "de": "Viertel nach",
       "also": [
@@ -2556,13 +2584,14 @@ const VOCAB = {
       "category": "time",
       "de": "halb",
       "also": [
-        "koe1_4"
+        "koe1_4",
+        "koe1_de"
       ]
     },
     {
       "id": "time_late",
       "en": "late",
-      "fi": "myöhässä",
+      "fi": "myöhässä / myöhään",
       "category": "time",
       "de": "spät",
       "also": [
@@ -2572,7 +2601,7 @@ const VOCAB = {
     {
       "id": "time_early",
       "en": "early",
-      "fi": "aikaisin",
+      "fi": "aikaisin / varhain",
       "category": "time",
       "de": "früh"
     },
@@ -2593,7 +2622,7 @@ const VOCAB = {
     {
       "id": "family_sister",
       "en": "sister",
-      "fi": "sisko",
+      "fi": "sisko / sisar",
       "category": "family",
       "de": "die Schwester"
     },
@@ -2606,15 +2635,15 @@ const VOCAB = {
     },
     {
       "id": "family_grandma",
-      "en": "grandmother",
-      "fi": "isoäiti",
+      "en": "grandmother / grandma",
+      "fi": "isoäiti / mummo / mummi",
       "category": "family",
       "de": "die Großmutter"
     },
     {
       "id": "family_grandpa",
-      "en": "grandfather",
-      "fi": "isoisä",
+      "en": "grandfather / grandpa",
+      "fi": "isoisä / vaari / ukki / pappa",
       "category": "family",
       "de": "der Großvater"
     },
@@ -2642,7 +2671,7 @@ const VOCAB = {
     {
       "id": "family_pet",
       "en": "pet",
-      "fi": "lemmikki",
+      "fi": "lemmikki / lemmikkieläin",
       "category": "family",
       "de": "das Haustier"
     },
@@ -2663,7 +2692,7 @@ const VOCAB = {
     {
       "id": "myself_happy",
       "en": "happy",
-      "fi": "iloinen",
+      "fi": "iloinen / onnellinen",
       "category": "myself",
       "de": "glücklich"
     },
@@ -2691,14 +2720,14 @@ const VOCAB = {
     {
       "id": "myself_scared",
       "en": "scared",
-      "fi": "peloissaan",
+      "fi": "peloissaan / pelästynyt / pelokas",
       "category": "myself",
       "de": "ängstlich"
     },
     {
       "id": "myself_excited",
       "en": "excited",
-      "fi": "innoissaan",
+      "fi": "innoissaan / innostunut",
       "category": "myself",
       "de": "aufgeregt"
     },
@@ -2707,7 +2736,10 @@ const VOCAB = {
       "en": "football",
       "fi": "jalkapallo",
       "category": "hobbies",
-      "de": "der Fußball"
+      "de": "der Fußball",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "hobbies_reading",
@@ -2733,7 +2765,7 @@ const VOCAB = {
     {
       "id": "hobbies_riding_a_bike",
       "en": "riding a bike",
-      "fi": "pyörällä ajaminen",
+      "fi": "pyörällä ajaminen / pyöräily",
       "category": "hobbies",
       "de": "das Fahrradfahren"
     },
@@ -2764,28 +2796,37 @@ const VOCAB = {
     {
       "id": "greetings_phrases_hello",
       "en": "hello",
-      "fi": "hei",
+      "fi": "hei / moi",
       "category": "greetings_phrases",
-      "de": "hallo"
+      "de": "hallo",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "greetings_phrases_goodbye",
       "en": "goodbye",
-      "fi": "näkemiin",
+      "fi": "näkemiin / hei hei / moikka",
       "category": "greetings_phrases",
-      "de": "auf Wiedersehen"
+      "de": "auf Wiedersehen",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "greetings_phrases_good_morning",
       "en": "good morning",
-      "fi": "huomenta",
+      "fi": "huomenta / hyvää huomenta",
       "category": "greetings_phrases",
-      "de": "guten Morgen"
+      "de": "guten Morgen",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "greetings_phrases_how_are_you",
       "en": "how are you?",
-      "fi": "mitä kuuluu?",
+      "fi": "mitä kuuluu? / miten menee?",
       "category": "greetings_phrases",
       "de": "wie geht es dir?"
     },
@@ -2799,7 +2840,7 @@ const VOCAB = {
     {
       "id": "greetings_phrases_see_you_later",
       "en": "see you later",
-      "fi": "nähdään myöhemmin",
+      "fi": "nähdään myöhemmin / nähdään",
       "category": "greetings_phrases",
       "de": "bis später"
     },
@@ -2815,147 +2856,210 @@ const VOCAB = {
       "en": "red",
       "fi": "punainen",
       "category": "colours",
-      "de": "rot"
+      "de": "rot",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "colours_blue",
       "en": "blue",
       "fi": "sininen",
       "category": "colours",
-      "de": "blau"
+      "de": "blau",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "colours_green",
       "en": "green",
       "fi": "vihreä",
       "category": "colours",
-      "de": "grün"
+      "de": "grün",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "colours_yellow",
       "en": "yellow",
       "fi": "keltainen",
       "category": "colours",
-      "de": "gelb"
+      "de": "gelb",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "colours_black",
       "en": "black",
       "fi": "musta",
       "category": "colours",
-      "de": "schwarz"
+      "de": "schwarz",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "colours_white",
       "en": "white",
       "fi": "valkoinen",
       "category": "colours",
-      "de": "weiß"
+      "de": "weiß",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "colours_pink",
       "en": "pink",
-      "fi": "pinkki",
+      "fi": "pinkki / vaaleanpunainen",
       "category": "colours",
-      "de": "rosa"
+      "de": "rosa",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "colours_orange_colour",
       "en": "orange (väri)",
       "fi": "oranssi",
       "category": "colours",
-      "de": "orange"
+      "de": "orange",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "numbers_zero",
       "en": "zero",
       "fi": "nolla",
       "category": "numbers",
-      "de": "null"
+      "de": "null",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "numbers_one",
       "en": "one",
       "fi": "yksi",
       "category": "numbers",
-      "de": "eins"
+      "de": "eins",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "numbers_two",
       "en": "two",
       "fi": "kaksi",
       "category": "numbers",
-      "de": "zwei"
+      "de": "zwei",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "numbers_three",
       "en": "three",
       "fi": "kolme",
       "category": "numbers",
-      "de": "drei"
+      "de": "drei",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "numbers_four",
       "en": "four",
       "fi": "neljä",
       "category": "numbers",
-      "de": "vier"
+      "de": "vier",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "numbers_five",
       "en": "five",
       "fi": "viisi",
       "category": "numbers",
-      "de": "fünf"
+      "de": "fünf",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "numbers_six",
       "en": "six",
       "fi": "kuusi",
       "category": "numbers",
-      "de": "sechs"
+      "de": "sechs",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "numbers_seven",
       "en": "seven",
       "fi": "seitsemän",
       "category": "numbers",
-      "de": "sieben"
+      "de": "sieben",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "numbers_eight",
       "en": "eight",
       "fi": "kahdeksan",
       "category": "numbers",
-      "de": "acht"
+      "de": "acht",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "numbers_nine",
       "en": "nine",
       "fi": "yhdeksän",
       "category": "numbers",
-      "de": "neun"
+      "de": "neun",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "numbers_ten",
       "en": "ten",
       "fi": "kymmenen",
       "category": "numbers",
-      "de": "zehn"
+      "de": "zehn",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "numbers_eleven",
       "en": "eleven",
       "fi": "yksitoista",
       "category": "numbers",
-      "de": "elf"
+      "de": "elf",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "numbers_twelve",
       "en": "twelve",
       "fi": "kaksitoista",
       "category": "numbers",
-      "de": "zwölf"
+      "de": "zwölf",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "numbers_thirteen",
@@ -3058,7 +3162,7 @@ const VOCAB = {
     {
       "id": "gaming_minecraft_mine",
       "en": "mine",
-      "fi": "louhia / kaivos",
+      "fi": "louhia / kaivos / kaivaa",
       "category": "gaming_minecraft",
       "de": "abbauen / die Mine"
     },
@@ -3079,7 +3183,7 @@ const VOCAB = {
     {
       "id": "gaming_minecraft_survive",
       "en": "survive",
-      "fi": "selviytyä",
+      "fi": "selviytyä / selvitä",
       "category": "gaming_minecraft",
       "de": "überleben"
     },
@@ -3100,7 +3204,7 @@ const VOCAB = {
     {
       "id": "gaming_fortnite_build_a_wall",
       "en": "build a wall",
-      "fi": "rakentaa seinä",
+      "fi": "rakentaa seinä / rakentaa muuri",
       "category": "gaming_fortnite",
       "de": "eine Wand bauen"
     },
@@ -3114,7 +3218,7 @@ const VOCAB = {
     {
       "id": "gaming_fortnite_loot",
       "en": "loot",
-      "fi": "kerätä tavaraa (loot)",
+      "fi": "kerätä tavaraa (loot) / saalis",
       "category": "gaming_fortnite",
       "de": "Beute sammeln"
     },
@@ -3135,35 +3239,44 @@ const VOCAB = {
     {
       "id": "gaming_fortnite_teammate",
       "en": "teammate",
-      "fi": "joukkuekaveri",
+      "fi": "joukkuekaveri / joukkuetoveri / tiimikaveri",
       "category": "gaming_fortnite",
       "de": "der Teamkollege / die Teamkollegin"
     },
     {
       "id": "colours_purple",
       "en": "purple",
-      "fi": "violetti",
+      "fi": "violetti / lila / purppura",
       "category": "colours",
-      "de": "lila"
+      "de": "lila",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "colours_brown",
       "en": "brown",
       "fi": "ruskea",
       "category": "colours",
-      "de": "braun"
+      "de": "braun",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "colours_grey",
       "en": "grey",
       "fi": "harmaa",
       "category": "colours",
-      "de": "grau"
+      "de": "grau",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "opposites_big",
       "en": "big",
-      "fi": "iso",
+      "fi": "iso / suuri",
       "category": "opposites",
       "de": "groß"
     },
@@ -3193,12 +3306,15 @@ const VOCAB = {
       "en": "good",
       "fi": "hyvä",
       "category": "opposites",
-      "de": "gut"
+      "de": "gut",
+      "also": [
+        "koe1_de"
+      ]
     },
     {
       "id": "opposites_bad",
       "en": "bad",
-      "fi": "huono",
+      "fi": "huono / paha",
       "category": "opposites",
       "de": "schlecht"
     },
@@ -3236,7 +3352,7 @@ const VOCAB = {
     {
       "id": "opposites_heavy",
       "en": "heavy",
-      "fi": "raskas",
+      "fi": "raskas / painava",
       "category": "opposites",
       "de": "schwer"
     },
@@ -3250,7 +3366,7 @@ const VOCAB = {
     {
       "id": "opposites_full",
       "en": "full",
-      "fi": "täysi",
+      "fi": "täysi / täynnä",
       "category": "opposites",
       "de": "voll"
     },
@@ -3386,7 +3502,7 @@ const VOCAB = {
     {
       "id": "animals_rabbit",
       "en": "rabbit",
-      "fi": "kani",
+      "fi": "kani / pupu",
       "category": "animals",
       "de": "das Kaninchen"
     },
@@ -3435,7 +3551,7 @@ const VOCAB = {
     {
       "id": "house_rooms_garden",
       "en": "garden",
-      "fi": "puutarha",
+      "fi": "puutarha / piha",
       "category": "house_rooms",
       "de": "der Garten"
     },
@@ -3473,7 +3589,7 @@ const VOCAB = {
     {
       "id": "body_parts_foot",
       "en": "foot",
-      "fi": "jalka",
+      "fi": "jalka / jalkaterä",
       "category": "body_parts",
       "de": "der Fuß"
     },
@@ -3508,7 +3624,7 @@ const VOCAB = {
     {
       "id": "body_parts_hair",
       "en": "hair",
-      "fi": "hiukset",
+      "fi": "hiukset / tukka",
       "category": "body_parts",
       "de": "die Haare"
     },
@@ -3599,7 +3715,7 @@ const VOCAB = {
     {
       "id": "school_objects_eraser",
       "en": "eraser",
-      "fi": "pyyhekumi",
+      "fi": "pyyhekumi / kumi",
       "category": "school_objects",
       "de": "der Radiergummi"
     },
@@ -3627,14 +3743,14 @@ const VOCAB = {
     {
       "id": "perusverbit_like",
       "en": "like",
-      "fi": "pitää",
+      "fi": "pitää / tykätä",
       "de": "mögen",
       "category": "perusverbit_1"
     },
     {
       "id": "perusverbit_can",
       "en": "can",
-      "fi": "osata",
+      "fi": "osata / voida / pystyä",
       "de": "können",
       "category": "perusverbit_1"
     },
@@ -3655,7 +3771,7 @@ const VOCAB = {
     {
       "id": "perusverbit_play",
       "en": "play",
-      "fi": "leikkiä",
+      "fi": "leikkiä / pelata / soittaa",
       "de": "spielen",
       "category": "perusverbit_1"
     },
@@ -3676,7 +3792,7 @@ const VOCAB = {
     {
       "id": "paivarutiinit_get_up",
       "en": "get up",
-      "fi": "nousta ylös",
+      "fi": "nousta ylös / nousta",
       "de": "aufstehen",
       "category": "paivarutiinit_4"
     },
@@ -3690,14 +3806,14 @@ const VOCAB = {
     {
       "id": "paivarutiinit_brush_teeth",
       "en": "brush your teeth",
-      "fi": "pestä hampaat",
+      "fi": "pestä hampaat / harjata hampaat",
       "de": "Zähne putzen",
       "category": "paivarutiinit_4"
     },
     {
       "id": "paivarutiinit_have_breakfast",
       "en": "have breakfast",
-      "fi": "syödä aamiaista",
+      "fi": "syödä aamiaista / syödä aamupalaa",
       "de": "frühstücken",
       "category": "paivarutiinit_4"
     },
@@ -3711,7 +3827,7 @@ const VOCAB = {
     {
       "id": "paivarutiinit_do_homework",
       "en": "do homework",
-      "fi": "tehdä läksyjä",
+      "fi": "tehdä läksyjä / tehdä kotitehtäviä",
       "de": "Hausaufgaben machen",
       "category": "paivarutiinit_4"
     },
@@ -3732,7 +3848,7 @@ const VOCAB = {
     {
       "id": "paivarutiinit_go_to_bed",
       "en": "go to bed",
-      "fi": "mennä nukkumaan",
+      "fi": "mennä nukkumaan / mennä sänkyyn",
       "de": "ins Bett gehen",
       "category": "paivarutiinit_4"
     },
@@ -3760,7 +3876,7 @@ const VOCAB = {
     {
       "id": "professions_firefighter",
       "en": "firefighter",
-      "fi": "palomies",
+      "fi": "palomies / palonsammuttaja",
       "de": "der Feuerwehrmann / die Feuerwehrfrau",
       "category": "professions_5"
     },
@@ -3774,7 +3890,7 @@ const VOCAB = {
     {
       "id": "professions_farmer",
       "en": "farmer",
-      "fi": "maanviljelijä",
+      "fi": "maanviljelijä / viljelijä",
       "de": "der Bauer / die Bäuerin",
       "category": "professions_5"
     },
@@ -3886,7 +4002,7 @@ const VOCAB = {
     {
       "id": "transport_bus",
       "en": "bus",
-      "fi": "bussi",
+      "fi": "bussi / linja-auto",
       "de": "der Bus",
       "category": "transport_5"
     },
@@ -3900,7 +4016,7 @@ const VOCAB = {
     {
       "id": "transport_bicycle",
       "en": "bicycle",
-      "fi": "polkupyörä",
+      "fi": "polkupyörä / pyörä",
       "de": "das Fahrrad",
       "category": "transport_5"
     },
@@ -3921,7 +4037,7 @@ const VOCAB = {
     {
       "id": "transport_tram",
       "en": "tram",
-      "fi": "raitiovaunu",
+      "fi": "raitiovaunu / ratikka",
       "de": "die Straßenbahn",
       "category": "transport_5"
     },
@@ -4019,7 +4135,7 @@ const VOCAB = {
     {
       "id": "feelings_worried",
       "en": "worried",
-      "fi": "huolissaan",
+      "fi": "huolissaan / huolestunut",
       "de": "besorgt",
       "category": "feelings_advanced_5"
     },
@@ -4033,14 +4149,14 @@ const VOCAB = {
     {
       "id": "feelings_bored",
       "en": "bored",
-      "fi": "kyllästynyt",
+      "fi": "kyllästynyt / tylsistynyt",
       "de": "gelangweilt",
       "category": "feelings_advanced_5"
     },
     {
       "id": "feelings_confused",
       "en": "confused",
-      "fi": "hämmentynyt",
+      "fi": "hämmentynyt / ymmällään",
       "de": "verwirrt",
       "category": "feelings_advanced_5"
     },
@@ -4061,7 +4177,7 @@ const VOCAB = {
     {
       "id": "feelings_jealous",
       "en": "jealous",
-      "fi": "kateellinen",
+      "fi": "kateellinen / mustasukkainen",
       "de": "eifersüchtig",
       "category": "feelings_advanced_5"
     },
@@ -4075,7 +4191,7 @@ const VOCAB = {
     {
       "id": "feelings_nervous",
       "en": "nervous",
-      "fi": "hermostunut",
+      "fi": "hermostunut / jännittynyt",
       "de": "nervös",
       "category": "feelings_advanced_5"
     },
@@ -4162,7 +4278,7 @@ const VOCAB = {
     {
       "id": "travel_airport",
       "en": "airport",
-      "fi": "lentokenttä",
+      "fi": "lentokenttä / lentoasema",
       "de": "der Flughafen",
       "category": "travel_6"
     },
@@ -4211,7 +4327,7 @@ const VOCAB = {
     {
       "id": "travel_tourist",
       "en": "tourist",
-      "fi": "turisti",
+      "fi": "turisti / matkailija",
       "de": "der Tourist / die Touristin",
       "category": "travel_6"
     },
@@ -4274,7 +4390,7 @@ const VOCAB = {
     {
       "id": "technology_screen",
       "en": "screen",
-      "fi": "näyttö",
+      "fi": "näyttö / ruutu",
       "de": "der Bildschirm",
       "category": "technology_6"
     },
@@ -4403,14 +4519,14 @@ const VOCAB = {
     {
       "id": "adjectives_crowded",
       "en": "crowded",
-      "fi": "täynnä väkeä",
+      "fi": "täynnä väkeä / ruuhkainen / täynnä ihmisiä",
       "de": "überfüllt",
       "category": "adjectives_advanced_6"
     },
     {
       "id": "adjectives_enormous",
       "en": "enormous",
-      "fi": "valtava",
+      "fi": "valtava / jättimäinen",
       "de": "riesig",
       "category": "adjectives_advanced_6"
     },
@@ -4424,7 +4540,7 @@ const VOCAB = {
     {
       "id": "adjectives_modern",
       "en": "modern",
-      "fi": "moderni",
+      "fi": "moderni / nykyaikainen",
       "de": "modern",
       "category": "adjectives_advanced_6"
     },
@@ -4571,7 +4687,7 @@ const VOCAB = {
     {
       "id": "future_goal",
       "en": "goal",
-      "fi": "tavoite",
+      "fi": "tavoite / päämäärä",
       "de": "das Ziel",
       "category": "future_plans_6"
     },
@@ -4651,7 +4767,8 @@ const VOCAB = {
       "category": "colours",
       "de": "die Farbe",
       "also": [
-        "koe1_4"
+        "koe1_4",
+        "koe1_de"
       ]
     },
     {
@@ -4684,7 +4801,7 @@ const VOCAB = {
     {
       "id": "hobbies_fun",
       "en": "fun",
-      "fi": "hauskaa / hauskanpito",
+      "fi": "hauskaa / hauskanpito / kivaa",
       "category": "hobbies",
       "de": "der Spaß"
     },
@@ -4775,7 +4892,7 @@ const VOCAB = {
     {
       "id": "myself_birthday",
       "en": "birthday",
-      "fi": "syntymäpäivä",
+      "fi": "syntymäpäivä / synttärit",
       "category": "myself",
       "de": "der Geburtstag"
     },
@@ -4789,7 +4906,7 @@ const VOCAB = {
     {
       "id": "verbs_action_visit",
       "en": "visit",
-      "fi": "vierailla / käydä kylässä",
+      "fi": "vierailla / käydä kylässä / käydä",
       "category": "verbs_action",
       "de": "besuchen"
     },
@@ -5020,14 +5137,14 @@ const VOCAB = {
     {
       "id": "sidesanat_5_although",
       "en": "although",
-      "fi": "vaikka",
+      "fi": "vaikka / vaikkakin",
       "category": "sidesanat_5",
       "de": "obwohl"
     },
     {
       "id": "sidesanat_5_still",
       "en": "still",
-      "fi": "silti / yhä",
+      "fi": "silti / yhä / edelleen",
       "category": "sidesanat_5",
       "de": "trotzdem / immer noch",
       "also": [
@@ -5044,7 +5161,7 @@ const VOCAB = {
     {
       "id": "sidesanat_5_only",
       "en": "only",
-      "fi": "vain / ainoastaan",
+      "fi": "vain / ainoastaan / pelkästään",
       "category": "sidesanat_5",
       "de": "nur"
     },
@@ -5065,7 +5182,7 @@ const VOCAB = {
     {
       "id": "sidesanat_5_both",
       "en": "both",
-      "fi": "molemmat",
+      "fi": "molemmat / kumpikin",
       "category": "sidesanat_5",
       "de": "beide"
     },
@@ -5119,7 +5236,7 @@ const VOCAB = {
     {
       "id": "free_time_7_practise",
       "en": "practise",
-      "fi": "harjoitella",
+      "fi": "harjoitella / treenata",
       "category": "free_time_7"
     },
     {
@@ -5179,7 +5296,7 @@ const VOCAB = {
     {
       "id": "health_7_stomach_ache",
       "en": "stomach ache",
-      "fi": "vatsakipu",
+      "fi": "vatsakipu / mahakipu",
       "category": "health_7"
     },
     {
@@ -5203,7 +5320,7 @@ const VOCAB = {
     {
       "id": "health_7_ill",
       "en": "ill",
-      "fi": "sairas",
+      "fi": "sairas / kipeä",
       "category": "health_7"
     },
     {
@@ -5251,7 +5368,7 @@ const VOCAB = {
     {
       "id": "cooking_7_boil",
       "en": "boil",
-      "fi": "keittää",
+      "fi": "keittää / kiehua",
       "category": "cooking_7"
     },
     {
@@ -5269,7 +5386,7 @@ const VOCAB = {
     {
       "id": "cooking_7_chop",
       "en": "chop",
-      "fi": "pilkkoa",
+      "fi": "pilkkoa / paloitella",
       "category": "cooking_7"
     },
     {
@@ -5419,7 +5536,7 @@ const VOCAB = {
     {
       "id": "town_7_straight_on",
       "en": "straight on",
-      "fi": "suoraan eteenpäin",
+      "fi": "suoraan eteenpäin / suoraan",
       "category": "town_7"
     },
     {
@@ -5605,7 +5722,7 @@ const VOCAB = {
     {
       "id": "media_8_website",
       "en": "website",
-      "fi": "verkkosivusto / nettisivu",
+      "fi": "verkkosivusto / nettisivu / verkkosivu",
       "category": "media_8"
     },
     {
@@ -5707,7 +5824,7 @@ const VOCAB = {
     {
       "id": "environment_8_rubbish",
       "en": "rubbish",
-      "fi": "roskat",
+      "fi": "roskat / roska / jätteet",
       "category": "environment_8"
     },
     {
@@ -5731,7 +5848,7 @@ const VOCAB = {
     {
       "id": "environment_8_protect",
       "en": "protect",
-      "fi": "suojella",
+      "fi": "suojella / suojata",
       "category": "environment_8"
     },
     {
@@ -5803,13 +5920,13 @@ const VOCAB = {
     {
       "id": "work_8_journalist",
       "en": "journalist",
-      "fi": "toimittaja",
+      "fi": "toimittaja / journalisti",
       "category": "work_8"
     },
     {
       "id": "work_8_lawyer",
       "en": "lawyer",
-      "fi": "lakimies / juristi",
+      "fi": "lakimies / juristi / asianajaja",
       "category": "work_8"
     },
     {
@@ -5821,7 +5938,7 @@ const VOCAB = {
     {
       "id": "culture_8_festival",
       "en": "festival",
-      "fi": "festivaali",
+      "fi": "festivaali / festarit",
       "category": "culture_8",
       "also": [
         "koe1_4"
@@ -5890,7 +6007,7 @@ const VOCAB = {
     {
       "id": "sports_events_8_referee",
       "en": "referee",
-      "fi": "erotuomari",
+      "fi": "erotuomari / tuomari",
       "category": "sports_events_8"
     },
     {
@@ -5950,7 +6067,7 @@ const VOCAB = {
     {
       "id": "opinions_8_in_my_opinion",
       "en": "in my opinion",
-      "fi": "minun mielestäni",
+      "fi": "minun mielestäni / mielestäni",
       "category": "opinions_8"
     },
     {
@@ -6238,7 +6355,7 @@ const VOCAB = {
     {
       "id": "sustainability_9_exercise",
       "en": "exercise",
-      "fi": "kuntoilu / kuntoilla",
+      "fi": "kuntoilu / kuntoilla / harjoitus",
       "category": "sustainability_9"
     },
     {
@@ -6322,7 +6439,7 @@ const VOCAB = {
     {
       "id": "connectors_9_therefore",
       "en": "therefore",
-      "fi": "siksi / sen vuoksi",
+      "fi": "siksi / sen vuoksi / sen takia",
       "category": "connectors_9"
     },
     {
@@ -6463,7 +6580,7 @@ const VOCAB = {
     {
       "id": "food_4_breakfast",
       "en": "breakfast",
-      "fi": "aamiainen",
+      "fi": "aamiainen / aamupala",
       "category": "food_4"
     },
     {
@@ -6637,7 +6754,7 @@ const VOCAB = {
     {
       "id": "hobbies_4_costume",
       "en": "costume",
-      "fi": "asu",
+      "fi": "asu / puku",
       "category": "hobbies_4"
     },
     {
@@ -6655,7 +6772,7 @@ const VOCAB = {
     {
       "id": "home_4_sunscreen",
       "en": "sunscreen",
-      "fi": "aurinkovoide",
+      "fi": "aurinkovoide / aurinkorasva",
       "category": "home_4"
     },
     {
@@ -6730,7 +6847,7 @@ const VOCAB = {
     {
       "id": "little_4_maybe",
       "en": "maybe",
-      "fi": "ehkä",
+      "fi": "ehkä / kenties",
       "category": "little_4"
     },
     {
@@ -6754,19 +6871,19 @@ const VOCAB = {
     {
       "id": "places_dir_4_nowhere",
       "en": "nowhere",
-      "fi": "ei missään",
+      "fi": "ei missään / ei mihinkään",
       "category": "places_dir_4"
     },
     {
       "id": "phrases_4_no_problem",
       "en": "No problem.",
-      "fi": "Ei se mitään.",
+      "fi": "Ei se mitään. / Ei ongelmaa.",
       "category": "phrases_4"
     },
     {
       "id": "adj_4_lost",
       "en": "lost",
-      "fi": "eksyksissä",
+      "fi": "eksyksissä / eksynyt / kadonnut",
       "category": "adj_4"
     },
     {
@@ -6925,7 +7042,7 @@ const VOCAB = {
     {
       "id": "food_4_hamburger",
       "en": "hamburger",
-      "fi": "hampurilainen",
+      "fi": "hampurilainen / burgeri",
       "category": "food_4"
     },
     {
@@ -6943,7 +7060,7 @@ const VOCAB = {
     {
       "id": "clothes_4_glove",
       "en": "glove",
-      "fi": "hansikas",
+      "fi": "hansikas / käsine / hanska",
       "category": "clothes_4"
     },
     {
@@ -7147,7 +7264,7 @@ const VOCAB = {
     {
       "id": "food_4_hot_dog",
       "en": "hot dog",
-      "fi": "hotdog",
+      "fi": "hotdog / hot dog",
       "category": "food_4"
     },
     {
@@ -7159,7 +7276,7 @@ const VOCAB = {
     {
       "id": "adj_4_missing",
       "en": "missing",
-      "fi": "hukassa",
+      "fi": "hukassa / kadoksissa / kateissa",
       "category": "adj_4"
     },
     {
@@ -7192,7 +7309,7 @@ const VOCAB = {
     {
       "id": "clothes_4_hoodie",
       "en": "hoodie",
-      "fi": "huppari",
+      "fi": "huppari / huppupaita",
       "category": "clothes_4"
     },
     {
@@ -7270,7 +7387,7 @@ const VOCAB = {
     {
       "id": "adj_4_amazing",
       "en": "amazing",
-      "fi": "ihmeellinen",
+      "fi": "ihmeellinen / hämmästyttävä",
       "category": "adj_4"
     },
     {
@@ -7288,7 +7405,7 @@ const VOCAB = {
     {
       "id": "little_4_ever",
       "en": "ever",
-      "fi": "ikinä",
+      "fi": "ikinä / koskaan",
       "category": "little_4"
     },
     {
@@ -7342,7 +7459,7 @@ const VOCAB = {
     {
       "id": "countries_4_the_united_kingdom",
       "en": "the United Kingdom",
-      "fi": "Iso-Britannia",
+      "fi": "Iso-Britannia / Yhdistynyt kuningaskunta",
       "category": "countries_4"
     },
     {
@@ -7414,7 +7531,7 @@ const VOCAB = {
     {
       "id": "little_4_something",
       "en": "something",
-      "fi": "jotakin",
+      "fi": "jotakin / jokin / jotain",
       "category": "little_4"
     },
     {
@@ -7444,7 +7561,7 @@ const VOCAB = {
     {
       "id": "hobbies_4_party",
       "en": "party",
-      "fi": "juhla",
+      "fi": "juhla / juhlat / bileet",
       "category": "hobbies_4"
     },
     {
@@ -7456,7 +7573,7 @@ const VOCAB = {
     {
       "id": "places_4_train_station",
       "en": "train station",
-      "fi": "juna-asema",
+      "fi": "juna-asema / rautatieasema",
       "category": "places_4"
     },
     {
@@ -7534,7 +7651,7 @@ const VOCAB = {
     {
       "id": "places_dir_4_everywhere",
       "en": "everywhere",
-      "fi": "kaikkialla",
+      "fi": "kaikkialla / joka paikassa",
       "category": "places_dir_4"
     },
     {
@@ -7546,7 +7663,7 @@ const VOCAB = {
     {
       "id": "hobbies_4_fishing",
       "en": "fishing",
-      "fi": "kalastus",
+      "fi": "kalastus / kalastaminen",
       "category": "hobbies_4"
     },
     {
@@ -7576,7 +7693,7 @@ const VOCAB = {
     {
       "id": "food_4_egg",
       "en": "egg",
-      "fi": "kananmuna",
+      "fi": "kananmuna / muna",
       "category": "food_4"
     },
     {
@@ -7630,13 +7747,13 @@ const VOCAB = {
     {
       "id": "school_4_chapter",
       "en": "chapter",
-      "fi": "kappale",
+      "fi": "kappale / luku",
       "category": "school_4"
     },
     {
       "id": "verbs2_4_run_away",
       "en": "run away",
-      "fi": "karata",
+      "fi": "karata / juosta karkuun",
       "category": "verbs2_4"
     },
     {
@@ -7654,7 +7771,7 @@ const VOCAB = {
     {
       "id": "food_4_sweets",
       "en": "sweets",
-      "fi": "karkit / makeiset",
+      "fi": "karkit / makeiset / karkki",
       "category": "food_4"
     },
     {
@@ -7678,7 +7795,7 @@ const VOCAB = {
     {
       "id": "general_4_pile",
       "en": "pile",
-      "fi": "kasa",
+      "fi": "kasa / pino",
       "category": "general_4"
     },
     {
@@ -7690,7 +7807,7 @@ const VOCAB = {
     {
       "id": "verbs1_4_grow_up",
       "en": "grow up",
-      "fi": "kasvaa aikuiseksi",
+      "fi": "kasvaa aikuiseksi / kasvaa isoksi",
       "category": "verbs1_4"
     },
     {
@@ -7747,7 +7864,7 @@ const VOCAB = {
     {
       "id": "clothes_4_scarf",
       "en": "scarf",
-      "fi": "kaulahuivi",
+      "fi": "kaulahuivi / huivi",
       "category": "clothes_4"
     },
     {
@@ -7771,7 +7888,7 @@ const VOCAB = {
     {
       "id": "places_4_shopping_centre",
       "en": "shopping centre",
-      "fi": "kauppakeskus",
+      "fi": "kauppakeskus / ostoskeskus",
       "category": "places_4"
     },
     {
@@ -7834,7 +7951,7 @@ const VOCAB = {
     {
       "id": "nature_4_stick",
       "en": "stick",
-      "fi": "keppi",
+      "fi": "keppi / tikku",
       "category": "nature_4"
     },
     {
@@ -7918,7 +8035,7 @@ const VOCAB = {
     {
       "id": "verbs1_4_hurry",
       "en": "hurry",
-      "fi": "kiirehtiä",
+      "fi": "kiirehtiä / pitää kiirettä",
       "category": "verbs1_4",
       "also": [
         "koe1_4"
@@ -7936,7 +8053,7 @@ const VOCAB = {
     {
       "id": "numbers_4_kilogram",
       "en": "kilogram",
-      "fi": "kilogramma",
+      "fi": "kilogramma / kilo",
       "category": "numbers_4"
     },
     {
@@ -7966,7 +8083,7 @@ const VOCAB = {
     {
       "id": "people_4_writer",
       "en": "writer",
-      "fi": "kirjailija",
+      "fi": "kirjailija / kirjoittaja",
       "category": "people_4"
     },
     {
@@ -7978,7 +8095,7 @@ const VOCAB = {
     {
       "id": "school_4_log_in",
       "en": "log in",
-      "fi": "kirjautua",
+      "fi": "kirjautua / kirjautua sisään",
       "category": "school_4"
     },
     {
@@ -7996,7 +8113,7 @@ const VOCAB = {
     {
       "id": "verbs2_4_scream",
       "en": "scream",
-      "fi": "kirkua",
+      "fi": "kirkua / kiljua",
       "category": "verbs2_4"
     },
     {
@@ -8020,7 +8137,7 @@ const VOCAB = {
     {
       "id": "verbs2_4_tease",
       "en": "tease",
-      "fi": "kiusata",
+      "fi": "kiusata / kiusoitella",
       "category": "verbs2_4"
     },
     {
@@ -8059,7 +8176,7 @@ const VOCAB = {
     {
       "id": "animals_4_puppy",
       "en": "puppy",
-      "fi": "koiranpentu",
+      "fi": "koiranpentu / pentu",
       "category": "animals_4"
     },
     {
@@ -8089,7 +8206,7 @@ const VOCAB = {
     {
       "id": "school_4_coding",
       "en": "coding",
-      "fi": "koodaus",
+      "fi": "koodaus / ohjelmointi",
       "category": "school_4"
     },
     {
@@ -8101,7 +8218,7 @@ const VOCAB = {
     {
       "id": "food_4_coconut",
       "en": "coconut",
-      "fi": "kookospähkinä",
+      "fi": "kookospähkinä / kookos",
       "category": "food_4"
     },
     {
@@ -8149,7 +8266,7 @@ const VOCAB = {
     {
       "id": "verbs1_4_touch",
       "en": "touch",
-      "fi": "koskettaa",
+      "fi": "koskettaa / koskea",
       "category": "verbs1_4"
     },
     {
@@ -8173,7 +8290,7 @@ const VOCAB = {
     {
       "id": "chores_4_chore",
       "en": "chore",
-      "fi": "kotityö",
+      "fi": "kotityö / kotiaskare",
       "category": "chores_4"
     },
     {
@@ -8191,7 +8308,7 @@ const VOCAB = {
     {
       "id": "school_4_school_bag",
       "en": "school bag",
-      "fi": "koululaukku",
+      "fi": "koululaukku / koulureppu",
       "category": "school_4"
     },
     {
@@ -8254,7 +8371,7 @@ const VOCAB = {
     {
       "id": "fantasy_4_ghost",
       "en": "ghost",
-      "fi": "kummitus",
+      "fi": "kummitus / aave",
       "category": "fantasy_4"
     },
     {
@@ -8296,13 +8413,13 @@ const VOCAB = {
     {
       "id": "places_4_lorry",
       "en": "lorry",
-      "fi": "kuorma-auto",
+      "fi": "kuorma-auto / rekka",
       "category": "places_4"
     },
     {
       "id": "food_4_icing",
       "en": "icing",
-      "fi": "kuorrutus",
+      "fi": "kuorrutus / kuorrute",
       "category": "food_4"
     },
     {
@@ -8326,7 +8443,7 @@ const VOCAB = {
     {
       "id": "verbs2_4_peek",
       "en": "peek",
-      "fi": "kurkkia",
+      "fi": "kurkkia / kurkistaa",
       "category": "verbs2_4"
     },
     {
@@ -8374,7 +8491,7 @@ const VOCAB = {
     {
       "id": "little_4_yes",
       "en": "yes",
-      "fi": "kyllä",
+      "fi": "kyllä / joo",
       "category": "little_4"
     },
     {
@@ -8386,7 +8503,7 @@ const VOCAB = {
     {
       "id": "animals_4_viper",
       "en": "viper",
-      "fi": "kyykäärme",
+      "fi": "kyykäärme / kyy",
       "category": "animals_4"
     },
     {
@@ -8458,7 +8575,7 @@ const VOCAB = {
     {
       "id": "places_4_lab",
       "en": "lab",
-      "fi": "laboratorio",
+      "fi": "laboratorio / labra",
       "category": "places_4"
     },
     {
@@ -8476,7 +8593,7 @@ const VOCAB = {
     {
       "id": "verbs1_4_put",
       "en": "put",
-      "fi": "laittaa",
+      "fi": "laittaa / panna",
       "category": "verbs1_4"
     },
     {
@@ -8494,7 +8611,7 @@ const VOCAB = {
     {
       "id": "clothes_4_mitten",
       "en": "mitten",
-      "fi": "lapanen",
+      "fi": "lapanen / rukkanen",
       "category": "clothes_4"
     },
     {
@@ -8593,7 +8710,7 @@ const VOCAB = {
     {
       "id": "places_4_playground",
       "en": "playground",
-      "fi": "leikkikenttä",
+      "fi": "leikkikenttä / leikkipuisto",
       "category": "places_4"
     },
     {
@@ -8620,7 +8737,7 @@ const VOCAB = {
     {
       "id": "clothes_4_trainer",
       "en": "trainer",
-      "fi": "lenkkari",
+      "fi": "lenkkari / lenkkitossu",
       "category": "clothes_4"
     },
     {
@@ -8722,7 +8839,7 @@ const VOCAB = {
     {
       "id": "clothes_4_cap",
       "en": "cap",
-      "fi": "lippalakki",
+      "fi": "lippalakki / lippis",
       "category": "clothes_4"
     },
     {
@@ -8791,7 +8908,7 @@ const VOCAB = {
     {
       "id": "time_4_finally",
       "en": "finally",
-      "fi": "lopulta",
+      "fi": "lopulta / vihdoin",
       "category": "time_4"
     },
     {
@@ -8929,13 +9046,13 @@ const VOCAB = {
     {
       "id": "body_4_tummy",
       "en": "tummy",
-      "fi": "maha",
+      "fi": "maha / vatsa",
       "category": "body_4"
     },
     {
       "id": "adj_4_super",
       "en": "super",
-      "fi": "mahtava",
+      "fi": "mahtava / super",
       "category": "adj_4"
     },
     {
@@ -9058,7 +9175,7 @@ const VOCAB = {
     {
       "id": "home_4_microwave",
       "en": "microwave",
-      "fi": "mikroaaltouuni",
+      "fi": "mikroaaltouuni / mikro",
       "category": "home_4"
     },
     {
@@ -9235,7 +9352,7 @@ const VOCAB = {
     {
       "id": "places_4_cottage",
       "en": "cottage",
-      "fi": "mökki",
+      "fi": "mökki / kesämökki",
       "category": "places_4"
     },
     {
@@ -9256,7 +9373,7 @@ const VOCAB = {
     {
       "id": "hobbies_4_teddy_bear",
       "en": "teddy bear",
-      "fi": "nalle",
+      "fi": "nalle / nallekarhu",
       "category": "hobbies_4"
     },
     {
@@ -9286,7 +9403,7 @@ const VOCAB = {
     {
       "id": "school_4_online",
       "en": "online",
-      "fi": "netissä",
+      "fi": "netissä / verkossa",
       "category": "school_4"
     },
     {
@@ -9316,7 +9433,7 @@ const VOCAB = {
     {
       "id": "verbs1_4_pick_up",
       "en": "pick up",
-      "fi": "nostaa ylös",
+      "fi": "nostaa ylös / nostaa",
       "category": "verbs1_4"
     },
     {
@@ -9400,7 +9517,7 @@ const VOCAB = {
     {
       "id": "phrases_4_uh_oh",
       "en": "Uh-oh!",
-      "fi": "Oho!",
+      "fi": "Oho! / Hups!",
       "category": "phrases_4"
     },
     {
@@ -9427,13 +9544,13 @@ const VOCAB = {
     {
       "id": "phrases_4_ok",
       "en": "OK",
-      "fi": "okei",
+      "fi": "okei / ok",
       "category": "phrases_4"
     },
     {
       "id": "little_4_at_all",
       "en": "at all",
-      "fi": "ollenkaan",
+      "fi": "ollenkaan / yhtään / lainkaan",
       "category": "little_4"
     },
     {
@@ -9457,7 +9574,7 @@ const VOCAB = {
     {
       "id": "general_4_luck",
       "en": "luck",
-      "fi": "onni",
+      "fi": "onni / tuuri",
       "category": "general_4"
     },
     {
@@ -9499,7 +9616,7 @@ const VOCAB = {
     {
       "id": "verbs1_4_catch",
       "en": "catch",
-      "fi": "ottaa kiinni",
+      "fi": "ottaa kiinni / saada kiinni",
       "category": "verbs1_4",
       "also": [
         "koe1_4"
@@ -9526,7 +9643,7 @@ const VOCAB = {
     {
       "id": "verbs2_4_weigh",
       "en": "weigh",
-      "fi": "painaa",
+      "fi": "painaa / punnita",
       "category": "verbs2_4"
     },
     {
@@ -9538,7 +9655,7 @@ const VOCAB = {
     {
       "id": "verbs2_4_shine",
       "en": "shine",
-      "fi": "paistaa (aurinko)",
+      "fi": "paistaa (aurinko) / loistaa",
       "category": "verbs2_4"
     },
     {
@@ -9556,19 +9673,19 @@ const VOCAB = {
     {
       "id": "nature_4_freezing",
       "en": "freezing",
-      "fi": "pakkasta",
+      "fi": "pakkasta / jäätävä",
       "category": "nature_4"
     },
     {
       "id": "general_4_piece",
       "en": "piece",
-      "fi": "pala",
+      "fi": "pala / palanen",
       "category": "general_4"
     },
     {
       "id": "verbs2_4_burn",
       "en": "burn",
-      "fi": "palaa",
+      "fi": "palaa / polttaa",
       "category": "verbs2_4"
     },
     {
@@ -9610,19 +9727,19 @@ const VOCAB = {
     {
       "id": "home_4_pan",
       "en": "pan",
-      "fi": "pannu",
+      "fi": "pannu / paistinpannu",
       "category": "home_4"
     },
     {
       "id": "food_4_pancake",
       "en": "pancake",
-      "fi": "pannukakku",
+      "fi": "pannukakku / lettu / ohukainen",
       "category": "food_4"
     },
     {
       "id": "clothes_4_headband",
       "en": "headband",
-      "fi": "panta",
+      "fi": "panta / hiuspanta",
       "category": "clothes_4"
     },
     {
@@ -9640,7 +9757,7 @@ const VOCAB = {
     {
       "id": "hobbies_4_parade",
       "en": "parade",
-      "fi": "paraati",
+      "fi": "paraati / kulkue",
       "category": "hobbies_4"
     },
     {
@@ -9658,13 +9775,13 @@ const VOCAB = {
     {
       "id": "home_4_battery",
       "en": "battery",
-      "fi": "paristo",
+      "fi": "paristo / akku",
       "category": "home_4"
     },
     {
       "id": "food_4_broccoli",
       "en": "broccoli",
-      "fi": "parsakaali",
+      "fi": "parsakaali / brokkoli",
       "category": "food_4"
     },
     {
@@ -9682,7 +9799,7 @@ const VOCAB = {
     {
       "id": "hobbies_4_token",
       "en": "token",
-      "fi": "pelinappula",
+      "fi": "pelinappula / nappula",
       "category": "hobbies_4"
     },
     {
@@ -9694,7 +9811,7 @@ const VOCAB = {
     {
       "id": "verbs2_4_scare",
       "en": "scare",
-      "fi": "pelotella",
+      "fi": "pelotella / pelästyttää",
       "category": "verbs2_4"
     },
     {
@@ -9706,7 +9823,7 @@ const VOCAB = {
     {
       "id": "school_4_pencil_case",
       "en": "pencil case",
-      "fi": "penaali",
+      "fi": "penaali / kynäkotelo",
       "category": "school_4"
     },
     {
@@ -9730,7 +9847,7 @@ const VOCAB = {
     {
       "id": "food_4_crisps",
       "en": "crisps",
-      "fi": "perunalastut",
+      "fi": "perunalastut / sipsit",
       "category": "food_4"
     },
     {
@@ -9787,7 +9904,7 @@ const VOCAB = {
     {
       "id": "hobbies_4_ice_fishing",
       "en": "ice fishing",
-      "fi": "pilkkionginta",
+      "fi": "pilkkionginta / pilkkiminen",
       "category": "hobbies_4"
     },
     {
@@ -9814,13 +9931,13 @@ const VOCAB = {
     {
       "id": "body_4_freckles",
       "en": "freckles",
-      "fi": "pisamat",
+      "fi": "pisamat / kesakot",
       "category": "body_4"
     },
     {
       "id": "nature_4_drop",
       "en": "drop",
-      "fi": "pisara",
+      "fi": "pisara / tippa",
       "category": "nature_4"
     },
     {
@@ -9838,7 +9955,7 @@ const VOCAB = {
     {
       "id": "verbs1_4_wear",
       "en": "wear",
-      "fi": "pitää yllään",
+      "fi": "pitää yllään / pitää päällä",
       "category": "verbs1_4"
     },
     {
@@ -9913,19 +10030,19 @@ const VOCAB = {
     {
       "id": "places_4_post_office",
       "en": "post office",
-      "fi": "postitoimisto",
+      "fi": "postitoimisto / posti",
       "category": "places_4"
     },
     {
       "id": "verbs1_4_kick",
       "en": "kick",
-      "fi": "potkia",
+      "fi": "potkia / potkaista",
       "category": "verbs1_4"
     },
     {
       "id": "places_4_scooter",
       "en": "scooter",
-      "fi": "potkulauta",
+      "fi": "potkulauta / skootteri",
       "category": "places_4"
     },
     {
@@ -9937,7 +10054,7 @@ const VOCAB = {
     {
       "id": "verbs1_4_fall",
       "en": "fall",
-      "fi": "pudota / tippua",
+      "fi": "pudota / tippua / kaatua",
       "category": "verbs1_4"
     },
     {
@@ -9949,7 +10066,7 @@ const VOCAB = {
     {
       "id": "sports_4_sledge",
       "en": "sledge",
-      "fi": "pulkka",
+      "fi": "pulkka / kelkka",
       "category": "sports_4"
     },
     {
@@ -10009,7 +10126,7 @@ const VOCAB = {
     {
       "id": "clothes_4_pyjamas",
       "en": "pyjamas",
-      "fi": "pyjama",
+      "fi": "pyjama / yöpuku",
       "category": "clothes_4"
     },
     {
@@ -10021,7 +10138,7 @@ const VOCAB = {
     {
       "id": "verbs1_4_stop",
       "en": "stop",
-      "fi": "pysähtyä",
+      "fi": "pysähtyä / pysäyttää",
       "category": "verbs1_4"
     },
     {
@@ -10111,13 +10228,13 @@ const VOCAB = {
     {
       "id": "food_4_chips",
       "en": "chips",
-      "fi": "ranskalaiset perunat",
+      "fi": "ranskalaiset perunat / ranskalaiset",
       "category": "food_4"
     },
     {
       "id": "nature_4_beach",
       "en": "beach",
-      "fi": "ranta",
+      "fi": "ranta / hiekkaranta / uimaranta",
       "category": "nature_4",
       "also": [
         "koe1_4"
@@ -10126,13 +10243,13 @@ const VOCAB = {
     {
       "id": "verbs1_4_ride",
       "en": "ride",
-      "fi": "ratsastaa",
+      "fi": "ratsastaa / ajaa (pyörällä)",
       "category": "verbs1_4"
     },
     {
       "id": "general_4_hole",
       "en": "hole",
-      "fi": "reikä",
+      "fi": "reikä / kuoppa",
       "category": "general_4"
     },
     {
@@ -10150,7 +10267,7 @@ const VOCAB = {
     {
       "id": "adj_4_broken",
       "en": "broken",
-      "fi": "rikki",
+      "fi": "rikki / rikkinäinen",
       "category": "adj_4"
     },
     {
@@ -10210,13 +10327,13 @@ const VOCAB = {
     {
       "id": "chores_4_cooking",
       "en": "cooking",
-      "fi": "ruoanlaitto",
+      "fi": "ruoanlaitto / ruuanlaitto / kokkaus",
       "category": "chores_4"
     },
     {
       "id": "nature_4_grass",
       "en": "grass",
-      "fi": "ruoho",
+      "fi": "ruoho / nurmi",
       "category": "nature_4"
     },
     {
@@ -10273,13 +10390,13 @@ const VOCAB = {
     {
       "id": "verbs2_4_crawl",
       "en": "crawl",
-      "fi": "ryömiä",
+      "fi": "ryömiä / konttata",
       "category": "verbs2_4"
     },
     {
       "id": "general_4_x_ray",
       "en": "X-ray",
-      "fi": "röntgenkuva",
+      "fi": "röntgenkuva / röntgen",
       "category": "general_4"
     },
     {
@@ -10297,7 +10414,7 @@ const VOCAB = {
     {
       "id": "verbs1_4_arrive",
       "en": "arrive",
-      "fi": "saapua",
+      "fi": "saapua / tulla perille",
       "category": "verbs1_4"
     },
     {
@@ -10321,7 +10438,7 @@ const VOCAB = {
     {
       "id": "phrases_4_can_i_have",
       "en": "Can I have...?",
-      "fi": "Saisinko...?",
+      "fi": "Saisinko...? / Voinko saada...?",
       "category": "phrases_4"
     },
     {
@@ -10501,7 +10618,7 @@ const VOCAB = {
     {
       "id": "places_dir_4_there",
       "en": "there",
-      "fi": "siellä",
+      "fi": "siellä / sinne",
       "category": "places_dir_4"
     },
     {
@@ -10525,25 +10642,25 @@ const VOCAB = {
     {
       "id": "chores_4_cleaning",
       "en": "cleaning",
-      "fi": "siivoaminen",
+      "fi": "siivoaminen / siivous",
       "category": "chores_4"
     },
     {
       "id": "chores_4_make_the_bed",
       "en": "make the bed",
-      "fi": "sijata vuode",
+      "fi": "sijata vuode / sijata sänky / pedata sänky",
       "category": "chores_4"
     },
     {
       "id": "animals_4_pig",
       "en": "pig",
-      "fi": "sika",
+      "fi": "sika / possu",
       "category": "animals_4"
     },
     {
       "id": "nature_4_shell",
       "en": "shell",
-      "fi": "simpukankuori / kuori",
+      "fi": "simpukankuori / kuori / simpukka",
       "category": "nature_4"
     },
     {
@@ -10579,7 +10696,7 @@ const VOCAB = {
     {
       "id": "sports_4_skateboard",
       "en": "skateboard",
-      "fi": "skeittilauta",
+      "fi": "skeittilauta / rullalauta",
       "category": "sports_4"
     },
     {
@@ -10597,7 +10714,7 @@ const VOCAB = {
     {
       "id": "sports_4_snorkel",
       "en": "snorkel",
-      "fi": "snorklata",
+      "fi": "snorklata / snorkkeli",
       "category": "sports_4"
     },
     {
@@ -10615,7 +10732,7 @@ const VOCAB = {
     {
       "id": "verbs2_4_fit",
       "en": "fit",
-      "fi": "sopia",
+      "fi": "sopia / mahtua",
       "category": "verbs2_4"
     },
     {
@@ -10651,13 +10768,13 @@ const VOCAB = {
     {
       "id": "verbs2_4_melt",
       "en": "melt",
-      "fi": "sulaa",
+      "fi": "sulaa / sulattaa",
       "category": "verbs2_4"
     },
     {
       "id": "adj_4_closed",
       "en": "closed",
-      "fi": "suljettu",
+      "fi": "suljettu / kiinni",
       "category": "adj_4"
     },
     {
@@ -10720,13 +10837,13 @@ const VOCAB = {
     {
       "id": "home_4_mixer",
       "en": "mixer",
-      "fi": "sähkövatkain",
+      "fi": "sähkövatkain / vatkain",
       "category": "home_4"
     },
     {
       "id": "home_4_bed",
       "en": "bed",
-      "fi": "sänky",
+      "fi": "sänky / vuode",
       "category": "home_4"
     },
     {
@@ -10750,7 +10867,7 @@ const VOCAB = {
     {
       "id": "little_4_again",
       "en": "again",
-      "fi": "taas",
+      "fi": "taas / uudelleen / uudestaan",
       "category": "little_4"
     },
     {
@@ -10822,7 +10939,7 @@ const VOCAB = {
     {
       "id": "school_4_story",
       "en": "story",
-      "fi": "tarina",
+      "fi": "tarina / kertomus",
       "category": "school_4"
     },
     {
@@ -10894,13 +11011,13 @@ const VOCAB = {
     {
       "id": "chores_4_do_the_shopping",
       "en": "do the shopping",
-      "fi": "tehdä ostokset",
+      "fi": "tehdä ostokset / käydä kaupassa",
       "category": "chores_4"
     },
     {
       "id": "school_4_text",
       "en": "text",
-      "fi": "tekstata",
+      "fi": "tekstata / teksti",
       "category": "school_4"
     },
     {
@@ -10942,7 +11059,7 @@ const VOCAB = {
     {
       "id": "phrases_4_of_course",
       "en": "Of course!",
-      "fi": "Tietysti!",
+      "fi": "Tietysti! / Totta kai! / Tietenkin!",
       "category": "phrases_4"
     },
     {
@@ -10978,7 +11095,7 @@ const VOCAB = {
     {
       "id": "general_4_activity",
       "en": "activity",
-      "fi": "toiminta",
+      "fi": "toiminta / aktiviteetti",
       "category": "general_4"
     },
     {
@@ -11002,7 +11119,7 @@ const VOCAB = {
     {
       "id": "general_4_wish",
       "en": "wish",
-      "fi": "toive",
+      "fi": "toive / toivomus",
       "category": "general_4"
     },
     {
@@ -11050,13 +11167,13 @@ const VOCAB = {
     {
       "id": "phrases_4_come_with_me",
       "en": "Come with me!",
-      "fi": "Tule mukaani!",
+      "fi": "Tule mukaani! / Tule mukaan! / Tule minun kanssani!",
       "category": "phrases_4"
     },
     {
       "id": "nature_4_fire",
       "en": "fire",
-      "fi": "tuli",
+      "fi": "tuli / tulipalo",
       "category": "nature_4"
     },
     {
@@ -11173,7 +11290,7 @@ const VOCAB = {
     {
       "id": "time_4_tonight",
       "en": "tonight",
-      "fi": "tänä iltana",
+      "fi": "tänä iltana / tänä yönä",
       "category": "time_4"
     },
     {
@@ -11197,7 +11314,7 @@ const VOCAB = {
     {
       "id": "verbs1_4_have_to",
       "en": "have to",
-      "fi": "täytyä",
+      "fi": "täytyä / joutua",
       "category": "verbs1_4"
     },
     {
@@ -11209,7 +11326,7 @@ const VOCAB = {
     {
       "id": "verbs2_4_stomp",
       "en": "stomp",
-      "fi": "tömistellä",
+      "fi": "tömistellä / tömistää",
       "category": "verbs2_4"
     },
     {
@@ -11323,7 +11440,7 @@ const VOCAB = {
     {
       "id": "body_4_blond",
       "en": "blond",
-      "fi": "vaalea (hiukset)",
+      "fi": "vaalea (hiukset) / blondi",
       "category": "body_4"
     },
     {
@@ -11497,7 +11614,7 @@ const VOCAB = {
     {
       "id": "chores_4_take_the_rubbish_out",
       "en": "take the rubbish out",
-      "fi": "viedä roskat",
+      "fi": "viedä roskat / viedä roskat ulos",
       "category": "chores_4"
     },
     {
@@ -11620,13 +11737,13 @@ const VOCAB = {
     {
       "id": "little_4_a_little",
       "en": "a little",
-      "fi": "vähän",
+      "fi": "vähän / hieman",
       "category": "little_4"
     },
     {
       "id": "countries_4_population",
       "en": "population",
-      "fi": "väkiluku",
+      "fi": "väkiluku / väestö",
       "category": "countries_4"
     },
     {
@@ -11668,13 +11785,13 @@ const VOCAB = {
     {
       "id": "countries_4_the_usa",
       "en": "the USA",
-      "fi": "Yhdysvallat",
+      "fi": "Yhdysvallat / USA",
       "category": "countries_4"
     },
     {
       "id": "time_4_suddenly",
       "en": "suddenly",
-      "fi": "yhtäkkiä",
+      "fi": "yhtäkkiä / äkkiä",
       "category": "time_4"
     },
     {
@@ -11710,7 +11827,7 @@ const VOCAB = {
     {
       "id": "places_dir_4_upstairs",
       "en": "upstairs",
-      "fi": "yläkerrassa",
+      "fi": "yläkerrassa / yläkertaan",
       "category": "places_dir_4"
     },
     {
@@ -11734,7 +11851,7 @@ const VOCAB = {
     {
       "id": "phrases_4_eww",
       "en": "Eww!",
-      "fi": "Yäk!",
+      "fi": "Yäk! / Hyi!",
       "category": "phrases_4"
     },
     {
@@ -11805,6 +11922,302 @@ const VOCAB = {
       "en": "watch (katsella)",
       "fi": "katsella",
       "category": "koe1_4"
+    },
+    {
+      "id": "de_k1_guten_tag",
+      "en": "Good day!",
+      "fi": "Hyvää päivää!",
+      "category": "koe1_de",
+      "de": "Guten Tag!",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_guten_abend",
+      "en": "Good evening!",
+      "fi": "Hyvää iltaa!",
+      "category": "koe1_de",
+      "de": "Guten Abend!",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_gute_nacht",
+      "en": "Good night!",
+      "fi": "Hyvää yötä!",
+      "category": "koe1_de",
+      "de": "Gute Nacht!",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_wie_geht_s",
+      "en": "How are you?",
+      "fi": "Mitä kuuluu?",
+      "category": "koe1_de",
+      "de": "Wie geht's?",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_danke_gut",
+      "en": "Fine, thanks!",
+      "fi": "Kiitos, hyvää!",
+      "category": "koe1_de",
+      "de": "Danke, gut!",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_und_dir",
+      "en": "And you?",
+      "fi": "Entä sinulle?",
+      "category": "koe1_de",
+      "de": "Und dir?",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_tschuss",
+      "en": "Bye!",
+      "fi": "Hei hei! / Moikka!",
+      "category": "koe1_de",
+      "de": "Tschüss!",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_nein",
+      "en": "no",
+      "fi": "ei",
+      "category": "koe1_de",
+      "de": "nein",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_ja",
+      "en": "yes",
+      "fi": "kyllä",
+      "category": "koe1_de",
+      "de": "ja",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_richtig",
+      "en": "correct",
+      "fi": "oikein",
+      "category": "koe1_de",
+      "de": "richtig",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_wie_heisst_du",
+      "en": "What's your name?",
+      "fi": "Mikä sinun nimesi on?",
+      "category": "koe1_de",
+      "de": "Wie heißt du?",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_und_du",
+      "en": "And you?",
+      "fi": "Entä sinä?",
+      "category": "koe1_de",
+      "de": "Und du?",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_ich_heisse_katja",
+      "en": "My name is Katja.",
+      "fi": "Minun nimeni on Katja.",
+      "category": "koe1_de",
+      "de": "Ich heiße Katja.",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_bunt",
+      "en": "colourful",
+      "fi": "värikäs",
+      "category": "koe1_de",
+      "de": "bunt",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_opa",
+      "en": "grandpa",
+      "fi": "vaari / pappa / ukki",
+      "category": "koe1_de",
+      "de": "der Opa",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_oma",
+      "en": "grandma",
+      "fi": "mummi / mummo / mummu",
+      "category": "koe1_de",
+      "de": "die Oma",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_wir",
+      "en": "we",
+      "fi": "me",
+      "category": "koe1_de",
+      "de": "wir",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_jetzt",
+      "en": "now",
+      "fi": "nyt",
+      "category": "koe1_de",
+      "de": "jetzt",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_super",
+      "en": "super",
+      "fi": "mahtavaa",
+      "category": "koe1_de",
+      "de": "super",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_toll",
+      "en": "great",
+      "fi": "kivaa / upeaa / hienoa",
+      "category": "koe1_de",
+      "de": "toll",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_ich_mag_gelb",
+      "en": "I like yellow.",
+      "fi": "Minä pidän keltaisesta.",
+      "category": "koe1_de",
+      "de": "Ich mag gelb.",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_und",
+      "en": "and",
+      "fi": "ja",
+      "category": "koe1_de",
+      "de": "und",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_schon",
+      "en": "beautiful",
+      "fi": "kaunis",
+      "category": "koe1_de",
+      "de": "schön",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_was_ist_deine_lieblingsfarbe",
+      "en": "What is your favourite colour?",
+      "fi": "Mikä on sinun lempivärisi?",
+      "category": "koe1_de",
+      "de": "Was ist deine Lieblingsfarbe?",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_plus",
+      "en": "plus",
+      "fi": "plus",
+      "category": "koe1_de",
+      "de": "plus",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_minus",
+      "en": "minus",
+      "fi": "miinus",
+      "category": "koe1_de",
+      "de": "minus",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_wie_alt_bist_du",
+      "en": "How old are you?",
+      "fi": "Kuinka vanha sinä olet?",
+      "category": "koe1_de",
+      "de": "Wie alt bist du?",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_ich_bin_elf",
+      "en": "I am eleven.",
+      "fi": "Minä olen yksitoista.",
+      "category": "koe1_de",
+      "de": "Ich bin elf.",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_abc",
+      "en": "alphabet",
+      "fi": "aakkoset",
+      "category": "koe1_de",
+      "de": "das ABC",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_lecker",
+      "en": "Yummy!",
+      "fi": "herkullinen / herkullista",
+      "category": "koe1_de",
+      "de": "lecker",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_eis",
+      "en": "ice cream",
+      "fi": "jäätelö",
+      "category": "koe1_de",
+      "de": "das Eis",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_kugel",
+      "en": "scoop",
+      "fi": "pallo / jäätelöpallo",
+      "category": "koe1_de",
+      "de": "die Kugel",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_schokolade",
+      "en": "chocolate",
+      "fi": "suklaa",
+      "category": "koe1_de",
+      "de": "die Schokolade",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_wie_spat_ist_es",
+      "en": "What time is it?",
+      "fi": "Paljonko kello on?",
+      "category": "koe1_de",
+      "de": "Wie spät ist es?",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_es_ist_zwei_uhr",
+      "en": "It is two o'clock.",
+      "fi": "Kello on kaksi.",
+      "category": "koe1_de",
+      "de": "Es ist zwei Uhr.",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_es_ist_halb_acht",
+      "en": "It is half past seven.",
+      "fi": "Kello on puoli kahdeksan.",
+      "category": "koe1_de",
+      "de": "Es ist halb acht.",
+      "de_only": true
+    },
+    {
+      "id": "de_k1_falsch",
+      "en": "wrong",
+      "fi": "väärin",
+      "category": "koe1_de",
+      "de": "falsch",
+      "de_only": true
     }
   ]
 };
@@ -11877,7 +12290,8 @@ try {
 // Sama sanasto ja samat id:t kaikille kielille - jokaisella sanalla on sekä en- että de-kenttä.
 function practiceWords(){
   // Sanalla täytyy olla kohdekielinen muoto (yläkoulun englanninkielisillä sanoilla ei ole saksaa).
-  return VOCAB.words.filter(w => !!w[targetLang] && !w.fi.includes("...") && !w[targetLang].includes("..."));
+  return VOCAB.words.filter(w => !!w[targetLang] && !(w.de_only && targetLang !== "de") &&
+    !w.fi.includes("...") && !w[targetLang].includes("..."));
 }
 let PRACTICE_WORDS = practiceWords();
 
@@ -13540,6 +13954,46 @@ const SENTENCE_DATA = {
     {id:"de_g3_18", grade:3, de:"Danke für das Abendessen, es war sehr gut.", fi:"Kiitos päivällisestä, se oli todella hyvää."},
     {id:"de_g3_19", grade:3, de:"Unsere neue Schülerin heißt Anna.", fi:"Uuden oppilaamme nimi on Anna."},
     {id:"de_g3_20", grade:3, de:"Die Pizza ist heiß, aber der Saft ist kalt.", fi:"Pizza on kuuma, mutta mehu on kylmä."},
+    {id:"de_k1_1", grade:1, theme:"koe1_de", de:"Guten Morgen, Lena!", fi:"Hyvää huomenta, Lena!"},
+    {id:"de_k1_2", grade:1, theme:"koe1_de", de:"Hallo, Tom! Wie geht's?", fi:"Hei, Tom! Mitä kuuluu?"},
+    {id:"de_k1_3", grade:1, theme:"koe1_de", de:"Danke, gut! Und dir?", fi:"Kiitos, hyvää! Entä sinulle?", alt:["Gut, danke! Und dir?"]},
+    {id:"de_k1_4", grade:1, theme:"koe1_de", de:"Auch gut, danke.", fi:"Hyvää myös, kiitos."},
+    {id:"de_k1_5", grade:1, theme:"koe1_de", de:"Ich heiße Lena.", fi:"Minun nimeni on Lena.", alt:["Ich bin Lena."]},
+    {id:"de_k1_6", grade:1, theme:"koe1_de", de:"Ich bin Tom.", fi:"Minä olen Tom.", alt:["Ich heiße Tom."]},
+    {id:"de_k1_7", grade:1, theme:"koe1_de", de:"Wie heißt du?", fi:"Mikä sinun nimesi on?"},
+    {id:"de_k1_8", grade:1, theme:"koe1_de", de:"Und du? Wie heißt du?", fi:"Entä sinä? Mikä sinun nimesi on?"},
+    {id:"de_k1_9", grade:1, theme:"koe1_de", de:"Wie alt bist du?", fi:"Kuinka vanha sinä olet?"},
+    {id:"de_k1_10", grade:1, theme:"koe1_de", de:"Ich bin zehn.", fi:"Minä olen kymmenen.", alt:["Ich bin 10."]},
+    {id:"de_k1_11", grade:1, theme:"koe1_de", de:"Lena ist elf.", fi:"Lena on yksitoista.", alt:["Lena ist 11."]},
+    {id:"de_k1_12", grade:1, theme:"koe1_de", de:"Ich mag blau.", fi:"Minä pidän sinisestä."},
+    {id:"de_k1_13", grade:1, theme:"koe1_de", de:"Tom mag grün und gelb.", fi:"Tom pitää vihreästä ja keltaisesta.", alt:["Tom mag gelb und grün."]},
+    {id:"de_k1_14", grade:1, theme:"koe1_de", de:"Ich mag rot und schwarz.", fi:"Minä pidän punaisesta ja mustasta.", alt:["Ich mag schwarz und rot."]},
+    {id:"de_k1_15", grade:1, theme:"koe1_de", de:"Was ist deine Lieblingsfarbe?", fi:"Mikä on sinun lempivärisi?"},
+    {id:"de_k1_16", grade:1, theme:"koe1_de", de:"Welche Farbe hat der Trabi?", fi:"Minkä värinen Trabi on?"},
+    {id:"de_k1_17", grade:1, theme:"koe1_de", de:"Der Trabi ist bunt.", fi:"Trabi on värikäs."},
+    {id:"de_k1_18", grade:1, theme:"koe1_de", de:"Das Eis ist rosa.", fi:"Jäätelö on vaaleanpunainen."},
+    {id:"de_k1_19", grade:1, theme:"koe1_de", de:"Der Fußball ist schwarz und weiß.", fi:"Jalkapallo on musta ja valkoinen.", alt:["Der Fußball ist weiß und schwarz."]},
+    {id:"de_k1_20", grade:1, theme:"koe1_de", de:"Wir malen jetzt.", fi:"Me maalaamme nyt.", alt:["Jetzt malen wir."]},
+    {id:"de_k1_21", grade:1, theme:"koe1_de", de:"Super! Das ist toll!", fi:"Mahtavaa! Se on hienoa!"},
+    {id:"de_k1_22", grade:1, theme:"koe1_de", de:"Der Opa mag braun.", fi:"Vaari pitää ruskeasta."},
+    {id:"de_k1_23", grade:1, theme:"koe1_de", de:"Die Oma mag orange und weiß.", fi:"Mummi pitää oranssista ja valkoisesta.", alt:["Die Oma mag weiß und orange."]},
+    {id:"de_k1_24", grade:1, theme:"koe1_de", de:"Ein Eis, bitte!", fi:"Yksi jäätelö, kiitos!"},
+    {id:"de_k1_25", grade:1, theme:"koe1_de", de:"Drei Kugeln, bitte!", fi:"Kolme palloa, kiitos!"},
+    {id:"de_k1_26", grade:1, theme:"koe1_de", de:"Nur eine Kugel, bitte.", fi:"Vain yksi pallo, kiitos.", alt:["Nur eine Kugel Eis, bitte."]},
+    {id:"de_k1_27", grade:1, theme:"koe1_de", de:"Lena, zwei Kugeln?", fi:"Lena, kaksi palloa?"},
+    {id:"de_k1_28", grade:1, theme:"koe1_de", de:"Ja, bitte. Und du?", fi:"Kyllä, kiitos. Entä sinä?"},
+    {id:"de_k1_29", grade:1, theme:"koe1_de", de:"Aha. So viele?", fi:"Ahaa. Niin monta?"},
+    {id:"de_k1_30", grade:1, theme:"koe1_de", de:"Das Eis ist lecker!", fi:"Jäätelö on herkullista!"},
+    {id:"de_k1_31", grade:1, theme:"koe1_de", de:"Zwei plus drei ist fünf.", fi:"Kaksi plus kolme on viisi."},
+    {id:"de_k1_32", grade:1, theme:"koe1_de", de:"Zehn minus vier ist sechs.", fi:"Kymmenen miinus neljä on kuusi."},
+    {id:"de_k1_33", grade:1, theme:"koe1_de", de:"Das sind acht Kugeln.", fi:"Tässä on kahdeksan palloa."},
+    {id:"de_k1_34", grade:1, theme:"koe1_de", de:"Wie spät ist es?", fi:"Paljonko kello on?"},
+    {id:"de_k1_35", grade:1, theme:"koe1_de", de:"Es ist neun Uhr.", fi:"Kello on yhdeksän.", alt:["Es ist neun."]},
+    {id:"de_k1_36", grade:1, theme:"koe1_de", de:"Es ist halb vier.", fi:"Kello on puoli neljä."},
+    {id:"de_k1_37", grade:1, theme:"koe1_de", de:"Es ist ein Uhr.", fi:"Kello on yksi.", alt:["Es ist eins."]},
+    {id:"de_k1_38", grade:1, theme:"koe1_de", de:"Gute Nacht, Tom!", fi:"Hyvää yötä, Tom!"},
+    {id:"de_k1_39", grade:1, theme:"koe1_de", de:"Auf Wiedersehen, Opa!", fi:"Näkemiin, vaari!", alt:["Tschüss, Opa!"]},
+    {id:"de_k1_40", grade:1, theme:"koe1_de", de:"Danke! Bitte schön!", fi:"Kiitos! Ole hyvä!"},
   ]
 };
 

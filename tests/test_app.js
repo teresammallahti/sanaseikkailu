@@ -51,7 +51,7 @@ test('Boot: luokka-asteen valinnassa 9 vaihtoehtoa', async () => {
 
 test('Boot: teemavalikko sisältää "all" + luokka-asteen teemat + harrasteteemat', async () => {
   const app = await boot();
-  const expected = app.run('VOCAB.categories.filter(c => c.grade === 1 || c.group === "hobby" || c.exam).length');
+  const expected = app.run('VOCAB.categories.filter(c => (c.grade === 1 && !c.exam) || c.group === "hobby" || (c.exam && (!c.lang || c.lang === "en"))).length');
   assert.strictEqual(app.elements.themeList._children.length, expected);
   assert.strictEqual(app.elements.themeButton.textContent, 'Kaikki teemat');
   app.dispose();
@@ -549,7 +549,7 @@ test('Pooli: luokka 1, kaikki teemat -> 10-15 sanaa', async () => {
 
 test('Pooli: pieni yksittäinen teema täydentyy >=10 saman luokan sanoilla', async () => {
   const app = await boot();
-  const small = J(app, `VOCAB.categories.filter(c => c.grade === 1)
+  const small = J(app, `VOCAB.categories.filter(c => c.grade === 1 && !c.exam)
     .map(c => ({ id: c.id, n: PRACTICE_WORDS.filter(w => w.category === c.id).length }))
     .sort((a, b) => a.n - b.n)[0]`);
   assert.ok(small.n < 10, 'tarvitaan alle 10 sanan teema, pienin: ' + small.n);
@@ -781,10 +781,10 @@ test('Virkkeet: saksalle 60 virkettä, 20 / luokka 4-6, ei kaadu', async () => {
   app.run('selectTargetLang("de"); setPracticeMode("sentences");');
   await app.flush();
   assert.notStrictEqual(app.run('currentSentence'), null);
-  assert.strictEqual(app.run('SENTENCE_DATA.de.length'), 60);
+  assert.strictEqual(app.run('SENTENCE_DATA.de.filter(s => !s.theme).length'), 60);
   for (const g of [4, 5, 6]) assert.strictEqual(app.run(`sentencesForGrade(${g}).length`), 20, 'luokka ' + g);
   assert.strictEqual(app.run('sentencesForGrade(1).length'), 0);
-  assert.strictEqual(app.run('new Set(SENTENCE_DATA.de.map(s => s.id)).size'), 60);
+  assert.strictEqual(app.run('new Set(SENTENCE_DATA.de.map(s => s.id)).size'), 100);
   assert.strictEqual(app.run('SENTENCE_DATA.de.every(s => s.de && s.fi && s.grade >= 1 && s.grade <= 3)'), true);
   assert.strictEqual(app.run('sentencesForLang().includes(currentSentence)'), true);
   app.dispose();
@@ -1217,13 +1217,13 @@ test('Backup: vienti -> tuonti kierto säilyttää datan', async () => {
 
 
 // ---------------- Usean teeman valinta (vaihe 22) ----------------
-const smallThemes = (app, n) => J(app, `VOCAB.categories.filter(c => c.grade === 1)
+const smallThemes = (app, n) => J(app, `VOCAB.categories.filter(c => c.grade === 1 && !c.exam)
   .map(c => ({ id: c.id, n: PRACTICE_WORDS.filter(w => w.category === c.id).length }))
   .sort((a, b) => a.n - b.n).slice(0, ${n})`);
 
 test('Teemat: usean teeman valinta rajaa poolin valittujen teemojen sanoihin (isot teemat)', async () => {
   const app = await boot();
-  const big = J(app, `VOCAB.categories.filter(c => c.grade === 1)
+  const big = J(app, `VOCAB.categories.filter(c => c.grade === 1 && !c.exam)
     .map(c => ({ id: c.id, n: PRACTICE_WORDS.filter(w => w.category === c.id).length }))
     .filter(c => c.n <= 8).sort((a, b) => b.n - a.n).slice(0, 2)`);
   const ids = big.map(c => c.id);
@@ -1260,7 +1260,7 @@ test('Teemat: valintaruudun klikkaus lisää/poistaa teeman ja päivittää napi
 test('Teemat: harrasteteema ja luokan teema valittavissa yhdessä', async () => {
   const app = await boot();
   const hobby = J(app, 'VOCAB.categories.find(c => c.group === "hobby").id');
-  const normal = J(app, 'VOCAB.categories.find(c => c.grade === 1).id');
+  const normal = J(app, 'VOCAB.categories.find(c => c.grade === 1 && !c.exam).id');
   app.run(`selectedThemes = [${JSON.stringify(hobby)}, ${JSON.stringify(normal)}]; initSessionPool();`);
   const cats = new Set(J(app, 'sessionPool.map(w => w.category)'));
   assert.ok(cats.has(hobby) && cats.has(normal));
@@ -1330,7 +1330,7 @@ test('Teemat: tiukan tilan vaihto muuttaa poolin heti (valinta voimassa)', async
 test('Teemat: luokan vaihto nollaa valinnan; harrasteteema säilyy sanitoinnissa', async () => {
   const app = await boot();
   const hobby = J(app, 'VOCAB.categories.find(c => c.group === "hobby").id');
-  const normal = J(app, 'VOCAB.categories.find(c => c.grade === 1).id');
+  const normal = J(app, 'VOCAB.categories.find(c => c.grade === 1 && !c.exam).id');
   app.run(`selectedThemes = [${JSON.stringify(hobby)}, ${JSON.stringify(normal)}]; activeGrade = 2; populateCategoryOptions();`);
   assert.strictEqual(J(app, 'selectedThemes').join(), hobby);
   app.elements.gradeFilter.value = '3';
@@ -1691,6 +1691,42 @@ test('Koe 1: virketila - teemalla 38 omaa virkettä, tavalliseen luokkapooliin n
   app.run('toggleTheme("koe1_4", false)');
   await app.flush();
   assert.strictEqual(J(app, 'currentSentence.theme || null'), null);
+  app.dispose();
+});
+
+test('Koe 1 (saksa): teema ensimmäisenä saksan teemalistassa, ei englannissa; de_only-sanat vain saksan poolissa', async () => {
+  const app = await boot();
+  assert.ok(!J(app, 'selectableCategories().some(c => c.id === "koe1_de")'));
+  assert.ok(!J(app, 'PRACTICE_WORDS.some(w => w.de_only)'));
+  app.run('selectTargetLang("de")');
+  await app.flush();
+  assert.strictEqual(J(app, 'selectableCategories().filter(c => c.exam).map(c => c.id)').join(), 'koe1_de');
+  assert.ok(J(app, 'PRACTICE_WORDS.some(w => w.de_only)'));
+  app.run('toggleTheme("koe1_de", true)');
+  await app.flush();
+  const n = J(app, 'eligibleWordsForCategoryScope(["koe1_de"]).length');
+  assert.ok(n >= 60, 'koko ' + n);
+  assert.ok(app.run('eligibleWordsForCategoryScope(["koe1_de"]).some(w => w.category !== "koe1_de")'), 'myös muiden teemojen sanat');
+  assert.ok(app.run('sessionPool.every(w => wordInCategory(w, "koe1_de") && !!w.de)'));
+  app.dispose();
+});
+
+test('Koe 1 (saksa): virketila - 40 omaa virkettä, alt-muodot, ei sekoitu luokan virkkeisiin', async () => {
+  const app = await boot();
+  app.run('selectTargetLang("de"); setPracticeMode("sentences");');
+  await app.flush();
+  assert.strictEqual(J(app, 'sentencesForLang().filter(s => s.theme === "koe1_de").length'), 40);
+  assert.strictEqual(J(app, 'sentencesForGrade(4).length'), 20);
+  assert.strictEqual(J(app, 'currentSentence.theme || null'), null);
+  app.run('toggleTheme("koe1_de", true)');
+  await app.flush();
+  for (let i = 0; i < 12; i++){
+    assert.strictEqual(J(app, 'currentSentence.theme'), 'koe1_de');
+    app.run('pickSentenceRound()');
+  }
+  assert.ok(app.elements.sentenceProgressLabel.textContent.includes('Koe 1'));
+  assert.ok(app.run('matchesSentence("Es ist eins.", sentencesForLang().find(x => x.id === "de_k1_37"))'));
+  assert.ok(app.run('matchesSentence("ich bin zehn", sentencesForLang().find(x => x.id === "de_k1_10"))'));
   app.dispose();
 });
 
