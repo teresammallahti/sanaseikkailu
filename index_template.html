@@ -453,6 +453,7 @@
   .feedback.correct{ background:#e8f5e9; color:var(--good); }
   .feedback.incorrect{ background:#ffebee; color:var(--bad); }
   .feedback .answer-reveal{ font-weight:600; font-size:0.75em; color:#7a7189; display:block; }
+  .feedback .plural-note{ font-weight:600; font-size:0.75em; color:#7a7189; display:block; }
 
   /* "Näytä sana" -tila: paljastaa oikean vastauksen ilman että siitä voi
      kopioida sen kirjoituslaatikkoon - laatikko ja tarkistus piilotetaan,
@@ -1927,6 +1928,11 @@ async function recordResult(isCorrect, mode){
   await putStat(prev);
 }
 
+// Saksan substantiiveille näytetään monikkomuoto palautteessa (word.de_pl).
+function pluralNote(){
+  return (targetLang === "de" && current && current.de_pl) ? current.de_pl : "";
+}
+
 async function checkAnswer(userAnswer, mode){
   const usedMode = mode || activeMode;
   const isCorrect = matchesAnswer(userAnswer, usedMode);
@@ -1936,8 +1942,15 @@ async function checkAnswer(userAnswer, mode){
   } else {
     feedback.innerHTML = "🙈 Ei ihan. <span class='answer-reveal'>Oikea vastaus: " + acceptedAnswers()[0] + "</span>";
   }
+  const pl = pluralNote();
+  if (pl){
+    const span = document.createElement("span");
+    span.className = "plural-note";
+    span.textContent = " · Monikko: " + pl;
+    feedback.appendChild(span);
+  }
   await recordResult(isCorrect, usedMode);
-  setTimeout(pickWord, isCorrect ? 900 : 2000);
+  setTimeout(pickWord, (isCorrect ? 900 : 2000) + (pl ? 800 : 0));
 }
 
 function showNote(text){
@@ -1996,7 +2009,7 @@ document.getElementById("skipBtn").addEventListener("click", pickWord);
 // paljastettua vastausta voi vain kopioida - ainoa tapa jatkaa on Ohita, eikä
 // sana lasketa oikein tai väärin vastatuksi.
 revealBtn.addEventListener("click", () => {
-  revealBox.textContent = "🔤 " + acceptedAnswers()[0];
+  revealBox.textContent = "🔤 " + acceptedAnswers()[0] + (pluralNote() ? " · Monikko: " + pluralNote() : "");
   answerArea.classList.add("revealed");
 });
 
@@ -3447,6 +3460,20 @@ function buildProgressReport(){
     }))
     .sort((a, b) => (a.hobby - b.hobby) || ((a.grade || 0) - (b.grade || 0)) || a.name.localeCompare(b.name, "fi"));
   const all = adultStatsFor(PRACTICE_WORDS);
+  // Koealueet (exam-teemat): sanojen ja koealueen omien virkkeiden valmius sekä heikoimmat sanat.
+  const exams = VOCAB.categories
+    .filter(c => c.exam && (!c.lang || c.lang === targetLang))
+    .map(c => {
+      const ws = PRACTICE_WORDS.filter(w => wordInCategory(w, c.id));
+      const sl = sentencesForLang().filter(sn => sn.theme === c.id);
+      let sSeen = 0, sMastered = 0;
+      sl.forEach(sn => { const st = statsCache[sentenceStatId(sn)]; if (st){ sSeen++; if (isSentenceLearned(sn)) sMastered++; } });
+      const weak = ws.map(w => ({ w, st: statsCache[statId(w)] }))
+        .filter(x => x.st && (x.st.incorrectCount || 0) >= 1 && !stageKeyboardGraduated(x.st))
+        .sort((a, b) => (b.st.incorrectCount || 0) - (a.st.incorrectCount || 0)).slice(0, 5)
+        .map(x => firstAcceptedAnswer(x.w[targetLang]));
+      return { id: c.id, name: c.name_fi, ...adultStatsFor(ws), sentTotal: sl.length, sentSeen: sSeen, sentMastered: sMastered, weak };
+    });
   // Hankalat sanat: eniten virheitä, joita ei ole vielä graduoitu näppäimistövaiheessa.
   const hard = PRACTICE_WORDS
     .map(w => ({ w, st: statsCache[statId(w)] }))
@@ -3476,7 +3503,7 @@ function buildProgressReport(){
     const st = statsCache[k];
     if (st && st.language === targetLang && st.lastSeen && (!lastSeen || st.lastSeen > lastSeen)) lastSeen = st.lastSeen;
   });
-  return { language: targetLang, all, grades, themes, hard, days, sentences: sentenceStats, sentenceTotal: sents.length, lastSeen };
+  return { language: targetLang, all, grades, themes, exams, hard, days, sentences: sentenceStats, sentenceTotal: sents.length, lastSeen };
 }
 
 function escHtml(t){ return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
@@ -3492,6 +3519,14 @@ function renderAdultView(){
   h += `<div class="adult-section">Yhteenveto</div>`;
   h += `<p class="adult-note">Sanoja nähty ${r.all.seen}/${r.all.total}. Täysin opittu (kynä, näppäimistö ja puhe) ${r.all.full}. `
      + `Opittu vaiheittain: kynä ${r.all.pen}, näppäimistö ${r.all.keyboard}, puhe ${r.all.mic}.</p>`;
+  if (r.exams.length){
+    h += `<div class="adult-section">Koealueet</div><table class="adult-table"><tr><th>Koe</th><th>Sanoja</th><th>Nähty</th><th>Täysin</th><th>Virkkeitä</th><th>Virkkeet opittu</th></tr>`;
+    r.exams.forEach(e => {
+      h += `<tr><td>${escHtml(e.name)}</td><td>${e.total}</td><td>${e.seen}</td><td>${e.full} (${pct(e.full, e.total)} %) ${bar(e.full, e.total)}</td><td>${e.sentTotal}</td><td>${e.sentMastered}/${e.sentTotal}</td></tr>`;
+      if (e.weak.length) h += `<tr><td colspan="6" class="adult-note">Kertaa: ${e.weak.map(escHtml).join(", ")}</td></tr>`;
+    });
+    h += `</table>`;
+  }
   h += `<div class="adult-section">Luokka-asteittain</div><table class="adult-table"><tr><th>Luokka</th><th>Sanoja</th><th>Nähty</th><th>Kynä</th><th>Näppäimistö</th><th>Puhe</th><th>Täysin</th></tr>`;
   r.grades.forEach(g => {
     h += `<tr><td>${g.grade}. lk</td><td>${g.total}</td><td>${g.seen}</td><td>${g.pen}</td><td>${g.keyboard}</td><td>${g.mic}</td><td>${g.full} ${bar(g.full, g.total)}</td></tr>`;

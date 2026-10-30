@@ -448,6 +448,7 @@
   .feedback.correct{ background:#e8f5e9; color:var(--good); }
   .feedback.incorrect{ background:#ffebee; color:var(--bad); }
   .feedback .answer-reveal{ font-weight:600; font-size:0.75em; color:#7a7189; display:block; }
+  .feedback .plural-note{ font-weight:600; font-size:0.75em; color:#7a7189; display:block; }
 
   /* "Näytä sana" -tila: paljastaa oikean vastauksen ilman että siitä voi
      kopioida sen kirjoituslaatikkoon - laatikko ja tarkistus piilotetaan,
@@ -929,9 +930,9 @@ const VOCAB = {
     "language_target": "en",
     "language_native": "fi",
     "level": "4lk",
-    "version": "v14",
+    "version": "v15",
     "created": "2026-09-02",
-    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa. v4: lisätty täydennyksiä olemassa oleviin kategorioihin (colours: purple/brown/grey; opposites: 8 uutta vastaparia) sekä kuusi uutta kategoriaa (weather_seasons, animals, house_rooms, body_parts, clothes, school_objects) POPS 2014 -aihepiirien ja yleisen 4. luokan sanaston perusteella, käyttäjän hyväksynnän jälkeen (ehdotukset_v4.md). Kaikille uusille sanoille pysyvä id, olemassa olevat id:t eivät muuttuneet. v5: lisätty saksankieliset käännökset (kenttä 'de') kaikille 260 sanalle, artikkelien (der/die/das) kanssa substantiiveille - vakiintuneen saksan opetuskäytännön mukaisesti suku opetellaan heti sanan mukana. Sama sanasto ja kategoriat kuin englannissa/suomessa, id:t muuttumattomat. v6: Sanat järjestetty OPSin teemojen mukaan. Teemat personality, opposites, verbs_action ja verbs_communication yhdistetty teemaan 'yleissanat' (group=general). Kaikki muut teemat merkitty group=ops paitsi gaming_minecraft ja gaming_fortnite, jotka merkitty group=hobby (vain manuaalisesti valittavissa, ei mukana 'kaikki teemat' -kierrossa tai yleissanojen varasanastona). v7: sanasto ryhmitelty peruskoulun luokka-asteille 1-6 (uusi 'grade'-kenttä kategorioilla, group=hobby-kategoriat pysyvät luokka-asteettomina). Palautettu personality/opposites/verbs_action/verbs_communication omiksi kategorioikseen (v6:n yleissanat-yhdistäminen ei ole enää tarpeen, koska luokka-asteet hoitavat täydennyksen). Lisätty 138 uutta sanaa (luokka 1: perusverbit; luokka 4: päivärutiinit; luokka 5: ammatit/urheilu/kulkuvälineet/sijaintisanat/tunteet/ostokset; luokka 6: matkustaminen/teknologia/mennyt aika/kuvailevat sanat/maat ja kansallisuudet/tulevaisuus). Lisätty monimerkityksisille sanoille vaihtoehtoisia suomennoksia (esim. land = laskeutua/maa). v8 (vaihe 21): numerot laajennettu 0-20 (zero, eleven-twenty; uudet id:t, vanhat ennallaan). Monitulkintaiset sanat tarkennettu sulkutarkenteella (English/Finnish kouluaine vs. kansalaisuus, orange hedelmä vs. väri) ja 'pyöräily' eroteltu ('pyörällä ajaminen' = riding a bike, 'pyöräily (urheilulaji)' = cycling). Kategorioiden grade tarkoittaa nyt kielen opiskeluvuotta: englanti alkaa 1. luokalla, saksa 4. luokalla (sovellus siirtää luokka-asteen kielen mukaan). v9 (vaihe 25): lisätty 67 sanaa, jotka esiintyvät harjoitusvirkkeissä (SENTENCE_DATA.en) mutta puuttuivat sanastosta. Sanat sijoitettu olemassa oleviin kategorioihin (mm. perusverbit, perhe, harrastukset, koti, ruoka) sekä kolmeen uuteen kategoriaan: aikasanat_2 (Aikasanat, 2. lk), yleissanat_3 (Aika- ja yleissanat, 3. lk) ja sidesanat_5 (Sidesanat ja täsmentimet, 5. lk). Sanan luokka on pääsääntöisesti enintään sen virkkeen luokka, jossa sana ensimmäisen kerran esiintyy. Olemassa olevat id:t ennallaan. Fable-tarkistuksen korjaukset: fun = hauskaa / hauskanpito, favourite = lempi / suosikki, learn ja understand siirretty Toimintaverbeihin. Vaihe 26: lisätty eat, drink, very, cake, school (saksan virkkeitä varten); pie-sanan saksa tarkennettu (Kuchen siirretty sanalle cake). v10 (vaihe 28): yläkoulun sanasto 7.–9. lk, englanti, ei saksaa. Lisätty 224 sanaa ja 21 uutta kategoriaa (group=ops, grade 7/8/9) POPS 2014 englannin A1-oppimäärän vuosiluokkien 7–9 aihepiirien ja tavoitetason A2.2–B1.1 mukaan: 7. lk vapaa-aika, terveys, ruoanlaitto, ostokset ja raha, kaupunki ja reittiohjeet, sää ja luonto, ihmissuhteet; 8. lk media, matkailu, ympäristö, työelämä, kulttuuri ja juhlat, urheilutapahtumat, tunteet ja mielipiteet; 9. lk yhteiskunta, koulutus, tiede ja teknologia, kestävä kehitys ja elämäntavat, viestintä, liittosanat ja abstraktit sanat, phrasal verbit. Yläkoulun sanoilla ei ole de-kenttää (saksa ei käytä luokkien 7–9 kategorioita). Olemassa olevat id:t ja kategoriat ennallaan. Fable-tarkistuksen korjaukset: change, far, habit, work experience, scientist; pay ja exam tarkennettu törmäysten vuoksi. v11 (vaihe 30): lisätty 871 sanaa 4. luokan oppikirjan aakkosellisesta sanastosta (suomi–englanti) 25 uuteen 4. luokan kategoriaan (_4, no_de=true: ei saksaa). Opus-karsinta ja Fable-tarkistus (britti-englanti, törmäykset). v12 (vaihe 31): koealue 'Koe 1' (koe1_4, exam=true, lang=en): oppikirjan Unit 1-3 -sanat poimittu olemassa olevista sanoista lisäteemana (word.also) + 3 uutta sanaa; turn = kääntyä / vuoro, hide + olla piilossa. v13 (vaihe 32): saksan koealue 'Koe 1' (koe1_de, exam=true, lang=de, grade 1 = app 4. lk): oppikirjan Los geht's! 1 Lektion 1-3 -sanat poimittu olemassa olevista sanoista lisäteemana (word.also) + uudet sanat/fraasit (de_only=true: eivät ilmesty englannin harjoitukseen). Vaihe 32: englannin sanoille lisätty yleisiä suomennossynonyymejä (n. 270 sanaa; esim. funny = hassu / hauska). Vaihe 33: saksan sanoille lisätty suomennos- ja saksavaihtoehtoja; saksan virkkeet opiskeluvuosille 4-6 (60 uutta).",
+    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa. v4: lisätty täydennyksiä olemassa oleviin kategorioihin (colours: purple/brown/grey; opposites: 8 uutta vastaparia) sekä kuusi uutta kategoriaa (weather_seasons, animals, house_rooms, body_parts, clothes, school_objects) POPS 2014 -aihepiirien ja yleisen 4. luokan sanaston perusteella, käyttäjän hyväksynnän jälkeen (ehdotukset_v4.md). Kaikille uusille sanoille pysyvä id, olemassa olevat id:t eivät muuttuneet. v5: lisätty saksankieliset käännökset (kenttä 'de') kaikille 260 sanalle, artikkelien (der/die/das) kanssa substantiiveille - vakiintuneen saksan opetuskäytännön mukaisesti suku opetellaan heti sanan mukana. Sama sanasto ja kategoriat kuin englannissa/suomessa, id:t muuttumattomat. v6: Sanat järjestetty OPSin teemojen mukaan. Teemat personality, opposites, verbs_action ja verbs_communication yhdistetty teemaan 'yleissanat' (group=general). Kaikki muut teemat merkitty group=ops paitsi gaming_minecraft ja gaming_fortnite, jotka merkitty group=hobby (vain manuaalisesti valittavissa, ei mukana 'kaikki teemat' -kierrossa tai yleissanojen varasanastona). v7: sanasto ryhmitelty peruskoulun luokka-asteille 1-6 (uusi 'grade'-kenttä kategorioilla, group=hobby-kategoriat pysyvät luokka-asteettomina). Palautettu personality/opposites/verbs_action/verbs_communication omiksi kategorioikseen (v6:n yleissanat-yhdistäminen ei ole enää tarpeen, koska luokka-asteet hoitavat täydennyksen). Lisätty 138 uutta sanaa (luokka 1: perusverbit; luokka 4: päivärutiinit; luokka 5: ammatit/urheilu/kulkuvälineet/sijaintisanat/tunteet/ostokset; luokka 6: matkustaminen/teknologia/mennyt aika/kuvailevat sanat/maat ja kansallisuudet/tulevaisuus). Lisätty monimerkityksisille sanoille vaihtoehtoisia suomennoksia (esim. land = laskeutua/maa). v8 (vaihe 21): numerot laajennettu 0-20 (zero, eleven-twenty; uudet id:t, vanhat ennallaan). Monitulkintaiset sanat tarkennettu sulkutarkenteella (English/Finnish kouluaine vs. kansalaisuus, orange hedelmä vs. väri) ja 'pyöräily' eroteltu ('pyörällä ajaminen' = riding a bike, 'pyöräily (urheilulaji)' = cycling). Kategorioiden grade tarkoittaa nyt kielen opiskeluvuotta: englanti alkaa 1. luokalla, saksa 4. luokalla (sovellus siirtää luokka-asteen kielen mukaan). v9 (vaihe 25): lisätty 67 sanaa, jotka esiintyvät harjoitusvirkkeissä (SENTENCE_DATA.en) mutta puuttuivat sanastosta. Sanat sijoitettu olemassa oleviin kategorioihin (mm. perusverbit, perhe, harrastukset, koti, ruoka) sekä kolmeen uuteen kategoriaan: aikasanat_2 (Aikasanat, 2. lk), yleissanat_3 (Aika- ja yleissanat, 3. lk) ja sidesanat_5 (Sidesanat ja täsmentimet, 5. lk). Sanan luokka on pääsääntöisesti enintään sen virkkeen luokka, jossa sana ensimmäisen kerran esiintyy. Olemassa olevat id:t ennallaan. Fable-tarkistuksen korjaukset: fun = hauskaa / hauskanpito, favourite = lempi / suosikki, learn ja understand siirretty Toimintaverbeihin. Vaihe 26: lisätty eat, drink, very, cake, school (saksan virkkeitä varten); pie-sanan saksa tarkennettu (Kuchen siirretty sanalle cake). v10 (vaihe 28): yläkoulun sanasto 7.–9. lk, englanti, ei saksaa. Lisätty 224 sanaa ja 21 uutta kategoriaa (group=ops, grade 7/8/9) POPS 2014 englannin A1-oppimäärän vuosiluokkien 7–9 aihepiirien ja tavoitetason A2.2–B1.1 mukaan: 7. lk vapaa-aika, terveys, ruoanlaitto, ostokset ja raha, kaupunki ja reittiohjeet, sää ja luonto, ihmissuhteet; 8. lk media, matkailu, ympäristö, työelämä, kulttuuri ja juhlat, urheilutapahtumat, tunteet ja mielipiteet; 9. lk yhteiskunta, koulutus, tiede ja teknologia, kestävä kehitys ja elämäntavat, viestintä, liittosanat ja abstraktit sanat, phrasal verbit. Yläkoulun sanoilla ei ole de-kenttää (saksa ei käytä luokkien 7–9 kategorioita). Olemassa olevat id:t ja kategoriat ennallaan. Fable-tarkistuksen korjaukset: change, far, habit, work experience, scientist; pay ja exam tarkennettu törmäysten vuoksi. v11 (vaihe 30): lisätty 871 sanaa 4. luokan oppikirjan aakkosellisesta sanastosta (suomi–englanti) 25 uuteen 4. luokan kategoriaan (_4, no_de=true: ei saksaa). Opus-karsinta ja Fable-tarkistus (britti-englanti, törmäykset). v12 (vaihe 31): koealue 'Koe 1' (koe1_4, exam=true, lang=en): oppikirjan Unit 1-3 -sanat poimittu olemassa olevista sanoista lisäteemana (word.also) + 3 uutta sanaa; turn = kääntyä / vuoro, hide + olla piilossa. v13 (vaihe 32): saksan koealue 'Koe 1' (koe1_de, exam=true, lang=de, grade 1 = app 4. lk): oppikirjan Los geht's! 1 Lektion 1-3 -sanat poimittu olemassa olevista sanoista lisäteemana (word.also) + uudet sanat/fraasit (de_only=true: eivät ilmesty englannin harjoitukseen). Vaihe 32: englannin sanoille lisätty yleisiä suomennossynonyymejä (n. 270 sanaa; esim. funny = hassu / hauska). Vaihe 33: saksan sanoille lisätty suomennos- ja saksavaihtoehtoja; saksan virkkeet opiskeluvuosille 4-6 (60 uutta). v15 (vaihe 35): saksan substantiiveille monikkomuoto (de_pl, ~175 sanaa), näytetään palautteessa.",
     "notes": "Koottu 4. luokan englannin oppikirjan (skannattu, Scan_20260902_162833.pdf) teemojen pohjalta ilman kirjan kuvia tai tekstiä, täydennetty POPS 2014 (Englanti A-oppimäärä vl 3-6) aihepiirien mukaan. Rakenne on geneerinen (language_target/level -kentät), jotta samaa muotoa voi käyttää myöhemmin saksalle ja muille luokka-asteille.",
     "language_targets": [
       "en",
@@ -1537,14 +1538,16 @@ const VOCAB = {
       "de": "der Lehrer / die Lehrerin",
       "also": [
         "koe1_4"
-      ]
+      ],
+      "de_pl": "die Lehrer / die Lehrerinnen"
     },
     {
       "id": "school_people_head_teacher",
       "en": "head teacher",
       "fi": "rehtori",
       "category": "school_people",
-      "de": "der Rektor / die Rektorin / der Schulleiter / die Schulleiterin"
+      "de": "der Rektor / die Rektorin / der Schulleiter / die Schulleiterin",
+      "de_pl": "die Rektoren / die Rektorinnen / die Schulleiter / die Schulleiterinnen"
     },
     {
       "id": "school_people_nurse",
@@ -1554,7 +1557,8 @@ const VOCAB = {
       "de": "die Krankenschwester / der Krankenpfleger",
       "also": [
         "koe1_4"
-      ]
+      ],
+      "de_pl": "die Krankenschwestern / die Krankenpfleger"
     },
     {
       "id": "school_people_cleaner",
@@ -1564,7 +1568,8 @@ const VOCAB = {
       "de": "die Reinigungskraft / die Putzfrau / der Putzmann",
       "also": [
         "koe1_4"
-      ]
+      ],
+      "de_pl": "die Reinigungskräfte / die Putzfrauen / die Putzmänner"
     },
     {
       "id": "school_people_cook",
@@ -1574,21 +1579,24 @@ const VOCAB = {
       "de": "der Koch / die Köchin",
       "also": [
         "koe1_4"
-      ]
+      ],
+      "de_pl": "die Köche / die Köchinnen"
     },
     {
       "id": "school_people_student",
       "en": "student",
       "fi": "oppilas / opiskelija",
       "category": "school_people",
-      "de": "der Schüler / die Schülerin"
+      "de": "der Schüler / die Schülerin",
+      "de_pl": "die Schüler / die Schülerinnen"
     },
     {
       "id": "school_people_friend",
       "en": "friend",
       "fi": "ystävä / kaveri",
       "category": "school_people",
-      "de": "der Freund / die Freundin"
+      "de": "der Freund / die Freundin",
+      "de_pl": "die Freunde / die Freundinnen"
     },
     {
       "id": "school_subjects_maths",
@@ -1718,14 +1726,16 @@ const VOCAB = {
       "de": "die Pause",
       "also": [
         "koe1_4"
-      ]
+      ],
+      "de_pl": "die Pausen"
     },
     {
       "id": "school_subjects_classroom",
       "en": "classroom",
       "fi": "luokkahuone",
       "category": "school_subjects",
-      "de": "das Klassenzimmer / der Klassenraum"
+      "de": "das Klassenzimmer / der Klassenraum",
+      "de_pl": "die Klassenzimmer / die Klassenräume"
     },
     {
       "id": "school_subjects_lesson",
@@ -1735,7 +1745,8 @@ const VOCAB = {
       "de": "die Unterrichtsstunde / die Schulstunde",
       "also": [
         "koe1_4"
-      ]
+      ],
+      "de_pl": "die Unterrichtsstunden / die Schulstunden"
     },
     {
       "id": "weekdays_monday",
@@ -2200,42 +2211,48 @@ const VOCAB = {
       "en": "café",
       "fi": "kahvila / kahvio",
       "category": "places_town",
-      "de": "das Café"
+      "de": "das Café",
+      "de_pl": "die Cafés"
     },
     {
       "id": "places_town_library",
       "en": "library",
       "fi": "kirjasto",
       "category": "places_town",
-      "de": "die Bibliothek / die Bücherei"
+      "de": "die Bibliothek / die Bücherei",
+      "de_pl": "die Bibliotheken / die Büchereien"
     },
     {
       "id": "places_town_shop",
       "en": "shop",
       "fi": "kauppa / myymälä",
       "category": "places_town",
-      "de": "das Geschäft / der Laden"
+      "de": "das Geschäft / der Laden",
+      "de_pl": "die Geschäfte / die Läden"
     },
     {
       "id": "places_town_restaurant",
       "en": "restaurant",
       "fi": "ravintola",
       "category": "places_town",
-      "de": "das Restaurant"
+      "de": "das Restaurant",
+      "de_pl": "die Restaurants"
     },
     {
       "id": "belongings_bag",
       "en": "bag",
       "fi": "laukku / kassi",
       "category": "belongings",
-      "de": "die Tasche"
+      "de": "die Tasche",
+      "de_pl": "die Taschen"
     },
     {
       "id": "belongings_phone",
       "en": "phone",
       "fi": "puhelin / kännykkä",
       "category": "belongings",
-      "de": "das Handy / das Telefon"
+      "de": "das Handy / das Telefon",
+      "de_pl": "die Handys / die Telefone"
     },
     {
       "id": "belongings_keys",
@@ -2249,35 +2266,40 @@ const VOCAB = {
       "en": "helmet",
       "fi": "kypärä",
       "category": "belongings",
-      "de": "der Helm"
+      "de": "der Helm",
+      "de_pl": "die Helme"
     },
     {
       "id": "belongings_watch",
       "en": "watch",
       "fi": "rannekello",
       "category": "belongings",
-      "de": "die Armbanduhr"
+      "de": "die Armbanduhr",
+      "de_pl": "die Armbanduhren"
     },
     {
       "id": "belongings_bracelet",
       "en": "bracelet",
       "fi": "rannekoru / rannerengas",
       "category": "belongings",
-      "de": "das Armband"
+      "de": "das Armband",
+      "de_pl": "die Armbänder"
     },
     {
       "id": "appearance_glasses",
       "en": "glasses",
       "fi": "silmälasit / lasit",
       "category": "appearance",
-      "de": "die Brille"
+      "de": "die Brille",
+      "de_pl": "die Brillen"
     },
     {
       "id": "appearance_braces",
       "en": "braces",
       "fi": "hammasraudat",
       "category": "appearance",
-      "de": "die Zahnspange"
+      "de": "die Zahnspange",
+      "de_pl": "die Zahnspangen"
     },
     {
       "id": "appearance_curly_hair",
@@ -2326,7 +2348,8 @@ const VOCAB = {
       "en": "beard",
       "fi": "parta",
       "category": "appearance",
-      "de": "der Bart"
+      "de": "der Bart",
+      "de_pl": "die Bärte"
     },
     {
       "id": "food_savoury_water",
@@ -2347,21 +2370,24 @@ const VOCAB = {
       "en": "pie",
       "fi": "piirakka / piiras",
       "category": "food_savoury",
-      "de": "der Obstkuchen / die Pastete"
+      "de": "der Obstkuchen / die Pastete",
+      "de_pl": "die Obstkuchen / die Pasteten"
     },
     {
       "id": "food_savoury_fish",
       "en": "fish",
       "fi": "kala",
       "category": "food_savoury",
-      "de": "der Fisch"
+      "de": "der Fisch",
+      "de_pl": "die Fische"
     },
     {
       "id": "food_savoury_chicken",
       "en": "chicken",
       "fi": "kana",
       "category": "food_savoury",
-      "de": "das Hähnchen / das Hühnchen"
+      "de": "das Hähnchen / das Hühnchen",
+      "de_pl": "die Hähnchen / die Hühnchen"
     },
     {
       "id": "food_savoury_meat",
@@ -2382,14 +2408,16 @@ const VOCAB = {
       "en": "cucumber",
       "fi": "kurkku",
       "category": "food_savoury",
-      "de": "die Gurke"
+      "de": "die Gurke",
+      "de_pl": "die Gurken"
     },
     {
       "id": "food_savoury_bread",
       "en": "bread",
       "fi": "leipä",
       "category": "food_savoury",
-      "de": "das Brot"
+      "de": "das Brot",
+      "de_pl": "die Brote"
     },
     {
       "id": "food_savoury_pasta",
@@ -2403,21 +2431,24 @@ const VOCAB = {
       "en": "tomato",
       "fi": "tomaatti",
       "category": "food_savoury",
-      "de": "die Tomate"
+      "de": "die Tomate",
+      "de_pl": "die Tomaten"
     },
     {
       "id": "fruit_apple",
       "en": "apple",
       "fi": "omena",
       "category": "fruit",
-      "de": "der Apfel"
+      "de": "der Apfel",
+      "de_pl": "die Äpfel"
     },
     {
       "id": "fruit_banana",
       "en": "banana",
       "fi": "banaani",
       "category": "fruit",
-      "de": "die Banane"
+      "de": "die Banane",
+      "de_pl": "die Bananen"
     },
     {
       "id": "fruit_strawberry",
@@ -2427,49 +2458,56 @@ const VOCAB = {
       "de": "die Erdbeere",
       "also": [
         "koe1_de"
-      ]
+      ],
+      "de_pl": "die Erdbeeren"
     },
     {
       "id": "fruit_kiwi",
       "en": "kiwi",
       "fi": "kiivi / kiwi",
       "category": "fruit",
-      "de": "die Kiwi"
+      "de": "die Kiwi",
+      "de_pl": "die Kiwis"
     },
     {
       "id": "fruit_peach",
       "en": "peach",
       "fi": "persikka",
       "category": "fruit",
-      "de": "der Pfirsich"
+      "de": "der Pfirsich",
+      "de_pl": "die Pfirsiche"
     },
     {
       "id": "fruit_grape",
       "en": "grape",
       "fi": "viinirypäle / rypäle",
       "category": "fruit",
-      "de": "die Weintraube / die Traube"
+      "de": "die Weintraube / die Traube",
+      "de_pl": "die Weintrauben / die Trauben"
     },
     {
       "id": "fruit_plum",
       "en": "plum",
       "fi": "luumu",
       "category": "fruit",
-      "de": "die Pflaume"
+      "de": "die Pflaume",
+      "de_pl": "die Pflaumen"
     },
     {
       "id": "fruit_orange",
       "en": "orange (hedelmä)",
       "fi": "appelsiini",
       "category": "fruit",
-      "de": "die Orange / die Apfelsine"
+      "de": "die Orange / die Apfelsine",
+      "de_pl": "die Orangen / die Apfelsinen"
     },
     {
       "id": "fruit_blueberry",
       "en": "blueberry",
       "fi": "mustikka",
       "category": "fruit",
-      "de": "die Blaubeere / die Heidelbeere"
+      "de": "die Blaubeere / die Heidelbeere",
+      "de_pl": "die Blaubeeren / die Heidelbeeren"
     },
     {
       "id": "fruit_raspberry",
@@ -2479,7 +2517,8 @@ const VOCAB = {
       "de": "die Himbeere",
       "also": [
         "koe1_de"
-      ]
+      ],
+      "de_pl": "die Himbeeren"
     },
     {
       "id": "fruit_lemon",
@@ -2489,21 +2528,24 @@ const VOCAB = {
       "de": "die Zitrone",
       "also": [
         "koe1_de"
-      ]
+      ],
+      "de_pl": "die Zitronen"
     },
     {
       "id": "fruit_pineapple",
       "en": "pineapple",
       "fi": "ananas",
       "category": "fruit",
-      "de": "die Ananas"
+      "de": "die Ananas",
+      "de_pl": "die Ananas"
     },
     {
       "id": "fruit_pear",
       "en": "pear",
       "fi": "päärynä",
       "category": "fruit",
-      "de": "die Birne"
+      "de": "die Birne",
+      "de_pl": "die Birnen"
     },
     {
       "id": "polite_phrases_please",
@@ -2610,77 +2652,88 @@ const VOCAB = {
       "en": "mother",
       "fi": "äiti",
       "category": "family",
-      "de": "die Mutter"
+      "de": "die Mutter",
+      "de_pl": "die Mütter"
     },
     {
       "id": "family_father",
       "en": "father",
       "fi": "isä / iskä",
       "category": "family",
-      "de": "der Vater"
+      "de": "der Vater",
+      "de_pl": "die Väter"
     },
     {
       "id": "family_sister",
       "en": "sister",
       "fi": "sisko / sisar",
       "category": "family",
-      "de": "die Schwester"
+      "de": "die Schwester",
+      "de_pl": "die Schwestern"
     },
     {
       "id": "family_brother",
       "en": "brother",
       "fi": "veli",
       "category": "family",
-      "de": "der Bruder"
+      "de": "der Bruder",
+      "de_pl": "die Brüder"
     },
     {
       "id": "family_grandma",
       "en": "grandmother / grandma",
       "fi": "isoäiti / mummo / mummi",
       "category": "family",
-      "de": "die Großmutter"
+      "de": "die Großmutter",
+      "de_pl": "die Großmütter"
     },
     {
       "id": "family_grandpa",
       "en": "grandfather / grandpa",
       "fi": "isoisä / vaari / ukki / pappa",
       "category": "family",
-      "de": "der Großvater"
+      "de": "der Großvater",
+      "de_pl": "die Großväter"
     },
     {
       "id": "family_family",
       "en": "family",
       "fi": "perhe",
       "category": "family",
-      "de": "die Familie"
+      "de": "die Familie",
+      "de_pl": "die Familien"
     },
     {
       "id": "family_cousin",
       "en": "cousin",
       "fi": "serkku",
       "category": "family",
-      "de": "der Cousin / die Cousine"
+      "de": "der Cousin / die Cousine",
+      "de_pl": "die Cousins / die Cousinen"
     },
     {
       "id": "family_baby",
       "en": "baby",
       "fi": "vauva",
       "category": "family",
-      "de": "das Baby"
+      "de": "das Baby",
+      "de_pl": "die Babys"
     },
     {
       "id": "family_pet",
       "en": "pet",
       "fi": "lemmikki / lemmikkieläin",
       "category": "family",
-      "de": "das Haustier"
+      "de": "das Haustier",
+      "de_pl": "die Haustiere"
     },
     {
       "id": "myself_name",
       "en": "name",
       "fi": "nimi",
       "category": "myself",
-      "de": "der Name"
+      "de": "der Name",
+      "de_pl": "die Namen"
     },
     {
       "id": "myself_age",
@@ -3122,42 +3175,48 @@ const VOCAB = {
       "en": "creeper",
       "fi": "creeper (Minecraft-hirviö)",
       "category": "gaming_minecraft",
-      "de": "der Creeper (Minecraft-Monster)"
+      "de": "der Creeper (Minecraft-Monster)",
+      "de_pl": "die Creeper"
     },
     {
       "id": "gaming_minecraft_diamond",
       "en": "diamond",
       "fi": "timantti",
       "category": "gaming_minecraft",
-      "de": "der Diamant"
+      "de": "der Diamant",
+      "de_pl": "die Diamanten"
     },
     {
       "id": "gaming_minecraft_sword",
       "en": "sword",
       "fi": "miekka",
       "category": "gaming_minecraft",
-      "de": "das Schwert"
+      "de": "das Schwert",
+      "de_pl": "die Schwerter"
     },
     {
       "id": "gaming_minecraft_pickaxe",
       "en": "pickaxe",
       "fi": "hakku",
       "category": "gaming_minecraft",
-      "de": "die Spitzhacke"
+      "de": "die Spitzhacke",
+      "de_pl": "die Spitzhacken"
     },
     {
       "id": "gaming_minecraft_village",
       "en": "village",
       "fi": "kylä",
       "category": "gaming_minecraft",
-      "de": "das Dorf"
+      "de": "das Dorf",
+      "de_pl": "die Dörfer"
     },
     {
       "id": "gaming_minecraft_cave",
       "en": "cave",
       "fi": "luola",
       "category": "gaming_minecraft",
-      "de": "die Höhle"
+      "de": "die Höhle",
+      "de_pl": "die Höhlen"
     },
     {
       "id": "gaming_minecraft_mine",
@@ -3192,14 +3251,16 @@ const VOCAB = {
       "en": "island",
       "fi": "saari",
       "category": "gaming_fortnite",
-      "de": "die Insel"
+      "de": "die Insel",
+      "de_pl": "die Inseln"
     },
     {
       "id": "gaming_fortnite_storm",
       "en": "storm",
       "fi": "myrsky",
       "category": "gaming_fortnite",
-      "de": "der Sturm"
+      "de": "der Sturm",
+      "de_pl": "die Stürme"
     },
     {
       "id": "gaming_fortnite_build_a_wall",
@@ -3227,21 +3288,24 @@ const VOCAB = {
       "en": "shield",
       "fi": "suoja / kilpi",
       "category": "gaming_fortnite",
-      "de": "der Schild"
+      "de": "der Schild",
+      "de_pl": "die Schilde"
     },
     {
       "id": "gaming_fortnite_victory",
       "en": "victory",
       "fi": "voitto",
       "category": "gaming_fortnite",
-      "de": "der Sieg"
+      "de": "der Sieg",
+      "de_pl": "die Siege"
     },
     {
       "id": "gaming_fortnite_teammate",
       "en": "teammate",
       "fi": "joukkuekaveri / joukkuetoveri / tiimikaveri",
       "category": "gaming_fortnite",
-      "de": "der Teamkollege / die Teamkollegin / der Mitspieler / die Mitspielerin"
+      "de": "der Teamkollege / die Teamkollegin / der Mitspieler / die Mitspielerin",
+      "de_pl": "die Teamkollegen / die Teamkolleginnen / die Mitspieler / die Mitspielerinnen"
     },
     {
       "id": "colours_purple",
@@ -3424,7 +3488,8 @@ const VOCAB = {
       "en": "cloud",
       "fi": "pilvi",
       "category": "weather_seasons",
-      "de": "die Wolke"
+      "de": "die Wolke",
+      "de_pl": "die Wolken"
     },
     {
       "id": "weather_seasons_spring",
@@ -3462,98 +3527,112 @@ const VOCAB = {
       "en": "dog",
       "fi": "koira",
       "category": "animals",
-      "de": "der Hund"
+      "de": "der Hund",
+      "de_pl": "die Hunde"
     },
     {
       "id": "animals_cat",
       "en": "cat",
       "fi": "kissa",
       "category": "animals",
-      "de": "die Katze"
+      "de": "die Katze",
+      "de_pl": "die Katzen"
     },
     {
       "id": "animals_horse",
       "en": "horse",
       "fi": "hevonen / heppa",
       "category": "animals",
-      "de": "das Pferd"
+      "de": "das Pferd",
+      "de_pl": "die Pferde"
     },
     {
       "id": "animals_bird",
       "en": "bird",
       "fi": "lintu",
       "category": "animals",
-      "de": "der Vogel"
+      "de": "der Vogel",
+      "de_pl": "die Vögel"
     },
     {
       "id": "animals_cow",
       "en": "cow",
       "fi": "lehmä",
       "category": "animals",
-      "de": "die Kuh"
+      "de": "die Kuh",
+      "de_pl": "die Kühe"
     },
     {
       "id": "animals_sheep",
       "en": "sheep",
       "fi": "lammas",
       "category": "animals",
-      "de": "das Schaf"
+      "de": "das Schaf",
+      "de_pl": "die Schafe"
     },
     {
       "id": "animals_rabbit",
       "en": "rabbit",
       "fi": "kani / pupu",
       "category": "animals",
-      "de": "das Kaninchen"
+      "de": "das Kaninchen",
+      "de_pl": "die Kaninchen"
     },
     {
       "id": "animals_mouse",
       "en": "mouse",
       "fi": "hiiri",
       "category": "animals",
-      "de": "die Maus"
+      "de": "die Maus",
+      "de_pl": "die Mäuse"
     },
     {
       "id": "house_rooms_house",
       "en": "house",
       "fi": "talo",
       "category": "house_rooms",
-      "de": "das Haus"
+      "de": "das Haus",
+      "de_pl": "die Häuser"
     },
     {
       "id": "house_rooms_room",
       "en": "room",
       "fi": "huone",
       "category": "house_rooms",
-      "de": "das Zimmer / der Raum"
+      "de": "das Zimmer / der Raum",
+      "de_pl": "die Zimmer / die Räume"
     },
     {
       "id": "house_rooms_kitchen",
       "en": "kitchen",
       "fi": "keittiö",
       "category": "house_rooms",
-      "de": "die Küche"
+      "de": "die Küche",
+      "de_pl": "die Küchen"
     },
     {
       "id": "house_rooms_bedroom",
       "en": "bedroom",
       "fi": "makuuhuone",
       "category": "house_rooms",
-      "de": "das Schlafzimmer"
+      "de": "das Schlafzimmer",
+      "de_pl": "die Schlafzimmer"
     },
     {
       "id": "house_rooms_bathroom",
       "en": "bathroom",
       "fi": "kylpyhuone",
       "category": "house_rooms",
-      "de": "das Badezimmer / das Bad"
+      "de": "das Badezimmer / das Bad",
+      "de_pl": "die Badezimmer / die Bäder"
     },
     {
       "id": "house_rooms_garden",
       "en": "garden",
       "fi": "puutarha / piha",
       "category": "house_rooms",
-      "de": "der Garten"
+      "de": "der Garten",
+      "de_pl": "die Gärten"
     },
     {
       "id": "house_rooms_door",
@@ -3563,63 +3642,72 @@ const VOCAB = {
       "de": "die Tür",
       "also": [
         "koe1_4"
-      ]
+      ],
+      "de_pl": "die Türen"
     },
     {
       "id": "house_rooms_window",
       "en": "window",
       "fi": "ikkuna",
       "category": "house_rooms",
-      "de": "das Fenster"
+      "de": "das Fenster",
+      "de_pl": "die Fenster"
     },
     {
       "id": "body_parts_head",
       "en": "head",
       "fi": "pää",
       "category": "body_parts",
-      "de": "der Kopf"
+      "de": "der Kopf",
+      "de_pl": "die Köpfe"
     },
     {
       "id": "body_parts_hand",
       "en": "hand",
       "fi": "käsi",
       "category": "body_parts",
-      "de": "die Hand"
+      "de": "die Hand",
+      "de_pl": "die Hände"
     },
     {
       "id": "body_parts_foot",
       "en": "foot",
       "fi": "jalka / jalkaterä",
       "category": "body_parts",
-      "de": "der Fuß"
+      "de": "der Fuß",
+      "de_pl": "die Füße"
     },
     {
       "id": "body_parts_eye",
       "en": "eye",
       "fi": "silmä",
       "category": "body_parts",
-      "de": "das Auge"
+      "de": "das Auge",
+      "de_pl": "die Augen"
     },
     {
       "id": "body_parts_ear",
       "en": "ear",
       "fi": "korva",
       "category": "body_parts",
-      "de": "das Ohr"
+      "de": "das Ohr",
+      "de_pl": "die Ohren"
     },
     {
       "id": "body_parts_mouth",
       "en": "mouth",
       "fi": "suu",
       "category": "body_parts",
-      "de": "der Mund"
+      "de": "der Mund",
+      "de_pl": "die Münder"
     },
     {
       "id": "body_parts_nose",
       "en": "nose",
       "fi": "nenä",
       "category": "body_parts",
-      "de": "die Nase"
+      "de": "die Nase",
+      "de_pl": "die Nasen"
     },
     {
       "id": "body_parts_hair",
@@ -3633,14 +3721,16 @@ const VOCAB = {
       "en": "shirt",
       "fi": "paita",
       "category": "clothes",
-      "de": "das Hemd"
+      "de": "das Hemd",
+      "de_pl": "die Hemden"
     },
     {
       "id": "clothes_trousers",
       "en": "trousers",
       "fi": "housut",
       "category": "clothes",
-      "de": "die Hose"
+      "de": "die Hose",
+      "de_pl": "die Hosen"
     },
     {
       "id": "clothes_shoes",
@@ -3654,14 +3744,16 @@ const VOCAB = {
       "en": "jacket",
       "fi": "takki",
       "category": "clothes",
-      "de": "die Jacke"
+      "de": "die Jacke",
+      "de_pl": "die Jacken"
     },
     {
       "id": "clothes_hat",
       "en": "hat",
       "fi": "pipo/hattu",
       "category": "clothes",
-      "de": "die Mütze / der Hut"
+      "de": "die Mütze / der Hut",
+      "de_pl": "die Mützen / die Hüte"
     },
     {
       "id": "clothes_socks",
@@ -3675,56 +3767,64 @@ const VOCAB = {
       "en": "dress",
       "fi": "mekko",
       "category": "clothes",
-      "de": "das Kleid"
+      "de": "das Kleid",
+      "de_pl": "die Kleider"
     },
     {
       "id": "clothes_jumper",
       "en": "jumper",
       "fi": "neule/villapaita",
       "category": "clothes",
-      "de": "der Pullover / der Pulli"
+      "de": "der Pullover / der Pulli",
+      "de_pl": "die Pullover / die Pullis"
     },
     {
       "id": "school_objects_book",
       "en": "book",
       "fi": "kirja / varata",
       "category": "school_objects",
-      "de": "das Buch"
+      "de": "das Buch",
+      "de_pl": "die Bücher"
     },
     {
       "id": "school_objects_pen",
       "en": "pen",
       "fi": "kynä / kuulakärkikynä",
       "category": "school_objects",
-      "de": "der Kugelschreiber / der Kuli"
+      "de": "der Kugelschreiber / der Kuli",
+      "de_pl": "die Kugelschreiber / die Kulis"
     },
     {
       "id": "school_objects_pencil",
       "en": "pencil",
       "fi": "lyijykynä",
       "category": "school_objects",
-      "de": "der Bleistift"
+      "de": "der Bleistift",
+      "de_pl": "die Bleistifte"
     },
     {
       "id": "school_objects_ruler",
       "en": "ruler",
       "fi": "viivain / hallitsija",
       "category": "school_objects",
-      "de": "das Lineal"
+      "de": "das Lineal",
+      "de_pl": "die Lineale"
     },
     {
       "id": "school_objects_eraser",
       "en": "eraser",
       "fi": "pyyhekumi / kumi",
       "category": "school_objects",
-      "de": "der Radiergummi"
+      "de": "der Radiergummi",
+      "de_pl": "die Radiergummis"
     },
     {
       "id": "school_objects_notebook",
       "en": "notebook",
       "fi": "vihko / muistivihko",
       "category": "school_objects",
-      "de": "das Heft"
+      "de": "das Heft",
+      "de_pl": "die Hefte"
     },
     {
       "id": "perusverbit_be",
@@ -3857,70 +3957,80 @@ const VOCAB = {
       "en": "doctor",
       "fi": "lääkäri",
       "de": "der Arzt / die Ärztin",
-      "category": "professions_5"
+      "category": "professions_5",
+      "de_pl": "die Ärzte / die Ärztinnen"
     },
     {
       "id": "professions_dentist",
       "en": "dentist",
       "fi": "hammaslääkäri",
       "de": "der Zahnarzt / die Zahnärztin",
-      "category": "professions_5"
+      "category": "professions_5",
+      "de_pl": "die Zahnärzte / die Zahnärztinnen"
     },
     {
       "id": "professions_police_officer",
       "en": "police officer",
       "fi": "poliisi",
       "de": "der Polizist / die Polizistin",
-      "category": "professions_5"
+      "category": "professions_5",
+      "de_pl": "die Polizisten / die Polizistinnen"
     },
     {
       "id": "professions_firefighter",
       "en": "firefighter",
       "fi": "palomies / palonsammuttaja",
       "de": "der Feuerwehrmann / die Feuerwehrfrau",
-      "category": "professions_5"
+      "category": "professions_5",
+      "de_pl": "die Feuerwehrmänner / die Feuerwehrfrauen"
     },
     {
       "id": "professions_engineer",
       "en": "engineer",
       "fi": "insinööri",
       "de": "der Ingenieur / die Ingenieurin",
-      "category": "professions_5"
+      "category": "professions_5",
+      "de_pl": "die Ingenieure / die Ingenieurinnen"
     },
     {
       "id": "professions_farmer",
       "en": "farmer",
       "fi": "maanviljelijä / viljelijä",
       "de": "der Bauer / die Bäuerin / der Landwirt / die Landwirtin",
-      "category": "professions_5"
+      "category": "professions_5",
+      "de_pl": "die Bauern / die Bäuerinnen / die Landwirte / die Landwirtinnen"
     },
     {
       "id": "professions_driver",
       "en": "driver",
       "fi": "kuljettaja",
       "de": "der Fahrer / die Fahrerin",
-      "category": "professions_5"
+      "category": "professions_5",
+      "de_pl": "die Fahrer / die Fahrerinnen"
     },
     {
       "id": "professions_shop_assistant",
       "en": "shop assistant",
       "fi": "myyjä",
       "de": "der Verkäufer / die Verkäuferin",
-      "category": "professions_5"
+      "category": "professions_5",
+      "de_pl": "die Verkäufer / die Verkäuferinnen"
     },
     {
       "id": "professions_hairdresser",
       "en": "hairdresser",
       "fi": "kampaaja / parturi / parturi-kampaaja",
       "de": "der Friseur / die Friseurin",
-      "category": "professions_5"
+      "category": "professions_5",
+      "de_pl": "die Friseure / die Friseurinnen"
     },
     {
       "id": "professions_vet",
       "en": "vet",
       "fi": "eläinlääkäri",
       "de": "der Tierarzt / die Tierärztin",
-      "category": "professions_5"
+      "category": "professions_5",
+      "de_pl": "die Tierärzte / die Tierärztinnen"
     },
     {
       "id": "sports_ice_hockey",
@@ -3997,70 +4107,80 @@ const VOCAB = {
       "en": "car",
       "fi": "auto",
       "de": "das Auto / der Wagen",
-      "category": "transport_5"
+      "category": "transport_5",
+      "de_pl": "die Autos / die Wagen"
     },
     {
       "id": "transport_bus",
       "en": "bus",
       "fi": "bussi / linja-auto",
       "de": "der Bus",
-      "category": "transport_5"
+      "category": "transport_5",
+      "de_pl": "die Busse"
     },
     {
       "id": "transport_train",
       "en": "train",
       "fi": "juna",
       "de": "der Zug",
-      "category": "transport_5"
+      "category": "transport_5",
+      "de_pl": "die Züge"
     },
     {
       "id": "transport_bicycle",
       "en": "bicycle",
       "fi": "polkupyörä / pyörä / fillari",
       "de": "das Fahrrad / das Rad",
-      "category": "transport_5"
+      "category": "transport_5",
+      "de_pl": "die Fahrräder / die Räder"
     },
     {
       "id": "transport_airplane",
       "en": "airplane",
       "fi": "lentokone",
       "de": "das Flugzeug",
-      "category": "transport_5"
+      "category": "transport_5",
+      "de_pl": "die Flugzeuge"
     },
     {
       "id": "transport_boat",
       "en": "boat",
       "fi": "vene",
       "de": "das Boot",
-      "category": "transport_5"
+      "category": "transport_5",
+      "de_pl": "die Boote"
     },
     {
       "id": "transport_tram",
       "en": "tram",
       "fi": "raitiovaunu / ratikka",
       "de": "die Straßenbahn",
-      "category": "transport_5"
+      "category": "transport_5",
+      "de_pl": "die Straßenbahnen"
     },
     {
       "id": "transport_metro",
       "en": "metro",
       "fi": "metro",
       "de": "die U-Bahn",
-      "category": "transport_5"
+      "category": "transport_5",
+      "de_pl": "die U-Bahnen"
     },
     {
       "id": "transport_taxi",
       "en": "taxi",
       "fi": "taksi",
       "de": "das Taxi",
-      "category": "transport_5"
+      "category": "transport_5",
+      "de_pl": "die Taxis"
     },
     {
       "id": "transport_motorcycle",
       "en": "motorcycle",
       "fi": "moottoripyörä",
       "de": "das Motorrad",
-      "category": "transport_5"
+      "category": "transport_5",
+      "de_pl": "die Motorräder"
     },
     {
       "id": "prepositions_in",
@@ -4214,7 +4334,8 @@ const VOCAB = {
       "en": "price",
       "fi": "hinta",
       "de": "der Preis",
-      "category": "shopping_5"
+      "category": "shopping_5",
+      "de_pl": "die Preise"
     },
     {
       "id": "shopping_expensive",
@@ -4259,42 +4380,48 @@ const VOCAB = {
       "category": "shopping_5",
       "also": [
         "koe1_4"
-      ]
+      ],
+      "de_pl": "die Münzen"
     },
     {
       "id": "shopping_receipt",
       "en": "receipt",
       "fi": "kuitti",
       "de": "die Quittung / der Kassenbon / der Beleg",
-      "category": "shopping_5"
+      "category": "shopping_5",
+      "de_pl": "die Quittungen / die Kassenbons / die Belege"
     },
     {
       "id": "shopping_wallet",
       "en": "wallet",
       "fi": "lompakko",
       "de": "das Portemonnaie / der Geldbeutel / die Geldbörse",
-      "category": "shopping_5"
+      "category": "shopping_5",
+      "de_pl": "die Portemonnaies / die Geldbeutel / die Geldbörsen"
     },
     {
       "id": "travel_airport",
       "en": "airport",
       "fi": "lentokenttä / lentoasema",
       "de": "der Flughafen",
-      "category": "travel_6"
+      "category": "travel_6",
+      "de_pl": "die Flughäfen"
     },
     {
       "id": "travel_ticket",
       "en": "ticket",
       "fi": "lippu / sakko",
       "de": "das Ticket / die Fahrkarte",
-      "category": "travel_6"
+      "category": "travel_6",
+      "de_pl": "die Tickets / die Fahrkarten"
     },
     {
       "id": "travel_passport",
       "en": "passport",
       "fi": "passi",
       "de": "der Reisepass / der Pass",
-      "category": "travel_6"
+      "category": "travel_6",
+      "de_pl": "die Reisepässe / die Pässe"
     },
     {
       "id": "travel_luggage",
@@ -4308,7 +4435,8 @@ const VOCAB = {
       "en": "hotel",
       "fi": "hotelli",
       "de": "das Hotel",
-      "category": "travel_6"
+      "category": "travel_6",
+      "de_pl": "die Hotels"
     },
     {
       "id": "travel_holiday",
@@ -4322,42 +4450,48 @@ const VOCAB = {
       "en": "map",
       "fi": "kartta",
       "de": "die Karte / die Landkarte",
-      "category": "travel_6"
+      "category": "travel_6",
+      "de_pl": "die Karten / die Landkarten"
     },
     {
       "id": "travel_tourist",
       "en": "tourist",
       "fi": "turisti / matkailija",
       "de": "der Tourist / die Touristin",
-      "category": "travel_6"
+      "category": "travel_6",
+      "de_pl": "die Touristen / die Touristinnen"
     },
     {
       "id": "travel_journey",
       "en": "journey",
       "fi": "matka",
       "de": "die Reise",
-      "category": "travel_6"
+      "category": "travel_6",
+      "de_pl": "die Reisen"
     },
     {
       "id": "travel_souvenir",
       "en": "souvenir",
       "fi": "matkamuisto",
       "de": "das Souvenir / das Andenken",
-      "category": "travel_6"
+      "category": "travel_6",
+      "de_pl": "die Souvenirs / die Andenken"
     },
     {
       "id": "technology_computer",
       "en": "computer",
       "fi": "tietokone",
       "de": "der Computer / der Rechner",
-      "category": "technology_6"
+      "category": "technology_6",
+      "de_pl": "die Computer / die Rechner"
     },
     {
       "id": "technology_tablet",
       "en": "tablet",
       "fi": "tabletti",
       "de": "das Tablet",
-      "category": "technology_6"
+      "category": "technology_6",
+      "de_pl": "die Tablets"
     },
     {
       "id": "technology_internet",
@@ -4371,35 +4505,40 @@ const VOCAB = {
       "en": "app",
       "fi": "sovellus / äppi",
       "de": "die App",
-      "category": "technology_6"
+      "category": "technology_6",
+      "de_pl": "die Apps"
     },
     {
       "id": "technology_email",
       "en": "email",
       "fi": "sähköposti / meili",
       "de": "die E-Mail / die Mail",
-      "category": "technology_6"
+      "category": "technology_6",
+      "de_pl": "die E-Mails / die Mails"
     },
     {
       "id": "technology_keyboard",
       "en": "keyboard",
       "fi": "näppäimistö",
       "de": "die Tastatur",
-      "category": "technology_6"
+      "category": "technology_6",
+      "de_pl": "die Tastaturen"
     },
     {
       "id": "technology_screen",
       "en": "screen",
       "fi": "näyttö / ruutu",
       "de": "der Bildschirm",
-      "category": "technology_6"
+      "category": "technology_6",
+      "de_pl": "die Bildschirme"
     },
     {
       "id": "technology_password",
       "en": "password",
       "fi": "salasana",
       "de": "das Passwort / das Kennwort",
-      "category": "technology_6"
+      "category": "technology_6",
+      "de_pl": "die Passwörter / die Kennwörter"
     },
     {
       "id": "technology_download",
@@ -4413,7 +4552,8 @@ const VOCAB = {
       "en": "message",
       "fi": "viesti",
       "de": "die Nachricht",
-      "category": "technology_6"
+      "category": "technology_6",
+      "de_pl": "die Nachrichten"
     },
     {
       "id": "verbs_past_went",
@@ -4633,28 +4773,32 @@ const VOCAB = {
       "en": "dream job",
       "fi": "unelma-ammatti / unelmatyö",
       "de": "der Traumberuf / der Traumjob",
-      "category": "future_plans_6"
+      "category": "future_plans_6",
+      "de_pl": "die Traumberufe / die Traumjobs"
     },
     {
       "id": "future_high_school",
       "en": "high school",
       "fi": "lukio",
       "de": "das Gymnasium",
-      "category": "future_plans_6"
+      "category": "future_plans_6",
+      "de_pl": "die Gymnasien"
     },
     {
       "id": "future_university",
       "en": "university",
       "fi": "yliopisto",
       "de": "die Universität / die Uni",
-      "category": "future_plans_6"
+      "category": "future_plans_6",
+      "de_pl": "die Universitäten / die Unis"
     },
     {
       "id": "future_exam",
       "en": "exam",
       "fi": "koe (koulussa) / tentti",
       "de": "die Prüfung",
-      "category": "future_plans_6"
+      "category": "future_plans_6",
+      "de_pl": "die Prüfungen"
     },
     {
       "id": "future_graduate",
@@ -4668,28 +4812,32 @@ const VOCAB = {
       "en": "career",
       "fi": "ura",
       "de": "die Karriere",
-      "category": "future_plans_6"
+      "category": "future_plans_6",
+      "de_pl": "die Karrieren"
     },
     {
       "id": "future_decision",
       "en": "decision",
       "fi": "päätös",
       "de": "die Entscheidung",
-      "category": "future_plans_6"
+      "category": "future_plans_6",
+      "de_pl": "die Entscheidungen"
     },
     {
       "id": "future_plan",
       "en": "plan",
       "fi": "suunnitelma",
       "de": "der Plan",
-      "category": "future_plans_6"
+      "category": "future_plans_6",
+      "de_pl": "die Pläne"
     },
     {
       "id": "future_goal",
       "en": "goal",
       "fi": "tavoite / päämäärä",
       "de": "das Ziel",
-      "category": "future_plans_6"
+      "category": "future_plans_6",
+      "de_pl": "die Ziele"
     },
     {
       "id": "future_future",
@@ -4748,7 +4896,8 @@ const VOCAB = {
       "de": "das Tier",
       "also": [
         "koe1_4"
-      ]
+      ],
+      "de_pl": "die Tiere"
     },
     {
       "id": "animals_spider",
@@ -4758,7 +4907,8 @@ const VOCAB = {
       "de": "die Spinne",
       "also": [
         "koe1_4"
-      ]
+      ],
+      "de_pl": "die Spinnen"
     },
     {
       "id": "colours_colour",
@@ -4769,7 +4919,8 @@ const VOCAB = {
       "also": [
         "koe1_4",
         "koe1_de"
-      ]
+      ],
+      "de_pl": "die Farben"
     },
     {
       "id": "hobbies_favourite",
@@ -4786,7 +4937,8 @@ const VOCAB = {
       "en": "film",
       "fi": "elokuva / leffa",
       "category": "hobbies",
-      "de": "der Film"
+      "de": "der Film",
+      "de_pl": "die Filme"
     },
     {
       "id": "hobbies_game",
@@ -4796,7 +4948,8 @@ const VOCAB = {
       "de": "das Spiel",
       "also": [
         "koe1_4"
-      ]
+      ],
+      "de_pl": "die Spiele"
     },
     {
       "id": "hobbies_fun",
@@ -4810,21 +4963,24 @@ const VOCAB = {
       "en": "table",
       "fi": "pöytä",
       "category": "house_rooms",
-      "de": "der Tisch"
+      "de": "der Tisch",
+      "de_pl": "die Tische"
     },
     {
       "id": "house_rooms_sofa",
       "en": "sofa",
       "fi": "sohva",
       "category": "house_rooms",
-      "de": "das Sofa / die Couch"
+      "de": "das Sofa / die Couch",
+      "de_pl": "die Sofas / die Couches"
     },
     {
       "id": "house_rooms_shelf",
       "en": "shelf",
       "fi": "hylly",
       "category": "house_rooms",
-      "de": "das Regal"
+      "de": "das Regal",
+      "de_pl": "die Regale"
     },
     {
       "id": "house_rooms_home",
@@ -4838,14 +4994,16 @@ const VOCAB = {
       "en": "mum",
       "fi": "äiti (arkikieli)",
       "category": "family",
-      "de": "die Mama"
+      "de": "die Mama",
+      "de_pl": "die Mamas"
     },
     {
       "id": "family_dad",
       "en": "dad",
       "fi": "isä (arkikieli)",
       "category": "family",
-      "de": "der Papa"
+      "de": "der Papa",
+      "de_pl": "die Papas"
     },
     {
       "id": "family_parents",
@@ -4873,7 +5031,8 @@ const VOCAB = {
       "en": "pizza",
       "fi": "pizza",
       "category": "food_savoury",
-      "de": "die Pizza"
+      "de": "die Pizza",
+      "de_pl": "die Pizzas"
     },
     {
       "id": "food_savoury_dinner",
@@ -4894,14 +5053,16 @@ const VOCAB = {
       "en": "birthday",
       "fi": "syntymäpäivä / synttärit",
       "category": "myself",
-      "de": "der Geburtstag"
+      "de": "der Geburtstag",
+      "de_pl": "die Geburtstage"
     },
     {
       "id": "school_subjects_subject",
       "en": "subject",
       "fi": "kouluaine / oppiaine",
       "category": "school_subjects",
-      "de": "das Schulfach / das Fach"
+      "de": "das Schulfach / das Fach",
+      "de_pl": "die Schulfächer / die Fächer"
     },
     {
       "id": "verbs_action_visit",
@@ -4950,14 +5111,16 @@ const VOCAB = {
       "en": "match",
       "fi": "ottelu / matsi",
       "category": "sports_5",
-      "de": "das Spiel / das Match"
+      "de": "das Spiel / das Match",
+      "de_pl": "die Spiele / die Matches"
     },
     {
       "id": "sports_5_team",
       "en": "team",
       "fi": "joukkue / tiimi",
       "category": "sports_5",
-      "de": "die Mannschaft / das Team"
+      "de": "die Mannschaft / das Team",
+      "de_pl": "die Mannschaften / die Teams"
     },
     {
       "id": "weather_seasons_weather",
@@ -4971,7 +5134,8 @@ const VOCAB = {
       "en": "bus stop",
       "fi": "bussipysäkki / pysäkki",
       "category": "transport_5",
-      "de": "die Bushaltestelle / die Haltestelle"
+      "de": "die Bushaltestelle / die Haltestelle",
+      "de_pl": "die Bushaltestellen / die Haltestellen"
     },
     {
       "id": "travel_6_travel",
@@ -4985,7 +5149,8 @@ const VOCAB = {
       "en": "town",
       "fi": "kaupunki",
       "category": "places_town",
-      "de": "die Stadt"
+      "de": "die Stadt",
+      "de_pl": "die Städte"
     },
     {
       "id": "adjectives_advanced_6_important",
@@ -5006,7 +5171,8 @@ const VOCAB = {
       "en": "day",
       "fi": "päivä",
       "category": "aikasanat_2",
-      "de": "der Tag"
+      "de": "der Tag",
+      "de_pl": "die Tage"
     },
     {
       "id": "aikasanat_2_today",
@@ -5041,35 +5207,40 @@ const VOCAB = {
       "en": "night",
       "fi": "yö",
       "category": "aikasanat_2",
-      "de": "die Nacht"
+      "de": "die Nacht",
+      "de_pl": "die Nächte"
     },
     {
       "id": "aikasanat_2_evening",
       "en": "evening",
       "fi": "ilta",
       "category": "aikasanat_2",
-      "de": "der Abend"
+      "de": "der Abend",
+      "de_pl": "die Abende"
     },
     {
       "id": "aikasanat_2_weekend",
       "en": "weekend",
       "fi": "viikonloppu",
       "category": "aikasanat_2",
-      "de": "das Wochenende"
+      "de": "das Wochenende",
+      "de_pl": "die Wochenenden"
     },
     {
       "id": "aikasanat_2_year",
       "en": "year",
       "fi": "vuosi",
       "category": "aikasanat_2",
-      "de": "das Jahr"
+      "de": "das Jahr",
+      "de_pl": "die Jahre"
     },
     {
       "id": "aikasanat_2_hour",
       "en": "hour",
       "fi": "tunti",
       "category": "aikasanat_2",
-      "de": "die Stunde"
+      "de": "die Stunde",
+      "de_pl": "die Stunden"
     },
     {
       "id": "yleissanat_3_always",
@@ -5215,14 +5386,16 @@ const VOCAB = {
       "en": "cake",
       "fi": "kakku",
       "category": "food_savoury",
-      "de": "der Kuchen / die Torte"
+      "de": "der Kuchen / die Torte",
+      "de_pl": "die Kuchen / die Torten"
     },
     {
       "id": "school_subjects_school",
       "en": "school",
       "fi": "koulu",
       "category": "school_subjects",
-      "de": "die Schule"
+      "de": "die Schule",
+      "de_pl": "die Schulen"
     },
     {
       "id": "free_time_7_hobby",
@@ -12041,7 +12214,8 @@ const VOCAB = {
       "fi": "vaari / pappa / ukki",
       "category": "koe1_de",
       "de": "der Opa",
-      "de_only": true
+      "de_only": true,
+      "de_pl": "die Opas"
     },
     {
       "id": "de_k1_oma",
@@ -12049,7 +12223,8 @@ const VOCAB = {
       "fi": "mummi / mummo / mummu",
       "category": "koe1_de",
       "de": "die Oma",
-      "de_only": true
+      "de_only": true,
+      "de_pl": "die Omas"
     },
     {
       "id": "de_k1_wir",
@@ -12177,7 +12352,8 @@ const VOCAB = {
       "fi": "pallo / jäätelöpallo",
       "category": "koe1_de",
       "de": "die Kugel",
-      "de_only": true
+      "de_only": true,
+      "de_pl": "die Kugeln"
     },
     {
       "id": "de_k1_schokolade",
@@ -13218,6 +13394,11 @@ async function recordResult(isCorrect, mode){
   await putStat(prev);
 }
 
+// Saksan substantiiveille näytetään monikkomuoto palautteessa (word.de_pl).
+function pluralNote(){
+  return (targetLang === "de" && current && current.de_pl) ? current.de_pl : "";
+}
+
 async function checkAnswer(userAnswer, mode){
   const usedMode = mode || activeMode;
   const isCorrect = matchesAnswer(userAnswer, usedMode);
@@ -13227,8 +13408,15 @@ async function checkAnswer(userAnswer, mode){
   } else {
     feedback.innerHTML = "🙈 Ei ihan. <span class='answer-reveal'>Oikea vastaus: " + acceptedAnswers()[0] + "</span>";
   }
+  const pl = pluralNote();
+  if (pl){
+    const span = document.createElement("span");
+    span.className = "plural-note";
+    span.textContent = " · Monikko: " + pl;
+    feedback.appendChild(span);
+  }
   await recordResult(isCorrect, usedMode);
-  setTimeout(pickWord, isCorrect ? 900 : 2000);
+  setTimeout(pickWord, (isCorrect ? 900 : 2000) + (pl ? 800 : 0));
 }
 
 function showNote(text){
@@ -13287,7 +13475,7 @@ document.getElementById("skipBtn").addEventListener("click", pickWord);
 // paljastettua vastausta voi vain kopioida - ainoa tapa jatkaa on Ohita, eikä
 // sana lasketa oikein tai väärin vastatuksi.
 revealBtn.addEventListener("click", () => {
-  revealBox.textContent = "🔤 " + acceptedAnswers()[0];
+  revealBox.textContent = "🔤 " + acceptedAnswers()[0] + (pluralNote() ? " · Monikko: " + pluralNote() : "");
   answerArea.classList.add("revealed");
 });
 
@@ -14738,6 +14926,20 @@ function buildProgressReport(){
     }))
     .sort((a, b) => (a.hobby - b.hobby) || ((a.grade || 0) - (b.grade || 0)) || a.name.localeCompare(b.name, "fi"));
   const all = adultStatsFor(PRACTICE_WORDS);
+  // Koealueet (exam-teemat): sanojen ja koealueen omien virkkeiden valmius sekä heikoimmat sanat.
+  const exams = VOCAB.categories
+    .filter(c => c.exam && (!c.lang || c.lang === targetLang))
+    .map(c => {
+      const ws = PRACTICE_WORDS.filter(w => wordInCategory(w, c.id));
+      const sl = sentencesForLang().filter(sn => sn.theme === c.id);
+      let sSeen = 0, sMastered = 0;
+      sl.forEach(sn => { const st = statsCache[sentenceStatId(sn)]; if (st){ sSeen++; if (isSentenceLearned(sn)) sMastered++; } });
+      const weak = ws.map(w => ({ w, st: statsCache[statId(w)] }))
+        .filter(x => x.st && (x.st.incorrectCount || 0) >= 1 && !stageKeyboardGraduated(x.st))
+        .sort((a, b) => (b.st.incorrectCount || 0) - (a.st.incorrectCount || 0)).slice(0, 5)
+        .map(x => firstAcceptedAnswer(x.w[targetLang]));
+      return { id: c.id, name: c.name_fi, ...adultStatsFor(ws), sentTotal: sl.length, sentSeen: sSeen, sentMastered: sMastered, weak };
+    });
   // Hankalat sanat: eniten virheitä, joita ei ole vielä graduoitu näppäimistövaiheessa.
   const hard = PRACTICE_WORDS
     .map(w => ({ w, st: statsCache[statId(w)] }))
@@ -14767,7 +14969,7 @@ function buildProgressReport(){
     const st = statsCache[k];
     if (st && st.language === targetLang && st.lastSeen && (!lastSeen || st.lastSeen > lastSeen)) lastSeen = st.lastSeen;
   });
-  return { language: targetLang, all, grades, themes, hard, days, sentences: sentenceStats, sentenceTotal: sents.length, lastSeen };
+  return { language: targetLang, all, grades, themes, exams, hard, days, sentences: sentenceStats, sentenceTotal: sents.length, lastSeen };
 }
 
 function escHtml(t){ return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
@@ -14783,6 +14985,14 @@ function renderAdultView(){
   h += `<div class="adult-section">Yhteenveto</div>`;
   h += `<p class="adult-note">Sanoja nähty ${r.all.seen}/${r.all.total}. Täysin opittu (kynä, näppäimistö ja puhe) ${r.all.full}. `
      + `Opittu vaiheittain: kynä ${r.all.pen}, näppäimistö ${r.all.keyboard}, puhe ${r.all.mic}.</p>`;
+  if (r.exams.length){
+    h += `<div class="adult-section">Koealueet</div><table class="adult-table"><tr><th>Koe</th><th>Sanoja</th><th>Nähty</th><th>Täysin</th><th>Virkkeitä</th><th>Virkkeet opittu</th></tr>`;
+    r.exams.forEach(e => {
+      h += `<tr><td>${escHtml(e.name)}</td><td>${e.total}</td><td>${e.seen}</td><td>${e.full} (${pct(e.full, e.total)} %) ${bar(e.full, e.total)}</td><td>${e.sentTotal}</td><td>${e.sentMastered}/${e.sentTotal}</td></tr>`;
+      if (e.weak.length) h += `<tr><td colspan="6" class="adult-note">Kertaa: ${e.weak.map(escHtml).join(", ")}</td></tr>`;
+    });
+    h += `</table>`;
+  }
   h += `<div class="adult-section">Luokka-asteittain</div><table class="adult-table"><tr><th>Luokka</th><th>Sanoja</th><th>Nähty</th><th>Kynä</th><th>Näppäimistö</th><th>Puhe</th><th>Täysin</th></tr>`;
   r.grades.forEach(g => {
     h += `<tr><td>${g.grade}. lk</td><td>${g.total}</td><td>${g.seen}</td><td>${g.pen}</td><td>${g.keyboard}</td><td>${g.mic}</td><td>${g.full} ${bar(g.full, g.total)}</td></tr>`;

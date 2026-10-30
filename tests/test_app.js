@@ -1411,6 +1411,23 @@ test('Aikuinen: edistyminen näkyy raportissa (nähty, vaiheet, täysin opittu, 
   app.dispose();
 });
 
+test('Aikuinen: koealueet-osio näyttää Koe 1 -valmiuden ja heikoimmat sanat kielen mukaan', async () => {
+  const app = await boot();
+  const r = J(app, 'buildProgressReport()');
+  assert.strictEqual(r.exams.length, 1);
+  assert.strictEqual(r.exams[0].id, 'koe1_4');
+  assert.strictEqual(r.exams[0].sentTotal, 38);
+  assert.ok(r.exams[0].total > 100);
+  app.run('renderAdultView()');
+  assert.ok(String(app.elements.adultContent.innerHTML).includes('Koealueet'));
+  app.dispose();
+  const de = await boot({ localStorage: { targetLang: 'de' } });
+  const rd = J(de, 'buildProgressReport()');
+  assert.deepStrictEqual(rd.exams.map(e => e.id), ['koe1_de']);
+  assert.strictEqual(rd.exams[0].sentTotal, 40);
+  de.dispose();
+});
+
 test('Aikuinen: päiväloki kirjaa vastaukset kielen mukaan ja näkyy raportissa', async () => {
   const app = await boot();
   app.run('current = wordsForGrade(1)[0]; direction = "target-fi";');
@@ -1701,6 +1718,19 @@ test('Koe 1: virketila - teemalla 38 omaa virkettä, tavalliseen luokkapooliin n
   await app.flush();
   assert.strictEqual(J(app, 'currentSentence.theme || null'), null);
   app.dispose();
+});
+
+test('Saksa: substantiivin monikko näkyy palautteessa ja paljastuksessa, englannissa ei', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de' } });
+  setWord(app, 'school_people_teacher', 'fi-target');
+  await app.run('checkAnswer("väärin", "keyboard")');
+  assert.ok(fbText(app.elements.feedback).includes('Monikko') || J(app, 'feedback._children.some(c => String(c.textContent).includes("Monikko"))'));
+  assert.strictEqual(app.run('pluralNote()'), 'die Lehrer / die Lehrerinnen');
+  app.dispose();
+  const en = await boot();
+  setWord(en, 'school_people_teacher', 'fi-target');
+  assert.strictEqual(en.run('pluralNote()'), '');
+  en.dispose();
 });
 
 test('Koe 1 (saksa): teema ensimmäisenä saksan teemalistassa, ei englannissa; de_only-sanat vain saksan poolissa', async () => {
