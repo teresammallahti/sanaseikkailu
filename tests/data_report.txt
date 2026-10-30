@@ -5,7 +5,7 @@ Sanaseikkailu data check: 1616 words, 93 categories, 218 sentences
 ===== WARNINGS (3) =====
 
 [DE: possible missing article] (2)
-  - polite_phrases_sorry: en='sorry' de='Entschuldigung'
+  - polite_phrases_sorry: en='sorry' de='Entschuldigung / es tut mir leid'
   - gaming_fortnite_loot: en='loot' de='Beute sammeln'
 
 [Sentence length not increasing] (1)
@@ -14,7 +14,7 @@ Sanaseikkailu data check: 1616 words, 93 categories, 218 sentences
 ===== INFO (113) =====
 
 [Pattern phrases with '...' (filtered from practice)] (2)
-  - greetings_phrases_my_name_is: en='my name is ...' fi='nimeni on ...' de='ich heiße ...'
+  - greetings_phrases_my_name_is: en='my name is ...' fi='nimeni on ... / minun nimeni on ...' de='ich heiße ...'
   - phrases_4_can_i_have: en='Can I have...?' fi='Saisinko...? / Voinko saada...?' de=None
 
 [DE equals EN (eyeball)] (5)

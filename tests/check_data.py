@@ -4,7 +4,7 @@ import json, re, subprocess, sys, collections
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-VOCAB = REPO / "en_1_9lk_v13.json"
+VOCAB = REPO / "en_1_9lk_v14.json"
 TEMPLATE = REPO / "index_template.html"
 
 ERR, WARN, INFO = collections.defaultdict(list), collections.defaultdict(list), collections.defaultdict(list)

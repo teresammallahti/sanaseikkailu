@@ -776,16 +776,16 @@ test('Virkkeet: pickSentenceRound valitsee aktiivisen luokan virkkeen', async ()
   app.dispose();
 });
 
-test('Virkkeet: saksalle 60 virkettä, 20 / luokka 4-6, ei kaadu', async () => {
+test('Virkkeet: saksalle 120 virkettä, 20 / luokka 4-9, ei kaadu', async () => {
   const app = await boot();
   app.run('selectTargetLang("de"); setPracticeMode("sentences");');
   await app.flush();
   assert.notStrictEqual(app.run('currentSentence'), null);
-  assert.strictEqual(app.run('SENTENCE_DATA.de.filter(s => !s.theme).length'), 60);
-  for (const g of [4, 5, 6]) assert.strictEqual(app.run(`sentencesForGrade(${g}).length`), 20, 'luokka ' + g);
+  assert.strictEqual(app.run('SENTENCE_DATA.de.filter(s => !s.theme).length'), 120);
+  for (const g of [4, 5, 6, 7, 8, 9]) assert.strictEqual(app.run(`sentencesForGrade(${g}).length`), 20, 'luokka ' + g);
   assert.strictEqual(app.run('sentencesForGrade(1).length'), 0);
-  assert.strictEqual(app.run('new Set(SENTENCE_DATA.de.map(s => s.id)).size'), 100);
-  assert.strictEqual(app.run('SENTENCE_DATA.de.every(s => s.de && s.fi && s.grade >= 1 && s.grade <= 3)'), true);
+  assert.strictEqual(app.run('new Set(SENTENCE_DATA.de.map(s => s.id)).size'), 160);
+  assert.strictEqual(app.run('SENTENCE_DATA.de.every(s => s.de && s.fi && s.grade >= 1 && s.grade <= 6)'), true);
   assert.strictEqual(app.run('sentencesForLang().includes(currentSentence)'), true);
   app.dispose();
 });

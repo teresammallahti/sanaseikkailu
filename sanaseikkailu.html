@@ -929,9 +929,9 @@ const VOCAB = {
     "language_target": "en",
     "language_native": "fi",
     "level": "4lk",
-    "version": "v13",
+    "version": "v14",
     "created": "2026-09-02",
-    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa. v4: lisätty täydennyksiä olemassa oleviin kategorioihin (colours: purple/brown/grey; opposites: 8 uutta vastaparia) sekä kuusi uutta kategoriaa (weather_seasons, animals, house_rooms, body_parts, clothes, school_objects) POPS 2014 -aihepiirien ja yleisen 4. luokan sanaston perusteella, käyttäjän hyväksynnän jälkeen (ehdotukset_v4.md). Kaikille uusille sanoille pysyvä id, olemassa olevat id:t eivät muuttuneet. v5: lisätty saksankieliset käännökset (kenttä 'de') kaikille 260 sanalle, artikkelien (der/die/das) kanssa substantiiveille - vakiintuneen saksan opetuskäytännön mukaisesti suku opetellaan heti sanan mukana. Sama sanasto ja kategoriat kuin englannissa/suomessa, id:t muuttumattomat. v6: Sanat järjestetty OPSin teemojen mukaan. Teemat personality, opposites, verbs_action ja verbs_communication yhdistetty teemaan 'yleissanat' (group=general). Kaikki muut teemat merkitty group=ops paitsi gaming_minecraft ja gaming_fortnite, jotka merkitty group=hobby (vain manuaalisesti valittavissa, ei mukana 'kaikki teemat' -kierrossa tai yleissanojen varasanastona). v7: sanasto ryhmitelty peruskoulun luokka-asteille 1-6 (uusi 'grade'-kenttä kategorioilla, group=hobby-kategoriat pysyvät luokka-asteettomina). Palautettu personality/opposites/verbs_action/verbs_communication omiksi kategorioikseen (v6:n yleissanat-yhdistäminen ei ole enää tarpeen, koska luokka-asteet hoitavat täydennyksen). Lisätty 138 uutta sanaa (luokka 1: perusverbit; luokka 4: päivärutiinit; luokka 5: ammatit/urheilu/kulkuvälineet/sijaintisanat/tunteet/ostokset; luokka 6: matkustaminen/teknologia/mennyt aika/kuvailevat sanat/maat ja kansallisuudet/tulevaisuus). Lisätty monimerkityksisille sanoille vaihtoehtoisia suomennoksia (esim. land = laskeutua/maa). v8 (vaihe 21): numerot laajennettu 0-20 (zero, eleven-twenty; uudet id:t, vanhat ennallaan). Monitulkintaiset sanat tarkennettu sulkutarkenteella (English/Finnish kouluaine vs. kansalaisuus, orange hedelmä vs. väri) ja 'pyöräily' eroteltu ('pyörällä ajaminen' = riding a bike, 'pyöräily (urheilulaji)' = cycling). Kategorioiden grade tarkoittaa nyt kielen opiskeluvuotta: englanti alkaa 1. luokalla, saksa 4. luokalla (sovellus siirtää luokka-asteen kielen mukaan). v9 (vaihe 25): lisätty 67 sanaa, jotka esiintyvät harjoitusvirkkeissä (SENTENCE_DATA.en) mutta puuttuivat sanastosta. Sanat sijoitettu olemassa oleviin kategorioihin (mm. perusverbit, perhe, harrastukset, koti, ruoka) sekä kolmeen uuteen kategoriaan: aikasanat_2 (Aikasanat, 2. lk), yleissanat_3 (Aika- ja yleissanat, 3. lk) ja sidesanat_5 (Sidesanat ja täsmentimet, 5. lk). Sanan luokka on pääsääntöisesti enintään sen virkkeen luokka, jossa sana ensimmäisen kerran esiintyy. Olemassa olevat id:t ennallaan. Fable-tarkistuksen korjaukset: fun = hauskaa / hauskanpito, favourite = lempi / suosikki, learn ja understand siirretty Toimintaverbeihin. Vaihe 26: lisätty eat, drink, very, cake, school (saksan virkkeitä varten); pie-sanan saksa tarkennettu (Kuchen siirretty sanalle cake). v10 (vaihe 28): yläkoulun sanasto 7.–9. lk, englanti, ei saksaa. Lisätty 224 sanaa ja 21 uutta kategoriaa (group=ops, grade 7/8/9) POPS 2014 englannin A1-oppimäärän vuosiluokkien 7–9 aihepiirien ja tavoitetason A2.2–B1.1 mukaan: 7. lk vapaa-aika, terveys, ruoanlaitto, ostokset ja raha, kaupunki ja reittiohjeet, sää ja luonto, ihmissuhteet; 8. lk media, matkailu, ympäristö, työelämä, kulttuuri ja juhlat, urheilutapahtumat, tunteet ja mielipiteet; 9. lk yhteiskunta, koulutus, tiede ja teknologia, kestävä kehitys ja elämäntavat, viestintä, liittosanat ja abstraktit sanat, phrasal verbit. Yläkoulun sanoilla ei ole de-kenttää (saksa ei käytä luokkien 7–9 kategorioita). Olemassa olevat id:t ja kategoriat ennallaan. Fable-tarkistuksen korjaukset: change, far, habit, work experience, scientist; pay ja exam tarkennettu törmäysten vuoksi. v11 (vaihe 30): lisätty 871 sanaa 4. luokan oppikirjan aakkosellisesta sanastosta (suomi–englanti) 25 uuteen 4. luokan kategoriaan (_4, no_de=true: ei saksaa). Opus-karsinta ja Fable-tarkistus (britti-englanti, törmäykset). v12 (vaihe 31): koealue 'Koe 1' (koe1_4, exam=true, lang=en): oppikirjan Unit 1-3 -sanat poimittu olemassa olevista sanoista lisäteemana (word.also) + 3 uutta sanaa; turn = kääntyä / vuoro, hide + olla piilossa. v13 (vaihe 32): saksan koealue 'Koe 1' (koe1_de, exam=true, lang=de, grade 1 = app 4. lk): oppikirjan Los geht's! 1 Lektion 1-3 -sanat poimittu olemassa olevista sanoista lisäteemana (word.also) + uudet sanat/fraasit (de_only=true: eivät ilmesty englannin harjoitukseen). Vaihe 32: englannin sanoille lisätty yleisiä suomennossynonyymejä (n. 270 sanaa; esim. funny = hassu / hauska).",
+    "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa. v4: lisätty täydennyksiä olemassa oleviin kategorioihin (colours: purple/brown/grey; opposites: 8 uutta vastaparia) sekä kuusi uutta kategoriaa (weather_seasons, animals, house_rooms, body_parts, clothes, school_objects) POPS 2014 -aihepiirien ja yleisen 4. luokan sanaston perusteella, käyttäjän hyväksynnän jälkeen (ehdotukset_v4.md). Kaikille uusille sanoille pysyvä id, olemassa olevat id:t eivät muuttuneet. v5: lisätty saksankieliset käännökset (kenttä 'de') kaikille 260 sanalle, artikkelien (der/die/das) kanssa substantiiveille - vakiintuneen saksan opetuskäytännön mukaisesti suku opetellaan heti sanan mukana. Sama sanasto ja kategoriat kuin englannissa/suomessa, id:t muuttumattomat. v6: Sanat järjestetty OPSin teemojen mukaan. Teemat personality, opposites, verbs_action ja verbs_communication yhdistetty teemaan 'yleissanat' (group=general). Kaikki muut teemat merkitty group=ops paitsi gaming_minecraft ja gaming_fortnite, jotka merkitty group=hobby (vain manuaalisesti valittavissa, ei mukana 'kaikki teemat' -kierrossa tai yleissanojen varasanastona). v7: sanasto ryhmitelty peruskoulun luokka-asteille 1-6 (uusi 'grade'-kenttä kategorioilla, group=hobby-kategoriat pysyvät luokka-asteettomina). Palautettu personality/opposites/verbs_action/verbs_communication omiksi kategorioikseen (v6:n yleissanat-yhdistäminen ei ole enää tarpeen, koska luokka-asteet hoitavat täydennyksen). Lisätty 138 uutta sanaa (luokka 1: perusverbit; luokka 4: päivärutiinit; luokka 5: ammatit/urheilu/kulkuvälineet/sijaintisanat/tunteet/ostokset; luokka 6: matkustaminen/teknologia/mennyt aika/kuvailevat sanat/maat ja kansallisuudet/tulevaisuus). Lisätty monimerkityksisille sanoille vaihtoehtoisia suomennoksia (esim. land = laskeutua/maa). v8 (vaihe 21): numerot laajennettu 0-20 (zero, eleven-twenty; uudet id:t, vanhat ennallaan). Monitulkintaiset sanat tarkennettu sulkutarkenteella (English/Finnish kouluaine vs. kansalaisuus, orange hedelmä vs. väri) ja 'pyöräily' eroteltu ('pyörällä ajaminen' = riding a bike, 'pyöräily (urheilulaji)' = cycling). Kategorioiden grade tarkoittaa nyt kielen opiskeluvuotta: englanti alkaa 1. luokalla, saksa 4. luokalla (sovellus siirtää luokka-asteen kielen mukaan). v9 (vaihe 25): lisätty 67 sanaa, jotka esiintyvät harjoitusvirkkeissä (SENTENCE_DATA.en) mutta puuttuivat sanastosta. Sanat sijoitettu olemassa oleviin kategorioihin (mm. perusverbit, perhe, harrastukset, koti, ruoka) sekä kolmeen uuteen kategoriaan: aikasanat_2 (Aikasanat, 2. lk), yleissanat_3 (Aika- ja yleissanat, 3. lk) ja sidesanat_5 (Sidesanat ja täsmentimet, 5. lk). Sanan luokka on pääsääntöisesti enintään sen virkkeen luokka, jossa sana ensimmäisen kerran esiintyy. Olemassa olevat id:t ennallaan. Fable-tarkistuksen korjaukset: fun = hauskaa / hauskanpito, favourite = lempi / suosikki, learn ja understand siirretty Toimintaverbeihin. Vaihe 26: lisätty eat, drink, very, cake, school (saksan virkkeitä varten); pie-sanan saksa tarkennettu (Kuchen siirretty sanalle cake). v10 (vaihe 28): yläkoulun sanasto 7.–9. lk, englanti, ei saksaa. Lisätty 224 sanaa ja 21 uutta kategoriaa (group=ops, grade 7/8/9) POPS 2014 englannin A1-oppimäärän vuosiluokkien 7–9 aihepiirien ja tavoitetason A2.2–B1.1 mukaan: 7. lk vapaa-aika, terveys, ruoanlaitto, ostokset ja raha, kaupunki ja reittiohjeet, sää ja luonto, ihmissuhteet; 8. lk media, matkailu, ympäristö, työelämä, kulttuuri ja juhlat, urheilutapahtumat, tunteet ja mielipiteet; 9. lk yhteiskunta, koulutus, tiede ja teknologia, kestävä kehitys ja elämäntavat, viestintä, liittosanat ja abstraktit sanat, phrasal verbit. Yläkoulun sanoilla ei ole de-kenttää (saksa ei käytä luokkien 7–9 kategorioita). Olemassa olevat id:t ja kategoriat ennallaan. Fable-tarkistuksen korjaukset: change, far, habit, work experience, scientist; pay ja exam tarkennettu törmäysten vuoksi. v11 (vaihe 30): lisätty 871 sanaa 4. luokan oppikirjan aakkosellisesta sanastosta (suomi–englanti) 25 uuteen 4. luokan kategoriaan (_4, no_de=true: ei saksaa). Opus-karsinta ja Fable-tarkistus (britti-englanti, törmäykset). v12 (vaihe 31): koealue 'Koe 1' (koe1_4, exam=true, lang=en): oppikirjan Unit 1-3 -sanat poimittu olemassa olevista sanoista lisäteemana (word.also) + 3 uutta sanaa; turn = kääntyä / vuoro, hide + olla piilossa. v13 (vaihe 32): saksan koealue 'Koe 1' (koe1_de, exam=true, lang=de, grade 1 = app 4. lk): oppikirjan Los geht's! 1 Lektion 1-3 -sanat poimittu olemassa olevista sanoista lisäteemana (word.also) + uudet sanat/fraasit (de_only=true: eivät ilmesty englannin harjoitukseen). Vaihe 32: englannin sanoille lisätty yleisiä suomennossynonyymejä (n. 270 sanaa; esim. funny = hassu / hauska). Vaihe 33: saksan sanoille lisätty suomennos- ja saksavaihtoehtoja; saksan virkkeet opiskeluvuosille 4-6 (60 uutta).",
     "notes": "Koottu 4. luokan englannin oppikirjan (skannattu, Scan_20260902_162833.pdf) teemojen pohjalta ilman kirjan kuvia tai tekstiä, täydennetty POPS 2014 (Englanti A-oppimäärä vl 3-6) aihepiirien mukaan. Rakenne on geneerinen (language_target/level -kentät), jotta samaa muotoa voi käyttää myöhemmin saksalle ja muille luokka-asteille.",
     "language_targets": [
       "en",
@@ -1532,7 +1532,7 @@ const VOCAB = {
     {
       "id": "school_people_teacher",
       "en": "teacher",
-      "fi": "opettaja",
+      "fi": "opettaja / ope",
       "category": "school_people",
       "de": "der Lehrer / die Lehrerin",
       "also": [
@@ -1544,7 +1544,7 @@ const VOCAB = {
       "en": "head teacher",
       "fi": "rehtori",
       "category": "school_people",
-      "de": "der Rektor / die Rektorin"
+      "de": "der Rektor / die Rektorin / der Schulleiter / die Schulleiterin"
     },
     {
       "id": "school_people_nurse",
@@ -1561,7 +1561,7 @@ const VOCAB = {
       "en": "cleaner",
       "fi": "siivooja",
       "category": "school_people",
-      "de": "die Reinigungskraft",
+      "de": "die Reinigungskraft / die Putzfrau / der Putzmann",
       "also": [
         "koe1_4"
       ]
@@ -1595,7 +1595,7 @@ const VOCAB = {
       "en": "maths",
       "fi": "matematiikka / matikka",
       "category": "school_subjects",
-      "de": "die Mathematik",
+      "de": "die Mathematik / die Mathe",
       "also": [
         "koe1_4"
       ]
@@ -1603,9 +1603,9 @@ const VOCAB = {
     {
       "id": "school_subjects_pe",
       "en": "physical education",
-      "fi": "liikunta",
+      "fi": "liikunta / jumppa",
       "category": "school_subjects",
-      "de": "der Sport",
+      "de": "der Sport / der Sportunterricht",
       "also": [
         "koe1_4"
       ]
@@ -1653,7 +1653,7 @@ const VOCAB = {
     {
       "id": "school_subjects_ethics",
       "en": "ethics",
-      "fi": "elämänkatsomustieto",
+      "fi": "elämänkatsomustieto / etiikka / ET",
       "category": "school_subjects",
       "de": "die Ethik",
       "also": [
@@ -1713,7 +1713,7 @@ const VOCAB = {
     {
       "id": "school_subjects_break_time",
       "en": "break time",
-      "fi": "välitunti",
+      "fi": "välitunti / välkkä / tauko",
       "category": "school_subjects",
       "de": "die Pause",
       "also": [
@@ -1725,14 +1725,14 @@ const VOCAB = {
       "en": "classroom",
       "fi": "luokkahuone",
       "category": "school_subjects",
-      "de": "das Klassenzimmer"
+      "de": "das Klassenzimmer / der Klassenraum"
     },
     {
       "id": "school_subjects_lesson",
       "en": "lesson",
       "fi": "oppitunti",
       "category": "school_subjects",
-      "de": "die Unterrichtsstunde",
+      "de": "die Unterrichtsstunde / die Schulstunde",
       "also": [
         "koe1_4"
       ]
@@ -1792,7 +1792,7 @@ const VOCAB = {
       "en": "Saturday",
       "fi": "lauantai",
       "category": "weekdays",
-      "de": "Samstag"
+      "de": "Samstag / Sonnabend"
     },
     {
       "id": "weekdays_sunday",
@@ -1806,7 +1806,7 @@ const VOCAB = {
       "en": "clumsy",
       "fi": "kömpelö",
       "category": "personality",
-      "de": "tollpatschig",
+      "de": "tollpatschig / ungeschickt",
       "also": [
         "koe1_4"
       ]
@@ -1816,7 +1816,7 @@ const VOCAB = {
       "en": "clever",
       "fi": "älykäs / fiksu / nokkela",
       "category": "personality",
-      "de": "klug",
+      "de": "klug / schlau",
       "also": [
         "koe1_4"
       ]
@@ -1856,7 +1856,7 @@ const VOCAB = {
       "en": "funny",
       "fi": "hassu / hauska",
       "category": "personality",
-      "de": "lustig",
+      "de": "lustig / witzig",
       "also": [
         "koe1_4"
       ]
@@ -1916,7 +1916,7 @@ const VOCAB = {
       "en": "kind",
       "fi": "ystävällinen / laji / kiltti",
       "category": "personality",
-      "de": "freundlich",
+      "de": "freundlich / nett",
       "also": [
         "koe1_4"
       ]
@@ -1974,7 +1974,7 @@ const VOCAB = {
     {
       "id": "opposites_quiet",
       "en": "quiet",
-      "fi": "hiljainen",
+      "fi": "hiljainen / hiljaa",
       "category": "opposites",
       "de": "leise",
       "also": [
@@ -2040,7 +2040,7 @@ const VOCAB = {
       "en": "talk",
       "fi": "puhua / jutella",
       "category": "verbs_communication",
-      "de": "sprechen",
+      "de": "sprechen / reden",
       "also": [
         "koe1_4"
       ]
@@ -2080,7 +2080,7 @@ const VOCAB = {
       "en": "run",
       "fi": "juosta",
       "category": "verbs_action",
-      "de": "rennen",
+      "de": "rennen / laufen",
       "also": [
         "koe1_4"
       ]
@@ -2100,7 +2100,7 @@ const VOCAB = {
       "en": "look",
       "fi": "katsoa / ulkonäkö",
       "category": "verbs_action",
-      "de": "schauen",
+      "de": "schauen / gucken",
       "also": [
         "koe1_4"
       ]
@@ -2110,7 +2110,7 @@ const VOCAB = {
       "en": "ride a bike",
       "fi": "ajaa pyörällä / pyöräillä",
       "category": "verbs_action",
-      "de": "Fahrrad fahren",
+      "de": "Fahrrad fahren / Rad fahren",
       "also": [
         "koe1_4"
       ]
@@ -2184,21 +2184,21 @@ const VOCAB = {
     {
       "id": "verbs_action_play_basketball",
       "en": "play basketball",
-      "fi": "pelata koripalloa",
+      "fi": "pelata koripalloa / pelata korista",
       "category": "verbs_action",
       "de": "Basketball spielen"
     },
     {
       "id": "verbs_action_open_the_door",
       "en": "open the door",
-      "fi": "avata ovi",
+      "fi": "avata ovi / avata oven",
       "category": "verbs_action",
       "de": "die Tür öffnen"
     },
     {
       "id": "places_town_caf",
       "en": "café",
-      "fi": "kahvila",
+      "fi": "kahvila / kahvio",
       "category": "places_town",
       "de": "das Café"
     },
@@ -2207,14 +2207,14 @@ const VOCAB = {
       "en": "library",
       "fi": "kirjasto",
       "category": "places_town",
-      "de": "die Bibliothek"
+      "de": "die Bibliothek / die Bücherei"
     },
     {
       "id": "places_town_shop",
       "en": "shop",
       "fi": "kauppa / myymälä",
       "category": "places_town",
-      "de": "das Geschäft"
+      "de": "das Geschäft / der Laden"
     },
     {
       "id": "places_town_restaurant",
@@ -2235,7 +2235,7 @@ const VOCAB = {
       "en": "phone",
       "fi": "puhelin / kännykkä",
       "category": "belongings",
-      "de": "das Handy"
+      "de": "das Handy / das Telefon"
     },
     {
       "id": "belongings_keys",
@@ -2361,7 +2361,7 @@ const VOCAB = {
       "en": "chicken",
       "fi": "kana",
       "category": "food_savoury",
-      "de": "das Hähnchen"
+      "de": "das Hähnchen / das Hühnchen"
     },
     {
       "id": "food_savoury_meat",
@@ -2396,7 +2396,7 @@ const VOCAB = {
       "en": "pasta",
       "fi": "pasta",
       "category": "food_savoury",
-      "de": "die Nudeln"
+      "de": "die Nudeln / die Pasta"
     },
     {
       "id": "food_savoury_tomato",
@@ -2448,7 +2448,7 @@ const VOCAB = {
       "en": "grape",
       "fi": "viinirypäle / rypäle",
       "category": "fruit",
-      "de": "die Weintraube"
+      "de": "die Weintraube / die Traube"
     },
     {
       "id": "fruit_plum",
@@ -2462,14 +2462,14 @@ const VOCAB = {
       "en": "orange (hedelmä)",
       "fi": "appelsiini",
       "category": "fruit",
-      "de": "die Orange"
+      "de": "die Orange / die Apfelsine"
     },
     {
       "id": "fruit_blueberry",
       "en": "blueberry",
       "fi": "mustikka",
       "category": "fruit",
-      "de": "die Blaubeere"
+      "de": "die Blaubeere / die Heidelbeere"
     },
     {
       "id": "fruit_raspberry",
@@ -2520,7 +2520,7 @@ const VOCAB = {
       "en": "thank you",
       "fi": "kiitos",
       "category": "polite_phrases",
-      "de": "danke",
+      "de": "danke / danke schön / vielen Dank",
       "also": [
         "koe1_de"
       ]
@@ -2530,7 +2530,7 @@ const VOCAB = {
       "en": "sorry",
       "fi": "anteeksi / olen pahoillani",
       "category": "polite_phrases",
-      "de": "Entschuldigung"
+      "de": "Entschuldigung / es tut mir leid"
     },
     {
       "id": "polite_phrases_excuse_me",
@@ -2551,7 +2551,7 @@ const VOCAB = {
       "en": "here you are",
       "fi": "ole hyvä (annettaessa jotain) / tässä",
       "category": "polite_phrases",
-      "de": "bitte schön",
+      "de": "bitte schön / bitte sehr",
       "also": [
         "koe1_de"
       ]
@@ -2615,7 +2615,7 @@ const VOCAB = {
     {
       "id": "family_father",
       "en": "father",
-      "fi": "isä",
+      "fi": "isä / iskä",
       "category": "family",
       "de": "der Vater"
     },
@@ -2694,7 +2694,7 @@ const VOCAB = {
       "en": "happy",
       "fi": "iloinen / onnellinen",
       "category": "myself",
-      "de": "glücklich"
+      "de": "glücklich / froh"
     },
     {
       "id": "myself_sad",
@@ -2760,7 +2760,7 @@ const VOCAB = {
       "en": "gaming",
       "fi": "pelaaminen",
       "category": "hobbies",
-      "de": "das Videospielen"
+      "de": "das Videospielen / das Zocken"
     },
     {
       "id": "hobbies_riding_a_bike",
@@ -2789,14 +2789,14 @@ const VOCAB = {
     {
       "id": "hobbies_collecting",
       "en": "collecting",
-      "fi": "keräily",
+      "fi": "keräily / kerääminen",
       "category": "hobbies",
       "de": "das Sammeln"
     },
     {
       "id": "greetings_phrases_hello",
       "en": "hello",
-      "fi": "hei / moi",
+      "fi": "hei / moi / terve",
       "category": "greetings_phrases",
       "de": "hallo",
       "also": [
@@ -2808,7 +2808,7 @@ const VOCAB = {
       "en": "goodbye",
       "fi": "näkemiin / hei hei / moikka",
       "category": "greetings_phrases",
-      "de": "auf Wiedersehen",
+      "de": "auf Wiedersehen / tschüss",
       "also": [
         "koe1_de"
       ]
@@ -2833,7 +2833,7 @@ const VOCAB = {
     {
       "id": "greetings_phrases_my_name_is",
       "en": "my name is ...",
-      "fi": "nimeni on ...",
+      "fi": "nimeni on ... / minun nimeni on ...",
       "category": "greetings_phrases",
       "de": "ich heiße ..."
     },
@@ -2916,7 +2916,7 @@ const VOCAB = {
       "en": "pink",
       "fi": "pinkki / vaaleanpunainen",
       "category": "colours",
-      "de": "rosa",
+      "de": "rosa / pink",
       "also": [
         "koe1_de"
       ]
@@ -3241,14 +3241,14 @@ const VOCAB = {
       "en": "teammate",
       "fi": "joukkuekaveri / joukkuetoveri / tiimikaveri",
       "category": "gaming_fortnite",
-      "de": "der Teamkollege / die Teamkollegin"
+      "de": "der Teamkollege / die Teamkollegin / der Mitspieler / die Mitspielerin"
     },
     {
       "id": "colours_purple",
       "en": "purple",
       "fi": "violetti / lila / purppura",
       "category": "colours",
-      "de": "lila",
+      "de": "lila / violett",
       "also": [
         "koe1_de"
       ]
@@ -3389,7 +3389,7 @@ const VOCAB = {
       "en": "dirty",
       "fi": "likainen",
       "category": "opposites",
-      "de": "schmutzig"
+      "de": "schmutzig / dreckig"
     },
     {
       "id": "weather_seasons_rain",
@@ -3474,7 +3474,7 @@ const VOCAB = {
     {
       "id": "animals_horse",
       "en": "horse",
-      "fi": "hevonen",
+      "fi": "hevonen / heppa",
       "category": "animals",
       "de": "das Pferd"
     },
@@ -3525,7 +3525,7 @@ const VOCAB = {
       "en": "room",
       "fi": "huone",
       "category": "house_rooms",
-      "de": "das Zimmer"
+      "de": "das Zimmer / der Raum"
     },
     {
       "id": "house_rooms_kitchen",
@@ -3546,7 +3546,7 @@ const VOCAB = {
       "en": "bathroom",
       "fi": "kylpyhuone",
       "category": "house_rooms",
-      "de": "das Badezimmer"
+      "de": "das Badezimmer / das Bad"
     },
     {
       "id": "house_rooms_garden",
@@ -3682,7 +3682,7 @@ const VOCAB = {
       "en": "jumper",
       "fi": "neule/villapaita",
       "category": "clothes",
-      "de": "der Pullover"
+      "de": "der Pullover / der Pulli"
     },
     {
       "id": "school_objects_book",
@@ -3694,9 +3694,9 @@ const VOCAB = {
     {
       "id": "school_objects_pen",
       "en": "pen",
-      "fi": "kynä",
+      "fi": "kynä / kuulakärkikynä",
       "category": "school_objects",
-      "de": "der Kugelschreiber"
+      "de": "der Kugelschreiber / der Kuli"
     },
     {
       "id": "school_objects_pencil",
@@ -3722,7 +3722,7 @@ const VOCAB = {
     {
       "id": "school_objects_notebook",
       "en": "notebook",
-      "fi": "vihko",
+      "fi": "vihko / muistivihko",
       "category": "school_objects",
       "de": "das Heft"
     },
@@ -3821,13 +3821,13 @@ const VOCAB = {
       "id": "paivarutiinit_go_to_school",
       "en": "go to school",
       "fi": "mennä kouluun",
-      "de": "zur Schule gehen",
+      "de": "zur Schule gehen / in die Schule gehen",
       "category": "paivarutiinit_4"
     },
     {
       "id": "paivarutiinit_do_homework",
       "en": "do homework",
-      "fi": "tehdä läksyjä / tehdä kotitehtäviä",
+      "fi": "tehdä läksyjä / tehdä kotitehtäviä / tehdä läksyt",
       "de": "Hausaufgaben machen",
       "category": "paivarutiinit_4"
     },
@@ -3842,14 +3842,14 @@ const VOCAB = {
       "id": "paivarutiinit_take_shower",
       "en": "take a shower",
       "fi": "käydä suihkussa",
-      "de": "duschen",
+      "de": "duschen / sich duschen",
       "category": "paivarutiinit_4"
     },
     {
       "id": "paivarutiinit_go_to_bed",
       "en": "go to bed",
       "fi": "mennä nukkumaan / mennä sänkyyn",
-      "de": "ins Bett gehen",
+      "de": "ins Bett gehen / schlafen gehen",
       "category": "paivarutiinit_4"
     },
     {
@@ -3891,7 +3891,7 @@ const VOCAB = {
       "id": "professions_farmer",
       "en": "farmer",
       "fi": "maanviljelijä / viljelijä",
-      "de": "der Bauer / die Bäuerin",
+      "de": "der Bauer / die Bäuerin / der Landwirt / die Landwirtin",
       "category": "professions_5"
     },
     {
@@ -3911,7 +3911,7 @@ const VOCAB = {
     {
       "id": "professions_hairdresser",
       "en": "hairdresser",
-      "fi": "kampaaja",
+      "fi": "kampaaja / parturi / parturi-kampaaja",
       "de": "der Friseur / die Friseurin",
       "category": "professions_5"
     },
@@ -3932,21 +3932,21 @@ const VOCAB = {
     {
       "id": "sports_skiing",
       "en": "skiing",
-      "fi": "hiihto",
-      "de": "das Skifahren",
+      "fi": "hiihto / hiihtäminen",
+      "de": "das Skifahren / das Skilaufen",
       "category": "sports_5"
     },
     {
       "id": "sports_skating",
       "en": "skating",
       "fi": "luistelu",
-      "de": "das Schlittschuhlaufen",
+      "de": "das Schlittschuhlaufen / das Eislaufen",
       "category": "sports_5"
     },
     {
       "id": "sports_swimming",
       "en": "swimming",
-      "fi": "uinti",
+      "fi": "uinti / uiminen",
       "de": "das Schwimmen",
       "category": "sports_5"
     },
@@ -3981,14 +3981,14 @@ const VOCAB = {
     {
       "id": "sports_cycling",
       "en": "cycling",
-      "fi": "pyöräily (urheilulaji)",
+      "fi": "pyöräily (urheilulaji) / pyöräileminen",
       "de": "das Radfahren",
       "category": "sports_5"
     },
     {
       "id": "sports_running",
       "en": "running",
-      "fi": "juoksu",
+      "fi": "juoksu / juokseminen",
       "de": "das Laufen",
       "category": "sports_5"
     },
@@ -3996,7 +3996,7 @@ const VOCAB = {
       "id": "transport_car",
       "en": "car",
       "fi": "auto",
-      "de": "das Auto",
+      "de": "das Auto / der Wagen",
       "category": "transport_5"
     },
     {
@@ -4016,8 +4016,8 @@ const VOCAB = {
     {
       "id": "transport_bicycle",
       "en": "bicycle",
-      "fi": "polkupyörä / pyörä",
-      "de": "das Fahrrad",
+      "fi": "polkupyörä / pyörä / fillari",
+      "de": "das Fahrrad / das Rad",
       "category": "transport_5"
     },
     {
@@ -4178,13 +4178,13 @@ const VOCAB = {
       "id": "feelings_jealous",
       "en": "jealous",
       "fi": "kateellinen / mustasukkainen",
-      "de": "eifersüchtig",
+      "de": "eifersüchtig / neidisch",
       "category": "feelings_advanced_5"
     },
     {
       "id": "feelings_embarrassed",
       "en": "embarrassed",
-      "fi": "nolostunut",
+      "fi": "nolostunut / hämillään / nolo",
       "de": "verlegen",
       "category": "feelings_advanced_5"
     },
@@ -4227,7 +4227,7 @@ const VOCAB = {
       "id": "shopping_cheap",
       "en": "cheap",
       "fi": "halpa",
-      "de": "billig",
+      "de": "billig / günstig",
       "category": "shopping_5"
     },
     {
@@ -4248,7 +4248,7 @@ const VOCAB = {
       "id": "shopping_pay",
       "en": "pay",
       "fi": "maksaa (lasku, ostos)",
-      "de": "bezahlen",
+      "de": "bezahlen / zahlen",
       "category": "shopping_5"
     },
     {
@@ -4265,14 +4265,14 @@ const VOCAB = {
       "id": "shopping_receipt",
       "en": "receipt",
       "fi": "kuitti",
-      "de": "die Quittung",
+      "de": "die Quittung / der Kassenbon / der Beleg",
       "category": "shopping_5"
     },
     {
       "id": "shopping_wallet",
       "en": "wallet",
       "fi": "lompakko",
-      "de": "das Portemonnaie",
+      "de": "das Portemonnaie / der Geldbeutel / die Geldbörse",
       "category": "shopping_5"
     },
     {
@@ -4286,14 +4286,14 @@ const VOCAB = {
       "id": "travel_ticket",
       "en": "ticket",
       "fi": "lippu / sakko",
-      "de": "das Ticket",
+      "de": "das Ticket / die Fahrkarte",
       "category": "travel_6"
     },
     {
       "id": "travel_passport",
       "en": "passport",
       "fi": "passi",
-      "de": "der Reisepass",
+      "de": "der Reisepass / der Pass",
       "category": "travel_6"
     },
     {
@@ -4314,14 +4314,14 @@ const VOCAB = {
       "id": "travel_holiday",
       "en": "holiday",
       "fi": "loma",
-      "de": "der Urlaub",
+      "de": "der Urlaub / die Ferien",
       "category": "travel_6"
     },
     {
       "id": "travel_map",
       "en": "map",
       "fi": "kartta",
-      "de": "die Karte",
+      "de": "die Karte / die Landkarte",
       "category": "travel_6"
     },
     {
@@ -4342,14 +4342,14 @@ const VOCAB = {
       "id": "travel_souvenir",
       "en": "souvenir",
       "fi": "matkamuisto",
-      "de": "das Souvenir",
+      "de": "das Souvenir / das Andenken",
       "category": "travel_6"
     },
     {
       "id": "technology_computer",
       "en": "computer",
       "fi": "tietokone",
-      "de": "der Computer",
+      "de": "der Computer / der Rechner",
       "category": "technology_6"
     },
     {
@@ -4369,15 +4369,15 @@ const VOCAB = {
     {
       "id": "technology_app",
       "en": "app",
-      "fi": "sovellus",
+      "fi": "sovellus / äppi",
       "de": "die App",
       "category": "technology_6"
     },
     {
       "id": "technology_email",
       "en": "email",
-      "fi": "sähköposti",
-      "de": "die E-Mail",
+      "fi": "sähköposti / meili",
+      "de": "die E-Mail / die Mail",
       "category": "technology_6"
     },
     {
@@ -4398,7 +4398,7 @@ const VOCAB = {
       "id": "technology_password",
       "en": "password",
       "fi": "salasana",
-      "de": "das Passwort",
+      "de": "das Passwort / das Kennwort",
       "category": "technology_6"
     },
     {
@@ -4488,14 +4488,14 @@ const VOCAB = {
     {
       "id": "adjectives_exciting",
       "en": "exciting",
-      "fi": "jännittävä",
-      "de": "aufregend",
+      "fi": "jännittävä / jännä",
+      "de": "aufregend / spannend",
       "category": "adjectives_advanced_6"
     },
     {
       "id": "adjectives_boring",
       "en": "boring",
-      "fi": "tylsä",
+      "fi": "tylsä / pitkäveteinen",
       "de": "langweilig",
       "category": "adjectives_advanced_6"
     },
@@ -4527,13 +4527,13 @@ const VOCAB = {
       "id": "adjectives_enormous",
       "en": "enormous",
       "fi": "valtava / jättimäinen",
-      "de": "riesig",
+      "de": "riesig / enorm",
       "category": "adjectives_advanced_6"
     },
     {
       "id": "adjectives_ancient",
       "en": "ancient",
-      "fi": "muinainen",
+      "fi": "muinainen / ikivanha",
       "de": "uralt",
       "category": "adjectives_advanced_6"
     },
@@ -4547,7 +4547,7 @@ const VOCAB = {
     {
       "id": "adjectives_famous",
       "en": "famous",
-      "fi": "kuuluisa",
+      "fi": "kuuluisa / tunnettu",
       "de": "berühmt",
       "category": "adjectives_advanced_6"
     },
@@ -4555,7 +4555,7 @@ const VOCAB = {
       "id": "adjectives_popular",
       "en": "popular",
       "fi": "suosittu",
-      "de": "beliebt",
+      "de": "beliebt / populär",
       "category": "adjectives_advanced_6"
     },
     {
@@ -4631,8 +4631,8 @@ const VOCAB = {
     {
       "id": "future_dream_job",
       "en": "dream job",
-      "fi": "unelma-ammatti",
-      "de": "der Traumberuf",
+      "fi": "unelma-ammatti / unelmatyö",
+      "de": "der Traumberuf / der Traumjob",
       "category": "future_plans_6"
     },
     {
@@ -4646,7 +4646,7 @@ const VOCAB = {
       "id": "future_university",
       "en": "university",
       "fi": "yliopisto",
-      "de": "die Universität",
+      "de": "die Universität / die Uni",
       "category": "future_plans_6"
     },
     {
@@ -4701,9 +4701,9 @@ const VOCAB = {
     {
       "id": "perusverbit_1_jump",
       "en": "jump",
-      "fi": "hypätä",
+      "fi": "hypätä / loikata",
       "category": "perusverbit_1",
-      "de": "springen"
+      "de": "springen / hüpfen"
     },
     {
       "id": "perusverbit_1_find",
@@ -4817,7 +4817,7 @@ const VOCAB = {
       "en": "sofa",
       "fi": "sohva",
       "category": "house_rooms",
-      "de": "das Sofa"
+      "de": "das Sofa / die Couch"
     },
     {
       "id": "house_rooms_shelf",
@@ -4901,7 +4901,7 @@ const VOCAB = {
       "en": "subject",
       "fi": "kouluaine / oppiaine",
       "category": "school_subjects",
-      "de": "das Schulfach"
+      "de": "das Schulfach / das Fach"
     },
     {
       "id": "verbs_action_visit",
@@ -4948,16 +4948,16 @@ const VOCAB = {
     {
       "id": "sports_5_match",
       "en": "match",
-      "fi": "ottelu",
+      "fi": "ottelu / matsi",
       "category": "sports_5",
       "de": "das Spiel / das Match"
     },
     {
       "id": "sports_5_team",
       "en": "team",
-      "fi": "joukkue",
+      "fi": "joukkue / tiimi",
       "category": "sports_5",
-      "de": "die Mannschaft"
+      "de": "die Mannschaft / das Team"
     },
     {
       "id": "weather_seasons_weather",
@@ -4971,7 +4971,7 @@ const VOCAB = {
       "en": "bus stop",
       "fi": "bussipysäkki / pysäkki",
       "category": "transport_5",
-      "de": "die Bushaltestelle"
+      "de": "die Bushaltestelle / die Haltestelle"
     },
     {
       "id": "travel_6_travel",
@@ -5083,7 +5083,7 @@ const VOCAB = {
       "en": "never",
       "fi": "ei koskaan / ei ikinä",
       "category": "yleissanat_3",
-      "de": "nie"
+      "de": "nie / niemals"
     },
     {
       "id": "yleissanat_3_usually",
@@ -5177,7 +5177,7 @@ const VOCAB = {
       "en": "almost",
       "fi": "melkein / lähes",
       "category": "sidesanat_5",
-      "de": "fast"
+      "de": "fast / beinahe"
     },
     {
       "id": "sidesanat_5_both",
@@ -5206,7 +5206,7 @@ const VOCAB = {
     {
       "id": "yleissanat_3_very",
       "en": "very",
-      "fi": "erittäin / kovin",
+      "fi": "erittäin / kovin / tosi / todella",
       "category": "yleissanat_3",
       "de": "sehr"
     },
@@ -5215,7 +5215,7 @@ const VOCAB = {
       "en": "cake",
       "fi": "kakku",
       "category": "food_savoury",
-      "de": "der Kuchen"
+      "de": "der Kuchen / die Torte"
     },
     {
       "id": "school_subjects_school",
@@ -11926,7 +11926,7 @@ const VOCAB = {
     {
       "id": "de_k1_guten_tag",
       "en": "Good day!",
-      "fi": "Hyvää päivää!",
+      "fi": "Hyvää päivää! / Päivää!",
       "category": "koe1_de",
       "de": "Guten Tag!",
       "de_only": true
@@ -11950,7 +11950,7 @@ const VOCAB = {
     {
       "id": "de_k1_wie_geht_s",
       "en": "How are you?",
-      "fi": "Mitä kuuluu?",
+      "fi": "Mitä kuuluu? / Kuinka voit?",
       "category": "koe1_de",
       "de": "Wie geht's?",
       "de_only": true
@@ -11958,7 +11958,7 @@ const VOCAB = {
     {
       "id": "de_k1_danke_gut",
       "en": "Fine, thanks!",
-      "fi": "Kiitos, hyvää!",
+      "fi": "Kiitos, hyvää! / Kiitos, hyvin!",
       "category": "koe1_de",
       "de": "Danke, gut!",
       "de_only": true
@@ -11974,7 +11974,7 @@ const VOCAB = {
     {
       "id": "de_k1_tschuss",
       "en": "Bye!",
-      "fi": "Hei hei! / Moikka!",
+      "fi": "Hei hei! / Moikka! / Heippa!",
       "category": "koe1_de",
       "de": "Tschüss!",
       "de_only": true
@@ -11990,7 +11990,7 @@ const VOCAB = {
     {
       "id": "de_k1_ja",
       "en": "yes",
-      "fi": "kyllä",
+      "fi": "kyllä / joo",
       "category": "koe1_de",
       "de": "ja",
       "de_only": true
@@ -11998,7 +11998,7 @@ const VOCAB = {
     {
       "id": "de_k1_richtig",
       "en": "correct",
-      "fi": "oikein",
+      "fi": "oikein / oikea",
       "category": "koe1_de",
       "de": "richtig",
       "de_only": true
@@ -12006,7 +12006,7 @@ const VOCAB = {
     {
       "id": "de_k1_wie_heisst_du",
       "en": "What's your name?",
-      "fi": "Mikä sinun nimesi on?",
+      "fi": "Mikä sinun nimesi on? / Mikä nimesi on?",
       "category": "koe1_de",
       "de": "Wie heißt du?",
       "de_only": true
@@ -12022,15 +12022,15 @@ const VOCAB = {
     {
       "id": "de_k1_ich_heisse_katja",
       "en": "My name is Katja.",
-      "fi": "Minun nimeni on Katja.",
+      "fi": "Minun nimeni on Katja. / Nimeni on Katja.",
       "category": "koe1_de",
-      "de": "Ich heiße Katja.",
+      "de": "Ich heiße Katja. / Mein Name ist Katja.",
       "de_only": true
     },
     {
       "id": "de_k1_bunt",
       "en": "colourful",
-      "fi": "värikäs",
+      "fi": "värikäs / kirjava / monivärinen",
       "category": "koe1_de",
       "de": "bunt",
       "de_only": true
@@ -12070,7 +12070,7 @@ const VOCAB = {
     {
       "id": "de_k1_super",
       "en": "super",
-      "fi": "mahtavaa",
+      "fi": "mahtavaa / huippua / super",
       "category": "koe1_de",
       "de": "super",
       "de_only": true
@@ -12078,7 +12078,7 @@ const VOCAB = {
     {
       "id": "de_k1_toll",
       "en": "great",
-      "fi": "kivaa / upeaa / hienoa",
+      "fi": "kivaa / upeaa / hienoa / kiva / hieno / upea",
       "category": "koe1_de",
       "de": "toll",
       "de_only": true
@@ -12086,9 +12086,9 @@ const VOCAB = {
     {
       "id": "de_k1_ich_mag_gelb",
       "en": "I like yellow.",
-      "fi": "Minä pidän keltaisesta.",
+      "fi": "Minä pidän keltaisesta. / Pidän keltaisesta.",
       "category": "koe1_de",
-      "de": "Ich mag gelb.",
+      "de": "Ich mag gelb. / Ich mag Gelb.",
       "de_only": true
     },
     {
@@ -12102,7 +12102,7 @@ const VOCAB = {
     {
       "id": "de_k1_schon",
       "en": "beautiful",
-      "fi": "kaunis",
+      "fi": "kaunis / kaunista / nätti",
       "category": "koe1_de",
       "de": "schön",
       "de_only": true
@@ -12110,7 +12110,7 @@ const VOCAB = {
     {
       "id": "de_k1_was_ist_deine_lieblingsfarbe",
       "en": "What is your favourite colour?",
-      "fi": "Mikä on sinun lempivärisi?",
+      "fi": "Mikä on sinun lempivärisi? / Mikä on lempivärisi?",
       "category": "koe1_de",
       "de": "Was ist deine Lieblingsfarbe?",
       "de_only": true
@@ -12134,7 +12134,7 @@ const VOCAB = {
     {
       "id": "de_k1_wie_alt_bist_du",
       "en": "How old are you?",
-      "fi": "Kuinka vanha sinä olet?",
+      "fi": "Kuinka vanha sinä olet? / Kuinka vanha olet? / Minkä ikäinen olet?",
       "category": "koe1_de",
       "de": "Wie alt bist du?",
       "de_only": true
@@ -12142,9 +12142,9 @@ const VOCAB = {
     {
       "id": "de_k1_ich_bin_elf",
       "en": "I am eleven.",
-      "fi": "Minä olen yksitoista.",
+      "fi": "Minä olen yksitoista. / Olen yksitoista. / Olen yksitoista vuotta.",
       "category": "koe1_de",
-      "de": "Ich bin elf.",
+      "de": "Ich bin elf. / Ich bin elf Jahre alt.",
       "de_only": true
     },
     {
@@ -12152,13 +12152,13 @@ const VOCAB = {
       "en": "alphabet",
       "fi": "aakkoset",
       "category": "koe1_de",
-      "de": "das ABC",
+      "de": "das ABC / das Alphabet",
       "de_only": true
     },
     {
       "id": "de_k1_lecker",
       "en": "Yummy!",
-      "fi": "herkullinen / herkullista",
+      "fi": "herkullinen / herkullista / maukas / namia",
       "category": "koe1_de",
       "de": "lecker",
       "de_only": true
@@ -12190,9 +12190,9 @@ const VOCAB = {
     {
       "id": "de_k1_wie_spat_ist_es",
       "en": "What time is it?",
-      "fi": "Paljonko kello on?",
+      "fi": "Paljonko kello on? / Mitä kello on?",
       "category": "koe1_de",
-      "de": "Wie spät ist es?",
+      "de": "Wie spät ist es? / Wie viel Uhr ist es?",
       "de_only": true
     },
     {
@@ -12214,7 +12214,7 @@ const VOCAB = {
     {
       "id": "de_k1_falsch",
       "en": "wrong",
-      "fi": "väärin",
+      "fi": "väärin / väärä",
       "category": "koe1_de",
       "de": "falsch",
       "de_only": true
@@ -13994,6 +13994,66 @@ const SENTENCE_DATA = {
     {id:"de_k1_38", grade:1, theme:"koe1_de", de:"Gute Nacht, Tom!", fi:"Hyvää yötä, Tom!"},
     {id:"de_k1_39", grade:1, theme:"koe1_de", de:"Auf Wiedersehen, Opa!", fi:"Näkemiin, vaari!", alt:["Tschüss, Opa!"]},
     {id:"de_k1_40", grade:1, theme:"koe1_de", de:"Danke! Bitte schön!", fi:"Kiitos! Ole hyvä!"},
+    {id:"de_g4_1", grade:4, de:"Mein Bruder ist sehr schüchtern, aber er ist klug.", fi:"Veljeni on hyvin ujo, mutta hän on fiksu.", alt:["Mein Bruder ist sehr schüchtern, aber klug."]},
+    {id:"de_g4_2", grade:4, de:"Ich wache jeden Tag um halb sieben auf.", fi:"Herään joka päivä puoli seitsemältä.", alt:["Jeden Tag wache ich um halb sieben auf."]},
+    {id:"de_g4_3", grade:4, de:"Nach dem Frühstück putze ich meine Zähne.", fi:"Aamiaisen jälkeen pesen hampaani.", alt:["Ich putze meine Zähne nach dem Frühstück.","Nach dem Frühstück putze ich mir die Zähne.","Ich putze mir nach dem Frühstück die Zähne."]},
+    {id:"de_g4_4", grade:4, de:"Heute bin ich spät aufgestanden.", fi:"Tänään nousin myöhään.", alt:["Ich bin heute spät aufgestanden."]},
+    {id:"de_g4_5", grade:4, de:"Kannst du mir bei den Hausaufgaben helfen?", fi:"Voitko auttaa minua läksyissä?", alt:["Kannst du mir mit den Hausaufgaben helfen?"]},
+    {id:"de_g4_6", grade:4, de:"Wir haben gestern im Garten Basketball gespielt.", fi:"Pelasimme eilen pihalla koripalloa.", alt:["Gestern haben wir im Garten Basketball gespielt."]},
+    {id:"de_g4_7", grade:4, de:"Lisa hat lange, lockige Haare und grüne Augen.", fi:"Lisalla on pitkät, kiharat hiukset ja vihreät silmät.", alt:["Lisa hat lockige, lange Haare und grüne Augen."]},
+    {id:"de_g4_8", grade:4, de:"Ich muss heute in die Bibliothek gehen.", fi:"Minun täytyy mennä tänään kirjastoon.", alt:["Heute muss ich in die Bibliothek gehen.","Ich muss heute zur Bibliothek gehen."]},
+    {id:"de_g4_9", grade:4, de:"Wo sind meine Schlüssel und mein Handy?", fi:"Missä ovat avaimeni ja puhelimeni?", alt:["Wo sind mein Handy und meine Schlüssel?"]},
+    {id:"de_g4_10", grade:4, de:"Elias ist heute müde, weil er spät ins Bett gegangen ist.", fi:"Elias on tänään väsynyt, koska hän meni myöhään nukkumaan.", alt:["Heute ist Elias müde, weil er spät ins Bett gegangen ist.","Elias ist heute müde, weil er spät schlafen gegangen ist."]},
+    {id:"de_g4_11", grade:4, de:"Ich finde, dass unsere Lehrerin sehr freundlich ist.", fi:"Minusta opettajamme on todella ystävällinen.", alt:["Ich denke, dass unsere Lehrerin sehr freundlich ist.","Ich finde unsere Lehrerin sehr freundlich.","Ich finde, dass unser Lehrer sehr freundlich ist."]},
+    {id:"de_g4_12", grade:4, de:"Am Wochenende besuche ich meine Großeltern in der Stadt.", fi:"Viikonloppuna käyn isovanhempieni luona kaupungissa.", alt:["Ich besuche am Wochenende meine Großeltern in der Stadt."]},
+    {id:"de_g4_13", grade:4, de:"Kannst du bitte die Tür öffnen?", fi:"Voisitko avata oven?", alt:["Kannst du die Tür bitte öffnen?","Könntest du bitte die Tür öffnen?"]},
+    {id:"de_g4_14", grade:4, de:"Meine Schwester ist sehr kreativ und malt jeden Tag.", fi:"Siskoni on hyvin luova ja maalaa joka päivä.", alt:["Meine Schwester ist sehr kreativ und malt täglich."]},
+    {id:"de_g4_15", grade:4, de:"Wir haben im Café gewartet und viel gelacht.", fi:"Odotimme kahvilassa ja nauroimme paljon.", alt:["Wir haben im Café gewartet und haben viel gelacht."]},
+    {id:"de_g4_16", grade:4, de:"Ich habe nicht verstanden, was der Lehrer gesagt hat.", fi:"En ymmärtänyt, mitä opettaja sanoi.", alt:["Ich habe nicht verstanden, was die Lehrerin gesagt hat."]},
+    {id:"de_g4_17", grade:4, de:"Willst du nach der Schule mit mir schwimmen gehen?", fi:"Haluatko lähteä koulun jälkeen kanssani uimaan?", alt:["Willst du mit mir nach der Schule schwimmen gehen?"]},
+    {id:"de_g4_18", grade:4, de:"Mein Großvater hat einen langen Bart und eine Brille.", fi:"Isoisälläni on pitkä parta ja silmälasit.", alt:["Mein Opa hat einen langen Bart und eine Brille."]},
+    {id:"de_g4_19", grade:4, de:"Wir sind zu Hause geblieben, weil es geregnet hat.", fi:"Jäimme kotiin, koska satoi.", alt:["Wir blieben zu Hause, weil es regnete."]},
+    {id:"de_g4_20", grade:4, de:"Um wie viel Uhr fängt die Pause an?", fi:"Mihin aikaan välitunti alkaa?", alt:["Wann fängt die Pause an?","Um wie viel Uhr beginnt die Pause?","Wann beginnt die Pause?"]},
+    {id:"de_g5_1", grade:5, de:"Obwohl das Wetter schlecht war, sind wir mit dem Fahrrad gefahren.", fi:"Vaikka sää oli huono, ajoimme pyörällä.", alt:["Obwohl das Wetter schlecht war, sind wir Fahrrad gefahren.","Wir sind mit dem Fahrrad gefahren, obwohl das Wetter schlecht war."]},
+    {id:"de_g5_2", grade:5, de:"Ich bin nervös, weil unsere Mannschaft morgen ein Spiel hat.", fi:"Olen jännittynyt, koska joukkueellamme on huomenna ottelu.", alt:["Ich bin nervös, weil unsere Mannschaft morgen ein Match hat."]},
+    {id:"de_g5_3", grade:5, de:"Wir warten schon zwanzig Minuten an der Bushaltestelle.", fi:"Olemme odottaneet bussipysäkillä jo kaksikymmentä minuuttia.", alt:["Wir warten schon seit zwanzig Minuten an der Bushaltestelle."]},
+    {id:"de_g5_4", grade:5, de:"Der Zug ist schneller als der Bus, aber auch teurer.", fi:"Juna on nopeampi kuin bussi, mutta myös kalliimpi.", alt:["Der Zug ist schneller als der Bus, aber er ist auch teurer."]},
+    {id:"de_g5_5", grade:5, de:"Eemil war stolz, weil seine Mannschaft das Spiel gewonnen hat.", fi:"Eemil oli ylpeä, koska hänen joukkueensa voitti ottelun.", alt:["Eemil war stolz, weil seine Mannschaft das Match gewonnen hat."]},
+    {id:"de_g5_6", grade:5, de:"Ich habe die Quittung in meinem Portemonnaie gefunden.", fi:"Löysin kuitin lompakostani.", alt:["Ich habe die Quittung im Portemonnaie gefunden."]},
+    {id:"de_g5_7", grade:5, de:"Diese Jacke ist billiger als meine alte Jacke.", fi:"Tämä takki on halvempi kuin vanha takkini."},
+    {id:"de_g5_8", grade:5, de:"Wenn es morgen schneit, gehen wir Ski fahren.", fi:"Jos huomenna sataa lunta, menemme hiihtämään.", alt:["Wenn es morgen schneit, fahren wir Ski."]},
+    {id:"de_g5_9", grade:5, de:"Ich habe nur zwei Euro, das ist nicht genug.", fi:"Minulla on vain kaksi euroa, se ei ole tarpeeksi.", alt:["Ich habe nur zwei Euro, und das ist nicht genug."]},
+    {id:"de_g5_10", grade:5, de:"Lena war enttäuscht, weil ihre Freundin nicht gekommen ist.", fi:"Lena oli pettynyt, koska hänen ystävänsä ei tullut.", alt:["Lena war enttäuscht, weil ihr Freund nicht gekommen ist."]},
+    {id:"de_g5_11", grade:5, de:"Meine Mutter sagt, dass ich früher ins Bett gehen muss.", fi:"Äitini sanoo, että minun pitää mennä aikaisemmin nukkumaan.", alt:["Meine Mama sagt, dass ich früher ins Bett gehen muss.","Meine Mutter sagt, dass ich früher schlafen gehen muss."]},
+    {id:"de_g5_12", grade:5, de:"Wir wohnen gegenüber der Bibliothek.", fi:"Asumme kirjastoa vastapäätä.", alt:["Wir wohnen gegenüber von der Bibliothek."]},
+    {id:"de_g5_13", grade:5, de:"Mein Handy liegt zwischen den Büchern auf dem Regal.", fi:"Puhelimeni on hyllyllä kirjojen välissä.", alt:["Mein Handy ist zwischen den Büchern auf dem Regal."]},
+    {id:"de_g5_14", grade:5, de:"Darf ich am Wochenende bei Oskar schlafen?", fi:"Saanko nukkua viikonloppuna Oskarin luona?"},
+    {id:"de_g5_15", grade:5, de:"Obwohl Aino müde war, hat sie ihre Hausaufgaben gemacht.", fi:"Vaikka Aino oli väsynyt, hän teki läksynsä.", alt:["Obwohl Aino müde war, machte sie ihre Hausaufgaben."]},
+    {id:"de_g5_16", grade:5, de:"Der Tierarzt hat gesagt, dass unser Hund gesund ist.", fi:"Eläinlääkäri sanoi, että koiramme on terve.", alt:["Die Tierärztin hat gesagt, dass unser Hund gesund ist."]},
+    {id:"de_g5_17", grade:5, de:"Ich fahre lieber mit der U-Bahn als mit dem Bus.", fi:"Kuljen mieluummin metrolla kuin bussilla.", alt:["Ich fahre lieber U-Bahn als Bus."]},
+    {id:"de_g5_18", grade:5, de:"Warum warst du gestern so nervös?", fi:"Miksi olit eilen niin hermostunut?"},
+    {id:"de_g5_19", grade:5, de:"Beide Mannschaften haben sehr gut gespielt.", fi:"Molemmat joukkueet pelasivat todella hyvin.", alt:["Beide Teams haben sehr gut gespielt."]},
+    {id:"de_g5_20", grade:5, de:"Ich möchte Polizistin werden, weil ich anderen helfen will.", fi:"Haluan poliisiksi, koska haluan auttaa muita.", alt:["Ich möchte Polizist werden, weil ich anderen helfen will.","Ich will Polizistin werden, weil ich anderen helfen möchte.","Ich will Polizist werden, weil ich anderen helfen möchte."]},
+    {id:"de_g6_1", grade:6, de:"Letzten Sommer sind wir mit dem Zug nach Deutschland gereist.", fi:"Viime kesänä matkustimme junalla Saksaan.", alt:["Wir sind letzten Sommer mit dem Zug nach Deutschland gereist."]},
+    {id:"de_g6_2", grade:6, de:"Ich habe meinen Reisepass am Flughafen nicht gefunden.", fi:"En löytänyt passiani lentokentällä.", alt:["Am Flughafen habe ich meinen Reisepass nicht gefunden.","Ich fand meinen Reisepass am Flughafen nicht."]},
+    {id:"de_g6_3", grade:6, de:"Ella findet Computerspiele aufregender als Bücher.", fi:"Ellan mielestä tietokonepelit ovat jännittävämpiä kuin kirjat."},
+    {id:"de_g6_4", grade:6, de:"Wenn ich groß bin, werde ich Tierärztin.", fi:"Kun olen iso, minusta tulee eläinlääkäri.", alt:["Wenn ich groß bin, werde ich Tierarzt."]},
+    {id:"de_g6_5", grade:6, de:"Ich muss heute lernen, weil wir morgen eine Prüfung haben.", fi:"Minun täytyy opiskella tänään, koska meillä on huomenna koe.", alt:["Ich muss heute lernen, weil wir morgen eine Prüfung schreiben.","Heute muss ich lernen, weil wir morgen eine Prüfung haben."]},
+    {id:"de_g6_6", grade:6, de:"Obwohl es regnete, sind wir mit dem Fahrrad zur Schule gefahren.", fi:"Vaikka satoi, ajoimme pyörällä kouluun.", alt:["Obwohl es geregnet hat, sind wir mit dem Fahrrad zur Schule gefahren."]},
+    {id:"de_g6_7", grade:6, de:"Ohne Ticket darf man nicht mit der Straßenbahn fahren.", fi:"Ratikalla ei saa matkustaa ilman lippua.", alt:["Man darf ohne Ticket nicht mit der Straßenbahn fahren."]},
+    {id:"de_g6_8", grade:6, de:"Fußball ist in Deutschland beliebter als Eishockey.", fi:"Jalkapallo on Saksassa suositumpaa kuin jääkiekko.", alt:["In Deutschland ist Fußball beliebter als Eishockey."]},
+    {id:"de_g6_9", grade:6, de:"Ich habe gestern eine neue App heruntergeladen.", fi:"Latasin eilen uuden sovelluksen.", alt:["Gestern habe ich eine neue App heruntergeladen."]},
+    {id:"de_g6_10", grade:6, de:"Mia schrieb mir eine Nachricht, aber ich war schon im Bett.", fi:"Mia kirjoitti minulle viestin, mutta olin jo sängyssä.", alt:["Mia hat mir eine Nachricht geschrieben, aber ich war schon im Bett."]},
+    {id:"de_g6_11", grade:6, de:"Leo, was ist dein Traumberuf?", fi:"Leo, mikä on unelma-ammattisi?"},
+    {id:"de_g6_12", grade:6, de:"Mein Cousin sagt, dass die Universität schwieriger als das Gymnasium ist.", fi:"Serkkuni sanoo, että yliopisto on vaikeampi kuin lukio.", alt:["Mein Cousin sagt, dass die Universität schwerer als das Gymnasium ist."]},
+    {id:"de_g6_13", grade:6, de:"Im Urlaub werden wir meine Großeltern in Schweden besuchen.", fi:"Lomalla käymme isovanhempieni luona Ruotsissa.", alt:["Wir werden im Urlaub meine Großeltern in Schweden besuchen.","Im Urlaub besuchen wir meine Großeltern in Schweden."]},
+    {id:"de_g6_14", grade:6, de:"Am Flughafen war es so überfüllt, dass wir lange warten mussten.", fi:"Lentokentällä oli niin paljon väkeä, että jouduimme odottamaan pitkään.", alt:["Der Flughafen war so überfüllt, dass wir lange warten mussten."]},
+    {id:"de_g6_15", grade:6, de:"Gestern durfte ich nicht fernsehen, weil ich meine Hausaufgaben nicht gemacht habe.", fi:"Eilen en saanut katsoa telkkaria, koska en ollut tehnyt läksyjäni.", alt:["Ich durfte gestern nicht fernsehen, weil ich meine Hausaufgaben nicht gemacht habe.","Gestern durfte ich nicht fernsehen, weil ich meine Hausaufgaben nicht gemacht hatte.","Ich durfte gestern nicht fernsehen, weil ich meine Hausaufgaben nicht gemacht hatte."]},
+    {id:"de_g6_16", grade:6, de:"Das Spiel war langweilig, aber wir hatten trotzdem Spaß.", fi:"Peli oli tylsä, mutta meillä oli silti hauskaa.", alt:["Das Match war langweilig, aber wir hatten trotzdem Spaß."]},
+    {id:"de_g6_17", grade:6, de:"Paris ist die berühmteste Stadt in Frankreich.", fi:"Pariisi on Ranskan kuuluisin kaupunki.", alt:["Paris ist die berühmteste Stadt Frankreichs."]},
+    {id:"de_g6_18", grade:6, de:"Welches Souvenir hast du in England gekauft?", fi:"Minkä matkamuiston ostit Englannista?"},
+    {id:"de_g6_19", grade:6, de:"Nach dem Gymnasium will ich an die Universität gehen.", fi:"Lukion jälkeen haluan mennä yliopistoon.", alt:["Nach dem Gymnasium möchte ich an die Universität gehen.","Ich will nach dem Gymnasium an die Universität gehen."]},
+    {id:"de_g6_20", grade:6, de:"Die Reise war lang, aber das Hotel war sehr bequem.", fi:"Matka oli pitkä, mutta hotelli oli todella mukava."},
   ]
 };
 
