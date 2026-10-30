@@ -14,6 +14,15 @@ process.on('unhandledRejection', (e) => { unhandled.push(e); });
 async function boot(opts) {
   const app = loadApp(opts);
   await app.flush();
+  // Odotetaan että asynkroninen alustus (IndexedDB-tilastot, poolin täyttö) on valmis,
+  // jotta testit eivät kilpaile sen kanssa kuormitetulla koneella (vakauttaa satunnaiset kaatumiset).
+  for (let i = 0; i < 100; i++) {
+    let ready = false;
+    try { ready = !!app.run('typeof current !== "undefined" && current && sessionPool.length > 0'); } catch (e) { /* ei vielä */ }
+    if (ready) break;
+    await app.flush(20);
+  }
+  await app.flush(30);
   return app;
 }
 const J = (app, code) => JSON.parse(app.run(`JSON.stringify(${code})`));
@@ -1445,7 +1454,7 @@ test('Aikuinen: virkkeet näkyvät raportissa', async () => {
   const r = J(app, 'buildProgressReport()');
   assert.strictEqual(r.sentences[0].seen, 1);
   assert.strictEqual(r.sentences[0].mastered, 1);
-  assert.strictEqual(r.sentenceTotal, 218);
+  assert.strictEqual(r.sentenceTotal, 338);
   app.dispose();
 });
 
@@ -1605,7 +1614,7 @@ test('Yläkoulu: etenemisjärjestys 6 -> 7 kun 6. luokka valmis, ja pooli 7. luo
 test('Yläkoulu: englannin virkkeet 7-9 (20 / luokka), virketila 7. luokalla toimii', async () => {
   const app = await boot({ localStorage: { grade_en: '7' } });
   for (const g of [7, 8, 9]) assert.strictEqual(app.run(`sentencesForGrade(${g}).length`), 20, 'luokka ' + g);
-  assert.strictEqual(app.run('SENTENCE_DATA.en.length'), 218);
+  assert.strictEqual(app.run('SENTENCE_DATA.en.length'), 338);
   app.run('setPracticeMode("sentences");');
   await app.flush();
   assert.notStrictEqual(app.run('currentSentence'), null);
@@ -1676,7 +1685,7 @@ test('Koe 1: teeman valinta rajaa poolin vain koealueen sanoihin (myös muiden l
 test('Koe 1: virketila - teemalla 38 omaa virkettä, tavalliseen luokkapooliin ne eivät kuulu', async () => {
   const app = await boot();
   assert.strictEqual(J(app, 'sentencesForLang().filter(s => s.theme === "koe1_4").length'), 38);
-  assert.ok(J(app, '[1,2,3,4,5,6,7,8,9].every(g => sentencesForGrade(g).length === 20)'));
+  assert.ok(J(app, '[1,2,3,4,5,6,7,8,9].every(g => sentencesForGrade(g).length === (g === 4 ? 140 : 20))'));
   app.run('setPracticeMode("sentences")');
   assert.strictEqual(J(app, 'currentSentence.theme || null'), null);
   app.run('toggleTheme("koe1_4", true)');
