@@ -418,6 +418,15 @@
     gap:12px;
     justify-content:center;
   }
+  .grammar-tabs{ display:flex; gap:8px; justify-content:center; margin-bottom:10px; }
+  .grammar-tab{ border:2px solid transparent; background:var(--card-bg); color:var(--ink); padding:6px 16px; border-radius:999px;
+    font-size:14px; font-weight:700; cursor:pointer; box-shadow:var(--shadow); }
+  .grammar-tab.active{ background:#8e6bbf; color:#fff; }
+  .grammar-btns{ display:flex; gap:12px; justify-content:center; margin:14px 0; }
+  .grammar-btns .btn{ min-width:84px; font-size:1.3em; }
+  .grammar-btns .btn.right{ outline:4px solid #43a047; }
+  .grammar-btns .btn.wrong{ outline:4px solid #e53935; }
+  .feedback .plural-note{ font-weight:600; }
   .btn{
     border:none;
     padding: 12px 28px;
@@ -730,6 +739,7 @@
   <div class="practice-switch" id="practiceSwitch">
     <button class="practice-switch-btn active" data-practice="words" aria-pressed="true">📚 Sanat</button>
     <button class="practice-switch-btn" data-practice="sentences" aria-pressed="false">📝 Virkkeet</button>
+    <button class="practice-switch-btn" data-practice="grammar" id="grammarSwitchBtn" aria-pressed="false" style="display:none">🔤 Kielioppi</button>
   </div>
 
   <header>
@@ -852,6 +862,30 @@
 
         <div class="feedback" id="sentenceFeedback"></div>
       </section>
+    </div>
+
+    <div id="grammarPractice" hidden>
+      <div class="grammar-tabs">
+        <button class="grammar-tab active" data-gkind="article" type="button">der / die / das</button>
+        <button class="grammar-tab" data-gkind="plural" type="button">Monikko</button>
+      </div>
+      <section class="prompt-card">
+        <div class="prompt-hint" id="grammarHint">Mikä artikkeli?</div>
+        <div class="prompt-word" id="grammarWord">…</div>
+        <div class="prompt-category" id="grammarFi"></div>
+      </section>
+      <div class="grammar-btns" id="grammarArticleBtns">
+        <button class="btn primary" data-art="der" type="button">der</button>
+        <button class="btn primary" data-art="die" type="button">die</button>
+        <button class="btn primary" data-art="das" type="button">das</button>
+      </div>
+      <div id="grammarPluralWrap" hidden>
+        <input type="text" class="answer-box" id="grammarPluralBox" placeholder="Kirjoita monikko, esim. die Hunde" autocomplete="off">
+        <div class="actions"><button class="btn primary" id="grammarPluralCheck" type="button">Tarkista</button></div>
+      </div>
+      <div class="actions"><button class="btn ghost" id="grammarSkip" type="button">Ohita</button></div>
+      <div class="feedback" id="grammarFeedback"></div>
+      <div class="progress-label" id="grammarScore"></div>
     </div>
   </main>
 
@@ -1050,6 +1084,8 @@ let autoSpeakTimer = null;
 const wordPracticeEl = document.getElementById("wordPractice");
 const sentencePracticeEl = document.getElementById("sentencePractice");
 const practiceSwitchButtons = document.querySelectorAll(".practice-switch-btn");
+const grammarPracticeEl = document.getElementById("grammarPractice");
+const grammarSwitchBtn = document.getElementById("grammarSwitchBtn");
 const sentenceProgressLabel = document.getElementById("sentenceProgressLabel");
 const sentenceLangPill = document.getElementById("sentenceLangPill");
 const sentenceExerciseLabel = document.getElementById("sentenceExerciseLabel");
@@ -1110,6 +1146,7 @@ function syncLangButtons(){
     btn.setAttribute("aria-pressed", active ? "true" : "false");
   });
   updateAutoSpeakLabel();
+  updateGrammarAvailability();
 }
 
 function selectTargetLang(lang){
@@ -1269,6 +1306,7 @@ function setupGradeFilter(){
       currentSentence = null;
       pickSentenceRound();
     }
+    if (practiceMode === "grammar") pickGrammarRound();
   });
 }
 
@@ -2491,7 +2529,7 @@ const SENTENCE_DATA = {
     { id: "en_g4_b0_15", grade: 4, en: "There is a big poster on the wall.", fi: "Seinällä on iso juliste.", alt: ["There is a large poster on the wall."] },
     { id: "en_g4_b0_16", grade: 4, en: "I make my bed every morning.", fi: "Petaan sänkyni joka aamu.", alt: ["Every morning I make my bed."] },
     { id: "en_g4_b0_17", grade: 4, en: "Can you take the rubbish out?", fi: "Voitko viedä roskat ulos?", alt: ["Could you take the rubbish out?", "Can you take out the rubbish?"] },
-    { id: "en_g4_b0_18", grade: 4, en: "Dad is vacuuming the living room.", fi: "Isä imuroi olohuonetta." },
+    { id: "en_g4_b0_18", grade: 4, en: "Dad is vacuuming the living room.", fi: "Isä imuroi olohuonetta.", alt: ["Dad is hoovering the living room."] },
     { id: "en_g4_b0_19", grade: 4, en: "In winter we clear the snow together.", fi: "Talvella luomme lunta yhdessä.", alt: ["We clear the snow together in winter."] },
     { id: "en_g4_b0_20", grade: 4, en: "It is my turn to set the table.", fi: "On minun vuoroni kattaa pöytä." },
     { id: "en_g4_b0_21", grade: 4, en: "There is a rainbow in the sky.", fi: "Taivaalla on sateenkaari." },
@@ -2499,7 +2537,7 @@ const SENTENCE_DATA = {
     { id: "en_g4_b0_23", grade: 4, en: "It is very windy and chilly today.", fi: "Tänään on hyvin tuulista ja koleaa.", alt: ["Today it is very windy and chilly."] },
     { id: "en_g4_b0_24", grade: 4, en: "The waterfall in the national park was beautiful.", fi: "Kansallispuiston vesiputous oli kaunis." },
     { id: "en_g4_b0_25", grade: 4, en: "Did you see the thunderstorm last night?", fi: "Näitkö ukkosmyrskyn eilen illalla?" },
-    { id: "en_g4_b0_26", grade: 4, en: "Emma has freckles and blond hair.", fi: "Emmalla on pisamia ja vaaleat hiukset." },
+    { id: "en_g4_b0_26", grade: 4, en: "Emma has freckles and blond hair.", fi: "Emmalla on pisamia ja vaaleat hiukset.", alt: ["Emma has freckles and blonde hair."] },
     { id: "en_g4_b0_27", grade: 4, en: "My tummy hurts after lunch.", fi: "Vatsaani sattuu lounaan jälkeen." },
     { id: "en_g4_b0_28", grade: 4, en: "I hurt my finger at school.", fi: "Satutin sormeni koulussa." },
     { id: "en_g4_b0_29", grade: 4, en: "That puppy is so cute!", fi: "Tuo koiranpentu on niin söpö!" },
@@ -2507,7 +2545,7 @@ const SENTENCE_DATA = {
     { id: "en_g4_b0_31", grade: 4, en: "My aunt is a pilot.", fi: "Tätini on lentäjä." },
     { id: "en_g4_b0_32", grade: 4, en: "The twins have funny nicknames.", fi: "Kaksosilla on hauskat lempinimet." },
     { id: "en_g4_b0_33", grade: 4, en: "The detective caught the thief.", fi: "Etsivä sai varkaan kiinni." },
-    { id: "en_g4_b0_34", grade: 4, en: "Do you want to be an astronaut?", fi: "Haluatko olla astronautti?", alt: ["Would you like to be an astronaut?"] },
+    { id: "en_g4_b0_34", grade: 4, en: "Do you want to be an astronaut?", fi: "Haluatko tulla astronautiksi?", alt: ["Would you like to be an astronaut?"] },
     { id: "en_g4_b0_35", grade: 4, en: "My uncle is a famous singer.", fi: "Enoni on kuuluisa laulaja." },
     { id: "en_g4_b0_36", grade: 4, en: "The king lives in a big castle.", fi: "Kuningas asuu isossa linnassa.", alt: ["The king lives in a large castle."] },
     { id: "en_g4_b0_37", grade: 4, en: "Do you believe in ghosts?", fi: "Uskotko kummituksiin?" },
@@ -2524,15 +2562,15 @@ const SENTENCE_DATA = {
     { id: "en_g4_b1_8", grade: 4, en: "Where are my sunglasses?", fi: "Missä aurinkolasini ovat?" },
     { id: "en_g4_b1_9", grade: 4, en: "My new hoodie has a zip.", fi: "Uudessa hupparissani on vetoketju." },
     { id: "en_g4_b1_10", grade: 4, en: "My pencil case is in my school bag.", fi: "Penaalini on koululaukussani." },
-    { id: "en_g4_b1_11", grade: 4, en: "Did you do your homework?", fi: "Teitkö läksysi?" },
+    { id: "en_g4_b1_11", grade: 4, en: "Did you do your homework?", fi: "Teitkö läksysi?", alt: ["Have you done your homework?"] },
     { id: "en_g4_b1_12", grade: 4, en: "Read the first chapter of the story.", fi: "Lue tarinan ensimmäinen luku." },
     { id: "en_g4_b1_13", grade: 4, en: "Log in with your username.", fi: "Kirjaudu sisään käyttäjätunnuksellasi." },
     { id: "en_g4_b1_14", grade: 4, en: "The main character in the comic is a robot.", fi: "Sarjakuvan päähenkilö on robotti.", alt: ["The main character of the comic is a robot."] },
     { id: "en_g4_b1_15", grade: 4, en: "We played hide-and-seek at the party.", fi: "Leikimme piilosta juhlissa." },
     { id: "en_g4_b1_16", grade: 4, en: "My sister plays the violin and the piano.", fi: "Siskoni soittaa viulua ja pianoa." },
-    { id: "en_g4_b1_17", grade: 4, en: "Who will wear a mask at the costume party?", fi: "Kuka käyttää naamiota naamiaisissa?" },
+    { id: "en_g4_b1_17", grade: 4, en: "Who will wear a mask at the fancy dress party?", fi: "Kuka käyttää naamiota naamiaisissa?" },
     { id: "en_g4_b1_18", grade: 4, en: "Grandad took me ice fishing last winter.", fi: "Isoisä vei minut pilkkimään viime talvena.", alt: ["Last winter Grandad took me ice fishing."] },
-    { id: "en_g4_b1_19", grade: 4, en: "Put your token on the game board.", fi: "Laita pelinappulasi pelilaudalle." },
+    { id: "en_g4_b1_19", grade: 4, en: "Put your token on the game board.", fi: "Laita pelinappulasi pelilaudalle.", alt: ["Put your counter on the game board.", "Put your piece on the game board."] },
     { id: "en_g4_b1_20", grade: 4, en: "The goalkeeper stopped the puck.", fi: "Maalivahti pysäytti kiekon." },
     { id: "en_g4_b1_21", grade: 4, en: "Don't forget to warm up before the race.", fi: "Älä unohda lämmitellä ennen kisaa." },
     { id: "en_g4_b1_22", grade: 4, en: "Do you like table tennis or floorball?", fi: "Pidätkö pöytätenniksestä vai salibandystä?" },
@@ -2544,7 +2582,7 @@ const SENTENCE_DATA = {
     { id: "en_g4_b1_28", grade: 4, en: "School starts again in August.", fi: "Koulu alkaa taas elokuussa." },
     { id: "en_g4_b1_29", grade: 4, en: "Suddenly the lights went out.", fi: "Yhtäkkiä valot sammuivat." },
     { id: "en_g4_b1_30", grade: 4, en: "Long ago, there was a little dragon.", fi: "Kauan sitten oli pieni lohikäärme.", alt: ["Long ago there was a little dragon."] },
-    { id: "en_g4_b1_31", grade: 4, en: "Hurry up, or we won't be in time!", fi: "Pidä kiirettä, muuten emme ehdi ajoissa!" },
+    { id: "en_g4_b1_31", grade: 4, en: "Hurry up, or we won't make it in time!", fi: "Pidä kiirettä, muuten emme ehdi ajoissa!", alt: ["Hurry up, or we'll be late!"] },
     { id: "en_g4_b1_32", grade: 4, en: "I often read in the evening.", fi: "Luen usein illalla.", alt: ["In the evening I often read."] },
     { id: "en_g4_b1_33", grade: 4, en: "This bike costs ninety euros.", fi: "Tämä pyörä maksaa yhdeksänkymmentä euroa." },
     { id: "en_g4_b1_34", grade: 4, en: "It is thirty degrees today!", fi: "Tänään on kolmekymmentä astetta!", alt: ["It's thirty degrees today!"] },
@@ -2556,7 +2594,7 @@ const SENTENCE_DATA = {
     { id: "en_g4_b1_40", grade: 4, en: "What is this word in Finnish?", fi: "Mikä tämä sana on suomeksi?" },
     { id: "en_g4_b2_1", grade: 4, en: "Their house is next to ours.", fi: "Heidän talonsa on meidän talomme vieressä.", alt: ["Their house is next to our house."] },
     { id: "en_g4_b2_2", grade: 4, en: "Mia lost her bag, but we found it.", fi: "Mia hukkasi laukkunsa, mutta me löysimme sen." },
-    { id: "en_g4_b2_3", grade: 4, en: "Can you help us with this?", fi: "Voitko auttaa meitä tämän kanssa?" },
+    { id: "en_g4_b2_3", grade: 4, en: "Can you help us with this?", fi: "Voitko auttaa meitä tässä?" },
     { id: "en_g4_b2_4", grade: 4, en: "Tom showed me his new phone.", fi: "Tom näytti minulle uuden puhelimensa." },
     { id: "en_g4_b2_5", grade: 4, en: "I saw them in the park.", fi: "Näin heidät puistossa." },
     { id: "en_g4_b2_6", grade: 4, en: "Who is that girl over there?", fi: "Kuka tuo tyttö tuolla on?" },
@@ -2579,7 +2617,7 @@ const SENTENCE_DATA = {
     { id: "en_g4_b2_23", grade: 4, en: "We have to hurry.", fi: "Meidän täytyy pitää kiirettä." },
     { id: "en_g4_b2_24", grade: 4, en: "Don't touch the hot pan!", fi: "Älä koske kuumaan pannuun!" },
     { id: "en_g4_b2_25", grade: 4, en: "My little sister can count to ten.", fi: "Pikkusiskoni osaa laskea kymmeneen." },
-    { id: "en_g4_b2_26", grade: 4, en: "The dog barks at the postman.", fi: "Koira haukkuu postinkantajalle." },
+    { id: "en_g4_b2_26", grade: 4, en: "The dog barks at the postman.", fi: "Koira haukkuu postinkantajaa." },
     { id: "en_g4_b2_27", grade: 4, en: "Knock on the door before you come in.", fi: "Koputa oveen, ennen kuin tulet sisään." },
     { id: "en_g4_b2_28", grade: 4, en: "Grandma is knitting a warm scarf.", fi: "Mummo neuloo lämmintä kaulahuivia." },
     { id: "en_g4_b2_29", grade: 4, en: "The ice cream melted in the sun.", fi: "Jäätelö suli auringossa." },
@@ -2592,7 +2630,7 @@ const SENTENCE_DATA = {
     { id: "en_g4_b2_36", grade: 4, en: "Watch out! The ice is thin.", fi: "Varo! Jää on ohutta." },
     { id: "en_g4_b2_37", grade: 4, en: "Nice to meet you, Mr Smith!", fi: "Hauska tavata, herra Smith!" },
     { id: "en_g4_b2_38", grade: 4, en: "Did you know that cats sleep a lot?", fi: "Tiesitkö, että kissat nukkuvat paljon?" },
-    { id: "en_g4_b2_39", grade: 4, en: "Can I have a glass of juice, please?", fi: "Saisinko lasin mehua?", alt: ["May I have a glass of juice, please?"] },
+    { id: "en_g4_b2_39", grade: 4, en: "Can I have a glass of juice, please?", fi: "Saisinko lasin mehua, kiitos?", alt: ["May I have a glass of juice, please?"] },
     { id: "en_g4_b2_40", grade: 4, en: "Have fun at the ballet!", fi: "Pidä hauskaa baletissa!" },
 
     { id: "en_g5_1", grade: 5, en: "If it rains tomorrow, we will stay at home.", fi: "Jos huomenna sataa, jäämme kotiin.", alt: ["We will stay at home if it rains tomorrow."] },
@@ -2861,15 +2899,15 @@ const SENTENCE_DATA = {
     {id:"de_g5_3", grade:5, de:"Wir warten schon zwanzig Minuten an der Bushaltestelle.", fi:"Olemme odottaneet bussipysäkillä jo kaksikymmentä minuuttia.", alt:["Wir warten schon seit zwanzig Minuten an der Bushaltestelle."]},
     {id:"de_g5_4", grade:5, de:"Der Zug ist schneller als der Bus, aber auch teurer.", fi:"Juna on nopeampi kuin bussi, mutta myös kalliimpi.", alt:["Der Zug ist schneller als der Bus, aber er ist auch teurer."]},
     {id:"de_g5_5", grade:5, de:"Eemil war stolz, weil seine Mannschaft das Spiel gewonnen hat.", fi:"Eemil oli ylpeä, koska hänen joukkueensa voitti ottelun.", alt:["Eemil war stolz, weil seine Mannschaft das Match gewonnen hat."]},
-    {id:"de_g5_6", grade:5, de:"Ich habe die Quittung in meinem Portemonnaie gefunden.", fi:"Löysin kuitin lompakostani.", alt:["Ich habe die Quittung im Portemonnaie gefunden."]},
-    {id:"de_g5_7", grade:5, de:"Diese Jacke ist billiger als meine alte Jacke.", fi:"Tämä takki on halvempi kuin vanha takkini."},
-    {id:"de_g5_8", grade:5, de:"Wenn es morgen schneit, gehen wir Ski fahren.", fi:"Jos huomenna sataa lunta, menemme hiihtämään.", alt:["Wenn es morgen schneit, fahren wir Ski."]},
+    {id:"de_g5_6", grade:5, de:"Ich habe die Quittung in meinem Portemonnaie gefunden.", fi:"Löysin kuitin lompakostani.", alt:["Ich habe die Quittung im Portemonnaie gefunden.","Ich habe die Quittung in meinem Geldbeutel gefunden.","Ich habe die Quittung in meiner Geldbörse gefunden."]},
+    {id:"de_g5_7", grade:5, de:"Diese Jacke ist billiger als meine alte Jacke.", fi:"Tämä takki on halvempi kuin vanha takkini.", alt:["Diese Jacke ist billiger als meine alte."]},
+    {id:"de_g5_8", grade:5, de:"Wenn es morgen schneit, gehen wir Ski fahren.", fi:"Jos huomenna sataa lunta, menemme laskettelemaan.", alt:["Wenn es morgen schneit, fahren wir Ski."]},
     {id:"de_g5_9", grade:5, de:"Ich habe nur zwei Euro, das ist nicht genug.", fi:"Minulla on vain kaksi euroa, se ei ole tarpeeksi.", alt:["Ich habe nur zwei Euro, und das ist nicht genug."]},
     {id:"de_g5_10", grade:5, de:"Lena war enttäuscht, weil ihre Freundin nicht gekommen ist.", fi:"Lena oli pettynyt, koska hänen ystävänsä ei tullut.", alt:["Lena war enttäuscht, weil ihr Freund nicht gekommen ist."]},
     {id:"de_g5_11", grade:5, de:"Meine Mutter sagt, dass ich früher ins Bett gehen muss.", fi:"Äitini sanoo, että minun pitää mennä aikaisemmin nukkumaan.", alt:["Meine Mama sagt, dass ich früher ins Bett gehen muss.","Meine Mutter sagt, dass ich früher schlafen gehen muss."]},
-    {id:"de_g5_12", grade:5, de:"Wir wohnen gegenüber der Bibliothek.", fi:"Asumme kirjastoa vastapäätä.", alt:["Wir wohnen gegenüber von der Bibliothek."]},
-    {id:"de_g5_13", grade:5, de:"Mein Handy liegt zwischen den Büchern auf dem Regal.", fi:"Puhelimeni on hyllyllä kirjojen välissä.", alt:["Mein Handy ist zwischen den Büchern auf dem Regal."]},
-    {id:"de_g5_14", grade:5, de:"Darf ich am Wochenende bei Oskar schlafen?", fi:"Saanko nukkua viikonloppuna Oskarin luona?"},
+    {id:"de_g5_12", grade:5, de:"Wir wohnen gegenüber der Bibliothek.", fi:"Asumme kirjastoa vastapäätä.", alt:["Wir wohnen gegenüber von der Bibliothek.","Wir wohnen der Bibliothek gegenüber."]},
+    {id:"de_g5_13", grade:5, de:"Mein Handy liegt zwischen den Büchern auf dem Regal.", fi:"Puhelimeni on hyllyllä kirjojen välissä.", alt:["Mein Handy ist zwischen den Büchern auf dem Regal.","Mein Handy liegt zwischen den Büchern im Regal.","Mein Handy ist zwischen den Büchern im Regal."]},
+    {id:"de_g5_14", grade:5, de:"Darf ich am Wochenende bei Oskar schlafen?", fi:"Saanko nukkua viikonloppuna Oskarin luona?", alt:["Darf ich am Wochenende bei Oskar übernachten?","Darf ich am Wochenende bei Oskar schlafen?"]},
     {id:"de_g5_15", grade:5, de:"Obwohl Aino müde war, hat sie ihre Hausaufgaben gemacht.", fi:"Vaikka Aino oli väsynyt, hän teki läksynsä.", alt:["Obwohl Aino müde war, machte sie ihre Hausaufgaben."]},
     {id:"de_g5_16", grade:5, de:"Der Tierarzt hat gesagt, dass unser Hund gesund ist.", fi:"Eläinlääkäri sanoi, että koiramme on terve.", alt:["Die Tierärztin hat gesagt, dass unser Hund gesund ist."]},
     {id:"de_g5_17", grade:5, de:"Ich fahre lieber mit der U-Bahn als mit dem Bus.", fi:"Kuljen mieluummin metrolla kuin bussilla.", alt:["Ich fahre lieber U-Bahn als Bus."]},
@@ -2878,24 +2916,24 @@ const SENTENCE_DATA = {
     {id:"de_g5_20", grade:5, de:"Ich möchte Polizistin werden, weil ich anderen helfen will.", fi:"Haluan poliisiksi, koska haluan auttaa muita.", alt:["Ich möchte Polizist werden, weil ich anderen helfen will.","Ich will Polizistin werden, weil ich anderen helfen möchte.","Ich will Polizist werden, weil ich anderen helfen möchte."]},
     {id:"de_g6_1", grade:6, de:"Letzten Sommer sind wir mit dem Zug nach Deutschland gereist.", fi:"Viime kesänä matkustimme junalla Saksaan.", alt:["Wir sind letzten Sommer mit dem Zug nach Deutschland gereist."]},
     {id:"de_g6_2", grade:6, de:"Ich habe meinen Reisepass am Flughafen nicht gefunden.", fi:"En löytänyt passiani lentokentällä.", alt:["Am Flughafen habe ich meinen Reisepass nicht gefunden.","Ich fand meinen Reisepass am Flughafen nicht."]},
-    {id:"de_g6_3", grade:6, de:"Ella findet Computerspiele aufregender als Bücher.", fi:"Ellan mielestä tietokonepelit ovat jännittävämpiä kuin kirjat."},
+    {id:"de_g6_3", grade:6, de:"Ella findet Computerspiele aufregender als Bücher.", fi:"Ellan mielestä tietokonepelit ovat jännittävämpiä kuin kirjat.", alt:["Ella findet Computerspiele spannender als Bücher."]},
     {id:"de_g6_4", grade:6, de:"Wenn ich groß bin, werde ich Tierärztin.", fi:"Kun olen iso, minusta tulee eläinlääkäri.", alt:["Wenn ich groß bin, werde ich Tierarzt."]},
     {id:"de_g6_5", grade:6, de:"Ich muss heute lernen, weil wir morgen eine Prüfung haben.", fi:"Minun täytyy opiskella tänään, koska meillä on huomenna koe.", alt:["Ich muss heute lernen, weil wir morgen eine Prüfung schreiben.","Heute muss ich lernen, weil wir morgen eine Prüfung haben."]},
     {id:"de_g6_6", grade:6, de:"Obwohl es regnete, sind wir mit dem Fahrrad zur Schule gefahren.", fi:"Vaikka satoi, ajoimme pyörällä kouluun.", alt:["Obwohl es geregnet hat, sind wir mit dem Fahrrad zur Schule gefahren."]},
-    {id:"de_g6_7", grade:6, de:"Ohne Ticket darf man nicht mit der Straßenbahn fahren.", fi:"Ratikalla ei saa matkustaa ilman lippua.", alt:["Man darf ohne Ticket nicht mit der Straßenbahn fahren."]},
+    {id:"de_g6_7", grade:6, de:"Ohne Ticket darf man nicht mit der Straßenbahn fahren.", fi:"Ratikalla ei saa matkustaa ilman lippua.", alt:["Man darf ohne Ticket nicht mit der Straßenbahn fahren.","Ohne Fahrkarte darf man nicht mit der Straßenbahn fahren.","Man darf ohne Fahrkarte nicht mit der Straßenbahn fahren."]},
     {id:"de_g6_8", grade:6, de:"Fußball ist in Deutschland beliebter als Eishockey.", fi:"Jalkapallo on Saksassa suositumpaa kuin jääkiekko.", alt:["In Deutschland ist Fußball beliebter als Eishockey."]},
     {id:"de_g6_9", grade:6, de:"Ich habe gestern eine neue App heruntergeladen.", fi:"Latasin eilen uuden sovelluksen.", alt:["Gestern habe ich eine neue App heruntergeladen."]},
     {id:"de_g6_10", grade:6, de:"Mia schrieb mir eine Nachricht, aber ich war schon im Bett.", fi:"Mia kirjoitti minulle viestin, mutta olin jo sängyssä.", alt:["Mia hat mir eine Nachricht geschrieben, aber ich war schon im Bett."]},
     {id:"de_g6_11", grade:6, de:"Leo, was ist dein Traumberuf?", fi:"Leo, mikä on unelma-ammattisi?"},
-    {id:"de_g6_12", grade:6, de:"Mein Cousin sagt, dass die Universität schwieriger als das Gymnasium ist.", fi:"Serkkuni sanoo, että yliopisto on vaikeampi kuin lukio.", alt:["Mein Cousin sagt, dass die Universität schwerer als das Gymnasium ist."]},
+    {id:"de_g6_12", grade:6, de:"Mein Cousin sagt, dass die Universität schwieriger als das Gymnasium ist.", fi:"Serkkuni sanoo, että yliopisto on vaikeampi kuin lukio.", alt:["Mein Cousin sagt, dass die Universität schwerer als das Gymnasium ist.","Mein Cousin sagt, dass die Universität schwieriger ist als das Gymnasium.","Mein Cousin sagt, dass die Universität schwerer ist als das Gymnasium."]},
     {id:"de_g6_13", grade:6, de:"Im Urlaub werden wir meine Großeltern in Schweden besuchen.", fi:"Lomalla käymme isovanhempieni luona Ruotsissa.", alt:["Wir werden im Urlaub meine Großeltern in Schweden besuchen.","Im Urlaub besuchen wir meine Großeltern in Schweden."]},
-    {id:"de_g6_14", grade:6, de:"Am Flughafen war es so überfüllt, dass wir lange warten mussten.", fi:"Lentokentällä oli niin paljon väkeä, että jouduimme odottamaan pitkään.", alt:["Der Flughafen war so überfüllt, dass wir lange warten mussten."]},
+    {id:"de_g6_14", grade:6, de:"Am Flughafen war es so überfüllt, dass wir lange warten mussten.", fi:"Lentokentällä oli niin paljon väkeä, että jouduimme odottamaan pitkään.", alt:["Der Flughafen war so überfüllt, dass wir lange warten mussten.","Am Flughafen war es so voll, dass wir lange warten mussten."]},
     {id:"de_g6_15", grade:6, de:"Gestern durfte ich nicht fernsehen, weil ich meine Hausaufgaben nicht gemacht habe.", fi:"Eilen en saanut katsoa telkkaria, koska en ollut tehnyt läksyjäni.", alt:["Ich durfte gestern nicht fernsehen, weil ich meine Hausaufgaben nicht gemacht habe.","Gestern durfte ich nicht fernsehen, weil ich meine Hausaufgaben nicht gemacht hatte.","Ich durfte gestern nicht fernsehen, weil ich meine Hausaufgaben nicht gemacht hatte."]},
     {id:"de_g6_16", grade:6, de:"Das Spiel war langweilig, aber wir hatten trotzdem Spaß.", fi:"Peli oli tylsä, mutta meillä oli silti hauskaa.", alt:["Das Match war langweilig, aber wir hatten trotzdem Spaß."]},
     {id:"de_g6_17", grade:6, de:"Paris ist die berühmteste Stadt in Frankreich.", fi:"Pariisi on Ranskan kuuluisin kaupunki.", alt:["Paris ist die berühmteste Stadt Frankreichs."]},
     {id:"de_g6_18", grade:6, de:"Welches Souvenir hast du in England gekauft?", fi:"Minkä matkamuiston ostit Englannista?"},
     {id:"de_g6_19", grade:6, de:"Nach dem Gymnasium will ich an die Universität gehen.", fi:"Lukion jälkeen haluan mennä yliopistoon.", alt:["Nach dem Gymnasium möchte ich an die Universität gehen.","Ich will nach dem Gymnasium an die Universität gehen."]},
-    {id:"de_g6_20", grade:6, de:"Die Reise war lang, aber das Hotel war sehr bequem.", fi:"Matka oli pitkä, mutta hotelli oli todella mukava."},
+    {id:"de_g6_20", grade:6, de:"Die Reise war lang, aber das Hotel war sehr gemütlich.", fi:"Matka oli pitkä, mutta hotelli oli todella mukava.", alt:["Die Reise war lang, aber das Hotel war sehr komfortabel.","Die Reise war lang, aber das Hotel war sehr bequem."]},
   ]
 };
 
@@ -3285,16 +3323,138 @@ function setPracticeMode(mode){
   });
   wordPracticeEl.hidden = mode !== "words";
   sentencePracticeEl.hidden = mode !== "sentences";
+  grammarPracticeEl.hidden = mode !== "grammar";
   populateCategoryOptions();
   updateFocusUI();
   clearTimeout(autoSpeakTimer);
   if (window.speechSynthesis) speechSynthesis.cancel();
   if (mode === "sentences") pickSentenceRound();
+  if (mode === "grammar") pickGrammarRound();
 }
 
 practiceSwitchButtons.forEach(btn => {
   btn.addEventListener("click", () => setPracticeMode(btn.dataset.practice));
 });
+
+// --- Kielioppiharjoittelu (vaihe 36): saksan artikkelit (der/die/das) ja monikot ---
+// Vain saksassa. Sanat: luokka-asteeseen asti (activeGrade). Tilastot kevyesti
+// localStoragessa (laitekohtaiset), heikoimmin menneet sanat tulevat useammin.
+const GRAMMAR_KEY = "grammarStats_de";
+let grammarKind = "article";
+let grammarCurrent = null;
+let grammarLocked = false;
+let grammarSession = { c: 0, t: 0 };
+let grammarStats = {};
+try { grammarStats = JSON.parse(localStorage.getItem(GRAMMAR_KEY) || "{}") || {}; } catch (e) { grammarStats = {}; }
+function saveGrammarStats(){ try { localStorage.setItem(GRAMMAR_KEY, JSON.stringify(grammarStats)); } catch (e) { /* ei haittaa */ } }
+
+function updateGrammarAvailability(){
+  grammarSwitchBtn.style.display = targetLang === "de" ? "" : "none";
+  if (targetLang !== "de" && practiceMode === "grammar") setPracticeMode("words");
+}
+
+function splitArticle(de){
+  const m = /^(der|die|das)\s+(\S.*)$/.exec(String(de || "").trim());
+  return m ? { art: m[1], noun: m[2] } : null;
+}
+
+function grammarPool(){
+  if (targetLang !== "de") return [];
+  const ok = w => {
+    const de = String(w.de || "");
+    if (de.includes("...")) return false;
+    if (grammarKind === "article") return !de.includes("/") && !!splitArticle(de);
+    return !!w.de_pl && !!splitArticle(firstAcceptedAnswer(de));
+  };
+  const all = PRACTICE_WORDS.filter(ok);
+  const upTo = all.filter(w => { const g = wordGrade(w); return g != null && g <= activeGrade; });
+  return upTo.length >= 8 ? upTo : all;
+}
+
+function grammarWeight(w){
+  const st = grammarStats[grammarKind + ":" + w.id];
+  if (!st) return 2;
+  return 1 + 2 * Math.max(0, (st.w || 0) - (st.c || 0)) + ((st.c || 0) < 2 ? 1 : 0);
+}
+
+function pickGrammarRound(){
+  const pool = grammarPool();
+  const feedbackEl = document.getElementById("grammarFeedback");
+  feedbackEl.className = "feedback"; feedbackEl.textContent = "";
+  grammarLocked = false;
+  document.querySelectorAll("#grammarArticleBtns .btn").forEach(b => b.classList.remove("right", "wrong"));
+  document.querySelectorAll(".grammar-tab").forEach(b => b.classList.toggle("active", b.dataset.gkind === grammarKind));
+  const isArt = grammarKind === "article";
+  document.getElementById("grammarArticleBtns").hidden = !isArt;
+  document.getElementById("grammarPluralWrap").hidden = isArt;
+  document.getElementById("grammarHint").textContent = isArt ? "Mikä artikkeli?" : "Mikä on monikko?";
+  document.getElementById("grammarScore").textContent = grammarSession.t ? `Oikein ${grammarSession.c}/${grammarSession.t}` : "";
+  if (!pool.length){
+    grammarCurrent = null;
+    document.getElementById("grammarWord").textContent = "–";
+    document.getElementById("grammarFi").textContent = "Ei sopivia sanoja tälle luokka-asteelle.";
+    return;
+  }
+  const cands = pool.length > 1 && grammarCurrent ? pool.filter(w => w.id !== grammarCurrent.id) : pool;
+  const total = cands.reduce((a, w) => a + grammarWeight(w), 0);
+  let r = Math.random() * total, pick = cands[cands.length - 1];
+  for (const w of cands){ r -= grammarWeight(w); if (r <= 0){ pick = w; break; } }
+  grammarCurrent = pick;
+  const sg = splitArticle(firstAcceptedAnswer(pick.de));
+  document.getElementById("grammarWord").textContent = isArt ? sg.noun : firstAcceptedAnswer(pick.de);
+  document.getElementById("grammarFi").textContent = firstAcceptedAnswer(pick.fi);
+  const box = document.getElementById("grammarPluralBox");
+  box.value = "";
+  if (!isArt) box.focus({ preventScroll: true });
+}
+
+function grammarFinish(isCorrect, message){
+  const feedbackEl = document.getElementById("grammarFeedback");
+  feedbackEl.className = "feedback " + (isCorrect ? "correct" : "incorrect");
+  feedbackEl.textContent = message;
+  grammarLocked = true;
+  grammarSession.t += 1; if (isCorrect) grammarSession.c += 1;
+  const key = grammarKind + ":" + grammarCurrent.id;
+  const st = grammarStats[key] || { c: 0, w: 0 };
+  if (isCorrect) st.c += 1; else st.w += 1;
+  grammarStats[key] = st;
+  saveGrammarStats();
+  document.getElementById("grammarScore").textContent = `Oikein ${grammarSession.c}/${grammarSession.t}`;
+  const delayed = grammarCurrent;
+  setTimeout(() => { if (grammarCurrent === delayed && grammarLocked) pickGrammarRound(); }, isCorrect ? 1100 : 2400);
+}
+
+function answerArticle(art){
+  if (grammarLocked || !grammarCurrent) return;
+  const sg = splitArticle(firstAcceptedAnswer(grammarCurrent.de));
+  const ok = art === sg.art;
+  document.querySelectorAll("#grammarArticleBtns .btn").forEach(b => {
+    if (b.dataset.art === sg.art) b.classList.add("right");
+    else if (b.dataset.art === art) b.classList.add("wrong");
+  });
+  const pl = grammarCurrent.de_pl ? " · Monikko: " + grammarCurrent.de_pl : "";
+  grammarFinish(ok, (ok ? "🎉 Oikein! " : "🙈 Ei ihan. ") + sg.art + " " + sg.noun + pl);
+}
+
+function stripPluralArticle(t){ return normalizeSentence(String(t || "")).replace(/^die\s+/, "").trim(); }
+
+function answerPlural(){
+  if (grammarLocked || !grammarCurrent) return;
+  const typed = stripPluralArticle(document.getElementById("grammarPluralBox").value);
+  if (!typed) return;
+  const accepted = String(grammarCurrent.de_pl).split("/").map(stripPluralArticle).filter(Boolean);
+  const ok = accepted.includes(typed);
+  grammarFinish(ok, (ok ? "🎉 Oikein! " : "🙈 Ei ihan. Oikea vastaus: ") + grammarCurrent.de_pl);
+}
+
+document.querySelectorAll("#grammarArticleBtns .btn").forEach(b => b.addEventListener("click", () => answerArticle(b.dataset.art)));
+document.getElementById("grammarPluralCheck").addEventListener("click", answerPlural);
+document.getElementById("grammarPluralBox").addEventListener("keydown", e => { if (e.key === "Enter") answerPlural(); });
+document.getElementById("grammarSkip").addEventListener("click", () => { grammarLocked = false; pickGrammarRound(); });
+document.querySelectorAll(".grammar-tab").forEach(b => b.addEventListener("click", () => {
+  grammarKind = b.dataset.gkind; grammarCurrent = null; pickGrammarRound();
+}));
+
 
 
 
@@ -3360,7 +3520,7 @@ function updateFocusUI(){
   focusButton.style.display = wordsMode && focusIds.length ? "" : "none";
   focusButton.classList.toggle("active", focusActive());
   focusButton.setAttribute("aria-pressed", focusActive() ? "true" : "false");
-  const sentenceThemes = !wordsMode && sentencesForLang().some(s => s.theme);
+  const sentenceThemes = practiceMode === "sentences" && sentencesForLang().some(s => s.theme);
   themeButton.style.display = (wordsMode && !focusActive()) || sentenceThemes ? "" : "none";
 }
 

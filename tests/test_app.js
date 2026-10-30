@@ -1733,6 +1733,78 @@ test('Saksa: substantiivin monikko näkyy palautteessa ja paljastuksessa, englan
   en.dispose();
 });
 
+test('Kielioppi: nappi vain saksassa, englantiin vaihto palauttaa sanatilaan', async () => {
+  const app = await boot();
+  assert.strictEqual(app.elements.grammarSwitchBtn.style.display, 'none');
+  app.run('selectTargetLang("de")');
+  await app.flush();
+  assert.strictEqual(app.elements.grammarSwitchBtn.style.display, '');
+  app.run('setPracticeMode("grammar")');
+  assert.strictEqual(app.run('practiceMode'), 'grammar');
+  assert.strictEqual(app.elements.grammarPractice.hidden, false);
+  assert.strictEqual(app.elements.wordPractice.hidden, true);
+  app.run('selectTargetLang("en")');
+  await app.flush();
+  assert.strictEqual(app.run('practiceMode'), 'words');
+  assert.strictEqual(app.elements.grammarPractice.hidden, true);
+  app.dispose();
+});
+
+test('Kielioppi: artikkeliharjoitus - oikea ja väärä vastaus, tilastot, uusi kierros', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de' } });
+  app.run('setPracticeMode("grammar")');
+  const id = () => app.run('grammarCurrent.id');
+  const art = () => app.run('splitArticle(firstAcceptedAnswer(grammarCurrent.de)).art');
+  assert.ok(app.run('grammarPool().length') >= 10);
+  assert.ok(app.run('grammarPool().every(w => !w.de.includes("/") && /^(der|die|das) /.test(w.de))'));
+  // sana näytetään ilman artikkelia
+  assert.ok(!/^(der|die|das) /.test(app.elements.grammarWord.textContent));
+  const first = id(); const a = art();
+  app.run(`answerArticle(${JSON.stringify(a)})`);
+  assert.strictEqual(app.run('grammarSession.c'), 1);
+  assert.strictEqual(app.run('grammarLocked'), true);
+  // lukittuna toinen vastaus ei lasketa
+  app.run(`answerArticle(${JSON.stringify(a)})`);
+  assert.strictEqual(app.run('grammarSession.t'), 1);
+  assert.strictEqual(JSON.parse(app.storage.getItem('grammarStats_de'))['article:' + first].c, 1);
+  // seuraava kierros: eri sana, väärä vastaus
+  app.run('pickGrammarRound()');
+  assert.notStrictEqual(id(), first);
+  const wrong = ['der', 'die', 'das'].find(x => x !== art());
+  app.run(`answerArticle(${JSON.stringify(wrong)})`);
+  assert.strictEqual(app.run('grammarSession.c'), 1);
+  assert.strictEqual(app.run('grammarSession.t'), 2);
+  assert.ok(String(app.elements.grammarFeedback.textContent).startsWith('🙈'));
+  app.dispose();
+});
+
+test('Kielioppi: monikkoharjoitus hyväksyy ilman artikkelia, vaihtoehtoiset muodot ja ae/ue-korvikkeet', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de' } });
+  app.run('setPracticeMode("grammar"); grammarKind = "plural"; pickGrammarRound();');
+  assert.strictEqual(app.elements.grammarPluralWrap.hidden, false);
+  assert.strictEqual(app.elements.grammarArticleBtns.hidden, true);
+  // kiinnitetään sana: der Apfel -> die Äpfel
+  app.run('grammarCurrent = VOCAB.words.find(w => w.de && w.de_pl && /Äpfel/.test(w.de_pl)); grammarLocked = false;');
+  app.elements.grammarPluralBox.value = 'Aepfel';
+  app.run('answerPlural()');
+  assert.strictEqual(app.run('grammarSession.c'), 1, 'ilman artikkelia, ae-korvike');
+  app.run('grammarLocked = false;');
+  app.elements.grammarPluralBox.value = 'die Äpfel';
+  app.run('answerPlural()');
+  assert.strictEqual(app.run('grammarSession.c'), 2);
+  app.run('grammarLocked = false;');
+  app.elements.grammarPluralBox.value = 'die Apfel';
+  app.run('answerPlural()');
+  assert.strictEqual(app.run('grammarSession.c'), 2);
+  assert.ok(String(app.elements.grammarFeedback.textContent).includes('Oikea vastaus'));
+  // useampi hyväksytty muoto
+  app.run('grammarCurrent = VOCAB.words.find(w => w.id === "school_people_teacher"); grammarLocked = false;');
+  app.elements.grammarPluralBox.value = 'die Lehrerinnen';
+  app.run('answerPlural()');
+  assert.strictEqual(app.run('grammarSession.c'), 3);
+  app.dispose();
+});
+
 test('Koe 1 (saksa): teema ensimmäisenä saksan teemalistassa, ei englannissa; de_only-sanat vain saksan poolissa', async () => {
   const app = await boot();
   assert.ok(!J(app, 'selectableCategories().some(c => c.id === "koe1_de")'));
