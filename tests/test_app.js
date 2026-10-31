@@ -785,6 +785,42 @@ test('Virkkeet: pickSentenceRound valitsee aktiivisen luokan virkkeen', async ()
   app.dispose();
 });
 
+test('Ruotsi: nappi, kielitila ja sanasto (sv)', async () => {
+  const app = await boot();
+  assert.ok(app.langButtons.find(b => b.dataset.lang === 'sv'), 'ruotsin nappi puuttuu');
+  app.run('selectTargetLang("sv")');
+  await app.flush();
+  assert.strictEqual(app.run('targetLang'), 'sv');
+  assert.strictEqual(app.run('LANGS.sv.speech'), 'sv-SE');
+  assert.strictEqual(app.run('LANG_START_GRADE.sv'), 4);
+  assert.strictEqual(app.run('VOCAB.words.filter(w => w.sv).length'), 481);
+  assert.ok(app.run('sessionPool.length') > 0);
+  assert.ok(app.run('sessionPool.every(w => w.sv)'));
+  assert.strictEqual(app.run('NUMBER_WORDS.sv[3]'), 'tre');
+  app.dispose();
+});
+
+test('Ruotsi: 60 virkettä, 20 / opiskeluvuosi, å/ä/ö-korvikkeet hyväksytään', async () => {
+  const app = await boot({ localStorage: { targetLang: 'sv' } });
+  assert.strictEqual(app.run('SENTENCE_DATA.sv.length'), 60);
+  assert.strictEqual(app.run('new Set(SENTENCE_DATA.sv.map(s => s.id)).size'), 60);
+  for (const g of [4, 5, 6]) assert.strictEqual(app.run(`sentencesForGrade(${g}).length`), 20, 'luokka ' + g);
+  const s = { sv: 'Flickan har gröna skor på sig.', fi: 'x' };
+  for (const a of ['Flickan har gröna skor på sig.', 'flickan har grona skor pa sig', 'FLICKAN HAR GRÖNA SKOR PÅ SIG!']) {
+    assert.strictEqual(app.run(`matchesSentence(${JSON.stringify(a)}, ${JSON.stringify(s)})`), true, a);
+  }
+  assert.strictEqual(app.run(`matchesSentence("Flickan har röda skor på sig.", ${JSON.stringify(s)})`), false);
+  app.dispose();
+});
+
+test('Ruotsi: Kielioppi-nappi piilossa (vain saksa)', async () => {
+  const app = await boot({ localStorage: { targetLang: 'sv' } });
+  assert.notStrictEqual(app.run('practiceMode'), 'grammar');
+  const btn = app.elements && app.elements.grammarSwitchBtn;
+  if (btn) assert.ok(btn.hidden || (btn.style && btn.style.display === 'none') || (btn.classList && btn.classList.contains('hidden')));
+  app.dispose();
+});
+
 test('Virkkeet: saksalle 120 virkettä, 20 / luokka 4-9, ei kaadu', async () => {
   const app = await boot();
   app.run('selectTargetLang("de"); setPracticeMode("sentences");');

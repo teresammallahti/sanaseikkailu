@@ -18,6 +18,7 @@
     --pill-en:#5c6bc0;
     --pill-fi:#26a69a;
     --pill-de:#c0621f;
+    --pill-sv:#2a74b8;
     --shadow: 0 10px 30px rgba(43,33,64,0.15);
     --radius: 24px;
   }
@@ -245,6 +246,7 @@
   .lang-pill.en{ background:var(--pill-en); }
   .lang-pill.fi{ background:var(--pill-fi); }
   .lang-pill.de{ background:var(--pill-de); }
+  .lang-pill.sv{ background:var(--pill-sv); }
   .prompt-word{
     font-size: clamp(28px, 7vw, 48px);
     font-weight:800;
@@ -734,6 +736,7 @@
   <div class="lang-switch" id="langSwitch">
     <button class="lang-switch-btn active" data-lang="en" aria-pressed="true"><span class="flag">🇬🇧</span> English</button>
     <button class="lang-switch-btn" data-lang="de" aria-pressed="false"><span class="flag">🇩🇪</span> Deutsch</button>
+    <button class="lang-switch-btn" data-lang="sv" aria-pressed="false"><span class="flag">🇸🇪</span> Svenska</button>
   </div>
 
   <div class="practice-switch" id="practiceSwitch">
@@ -1022,7 +1025,8 @@ function putStat(stat){
 // --- Kielivalinta: mitä kohdekieltä (en/de) harjoitellaan suomea vastaan ---
 const LANGS = {
   en: { flag: "🇬🇧", label: "englanniksi", speech: "en-GB" },
-  de: { flag: "🇩🇪", label: "saksaksi", speech: "de-DE" }
+  de: { flag: "🇩🇪", label: "saksaksi", speech: "de-DE" },
+  sv: { flag: "🇸🇪", label: "ruotsiksi", speech: "sv-SE" }
 };
 let targetLang = "en";
 try {
@@ -1204,7 +1208,7 @@ const gradeFilter = document.getElementById("gradeFilter");
 // (värit, numerot, perhe...), 5. luokka = toinen vuosi, 6. luokka = kolmas.
 // Opiskeluvuodet 4-6 (englannin 4.-6. luokan teemat) eivät kuulu saksan
 // alakouluun, joten niitä ei näytetä saksalle.
-const LANG_START_GRADE = { en: 1, de: 4 };
+const LANG_START_GRADE = { en: 1, de: 4, sv: 4 };
 
 function startGrade(){ return LANG_START_GRADE[targetLang] || 1; }
 
@@ -1873,7 +1877,9 @@ const NUMBER_WORDS = {
   en: { "0":"zero","1":"one","2":"two","3":"three","4":"four","5":"five","6":"six","7":"seven","8":"eight","9":"nine","10":"ten",
         "11":"eleven","12":"twelve","13":"thirteen","14":"fourteen","15":"fifteen","16":"sixteen","17":"seventeen","18":"eighteen","19":"nineteen","20":"twenty" },
   de: { "0":"null","1":"eins","2":"zwei","3":"drei","4":"vier","5":"fünf","6":"sechs","7":"sieben","8":"acht","9":"neun","10":"zehn",
-        "11":"elf","12":"zwölf","13":"dreizehn","14":"vierzehn","15":"fünfzehn","16":"sechzehn","17":"siebzehn","18":"achtzehn","19":"neunzehn","20":"zwanzig" }
+        "11":"elf","12":"zwölf","13":"dreizehn","14":"vierzehn","15":"fünfzehn","16":"sechzehn","17":"siebzehn","18":"achtzehn","19":"neunzehn","20":"zwanzig" },
+  sv: { "0":"noll","1":"ett","2":"två","3":"tre","4":"fyra","5":"fem","6":"sex","7":"sju","8":"åtta","9":"nio","10":"tio",
+        "11":"elva","12":"tolv","13":"tretton","14":"fjorton","15":"femton","16":"sexton","17":"sjutton","18":"arton","19":"nitton","20":"tjugo" }
 };
 
 function digitsToWords(text, lang){
@@ -2934,6 +2940,68 @@ const SENTENCE_DATA = {
     {id:"de_g6_18", grade:6, de:"Welches Souvenir hast du in England gekauft?", fi:"Minkä matkamuiston ostit Englannista?"},
     {id:"de_g6_19", grade:6, de:"Nach dem Gymnasium will ich an die Universität gehen.", fi:"Lukion jälkeen haluan mennä yliopistoon.", alt:["Nach dem Gymnasium möchte ich an die Universität gehen.","Ich will nach dem Gymnasium an die Universität gehen."]},
     {id:"de_g6_20", grade:6, de:"Die Reise war lang, aber das Hotel war sehr gemütlich.", fi:"Matka oli pitkä, mutta hotelli oli todella mukava.", alt:["Die Reise war lang, aber das Hotel war sehr komfortabel.","Die Reise war lang, aber das Hotel war sehr bequem."]},
+  ],
+  sv: [
+    {id:"sv_g1_1", grade:1, sv:"Jag heter Anna.", fi:"Minun nimeni on Anna.", alt:["Mitt namn är Anna."]},
+    {id:"sv_g1_2", grade:1, sv:"Jag är tio år.", fi:"Olen kymmenenvuotias.", alt:["Jag är tio år gammal."]},
+    {id:"sv_g1_3", grade:1, sv:"Det här är en katt.", fi:"Tämä on kissa.", alt:["Detta är en katt."]},
+    {id:"sv_g1_4", grade:1, sv:"Huset är rött.", fi:"Talo on punainen."},
+    {id:"sv_g1_5", grade:1, sv:"Jag har en bror.", fi:"Minulla on veli."},
+    {id:"sv_g1_6", grade:1, sv:"Min syster heter Elsa.", fi:"Siskoni nimi on Elsa."},
+    {id:"sv_g1_7", grade:1, sv:"Vi bor i Finland.", fi:"Asumme Suomessa."},
+    {id:"sv_g1_8", grade:1, sv:"Idag är det måndag.", fi:"Tänään on maanantai.", alt:["I dag är det måndag.", "Det är måndag idag."]},
+    {id:"sv_g1_9", grade:1, sv:"Jag har två hundar.", fi:"Minulla on kaksi koiraa."},
+    {id:"sv_g1_10", grade:1, sv:"Pappa dricker kaffe.", fi:"Isä juo kahvia."},
+    {id:"sv_g1_11", grade:1, sv:"Mamma läser en bok.", fi:"Äiti lukee kirjaa."},
+    {id:"sv_g1_12", grade:1, sv:"Bilen är blå.", fi:"Auto on sininen."},
+    {id:"sv_g1_13", grade:1, sv:"Hej, hur mår du?", fi:"Hei, mitä kuuluu?", alt:["Hej, hur är det?"]},
+    {id:"sv_g1_14", grade:1, sv:"Jag gillar glass.", fi:"Pidän jäätelöstä.", alt:["Jag tycker om glass."]},
+    {id:"sv_g1_15", grade:1, sv:"Min mormor är snäll.", fi:"Mummoni on kiltti."},
+    {id:"sv_g1_16", grade:1, sv:"Vi har fem äpplen.", fi:"Meillä on viisi omenaa."},
+    {id:"sv_g1_17", grade:1, sv:"Imorgon är det fredag.", fi:"Huomenna on perjantai.", alt:["I morgon är det fredag.", "Det är fredag imorgon."]},
+    {id:"sv_g1_18", grade:1, sv:"Jag sover nu.", fi:"Nukun nyt."},
+    {id:"sv_g1_19", grade:1, sv:"Bollen är gul.", fi:"Pallo on keltainen."},
+    {id:"sv_g1_20", grade:1, sv:"God morgon, mamma!", fi:"Hyvää huomenta, äiti!"},
+    {id:"sv_g2_1", grade:2, sv:"Vad heter du?", fi:"Mikä sinun nimesi on?"},
+    {id:"sv_g2_2", grade:2, sv:"Var bor du?", fi:"Missä asut?"},
+    {id:"sv_g2_3", grade:2, sv:"Jag tycker inte om fisk.", fi:"En pidä kalasta.", alt:["Jag gillar inte fisk."]},
+    {id:"sv_g2_4", grade:2, sv:"Kan du simma?", fi:"Osaatko uida?"},
+    {id:"sv_g2_5", grade:2, sv:"Jag vill spela fotboll.", fi:"Haluan pelata jalkapalloa."},
+    {id:"sv_g2_6", grade:2, sv:"Vi ska äta pizza i kväll.", fi:"Tänä iltana syömme pizzaa.", alt:["I kväll ska vi äta pizza."]},
+    {id:"sv_g2_7", grade:2, sv:"Klockan är tre.", fi:"Kello on kolme."},
+    {id:"sv_g2_8", grade:2, sv:"Vad är klockan?", fi:"Paljonko kello on?", alt:["Hur mycket är klockan?"]},
+    {id:"sv_g2_9", grade:2, sv:"Erik spelar gitarr på fritiden.", fi:"Erik soittaa kitaraa vapaa-ajallaan."},
+    {id:"sv_g2_10", grade:2, sv:"Jag har ingen katt.", fi:"Minulla ei ole kissaa.", alt:["Jag har inte någon katt."]},
+    {id:"sv_g2_11", grade:2, sv:"Lisa dricker inte mjölk.", fi:"Lisa ei juo maitoa."},
+    {id:"sv_g2_12", grade:2, sv:"Vill du ha en smörgås?", fi:"Haluatko voileivän?"},
+    {id:"sv_g2_13", grade:2, sv:"Jag kan inte komma idag.", fi:"En pääse tulemaan tänään.", alt:["Jag kan inte komma i dag.", "Idag kan jag inte komma."]},
+    {id:"sv_g2_14", grade:2, sv:"När börjar skolan?", fi:"Milloin koulu alkaa?"},
+    {id:"sv_g2_15", grade:2, sv:"Vi ska åka till Stockholm på lördag.", fi:"Matkustamme lauantaina Tukholmaan.", alt:["På lördag ska vi åka till Stockholm."]},
+    {id:"sv_g2_16", grade:2, sv:"Min bror läser gärna serier.", fi:"Veljeni lukee mielellään sarjakuvia."},
+    {id:"sv_g2_17", grade:2, sv:"Jag äter frukost klockan sju.", fi:"Syön aamiaista kello seitsemän.", alt:["Klockan sju äter jag frukost."]},
+    {id:"sv_g2_18", grade:2, sv:"Gillar du choklad?", fi:"Pidätkö suklaasta?", alt:["Tycker du om choklad?"]},
+    {id:"sv_g2_19", grade:2, sv:"Mikael vill inte städa sitt rum.", fi:"Mikael ei halua siivota huonettaan."},
+    {id:"sv_g2_20", grade:2, sv:"Vi kan spela tennis på söndag.", fi:"Voimme pelata tennistä sunnuntaina.", alt:["På söndag kan vi spela tennis."]},
+    {id:"sv_g3_1", grade:3, sv:"Igår spelade jag fotboll med mina vänner.", fi:"Eilen pelasin jalkapalloa ystävieni kanssa.", alt:["I går spelade jag fotboll med mina vänner.", "Jag spelade fotboll med mina vänner igår."]},
+    {id:"sv_g3_2", grade:3, sv:"Vi åkte till landet förra sommaren.", fi:"Menimme viime kesänä maalle.", alt:["Förra sommaren åkte vi till landet."]},
+    {id:"sv_g3_3", grade:3, sv:"Jag tror att det regnar imorgon.", fi:"Luulen, että huomenna sataa.", alt:["Jag tror att det regnar i morgon."]},
+    {id:"sv_g3_4", grade:3, sv:"Jag stannar hemma eftersom jag är sjuk.", fi:"Jään kotiin, koska olen sairas.", alt:["Eftersom jag är sjuk stannar jag hemma."]},
+    {id:"sv_g3_5", grade:3, sv:"Sara är längre än sin bror.", fi:"Sara on pidempi kuin veljensä."},
+    {id:"sv_g3_6", grade:3, sv:"Matematik är svårare än engelska.", fi:"Matematiikka on vaikeampaa kuin englanti."},
+    {id:"sv_g3_7", grade:3, sv:"Jag ville gå ut, men det regnade.", fi:"Halusin mennä ulos, mutta satoi.", alt:["Jag ville gå ut men det regnade."]},
+    {id:"sv_g3_8", grade:3, sv:"Vi åt lunch i skolan klockan elva.", fi:"Söimme koulussa lounasta kello yksitoista.", alt:["Klockan elva åt vi lunch i skolan."]},
+    {id:"sv_g3_9", grade:3, sv:"Läraren sa att provet är på fredag.", fi:"Opettaja sanoi, että koe on perjantaina.", alt:["Läraren sade att provet är på fredag."]},
+    {id:"sv_g3_10", grade:3, sv:"Jonas glömde sina böcker hemma i morse.", fi:"Jonas unohti kirjansa kotiin tänä aamuna.", alt:["I morse glömde Jonas sina böcker hemma."]},
+    {id:"sv_g3_11", grade:3, sv:"Det här är den bästa filmen jag har sett.", fi:"Tämä on paras elokuva, jonka olen nähnyt.", alt:["Det här är den bästa film jag har sett.", "Det här är den bästa filmen som jag har sett."]},
+    {id:"sv_g3_12", grade:3, sv:"Vad gjorde du i helgen?", fi:"Mitä teit viikonloppuna?"},
+    {id:"sv_g3_13", grade:3, sv:"Jag cyklar till skolan eftersom det går snabbare.", fi:"Pyöräilen kouluun, koska se on nopeampaa.", alt:["Jag cyklar till skolan eftersom det går fortare."]},
+    {id:"sv_g3_14", grade:3, sv:"Pappa lagade middag och vi dukade bordet.", fi:"Isä teki päivällistä, ja me kattoimme pöydän."},
+    {id:"sv_g3_15", grade:3, sv:"Emma är lika gammal som jag.", fi:"Emma on yhtä vanha kuin minä."},
+    {id:"sv_g3_16", grade:3, sv:"Jag vaknade sent, så jag missade bussen.", fi:"Heräsin myöhään, joten myöhästyin bussista.", alt:["Jag vaknade sent så jag missade bussen."]},
+    {id:"sv_g3_17", grade:3, sv:"Vet du att Lisa har en ny hund?", fi:"Tiedätkö, että Lisalla on uusi koira?"},
+    {id:"sv_g3_18", grade:3, sv:"Det var kallt, men vi badade ändå.", fi:"Oli kylmää, mutta uimme silti.", alt:["Det var kallt men vi badade ändå."]},
+    {id:"sv_g3_19", grade:3, sv:"Jag tycker att historia är roligare än kemi.", fi:"Minusta historia on hauskempaa kuin kemia."},
+    {id:"sv_g3_20", grade:3, sv:"Efter skolan gick vi till biblioteket.", fi:"Koulun jälkeen menimme kirjastoon.", alt:["Vi gick till biblioteket efter skolan."]},
   ]
 };
 
@@ -2953,7 +3021,13 @@ const SENTENCE_STOPWORDS_DE = new Set([
   "ist","sind","bin","bist","hat","habe","haben","war","nicht","auch","mit","in","im",
   "am","zu","zum","zur","auf","an","von","bei","wie","wo","was","weil","dass","mir","dir"
 ]);
-function sentenceStopwords(){ return targetLang === "de" ? SENTENCE_STOPWORDS_DE : SENTENCE_STOPWORDS; }
+const SENTENCE_STOPWORDS_SV = new Set([
+  "en","ett","den","det","de","och","eller","men","jag","du","han","hon","vi","ni","är","var","har","hade",
+  "inte","också","med","i","på","till","av","från","som","att","min","mitt","mina","din","ditt","dina","om"
+]);
+function sentenceStopwords(){
+  return targetLang === "de" ? SENTENCE_STOPWORDS_DE : targetLang === "sv" ? SENTENCE_STOPWORDS_SV : SENTENCE_STOPWORDS;
+}
 const SENTENCE_STOPWORDS = new Set([
   "a","an","the","is","am","are","was","were","to","of","in","on","at","it","i",
   "my","we","he","she","they","and","but","or","do","does","did","have","has",
@@ -3025,6 +3099,11 @@ const US_TO_GB = {
 
 function normalizeSentence(s){
   let t = (s || "").toLowerCase().replace(/[‘’]/g, "'");
+  if (targetLang === "sv"){
+    // Ruotsi: å/ä/ö ja niiden korvikkeet (a/o) tulkitaan samoiksi.
+    t = t.replace(/[åä]/g, "a").replace(/ö/g, "o");
+    return normalize(t);
+  }
   if (targetLang === "de"){
     // Saksa: ä/ö/ü/ß ja niiden korvikkeet (ae/oe/ue/ss) tulkitaan samoiksi,
     // jotta lapsi ei joudu vaikeuksiin näppäimistön kanssa. Vertailu tehdään

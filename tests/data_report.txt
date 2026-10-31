@@ -11,7 +11,7 @@ Sanaseikkailu data check: 1616 words, 93 categories, 338 sentences
 [Sentence length not increasing] (1)
   - grade 7 avg 10.20 < grade 6 avg 11.30
 
-===== INFO (113) =====
+===== INFO (114) =====
 
 [Pattern phrases with '...' (filtered from practice)] (2)
   - greetings_phrases_my_name_is: en='my name is ...' fi='nimeni on ... / minun nimeni on ...' de='ich heiße ...'
@@ -23,6 +23,9 @@ Sanaseikkailu data check: 1616 words, 93 categories, 338 sentences
   - de_k1_super: 'super' = 'super'
   - de_k1_plus: 'plus' = 'plus'
   - de_k1_minus: 'minus' = 'minus'
+
+[Swedish] (1)
+  - 481 words with sv, 60 sentences ({1: 20, 2: 20, 3: 20})
 
 [Words per grade] (1)
   - g1: 126, g2: 78, g3: 88, g4: 949, g5: 70, g6: 63, g7: 74, g8: 75, g9: 75, ungraded(hobby): 18

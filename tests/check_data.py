@@ -4,7 +4,7 @@ import json, re, subprocess, sys, collections
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-VOCAB = REPO / "en_1_9lk_v16.json"
+VOCAB = REPO / "en_1_9lk_v17.json"
 TEMPLATE = REPO / "index_template.html"
 
 ERR, WARN, INFO = collections.defaultdict(list), collections.defaultdict(list), collections.defaultdict(list)
@@ -181,6 +181,31 @@ for w in words:
             pass
     if len(en) > 2 and norm(en) == norm(de):
         info("DE equals EN (eyeball)", f"{wid}: {en!r} = {de!r}")
+
+
+# ---------- ruotsi (sv) ----------
+svw = [w for w in words if "sv" in w]
+for w in svw:
+    v = w["sv"]
+    if not isinstance(v, str) or not v.strip(): err("SV", f"{w['id']}: empty sv")
+    else: ws_check(f"word {w['id']}.sv", v)
+SV_SENTS = SD.get("sv", []) if SD else []
+svg = collections.Counter()
+for s in SV_SENTS:
+    sid = s.get("id")
+    for f in ("id", "grade", "sv", "fi"):
+        if s.get(f) in (None, ""): err("SV", f"{sid}: missing '{f}'")
+    svg[s.get("grade")] += 1
+    for f in ("sv", "fi"):
+        v = s.get(f) or ""
+        if not v or v[-1] not in ".?!": err("SV", f"{sid}: {f} does not end with . ? or ! -> {v!r}")
+        ws_check(f"sv sentence {sid}.{f}", v)
+    sv_, fi_ = s.get("sv") or "", s.get("fi") or ""
+    if sv_ and fi_ and (sv_[-1] == "?") != (fi_[-1] == "?"): err("SV", f"{sid}: question/statement mismatch")
+for d_ in dups(s.get("id") for s in SV_SENTS): err("IDs", f"duplicate sv sentence id: {d_}")
+for g in (1, 2, 3):
+    if svg[g] < 10: err("SV", f"sv grade {g} has only {svg[g]} sentences")
+info("Swedish", f"{len(svw)} words with sv, {len(SV_SENTS)} sentences ({dict(svg)})")
 
 # ---------- stats ----------
 info("Words per grade", ", ".join(f"g{g}: {wpg[g]}" for g in range(1, MAX_GRADE + 1)) + f", ungraded(hobby): {wpg[None]}")
