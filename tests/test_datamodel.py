@@ -15,18 +15,19 @@ def check(name, cond):
 err, warn = dm.validate(m)
 check("validate: ei virheitä", not err)
 check("validate: ei varoituksia", not warn)
+sdata = dm.to_self_data(m)
+check("SELF_DATA: kielet ja tasot", sdata["languages"] and [l["id"] for l in sdata["levels"]] == ["A1", "A2", "B1"])
 vocab, sd = dm.to_legacy(m)
 ids = [w["id"] for w in vocab["words"]]
 check("käsitteet = sanat, id:t säilyvät (edistyminen ei katoa)", ids == [c["id"] for c in m["concepts"]])
-check("jokaisella sanalla fi ja category", all(w.get("fi") and w.get("category") for w in vocab["words"]))
-check("ilman englannin muotoa olevat käsitteet -> de_only", all(w.get("de_only") == (c["id"] not in m["forms"]["en"]) or (not w.get("de_only") and c["id"] in m["forms"]["en"]) for w, c in zip(vocab["words"], m["concepts"])))
+check("jokaisella sanalla fi ja joko category tai self_only", all(w.get("fi") and (w.get("category") or w.get("self_only")) for w in vocab["words"]))
+check("koulun käsitteet ilman englannin muotoa -> de_only", all(bool(w.get("de_only")) == (c["id"] not in m["forms"]["en"]) for w, c in zip(vocab["words"], m["concepts"]) if c.get("cat")))
 check("virkkeet kaikille kolmelle kielelle", set(sd) == {"en", "de", "sv"} and all(sd[l] for l in sd))
 check("virkkeessä kielen kenttä", all(s.get(l) for l in sd for s in sd[l]))
 check("kielikohtainen kehote vain kielille joilla muoto", all(f"fi_{l}" not in w or w.get(l) for w in vocab["words"] for l in ("de", "sv")))
-levels = [l["id"] for l in m["self"]["levels"]]
-check("itseopiskelutasot A1, A2, B1", levels == ["A1", "A2", "B1"])
-mapped = {c for t in m["self"]["topics"] for c in t["from_categories"]} | set(m["self"]["not_in_self"]["categories"])
-check("jokainen koulun teema joko itseopiskelun aihepiirissä tai rajattu pois", all(c["id"] in mapped for c in m["school"]["categories"]))
-check("jokaisessa aihepiirissä käsitteitä", all(dm.self_topic_concepts(m, t) for t in m["self"]["topics"]))
+byid = {w["id"]: w for w in vocab["words"]}
+for lang in sdata["languages"]:
+    check(f"itseopiskelu {lang}: jokaisella tasolla sanoja", all(any(byid[c].get(lang) for t in sdata["topics"] if t["level"] == L for c in t["concepts"]) for L in ("A1", "A2", "B1")))
+check("vain itseopiskelun käsitteillä ei koulun teemaa eikä de_only-lippua", all(not w.get("de_only") for w in vocab["words"] if w.get("self_only")))
 print(f"\n{'0 FAIL' if not fails else str(fails) + ' FAIL'}")
 sys.exit(1 if fails else 0)

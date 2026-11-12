@@ -229,6 +229,7 @@ function loadApp(options) {
   const langButtons = mkButtons('lang', ['en', 'de', 'sv']);
   const modeButtons = mkButtons('mode', ['pen', 'keyboard', 'mic']);
   const practiceButtons = mkButtons('practice', ['words', 'sentences']);
+  const studyButtons = mkButtons('study', ['school', 'self']);
   const docListeners = makeElement('document');
   const documentElement = makeElement('html');
   documentElement.style.setProperty = (k, v) => { cssVars[k] = v; documentElement.style._vars[k] = v; };
@@ -243,6 +244,7 @@ function loadApp(options) {
       if (sel === '.lang-switch-btn') return langButtons;
       if (sel === '.mode-btn') return modeButtons;
       if (sel === '.practice-switch-btn') return practiceButtons;
+      if (sel === '.study-switch-btn') return studyButtons;
       return [];
     },
     createElement: (tag) => makeElement(tag),
@@ -301,7 +303,7 @@ function loadApp(options) {
 
   return {
     ctx, run, elements, db: fakeDb, storage, logs, spoken, cssVars, asyncErrors,
-    langButtons, modeButtons, practiceButtons,
+    langButtons, modeButtons, practiceButtons, studyButtons,
     flush: (ms) => new Promise(r => realSetTimeout(r, ms || 50)),
     // Siivous: pysäyttää sovelluksen jäljellä olevat ajastimet
     dispose() { timers.forEach(h => realClearTimeout(h)); timers.clear(); }

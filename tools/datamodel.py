@@ -3,13 +3,16 @@
 Rakenne (kansio data/):
   meta.json              versio, kielet, muutosloki
   concepts.json          kielestä riippumattomat käsitteet: id, fi (suomen kehote),
-                         cat (koulutilan teema), also (lisäteemat), en_ref (vain
-                         käsitteille, joilla ei ole englannin muotoa: viite)
+                         cat (koulutilan teema; puuttuu = vain itseopiskelussa),
+                         also (lisäteemat), pos (n/v/adj/adv/pron/prep/conj/num/
+                         interj/phrase), en_ref (viite, jos ei englannin muotoa)
   forms/<kieli>.json     kielikohtaiset muodot käsitteelle: text (hyväksytyt vastaukset
                          " / " eroteltuna), pl (monikko), fi (kielikohtainen kehote, jos
-                         yhteinen suomen kehote ei sovi tälle kielelle)
+                         yhteinen suomen kehote ei sovi tälle kielelle); taivutus:
+                         substantiivi def (määräinen yks.), verbi pres/pret/sup,
+                         adjektiivi neut/apl (ett-muoto, monikko)
   school.json            koulutila: luokka-asteet, kielten aloitusluokat, teemat
-  self.json              itseopiskelutila: CEFR-tasot ja aihepiirit (luonnos)
+  self.json              itseopiskelutila: CEFR-tasot, aihepiirit ja niiden käsitteet
   sentences/<kieli>.json virkkeet: id, grade (koulutila), level (itseopiskelu, myöh.),
                          text, fi, alt, theme
 
@@ -21,6 +24,7 @@ import json
 from pathlib import Path
 
 LANGS = ["en", "de", "sv"]
+INFL = ("def", "pres", "pret", "sup", "neut", "apl")
 
 
 def _load(p):
@@ -56,7 +60,10 @@ def to_legacy(m):
         elif c.get("en_ref"):
             w["en"] = c["en_ref"]
         w["fi"] = c["fi"]
-        w["category"] = c["cat"]
+        if c.get("cat"):
+            w["category"] = c["cat"]
+        else:
+            w["self_only"] = True  # vain itseopiskelutilassa
         for lang in m["meta"]["languages"]:
             f = m["forms"][lang].get(c["id"])
             if not f:
@@ -67,9 +74,14 @@ def to_legacy(m):
                 w[f"{lang}_pl"] = f["pl"]
             if f.get("fi"):
                 w[f"fi_{lang}"] = f["fi"]
+            infl = {k: f[k] for k in INFL if f.get(k)}
+            if infl:
+                w[f"{lang}_infl"] = infl
         if c.get("also"):
             w["also"] = c["also"]
-        if not en:
+        if c.get("pos"):
+            w["pos"] = c["pos"]
+        if not en and c.get("cat"):
             w["de_only"] = True  # vanha lippu: ei englannin muotoa
         words.append(w)
     meta = dict(m["meta"].get("legacy_meta", {}))
@@ -89,6 +101,17 @@ def to_legacy(m):
     return vocab, sd
 
 
+def to_self_data(m):
+    """Itseopiskelutilan rakenne sovellukselle: SELF_DATA {languages, levels, topics}."""
+    s = m["self"]
+    return {
+        "languages": s.get("languages", []),
+        "levels": [{"id": l["id"], "name_fi": l["name_fi"], "goal_fi": l.get("goal_fi", "")} for l in s["levels"]],
+        "topics": [{"id": t["id"], "name_fi": t["name_fi"], "level": t["level"], "concepts": t["concepts"]}
+                   for t in s["topics"]],
+    }
+
+
 def validate(m):
     """Mallin rakenteelliset tarkistukset. Palauttaa (virheet, varoitukset)."""
     err, warn = [], []
@@ -100,7 +123,7 @@ def validate(m):
     for c in m["concepts"]:
         if not c.get("fi"):
             err.append(f"{c['id']}: fi puuttuu")
-        if c.get("cat") not in cats:
+        if c.get("cat") is not None and c["cat"] not in cats:
             err.append(f"{c['id']}: tuntematon teema {c.get('cat')}")
         for a in c.get("also", []):
             if a not in cats:
@@ -123,29 +146,20 @@ def validate(m):
             if s.get("theme") and s["theme"] not in cats:
                 err.append(f"sentences/{lang} {s['id']}: tuntematon teema {s['theme']}")
     levels = {l["id"] for l in m["self"]["levels"]}
-    seen = {}
+    in_self = set()
     for t in m["self"]["topics"]:
         if t["level"] not in levels:
             err.append(f"self {t['id']}: tuntematon taso {t['level']}")
-        for c in t.get("from_categories", []):
-            if c not in cats:
-                err.append(f"self {t['id']}: tuntematon teema {c}")
-            if c in seen:
-                warn.append(f"self: teema {c} kahdessa aihepiirissä ({seen[c]}, {t['id']})")
-            seen[c] = t["id"]
-        for cid in t.get("add", []) + t.get("exclude", []):
+        if len(t["concepts"]) != len(set(t["concepts"])):
+            err.append(f"self {t['id']}: sama käsite kahdesti")
+        for cid in t["concepts"]:
             if cid not in idset:
                 err.append(f"self {t['id']}: tuntematon käsite {cid}")
+        in_self.update(t["concepts"])
+    for c in m["concepts"]:
+        if not c.get("cat") and c["id"] not in in_self:
+            err.append(f"{c['id']}: ei koulun teemaa eikä itseopiskelun aihepiiriä")
     return err, warn
-
-
-def self_topic_concepts(m, topic):
-    """Itseopiskelun aihepiirin käsitteet: teemoista + lisätyt - poistetut."""
-    src = set(topic.get("from_categories", []))
-    ex = set(topic.get("exclude", []))
-    out = [c["id"] for c in m["concepts"] if c["cat"] in src and c["id"] not in ex]
-    out += [a for a in topic.get("add", []) if a not in out]
-    return out
 
 
 def dump_lines(obj_key, items, path, meta=None):

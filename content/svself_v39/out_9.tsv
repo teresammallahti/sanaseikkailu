@@ -1,0 +1,556 @@
+topic	id	fi	sv	pos	en	pl	def	pres	pret	sup	neut	apl
+b1_culture		taide	konst	n	art	-	konsten					
+b1_culture	people_4_artist	taiteilija	en konstnär	n	artist	konstnärer	konstnären					
+b1_culture	people_4_writer	kirjailija	en författare	n	writer	författare	författaren					
+b1_culture		romaani	en roman	n	novel	romaner	romanen					
+b1_culture		runo	en dikt	n	poem	dikter	dikten					
+b1_culture		runoilija	en poet	n	poet	poeter	poeten					
+b1_culture		elokuvaohjaaja / ohjaaja	en regissör	n	film director	regissörer	regissören					
+b1_culture	culture_8_tradition	perinne	en tradition	n	tradition	traditioner	traditionen					
+b1_culture		juhlapyhä / juhla (vuotuinen)	en högtid	n	holiday	högtider	högtiden					
+b1_culture	school_subjects_re	uskonto	en religion	n	religion	religioner	religionen					
+b1_culture	school_subjects_history	historia	historia	n	history	-	historien					
+b1_culture		kulttuuri	en kultur	n	culture	kulturer	kulturen					
+b1_culture		kulttuurinen	kulturell	adj	cultural						kulturellt	kulturella
+b1_culture		monikulttuurinen	mångkulturell	adj	multicultural						mångkulturellt	mångkulturella
+b1_culture		taideteos	ett konstverk	n	work of art	konstverk	konstverket					
+b1_culture		teos	ett verk	n	work	verk	verket					
+b1_culture		maalaus	en målning	n	painting	målningar	målningen					
+b1_culture		veistos	en skulptur	n	sculpture	skulpturer	skulpturen					
+b1_culture		galleria	ett galleri	n	gallery	gallerier	galleriet					
+b1_culture		säveltäjä	en kompositör	n	composer	kompositörer	kompositören					
+b1_culture		säveltää	komponera	v	compose			komponerar	komponerade	komponerat		
+b1_culture		orkesteri	en orkester	n	orchestra	orkestrar	orkestern					
+b1_culture		kuoro	en kör	n	choir	körer	kören					
+b1_culture		ooppera	en opera	n	opera	operor	operan					
+b1_culture	koe1_4_ballet	baletti	en balett	n	ballet	baletter	baletten					
+b1_culture		näytelmä	en pjäs	n	play	pjäser	pjäsen					
+b1_culture		esitys	en föreställning	n	performance	föreställningar	föreställningen					
+b1_culture		esiintyä	uppträda	v	perform			uppträder	uppträdde	uppträtt		
+b1_culture		ohjata (elokuva tai näytelmä)	regissera	v	direct			regisserar	regisserade	regisserat		
+b1_culture	hobbies_4_stage	näyttämö / lava	en scen	n	stage	scener	scenen					
+b1_culture		yleisö	en publik	n	audience	-	publiken					
+b1_culture		kirjallisuus	litteratur	n	literature	-	litteraturen					
+b1_culture		novelli	en novell	n	short story	noveller	novellen					
+b1_culture	school_4_main_character	päähenkilö	en huvudperson	n	main character	huvudpersoner	huvudpersonen					
+b1_culture		juoni	en handling	n	plot	handlingar	handlingen					
+b1_culture		lukija	en läsare	n	reader	läsare	läsaren					
+b1_culture		arvostelu / kritiikki	en recension	n	review	recensioner	recensionen					
+b1_culture		laulun sanat / sanoitus	en sångtext	n	lyrics	sångtexter	sångtexten					
+b1_culture		kansanmusiikki	folkmusik	n	folk music	-	folkmusiken					
+b1_culture		arkkitehtuuri	arkitektur	n	architecture	-	arkitekturen					
+b1_culture		arkkitehti	en arkitekt	n	architect	arkitekter	arkitekten					
+b1_culture		valokuvaaja	en fotograf	n	photographer	fotografer	fotografen					
+b1_culture		muotoilu / design	design	n	design	-	designen					
+b1_culture		käsityö (taito)	ett hantverk	n	handicraft	hantverk	hantverket					
+b1_culture		tyyli	en stil	n	style	stilar	stilen					
+b1_culture		luovuus	kreativitet	n	creativity	-	kreativiteten					
+b1_culture		inspiraatio	inspiration	n	inspiration	-	inspirationen					
+b1_culture		taiteellinen	konstnärlig	adj	artistic						konstnärligt	konstnärliga
+b1_culture		perinteinen	traditionell	adj	traditional						traditionellt	traditionella
+b1_culture		historiallinen	historisk	adj	historical						historiskt	historiska
+b1_culture	adjectives_ancient	muinainen / ikivanha	forntida / uråldrig	adj	ancient						forntida	forntida
+b1_culture		kulttuuriperintö	ett kulturarv	n	cultural heritage	kulturarv	kulturarvet					
+b1_culture		tapa (kulttuurinen) / tapakulttuuri	en sed	n	custom	seder	seden					
+b1_culture		myytti	en myt	n	myth	myter	myten					
+b1_culture		muistomerkki	ett monument	n	monument	monument	monumentet					
+b1_culture		vuosisata	ett århundrade / ett sekel	n	century	århundraden	århundradet					
+b1_culture		vuosikymmen	ett decennium	n	decade	decennier	decenniet					
+b1_culture		aikakausi	en epok	n	era	epoker	epoken					
+b1_culture		keskiaika	medeltiden	n	Middle Ages	-	medeltiden					
+b1_culture		sota	ett krig	n	war	krig	kriget					
+b1_culture		rauha	fred	n	peace	-	freden					
+b1_culture	fantasy_4_king	kuningas	en kung	n	king	kungar	kungen					
+b1_culture		kuningatar	en drottning	n	queen	drottningar	drottningen					
+b1_culture		kirkko	en kyrka	n	church	kyrkor	kyrkan					
+b1_culture		moskeija	en moské	n	mosque	moskéer	moskén					
+b1_culture		jumala	en gud	n	god	gudar	guden					
+b1_culture		pappi	en präst	n	priest	präster	prästen					
+b1_culture		kristinusko	kristendom	n	Christianity	-	kristendomen					
+b1_culture		uskonnollinen	religiös	adj	religious						religiöst	religiösa
+b1_culture		pyhä	helig	adj	holy						heligt	heliga
+b1_culture		rukoilla	be	v	pray			ber	bad	bett		
+b1_wellbeing		stressi	stress	n	stress	-	stressen					
+b1_wellbeing		stressaantunut	stressad	adj	stressed						stressat	stressade
+b1_wellbeing		uni (nukkuminen)	sömn	n	sleep	-	sömnen					
+b1_wellbeing		unettomuus	sömnlöshet	n	insomnia	-	sömnlösheten					
+b1_wellbeing		nukahtaa	somna	v	fall asleep			somnar	somnade	somnat		
+b1_wellbeing	sustainability_9_exercise	liikunta / kuntoilu	motion	n	exercise	-	motionen					
+b1_wellbeing		kuntoilla / liikkua (kuntoillen)	motionera	v	exercise			motionerar	motionerade	motionerat		
+b1_wellbeing		kunto (fyysinen)	kondition	n	fitness	-	konditionen					
+b1_wellbeing		venytellä	stretcha	v	stretch			stretchar	stretchade	stretchat		
+b1_wellbeing		lihas	en muskel	n	muscle	muskler	muskeln					
+b1_wellbeing		hengittää	andas	v	breathe			andas	andades	andats		
+b1_wellbeing		hengitys	andning	n	breathing	-	andningen					
+b1_wellbeing		ravinto	näring	n	nutrition	-	näringen					
+b1_wellbeing		ruokavalio	kost	n	diet	-	kosten					
+b1_wellbeing		vitamiini	ett vitamin	n	vitamin	vitaminer	vitaminet					
+b1_wellbeing		proteiini	protein	n	protein	-	proteinet					
+b1_wellbeing		kalori	en kalori	n	calorie	kalorier	kalorin					
+b1_wellbeing		rasva	fett	n	fat	-	fettet					
+b1_wellbeing		kasvissyöjä	en vegetarian	n	vegetarian	vegetarianer	vegetarianen					
+b1_wellbeing		paino	en vikt	n	weight	vikter	vikten					
+b1_wellbeing		ylipaino	övervikt	n	overweight	-	övervikten					
+b1_wellbeing		laihduttaa	banta	v	diet			bantar	bantade	bantat		
+b1_wellbeing		lihoa	gå upp i vikt	v	gain weight			går upp i vikt	gick upp i vikt	gått upp i vikt		
+b1_wellbeing		laihtua	gå ner i vikt	v	lose weight			går ner i vikt	gick ner i vikt	gått ner i vikt		
+b1_wellbeing	adj_4_healthy	terveellinen	hälsosam	adj	healthy						hälsosamt	hälsosamma
+b1_wellbeing		epäterveellinen	ohälsosam	adj	unhealthy						ohälsosamt	ohälsosamma
+b1_wellbeing		hyvinvointi	välbefinnande	n	well-being	-	välbefinnandet					
+b1_wellbeing		elämänlaatu	livskvalitet	n	quality of life	-	livskvaliteten					
+b1_wellbeing	sustainability_9_lifestyle	elämäntapa / elintavat	en livsstil	n	lifestyle	livsstilar	livsstilen					
+b1_wellbeing	sustainability_9_habit	tottumus / tapa (tottumus)	en vana	n	habit	vanor	vanan					
+b1_wellbeing	sustainability_9_screen_time	ruutuaika	skärmtid	n	screen time	-	skärmtiden					
+b1_wellbeing		tasapaino	en balans	n	balance	-	balansen					
+b1_wellbeing		jaksaa	orka	v	have the energy			orkar	orkade	orkat		
+b1_wellbeing		rentoutua	koppla av / slappna av	v	relax			kopplar av	kopplade av	kopplat av		
+b1_wellbeing		rentoutuminen	avkoppling	n	relaxation	-	avkopplingen					
+b1_wellbeing		lepo	vila	n	rest	-	vilan					
+b1_wellbeing		meditoida	meditera	v	meditate			mediterar	mediterade	mediterat		
+b1_wellbeing	sustainability_9_mental_health	mielenterveys	psykisk hälsa	n	mental health	-	den psykiska hälsan					
+b1_wellbeing		masennus	depression	n	depression	-	depressionen					
+b1_wellbeing		masentunut	deprimerad	adj	depressed						deprimerat	deprimerade
+b1_wellbeing		ahdistus	ångest	n	anxiety	-	ångesten					
+b1_wellbeing		loppuunpalaminen / työuupumus	utbrändhet	n	burnout	-	utbrändheten					
+b1_wellbeing		loppuunpalanut / uupunut	utbränd	adj	burnt out						utbränt	utbrända
+b1_wellbeing		yksinäisyys	ensamhet	n	loneliness	-	ensamheten					
+b1_wellbeing		mieliala	ett humör	n	mood	humör	humöret					
+b1_wellbeing		itsetunto	självkänsla	n	self-esteem	-	självkänslan					
+b1_wellbeing		psykologi	en psykolog	n	psychologist	psykologer	psykologen					
+b1_wellbeing		terapia	en terapi	n	therapy	terapier	terapin					
+b1_wellbeing		rokotus	en vaccination	n	vaccination	vaccinationer	vaccinationen					
+b1_wellbeing		rokote	ett vaccin	n	vaccine	vaccin	vaccinet					
+b1_wellbeing		rokottaa	vaccinera	v	vaccinate			vaccinerar	vaccinerade	vaccinerat		
+b1_wellbeing		hoito	en behandling	n	treatment	behandlingar	behandlingen					
+b1_wellbeing		hoitaa (sairautta tai potilasta)	behandla	v	treat			behandlar	behandlade	behandlat		
+b1_wellbeing		leikkaus (lääketieteellinen)	en operation	n	operation	operationer	operationen					
+b1_wellbeing		leikata (lääketieteellisesti)	operera	v	operate			opererar	opererade	opererat		
+b1_wellbeing		toipua	återhämta sig	v	recover			återhämtar sig	återhämtade sig	återhämtat sig		
+b1_wellbeing		toipuminen	återhämtning	n	recovery	-	återhämtningen					
+b1_wellbeing		diagnoosi	en diagnos	n	diagnosis	diagnoser	diagnosen					
+b1_wellbeing		sivuvaikutus	en biverkning	n	side effect	biverkningar	biverkningen					
+b1_wellbeing		annos (lääkettä)	en dos	n	dose	doser	dosen					
+b1_wellbeing		krooninen	kronisk	adj	chronic						kroniskt	kroniska
+b1_wellbeing		infektio / tulehdus	en infektion	n	infection	infektioner	infektionen					
+b1_wellbeing		virus	ett virus	n	virus	virus	viruset					
+b1_wellbeing		bakteeri	en bakterie	n	bacterium	bakterier	bakterien					
+b1_wellbeing		tartuttaa	smitta	v	infect			smittar	smittade	smittat		
+b1_wellbeing		tarttuva	smittsam	adj	contagious						smittsamt	smittsamma
+b1_wellbeing		vastustuskyky / immuunijärjestelmä	ett immunförsvar	n	immune system	immunförsvar	immunförsvaret					
+b1_wellbeing		ehkäistä / ennaltaehkäistä	förebygga	v	prevent			förebygger	förebyggde	förebyggt		
+b1_wellbeing		verenpaine	ett blodtryck	n	blood pressure	blodtryck	blodtrycket					
+b1_wellbeing		sydänkohtaus	en hjärtattack / en hjärtinfarkt	n	heart attack	hjärtattacker	hjärtattacken					
+b1_wellbeing		aivot	en hjärna	n	brain	hjärnor	hjärnan					
+b1_wellbeing		alkoholi	alkohol	n	alcohol	-	alkoholen					
+b1_wellbeing		tupakoida	röka	v	smoke			röker	rökte	rökt		
+b1_wellbeing		tupakointi	rökning	n	smoking	-	rökningen					
+b1_wellbeing		riippuvuus	ett beroende	n	addiction	beroenden	beroendet					
+b1_wellbeing		huume	en drog	n	drug	droger	drogen					
+b1_wellbeing		terveydenhuolto	sjukvård	n	health care	-	sjukvården					
+b1_law		oikeus (oikeudet)	en rättighet	n	right	rättigheter	rättigheten					
+b1_law		tuomioistuin / oikeus (instituutio)	en domstol	n	court	domstolar	domstolen					
+b1_law		oikeudenmukaisuus	rättvisa	n	justice	-	rättvisan					
+b1_law	connectors_9_fair	oikeudenmukainen / reilu	rättvis	adj	fair						rättvist	rättvisa
+b1_law		poliisiasema	en polisstation	n	police station	polisstationer	polisstationen					
+b1_law		rikos	ett brott	n	crime	brott	brottet					
+b1_law		rikollinen	en brottsling	n	criminal	brottslingar	brottslingen					
+b1_law	people_4_thief	varas	en tjuv	n	thief	tjuvar	tjuven					
+b1_law		varastaa	stjäla	v	steal			stjäl	stal	stulit		
+b1_law		varkaus	en stöld	n	theft	stölder	stölden					
+b1_law		murto	ett inbrott	n	burglary	inbrott	inbrottet					
+b1_law		murtautua	bryta sig in	v	break in			bryter sig in	bröt sig in	brutit sig in		
+b1_law		ryöstö	ett rån	n	robbery	rån	rånet					
+b1_law		ryöstää	råna	v	rob			rånar	rånade	rånat		
+b1_law		murha	ett mord	n	murder	mord	mordet					
+b1_law		väkivalta	våld	n	violence	-	våldet					
+b1_law		uhri	ett offer	n	victim	offer	offret					
+b1_law		petos	ett bedrägeri	n	fraud	bedrägerier	bedrägeriet					
+b1_law		huijata	lura	v	trick			lurar	lurade	lurat		
+b1_law		uhka	ett hot	n	threat	hot	hotet					
+b1_law		uhata	hota	v	threaten			hotar	hotade	hotat		
+b1_law		todistaja	ett vittne	n	witness	vittnen	vittnet					
+b1_law		todistaa (oikeudessa)	vittna	v	testify			vittnar	vittnade	vittnat		
+b1_law		todiste	ett bevis	n	evidence	bevis	beviset					
+b1_law		oikeudenkäynti	en rättegång	n	trial	rättegångar	rättegången					
+b1_law		tuomari (oikeudessa)	en domare	n	judge	domare	domaren					
+b1_law		syyttäjä	en åklagare	n	prosecutor	åklagare	åklagaren					
+b1_law	work_8_lawyer	asianajaja / lakimies	en advokat / en jurist	n	lawyer	advokater	advokaten					
+b1_law		tuomio	en dom	n	sentence	domar	domen					
+b1_law		tuomita	döma	v	sentence			dömer	dömde	dömt		
+b1_law		syyllinen	skyldig	adj	guilty						skyldigt	skyldiga
+b1_law		syytön	oskyldig	adj	innocent						oskyldigt	oskyldiga
+b1_law		syyttää	anklaga	v	accuse			anklagar	anklagade	anklagat		
+b1_law		epäillä (rikoksesta)	misstänka	v	suspect			misstänker	misstänkte	misstänkt		
+b1_law		pidättää / ottaa kiinni (poliisi)	gripa	v	arrest			griper	grep	gripit		
+b1_law		vankila	ett fängelse	n	prison	fängelser	fängelset					
+b1_law		rangaistus	ett straff	n	punishment	straff	straffet					
+b1_law		rangaista	straffa	v	punish			straffar	straffade	straffat		
+b1_law		sakko / sakot	böter	n	fine	-	böterna					
+b1_law		rikosilmoitus	en polisanmälan	n	police report	polisanmälningar	polisanmälan					
+b1_law		ilmoittaa (poliisille) / tehdä ilmoitus	anmäla	v	report			anmäler	anmälde	anmält		
+b1_law		sopimus	ett avtal / ett kontrakt	n	contract	avtal	avtalet					
+b1_law		vastuu	ansvar	n	responsibility	-	ansvaret					
+b1_law	connectors_9_responsible	vastuussa / vastuullinen	ansvarig	adj	responsible						ansvarigt	ansvariga
+b1_law		laillinen	laglig	adj	legal						lagligt	lagliga
+b1_law		laiton	olaglig	adj	illegal						olagligt	olagliga
+b1_law		kieltää (laissa tai säännöllä)	förbjuda	v	forbid			förbjuder	förbjöd	förbjudit		
+b1_law		kielletty	förbjuden	adj	forbidden						förbjudet	förbjudna
+b1_law	verbs1_4_let	sallia	tillåta	v	allow			tillåter	tillät	tillåtit		
+b1_law		lupa (virallinen)	ett tillstånd	n	permit	tillstånd	tillståndet					
+b1_law		turvallisuus	säkerhet	n	safety	-	säkerheten					
+b1_law	general_4_warning	varoitus	en varning	n	warning	varningar	varningen					
+b1_law		varoittaa	varna	v	warn			varnar	varnade	varnat		
+b1_law		hätänumero	ett larmnummer / ett nödnummer	n	emergency number	larmnummer	larmnumret					
+b1_law		hätätilanne	en nödsituation	n	emergency	nödsituationer	nödsituationen					
+b1_law		hälytys	ett larm	n	alarm	larm	larmet					
+b1_law	nature_4_fire	tulipalo / palo	en brand	n	fire	bränder	branden					
+b1_law		palokunta / pelastuslaitos	en brandkår / en räddningstjänst	n	fire brigade	brandkårer	brandkåren					
+b1_law		palovaroitin	en brandvarnare	n	smoke alarm	brandvarnare	brandvarnaren					
+b1_law		sammutin	en brandsläckare	n	fire extinguisher	brandsläckare	brandsläckaren					
+b1_law		ambulanssi	en ambulans	n	ambulance	ambulanser	ambulansen					
+b1_law		ensiapu	första hjälpen	n	first aid	-	första hjälpen					
+b1_law		onnettomuus	en olycka	n	accident	olyckor	olyckan					
+b1_law		liikenneonnettomuus	en trafikolycka	n	traffic accident	trafikolyckor	trafikolyckan					
+b1_law		loukkaantua / loukata itsensä	skada sig	v	get hurt			skadar sig	skadade sig	skadat sig		
+b1_law		loukkaantunut	skadad	adj	injured						skadat	skadade
+b1_law		pelastaa (hengen)	rädda	v	rescue			räddar	räddade	räddat		
+b1_law		vartija	en väktare	n	security guard	väktare	väktaren					
+b1_law		valvontakamera	en övervakningskamera	n	surveillance camera	övervakningskameror	övervakningskameran					
+b1_life		syntyä	födas	v	be born			föds	föddes	fötts		
+b1_life		syntymä	en födelse	n	birth	födslar	födelsen					
+b1_life		synnyttää	föda	v	give birth			föder	födde	fött		
+b1_life		raskaana	gravid	adj	pregnant						gravidt	gravida
+b1_life		odottaa lasta	vänta barn	v	be expecting			väntar barn	väntade barn	väntat barn		
+b1_life	verbs1_4_grow	kasvaa (elävä olento)	växa	v	grow			växer	växte	vuxit		
+b1_life	verbs1_4_grow_up	kasvaa aikuiseksi / varttua	växa upp	v	grow up			växer upp	växte upp	vuxit upp		
+b1_life		aikuistua	bli vuxen	v	become an adult			blir vuxen	blev vuxen	blivit vuxen		
+b1_life		lapsuus	barndom	n	childhood	-	barndomen					
+b1_life		nuoruus	ungdom	n	youth	-	ungdomen					
+b1_life		murrosikä	pubertet	n	puberty	-	puberteten					
+b1_life		teini / teini-ikäinen	en tonåring	n	teenager	tonåringar	tonåringen					
+b1_life		keski-ikä	medelålder	n	middle age	-	medelåldern					
+b1_life		vanhuus	ålderdom	n	old age	-	ålderdomen					
+b1_life		ikääntyä / vanheta	åldras	v	age			åldras	åldrades	åldrats		
+b1_life		eläkeläinen	en pensionär	n	pensioner	pensionärer	pensionären					
+b1_life		jäädä eläkkeelle	gå i pension	v	retire			går i pension	gick i pension	gått i pension		
+b1_life		elämänvaihe	en livsfas	n	stage of life	livsfaser	livsfasen					
+b1_life		sukupolvi	en generation	n	generation	generationer	generationen					
+b1_life		vanhemmuus	föräldraskap	n	parenthood	-	föräldraskapet					
+b1_life		vanhempainvapaa	föräldraledighet	n	parental leave	-	föräldraledigheten					
+b1_life		kasvattaa (lasta)	uppfostra	v	bring up			uppfostrar	uppfostrade	uppfostrat		
+b1_life		kasvatus	uppfostran	n	upbringing	-	uppfostran					
+b1_life		adoptoida	adoptera	v	adopt			adopterar	adopterade	adopterat		
+b1_life		yksinhuoltaja	en ensamstående förälder	n	single parent	ensamstående föräldrar	den ensamstående föräldern					
+b1_life		uusperhe	en bonusfamilj	n	blended family	bonusfamiljer	bonusfamiljen					
+b1_life		kaste / ristiäiset	ett dop	n	baptism	dop	dopet					
+b1_life		rippijuhla / konfirmaatio	en konfirmation	n	confirmation	konfirmationer	konfirmationen					
+b1_life		muuttaa pois kotoa	flytta hemifrån	v	move out			flyttar hemifrån	flyttade hemifrån	flyttat hemifrån		
+b1_life		itsenäinen	självständig	adj	independent						självständigt	självständiga
+b1_life		sinkku	en singel	n	single	singlar	singeln					
+b1_life		rakastua	bli kär	v	fall in love			blir kär	blev kär	blivit kär		
+b1_life		rakastunut / ihastunut	kär	adj	in love						kärt	kära
+b1_life	relationships_7_relationship	ihmissuhde	en relation	n	relationship	relationer	relationen					
+b1_life		parisuhde	ett förhållande	n	relationship	förhållanden	förhållandet					
+b1_life		kihlautua	förlova sig	v	get engaged			förlovar sig	förlovade sig	förlovat sig		
+b1_life		kihlaus	en förlovning	n	engagement	förlovningar	förlovningen					
+b1_life		avioliitto	ett äktenskap	n	marriage	äktenskap	äktenskapet					
+b1_life		morsian	en brud	n	bride	brudar	bruden					
+b1_life		sulhanen	en brudgum	n	bridegroom	brudgummar	brudgummen					
+b1_life		anoppi	en svärmor	n	mother-in-law	svärmödrar	svärmodern					
+b1_life		appi	en svärfar	n	father-in-law	svärfäder	svärfadern					
+b1_life		olla uskoton	vara otrogen	v	be unfaithful			är otrogen	var otrogen	varit otrogen		
+b1_life		avioero	en skilsmässa	n	divorce	skilsmässor	skilsmässan					
+b1_life		erota (avioliitosta)	skilja sig	v	get divorced			skiljer sig	skilde sig	skilt sig		
+b1_life		erota (parisuhteesta) / lopettaa suhde	göra slut	v	break up			gör slut	gjorde slut	gjort slut		
+b1_life	relationships_7_trust	luottamus	ett förtroende	n	trust	förtroenden	förtroendet					
+b1_life		luottaa	lita på	v	trust			litar på	litade på	litat på		
+b1_life		riita	ett gräl / ett bråk	n	quarrel	gräl	grälet					
+b1_life	relationships_7_argue	riidellä	gräla / bråka	v	argue			grälar	grälade	grälat		
+b1_life		sopia riita / tehdä sovinto	bli sams / försonas	v	make up			blir sams	blev sams	blivit sams		
+b1_life		antaa anteeksi	förlåta	v	forgive			förlåter	förlät	förlåtit		
+b1_life		ystävyys	en vänskap	n	friendship	vänskaper	vänskapen					
+b1_life		tuki	ett stöd	n	support	stöd	stödet					
+b1_life		muisto	ett minne	n	memory	minnen	minnet					
+b1_life		muistella	minnas	v	remember			minns	mindes	mints		
+b1_life		vuosipäivä	en årsdag	n	anniversary	årsdagar	årsdagen					
+b1_life	verbs1_4_die	kuolla	dö	v	die			dör	dog	dött		
+b1_life		kuolema	död	n	death	-	döden					
+b1_life		hautajaiset	en begravning	n	funeral	begravningar	begravningen					
+b1_life		hauta	en grav	n	grave	gravar	graven					
+b1_life	verbs2_4_bury	haudata	begrava	v	bury			begraver	begravde	begravt		
+b1_life		surra	sörja	v	grieve			sörjer	sörjde	sörjt		
+b1_life		suru	en sorg	n	grief	sorger	sorgen					
+b1_life		leski (nainen)	en änka	n	widow	änkor	änkan					
+b1_life		perintö	ett arv	n	inheritance	arv	arvet					
+b1_abstract		tilanne	en situation	n	situation	situationer	situationen					
+b1_abstract		mahdollisuus	en möjlighet	n	possibility	möjligheter	möjligheten					
+b1_abstract	general_4_problem	ongelma	ett problem	n	problem	problem	problemet					
+b1_abstract		ratkaisu	en lösning	n	solution	lösningar	lösningen					
+b1_abstract		syy	en orsak / en anledning	n	cause	orsaker	orsaken					
+b1_abstract		seuraus	en konsekvens / en följd	n	consequence	konsekvenser	konsekvensen					
+b1_abstract	future_goal	tavoite / päämäärä	ett mål	n	goal	mål	målet					
+b1_abstract		kehitys	en utveckling	n	development	-	utvecklingen					
+b1_abstract		vaikutus	en effekt / en påverkan	n	effect	effekter	effekten					
+b1_abstract		ero (eroavaisuus)	en skillnad	n	difference	skillnader	skillnaden					
+b1_abstract		muutos	en förändring	n	change	förändringar	förändringen					
+b1_abstract		yhteys (asioiden välinen) / suhde	ett samband	n	connection	samband	sambandet					
+b1_abstract		merkitys	en betydelse	n	meaning	betydelser	betydelsen					
+b1_abstract		tarkoitus	ett syfte	n	purpose	syften	syftet					
+b1_abstract	future_decision	päätös	ett beslut	n	decision	beslut	beslutet					
+b1_abstract	future_future	tulevaisuus	en framtid	n	future	-	framtiden					
+b1_abstract	general_4_thought	ajatus	en tanke	n	thought	tankar	tanken					
+b1_abstract	general_4_choice	valinta	ett val	n	choice	val	valet					
+b1_abstract		vaihtoehto	ett alternativ	n	alternative	alternativ	alternativet					
+b1_abstract	general_4_event	tapahtuma	en händelse	n	event	händelser	händelsen					
+b1_abstract	education_9_knowledge	tietämys / tieto (osaaminen)	kunskap	n	knowledge	kunskaper	kunskapen					
+b1_abstract		tieto (informaatio)	information	n	information	-	informationen					
+b1_abstract		tosiasia	ett faktum	n	fact	fakta	faktumet					
+b1_abstract		totuus	en sanning	n	truth	sanningar	sanningen					
+b1_abstract		valhe	en lögn	n	lie	lögner	lögnen					
+b1_abstract		peruste	ett skäl	n	reason	skäl	skälet					
+b1_abstract		edellytys	en förutsättning	n	prerequisite	förutsättningar	förutsättningen					
+b1_abstract		etu	en fördel	n	advantage	fördelar	fördelen					
+b1_abstract		haitta	en nackdel	n	disadvantage	nackdelar	nackdelen					
+b1_abstract		riski	en risk	n	risk	risker	risken					
+b1_abstract		haaste	en utmaning	n	challenge	utmaningar	utmaningen					
+b1_abstract		menestys	en framgång	n	success	framgångar	framgången					
+b1_abstract		epäonnistuminen	ett misslyckande	n	failure	misslyckanden	misslyckandet					
+b1_abstract		yritys (yrittäminen)	ett försök	n	attempt	försök	försöket					
+b1_abstract		vapaus	en frihet	n	freedom	friheter	friheten					
+b1_abstract		arvo	ett värde	n	value	värden	värdet					
+b1_abstract		laatu	en kvalitet	n	quality	kvaliteter	kvaliteten					
+b1_abstract		määrä	en mängd	n	amount	mängder	mängden					
+b1_abstract		osuus	en andel	n	share	andelar	andelen					
+b1_abstract		taso	en nivå	n	level	nivåer	nivån					
+b1_abstract		muoto	en form	n	form	former	formen					
+b1_abstract		rakenne	en struktur	n	structure	strukturer	strukturen					
+b1_abstract		järjestelmä	ett system	n	system	system	systemet					
+b1_abstract		prosessi	en process	n	process	processer	processen					
+b1_abstract		menetelmä	en metod	n	method	metoder	metoden					
+b1_abstract		tapa (tehdä jotain) / keino	ett sätt	n	way	sätt	sättet					
+b1_abstract		tarve	ett behov	n	need	behov	behovet					
+b1_abstract		kiinnostus	ett intresse	n	interest	intressen	intresset					
+b1_abstract		huomio	uppmärksamhet	n	attention	-	uppmärksamheten					
+b1_abstract		käsite	ett begrepp	n	concept	begrepp	begreppet					
+b1_abstract		näkökulma	ett perspektiv	n	perspective	perspektiv	perspektivet					
+b1_abstract		asenne	en inställning / en attityd	n	attitude	inställningar	inställningen					
+b1_abstract		ymmärrys	förståelse	n	understanding	-	förståelsen					
+b1_abstract		tietoisuus	medvetenhet	n	awareness	-	medvetenheten					
+b1_abstract		todellisuus	en verklighet	n	reality	verkligheter	verkligheten					
+b1_abstract		periaate	en princip	n	principle	principer	principen					
+b1_abstract	general_4_rule	sääntö	en regel	n	rule	regler	regeln					
+b1_abstract		perusta / pohja	en grund	n	basis	grunder	grunden					
+b1_abstract		tausta	en bakgrund	n	background	bakgrunder	bakgrunden					
+b1_abstract		ehto	ett villkor	n	condition	villkor	villkoret					
+b1_abstract		aihe	ett ämne	n	topic	ämnen	ämnet					
+b1_abstract		tapaus	ett fall	n	case	fall	fallet					
+b1_abstract		tilaisuus	ett tillfälle	n	opportunity	tillfällen	tillfället					
+b1_abstract		tehtävä (vastuu)	en uppgift	n	task	uppgifter	uppgiften					
+b1_abstract		rooli	en roll	n	role	roller	rollen					
+b1_abstract		edistysaskel / edistys	ett framsteg	n	progress	framsteg	framsteget					
+b1_abstract		lisääntyminen / kasvu	en ökning	n	increase	ökningar	ökningen					
+b1_abstract		väheneminen / lasku	en minskning	n	decrease	minskningar	minskningen					
+b1_abstract		vaikeus	en svårighet	n	difficulty	svårigheter	svårigheten					
+b1_abstract		epäilys	ett tvivel	n	doubt	tvivel	tvivlet					
+b1_abstract		toivo	hopp	n	hope	-	hoppet					
+b1_abstract		pelko	en rädsla	n	fear	rädslor	rädslan					
+b1_abstract		voima	en kraft	n	force	krafter	kraften					
+b1_abstract		valta	makt	n	power	-	makten					
+b1_abstract		hetki	ett ögonblick	n	moment	ögonblick	ögonblicket					
+b1_abstract		jakso / kausi	en period	n	period	perioder	perioden					
+b1_abstract		vaihe	en fas / ett skede	n	phase	faser	fasen					
+b1_abstract		kokonaisuus	en helhet	n	whole	helheter	helheten					
+b1_abstract		yksityiskohta	en detalj	n	detail	detaljer	detaljen					
+b1_abstract		ominaisuus	en egenskap	n	characteristic	egenskaper	egenskapen					
+b1_abstract		tyyppi	en typ	n	type	typer	typen					
+b1_abstract		laji (tyyppi) / sorte	en sort	n	kind	sorter	sorten					
+b1_abstract		merkki (osoitus jostakin)	ett tecken	n	sign	tecken	tecknet					
+b1_abstract		selitys	en förklaring	n	explanation	förklaringar	förklaringen					
+b1_abstract		kuvaus	en beskrivning	n	description	beskrivningar	beskrivningen					
+b1_abstract		vertailu	en jämförelse	n	comparison	jämförelser	jämförelsen					
+b1_abstract		yhteistyö	ett samarbete	n	cooperation	samarbeten	samarbetet					
+b1_abstract		konflikti	en konflikt	n	conflict	konflikter	konflikten					
+b1_abstract		kompromissi	en kompromiss	n	compromise	kompromisser	kompromissen					
+b1_abstract		yhteisö	en gemenskap	n	community	gemenskaper	gemenskapen					
+b1_abstract		identiteetti	en identitet	n	identity	identiteter	identiteten					
+b1_abstract		persoonallisuus	en personlighet	n	personality	personligheter	personligheten					
+b1_abstract		käyttäytyminen	ett beteende	n	behaviour	beteenden	beteendet					
+b1_abstract		vastakohta	en motsats	n	opposite	motsatser	motsatsen					
+b1_abstract		samankaltaisuus	en likhet	n	similarity	likheter	likheten					
+b1_abstract	connectors_9_necessary	välttämätön / tarpeellinen	nödvändig	adj	necessary						nödvändigt	nödvändiga
+b1_abstract		todellinen	verklig	adj	real						verkligt	verkliga
+b1_abstract		yleinen	allmän	adj	general						allmänt	allmänna
+b1_abstract		erityinen	särskild	adj	special						särskilt	särskilda
+b1_abstract		tietty	viss	adj	certain						visst	vissa
+b1_abstract		ilmeinen	uppenbar	adj	obvious						uppenbart	uppenbara
+b1_abstract		monimutkainen	komplicerad	adj	complicated						komplicerat	komplicerade
+b1_abstract		merkittävä	betydande	adj	significant						betydande	betydande
+b1_abstract		keskeinen	central	adj	central						centralt	centrala
+b1_abstract		riittävä	tillräcklig	adj	sufficient						tillräckligt	tillräckliga
+b1_abstract		mahdoton	omöjlig	adj	impossible						omöjligt	omöjliga
+b1_abstract		todennäköinen	sannolik	adj	likely						sannolikt	sannolika
+b1_abstract		myönteinen / positiivinen	positiv	adj	positive						positivt	positiva
+b1_abstract		kielteinen / negatiivinen	negativ	adj	negative						negativt	negativa
+b1_abstract		abstrakti	abstrakt	adj	abstract						abstrakt	abstrakta
+b1_abstract		konkreettinen	konkret	adj	concrete						konkret	konkreta
+b1_abstract		looginen	logisk	adj	logical						logiskt	logiska
+b1_abstract		tehokas	effektiv	adj	effective						effektivt	effektiva
+b1_verbs	opinions_8_agree	olla samaa mieltä (jonkun kanssa)	hålla med	v	agree			håller med	höll med	hållit med		
+b1_verbs	phrasal_9_give_up	luovuttaa / antaa periksi (lopullisesti)	ge upp	v	give up			ger upp	gav upp	gett upp		
+b1_verbs	relationships_7_get_along	tulla toimeen / sopia (jostakin)	komma överens	v	get along			kommer överens	kom överens	kommit överens		
+b1_verbs	phrasal_9_look_after	pitää huolta / huolehtia	ta hand om	v	take care of			tar hand om	tog hand om	tagit hand om		
+b1_verbs	phrasal_9_look_forward_to	odottaa innolla	se fram emot	v	look forward to			ser fram emot	såg fram emot	sett fram emot		
+b1_verbs	phrasal_9_find_out	selvittää / ottaa selvää	ta reda på	v	find out			tar reda på	tog reda på	tagit reda på		
+b1_verbs	phrasal_9_come_up_with	keksiä (idea) / tulla mieleen	komma på	v	come up with			kommer på	kom på	kommit på		
+b1_verbs		keksiä (juttu tai tekosyy)	hitta på	v	make up			hittar på	hittade på	hittat på		
+b1_verbs	phrasal_9_turn_off	sammuttaa / laittaa pois päältä	stänga av	v	turn off			stänger av	stängde av	stängt av		
+b1_verbs	phrasal_9_turn_on	laittaa päälle / käynnistää	sätta på	v	turn on			sätter på	satte på	satt på		
+b1_verbs		panna alulle / aloittaa	sätta igång	v	get started			sätter igång	satte igång	satt igång		
+b1_verbs		olla tekemässä / puuhata	hålla på	v	be doing			håller på	höll på	hållit på		
+b1_verbs		kestää / sinnitellä	hålla ut	v	hold out			håller ut	höll ut	hållit ut		
+b1_verbs		pitää silmällä / seurata	hålla koll på	v	keep an eye on			håller koll på	höll koll på	hållit koll på		
+b1_verbs		antaa periksi (taipua)	ge efter	v	give in			ger efter	gav efter	gett efter		
+b1_verbs		pitää päänsä	stå på sig	v	stand one's ground			står på sig	stod på sig	stått på sig		
+b1_verbs		sietää	stå ut med	v	put up with			står ut med	stod ut med	stått ut med		
+b1_verbs		käydä läpi	gå igenom	v	go through			går igenom	gick igenom	gått igenom		
+b1_verbs	free_time_7_join	liittyä (jäseneksi) / liittyä mukaan	gå med	v	join			går med	gick med	gått med		
+b1_verbs		mennä rikki	gå sönder	v	break			går sönder	gick sönder	gått sönder		
+b1_verbs		mennä ohi (kipu tai tunne)	gå över	v	pass			går över	gick över	gått över		
+b1_verbs		jatkaa eteenpäin	gå vidare	v	move on			går vidare	gick vidare	gått vidare		
+b1_verbs		olla tarkoituksena / perustua (johonkin)	gå ut på	v	be about			går ut på	gick ut på	gått ut på		
+b1_verbs		käsitellä (aihetta) / kertoa jostakin	handla om	v	be about			handlar om	handlade om	handlat om		
+b1_verbs		päästä eroon	bli av med	v	get rid of			blir av med	blev av med	blivit av med		
+b1_verbs		ylettyä / päästä käsiksi	komma åt	v	reach			kommer åt	kom åt	kommit åt		
+b1_verbs		tunnistaa	känna igen	v	recognize			känner igen	kände igen	känt igen		
+b1_verbs		tuntea (tietää jostakin)	känna till	v	know about			känner till	kände till	känt till		
+b1_verbs		huomata (panna merkille)	lägga märke till	v	notice			lägger märke till	lade märke till	lagt märke till		
+b1_verbs		huomata (nähdä yhtäkkiä)	få syn på	v	catch sight of			får syn på	fick syn på	fått syn på		
+b1_verbs		saada käsiinsä / tavoittaa	få tag på	v	get hold of			får tag på	fick tag på	fått tag på		
+b1_verbs		ottaa puheeksi	ta upp	v	bring up			tar upp	tog upp	tagit upp		
+b1_verbs		ottaa hoitaakseen / ottaa haltuunsa	ta över	v	take over			tar över	tog över	tagit över		
+b1_verbs		ottaa vastaan	ta emot	v	receive			tar emot	tog emot	tagit emot		
+b1_verbs		poistaa	ta bort	v	remove			tar bort	tog bort	tagit bort		
+b1_verbs		ottaa rauhallisesti	ta det lugnt	v	take it easy			tar det lugnt	tog det lugnt	tagit det lugnt		
+b1_verbs		päästä (jonnekin) / kulkea	ta sig	v	get to			tar sig	tog sig	tagit sig		
+b1_verbs		ottaa huomioon	ta hänsyn till	v	take into account			tar hänsyn till	tog hänsyn till	tagit hänsyn till		
+b1_verbs		ottaa vastuu	ta ansvar	v	take responsibility			tar ansvar	tog ansvar	tagit ansvar		
+b1_verbs		huolehtia (siitä, että)	se till	v	make sure			ser till	såg till	sett till		
+b1_verbs		varoa / olla varuillaan	se upp	v	watch out			ser upp	såg upp	sett upp		
+b1_verbs		perua (tapahtuma)	ställa in	v	cancel			ställer in	ställde in	ställt in		
+b1_verbs		olla käytettävissä / suostua auttamaan	ställa upp	v	help out			ställer upp	ställde upp	ställt upp		
+b1_verbs		katsoa (sanakirjasta)	slå upp	v	look up			slår upp	slog upp	slagit upp		
+b1_verbs		asettua (asumaan) / istuutua	slå sig ner	v	settle down			slår sig ner	slog sig ner	slagit sig ner		
+b1_verbs		täyttää (lomake)	fylla i	v	fill in			fyller i	fyllde i	fyllt i		
+b1_verbs		harkita / miettiä tarkkaan	tänka över	v	think over			tänker över	tänkte över	tänkt över		
+b1_verbs	verbs2_4_imagine	kuvitella	föreställa sig	v	imagine			föreställer sig	föreställde sig	föreställt sig		
+b1_verbs		välittää (jostakin)	bry sig om	v	care about			bryr sig om	brydde sig om	brytt sig om		
+b1_verbs		sääliä	tycka synd om	v	feel sorry for			tycker synd om	tyckte synd om	tyckt synd om		
+b1_verbs		ottaa yhteyttä / antaa kuulua itsestään	höra av sig	v	get in touch			hör av sig	hörde av sig	hört av sig		
+b1_verbs		kuulua (johonkin)	höra till	v	belong to			hör till	hörde till	hört till		
+b1_verbs		tottua	vänja sig vid	v	get used to			vänjer sig vid	vande sig vid	vant sig vid		
+b1_verbs		tutustua (ihmiseen)	lära känna	v	get to know			lär känna	lärde känna	lärt känna		
+b1_verbs		pysyä mukana	hänga med	v	keep up			hänger med	hängde med	hängt med		
+b1_verbs		pärjätä / selviytyä	klara sig	v	manage			klarar sig	klarade sig	klarat sig		
+b1_verbs		suoriutua (jostakin)	klara av	v	cope with			klarar av	klarade av	klarat av		
+b1_verbs		olla mukana	vara med	v	take part			är med	var med	varit med		
+b1_verbs		kokea (joutua kokemaan)	vara med om	v	experience			är med om	var med om	varit med om		
+b1_verbs		lykätä	skjuta upp	v	postpone			skjuter upp	sköt upp	skjutit upp		
+b1_verbs		lopettaa (toiminta) / lakkauttaa	lägga ner	v	shut down			lägger ner	lade ner	lagt ner		
+b1_verbs		vaihtaa (toiseen)	byta ut	v	replace			byter ut	bytte ut	bytt ut		
+b1_verbs		sekaantua	lägga sig i	v	interfere			lägger sig i	lade sig i	lagt sig i		
+b1_verbs		jättää tekemättä	låta bli	v	refrain from			låter bli	lät bli	låtit bli		
+b1_verbs		ilmestyä	dyka upp	v	turn up			dyker upp	dök upp	dykt upp		
+b1_verbs		osoittautua	visa sig	v	turn out			visar sig	visade sig	visat sig		
+b1_verbs		riippua (jostakin)	bero på	v	depend on			beror på	berodde på	berott på		
+b1_verbs		johtaa (johonkin)	leda till	v	lead to			leder till	ledde till	lett till		
+b1_verbs		omistautua / harrastaa (jotakin)	ägna sig åt	v	devote oneself to			ägnar sig åt	ägnade sig åt	ägnat sig åt		
+b1_verbs		kiinnostua	intressera sig för	v	be interested in			intresserar sig för	intresserade sig för	intresserat sig för		
+b1_verbs		katua	ångra	v	regret			ångrar	ångrade	ångrat		
+b1_verbs		hävetä	skämmas	v	be ashamed			skäms	skämdes	skämts		
+b1_verbs		olla huolissaan / huolestua	oroa sig	v	worry			oroar sig	oroade sig	oroat sig		
+b1_verbs		käyttäytyä	bete sig	v	behave			beter sig	betedde sig	betett sig		
+b1_verbs		päättää (tehdä jotain)	bestämma sig	v	decide			bestämmer sig	bestämde sig	bestämt sig		
+b1_verbs		sopeutua	anpassa sig	v	adapt			anpassar sig	anpassade sig	anpassat sig		
+b1_verbs		keskittyä	koncentrera sig	v	concentrate			koncentrerar sig	koncentrerade sig	koncentrerat sig		
+b1_verbs	verbs2_4_get_ready	valmistautua	förbereda sig	v	prepare			förbereder sig	förberedde sig	förberett sig		
+b1_verbs		sijaita / olla (jossakin)	befinna sig	v	be located			befinner sig	befann sig	befunnit sig		
+b1_verbs		odottaa (olettaa)	förvänta sig	v	expect			förväntar sig	förväntade sig	förväntat sig		
+b1_verbs		vaikuttaa (johonkin)	påverka	v	affect			påverkar	påverkade	påverkat		
+b1_verbs		vaikuttaa (joltakin) / tuntua	verka	v	seem			verkar	verkade	verkat		
+b1_verbs		aiheuttaa	orsaka	v	cause			orsakar	orsakade	orsakat		
+b1_verbs		kehittyä	utvecklas	v	develop			utvecklas	utvecklades	utvecklats		
+b1_verbs		muuttaa (jotakin)	förändra	v	change			förändrar	förändrade	förändrat		
+b1_verbs		muuttua	förändras	v	change			förändras	förändrades	förändrats		
+b1_verbs		lisääntyä / kasvaa (määrä)	öka	v	increase			ökar	ökade	ökat		
+b1_verbs	education_9_succeed	onnistua	lyckas	v	succeed			lyckas	lyckades	lyckats		
+b1_verbs	education_9_fail	epäonnistua	misslyckas	v	fail			misslyckas	misslyckades	misslyckats		
+b1_verbs		välttää	undvika	v	avoid			undviker	undvek	undvikit		
+b1_verbs		parantaa (laatua)	förbättra	v	improve			förbättrar	förbättrade	förbättrat		
+b1_verbs		huonontaa	försämra	v	worsen			försämrar	försämrade	försämrat		
+b1_verbs		verrata	jämföra	v	compare			jämför	jämförde	jämfört		
+b1_verbs		arvostaa	uppskatta	v	appreciate			uppskattar	uppskattade	uppskattat		
+b1_verbs		vaatia	kräva	v	demand			kräver	krävde	krävt		
+b1_verbs		tarjota	erbjuda	v	offer			erbjuder	erbjöd	erbjudit		
+b1_verbs	communication_9_describe	kuvailla / kuvata	beskriva	v	describe			beskriver	beskrev	beskrivit		
+b1_verbs	communication_9_mention	mainita	nämna	v	mention			nämner	nämnde	nämnt		
+b1_verbs	communication_9_persuade	suostutella / taivutella	övertala	v	persuade			övertalar	övertalade	övertalat		
+b1_verbs	verbs2_4_promise	luvata	lova	v	promise			lovar	lovade	lovat		
+b1_verbs	verbs2_4_create	luoda	skapa	v	create			skapar	skapade	skapat		
+b1_verbs	verbs2_4_spread	levittää	sprida	v	spread			sprider	spred	spritt		
+b1_verbs	verbs2_4_enjoy	nauttia	njuta	v	enjoy			njuter	njöt	njutit		
+b1_verbs	verbs2_4_support	tukea	stödja / stötta	v	support			stöder	stödde	stött		
+b1_verbs		osallistua	delta	v	participate			deltar	deltog	deltagit		
+b1_verbs		edistää / myötävaikuttaa	bidra	v	contribute			bidrar	bidrog	bidragit		
+b1_verbs		toteuttaa	genomföra	v	carry out			genomför	genomförde	genomfört		
+b1_verbs		korvata	ersätta	v	replace			ersätter	ersatte	ersatt		
+b1_verbs		sisältää	innehålla	v	contain			innehåller	innehöll	innehållit		
+b1_verbs		syntyä (ongelma tai tilanne)	uppstå	v	arise			uppstår	uppstod	uppstått		
+b1_verbs		tajuta / oivaltaa	inse	v	realize			inser	insåg	insett		
+b1_verbs		käsittää / ymmärtää (vaikea asia)	begripa	v	grasp			begriper	begrep	begripit		
+b1_verbs		epäillä (olla epävarma)	tvivla	v	doubt			tvivlar	tvivlade	tvivlat		
+b1_verbs		menettää	mista	v	lose			mistar	mistade	mistat		
+b1_verbs		hukata / pudottaa	tappa	v	lose			tappar	tappade	tappat		
+b1_verbs		kaivata	sakna	v	miss			saknar	saknade	saknat		
+b1_verbs		epäröidä	tveka	v	hesitate			tvekar	tvekade	tvekat		
+b1_verbs		uskaltaa	våga	v	dare			vågar	vågade	vågat		
+b1_verbs		ehtiä	hinna	v	have time			hinner	hann	hunnit		
+b1_verbs		teeskennellä	låtsas	v	pretend			låtsas	låtsades	låtsats		
+b1_verbs		päättää (lopettaa)	avsluta	v	finish			avslutar	avslutade	avslutat		
+b1_verbs		ratkaista (asia) / määrätä lopputulos	avgöra	v	determine			avgör	avgjorde	avgjort		
+b1_verbs		ratkaista (ongelma)	lösa	v	solve			löser	löste	löst		
+b1_verbs		käsitellä / hoitaa (tilanne)	hantera	v	handle			hanterar	hanterade	hanterat		
+b1_verbs		järjestää	organisera	v	organize			organiserar	organiserade	organiserat		
+b1_verbs		olettaa	anta	v	assume			antar	antog	antagit		
+b1_verbs		todistaa (näyttää toteen)	bevisa	v	prove			bevisar	bevisade	bevisat		
+b1_verbs		panostaa	satsa	v	invest			satsar	satsade	satsat		
+b1_verbs		priorisoida	prioritera	v	prioritize			prioriterar	prioriterade	prioriterat		
+b1_verbs		motivoida	motivera	v	motivate			motiverar	motiverade	motiverat		
+b1_verbs		inspiroida	inspirera	v	inspire			inspirerar	inspirerade	inspirerat		
+b1_verbs		rohkaista	uppmuntra	v	encourage			uppmuntrar	uppmuntrade	uppmuntrat		
+b1_verbs		arvostella / kritisoida	kritisera	v	criticize			kritiserar	kritiserade	kritiserat		
+b1_verbs		valittaa	klaga	v	complain			klagar	klagade	klagat		
+b1_verbs		ansaita (olla ansainnut)	förtjäna	v	deserve			förtjänar	förtjänade	förtjänat		
+b1_verbs		täyttää (vaatimus)	uppfylla	v	fulfil			uppfyller	uppfyllde	uppfyllt		
+b1_verbs		ilmaista	uttrycka	v	express			uttrycker	uttryckte	uttryckt		
+b1_verbs		reagoida	reagera	v	react			reagerar	reagerade	reagerat		
+b1_verbs		häiritä	störa	v	disturb			stör	störde	stört		
+b1_verbs		ärsyttää	irritera	v	irritate			irriterar	irriterade	irriterat		
+b1_verbs		yllättää	överraska	v	surprise			överraskar	överraskade	överraskat		
+b1_verbs		kadota	försvinna	v	disappear			försvinner	försvann	försvunnit		
+b1_verbs		sattua (tekemään) / tulla vahingossa tehneeksi	råka	v	happen to			råkar	råkade	råkat		
+b1_verbs		tuhota / pilata	förstöra	v	destroy			förstör	förstörde	förstört		
+b1_verbs		vahingoittaa	skada	v	harm			skadar	skadade	skadat		
+b1_verbs		ilmoittaa (tiedottaa)	meddela	v	inform			meddelar	meddelade	meddelat		
+b1_verbs		tulkita	tolka	v	interpret			tolkar	tolkade	tolkat		
+b1_verbs		analysoida	analysera	v	analyse			analyserar	analyserade	analyserat		
+b1_verbs		arvioida (jälkikäteen)	utvärdera	v	evaluate			utvärderar	utvärderade	utvärderat		
+b1_verbs		kieltäytyä	vägra	v	refuse			vägrar	vägrade	vägrat		
+b1_verbs		hyväksyä (asia tai tilanne)	acceptera	v	accept			accepterar	accepterade	accepterat		
+b1_verbs		hyväksyä (virallisesti)	godkänna	v	approve			godkänner	godkände	godkänt		
+b1_verbs		kyseenalaistaa	ifrågasätta	v	question			ifrågasätter	ifrågasatte	ifrågasatt		
+b1_verbs		viettää (aikaa)	tillbringa	v	spend			tillbringar	tillbringade	tillbringat		
+b1_verbs		voittaa (vaikeus) / selättää	övervinna	v	overcome			övervinner	övervann	övervunnit		
+b1_verbs		kohdata (ikävä asia) / koetella	drabba	v	affect			drabbar	drabbade	drabbat		
+b1_verbs		riittää	räcka	v	be enough			räcker	räckte	räckt		
+b1_verbs		koskea / olla voimassa	gälla	v	apply			gäller	gällde	gällt		
+b1_verbs		valehdella	ljuga	v	lie			ljuger	ljög	ljugit		

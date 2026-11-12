@@ -787,7 +787,7 @@ test('Virkkeet: pickSentenceRound valitsee aktiivisen luokan virkkeen', async ()
 
 test('Tietomalli v2: kielikohtainen suomen kehote (fiFor) ja ruotsin Fable-korjaukset', async () => {
   const app = await boot({ localStorage: { targetLang: 'sv' } });
-  assert.strictEqual(app.run('VOCAB.meta.version'), 'v18');
+  assert.strictEqual(app.run('VOCAB.meta.version'), 'v19');
   assert.strictEqual(app.run('fiFor(VOCAB.words.find(w => w.id === "weather_seasons_spring"))'), 'kevät');
   assert.strictEqual(app.run('VOCAB.words.find(w => w.id === "weather_seasons_snow").sv'), 'snö');
   app.run('selectTargetLang("en")');
@@ -805,7 +805,9 @@ test('Ruotsi: nappi, kielitila ja sanasto (sv)', async () => {
   assert.strictEqual(app.run('targetLang'), 'sv');
   assert.strictEqual(app.run('LANGS.sv.speech'), 'sv-SE');
   assert.strictEqual(app.run('LANG_START_GRADE.sv'), 4);
-  assert.strictEqual(app.run('VOCAB.words.filter(w => w.sv).length'), 481);
+  assert.ok(app.run('VOCAB.words.filter(w => w.sv).length') > 3000, 'itseopiskelun ruotsi');
+  assert.ok(app.run('PRACTICE_WORDS.length') >= 475 && app.run('PRACTICE_WORDS.length') <= 490, 'peruskoulun ruotsi ennallaan: ' + app.run('PRACTICE_WORDS.length'));
+  assert.ok(app.run('PRACTICE_WORDS.every(w => w.de && !w.self_only)'));
   assert.ok(app.run('sessionPool.length') > 0);
   assert.ok(app.run('sessionPool.every(w => w.sv)'));
   assert.strictEqual(app.run('NUMBER_WORDS.sv[3]'), 'tre');
@@ -1906,6 +1908,340 @@ test('Koe 1: aikuisen raportissa Koe 1 -teema sisältää sanat muilta luokilta'
   app.dispose();
 });
 
+
+// ---------------- Itseopiskelutila (Peruskoulu / Itseopiskelu) ----------------
+// Synteettinen aineisto, jotta testit eivät riipu itseopiskelun tulevasta sisältömäärästä:
+// A1: 14 self_only-sanaa + 1 koulusanan käsite + 1 käsite ilman sv-muotoa; A2: 12 sanaa; B1: tyhjä.
+function addSelfFixture(app) {
+  app.run(`
+    (function () {
+      const mk = (id, n, extra) => Object.assign({ id, fi: 'testisana ' + id, sv: 'ord' + n, self_only: true, pos: 'n' }, extra || {});
+      const a1 = [], a2 = [];
+      for (let i = 1; i <= 14; i++) { const w = mk('zz_a1_' + i, i); VOCAB.words.push(w); a1.push(w.id); }
+      for (let i = 1; i <= 12; i++) { const w = mk('zz_a2_' + i, 100 + i); VOCAB.words.push(w); a2.push(w.id); }
+      // Käsite, jolla ei ole ruotsia: ei saa tulla poolille.
+      VOCAB.words.push({ id: 'zz_nosv', fi: 'ei ruotsia', en: 'nosv', self_only: true });
+      a1.push('zz_nosv');
+      // Koulusanalla on sv: kuuluu sekä kouluun että aihepiiriin.
+      const school = VOCAB.words.find(w => w.sv && w.category && !w.self_only);
+      a1.push(school.id);
+      globalThis.__schoolSvWord = school.id;
+      SELF_DATA.topics.length = 0;
+      SELF_DATA.topics.push(
+        { id: 'zz_t_a1_x', name_fi: 'Testi A1 X', level: 'A1', concepts: a1.slice(0, 7) },
+        { id: 'zz_t_a1_y', name_fi: 'Testi A1 Y', level: 'A1', concepts: a1.slice(7) },
+        { id: 'zz_t_a1_empty', name_fi: 'Tyhjä', level: 'A1', concepts: ['zz_nosv'] },
+        { id: 'zz_t_a2', name_fi: 'Testi A2', level: 'A2', concepts: a2 }
+      );
+      PRACTICE_WORDS = practiceWords();
+    })();
+  `);
+}
+async function toSelf(app) {
+  addSelfFixture(app);
+  await app.studyButtons[1].click();
+  await app.flush(60);
+}
+const poolIds = (app) => J(app, 'sessionPool.map(w => w.id)');
+
+test('Tila: oletus on peruskoulu, valinta tallentuu ja palautuu', async () => {
+  const app = await boot();
+  assert.strictEqual(app.run('studyMode'), 'school');
+  assert.ok(!app.run('document.body.classList.contains("self-mode")'));
+  await toSelf(app);
+  assert.strictEqual(app.run('studyMode'), 'self');
+  assert.strictEqual(app.storage.getItem('studyMode'), 'self');
+  assert.ok(app.run('document.body.classList.contains("self-mode")'));
+  assert.ok(app.studyButtons[1].classList.contains('active'));
+  app.dispose();
+  const app2 = await boot({ localStorage: { studyMode: 'self' } });
+  assert.strictEqual(app2.run('studyMode'), 'self');
+  assert.strictEqual(app2.run('targetLang'), 'sv');
+  await app2.studyButtons[0].click();
+  await app2.flush(60);
+  assert.strictEqual(app2.storage.getItem('studyMode'), 'school');
+  assert.strictEqual(app2.run('studyMode'), 'school');
+  app2.dispose();
+});
+
+test('Itseopiskelu: pooli sisältää vain valitun tason aihepiirien sanoja, joilla on sv', async () => {
+  const app = await boot();
+  await toSelf(app);
+  assert.strictEqual(app.run('selfLevel'), 'A1');
+  const a1 = new Set(J(app, 'SELF_DATA.topics.filter(t => t.level === "A1").flatMap(t => t.concepts)'));
+  const ids = poolIds(app);
+  assert.ok(ids.length > 0);
+  ids.forEach(id => assert.ok(a1.has(id), 'ei A1-sana: ' + id));
+  ids.forEach(id => assert.ok(app.run(`!!VOCAB.words.find(w => w.id === ${JSON.stringify(id)}).sv`)));
+  assert.ok(!ids.includes('zz_nosv'));
+  assert.ok(!ids.some(id => id.startsWith('zz_a2_')));
+  app.dispose();
+});
+
+test('Itseopiskelu: tasovalitsin A1/A2/B1 vaihtaa poolin ja tallentuu', async () => {
+  const app = await boot();
+  await toSelf(app);
+  const vals = app.elements.gradeFilter._children.map(o => o.value);
+  assert.deepStrictEqual(vals, ['A1', 'A2', 'B1']);
+  app.elements.gradeFilter.value = 'A2';
+  await app.elements.gradeFilter.dispatch('change');
+  await app.flush(40);
+  assert.strictEqual(app.run('selfLevel'), 'A2');
+  assert.strictEqual(app.storage.getItem('selfLevel'), 'A2');
+  const ids = poolIds(app);
+  assert.ok(ids.length > 0);
+  ids.forEach(id => assert.ok(id.startsWith('zz_a2_'), id));
+  // Teemavalitsin näyttää vain valitun tason aihepiirit
+  const rows = app.elements.themeList._children.map(r => r.dataset.cat);
+  assert.deepStrictEqual(rows, ['zz_t_a2']);
+  app.dispose();
+});
+
+test('Itseopiskelu: aihepiirien monivalinta ja tiukka rajaus', async () => {
+  const app = await boot();
+  await toSelf(app);
+  // A1: tyhjä aihepiiri (ei sv-sanoja) ei näy valitsimessa
+  const rows = app.elements.themeList._children.map(r => r.dataset.cat);
+  assert.deepStrictEqual(rows.sort(), ['zz_t_a1_x', 'zz_t_a1_y']);
+  app.run('themeStrict = true; toggleTheme("zz_t_a1_x", true);');
+  await app.flush(30);
+  const only = new Set(J(app, 'SELF_DATA.topics.find(t => t.id === "zz_t_a1_x").concepts'));
+  poolIds(app).forEach(id => assert.ok(only.has(id), id));
+  app.run('toggleTheme("zz_t_a1_y", true);');
+  const both = poolIds(app);
+  assert.ok(both.some(id => !only.has(id)), 'toinenkin aihepiiri mukana');
+  app.run('themeStrict = false;');
+  app.dispose();
+});
+
+test('Itseopiskelu: self_only-sanat eivät näy peruskoulussa (pooli, teemat, raportti, viikon sanat)', async () => {
+  const app = await boot();
+  addSelfFixture(app);
+  app.langButtons[2].click(); // sv peruskoulussa
+  await app.flush(60);
+  assert.strictEqual(app.run('studyMode'), 'school');
+  assert.strictEqual(app.run('targetLang'), 'sv');
+  assert.strictEqual(app.run('PRACTICE_WORDS.some(w => w.self_only)'), false);
+  assert.ok(!app.run('wordsForGrade(activeGrade).some(w => w.self_only)'));
+  assert.ok(!poolIds(app).some(id => id.startsWith('zz_')));
+  const rep = J(app, 'buildProgressReport()');
+  assert.strictEqual(rep.all.total, app.run('PRACTICE_WORDS.length'));
+  assert.ok(!rep.hard.some(x => x.id.startsWith('zz_')));
+  // Viikon sanat -tunnistus ei löydä self_only-sanaa
+  const r = J(app, 'parseFocusInput("ord1, ord101")');
+  assert.deepStrictEqual(r.matched, []);
+  // Teemavalitsimessa vain koulun teemoja
+  app.elements.themeList._children.forEach(row => assert.ok(!row.dataset.cat.startsWith('zz_')));
+  app.dispose();
+});
+
+test('Itseopiskelu: kielet rajautuvat SELF_DATA.languages-kieliin, kieli muistetaan tilakohtaisesti', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de' } });
+  assert.strictEqual(app.run('targetLang'), 'de');
+  await toSelf(app);
+  const langs = J(app, 'SELF_DATA.languages');
+  assert.strictEqual(app.run('targetLang'), langs[0]);
+  app.langButtons.forEach(b => {
+    const shown = b.style.display !== 'none';
+    assert.strictEqual(shown, langs.includes(b.dataset.lang), b.dataset.lang);
+    assert.strictEqual(b.disabled, !langs.includes(b.dataset.lang));
+  });
+  // Kielinappi, joka ei ole sallittu, ei vaihda kieltä
+  const other = ['en', 'de', 'sv'].find(l => !langs.includes(l));
+  await app.langButtons[['en', 'de', 'sv'].indexOf(other)].click();
+  assert.strictEqual(app.run('targetLang'), langs[0]);
+  assert.strictEqual(app.storage.getItem('targetLang_self'), null); // ei vaihtoa -> ei kirjoitusta
+  // Peruskoulun kieli ei muutu
+  assert.strictEqual(app.storage.getItem('targetLang'), 'de');
+  app.dispose();
+});
+
+test('Itseopiskelu: Viikon sanat, koeteemat, tasomaskotti ja sanat/virkkeet-valitsin piilossa', async () => {
+  const app = await boot();
+  // Tallennettu viikon sanojen lista (kelvollinen id) ei saa tuoda nappia itseopiskeluun
+  const wid = app.run('PRACTICE_WORDS[0].id');
+  app.run(`focusIds = [${JSON.stringify(wid)}]; focusOn = true; saveFocus(); updateFocusUI();`);
+  assert.strictEqual(app.elements.focusButton.style.display, '');
+  await toSelf(app);
+  assert.strictEqual(app.run('focusActive()'), false);
+  assert.strictEqual(app.elements.focusButton.style.display, 'none');
+  assert.strictEqual(app.elements.practiceSwitch.style.display, 'none');
+  assert.strictEqual(app.elements.focusSection.style.display, 'none');
+  assert.strictEqual(app.run('practiceMode'), 'words');
+  assert.strictEqual(app.cssVars['--tier-bg-icon'], '""');
+  assert.ok(app.run('document.body.classList.contains("self-mode")'));
+  assert.ok(app.run('selectableCategories().every(c => !c.exam)'));
+  assert.strictEqual(app.run('isExamCategory("koe1_4")'), false);
+  // Paluu: kaikki takaisin
+  await app.studyButtons[0].click();
+  await app.flush(60);
+  assert.strictEqual(app.elements.practiceSwitch.style.display, '');
+  assert.strictEqual(app.elements.focusSection.style.display, '');
+  assert.strictEqual(app.elements.focusButton.style.display, '');
+  assert.notStrictEqual(app.cssVars['--tier-bg-icon'], '""');
+  app.dispose();
+});
+
+test('Itseopiskelu: virketilasta siirtyminen itseopiskeluun palauttaa sanatilan', async () => {
+  const app = await boot();
+  await app.practiceButtons[1].click();
+  await app.flush(40);
+  assert.strictEqual(app.run('practiceMode'), 'sentences');
+  await toSelf(app);
+  assert.strictEqual(app.run('practiceMode'), 'words');
+  assert.strictEqual(app.run('wordPracticeEl.hidden'), false);
+  assert.strictEqual(app.run('sentencePracticeEl.hidden'), true);
+  app.dispose();
+});
+
+test('Itseopiskelu: paluu peruskouluun palauttaa kielen ja luokan', async () => {
+  const app = await boot();
+  app.langButtons[1].click(); // saksa
+  await app.flush(60);
+  app.elements.gradeFilter.value = '6';
+  await app.elements.gradeFilter.dispatch('change');
+  await app.flush(40);
+  assert.strictEqual(app.run('targetLang'), 'de');
+  assert.strictEqual(app.run('activeGrade'), 6);
+  await toSelf(app);
+  assert.notStrictEqual(app.run('targetLang'), 'de');
+  assert.strictEqual(app.run('activeGrade'), 6); // peruskoulun luokka ei muutu itseopiskelussa
+  app.elements.gradeFilter.value = 'A2';
+  await app.elements.gradeFilter.dispatch('change');
+  await app.flush(30);
+  await app.studyButtons[0].click();
+  await app.flush(60);
+  assert.strictEqual(app.run('studyMode'), 'school');
+  assert.strictEqual(app.run('targetLang'), 'de');
+  assert.strictEqual(app.run('activeGrade'), 6);
+  assert.strictEqual(app.elements.gradeFilter._children.length, app.run('gradesForLang().length'));
+  assert.strictEqual(app.elements.gradeFilter.value, '6');
+  assert.strictEqual(app.storage.getItem('targetLang'), 'de');
+  assert.strictEqual(app.storage.getItem('grade_de'), '6');
+  assert.strictEqual(app.run('selfLevel'), 'A2'); // taso säilyy itseopiskelulle
+  app.dispose();
+});
+
+test('Itseopiskelu: taso opittu -> siirrytään seuraavalle tasolle, jolla on sanoja; ei sanatonta tasoa', async () => {
+  const app = await boot();
+  await toSelf(app);
+  const a1 = J(app, 'wordsForGrade("A1").map(w => w.id)');
+  assert.ok(a1.length > 0);
+  for (const id of a1) {
+    const st = learnedStat(app, id); st.language = 'sv';
+    app.run(`statsCache[${JSON.stringify(st.statId)}] = ${JSON.stringify(st)};`);
+  }
+  assert.ok(app.run('isGradeComplete("A1")'));
+  await app.run('pickWord()');
+  await app.flush(40);
+  assert.strictEqual(app.run('selfLevel'), 'A2');
+  // A2 opittu -> B1 on tyhjä, joten tasolle B1 ei siirrytä
+  const a2 = J(app, 'wordsForGrade("A2").map(w => w.id)');
+  for (const id of a2) {
+    const st = learnedStat(app, id); st.language = 'sv';
+    app.run(`statsCache[${JSON.stringify(st.statId)}] = ${JSON.stringify(st)};`);
+  }
+  await app.run('pickWord()');
+  await app.flush(40);
+  assert.strictEqual(app.run('selfLevel'), 'A2');
+  assert.strictEqual(app.asyncErrors.length, 0);
+  app.dispose();
+});
+
+test('Itseopiskelu: tyhjä taso (B1) täydentää muilta tasoilta eikä kaadu; kategoriaton sana toimii', async () => {
+  const app = await boot();
+  await toSelf(app);
+  app.elements.gradeFilter.value = 'B1';
+  await app.elements.gradeFilter.dispatch('change');
+  await app.flush(40);
+  assert.strictEqual(app.run('selfLevel'), 'B1');
+  assert.ok(app.run('current') !== null);
+  assert.strictEqual(app.asyncErrors.length, 0);
+  // Kategoriaton self_only-sana kortissa
+  app.run('selfLevel = "A1"; current = VOCAB.words.find(w => w.id === "zz_a1_1"); direction = "target-fi"; renderPrompt();');
+  assert.strictEqual(app.elements.promptCategory.textContent, 'Testi A1 X');
+  assert.strictEqual(app.elements.promptWord.textContent, 'ord1');
+  assert.strictEqual(app.asyncErrors.length, 0);
+  app.dispose();
+});
+
+test('Itseopiskelu: "Oma edistyminen" - yhteenveto tasoittain ja aihepiireittäin, ei luokka-asteita', async () => {
+  const app = await boot();
+  await toSelf(app);
+  assert.ok(app.elements.adultBtn.textContent.includes('Oma edistyminen'));
+  assert.strictEqual(app.elements.adultTitle.textContent, 'Oma edistyminen');
+  // Hankala sana: väärin 3 kertaa
+  const st = learnedStat(app, 'zz_a1_2');
+  Object.assign(st, { language: 'sv', incorrectCount: 3, correctCount: 1, streakKeyboard: 0, streakMic: 0, streakTargetFi: 0, streakFiTarget: 0 });
+  app.run(`statsCache[${JSON.stringify(st.statId)}] = ${JSON.stringify(st)};`);
+  const r = J(app, 'buildProgressReport()');
+  assert.strictEqual(r.self, true);
+  assert.deepStrictEqual(r.levels.map(l => l.id), ['A1', 'A2', 'B1']);
+  assert.ok(r.levels[0].total > 0 && r.levels[0].seen >= 1);
+  assert.strictEqual(r.levels[2].total, 0);
+  assert.ok(r.topics.length > 0 && r.topics.every(t => t.level && t.total > 0));
+  assert.ok(r.hard.some(x => x.id === 'zz_a1_2'));
+  assert.strictEqual(r.grades, undefined);
+  await app.run('renderAdultView()');
+  const html = app.elements.adultContent.innerHTML;
+  assert.ok(html.includes('Tasoittain') && html.includes('Aihepiireittäin') && html.includes('Hankalat sanat'));
+  assert.ok(!html.includes('Luokka-asteittain') && !html.includes('Koealueet'));
+  app.dispose();
+});
+
+test('Itseopiskelu: edistyminen jaetaan tilojen välillä (sama statId)', async () => {
+  const app = await boot();
+  addSelfFixture(app);
+  const sid = (lang, mode) => app.run(`(function(){ studyMode = ${JSON.stringify(mode)}; targetLang = ${JSON.stringify(lang)}; return statId(VOCAB.words.find(w => w.id === __schoolSvWord)); })()`);
+  const a = sid('sv', 'school'), b = sid('sv', 'self');
+  assert.strictEqual(a, b);
+  app.run('studyMode = "school"; targetLang = "en";');
+  app.dispose();
+});
+
+test('Ruotsi: taivutushuomautus - substantiivi, verbi, adjektiivi; saksa ja englanti ennallaan', async () => {
+  const app = await boot();
+  const note = (lang, w) => app.run(`(function(){ targetLang = ${JSON.stringify(lang)}; current = ${JSON.stringify(w)}; return pluralNote(); })()`);
+  assert.strictEqual(note('sv', { id: 'x', sv_infl: { def: 'bilen' }, sv_pl: 'bilar', pos: 'n' }), 'bilen · bilar');
+  assert.strictEqual(note('sv', { id: 'x', sv_infl: { pres: 'skriver', pret: 'skrev', sup: 'skrivit' }, pos: 'v' }), 'skriver · skrev · skrivit');
+  assert.strictEqual(note('sv', { id: 'x', sv_infl: { neut: 'stort', apl: 'stora' }, pos: 'adj' }), 'stort · stora');
+  assert.strictEqual(note('sv', { id: 'x' }), '');
+  assert.strictEqual(note('sv', { id: 'x', de_pl: 'die Hunde' }), '');
+  assert.strictEqual(note('de', { id: 'x', de_pl: 'die Hunde', sv_pl: 'bilar' }), 'die Hunde');
+  assert.strictEqual(note('en', { id: 'x', sv_infl: { def: 'bilen' }, sv_pl: 'bilar' }), '');
+  app.dispose();
+});
+
+test('Ruotsi: taivutus näkyy palautteessa ja paljastuksessa molemmissa tiloissa', async () => {
+  const app = await boot();
+  addSelfFixture(app);
+  app.run(`VOCAB.words.find(w => w.id === "zz_a1_3").sv = "bil"; VOCAB.words.find(w => w.id === "zz_a1_3").fi = "auto";
+    VOCAB.words.find(w => w.id === "zz_a1_3").sv_infl = { def: "bilen" }; VOCAB.words.find(w => w.id === "zz_a1_3").sv_pl = "bilar";`);
+  await toSelf(app);
+  for (const mode of ['self', 'school']) {
+    if (mode === 'school') {
+      // Peruskoulussa: koulusana, jolle lisätään taivutus
+      await app.studyButtons[0].click();
+      await app.flush(40);
+      app.langButtons[2].click();
+      await app.flush(60);
+      app.run(`VOCAB.words.find(w => w.id === __schoolSvWord).sv_infl = { def: "bilen" }; VOCAB.words.find(w => w.id === __schoolSvWord).sv_pl = "bilar";`);
+      app.run('current = VOCAB.words.find(w => w.id === __schoolSvWord); direction = "fi-target";');
+    } else {
+      app.run('current = VOCAB.words.find(w => w.id === "zz_a1_3"); direction = "fi-target";');
+    }
+    app.run('renderPrompt();');
+    const ok = app.run('acceptedAnswers()[0]');
+    await app.run(`checkAnswer(${JSON.stringify(ok)}, "keyboard")`);
+    const fb = app.elements.feedback;
+    const txt = fbText(fb) + ' ' + fb._children.map(c => c.textContent).join(' ');
+    assert.ok(txt.includes('bilen · bilar'), mode + ': ' + txt);
+    assert.ok(txt.includes('Taivutus'), txt);
+    await app.run('revealBtn.click()');
+    assert.ok(app.elements.revealBox.textContent.includes('bilen · bilar'), app.elements.revealBox.textContent);
+  }
+  app.dispose();
+});
 
 (async () => {
   const filter = process.argv[2];

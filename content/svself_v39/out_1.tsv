@@ -1,0 +1,355 @@
+topic	id	fi	sv	pos	en	pl	def	pres	pret	sup	neut	apl
+a1_greetings	greetings_phrases_hello	hei / moi / terve	hej	interj	hello							
+a1_greetings		moikka (tuttavallinen tervehdys)	tjena / hejsan	interj	hi							
+a1_greetings	greetings_phrases_goodbye	hei hei / näkemiin / moikka (lähtiessä)	hej då	interj	goodbye							
+a1_greetings		hei sitten / pärjäile	ha det bra	phrase	take care							
+a1_greetings	greetings_phrases_good_morning	huomenta / hyvää huomenta	god morgon	phrase	good morning							
+a1_greetings		hyvää päivää	god dag / goddag	phrase	good day							
+a1_greetings		hyvää iltaa	god kväll	phrase	good evening							
+a1_greetings		hyvää yötä	god natt	phrase	good night							
+a1_greetings	greetings_phrases_how_are_you	mitä kuuluu? / miten menee?	hur mår du / hur är det	phrase	how are you?							
+a1_greetings		hyvää, kiitos	bra, tack	phrase	fine, thanks							
+a1_greetings		entä sinulle? / entä sinä?	och du / själv då	phrase	and you?							
+a1_greetings	phrases_4_nice_to_meet_you	hauska tavata	trevligt att träffas	phrase	nice to meet you							
+a1_greetings	greetings_phrases_see_you_later	nähdään / nähdään myöhemmin	vi ses / vi ses senare	phrase	see you							
+a1_greetings		nähdään huomenna	vi ses i morgon / vi ses imorgon	phrase	see you tomorrow							
+a1_greetings	greetings_phrases_welcome	tervetuloa	välkommen	interj	welcome							
+a1_greetings	polite_phrases_thank_you	kiitos	tack	interj	thank you							
+a1_greetings		kiitos paljon	tack så mycket / tusen tack	phrase	thank you very much							
+a1_greetings		ei kiitos	nej tack	phrase	no, thank you							
+a1_greetings		kyllä kiitos / mielelläni	ja tack	phrase	yes, please							
+a1_greetings		eipä kestä / ei kestä kiittää	ingen orsak / för all del	phrase	you're welcome							
+a1_greetings	polite_phrases_please	ole kiltti / ole hyvä (pyyntö)	snälla	interj	please							
+a1_greetings	polite_phrases_here_you_are	ole hyvä (antaessa) / olkaa hyvä	varsågod	interj	here you are							
+a1_greetings	polite_phrases_sorry	anteeksi (pahoittelu) / olen pahoillani	förlåt	interj	sorry							
+a1_greetings	polite_phrases_excuse_me	anteeksi (huomion herättäminen)	ursäkta / ursäkta mig	interj	excuse me							
+a1_greetings	polite_phrases_pardon	anteeksi, mitä sanoit?	vad sa du / förlåt, vad sa du	phrase	pardon?							
+a1_greetings	phrases_4_no_problem	ei se mitään / ei haittaa	det gör inget / ingen fara	phrase	no problem							
+a1_greetings	little_4_yes	kyllä / joo	ja	interj	yes							
+a1_greetings	little_4_no	ei	nej	interj	no							
+a1_greetings		kyllä (myöntävä vastaus kieltävään kysymykseen)	jo	interj	yes (to a negative question)							
+a1_greetings	phrases_4_ok	okei / ok	okej / ok	interj	OK							
+a1_greetings	phrases_4_of_course	tietysti / totta kai / tietenkin	självklart / såklart / visst	adv	of course							
+a1_greetings		en ymmärrä	jag förstår inte	phrase	I don't understand							
+a1_greetings		ymmärrätkö?	förstår du	phrase	do you understand?							
+a1_greetings		en tiedä	jag vet inte	phrase	I don't know							
+a1_greetings		puhutko englantia?	talar du engelska / pratar du engelska	phrase	do you speak English?							
+a1_greetings		puhun vähän ruotsia	jag talar lite svenska / jag pratar lite svenska	phrase	I speak a little Swedish							
+a1_greetings		voitko toistaa? / voitko sanoa uudestaan?	kan du upprepa det / kan du säga det igen	phrase	can you repeat that?							
+a1_greetings		voitko puhua hitaammin?	kan du prata långsammare / kan du tala långsammare	phrase	can you speak more slowly?							
+a1_greetings		mitä ... on ruotsiksi?	vad heter ... på svenska	phrase	what is ... in Swedish?							
+a1_greetings		mitä tämä tarkoittaa?	vad betyder det här / vad betyder det	phrase	what does this mean?							
+a1_greetings	phrases_4_can_i_have	saisinko...? / voinko saada...?	kan jag få	phrase	can I have...?							
+a1_greetings		voitko auttaa minua?	kan du hjälpa mig	phrase	can you help me?							
+a1_greetings		hetkinen / hetki vain	ett ögonblick / vänta lite	phrase	just a moment							
+a1_greetings		onnittelut / onneksi olkoon	grattis / gratulerar	interj	congratulations							
+a1_greetings		hyvää syntymäpäivää	grattis på födelsedagen	phrase	happy birthday							
+a1_greetings		hyvää joulua	god jul	phrase	merry Christmas							
+a1_greetings		hyvää uutta vuotta	gott nytt år	phrase	happy New Year							
+a1_greetings		hyvää viikonloppua	trevlig helg	phrase	have a nice weekend							
+a1_greetings		hyvää päivänjatkoa	ha en bra dag / ha en trevlig dag	phrase	have a nice day							
+a1_greetings		onnea (toivotus) / onnea matkaan	lycka till	phrase	good luck							
+a1_greetings		kippis	skål	interj	cheers							
+a1_greetings		terveydeksi (aivastaessa)	prosit	interj	bless you							
+a1_greetings		hyvää ruokahalua	smaklig måltid	phrase	enjoy your meal							
+a1_greetings		kiitos ruoasta	tack för maten	phrase	thank you for the meal							
+a1_greetings		kiitos viimeisestä (kerrasta)	tack för senast	phrase	thanks for last time							
+a1_personal	myself_name	nimi	ett namn	n	name	namn	namnet					
+a1_personal		etunimi	ett förnamn	n	first name	förnamn	förnamnet					
+a1_personal		sukunimi	ett efternamn	n	surname	efternamn	efternamnet					
+a1_personal	greetings_phrases_my_name_is	nimeni on ... / minun nimeni on ...	jag heter ... / mitt namn är ...	phrase	my name is ...							
+a1_personal		mikä sinun nimesi on? / mikä nimesi on?	vad heter du	phrase	what's your name?							
+a1_personal		miten se kirjoitetaan? / miten se tavataan?	hur stavas det	phrase	how do you spell it?							
+a1_personal		tavata (kirjaimittain)	stava	v	spell			stavar	stavade	stavat		
+a1_personal	myself_age	ikä	en ålder	n	age	åldrar	åldern					
+a1_personal		kuinka vanha olet?	hur gammal är du	phrase	how old are you?							
+a1_personal		olen ... vuotta (vanha)	jag är ... år / jag är ... år gammal	phrase	I am ... years old							
+a1_personal	myself_birthday	syntymäpäivä / synttärit	en födelsedag	n	birthday	födelsedagar	födelsedagen					
+a1_personal		syntymäaika	ett födelsedatum	n	date of birth	födelsedatum	födelsedatumet					
+a1_personal		syntymäpaikka	en födelseort	n	place of birth	födelseorter	födelseorten					
+a1_personal		olen syntynyt ...	jag är född ...	phrase	I was born ...							
+a1_personal		henkilötunnus	ett personnummer	n	personal identity number	personnummer	personnumret					
+a1_personal		sukupuoli	ett kön	n	sex / gender	kön	könet					
+a1_personal		osoite	en adress	n	address	adresser	adressen					
+a1_personal		postinumero	ett postnummer	n	postcode	postnummer	postnumret					
+a1_personal		puhelinnumero	ett telefonnummer	n	phone number	telefonnummer	telefonnumret					
+a1_personal	technology_email	sähköposti / meili	e-post / ett mejl	n	email	-	e-posten					
+a1_personal		sähköpostiosoite	en e-postadress / en mejladress	n	email address	e-postadresser	e-postadressen					
+a1_personal	perusverbit_1_live	asua	bo	v	live			bor	bodde	bott		
+a1_personal		missä asut?	var bor du	phrase	where do you live?							
+a1_personal		kotikaupunki	en hemstad	n	hometown	hemstäder	hemstaden					
+a1_personal		kotimaa	ett hemland	n	home country	hemländer	hemlandet					
+a1_personal	countries_4_country	maa (valtio)	ett land	n	country	länder	landet					
+a1_personal		kansalaisuus	ett medborgarskap / en nationalitet	n	citizenship	medborgarskap	medborgarskapet					
+a1_personal		mistä olet kotoisin?	var kommer du ifrån / varifrån kommer du	phrase	where are you from?							
+a1_personal		olen kotoisin Suomesta	jag kommer från Finland	phrase	I'm from Finland							
+a1_personal	countries_finland	Suomi (maa)	Finland	n	Finland	-	Finland					
+a1_personal	countries_sweden	Ruotsi (maa)	Sverige	n	Sweden	-	Sverige					
+a1_personal	countries_finnish	suomalainen (adj.)	finländsk / finsk	adj	Finnish						finländskt	finländska
+a1_personal		suomalainen (henkilö)	en finländare / en finne	n	Finn	finländare	finländaren					
+a1_personal	countries_swedish	ruotsalainen (adj.)	svensk	adj	Swedish						svenskt	svenska
+a1_personal		ruotsalainen (henkilö)	en svensk	n	Swede	svenskar	svensken					
+a1_personal	communication_9_language	kieli	ett språk	n	language	språk	språket					
+a1_personal		äidinkieli	ett modersmål	n	mother tongue	modersmål	modersmålet					
+a1_personal		suomi (kieli) / suomen kieli	finska	n	Finnish (language)	-	finskan					
+a1_personal		ruotsi (kieli) / ruotsin kieli	svenska	n	Swedish (language)	-	svenskan					
+a1_personal		englanti (kieli) / englannin kieli	engelska	n	English (language)	-	engelskan					
+a1_personal		mitä kieliä puhut?	vilka språk talar du / vilka språk pratar du	phrase	what languages do you speak?							
+a1_personal		mitä teet työksesi?	vad jobbar du med / vad arbetar du med	phrase	what do you do for a living?							
+a1_personal		siviilisääty	ett civilstånd	n	marital status	civilstånd	civilståndet					
+a1_personal		naimisissa	gift	adj	married						gift	gifta
+a1_personal		naimaton	ogift	adj	unmarried						ogift	ogifta
+a1_personal		eronnut (avioliitosta)	skild	adj	divorced						skilt	skilda
+a1_personal		sinkku	en singel	n	single (person)	singlar	singeln					
+a1_personal		täyttää (lomake)	fylla i	v	fill in			fyller i	fyllde i	fyllt i		
+a1_personal		allekirjoitus / nimikirjoitus	en namnteckning	n	signature	namnteckningar	namnteckningen					
+a1_numbers	numbers_zero	nolla	noll	num	zero							
+a1_numbers	numbers_one	yksi	ett / en	num	one							
+a1_numbers	numbers_two	kaksi	två	num	two							
+a1_numbers	numbers_three	kolme	tre	num	three							
+a1_numbers	numbers_four	neljä	fyra	num	four							
+a1_numbers	numbers_five	viisi	fem	num	five							
+a1_numbers	numbers_six	kuusi (luku)	sex	num	six							
+a1_numbers	numbers_seven	seitsemän	sju	num	seven							
+a1_numbers	numbers_eight	kahdeksan	åtta	num	eight							
+a1_numbers	numbers_nine	yhdeksän	nio	num	nine							
+a1_numbers	numbers_ten	kymmenen	tio	num	ten							
+a1_numbers	numbers_eleven	yksitoista	elva	num	eleven							
+a1_numbers	numbers_twelve	kaksitoista	tolv	num	twelve							
+a1_numbers	numbers_thirteen	kolmetoista	tretton	num	thirteen							
+a1_numbers	numbers_fourteen	neljätoista	fjorton	num	fourteen							
+a1_numbers	numbers_fifteen	viisitoista	femton	num	fifteen							
+a1_numbers	numbers_sixteen	kuusitoista	sexton	num	sixteen							
+a1_numbers	numbers_seventeen	seitsemäntoista	sjutton	num	seventeen							
+a1_numbers	numbers_eighteen	kahdeksantoista	arton	num	eighteen							
+a1_numbers	numbers_nineteen	yhdeksäntoista	nitton	num	nineteen							
+a1_numbers	numbers_twenty	kaksikymmentä	tjugo	num	twenty							
+a1_numbers		kaksikymmentäyksi	tjugoett / tjugoen	num	twenty-one							
+a1_numbers	numbers_4_thirty	kolmekymmentä	trettio / tretti	num	thirty							
+a1_numbers	numbers_4_forty	neljäkymmentä	fyrtio / förti	num	forty							
+a1_numbers	numbers_4_fifty	viisikymmentä	femtio	num	fifty							
+a1_numbers	numbers_4_sixty	kuusikymmentä	sextio	num	sixty							
+a1_numbers	numbers_4_seventy	seitsemänkymmentä	sjuttio	num	seventy							
+a1_numbers	numbers_4_eighty	kahdeksankymmentä	åttio	num	eighty							
+a1_numbers	numbers_4_ninety	yhdeksänkymmentä	nittio	num	ninety							
+a1_numbers	numbers_4_hundred	sata	hundra / ett hundra	num	hundred							
+a1_numbers	numbers_4_thousand	tuhat	tusen / ett tusen	num	thousand							
+a1_numbers	numbers_4_million	miljoona	en miljon	n	million	miljoner	miljonen					
+a1_numbers	numbers_4_first	ensimmäinen	första	num	first							
+a1_numbers		toinen (järjestysluku)	andra	num	second							
+a1_numbers		kolmas	tredje	num	third							
+a1_numbers		neljäs	fjärde	num	fourth							
+a1_numbers		viides	femte	num	fifth							
+a1_numbers		kuudes	sjätte	num	sixth							
+a1_numbers		seitsemäs	sjunde	num	seventh							
+a1_numbers		kahdeksas	åttonde	num	eighth							
+a1_numbers		yhdeksäs	nionde	num	ninth							
+a1_numbers		kymmenes	tionde	num	tenth							
+a1_numbers		puoli (adj.) / puolikas (esim. puoli kiloa)	halv	adj	half						halvt	halva
+a1_numbers	numbers_4_half	puolikas (subst.) / puolisko	en halva	n	half	halvor	halvan					
+a1_numbers	numbers_4_quarter	neljännes / neljäsosa	en fjärdedel	n	quarter	fjärdedelar	fjärdedelen					
+a1_numbers		kolmasosa / kolmannes	en tredjedel	n	third (fraction)	tredjedelar	tredjedelen					
+a1_numbers		puolitoista	en och en halv / ett och ett halvt	phrase	one and a half							
+a1_numbers	little_4_a_lot	paljon (ainesana, esim. paljon vettä)	mycket	adv	much / a lot							
+a1_numbers	little_4_many	monta / paljon (laskettava, esim. paljon ihmisiä)	många	pron	many							
+a1_numbers	little_4_a_little	vähän / hieman	lite	adv	a little							
+a1_numbers		harva / vähän (laskettava, esim. vähän ihmisiä)	få	pron	few							
+a1_numbers	little_4_all	kaikki (monikko, esim. kaikki ihmiset)	alla	pron	all							
+a1_numbers		kaikki (yksikkö, esim. kaikki on hyvin)	allt	pron	everything							
+a1_numbers		pari (muutama, esim. pari päivää)	ett par	n	a couple (of)	par	paret					
+a1_numbers		muutama / jotkut / joitakin	några	pron	some / a few							
+a1_numbers	yleissanat_3_more	enemmän / lisää	mer / fler	adv	more							
+a1_numbers		vähemmän	mindre / färre	adv	less / fewer							
+a1_numbers		noin / suunnilleen	ungefär / cirka	adv	about / approximately							
+a1_numbers		kuinka monta?	hur många	phrase	how many?							
+a1_numbers		kuinka paljon?	hur mycket	phrase	how much?							
+a1_numbers		numero	ett nummer	n	number	nummer	numret					
+a1_numbers		luku (numero)	ett tal	n	number (numeral)	tal	talet					
+a1_numbers		laskea (numeroita)	räkna	v	count			räknar	räknade	räknat		
+a1_numbers	numbers_4_metre	metri	en meter	n	metre	meter	metern					
+a1_numbers		senttimetri / sentti (mitta)	en centimeter	n	centimetre	centimeter	centimetern					
+a1_numbers		kilometri	en kilometer	n	kilometre	kilometer	kilometern					
+a1_numbers		peninkulma (10 km)	en mil	n	Swedish mile (10 km)	mil	milen					
+a1_numbers	numbers_4_kilogram	kilo / kilogramma	ett kilo	n	kilogram	kilo	kilot					
+a1_numbers		gramma	ett gram	n	gram	gram	grammet					
+a1_numbers		litra	en liter	n	litre	liter	litern					
+a1_numbers		prosentti	en procent	n	per cent	procent	procenten					
+a1_numbers	numbers_4_euro	euro	en euro	n	euro	euro	euron					
+a1_numbers	numbers_4_cent	sentti (raha)	en cent	n	cent	cent	centen					
+a1_numbers		kruunu (raha)	en krona	n	krona	kronor	kronan					
+a1_numbers		äyri	ett öre	n	öre	öre	öret					
+a1_time	time_o_clock	kello (kellonaika, esim. kello kolme)	klockan	phrase	o'clock							
+a1_time	phrases_4_what_time_is_it	mitä kello on? / paljonko kello on?	vad är klockan / hur mycket är klockan	phrase	what time is it?							
+a1_time		kello on kolme	klockan är tre	phrase	it's three o'clock							
+a1_time	time_quarter_past	vartin yli / varttia yli	kvart över	phrase	quarter past							
+a1_time		varttia vaille	kvart i	phrase	quarter to							
+a1_time	time_half_past	puoli kolme (kellonaika)	halv tre	phrase	half past two							
+a1_time		vartti / varttitunti	en kvart	n	quarter of an hour	kvartar	kvarten					
+a1_time	aikasanat_2_hour	tunti	en timme	n	hour	timmar	timmen					
+a1_time		puoli tuntia	en halvtimme	n	half an hour	halvtimmar	halvtimmen					
+a1_time	time_4_minute	minuutti	en minut	n	minute	minuter	minuten					
+a1_time	time_4_second	sekunti	en sekund	n	second	sekunder	sekunden					
+a1_time	time_4_time	aika	tid	n	time	tider	tiden					
+a1_time		vuorokausi	ett dygn	n	day (24 hours)	dygn	dygnet					
+a1_time	aikasanat_2_day	päivä	en dag	n	day	dagar	dagen					
+a1_time	time_4_morning	aamu	en morgon	n	morning	morgnar	morgonen					
+a1_time		aamupäivä	en förmiddag	n	late morning	förmiddagar	förmiddagen					
+a1_time	time_4_afternoon	iltapäivä	en eftermiddag	n	afternoon	eftermiddagar	eftermiddagen					
+a1_time	aikasanat_2_evening	ilta	en kväll	n	evening	kvällar	kvällen					
+a1_time	aikasanat_2_night	yö	en natt	n	night	nätter	natten					
+a1_time		keskiyö	midnatt	n	midnight	-	midnatten					
+a1_time		aamulla	på morgonen	phrase	in the morning							
+a1_time	time_4_in_the_evening	illalla	på kvällen	phrase	in the evening							
+a1_time	time_4_at_night	yöllä	på natten	phrase	at night							
+a1_time		tänä aamuna	i morse	adv	this morning							
+a1_time	time_4_tonight	tänä iltana	i kväll / ikväll	adv	tonight							
+a1_time	aikasanat_2_today	tänään	i dag / idag	adv	today							
+a1_time	aikasanat_2_tomorrow	huomenna	i morgon / imorgon	adv	tomorrow							
+a1_time	aikasanat_2_yesterday	eilen	i går / igår	adv	yesterday							
+a1_time		ylihuomenna	i övermorgon / iövermorgon	adv	the day after tomorrow							
+a1_time		toissapäivänä	i förrgår / iförrgår	adv	the day before yesterday							
+a1_time	weekdays_monday	maanantai	måndag	n	Monday	måndagar	måndagen					
+a1_time	weekdays_tuesday	tiistai	tisdag	n	Tuesday	tisdagar	tisdagen					
+a1_time	weekdays_wednesday	keskiviikko	onsdag	n	Wednesday	onsdagar	onsdagen					
+a1_time	weekdays_thursday	torstai	torsdag	n	Thursday	torsdagar	torsdagen					
+a1_time	weekdays_friday	perjantai	fredag	n	Friday	fredagar	fredagen					
+a1_time	weekdays_saturday	lauantai	lördag	n	Saturday	lördagar	lördagen					
+a1_time	weekdays_sunday	sunnuntai	söndag	n	Sunday	söndagar	söndagen					
+a1_time	aikasanat_2_weekend	viikonloppu	en helg	n	weekend	helger	helgen					
+a1_time	calendar_4_january	tammikuu	januari	n	January	-	januari					
+a1_time	calendar_4_february	helmikuu	februari	n	February	-	februari					
+a1_time	calendar_4_march	maaliskuu	mars	n	March	-	mars					
+a1_time	calendar_4_april	huhtikuu	april	n	April	-	april					
+a1_time	calendar_4_may	toukokuu	maj	n	May	-	maj					
+a1_time	calendar_4_june	kesäkuu	juni	n	June	-	juni					
+a1_time	calendar_4_july	heinäkuu	juli	n	July	-	juli					
+a1_time	calendar_4_august	elokuu	augusti	n	August	-	augusti					
+a1_time	calendar_4_september	syyskuu	september	n	September	-	september					
+a1_time	calendar_4_october	lokakuu	oktober	n	October	-	oktober					
+a1_time	calendar_4_november	marraskuu	november	n	November	-	november					
+a1_time	calendar_4_december	joulukuu	december	n	December	-	december					
+a1_time	weather_seasons_spring	kevät	en vår	n	spring	vårar	våren					
+a1_time	weather_seasons_summer	kesä	en sommar	n	summer	somrar	sommaren					
+a1_time	weather_seasons_autumn	syksy	en höst	n	autumn	höstar	hösten					
+a1_time	weather_seasons_winter	talvi	en vinter	n	winter	vintrar	vintern					
+a1_time	time_4_season	vuodenaika	en årstid	n	season	årstider	årstiden					
+a1_time	time_4_week	viikko	en vecka	n	week	veckor	veckan					
+a1_time	time_4_month	kuukausi	en månad	n	month	månader	månaden					
+a1_time	aikasanat_2_year	vuosi	ett år	n	year	år	året					
+a1_time	time_4_date	päivämäärä	ett datum	n	date	datum	datumet					
+a1_time	calendar_4_calendar	kalenteri	en kalender	n	calendar	kalendrar	kalendern					
+a1_time	time_4_now	nyt	nu	adv	now							
+a1_time	time_4_later	myöhemmin	senare	adv	later							
+a1_time	time_4_soon	pian / kohta	snart	adv	soon							
+a1_time	time_4_often	usein	ofta	adv	often							
+a1_time		joskus	ibland	adv	sometimes							
+a1_time	yleissanat_3_always	aina	alltid	adv	always							
+a1_time	yleissanat_3_never	ei koskaan / ei ikinä	aldrig	adv	never							
+a1_time		harvoin	sällan	adv	rarely							
+a1_time	time_late	myöhään / myöhässä	sent	adv	late							
+a1_time	time_early	aikaisin / varhain	tidigt	adv	early							
+a1_time	time_4_in_time	ajoissa	i tid	adv	in time							
+a1_time	time_4_once	kerran	en gång	adv	once							
+a1_time		joka päivä / päivittäin	varje dag	phrase	every day							
+a1_time		viime viikolla	förra veckan	phrase	last week							
+a1_time		ensi viikolla	nästa vecka	phrase	next week							
+a1_time		tunnin päästä	om en timme	phrase	in an hour							
+a1_time		... sitten (esim. viikko sitten)	för ... sedan	phrase	... ago							
+a1_time		kuinka kauan?	hur länge	phrase	how long?							
+a1_family	family_family	perhe	en familj	n	family	familjer	familjen					
+a1_family		perheenjäsen	en familjemedlem	n	family member	familjemedlemmar	familjemedlemmen					
+a1_family	family_mother	äiti	en mamma / en mor	n	mother	mammor	mamman					
+a1_family	family_father	isä / iskä	en pappa / en far	n	father	pappor	pappan					
+a1_family	family_parents	vanhempi (isä tai äiti) / vanhemmat	en förälder	n	parent	föräldrar	föräldern					
+a1_family	people_4_child	lapsi	ett barn	n	child	barn	barnet					
+a1_family		poika (jonkun poika, perheenjäsen)	en son	n	son	söner	sonen					
+a1_family	people_4_boy	poika (poikalapsi, nuori)	en pojke	n	boy	pojkar	pojken					
+a1_family		tytär	en dotter	n	daughter	döttrar	dottern					
+a1_family	people_4_girl	tyttö	en flicka / en tjej	n	girl	flickor	flickan					
+a1_family	family_sister	sisko / sisar	en syster	n	sister	systrar	systern					
+a1_family	family_brother	veli	en bror	n	brother	bröder	brodern					
+a1_family		sisarus / sisarukset	ett syskon	n	sibling	syskon	syskonet					
+a1_family	family_grandma	isoäiti (äidin äiti) / mummo	en mormor	n	grandmother (mother's mother)	mormödrar	mormodern					
+a1_family		isoäiti (isän äiti)	en farmor	n	grandmother (father's mother)	farmödrar	farmodern					
+a1_family	family_grandpa	isoisä (äidin isä) / vaari	en morfar	n	grandfather (mother's father)	morfäder	morfadern					
+a1_family		isoisä (isän isä)	en farfar	n	grandfather (father's father)	farfäder	farfadern					
+a1_family		lapsenlapsi	ett barnbarn	n	grandchild	barnbarn	barnbarnet					
+a1_family	people_4_uncle	eno (äidin veli)	en morbror	n	uncle (mother's brother)	morbröder	morbrodern					
+a1_family		setä (isän veli)	en farbror	n	uncle (father's brother)	farbröder	farbrodern					
+a1_family	people_4_aunt	täti (äidin sisko)	en moster	n	aunt (mother's sister)	mostrar	mostern					
+a1_family		täti (isän sisko)	en faster	n	aunt (father's sister)	fastrar	fastern					
+a1_family	family_cousin	serkku	en kusin	n	cousin	kusiner	kusinen					
+a1_family	relationships_7_relative	sukulainen	en släkting	n	relative	släktingar	släktingen					
+a1_family		suku	en släkt	n	family (extended) / relatives	släkter	släkten					
+a1_family		vaimo	en fru / en hustru	n	wife	fruar	frun					
+a1_family		aviomies	en make / en man	n	husband	makar	maken					
+a1_family		puoliso / kumppani	en partner	n	partner	partner	partnern					
+a1_family		avopuoliso	en sambo	n	cohabiting partner	sambor	sambon					
+a1_family	relationships_7_boyfriend	poikaystävä	en pojkvän	n	boyfriend	pojkvänner	pojkvännen					
+a1_family	relationships_7_girlfriend	tyttöystävä	en flickvän	n	girlfriend	flickvänner	flickvännen					
+a1_family	school_people_friend	ystävä / kaveri	en vän / en kompis	n	friend	vänner	vännen					
+a1_family	relationships_7_neighbour	naapuri	en granne	n	neighbour	grannar	grannen					
+a1_family		mies	en man	n	man	män	mannen					
+a1_family		nainen	en kvinna	n	woman	kvinnor	kvinnan					
+a1_family	family_baby	vauva	en bebis	n	baby	bebisar	bebisen					
+a1_family	people_4_person	henkilö	en person	n	person	personer	personen					
+a1_family	people_4_human	ihminen	en människa	n	human being	människor	människan					
+a1_family	people_4_people	ihmiset / väki	folk	n	people	-	folket					
+a1_family		teini / teini-ikäinen	en tonåring	n	teenager	tonåringar	tonåringen					
+a1_family		aikuinen	vuxen	adj	adult						vuxet	vuxna
+a1_family	people_4_twins	kaksonen / kaksoset	en tvilling	n	twin	tvillingar	tvillingen					
+a1_appearance		ulkonäkö	ett utseende	n	appearance	utseenden	utseendet					
+a1_appearance		näyttää (joltakin)	se ut	v	look (like)			ser ut	såg ut	sett ut		
+a1_appearance		miltä hän näyttää?	hur ser hon ut / hur ser han ut	phrase	what does she look like?							
+a1_appearance		muistuttaa (jotakuta) / olla jonkun näköinen	likna	v	resemble			liknar	liknade	liknat		
+a1_appearance		pituus	en längd	n	height / length	längder	längden					
+a1_appearance	opposites_tall	pitkä (ihminen)	lång	adj	tall						långt	långa
+a1_appearance	opposites_short	lyhyt (ihminen) / lyhytkasvuinen	kort	adj	short						kort	korta
+a1_appearance		keskipitkä	medellång	adj	of medium height						medellångt	medellånga
+a1_appearance		paino	en vikt	n	weight	vikter	vikten					
+a1_appearance		hoikka	smal	adj	slim						smalt	smala
+a1_appearance	body_4_fat	lihava / tukeva	tjock	adj	fat						tjockt	tjocka
+a1_appearance	body_4_beautiful	kaunis	vacker	adj	beautiful						vackert	vackra
+a1_appearance		hyvännäköinen / komea	snygg	adj	good-looking						snyggt	snygga
+a1_appearance	body_4_cute	söpö / suloinen / nätti	söt	adj	cute						sött	söta
+a1_appearance	body_4_ugly	ruma	ful	adj	ugly						fult	fula
+a1_appearance	body_4_young	nuori	ung	adj	young						ungt	unga
+a1_appearance	body_parts_hair	hiukset / tukka	hår	n	hair	hår	håret					
+a1_appearance	body_parts_eye	silmä	ett öga	n	eye	ögon	ögat					
+a1_appearance	body_4_blond	vaalea (hiukset) / vaaleahiuksinen / blondi	blond / ljushårig	adj	blond						blont	blonda
+a1_appearance		tummahiuksinen	mörkhårig	adj	dark-haired						mörkhårigt	mörkhåriga
+a1_appearance		punatukkainen	rödhårig	adj	red-haired						rödhårigt	rödhåriga
+a1_appearance		harmaahiuksinen	gråhårig	adj	grey-haired						gråhårigt	gråhåriga
+a1_appearance		kalju	skallig	adj	bald						skalligt	skalliga
+a1_appearance	appearance_curly_hair	kiharat hiukset / kihara tukka	lockigt hår	phrase	curly hair							
+a1_appearance	appearance_straight_hair	suorat hiukset / suora tukka	rakt hår	phrase	straight hair							
+a1_appearance	appearance_long_hair	pitkät hiukset / pitkä tukka	långt hår	phrase	long hair							
+a1_appearance		lyhyet hiukset / lyhyt tukka	kort hår	phrase	short hair							
+a1_appearance	appearance_blue_eyes	siniset silmät	blå ögon	phrase	blue eyes							
+a1_appearance	appearance_brown_eyes	ruskeat silmät	bruna ögon	phrase	brown eyes							
+a1_appearance	appearance_green_eyes	vihreät silmät	gröna ögon	phrase	green eyes							
+a1_appearance	appearance_beard	parta	ett skägg	n	beard	skägg	skägget					
+a1_appearance		viikset	en mustasch	n	moustache	mustascher	mustaschen					
+a1_appearance	appearance_glasses	silmälasit / lasit	glasögon	n	glasses	glasögon	glasögonen					
+a1_appearance		tatuointi	en tatuering	n	tattoo	tatueringar	tatueringen					
+a1_appearance		pukeutunut	klädd	adj	dressed						klätt	klädda
+a1_appearance		tyylikäs	stilig / elegant	adj	stylish						stiligt	stiliga
+a1_appearance		raidallinen	randig	adj	striped						randigt	randiga
+a1_appearance		persoonallisuus / luonne	en personlighet	n	personality	personligheter	personligheten					
+a1_appearance	personality_kind	kiltti	snäll	adj	kind						snällt	snälla
+a1_appearance		ystävällinen	vänlig	adj	friendly						vänligt	vänliga
+a1_appearance		mukava (ihminen)	trevlig	adj	nice						trevligt	trevliga
+a1_appearance	personality_funny	hauska / hassu	rolig / lustig	adj	funny						roligt	roliga
+a1_appearance	personality_shy	ujo	blyg	adj	shy						blygt	blyga
+a1_appearance	personality_calm	rauhallinen / tyyni	lugn	adj	calm						lugnt	lugna
+a1_appearance	personality_clever	älykäs / fiksu	smart / klok	adj	clever						smart	smarta
+a1_appearance		taitava / reipas	duktig	adj	capable / good (at sth)						duktigt	duktiga
+a1_appearance	personality_lazy	laiska	lat	adj	lazy						latt	lata
+a1_appearance	personality_brave	rohkea / urhea	modig	adj	brave						modigt	modiga
+a1_appearance	personality_curious	utelias	nyfiken	adj	curious						nyfiket	nyfikna
+a1_appearance	personality_sporty	urheilullinen	sportig	adj	sporty						sportigt	sportiga
+a1_appearance		rehellinen	ärlig	adj	honest						ärligt	ärliga
+a1_appearance		puhelias	pratsam	adj	talkative						pratsamt	pratsamma
+a1_appearance		ilkeä / häijy	elak	adj	mean						elakt	elaka
+a1_appearance		sosiaalinen	social	adj	sociable						socialt	sociala
+a1_appearance		itsepäinen	envis	adj	stubborn						envist	envisa

@@ -11,7 +11,7 @@ Sanaseikkailu data check: 1616 words, 93 categories, 338 sentences
 [Sentence length not increasing] (1)
   - grade 7 avg 10.20 < grade 6 avg 11.30
 
-===== INFO (114) =====
+===== INFO (115) =====
 
 [Pattern phrases with '...' (filtered from practice)] (2)
   - greetings_phrases_my_name_is: en='my name is ...' fi='nimeni on ... / minun nimeni on ...' de='ich heiße ...'
@@ -25,7 +25,7 @@ Sanaseikkailu data check: 1616 words, 93 categories, 338 sentences
   - de_k1_minus: 'minus' = 'minus'
 
 [Swedish] (1)
-  - 481 words with sv, 60 sentences ({1: 20, 2: 20, 3: 20})
+  - 1165 words with sv, 60 sentences ({1: 20, 2: 20, 3: 20})
 
 [Words per grade] (1)
   - g1: 126, g2: 78, g3: 88, g4: 949, g5: 70, g6: 63, g7: 74, g8: 75, g9: 75, ungraded(hobby): 18
@@ -144,5 +144,8 @@ Sanaseikkailu data check: 1616 words, 93 categories, 338 sentences
 
 [Top 30 sentence words NOT in vocabulary at all] (1)
   - mia(8), leo(8), max(7), anna(6), emma(6), got(4), going(3), much(3), can't(2), tom(2), taller(2), hiding(2), won(2), way(2), forgot(2), causes(2), ella(1), faster(1), ran(1), bit(1), caught(1), fancy(1), grandad(1), stopped(1), slid(1), fireworks(1), won't(1), pupils(1), speak(1), keep(1)
+
+[Self sv] (1)
+  - itseopiskelun ruotsi: 3119 käsitettä ({'A1': 1153, 'A2': 1009, 'B1': 957}), 49 aihepiiriä
 
 SUMMARY: 0 error(s), 3 warning(s)

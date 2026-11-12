@@ -1,0 +1,491 @@
+topic	id	fi	sv	pos	en	pl	def	pres	pret	sup	neut	apl
+b1_society	society_9_society	yhteiskunta	ett samhälle	n	society	samhällen	samhället					
+b1_society		valtio	en stat	n	state	stater	staten					
+b1_society		kunta	en kommun	n	municipality	kommuner	kommunen					
+b1_society	society_9_government	hallitus	en regering	n	government	regeringar	regeringen					
+b1_society	society_9_parliament	eduskunta / parlamentti	en riksdag / ett parlament	n	parliament	riksdagar	riksdagen					
+b1_society		kansanedustaja	en riksdagsledamot	n	member of parliament	riksdagsledamöter	riksdagsledamoten					
+b1_society		ministeri	en minister	n	minister	ministrar	ministern					
+b1_society		pääministeri	en statsminister	n	prime minister	statsministrar	statsministern					
+b1_society		presidentti	en president	n	president	presidenter	presidenten					
+b1_society	society_9_election	vaalit	ett val	n	election	val	valet					
+b1_society		eduskuntavaalit	ett riksdagsval	n	parliamentary election	riksdagsval	riksdagsvalet					
+b1_society		kunnallisvaalit / kuntavaalit	ett kommunalval	n	municipal election	kommunalval	kommunalvalet					
+b1_society	society_9_vote	äänestää	rösta	v	vote			röstar	röstade	röstat		
+b1_society		ääni (vaaleissa)	en röst	n	vote	röster	rösten					
+b1_society		äänestäjä	en väljare	n	voter	väljare	väljaren					
+b1_society		äänioikeus	rösträtt	n	right to vote	-	rösträtten					
+b1_society		tulla valituksi	bli vald	phrase	be elected							
+b1_society		ehdokas	en kandidat	n	candidate	kandidater	kandidaten					
+b1_society		vaalikampanja	en valkampanj	n	election campaign	valkampanjer	valkampanjen					
+b1_society		puolue	ett parti	n	political party	partier	partiet					
+b1_society		politiikka	politik	n	politics	-	politiken					
+b1_society		poliitikko	en politiker	n	politician	politiker	politikern					
+b1_society		poliittinen	politisk	adj	political						politiskt	politiska
+b1_society		kansa	ett folk	n	people	folk	folket					
+b1_society	society_9_law	laki	en lag	n	law	lagar	lagen					
+b1_society		perustuslaki	en grundlag	n	constitution	grundlagar	grundlagen					
+b1_society		lakiehdotus	ett lagförslag	n	bill	lagförslag	lagförslaget					
+b1_society		hyväksyä (laki)	anta / godkänna	v	pass (a law)			antar	antog	antagit		
+b1_society		vero	en skatt	n	tax	skatter	skatten					
+b1_society		maksaa veroa	betala skatt	phrase	pay tax							
+b1_society		verorahat	skattepengar	n	taxpayers' money	-	skattepengarna					
+b1_society		hyvinvointivaltio	en välfärdsstat	n	welfare state	välfärdsstater	välfärdsstaten					
+b1_society		hyvinvointi (yhteiskunnan)	välfärd	n	welfare	-	välfärden					
+b1_society		toimeentulotuki / sosiaalituki	ett socialbidrag / ett försörjningsstöd	n	social assistance	socialbidrag	socialbidraget					
+b1_society		lapsilisä	ett barnbidrag	n	child benefit	barnbidrag	barnbidraget					
+b1_society		asumistuki	ett bostadsbidrag	n	housing allowance	bostadsbidrag	bostadsbidraget					
+b1_society	society_9_citizen	kansalainen	en medborgare	n	citizen	medborgare	medborgaren					
+b1_society		velvollisuus	en skyldighet	n	duty	skyldigheter	skyldigheten					
+b1_society	society_9_human_rights	ihmisoikeudet	mänskliga rättigheter	phrase	human rights							
+b1_society	society_9_democracy	demokratia	en demokrati	n	democracy	demokratier	demokratin					
+b1_society	society_9_equality	tasa-arvo	jämställdhet / jämlikhet	n	equality	-	jämställdheten					
+b1_society		tasa-arvoinen	jämställd	adj	equal						jämställt	jämställda
+b1_society		syrjintä	diskriminering	n	discrimination	-	diskrimineringen					
+b1_society		rasismi	rasism	n	racism	-	rasismen					
+b1_society		korruptio	korruption	n	corruption	-	korruptionen					
+b1_society		tasavalta	en republik	n	republic	republiker	republiken					
+b1_society		diktatuuri	en diktatur	n	dictatorship	diktaturer	diktaturen					
+b1_society		valta	makt	n	power	-	makten					
+b1_society		enemmistö	en majoritet	n	majority	majoriteter	majoriteten					
+b1_society		vähemmistö	en minoritet	n	minority	minoriteter	minoriteten					
+b1_society		oppositio	en opposition	n	opposition	oppositioner	oppositionen					
+b1_society		vasemmisto	vänstern	n	the left	-	vänstern					
+b1_society		oikeisto	högern	n	the right	-	högern					
+b1_society		konservatiivinen	konservativ	adj	conservative						konservativt	konservativa
+b1_society		liberaali	liberal	adj	liberal						liberalt	liberala
+b1_society		sosiaalidemokraatti	en socialdemokrat	n	social democrat	socialdemokrater	socialdemokraten					
+b1_society		kannattaa (puoluetta tms.)	stödja	v	support			stöder	stödde	stött		
+b1_society		väittely (poliittinen)	en debatt	n	debate	debatter	debatten					
+b1_society		mielipidemittaus	en opinionsundersökning	n	opinion poll	opinionsundersökningar	opinionsundersökningen					
+b1_society		kansanäänestys	en folkomröstning	n	referendum	folkomröstningar	folkomröstningen					
+b1_society		tehdä päätös	fatta beslut / fatta ett beslut	phrase	make a decision							
+b1_society		viranomainen	en myndighet	n	authority	myndigheter	myndigheten					
+b1_society		virkamies	en tjänsteman	n	civil servant	tjänstemän	tjänstemannen					
+b1_society		hallinto	en förvaltning	n	administration	förvaltningar	förvaltningen					
+b1_society		julkinen	offentlig	adj	public						offentligt	offentliga
+b1_society		kansallinen	nationell	adj	national						nationellt	nationella
+b1_society		kansainvälinen	internationell	adj	international						internationellt	internationella
+b1_society		itsenäinen	självständig	adj	independent						självständigt	självständiga
+b1_society		ulkopolitiikka	utrikespolitik	n	foreign policy	-	utrikespolitiken					
+b1_society		Euroopan unioni / EU	EU / Europeiska unionen	n	European Union	-	EU					
+b1_society		jäsenvaltio	en medlemsstat	n	member state	medlemsstater	medlemsstaten					
+b1_society		väestö	en befolkning	n	population	befolkningar	befolkningen					
+b1_society		asukas	en invånare	n	inhabitant	invånare	invånaren					
+b1_society		maahanmuutto	invandring	n	immigration	-	invandringen					
+b1_society		maahanmuuttaja	en invandrare	n	immigrant	invandrare	invandraren					
+b1_society		pakolainen	en flykting	n	refugee	flyktingar	flyktingen					
+b1_society		hakea turvapaikkaa	söka asyl	phrase	seek asylum							
+b1_society		kotoutuminen / kotouttaminen	integration	n	integration	-	integrationen					
+b1_society		sota	ett krig	n	war	krig	kriget					
+b1_society		rauha	fred	n	peace	-	freden					
+b1_society		armeija	en armé	n	army	arméer	armén					
+b1_society		mielenosoitus	en demonstration	n	demonstration	demonstrationer	demonstrationen					
+b1_society		osoittaa mieltä	demonstrera	v	demonstrate			demonstrerar	demonstrerade	demonstrerat		
+b1_society		järjestö	en organisation	n	organization	organisationer	organisationen					
+b1_society		yhdistys	en förening	n	association	föreningar	föreningen					
+b1_society		vapaaehtoinen (henkilö)	en volontär / en frivillig	n	volunteer	volontärer	volontären					
+b1_society		vapaaehtoistyö	ideellt arbete	phrase	voluntary work							
+b1_economy		talous	en ekonomi	n	economy	ekonomier	ekonomin					
+b1_economy		taloudellinen	ekonomisk	adj	economic						ekonomiskt	ekonomiska
+b1_economy		budjetti / talousarvio	en budget	n	budget	budgetar	budgeten					
+b1_economy		kotitalous	ett hushåll	n	household	hushåll	hushållet					
+b1_economy		laina	ett lån	n	loan	lån	lånet					
+b1_economy		asuntolaina	ett bolån	n	mortgage	bolån	bolånet					
+b1_economy		ottaa laina	ta ett lån	phrase	take out a loan							
+b1_economy		korko	en ränta	n	interest	räntor	räntan					
+b1_economy		lyhentää (lainaa)	amortera	v	pay off (a loan)			amorterar	amorterade	amorterat		
+b1_economy		maksaa takaisin	betala tillbaka	v	pay back			betalar tillbaka	betalade tillbaka	betalat tillbaka		
+b1_economy		velka	en skuld	n	debt	skulder	skulden					
+b1_economy		olla velkaa	vara skyldig	phrase	owe							
+b1_economy		velkaantunut	skuldsatt	adj	indebted						skuldsatt	skuldsatta
+b1_economy		eräpäivä	ett förfallodatum	n	due date	förfallodatum	förfallodatumet					
+b1_economy		maksaa laskut	betala räkningar	phrase	pay the bills							
+b1_economy		tilisiirto	en överföring	n	bank transfer	överföringar	överföringen					
+b1_economy		osamaksu	en avbetalning	n	instalment	avbetalningar	avbetalningen					
+b1_economy	money_7_save	säästää (rahaa)	spara	v	save			sparar	sparade	sparat		
+b1_economy		säästöt	sparpengar / besparingar	n	savings	-	sparpengarna					
+b1_economy		sijoittaa	investera	v	invest			investerar	investerade	investerat		
+b1_economy		sijoitus	en investering	n	investment	investeringar	investeringen					
+b1_economy		osake	en aktie	n	share	aktier	aktien					
+b1_economy		pörssi	en börs	n	stock exchange	börser	börsen					
+b1_economy		rahasto	en fond	n	fund	fonder	fonden					
+b1_economy		tulot	inkomster / en inkomst	n	income	inkomster	inkomsten					
+b1_economy		menot	utgifter / en utgift	n	expenses	utgifter	utgiften					
+b1_economy	money_7_cost	kustannus / kulu	en kostnad	n	cost	kostnader	kostnaden					
+b1_economy		elinkustannukset	levnadskostnader	n	cost of living	-	levnadskostnaderna					
+b1_economy		hinta nousee	priset stiger	phrase	the price rises							
+b1_economy		hinta laskee	priset sjunker	phrase	the price falls							
+b1_economy		inflaatio	inflation	n	inflation	-	inflationen					
+b1_economy		ostovoima	köpkraft	n	purchasing power	-	köpkraften					
+b1_economy		kuluttaja	en konsument	n	consumer	konsumenter	konsumenten					
+b1_economy		kuluttaa	konsumera	v	consume			konsumerar	konsumerade	konsumerat		
+b1_economy		kulutus	konsumtion	n	consumption	-	konsumtionen					
+b1_economy		tarjous (kaupassa)	ett erbjudande / ett extrapris	n	offer	erbjudanden	erbjudandet					
+b1_economy		vertailla hintoja	jämföra priser	phrase	compare prices							
+b1_economy		edullinen / hintansa arvoinen	prisvärd	adj	good value						prisvärt	prisvärda
+b1_economy		ylellisyys	lyx	n	luxury	-	lyxen					
+b1_economy		tuhlata (rahaa)	slösa	v	waste			slösar	slösade	slösat		
+b1_economy		saada rahat riittämään	få pengarna att räcka	phrase	make ends meet							
+b1_economy		takuu	en garanti	n	guarantee	garantier	garantin					
+b1_economy		reklamaatio	en reklamation	n	complaint	reklamationer	reklamationen					
+b1_economy		reklamoida / tehdä valitus	reklamera	v	make a complaint			reklamerar	reklamerade	reklamerat		
+b1_economy		palauttaa (tuote)	returnera / lämna tillbaka	v	return			returnerar	returnerade	returnerat		
+b1_economy		verkkokauppa	en nätbutik / e-handel	n	online shop	nätbutiker	nätbutiken					
+b1_economy	travel_8_currency	valuutta	en valuta	n	currency	valutor	valutan					
+b1_economy	general_4_product	tuote	en produkt	n	product	produkter	produkten					
+b1_economy		palvelu	en tjänst	n	service	tjänster	tjänsten					
+b1_economy		markkinat	en marknad	n	market	marknader	marknaden					
+b1_economy		kysyntä	efterfrågan	n	demand	-	efterfrågan					
+b1_economy		tarjonta	ett utbud	n	supply	utbud	utbudet					
+b1_economy		kilpailu (markkinoilla)	konkurrens	n	competition	-	konkurrensen					
+b1_economy		voitto (rahallinen)	en vinst	n	profit	vinster	vinsten					
+b1_economy		tappio	en förlust	n	loss	förluster	förlusten					
+b1_economy		liikevaihto	en omsättning	n	turnover	omsättningar	omsättningen					
+b1_economy		kannattava	lönsam	adj	profitable						lönsamt	lönsamma
+b1_economy		kasvu (talouden)	tillväxt	n	growth	-	tillväxten					
+b1_economy		taantuma / lama	en lågkonjunktur / en recession	n	recession	lågkonjunkturer	lågkonjunkturen					
+b1_economy		nousukausi	en högkonjunktur	n	boom	högkonjunkturer	högkonjunkturen					
+b1_economy		talouskriisi / finanssikriisi	en finanskris	n	financial crisis	finanskriser	finanskrisen					
+b1_economy		keskuspankki	en centralbank	n	central bank	centralbanker	centralbanken					
+b1_economy		bruttokansantuote / BKT	BNP	n	GDP	-	BNP					
+b1_economy		kauppa (maiden välinen)	handel	n	trade	-	handeln					
+b1_economy		tuonti	import	n	import	-	importen					
+b1_economy		vienti	export	n	export	-	exporten					
+b1_economy		tuoda (maahan)	importera	v	import			importerar	importerade	importerat		
+b1_economy		viedä (ulkomaille)	exportera	v	export			exporterar	exporterade	exporterat		
+b1_economy		teollisuus	en industri	n	industry	industrier	industrin					
+b1_economy		maatalous	ett jordbruk	n	agriculture	jordbruk	jordbruket					
+b1_economy		rahoittaa	finansiera	v	finance			finansierar	finansierade	finansierat		
+b1_economy		rahoitus	finansiering	n	financing	-	finansieringen					
+b1_economy		tuki (taloudellinen)	ett stöd / ett bidrag	n	subsidy	stöd	stödet					
+b1_economy		veroilmoitus	en deklaration	n	tax return	deklarationer	deklarationen					
+b1_economy		tehdä veroilmoitus	deklarera	v	file a tax return			deklarerar	deklarerade	deklarerat		
+b1_economy		arvonlisävero / alv	moms	n	VAT	-	momsen					
+b1_economy		työttömyys	arbetslöshet	n	unemployment	-	arbetslösheten					
+b1_economy		köyhyys	fattigdom	n	poverty	-	fattigdomen					
+b1_economy		varakas	förmögen	adj	wealthy						förmöget	förmögna
+b1_economy		omaisuus	en förmögenhet	n	wealth	förmögenheter	förmögenheten					
+b1_career	future_career	ura	en karriär	n	career	karriärer	karriären					
+b1_career		koulutus (ammatillinen)	en utbildning	n	education	utbildningar	utbildningen					
+b1_career		jatkokoulutus / täydennyskoulutus	en vidareutbildning	n	further training	vidareutbildningar	vidareutbildningen					
+b1_career		tutkinto	en examen	n	degree	examina	examen					
+b1_career		pätevyys	en behörighet	n	qualification	behörigheter	behörigheten					
+b1_career		pätevä	behörig	adj	qualified						behörigt	behöriga
+b1_career		osaaminen	kompetens	n	competence	-	kompetensen					
+b1_career		ammattitaito	yrkeskunskap	n	professional skill	-	yrkeskunskapen					
+b1_career		taitava	skicklig	adj	skilled						skickligt	skickliga
+b1_career	work_8_experience	kokemus	en erfarenhet	n	experience	erfarenheter	erfarenheten					
+b1_career		työkokemus	en arbetslivserfarenhet	n	work experience	arbetslivserfarenheter	arbetslivserfarenheten					
+b1_career		työelämä	ett arbetsliv	n	working life	-	arbetslivet					
+b1_career		työmarkkinat	en arbetsmarknad	n	labour market	arbetsmarknader	arbetsmarknaden					
+b1_career		työllisyys	sysselsättning	n	employment rate	-	sysselsättningen					
+b1_career		työvoimatoimisto	en arbetsförmedling	n	employment office	arbetsförmedlingar	arbetsförmedlingen					
+b1_career		ala (työala)	en bransch	n	industry	branscher	branschen					
+b1_career		vaihtaa alaa	byta bransch	phrase	change careers							
+b1_career		harjoittelu	en praktik	n	internship	praktiker	praktiken					
+b1_career		harjoittelija	en praktikant	n	intern	praktikanter	praktikanten					
+b1_career		suosittelija / suositus	en referens	n	reference	referenser	referensen					
+b1_career		palkata	anställa	v	hire			anställer	anställde	anställt		
+b1_career		työsuhde	en anställning	n	employment	anställningar	anställningen					
+b1_career		vakituinen työpaikka	en fast anställning	phrase	permanent job							
+b1_career		määräaikainen	tidsbegränsad	adj	temporary						tidsbegränsat	tidsbegränsade
+b1_career		työsopimus	ett anställningsavtal	n	employment contract	anställningsavtal	anställningsavtalet					
+b1_career		koeaika	en provanställning	n	probationary period	provanställningar	provanställningen					
+b1_career		irtisanoa	säga upp	v	dismiss			säger upp	sade upp	sagt upp		
+b1_career		irtisanoutua	säga upp sig	v	resign			säger upp sig	sade upp sig	sagt upp sig		
+b1_career		irtisanominen	en uppsägning	n	dismissal	uppsägningar	uppsägningen					
+b1_career		irtisanomisaika	en uppsägningstid	n	notice period	uppsägningstider	uppsägningstiden					
+b1_career		ylennys	en befordran	n	promotion	befordringar	befordran					
+b1_career		saada ylennys	bli befordrad	phrase	get promoted							
+b1_career		palkankorotus	en löneförhöjning	n	pay rise	löneförhöjningar	löneförhöjningen					
+b1_career		bonus	en bonus	n	bonus	bonusar	bonusen					
+b1_career		työsuhde-etu / etu	en förmån	n	benefit	förmåner	förmånen					
+b1_career		neuvotella	förhandla	v	negotiate			förhandlar	förhandlade	förhandlat		
+b1_career		neuvottelu	en förhandling	n	negotiation	förhandlingar	förhandlingen					
+b1_career		ammattiliitto	ett fackförbund / facket	n	trade union	fackförbund	fackförbundet					
+b1_career		työehtosopimus	ett kollektivavtal	n	collective agreement	kollektivavtal	kollektivavtalet					
+b1_career		lakko	en strejk	n	strike	strejker	strejken					
+b1_career		olla lakossa / lakkoilla	strejka	v	strike			strejkar	strejkade	strejkat		
+b1_career		ylityö	övertid	n	overtime	-	övertiden					
+b1_career		liukuva työaika	flextid	n	flexitime	-	flextiden					
+b1_career		etätyö	distansarbete	n	remote work	-	distansarbetet					
+b1_career		tehdä etätöitä	jobba hemifrån / arbeta på distans	phrase	work from home							
+b1_career		pendelöidä / kulkea töihin toiselle paikkakunnalle	pendla	v	commute			pendlar	pendlade	pendlat		
+b1_career		työmatka (liikematka)	en tjänsteresa	n	business trip	tjänsteresor	tjänsteresan					
+b1_career		työympäristö	en arbetsmiljö	n	work environment	arbetsmiljöer	arbetsmiljön					
+b1_career		työtehtävä	en arbetsuppgift	n	task	arbetsuppgifter	arbetsuppgiften					
+b1_career		projekti	ett projekt	n	project	projekt	projektet					
+b1_career		määräaika / deadline	en deadline	n	deadline	deadlines	deadlinen					
+b1_career		esitys (työssä) / esitelmä	en presentation	n	presentation	presentationer	presentationen					
+b1_career		tiimi	ett team	n	team	team	teamet					
+b1_career		yhteistyö	ett samarbete	n	cooperation	samarbeten	samarbetet					
+b1_career		tehdä yhteistyötä	samarbeta	v	cooperate			samarbetar	samarbetade	samarbetat		
+b1_career		verkosto (kontaktit)	ett kontaktnät	n	network	kontaktnät	kontaktnätet					
+b1_career		verkostoitua	nätverka	v	network			nätverkar	nätverkade	nätverkat		
+b1_career		mentori	en mentor	n	mentor	mentorer	mentorn					
+b1_career		kehittyä	utvecklas	v	develop			utvecklas	utvecklades	utvecklats		
+b1_career		vahvuus	en styrka	n	strength	styrkor	styrkan					
+b1_career		heikkous	en svaghet	n	weakness	svagheter	svagheten					
+b1_career		menestys	en framgång	n	success	framgångar	framgången					
+b1_career		menestyvä	framgångsrik	adj	successful						framgångsrikt	framgångsrika
+b1_career		kunnianhimoinen	ambitiös	adj	ambitious						ambitiöst	ambitiösa
+b1_career		joustava	flexibel	adj	flexible						flexibelt	flexibla
+b1_career		johtaa (yritystä, ryhmää)	leda	v	lead			leder	ledde	lett		
+b1_career		johto (yrityksen)	en ledning	n	management	ledningar	ledningen					
+b1_career		toimitusjohtaja	en vd / en verkställande direktör	n	CEO	vd:ar	vd:n					
+b1_career		henkilöstö	en personal	n	staff	personaler	personalen					
+b1_career		henkilöstöosasto / HR	en personalavdelning	n	HR department	personalavdelningar	personalavdelningen					
+b1_career		osasto (yrityksessä)	en avdelning	n	department	avdelningar	avdelningen					
+b1_career	general_4_business	yritys (firma)	ett företag	n	company	företag	företaget					
+b1_career		perustaa yritys	starta ett företag	phrase	start a company							
+b1_career		yrittäjä	en företagare	n	entrepreneur	företagare	företagaren					
+b1_career		itsenäinen ammatinharjoittaja	en egenföretagare	n	self-employed person	egenföretagare	egenföretagaren					
+b1_career		freelancer / vapaa ammatinharjoittaja	en frilansare	n	freelancer	frilansare	frilansaren					
+b1_environment	environment_8_environment	ympäristö	en miljö	n	environment	miljöer	miljön					
+b1_environment		ympäristöongelma	ett miljöproblem	n	environmental problem	miljöproblem	miljöproblemet					
+b1_environment	environment_8_climate	ilmasto	ett klimat	n	climate	klimat	klimatet					
+b1_environment		ilmastonmuutos	en klimatförändring	n	climate change	klimatförändringar	klimatförändringen					
+b1_environment	sustainability_9_global_warming	ilmaston lämpeneminen	den globala uppvärmningen / global uppvärmning	phrase	global warming							
+b1_environment		kasvihuoneilmiö	växthuseffekten	n	greenhouse effect	-	växthuseffekten					
+b1_environment	sustainability_9_emission	päästö	ett utsläpp	n	emission	utsläpp	utsläppet					
+b1_environment		hiilidioksidi	koldioxid	n	carbon dioxide	-	koldioxiden					
+b1_environment	sustainability_9_carbon_footprint	hiilijalanjälki	ett klimatavtryck / ett koldioxidavtryck	n	carbon footprint	klimatavtryck	klimatavtrycket					
+b1_environment		hiilineutraali	klimatneutral	adj	carbon neutral						klimatneutralt	klimatneutrala
+b1_environment		fossiiliton	fossilfri	adj	fossil-free						fossilfritt	fossilfria
+b1_environment		lentohäpeä	flygskam	n	flight shame	-	flygskammen					
+b1_environment	sustainability_9_reduce	vähentää	minska	v	reduce			minskar	minskade	minskat		
+b1_environment		rajoittaa	begränsa	v	limit			begränsar	begränsade	begränsat		
+b1_environment		kierrätys	återvinning	n	recycling	-	återvinningen					
+b1_environment	environment_8_recycle	kierrättää	återvinna	v	recycle			återvinner	återvann	återvunnit		
+b1_environment		lajitella (jätteet)	sortera	v	sort			sorterar	sorterade	sorterat		
+b1_environment		kierrätyskeskus / jäteasema	en återvinningscentral	n	recycling centre	återvinningscentraler	återvinningscentralen					
+b1_environment		pantti	pant	n	deposit	-	panten					
+b1_environment	environment_8_waste	jäte	avfall	n	waste	-	avfallet					
+b1_environment		biojäte	matavfall	n	food waste	-	matavfallet					
+b1_environment		kompostoida	kompostera	v	compost			komposterar	komposterade	komposterat		
+b1_environment	environment_8_plastic	muovi	plast	n	plastic	-	plasten					
+b1_environment		mikromuovi	mikroplast	n	microplastics	-	mikroplasten					
+b1_environment		pakkaus	en förpackning	n	packaging	förpackningar	förpackningen					
+b1_environment		kertakäyttötuote	en engångsartikel	n	disposable item	engångsartiklar	engångsartikeln					
+b1_environment		roskata	skräpa ner	v	litter			skräpar ner	skräpade ner	skräpat ner		
+b1_environment	environment_8_energy	energia	energi	n	energy	-	energin					
+b1_environment		energiankulutus	energiförbrukning	n	energy consumption	-	energiförbrukningen					
+b1_environment		säästää energiaa	spara energi	phrase	save energy							
+b1_environment		uusiutuva energia	förnybar energi	phrase	renewable energy							
+b1_environment	sustainability_9_renewable	uusiutuva	förnybar	adj	renewable						förnybart	förnybara
+b1_environment		aurinkoenergia	solenergi	n	solar energy	-	solenergin					
+b1_environment		aurinkopaneeli	en solpanel	n	solar panel	solpaneler	solpanelen					
+b1_environment		tuulivoima	vindkraft	n	wind power	-	vindkraften					
+b1_environment		tuulivoimala	ett vindkraftverk	n	wind turbine	vindkraftverk	vindkraftverket					
+b1_environment		vesivoima	vattenkraft	n	hydropower	-	vattenkraften					
+b1_environment		ydinvoima	kärnkraft	n	nuclear power	-	kärnkraften					
+b1_environment		voimalaitos	ett kraftverk	n	power plant	kraftverk	kraftverket					
+b1_environment		polttoaine	ett bränsle	n	fuel	bränslen	bränslet					
+b1_environment		fossiiliset polttoaineet	fossila bränslen	phrase	fossil fuels							
+b1_environment		sähköauto	en elbil	n	electric car	elbilar	elbilen					
+b1_environment	environment_8_pollution	saaste / saastuminen	en förorening / föroreningar	n	pollution	föroreningar	föroreningen					
+b1_environment		saastuttaa	förorena	v	pollute			förorenar	förorenade	förorenat		
+b1_environment		myrkyllinen	giftig	adj	toxic						giftigt	giftiga
+b1_environment		kemikaali	en kemikalie	n	chemical	kemikalier	kemikalien					
+b1_environment		rehevöityminen	övergödning	n	eutrophication	-	övergödningen					
+b1_environment		luonnonsuojelu	naturskydd	n	nature conservation	-	naturskyddet					
+b1_environment	environment_8_protect	suojella	skydda	v	protect			skyddar	skyddade	skyddat		
+b1_environment	sustainability_9_sustainable	kestävä (ympäristön kannalta)	hållbar	adj	sustainable						hållbart	hållbara
+b1_environment		kestävä kehitys	hållbar utveckling	phrase	sustainable development							
+b1_environment		ympäristöystävällinen	miljövänlig	adj	environmentally friendly						miljövänligt	miljövänliga
+b1_environment		luomu- / ekologinen	ekologisk	adj	organic						ekologiskt	ekologiska
+b1_environment		luonnonvara	en naturresurs	n	natural resource	naturresurser	naturresursen					
+b1_environment		ekosysteemi	ett ekosystem	n	ecosystem	ekosystem	ekosystemet					
+b1_environment		luonnon monimuotoisuus	biologisk mångfald	phrase	biodiversity							
+b1_environment		laji (eliölaji)	en art	n	species	arter	arten					
+b1_environment	environment_8_endangered	uhanalainen	utrotningshotad	adj	endangered						utrotningshotat	utrotningshotade
+b1_environment		kuolla sukupuuttoon	dö ut	v	die out			dör ut	dog ut	dött ut		
+b1_environment		sademetsä	en regnskog	n	rainforest	regnskogar	regnskogen					
+b1_environment		metsäkato	avskogning	n	deforestation	-	avskogningen					
+b1_environment		kuivuus	en torka	n	drought	torkor	torkan					
+b1_environment		tulva	en översvämning	n	flood	översvämningar	översvämningen					
+b1_environment		helleaalto	en värmebölja	n	heatwave	värmeböljor	värmeböljan					
+b1_environment		metsäpalo	en skogsbrand	n	forest fire	skogsbränder	skogsbranden					
+b1_environment		äärisää	extremväder	n	extreme weather	-	extremvädret					
+b1_environment		jäätikkö	en glaciär	n	glacier	glaciärer	glaciären					
+b1_environment		sulaa	smälta	v	melt			smälter	smälte	smält		
+b1_environment		merenpinta nousee	havsnivån stiger	phrase	the sea level rises							
+b1_environment		ympäristöaktivisti	en miljöaktivist	n	environmental activist	miljöaktivister	miljöaktivisten					
+b1_science_tech		tiede	en vetenskap	n	science	vetenskaper	vetenskapen					
+b1_science_tech		tieteellinen	vetenskaplig	adj	scientific						vetenskapligt	vetenskapliga
+b1_science_tech	science_9_research	tutkimus (toiminta)	forskning	n	research	-	forskningen					
+b1_science_tech		tutkimus (yksittäinen)	en studie	n	study	studier	studien					
+b1_science_tech		tutkia (tieteellisesti)	forska	v	do research			forskar	forskade	forskat		
+b1_science_tech	science_9_scientist	tutkija	en forskare	n	researcher	forskare	forskaren					
+b1_science_tech		professori	en professor	n	professor	professorer	professorn					
+b1_science_tech		teoria	en teori	n	theory	teorier	teorin					
+b1_science_tech		hypoteesi	en hypotes	n	hypothesis	hypoteser	hypotesen					
+b1_science_tech	science_9_experiment	koe (tieteellinen) / kokeilu	ett experiment / ett försök	n	experiment	experiment	experimentet					
+b1_science_tech		testata	testa	v	test			testar	testade	testat		
+b1_science_tech		mitata	mäta	v	measure			mäter	mätte	mätt		
+b1_science_tech		mittaus	en mätning	n	measurement	mätningar	mätningen					
+b1_science_tech		analysoida	analysera	v	analyse			analyserar	analyserade	analyserat		
+b1_science_tech		analyysi	en analys	n	analysis	analyser	analysen					
+b1_science_tech		tilasto / tilastot	statistik	n	statistics	-	statistiken					
+b1_science_tech	general_4_result	tulos	ett resultat	n	result	resultat	resultatet					
+b1_science_tech		johtopäätös	en slutsats	n	conclusion	slutsatser	slutsatsen					
+b1_science_tech		todistaa (oikeaksi)	bevisa	v	prove			bevisar	bevisade	bevisat		
+b1_science_tech		ilmiö	ett fenomen	n	phenomenon	fenomen	fenomenet					
+b1_science_tech	places_4_lab	laboratorio	ett laboratorium	n	laboratory	laboratorier	laboratoriet					
+b1_science_tech		mikroskooppi	ett mikroskop	n	microscope	mikroskop	mikroskopet					
+b1_science_tech		geeni	en gen	n	gene	gener	genen					
+b1_science_tech	science_9_space	avaruus	rymden	n	space	-	rymden					
+b1_science_tech		satelliitti	en satellit	n	satellite	satelliter	satelliten					
+b1_science_tech	science_9_discover	löytää (jotain uutta) / havaita	upptäcka	v	discover			upptäcker	upptäckte	upptäckt		
+b1_science_tech		löytö	en upptäckt	n	discovery	upptäckter	upptäckten					
+b1_science_tech	science_9_invent	keksiä (uusi laite tms.)	uppfinna	v	invent			uppfinner	uppfann	uppfunnit		
+b1_science_tech	science_9_invention	keksintö	en uppfinning	n	invention	uppfinningar	uppfinningen					
+b1_science_tech		keksijä	en uppfinnare	n	inventor	uppfinnare	uppfinnaren					
+b1_science_tech		patentti	ett patent	n	patent	patent	patentet					
+b1_science_tech		innovaatio	en innovation	n	innovation	innovationer	innovationen					
+b1_science_tech	science_9_develop	kehittää	utveckla	v	develop			utvecklar	utvecklade	utvecklat		
+b1_science_tech		teknologia / tekniikka	teknik / teknologi	n	technology	-	tekniken					
+b1_science_tech		tekninen	teknisk	adj	technical						tekniskt	tekniska
+b1_science_tech		kehittynyt (tekniikasta)	avancerad	adj	advanced						avancerat	avancerade
+b1_science_tech		digitaalinen	digital	adj	digital						digitalt	digitala
+b1_science_tech		digitalisaatio	digitalisering	n	digitalization	-	digitaliseringen					
+b1_science_tech		automaattinen	automatisk	adj	automatic						automatiskt	automatiska
+b1_science_tech		automatisoida	automatisera	v	automate			automatiserar	automatiserade	automatiserat		
+b1_science_tech	school_4_machine	kone	en maskin	n	machine	maskiner	maskinen					
+b1_science_tech	science_9_device	laite	en apparat / en enhet	n	device	apparater	apparaten					
+b1_science_tech		elektroniikka	elektronik	n	electronics	-	elektroniken					
+b1_science_tech		akku / paristo	ett batteri	n	battery	batterier	batteriet					
+b1_science_tech		sensori / anturi	en sensor	n	sensor	sensorer	sensorn					
+b1_science_tech	school_4_robot	robotti	en robot	n	robot	robotar	roboten					
+b1_science_tech		drooni	en drönare	n	drone	drönare	drönaren					
+b1_science_tech	technology_computer	tietokone	en dator	n	computer	datorer	datorn					
+b1_science_tech		ohjelmisto	en programvara / mjukvara	n	software	programvaror	programvaran					
+b1_science_tech		laitteisto	hårdvara	n	hardware	-	hårdvaran					
+b1_science_tech		käyttöjärjestelmä	ett operativsystem	n	operating system	operativsystem	operativsystemet					
+b1_science_tech		päivittää	uppdatera	v	update			uppdaterar	uppdaterade	uppdaterat		
+b1_science_tech		päivitys	en uppdatering	n	update	uppdateringar	uppdateringen					
+b1_science_tech		käyttäjä	en användare	n	user	användare	användaren					
+b1_science_tech	school_4_coding	ohjelmointi / koodaus	programmering	n	programming	-	programmeringen					
+b1_science_tech		ohjelmoida	programmera	v	program			programmerar	programmerade	programmerat		
+b1_science_tech		ohjelmoija	en programmerare	n	programmer	programmerare	programmeraren					
+b1_science_tech		algoritmi	en algoritm	n	algorithm	algoritmer	algoritmen					
+b1_science_tech	school_4_data	data	data	n	data	-	datan					
+b1_science_tech		tietokanta	en databas	n	database	databaser	databasen					
+b1_science_tech		palvelin	en server	n	server	servrar	servern					
+b1_science_tech		pilvipalvelu	en molntjänst	n	cloud service	molntjänster	molntjänsten					
+b1_science_tech		tietoverkko / verkko	ett nätverk	n	network	nätverk	nätverket					
+b1_science_tech		tietoturva	it-säkerhet / datasäkerhet	n	cybersecurity	-	it-säkerheten					
+b1_science_tech		hakkeri	en hackare	n	hacker	hackare	hackaren					
+b1_science_tech		tietokonevirus	ett virus / ett datavirus	n	computer virus	virus	viruset					
+b1_science_tech	science_9_artificial_intelligence	tekoäly	artificiell intelligens / AI	n	artificial intelligence	-	den artificiella intelligensen					
+b1_science_tech		koneoppiminen	maskininlärning	n	machine learning	-	maskininlärningen					
+b1_science_tech		keskustelurobotti / chatbot	en chattbot	n	chatbot	chattbotar	chattboten					
+b1_science_tech		virtuaalitodellisuus	virtuell verklighet / VR	phrase	virtual reality							
+b1_media	work_8_journalist	toimittaja / journalisti	en journalist	n	journalist	journalister	journalisten					
+b1_media		media / tiedotusvälineet	medier / media	n	the media	-	medierna					
+b1_media	school_4_article	artikkeli / lehtijuttu	en artikel	n	article	artiklar	artikeln					
+b1_media		otsikko	en rubrik	n	headline	rubriker	rubriken					
+b1_media	school_4_front_page	etusivu	en förstasida	n	front page	förstasidor	förstasidan					
+b1_media		lähde	en källa	n	source	källor	källan					
+b1_media		lähdekritiikki	källkritik	n	source criticism	-	källkritiken					
+b1_media		tarkistaa faktat	faktagranska	v	fact-check			faktagranskar	faktagranskade	faktagranskat		
+b1_media		haastatella	intervjua	v	interview			intervjuar	intervjuade	intervjuat		
+b1_media		julkaista	publicera	v	publish			publicerar	publicerade	publicerat		
+b1_media		uutisoida / raportoida	rapportera	v	report			rapporterar	rapporterade	rapporterat		
+b1_media		reportaasi	ett reportage	n	report	reportage	reportaget					
+b1_media		pääkirjoitus	en ledare	n	editorial	ledare	ledaren					
+b1_media		kolumni	en krönika	n	column	krönikor	krönikan					
+b1_media		mielipidekirjoitus	en debattartikel	n	opinion piece	debattartiklar	debattartikeln					
+b1_media		yleisönosastokirjoitus	en insändare	n	letter to the editor	insändare	insändaren					
+b1_media		toimitus (lehden)	en redaktion	n	editorial office	redaktioner	redaktionen					
+b1_media		päätoimittaja	en chefredaktör	n	editor-in-chief	chefredaktörer	chefredaktören					
+b1_media		lehdistötiedote	ett pressmeddelande	n	press release	pressmeddelanden	pressmeddelandet					
+b1_media	school_4_magazine	aikakauslehti	en tidskrift / en veckotidning	n	magazine	tidskrifter	tidskriften					
+b1_media		iltapäivälehti	en kvällstidning	n	tabloid	kvällstidningar	kvällstidningen					
+b1_media		tilata (lehti)	prenumerera	v	subscribe			prenumererar	prenumererade	prenumererat		
+b1_media		tilaus (lehden)	en prenumeration	n	subscription	prenumerationer	prenumerationen					
+b1_media		maksumuuri	en betalvägg	n	paywall	betalväggar	betalväggen					
+b1_media		lukija	en läsare	n	reader	läsare	läsaren					
+b1_media		katsoja	en tittare	n	viewer	tittare	tittaren					
+b1_media		kuuntelija	en lyssnare	n	listener	lyssnare	lyssnaren					
+b1_media		lähettää (radiossa, tv:ssä)	sända	v	broadcast			sänder	sände	sänt		
+b1_media		uutislähetys	en nyhetssändning	n	news broadcast	nyhetssändningar	nyhetssändningen					
+b1_media		suora lähetys	en direktsändning	n	live broadcast	direktsändningar	direktsändningen					
+b1_media		kanava	en kanal	n	channel	kanaler	kanalen					
+b1_media		juontaja	en programledare	n	presenter	programledare	programledaren					
+b1_media		dokumentti	en dokumentär	n	documentary	dokumentärer	dokumentären					
+b1_media		julkisen palvelun media	public service	phrase	public service media							
+b1_media		podcast	en podd / en podcast	n	podcast	poddar	podden					
+b1_media		suoratoistaa / striimata	strömma / streama	v	stream			strömmar	strömmade	strömmat		
+b1_media		suoratoistopalvelu	en streamingtjänst	n	streaming service	streamingtjänster	streamingtjänsten					
+b1_media	media_8_advertisement	mainos	en annons / reklam	n	advertisement	annonser	annonsen					
+b1_media		mainostaa	annonsera / göra reklam	v	advertise			annonserar	annonserade	annonserat		
+b1_media	media_8_social_media	sosiaalinen media / some	sociala medier	n	social media	-	sociala medierna					
+b1_media	media_8_post	julkaisu (somessa) / postaus	ett inlägg	n	post	inlägg	inlägget					
+b1_media	media_8_share	jakaa (somessa)	dela	v	share			delar	delade	delat		
+b1_media	media_8_follower	seuraaja	en följare	n	follower	följare	följaren					
+b1_media	media_8_comment	kommentti	en kommentar	n	comment	kommentarer	kommentaren					
+b1_media		kommentoida	kommentera	v	comment			kommenterar	kommenterade	kommenterat		
+b1_media		tykkäys	en gilla-markering	n	like	gilla-markeringar	gilla-markeringen					
+b1_media		vaikuttaja (somessa)	en influencer	n	influencer	influencers	influencern					
+b1_media		trolli	ett troll	n	troll	troll	trollet					
+b1_media		klikkiotsikko	ett klickbete	n	clickbait	klickbeten	klickbetet					
+b1_media	media_8_privacy	yksityisyys	integritet	n	privacy	-	integriteten					
+b1_media		valeuutinen	en falsk nyhet / fake news	n	fake news	falska nyheter	den falska nyheten					
+b1_media		harhaanjohtava	vilseledande	adj	misleading						vilseledande	vilseledande
+b1_media		levittää (tietoa)	sprida	v	spread			sprider	spred	spritt		
+b1_media		propaganda	propaganda	n	propaganda	-	propagandan					
+b1_media		sensuuri	censur	n	censorship	-	censuren					
+b1_media		sananvapaus	yttrandefrihet	n	freedom of speech	-	yttrandefriheten					
+b1_media		lehdistönvapaus	pressfrihet / tryckfrihet	n	freedom of the press	-	pressfriheten					
+b1_media		luotettava	pålitlig / trovärdig	adj	reliable						pålitligt	pålitliga
+b1_media		puolueeton	opartisk	adj	impartial						opartiskt	opartiska
+b1_media		ajankohtainen	aktuell	adj	current						aktuellt	aktuella
+b1_finland_nordic		Pohjoismaat	Norden / de nordiska länderna	n	the Nordic countries	-	Norden					
+b1_finland_nordic		pohjoismainen	nordisk	adj	Nordic						nordiskt	nordiska
+b1_finland_nordic		Pohjoismaiden neuvosto	Nordiska rådet	phrase	the Nordic Council							
+b1_finland_nordic		pohjoismainen hyvinvointimalli	den nordiska välfärdsmodellen	phrase	the Nordic welfare model							
+b1_finland_nordic		maakunta	ett landskap	n	region	landskap	landskapet					
+b1_finland_nordic		lääni (Ruotsissa)	ett län	n	county	län	länet					
+b1_finland_nordic		hyvinvointialue	ett välfärdsområde	n	wellbeing services county	välfärdsområden	välfärdsområdet					
+b1_finland_nordic		kunnallinen	kommunal	adj	municipal						kommunalt	kommunala
+b1_finland_nordic		pääkaupunkiseutu	huvudstadsregionen	n	capital region	-	huvudstadsregionen					
+b1_finland_nordic		kaksikielisyys	tvåspråkighet	n	bilingualism	-	tvåspråkigheten					
+b1_finland_nordic		kaksikielinen	tvåspråkig	adj	bilingual						tvåspråkigt	tvåspråkiga
+b1_finland_nordic		virallinen kieli	ett officiellt språk	phrase	official language							
+b1_finland_nordic		pakollinen ruotsi	obligatorisk svenska	phrase	compulsory Swedish							
+b1_finland_nordic		suomenruotsalainen (henkilö)	en finlandssvensk	n	Finland Swede	finlandssvenskar	finlandssvensken					
+b1_finland_nordic		suomenruotsalainen (adj.)	finlandssvensk	adj	Finland-Swedish						finlandssvenskt	finlandssvenska
+b1_finland_nordic		suomenruotsi	finlandssvenska	n	Finland Swedish	-	finlandssvenskan					
+b1_finland_nordic		riikinruotsi	rikssvenska	n	Sweden Swedish	-	rikssvenskan					
+b1_finland_nordic		riikinruotsalainen	en rikssvensk	n	Swede from Sweden	rikssvenskar	rikssvensken					
+b1_finland_nordic		saamelainen	en same	n	Sami	samer	samen					
+b1_finland_nordic		saamen kieli	samiska	n	Sami language	-	samiskan					
+b1_finland_nordic		Ahvenanmaa	Åland	n	Åland	-	Åland					
+b1_finland_nordic		ahvenanmaalainen	en ålänning	n	Ålander	ålänningar	ålänningen					
+b1_finland_nordic		Uusimaa	Nyland	n	Uusimaa	-	Nyland					
+b1_finland_nordic		Pohjanmaa	Österbotten	n	Ostrobothnia	-	Österbotten					
+b1_finland_nordic		Lappi	Lappland	n	Lapland	-	Lappland					
+b1_finland_nordic		Helsinki	Helsingfors	n	Helsinki	-	Helsingfors					
+b1_finland_nordic		Turku	Åbo	n	Turku	-	Åbo					
+b1_finland_nordic		Tampere	Tammerfors	n	Tampere	-	Tammerfors					
+b1_finland_nordic		Vaasa	Vasa	n	Vaasa	-	Vasa					
+b1_finland_nordic		Itämeri	Östersjön	n	the Baltic Sea	-	Östersjön					
+b1_finland_nordic	home_4_sauna	sauna	en bastu	n	sauna	bastur	bastun					
+b1_finland_nordic		saunoa	basta / bada bastu	v	take a sauna			bastar	bastade	bastat		
+b1_finland_nordic		sisu	sisu	n	sisu (grit)	-	sisun					
+b1_finland_nordic		sopivasti / juuri sopiva (lagom)	lagom	adj	just right						lagom	lagom
+b1_finland_nordic		kahvihetki (ruotsalainen fika)	fika	n	coffee break	-	fikan					
+b1_finland_nordic		pitää kahvihetki / fikata	fika	v	have a coffee break			fikar	fikade	fikat		
+b1_finland_nordic		jokamiehenoikeus	allemansrätten	n	right of public access	-	allemansrätten					
+b1_finland_nordic		kansankoti (Ruotsissa)	folkhemmet	n	the people's home	-	folkhemmet					
+b1_finland_nordic		kuningashuone	ett kungahus	n	royal house	kungahus	kungahuset					
+b1_finland_nordic	culture_8_independence_day	itsenäisyyspäivä	självständighetsdagen	n	Independence Day	-	självständighetsdagen					
+b1_finland_nordic		Ruotsin kansallispäivä	Sveriges nationaldag	phrase	Sweden's National Day							
+b1_finland_nordic		talvisota	vinterkriget	n	the Winter War	-	vinterkriget					
+b1_finland_nordic		asevelvollisuus	värnplikt	n	conscription	-	värnplikten					
+b1_finland_nordic		henkilötunnus	ett personnummer	n	personal identity number	personnummer	personnumret					
+b1_finland_nordic		Kela	FPA / Folkpensionsanstalten	n	Kela (Social Insurance Institution of Finland)	-	FPA					
+b1_finland_nordic		sosiaalivakuutusvirasto (Ruotsissa)	Försäkringskassan	n	Swedish Social Insurance Agency	-	Försäkringskassan					
+b1_finland_nordic		verovirasto (Ruotsissa)	Skatteverket	n	Swedish Tax Agency	-	Skatteverket					

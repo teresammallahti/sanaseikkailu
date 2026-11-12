@@ -1,0 +1,52 @@
+## A1: Selviää tutuista arkitilanteista: esittäytyminen, perhe, numerot ja aika, ruoka, ostokset, koti ja kaupungilla liikkuminen. Ymmärtää ja tuottaa lyhyitä, yksinkertaisia virkkeitä.
+## A2: Kertoo menneestä ja tulevasta, asioi (terveys, raha, matkustaminen, työ), ilmaisee tunteita ja mielipiteitä yksinkertaisesti.
+## B1: Keskustelee yhteiskunnasta, työstä, opiskelusta, ympäristöstä ja kulttuurista; perustelee mielipiteitä ja ymmärtää pidempiä tekstejä.
+- a1_greetings [A1] Tervehdykset ja kohteliaisuus (tavoite ~50 sanaa): tervehdykset, hyvästit, kiitos/anteeksi/ole hyvä, perusfraasit (en ymmärrä, puhutko englantia, voitko toistaa), kyllä/ei, onnittelut
+- a1_personal [A1] Henkilötiedot ja esittäytyminen (tavoite ~45 sanaa): nimi, ikä, osoite, puhelinnumero, sähköposti, syntymäpäivä, kansalaisuus, kotimaa, kielet, siviilisääty, lomakkeen perussanat
+- a1_numbers [A1] Numerot, määrät ja mitat (tavoite ~65 sanaa): perusluvut 0–1000+, järjestysluvut, murto-osat (puoli, neljännes), määrät (paljon, vähän, kaikki, pari), mitat (metri, kilo, litra, prosentti), raha-summien lukeminen
+- a1_time [A1] Aika ja kalenteri (tavoite ~75 sanaa): kellonajat, vuorokaudenajat, viikonpäivät, kuukaudet, vuodenajat, eilen/tänään/huomenna, viikko/kuukausi/vuosi, usein/joskus/aina, myöhään/aikaisin
+- a1_family [A1] Perhe ja ihmiset (tavoite ~50 sanaa): perheenjäsenet, sukulaiset, ystävät, naapuri, mies/nainen/lapsi/vauva, parisuhde (vaimo, mies, puoliso, avopuoliso)
+- a1_appearance [A1] Ulkonäkö ja luonne (tavoite ~50 sanaa): pituus, hiukset, silmät, vaatteet ulkonäössä, perusluonteenpiirteet (ystävällinen, hauska, ujo, kiltti)
+- a1_body [A1] Keho ja vointi (tavoite ~50 sanaa): kehonosat, sairas/terve, kipu, väsynyt, nälkä/jano, lääkäri, apteekki, lääke (perus)
+- a1_home [A1] Koti (tavoite ~75 sanaa): asuntotyypit, huoneet, huonekalut, kodinkoneet, keittiövälineet perus, ovi/ikkuna/avain
+- a1_food [A1] Ruoka ja juoma (tavoite ~110 sanaa): ateriat, perusruoat, hedelmät, vihannekset, juomat, maku (hyvä, makea, suolainen), kaupan ruokasanasto, astiat
+- a1_shopping [A1] Ostokset, vaatteet ja värit (tavoite ~85 sanaa): kaupat, hinta, maksaa, kortti, käteinen, kuitti, koot, vaatteet, kengät, värit, alennus
+- a1_town [A1] Kaupunki ja liikkuminen (tavoite ~75 sanaa): paikat kaupungissa, kulkuvälineet, lippu, pysäkki, asema, sijaintisanat (vasen, oikea, suoraan, lähellä, kaukana)
+- a1_daily [A1] Arki ja päivärutiinit (tavoite ~70 sanaa): herätä, peseytyä, pukeutua, syödä aamiaista, mennä töihin, siivota, nukkua; arjen perusverbit
+- a1_free_time [A1] Vapaa-aika ja harrastukset (tavoite ~55 sanaa): harrastukset, urheilulajit perus, musiikki, elokuva, lukea, matkustaa, ulkoilla, pitää jostakin
+- a1_weather [A1] Sää ja luonto (tavoite ~45 sanaa): sää, lämpötila, vuodenajat, sade, lumi, aurinko, tuuli, metsä, järvi, meri
+- a1_work_study [A1] Työ ja opiskelu (tavoite ~55 sanaa): ammatit perus, työpaikka, toimisto, kurssi, koulu, opettaja, opiskelija, oppia, kokous, tauko
+- a1_core [A1] Pikkusanat (tavoite ~110 sanaa): persoonapronominit ja possessiivit, kysymyssanat, prepositiot, konjunktiot, yleiset adverbit (myös, vain, ehkä, jo, vielä, täällä, siellä), artikkelittomat perussanat (tämä, tuo, joku, ei mitään)
+- a1_verbs [A1] Perusverbit (tavoite ~80 sanaa): olla, olla jollakin, tehdä, mennä, tulla, ottaa, antaa, sanoa, tietää, osata, voida, haluata, täytyä, pitää, nähdä, kuulla, puhua, ymmärtää jne.
+- a1_adjectives [A1] Yleisimmät adjektiivit (tavoite ~60 sanaa): iso/pieni, uusi/vanha, hyvä/huono, helppo/vaikea, kallis/halpa, nopea/hidas, lämmin/kylmä ym. vastaparit
+- a2_travel [A2] Matkustaminen ja majoitus (tavoite ~80 sanaa): matka, lento, lentokenttä, passi, matkalaukku, hotelli, varaus, huone, vastaanotto, nähtävyys, turisti, loma
+- a2_transport [A2] Liikenne ja reittiohjeet (tavoite ~60 sanaa): liikennevalot, risteys, kääntyä, ylittää, auto, ajokortti, parkkipaikka, bensa, myöhästyä, vaihtaa (junaa)
+- a2_services [A2] Asiointi ja virastot (tavoite ~60 sanaa): pankki, tili, posti, paketti, virasto, lomake, allekirjoittaa, ajanvaraus, jono, henkilöllisyystodistus, vakuutus
+- a2_health [A2] Terveys ja lääkärissä (tavoite ~75 sanaa): oireet (kuume, yskä, flunssa), terveyskeskus, sairaala, resepti, vastaanotto, tutkia, allergia, hammaslääkäri, sairausloma
+- a2_housing [A2] Asuminen (tavoite ~70 sanaa): vuokra, vuokranantaja, muuttaa, kerrostalo, omakotitalo, parveke, pyykki, tiskata, imuroida, korjata, rikki, sähkö, lämmitys
+- a2_cooking [A2] Ruoanlaitto ja ravintola (tavoite ~75 sanaa): resepti, keittää, paistaa, leikata, uuni, kattila, ainekset, ravintola, ruokalista, tilata, lasku, tarjoilija, alkuruoka, jälkiruoka
+- a2_work [A2] Työelämä (tavoite ~90 sanaa): työnhaku, hakemus, haastattelu, palkka, työaika, vuoro, esimies, kollega, asiakas, sopimus, lomautus, työtön, eläke, ammatit laajemmin
+- a2_education [A2] Koulutus ja kielten opiskelu (tavoite ~55 sanaa): koulutusasteet, kurssi, tentti, todistus, kielioppi, sanasto, ääntäminen, kääntää, harjoitella
+- a2_communication [A2] Puhelin ja internet (tavoite ~60 sanaa): soittaa, viesti, sähköposti, sovellus, verkkosivu, salasana, ladata, tallentaa, näyttö, laturi, somepalvelut
+- a2_feelings [A2] Tunteet ja mielipiteet (tavoite ~65 sanaa): iloinen, surullinen, vihainen, pelätä, huolestunut, yllättynyt, minusta, olla samaa mieltä, pitää/ei pidä, toivoa
+- a2_relationships [A2] Ihmissuhteet ja juhlat (tavoite ~60 sanaa): tavata, seurustella, mennä naimisiin, ero, häät, syntymäpäivä, kutsu, lahja, joulu, juhannus, onnitella
+- a2_nature [A2] Luonto ja eläimet (tavoite ~65 sanaa): kotieläimet, villieläimet, linnut, kasvit, puu, kukka, mökki, saaristo, sienestys, marjastus, retkeily
+- a2_culture_sport [A2] Urheilu, kulttuuri ja media (tavoite ~70 sanaa): ottelu, joukkue, voittaa, hävitä, konsertti, teatteri, museo, näyttely, kirja, sanomalehti, uutiset, tv-ohjelma
+- a2_verbs [A2] Yleisiä verbejä (tavoite ~120 sanaa): A2-tason yleiset verbit, myös partikkeliverbit (tycka om, hälsa på, ta med, komma ihåg, ha på sig)
+- a2_adverbs [A2] Ajan ja tavan ilmaukset, sidesanat (tavoite ~60 sanaa): koska, mutta, siksi, sitten, ennen, jälkeen, kun, jos, vaikka, silti, yleensä, heti, pian, lopulta
+- a2_describe [A2] Kuvailevat adjektiivit (tavoite ~70 sanaa): A2-tason adjektiivit (tärkeä, mahdollinen, tavallinen, erilainen, valmis, vapaa, kiireinen, hiljainen, likainen, puhdas)
+- b1_society [B1] Yhteiskunta ja politiikka (tavoite ~90 sanaa): valtio, kunta, hallitus, eduskunta/riksdag, vaalit, äänestää, puolue, laki, vero, hyvinvointivaltio, kansalainen, demokratia
+- b1_economy [B1] Talous ja kuluttaminen (tavoite ~80 sanaa): talous, budjetti, laina, korko, säästää, sijoittaa, tulot, menot, hinta nousee, inflaatio, kuluttaja, tarjous
+- b1_career [B1] Työ ja ura (tavoite ~80 sanaa): ura, koulutus, pätevyys, kokemus, ylennys, irtisanoa, yrittäjä, yritys, ammattiliitto, työehtosopimus, etätyö, neuvotella
+- b1_environment [B1] Ympäristö ja ilmasto (tavoite ~70 sanaa): ilmastonmuutos, päästöt, kierrätys, uusiutuva energia, saaste, luonnonsuojelu, kestävä kehitys
+- b1_science_tech [B1] Tiede ja teknologia (tavoite ~70 sanaa): tutkimus, tutkija, keksintö, kehittää, tekoäly, tietokone, ohjelmisto, data, kokeilu, tulos
+- b1_media [B1] Media ja uutiset (tavoite ~60 sanaa): toimittaja, artikkeli, otsikko, lähde, haastattelu, julkaista, mainos, some, valeuutinen, sananvapaus
+- b1_culture [B1] Kulttuuri ja perinteet (tavoite ~70 sanaa): taide, taiteilija, kirjailija, romaani, runo, elokuvaohjaaja, perinne, juhla, uskonto, historia
+- b1_wellbeing [B1] Terveys ja hyvinvointi (tavoite ~70 sanaa): stressi, uni, liikunta, ravinto, mielenterveys, rokotus, hoito, leikkaus, toipua, terveellinen
+- b1_law [B1] Laki, oikeudet ja turvallisuus (tavoite ~60 sanaa): oikeus, poliisi, rikos, varas, todistaja, oikeudenkäynti, sopimus, vastuu, hätänumero, palo, onnettomuus
+- b1_life [B1] Elämänvaiheet ja ihmissuhteet (tavoite ~60 sanaa): syntyä, kasvaa, aikuistua, vanhemmuus, eläkkeelle, kuolla, hautajaiset, sukupolvi, luottamus, riita, sopia
+- b1_opinions [B1] Mielipiteet ja keskustelu (tavoite ~60 sanaa): fraasit: minun mielestäni, toisaalta, olen eri mieltä, esimerkiksi, siksi että, ehdottaa, perustella, väittää, myöntää
+- b1_abstract [B1] Abstraktit sanat (tavoite ~100 sanaa): tilanne, mahdollisuus, ongelma, ratkaisu, syy, seuraus, tavoite, kehitys, vaikutus, ero, muutos, suhde, merkitys
+- b1_verbs [B1] B1-verbit ja partikkeliverbit (tavoite ~150 sanaa): B1-tason verbit, erityisesti ruotsin partikkeliverbit (hålla med, ge upp, komma överens, ta hand om, se fram emot)
+- b1_connectors [B1] Tekstin jäsentäminen (tavoite ~50 sanaa): ensinnäkin, lisäksi, kuitenkin, sen sijaan, siis, lopuksi, toisin sanoen, vaikka, jotta, koska
+- b1_finland_nordic [B1] Suomi ja Pohjoismaat (tavoite ~40 sanaa): kunta, maakunta, kaksikielisyys, finlandssvensk, Pohjoismaat, Ahvenanmaa, sauna, mökki, sisu ym. Suomen ja Ruotsin arkeen ja yhteiskuntaan liittyvä sanasto

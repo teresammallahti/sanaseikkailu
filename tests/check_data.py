@@ -20,6 +20,8 @@ def load_sentences():
 data = datamodel.to_legacy(MODEL)[0]
 for e in datamodel.validate(MODEL)[0]: err("Model", e)
 for w_ in datamodel.validate(MODEL)[1]: warn("Model", w_)
+SELFW = [w for w in data["words"] if w.get("self_only")]  # vain itseopiskelu (oma tarkistus lopussa)
+data["words"] = [w for w in data["words"] if not w.get("self_only")]
 ALLW = data["words"]  # sis. de_only-sanat (vain saksan harjoitukseen)
 SD = load_sentences()
 cats = data["categories"]; words = data["words"]; ewords = [w for w in words if not w.get("de_only")]; sents = SD.get("en", []) if SD else []
@@ -236,6 +238,30 @@ for g in range(1, MAX_GRADE + 1):
     if tot: info("Sentence vocabulary coverage (content words in vocab at grade <= g; light plural/-ing/-ed stemming)",
                  f"grade {g}: {hit}/{tot} = {100*hit/tot:.1f}%")
 info("Top 30 sentence words NOT in vocabulary at all", ", ".join(f"{w}({n})" for w, n in unk.most_common(30)))
+
+# ---------- itseopiskelu: ruotsi ----------
+SELF_TOPIC = {}
+for t in MODEL["self"]["topics"]:
+    for cid in t["concepts"]: SELF_TOPIC[cid] = t
+_byid = {w["id"]: w for w in ALLW + SELFW}
+_shown = collections.defaultdict(list)
+for cid, t in SELF_TOPIC.items():
+    w = _byid.get(cid)
+    if not w: continue
+    if not w.get("sv"):
+        err("Self sv", f"{cid} ({t['id']}): ei ruotsin muotoa"); continue
+    sv = w["sv"]; pos = w.get("pos"); infl = w.get("sv_infl", {})
+    fi = (w.get("fi_sv") or w["fi"]).split(" / ")[0].strip().lower()
+    _shown[fi].append(cid)
+    if sv != sv.strip() or "  " in sv or re.search(r"\s/\S|\S/\s", sv): err("Self sv", f"{cid}: välilyönti/vinoviiva: {sv!r}")
+    if pos == "v" and re.match(r"att ", sv): warn("Self sv", f"{cid}: verbi att-sanalla: {sv!r}")
+    if pos == "v" and not all(infl.get(k) for k in ("pres", "pret", "sup")): warn("Self sv taivutus", f"{cid}: verbiltä puuttuu taivutus: {sv!r}")
+    if pos == "adj" and not all(infl.get(k) for k in ("neut", "apl")): warn("Self sv taivutus", f"{cid}: adjektiivilta puuttuu taivutus: {sv!r}")
+    if pos == "n" and re.match(r"(en|ett) ", sv) and not infl.get("def"): warn("Self sv taivutus", f"{cid}: substantiivilta puuttuu määräinen muoto: {sv!r}")
+for fi, ids in _shown.items():
+    if len(ids) > 1: err("Self sv kehote", f"sama kehote {fi!r}: {', '.join(ids)}")
+_lv = collections.Counter(t["level"] for t in SELF_TOPIC.values())
+info("Self sv", f"itseopiskelun ruotsi: {len(SELF_TOPIC)} käsitettä ({dict(sorted(_lv.items()))}), {len(MODEL['self']['topics'])} aihepiiriä")
 
 # ---------- report ----------
 def section(title, d, limit=None):

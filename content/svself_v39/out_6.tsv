@@ -1,0 +1,500 @@
+topic	id	fi	sv	pos	en	pl	def	pres	pret	sup	neut	apl
+a2_work		työnhaku	ett jobbsökande	n	job search	-	jobbsökandet					
+a2_work		työpaikkailmoitus	en platsannons	n	job advertisement	platsannonser	platsannonsen					
+a2_work	education_9_application	hakemus / työhakemus	en ansökan / en jobbansökan	n	application	ansökningar	ansökan					
+a2_work		ansioluettelo / CV	ett cv	n	CV	cv:n	cv:t					
+a2_work	work_8_interview	työhaastattelu / haastattelu (työpaikkaa varten)	en intervju / en anställningsintervju	n	job interview	intervjuer	intervjun					
+a2_work		haastatella	intervjua	v	interview			intervjuar	intervjuade	intervjuat		
+a2_work		hakija / työnhakija	en sökande	n	applicant	sökande	sökanden					
+a2_work	work_8_apply	hakea (työpaikkaa)	söka	v	apply			söker	sökte	sökt		
+a2_work	work_8_salary	palkka	en lön	n	salary	löner	lönen					
+a2_work		tuntipalkka	en timlön	n	hourly wage	timlöner	timlönen					
+a2_work		kuukausipalkka	en månadslön	n	monthly salary	månadslöner	månadslönen					
+a2_work		palkankorotus	en löneförhöjning	n	pay rise	löneförhöjningar	löneförhöjningen					
+a2_work		ansaita / tienata	tjäna	v	earn			tjänar	tjänade	tjänat		
+a2_work		työaika	en arbetstid	n	working hours	arbetstider	arbetstiden					
+a2_work		vuoro (työssä) / työvuoro	ett skift	n	shift	skift	skiftet					
+a2_work		vuorotyö	skiftarbete	n	shift work	-	skiftarbetet					
+a2_work		yövuoro	ett nattskift	n	night shift	nattskift	nattskiftet					
+a2_work		ylityö / ylityöt	övertid	n	overtime	-	övertiden					
+a2_work		työpäivä	en arbetsdag	n	working day	arbetsdagar	arbetsdagen					
+a2_work		työviikko	en arbetsvecka	n	working week	arbetsveckor	arbetsveckan					
+a2_work		vapaapäivä	en ledig dag	n	day off	lediga dagar	den lediga dagen					
+a2_work		olla vapaalla (töistä)	vara ledig	v	be off work			är ledig	var ledig	varit ledig		
+a2_work		työvuorolista / aikataulu (työssä)	ett schema	n	schedule	scheman	schemat					
+a2_work		määräaika / takaraja	en deadline	n	deadline	deadlines	deadlinen					
+a2_work		esimies / esihenkilö / pomo	en chef	n	boss	chefer	chefen					
+a2_work		johtaja	en direktör	n	director	direktörer	direktören					
+a2_work		johtaa (yritystä, tiimiä)	leda	v	lead			leder	ledde	lett		
+a2_work	work_8_colleague	kollega / työkaveri	en kollega / en arbetskamrat	n	colleague	kollegor	kollegan					
+a2_work	work_8_employer	työnantaja	en arbetsgivare	n	employer	arbetsgivare	arbetsgivaren					
+a2_work	work_8_employee	työntekijä	en arbetstagare / en anställd	n	employee	arbetstagare	arbetstagaren					
+a2_work		henkilökunta / henkilöstö	personal	n	staff	-	personalen					
+a2_work		osasto	en avdelning	n	department	avdelningar	avdelningen					
+a2_work		tiimi (työssä) / työryhmä	ett team	n	team	team	teamet					
+a2_work		projekti	ett projekt	n	project	projekt	projektet					
+a2_work		työtehtävä	en arbetsuppgift	n	work task	arbetsuppgifter	arbetsuppgiften					
+a2_work	money_7_customer	asiakas	en kund	n	customer	kunder	kunden					
+a2_work		palvella (asiakasta)	betjäna	v	serve			betjänar	betjänade	betjänat		
+a2_work		palaute	feedback / respons	n	feedback	-	feedbacken					
+a2_work		työsopimus	ett anställningsavtal	n	employment contract	anställningsavtal	anställningsavtalet					
+a2_work		työsuhde	en anställning	n	employment	anställningar	anställningen					
+a2_work		vakituinen (työsuhde)	fast	adj	permanent						fast	fasta
+a2_work		määräaikainen	tidsbegränsad	adj	fixed-term						tidsbegränsat	tidsbegränsade
+a2_work		koeaika	en prövotid	n	probation period	prövotider	prövotiden					
+a2_work		kokoaikatyö	ett heltidsjobb	n	full-time job	heltidsjobb	heltidsjobbet					
+a2_work		osa-aikatyö	ett deltidsjobb	n	part-time job	deltidsjobb	deltidsjobbet					
+a2_work	work_8_summer_job	kesätyö	ett sommarjobb	n	summer job	sommarjobb	sommarjobbet					
+a2_work		avoin työpaikka	en ledig tjänst	n	vacancy	lediga tjänster	den lediga tjänsten					
+a2_work		virka / toimi	en tjänst	n	post	tjänster	tjänsten					
+a2_work		palkata / ottaa töihin	anställa	v	hire			anställer	anställde	anställt		
+a2_work		saada työpaikka / työllistyä	få jobb	v	get a job			får jobb	fick jobb	fått jobb		
+a2_work		menettää työpaikkansa	förlora jobbet	v	lose one's job			förlorar jobbet	förlorade jobbet	förlorat jobbet		
+a2_work		lomautus	en permittering	n	temporary layoff	permitteringar	permitteringen					
+a2_work		lomauttaa	permittera	v	lay off temporarily			permitterar	permitterade	permitterat		
+a2_work		työtön	arbetslös	adj	unemployed						arbetslöst	arbetslösa
+a2_work		jäädä työttömäksi	bli arbetslös	v	become unemployed			blir arbetslös	blev arbetslös	blivit arbetslös		
+a2_work		työttömyys	arbetslöshet	n	unemployment	-	arbetslösheten					
+a2_work		työttömyyskassa	en a-kassa	n	unemployment fund	a-kassor	a-kassan					
+a2_work		työvoimatoimisto / TE-toimisto	en arbetsförmedling	n	employment office	arbetsförmedlingar	arbetsförmedlingen					
+a2_work		eläke	en pension	n	pension	pensioner	pensionen					
+a2_work		eläkeläinen	en pensionär	n	pensioner	pensionärer	pensionären					
+a2_work		eläkkeellä oleva	pensionerad	adj	retired						pensionerat	pensionerade
+a2_work		työharjoittelu / harjoittelu	praktik	n	internship	-	praktiken					
+a2_work		harjoittelija	en praktikant	n	intern	praktikanter	praktikanten					
+a2_work		työtodistus	ett arbetsbetyg	n	employment certificate	arbetsbetyg	arbetsbetyget					
+a2_work		suosittelija / referenssi	en referens	n	reference	referenser	referensen					
+a2_work		työmatka (liikematka) / liikematka	en tjänsteresa / en affärsresa	n	business trip	tjänsteresor	tjänsteresan					
+a2_work		työympäristö	en arbetsmiljö	n	working environment	arbetsmiljöer	arbetsmiljön					
+a2_work		työterveyshuolto	företagshälsovård	n	occupational health care	-	företagshälsovården					
+a2_work	places_4_factory	tehdas	en fabrik	n	factory	fabriker	fabriken					
+a2_work		varasto	ett lager	n	warehouse	lager	lagret					
+a2_work		työläinen / työntekijä (ruumiillinen työ)	en arbetare	n	worker	arbetare	arbetaren					
+a2_work		virkamies / virkailija	en tjänsteman	n	civil servant	tjänstemän	tjänstemannen					
+a2_work		lähihoitaja	en undersköterska	n	practical nurse	undersköterskor	undersköterskan					
+a2_work	school_people_cleaner	siivooja	en städare	n	cleaner	städare	städaren					
+a2_work		kirjanpitäjä	en bokförare / en redovisningsekonom	n	bookkeeper	bokförare	bokföraren					
+a2_work		ekonomi	en ekonom	n	economist	ekonomer	ekonomen					
+a2_work		sihteeri	en sekreterare	n	secretary	sekreterare	sekreteraren					
+a2_work		kassanhoitaja / kassa (henkilö)	en kassör / en kassörska	n	cashier	kassörer	kassören					
+a2_work		sähköasentaja / sähkömies	en elektriker	n	electrician	elektriker	elektrikern					
+a2_work		putkimies	en rörmokare / en rörläggare	n	plumber	rörmokare	rörmokaren					
+a2_work		rakennustyöntekijä / rakennusmies	en byggarbetare	n	construction worker	byggarbetare	byggarbetaren					
+a2_work		puuseppä / kirvesmies	en snickare	n	carpenter	snickare	snickaren					
+a2_work		mekaanikko / automekaanikko	en mekaniker / en bilmekaniker	n	mechanic	mekaniker	mekanikern					
+a2_work		ohjelmoija	en programmerare	n	programmer	programmerare	programmeraren					
+a2_work		varhaiskasvatuksen opettaja / lastentarhanopettaja	en förskollärare	n	preschool teacher	förskollärare	förskolläraren					
+a2_work	work_8_lawyer	lakimies / juristi / asianajaja	en jurist / en advokat	n	lawyer	jurister	juristen					
+a2_work		arkkitehti	en arkitekt	n	architect	arkitekter	arkitekten					
+a2_work		vartija	en väktare	n	security guard	väktare	väktaren					
+a2_work		bussinkuljettaja	en busschaufför / en bussförare	n	bus driver	busschaufförer	busschauffören					
+a2_work		postinkantaja / postinjakaja	en brevbärare	n	postman	brevbärare	brevbäraren					
+a2_work		tulkki	en tolk	n	interpreter	tolkar	tolken					
+a2_work		kääntäjä	en översättare	n	translator	översättare	översättaren					
+a2_education		peruskoulu	en grundskola	n	comprehensive school	grundskolor	grundskolan					
+a2_education		päiväkoti	en förskola	n	daycare centre	förskolor	förskolan					
+a2_education		yläkoulu / yläaste	ett högstadium	n	lower secondary school	högstadier	högstadiet					
+a2_education	future_high_school	lukio	ett gymnasium	n	upper secondary school	gymnasier	gymnasiet					
+a2_education	education_9_vocational_school	ammattikoulu / ammatillinen oppilaitos	en yrkesskola	n	vocational school	yrkesskolor	yrkesskolan					
+a2_education		korkeakoulu	en högskola	n	higher education institution	högskolor	högskolan					
+a2_education	future_university	yliopisto	ett universitet	n	university	universitet	universitetet					
+a2_education		ammattikorkeakoulu / AMK	en yrkeshögskola	n	university of applied sciences	yrkeshögskolor	yrkeshögskolan					
+a2_education	education_9_study	opiskella	studera	v	study			studerar	studerade	studerat		
+a2_education		opinnot	studier	n	studies	studier	studierna					
+a2_education		opintotuki	studiestöd	n	student financial aid	-	studiestödet					
+a2_education	verbs2_4_sign_up	ilmoittautua	anmäla sig	v	sign up			anmäler sig	anmälde sig	anmält sig		
+a2_education		osallistua	delta	v	participate			deltar	deltog	deltagit		
+a2_education		lukukausi	en termin	n	term	terminer	terminen					
+a2_education	school_4_school_year	lukuvuosi	ett läsår	n	school year	läsår	läsåret					
+a2_education		luento	en föreläsning	n	lecture	föreläsningar	föreläsningen					
+a2_education		opinto-ohjaaja / opo	en studievägledare	n	study counsellor	studievägledare	studievägledaren					
+a2_education		oppikirja	en lärobok	n	textbook	läroböcker	läroboken					
+a2_education	school_4_homework	läksy / kotitehtävä	en läxa	n	homework	läxor	läxan					
+a2_education		tehtävä (koulussa) / harjoitustehtävä	en uppgift	n	task	uppgifter	uppgiften					
+a2_education		harjoitus	en övning	n	exercise	övningar	övningen					
+a2_education	free_time_7_practise	harjoitella (kieltä, taitoa)	öva	v	practise			övar	övade	övat		
+a2_education		muistiinpano	en anteckning	n	note	anteckningar	anteckningen					
+a2_education		kirjoitelma / essee / tutkielma	en uppsats	n	essay	uppsatser	uppsatsen					
+a2_education		esitelmä	ett föredrag	n	presentation	föredrag	föredraget					
+a2_education		ryhmätyö	ett grupparbete	n	group work	grupparbeten	grupparbetet					
+a2_education	future_exam	koe / tentti	ett prov / en tentamen	n	exam	prov	provet					
+a2_education		läpäistä (koe) / päästä läpi	klara	v	pass			klarar	klarade	klarat		
+a2_education	education_9_fail	reputtaa / saada hylätty (kokeesta)	bli underkänd	v	fail			blir underkänd	blev underkänd	blivit underkänd		
+a2_education		hyväksytty (kokeessa)	godkänd	adj	passed						godkänt	godkända
+a2_education	education_9_mark	arvosana	ett betyg	n	grade	betyg	betyget					
+a2_education		todistus (esim. kielitaidosta)	ett intyg	n	certificate	intyg	intyget					
+a2_education		tutkinto	en examen	n	degree	examina	examen					
+a2_education	future_graduate	valmistua	ta examen	v	graduate			tar examen	tog examen	tagit examen		
+a2_education	education_9_skill	taito	en färdighet	n	skill	färdigheter	färdigheten					
+a2_education	education_9_knowledge	tietämys / osaaminen	kunskap	n	knowledge	kunskaper	kunskapen					
+a2_education		taso	en nivå	n	level	nivåer	nivån					
+a2_education		aloittelija / vasta-alkaja	en nybörjare	n	beginner	nybörjare	nybörjaren					
+a2_education		edistynyt (taso)	avancerad	adj	advanced						avancerat	avancerade
+a2_education		kielitaito	språkkunskaper	n	language skills	språkkunskaper	språkkunskaperna					
+a2_education		äidinkieli	ett modersmål	n	mother tongue	modersmål	modersmålet					
+a2_education		vieras kieli	ett främmande språk	n	foreign language	främmande språk	det främmande språket					
+a2_education		kielikurssi	en språkkurs	n	language course	språkkurser	språkkursen					
+a2_education		sujuvasti (puhua kieltä)	flytande	adv	fluently							
+a2_education		kielioppi	grammatik	n	grammar	-	grammatiken					
+a2_education		sanasto / sanavarasto	ett ordförråd	n	vocabulary	ordförråd	ordförrådet					
+a2_education		sanakirja	en ordbok	n	dictionary	ordböcker	ordboken					
+a2_education		ääntäminen	ett uttal	n	pronunciation	uttal	uttalet					
+a2_education		ääntää / lausua	uttala	v	pronounce			uttalar	uttalade	uttalat		
+a2_education	communication_9_translate	kääntää (kielestä toiseen)	översätta	v	translate			översätter	översatte	översatt		
+a2_education		käännös	en översättning	n	translation	översättningar	översättningen					
+a2_education		lause	en mening	n	sentence	meningar	meningen					
+a2_education		verbi	ett verb	n	verb	verb	verbet					
+a2_education		substantiivi	ett substantiv	n	noun	substantiv	substantivet					
+a2_education		adjektiivi	ett adjektiv	n	adjective	adjektiv	adjektivet					
+a2_education	general_4_error	virhe	ett fel	n	mistake	fel	felet					
+a2_education		korjata (virhe, koe)	rätta	v	correct			rättar	rättade	rättat		
+a2_education	communication_9_explain	selittää	förklara	v	explain			förklarar	förklarade	förklarat		
+a2_education		mitä se tarkoittaa?	vad betyder det	phrase	what does it mean							
+a2_education		miten sanotaan ... ruotsiksi?	hur säger man ... på svenska	phrase	how do you say ... in Swedish							
+a2_communication	verbs2_4_call	soittaa (puhelimella)	ringa	v	call			ringer	ringde	ringt		
+a2_communication		puhelu	ett samtal	n	phone call	samtal	samtalet					
+a2_communication	communication_9_reply	vastata (puhelimeen, viestiin)	svara	v	answer			svarar	svarade	svarat		
+a2_communication		soittaa takaisin	ringa tillbaka	v	call back			ringer tillbaka	ringde tillbaka	ringt tillbaka		
+a2_communication		tavoittaa (puhelimella)	nå	v	reach			når	nådde	nått		
+a2_communication		ottaa yhteyttä	kontakta / höra av sig	v	contact			kontaktar	kontaktade	kontaktat		
+a2_communication		vastaaja / puhelinvastaaja	en röstbrevlåda	n	voicemail	röstbrevlådor	röstbrevlådan					
+a2_communication		jättää viesti	lämna ett meddelande	v	leave a message			lämnar ett meddelande	lämnade ett meddelande	lämnat ett meddelande		
+a2_communication		linja on varattu / numero on varattu	det är upptaget	phrase	the line is busy							
+a2_communication		videopuhelu	ett videosamtal	n	video call	videosamtal	videosamtalet					
+a2_communication		puhelinliittymä / liittymä	ett abonnemang	n	phone subscription	abonnemang	abonnemanget					
+a2_communication		kuuluvuus / kenttä (puhelimen)	täckning	n	coverage	-	täckningen					
+a2_communication	technology_message	viesti	ett meddelande	n	message	meddelanden	meddelandet					
+a2_communication		tekstiviesti	ett sms	n	text message	sms	sms:et					
+a2_communication	school_4_text	tekstata / lähettää tekstiviesti	sms:a / skicka ett sms	v	text			sms:ar	sms:ade	sms:at		
+a2_communication	verbs2_4_send	lähettää (viesti, paketti)	skicka	v	send			skickar	skickade	skickat		
+a2_communication	technology_email	sähköposti / meili	ett mejl / e-post	n	email	mejl	mejlet					
+a2_communication		liite	en bilaga	n	attachment	bilagor	bilagan					
+a2_communication		liittää (liitteeksi)	bifoga	v	attach			bifogar	bifogade	bifogat		
+a2_communication		chattailla / chatata	chatta	v	chat			chattar	chattade	chattat		
+a2_communication		ilmoitus (puhelimessa)	en notis	n	notification	notiser	notisen					
+a2_communication	school_4_charger	laturi	en laddare	n	charger	laddare	laddaren					
+a2_communication	home_4_battery	akku / paristo	ett batteri	n	battery	batterier	batteriet					
+a2_communication		ladata (akkua, puhelinta)	ladda	v	charge			laddar	laddade	laddat		
+a2_communication		akku on loppu	batteriet är slut	phrase	the battery is dead							
+a2_communication	technology_screen	näyttö / ruutu	en skärm	n	screen	skärmar	skärmen					
+a2_communication		kuvakaappaus / näyttökuva	en skärmdump	n	screenshot	skärmdumpar	skärmdumpen					
+a2_communication		ottaa kuva	ta en bild / ta ett foto	v	take a picture			tar en bild	tog en bild	tagit en bild		
+a2_communication	school_4_laptop	kannettava tietokone / läppäri	en bärbar dator / en laptop	n	laptop	bärbara datorer	den bärbara datorn					
+a2_communication	technology_tablet	tabletti	en surfplatta	n	tablet	surfplattor	surfplattan					
+a2_communication	technology_keyboard	näppäimistö	ett tangentbord	n	keyboard	tangentbord	tangentbordet					
+a2_communication		hiiri (tietokoneen)	en mus	n	mouse	möss	musen					
+a2_communication		tulostin	en skrivare	n	printer	skrivare	skrivaren					
+a2_communication		tulostaa	skriva ut	v	print			skriver ut	skrev ut	skrivit ut		
+a2_communication		nappi / painike	en knapp	n	button	knappar	knappen					
+a2_communication		painaa (nappia)	trycka	v	press			trycker	tryckte	tryckt		
+a2_communication		klikata / napsauttaa	klicka	v	click			klickar	klickade	klickat		
+a2_communication	technology_internet	internet / netti	internet / nätet	n	internet	-	internet					
+a2_communication	school_4_online	netissä / verkossa	på nätet / online	adv	online							
+a2_communication		nettiyhteys / yhteys (internet)	en uppkoppling	n	connection	uppkopplingar	uppkopplingen					
+a2_communication		verkko (tietoverkko)	ett nätverk	n	network	nätverk	nätverket					
+a2_communication		selain	en webbläsare	n	browser	webbläsare	webbläsaren					
+a2_communication	media_8_website	verkkosivusto / nettisivu / verkkosivu	en webbplats / en hemsida	n	website	webbplatser	webbplatsen					
+a2_communication		linkki	en länk	n	link	länkar	länken					
+a2_communication		googlata / etsiä netistä	googla	v	google			googlar	googlade	googlat		
+a2_communication		verkkokauppa	en nätbutik	n	online shop	nätbutiker	nätbutiken					
+a2_communication	technology_app	sovellus / äppi	en app	n	app	appar	appen					
+a2_communication		asentaa	installera	v	install			installerar	installerade	installerat		
+a2_communication		päivittää	uppdatera	v	update			uppdaterar	uppdaterade	uppdaterat		
+a2_communication		päivitys	en uppdatering	n	update	uppdateringar	uppdateringen					
+a2_communication	technology_download	ladata (netistä) / ladata alas	ladda ner / ladda ned	v	download			laddar ner	laddade ner	laddat ner		
+a2_communication	media_8_upload	ladata verkkoon / lähettää verkkoon	ladda upp	v	upload			laddar upp	laddade upp	laddat upp		
+a2_communication		tiedosto	en fil	n	file	filer	filen					
+a2_communication		tallentaa (tiedosto)	spara	v	save			sparar	sparade	sparat		
+a2_communication		poistaa (tiedosto, viesti)	radera / ta bort	v	delete			raderar	raderade	raderat		
+a2_communication		käyttäjätili / tili (palvelussa)	ett konto	n	account	konton	kontot					
+a2_communication	school_4_username	käyttäjätunnus	ett användarnamn	n	username	användarnamn	användarnamnet					
+a2_communication	technology_password	salasana	ett lösenord	n	password	lösenord	lösenordet					
+a2_communication	school_4_log_in	kirjautua sisään / kirjautua	logga in	v	log in			loggar in	loggade in	loggat in		
+a2_communication		kirjautua ulos	logga ut	v	log out			loggar ut	loggade ut	loggat ut		
+a2_communication		profiili	en profil	n	profile	profiler	profilen					
+a2_communication	media_8_share	jakaa (somessa)	dela	v	share			delar	delade	delat		
+a2_communication		tykätä (julkaisusta somessa)	gilla	v	like			gillar	gillade	gillat		
+a2_communication	media_8_comment	kommentoida	kommentera	v	comment			kommenterar	kommenterade	kommenterat		
+a2_communication	media_8_follower	seuraaja	en följare	n	follower	följare	följaren					
+a2_feelings		tunne	en känsla	n	feeling	känslor	känslan					
+a2_feelings		tuntea itsensä (joksikin)	känna sig	v	feel			känner sig	kände sig	känt sig		
+a2_feelings		tuntua (joltakin)	kännas	v	feel			känns	kändes	känts		
+a2_feelings		mieliala / tuuli (mieliala)	ett humör	n	mood	-	humöret					
+a2_feelings		hyvällä tuulella	på gott humör	phrase	in a good mood							
+a2_feelings		pahalla tuulella	på dåligt humör	phrase	in a bad mood							
+a2_feelings	myself_happy	iloinen	glad	adj	happy						glatt	glada
+a2_feelings		onnellinen	lycklig	adj	happy						lyckligt	lyckliga
+a2_feelings	general_4_joy	ilo	glädje	n	joy	-	glädjen					
+a2_feelings		onnellisuus / onni (onnellisuus)	lycka	n	happiness	-	lyckan					
+a2_feelings	myself_sad	surullinen	ledsen	adj	sad						ledset	ledsna
+a2_feelings		suru	sorg	n	sorrow	sorger	sorgen					
+a2_feelings	verbs1_4_cry	itkeä	gråta	v	cry			gråter	grät	gråtit		
+a2_feelings	adj_4_angry	vihainen	arg	adj	angry						argt	arga
+a2_feelings		suuttua	bli arg	v	get angry			blir arg	blev arg	blivit arg		
+a2_feelings		viha (suuttumus) / kiukku	ilska	n	anger	-	ilskan					
+a2_feelings	opinions_8_annoyed	ärtynyt / ärsyyntynyt	irriterad	adj	annoyed						irriterat	irriterade
+a2_feelings		ärsyttävä	irriterande	adj	annoying						irriterande	irriterande
+a2_feelings		pelätä	vara rädd	v	be afraid			är rädd	var rädd	varit rädd		
+a2_feelings	myself_scared	peloissaan / pelokas	rädd	adj	afraid						rätt	rädda
+a2_feelings		pelko	en rädsla	n	fear	rädslor	rädslan					
+a2_feelings	adj_4_scary	pelottava	läskig / skrämmande	adj	scary						läskigt	läskiga
+a2_feelings		kauhea / kamala	hemsk	adj	terrible						hemskt	hemska
+a2_feelings	feelings_worried	huolestunut / huolissaan	orolig	adj	worried						oroligt	oroliga
+a2_feelings		murehtia / olla huolissaan	oroa sig	v	worry			oroar sig	oroade sig	oroat sig		
+a2_feelings	general_4_worry	huoli	oro	n	worry	-	oron					
+a2_feelings		ahdistus	ångest	n	anxiety	-	ångesten					
+a2_feelings		stressaantunut / stressissä	stressad	adj	stressed						stressat	stressade
+a2_feelings	feelings_nervous	hermostunut / jännittynyt	nervös	adj	nervous						nervöst	nervösa
+a2_feelings		rentoutunut	avslappnad	adj	relaxed						avslappnat	avslappnade
+a2_feelings	feelings_relieved	helpottunut	lättad	adj	relieved						lättat	lättade
+a2_feelings	feelings_surprised	yllättynyt	överraskad / förvånad	adj	surprised						överraskat	överraskade
+a2_feelings	general_4_surprise	yllätys	en överraskning	n	surprise	överraskningar	överraskningen					
+a2_feelings		yllättää	överraska	v	surprise			överraskar	överraskade	överraskat		
+a2_feelings	opinions_8_upset	järkyttynyt	chockad / upprörd	adj	shocked						chockat	chockade
+a2_feelings	feelings_disappointed	pettynyt	besviken	adj	disappointed						besviket	besvikna
+a2_feelings	feelings_proud	ylpeä	stolt	adj	proud						stolt	stolta
+a2_feelings	opinions_8_grateful	kiitollinen	tacksam	adj	grateful						tacksamt	tacksamma
+a2_feelings		tyytyväinen	nöjd	adj	satisfied						nöjt	nöjda
+a2_feelings		tyytymätön	missnöjd	adj	dissatisfied						missnöjt	missnöjda
+a2_feelings	feelings_bored	kyllästynyt / tylsistynyt	uttråkad	adj	bored						uttråkat	uttråkade
+a2_feelings	feelings_confused	hämmentynyt / ymmällään	förvirrad	adj	confused						förvirrat	förvirrade
+a2_feelings	feelings_embarrassed	nolostunut / hämillään	generad	adj	embarrassed						generat	generade
+a2_feelings	feelings_jealous	kateellinen	avundsjuk	adj	envious						avundsjukt	avundsjuka
+a2_feelings	opinions_8_lonely	yksinäinen	ensam	adj	lonely						ensamt	ensamma
+a2_feelings		alakuloinen / masentunut	nedstämd	adj	depressed						nedstämt	nedstämda
+a2_feelings	myself_excited	innoissaan / innostunut	spänd / förväntansfull	adj	excited						spänt	spända
+a2_feelings		kiinnostunut	intresserad	adj	interested						intresserat	intresserade
+a2_feelings		kaivata / olla ikävä	sakna	v	miss			saknar	saknade	saknat		
+a2_feelings		koti-ikävä	hemlängtan	n	homesickness	-	hemlängtan					
+a2_feelings	verbs2_4_hope	toivoa	hoppas	v	hope			hoppas	hoppades	hoppats		
+a2_feelings		toivo	ett hopp	n	hope	-	hoppet					
+a2_feelings		toivottavasti	förhoppningsvis	adv	hopefully							
+a2_feelings		valitettavasti	tyvärr	adv	unfortunately							
+a2_feelings		onneksi	lyckligtvis / som tur är	adv	fortunately							
+a2_feelings		harmi! / sääli!	vad synd / synd	phrase	what a pity							
+a2_feelings		ihailla	beundra	v	admire			beundrar	beundrade	beundrat		
+a2_feelings		valittaa	klaga	v	complain			klagar	klagade	klagat		
+a2_feelings	opinions_8_hate	vihata	hata	v	hate			hatar	hatade	hatat		
+a2_feelings		inhota	avsky	v	detest			avskyr	avskydde	avskytt		
+a2_feelings	opinions_8_prefer	pitää enemmän / suosia	föredra	v	prefer			föredrar	föredrog	föredragit		
+a2_feelings		mieluummin	hellre	adv	rather							
+a2_feelings		olla jotakin mieltä / minusta (mielipide)	tycka	v	think			tycker	tyckte	tyckt		
+a2_feelings		mitä mieltä olet?	vad tycker du	phrase	what do you think							
+a2_feelings	opinions_8_agree	olla samaa mieltä	hålla med	v	agree			håller med	höll med	hållit med		
+a2_feelings		olla oikeassa	ha rätt	v	be right			har rätt	hade rätt	haft rätt		
+a2_feelings		olla väärässä	ha fel	v	be wrong			har fel	hade fel	haft fel		
+a2_feelings		pitää paikkansa / se on totta	det stämmer	phrase	that's right							
+a2_feelings		sillä ei ole väliä / ihan sama	det spelar ingen roll	phrase	it doesn't matter							
+a2_feelings		varma (jostakin)	säker	adj	sure						säkert	säkra
+a2_feelings		epävarma	osäker	adj	unsure						osäkert	osäkra
+a2_relationships	verbs2_4_meet	tavata (ihmisen)	träffa	v	meet			träffar	träffade	träffat		
+a2_relationships		tutustua (johonkuhun)	lära känna	v	get to know			lär känna	lärde känna	lärt känna		
+a2_relationships		tuttava / tuttu	en bekanting / en bekant	n	acquaintance	bekantingar	bekantingen					
+a2_relationships		ystävyys	vänskap	n	friendship	vänskaper	vänskapen					
+a2_relationships		ystävystyä	bli vänner	v	make friends			blir vänner	blev vänner	blivit vänner		
+a2_relationships		pitää yhteyttä	hålla kontakten	v	keep in touch			håller kontakten	höll kontakten	hållit kontakten		
+a2_relationships	relationships_7_relationship	suhde / parisuhde / ihmissuhde	ett förhållande / en relation	n	relationship	förhållanden	förhållandet					
+a2_relationships		treffit / deitti	en dejt	n	date	dejter	dejten					
+a2_relationships		seurustella	vara tillsammans	v	be in a relationship			är tillsammans	var tillsammans	varit tillsammans		
+a2_relationships		rakastua	bli kär	v	fall in love			blir kär	blev kär	blivit kär		
+a2_relationships		rakastunut	kär	adj	in love						kärt	kära
+a2_relationships		rakkaus	kärlek	n	love	-	kärleken					
+a2_relationships	relationships_7_boyfriend	poikaystävä	en pojkvän	n	boyfriend	pojkvänner	pojkvännen					
+a2_relationships	relationships_7_girlfriend	tyttöystävä	en flickvän	n	girlfriend	flickvänner	flickvännen					
+a2_relationships		kumppani	en partner	n	partner	partner	partnern					
+a2_relationships	relationships_7_couple	pariskunta / pari	ett par	n	couple	par	paret					
+a2_relationships		sinkku	en singel	n	single	singlar	singeln					
+a2_relationships		mustasukkainen	svartsjuk	adj	jealous						svartsjukt	svartsjuka
+a2_relationships		halata	krama	v	hug			kramar	kramade	kramat		
+a2_relationships		halaus	en kram	n	hug	kramar	kramen					
+a2_relationships		suudella / pussata	kyssa	v	kiss			kysser	kysste	kysst		
+a2_relationships		mennä kihloihin / kihlautua	förlova sig	v	get engaged			förlovar sig	förlovade sig	förlovat sig		
+a2_relationships		kihloissa	förlovad	adj	engaged						förlovat	förlovade
+a2_relationships		mennä naimisiin	gifta sig	v	get married			gifter sig	gifte sig	gift sig		
+a2_relationships		avioliitto	ett äktenskap	n	marriage	äktenskap	äktenskapet					
+a2_relationships	culture_8_wedding	häät	ett bröllop	n	wedding	bröllop	bröllopet					
+a2_relationships		morsian	en brud	n	bride	brudar	bruden					
+a2_relationships		sulhanen	en brudgum	n	bridegroom	brudgummar	brudgummen					
+a2_relationships		hääpäivä	en bröllopsdag	n	wedding anniversary	bröllopsdagar	bröllopsdagen					
+a2_relationships		avioero / ero	en skilsmässa	n	divorce	skilsmässor	skilsmässan					
+a2_relationships		erota (avioliitosta) / ottaa avioero	skilja sig	v	get divorced			skiljer sig	skilde sig	skilt sig		
+a2_relationships		erota (seurustelukumppanista)	göra slut	v	break up			gör slut	gjorde slut	gjort slut		
+a2_relationships	relationships_7_apologise	pyytää anteeksi	be om ursäkt	v	apologise			ber om ursäkt	bad om ursäkt	bett om ursäkt		
+a2_relationships		antaa anteeksi	förlåta	v	forgive			förlåter	förlät	förlåtit		
+a2_relationships		ristiäiset / kaste	ett dop	n	christening	dop	dopet					
+a2_relationships	hobbies_4_party	juhlat / juhla / bileet	en fest	n	party	fester	festen					
+a2_relationships	culture_8_celebrate	juhlia / juhlistaa	fira	v	celebrate			firar	firade	firat		
+a2_relationships		kutsu	en inbjudan	n	invitation	inbjudningar	inbjudan					
+a2_relationships	verbs2_4_invite	kutsua (kylään, juhliin)	bjuda in	v	invite			bjuder in	bjöd in	bjudit in		
+a2_relationships		tarjota (maksaa toisen puolesta)	bjuda / bjuda på	v	treat			bjuder	bjöd	bjudit		
+a2_relationships		vieras	en gäst	n	guest	gäster	gästen					
+a2_relationships		isäntä / emäntä	en värd / en värdinna	n	host	värdar	värden					
+a2_relationships	hobbies_4_gift	lahja	en present / en gåva	n	gift	presenter	presenten					
+a2_relationships		onnitella	gratulera	v	congratulate			gratulerar	gratulerade	gratulerat		
+a2_relationships		kortti (onnittelukortti) / onnittelukortti	ett kort	n	card	kort	kortet					
+a2_relationships		syntymäpäiväjuhlat	en födelsedagsfest / ett födelsedagskalas	n	birthday party	födelsedagsfester	födelsedagsfesten					
+a2_relationships		täyttää vuosia / olla syntymäpäivä	fylla år	v	have a birthday			fyller år	fyllde år	fyllt år		
+a2_relationships		kynttilä	ett ljus	n	candle	ljus	ljuset					
+a2_relationships		kippis! / malja!	skål	interj	cheers							
+a2_relationships	culture_8_christmas	joulu	jul	n	Christmas	jular	julen					
+a2_relationships	calendar_4_christmas_eve	jouluaatto	julafton	n	Christmas Eve	julaftnar	julaftonen					
+a2_relationships		joulukuusi	en julgran	n	Christmas tree	julgranar	julgranen					
+a2_relationships		hyvää joulua	god jul	phrase	merry Christmas							
+a2_relationships	calendar_4_new_year_s_eve	uudenvuodenaatto	nyårsafton	n	New Year's Eve	nyårsaftnar	nyårsaftonen					
+a2_relationships		hyvää uutta vuotta	gott nytt år	phrase	happy New Year							
+a2_relationships	culture_8_easter	pääsiäinen	påsk	n	Easter	påskar	påsken					
+a2_relationships		vappu	första maj / valborg	n	May Day	-	första maj					
+a2_relationships	culture_8_midsummer	juhannus	midsommar	n	Midsummer	midsomrar	midsommaren					
+a2_relationships		hyvää juhannusta	glad midsommar	phrase	happy Midsummer							
+a2_relationships	culture_8_independence_day	itsenäisyyspäivä	självständighetsdagen	n	Independence Day	-	självständighetsdagen					
+a2_relationships		äitienpäivä	morsdag	n	Mother's Day	morsdagar	morsdagen					
+a2_relationships		isänpäivä	farsdag	n	Father's Day	farsdagar	farsdagen					
+a2_relationships		ystävänpäivä	alla hjärtans dag	n	Valentine's Day	-	alla hjärtans dag					
+a2_nature	environment_8_nature	luonto	natur	n	nature	-	naturen					
+a2_nature	animals_animal	eläin	ett djur	n	animal	djur	djuret					
+a2_nature	family_pet	lemmikki / lemmikkieläin / kotieläin	ett husdjur	n	pet	husdjur	husdjuret					
+a2_nature	animals_dog	koira	en hund	n	dog	hundar	hunden					
+a2_nature		ulkoiluttaa koiraa	rasta hunden	v	walk the dog			rastar hunden	rastade hunden	rastat hunden		
+a2_nature	animals_cat	kissa	en katt	n	cat	katter	katten					
+a2_nature	animals_horse	hevonen	en häst	n	horse	hästar	hästen					
+a2_nature	animals_cow	lehmä	en ko	n	cow	kor	kon					
+a2_nature	animals_sheep	lammas	ett får	n	sheep	får	fåret					
+a2_nature	animals_4_pig	sika / possu	en gris	n	pig	grisar	grisen					
+a2_nature		kana (eläin)	en höna	n	hen	hönor	hönan					
+a2_nature	animals_4_goat	vuohi	en get	n	goat	getter	geten					
+a2_nature	animals_rabbit	kani	en kanin	n	rabbit	kaniner	kaninen					
+a2_nature	animals_mouse	hiiri (eläin)	en mus	n	mouse	möss	musen					
+a2_nature		maatila	en bondgård	n	farm	bondgårdar	bondgården					
+a2_nature	verbs2_4_feed	ruokkia (eläintä)	mata	v	feed			matar	matade	matat		
+a2_nature	animals_4_wild_animal	villieläin	ett vilt djur	n	wild animal	vilda djur	det vilda djuret					
+a2_nature	adj_4_wild	villi	vild	adj	wild						vilt	vilda
+a2_nature	animals_4_bear	karhu	en björn	n	bear	björnar	björnen					
+a2_nature	animals_4_wolf	susi	en varg	n	wolf	vargar	vargen					
+a2_nature	animals_4_fox	kettu	en räv	n	fox	rävar	räven					
+a2_nature	animals_4_elk	hirvi	en älg	n	elk	älgar	älgen					
+a2_nature	animals_4_reindeer	poro	en ren	n	reindeer	renar	renen					
+a2_nature	animals_4_squirrel	orava	en ekorre	n	squirrel	ekorrar	ekorren					
+a2_nature		jänis	en hare	n	hare	harar	haren					
+a2_nature	animals_4_snake	käärme	en orm	n	snake	ormar	ormen					
+a2_nature	animals_4_viper	kyy / kyykäärme	en huggorm	n	adder	huggormar	huggormen					
+a2_nature	animals_bird	lintu	en fågel	n	bird	fåglar	fågeln					
+a2_nature	animals_4_swan	joutsen	en svan	n	swan	svanar	svanen					
+a2_nature		lokki	en mås	n	gull	måsar	måsen					
+a2_nature		hyönteinen	en insekt	n	insect	insekter	insekten					
+a2_nature	animals_4_mosquito	hyttynen	en mygga	n	mosquito	myggor	myggan					
+a2_nature		punkki	en fästing	n	tick	fästingar	fästingen					
+a2_nature	animals_4_bee	mehiläinen	ett bi	n	bee	bin	biet					
+a2_nature	animals_4_ant	muurahainen	en myra	n	ant	myror	myran					
+a2_nature	animals_spider	hämähäkki	en spindel	n	spider	spindlar	spindeln					
+a2_nature		perhonen	en fjäril	n	butterfly	fjärilar	fjärilen					
+a2_nature		kalastaa / onkia	fiska	v	fish			fiskar	fiskade	fiskat		
+a2_nature	nature_4_plant	kasvi	en växt	n	plant	växter	växten					
+a2_nature	nature_4_tree	puu (kasvi)	ett träd	n	tree	träd	trädet					
+a2_nature	nature_4_flower	kukka	en blomma	n	flower	blommor	blomman					
+a2_nature		kuusi (puu)	en gran	n	spruce	granar	granen					
+a2_nature		mänty	en tall	n	pine	tallar	tallen					
+a2_nature		koivu	en björk	n	birch	björkar	björken					
+a2_nature	nature_4_leaf	lehti (puun)	ett löv	n	leaf	löv	lövet					
+a2_nature	nature_4_grass	ruoho / nurmi	gräs	n	grass	-	gräset					
+a2_nature	nature_4_bush	pensas	en buske	n	bush	buskar	busken					
+a2_nature	food_4_berry	marja	ett bär	n	berry	bär	bäret					
+a2_nature		puolukka	ett lingon	n	lingonberry	lingon	lingonet					
+a2_nature		lakka / hilla	ett hjortron	n	cloudberry	hjortron	hjortronet					
+a2_nature		marjastaa / poimia marjoja	plocka bär	v	pick berries			plockar bär	plockade bär	plockat bär		
+a2_nature		sieni	en svamp	n	mushroom	svampar	svampen					
+a2_nature		sienestää / poimia sieniä	plocka svamp	v	pick mushrooms			plockar svamp	plockade svamp	plockat svamp		
+a2_nature		myrkyllinen	giftig	adj	poisonous						giftigt	giftiga
+a2_nature	places_4_cottage	mökki / kesämökki	en stuga / en sommarstuga	n	cottage	stugor	stugan					
+a2_nature		laituri	en brygga	n	jetty	bryggor	bryggan					
+a2_nature		saaristo	en skärgård	n	archipelago	skärgårdar	skärgården					
+a2_nature	gaming_fortnite_island	saari	en ö	n	island	öar	ön					
+a2_nature	nature_4_beach	ranta / hiekkaranta / uimaranta	en strand	n	beach	stränder	stranden					
+a2_nature	nature_7_river	joki	en å / en älv / en flod	n	river	åar	ån					
+a2_nature	nature_7_mountain	vuori / tunturi	ett berg	n	mountain	berg	berget					
+a2_nature	nature_4_hill	mäki / kukkula	en backe / en kulle	n	hill	backar	backen					
+a2_nature	nature_4_stone	kivi	en sten	n	stone	stenar	stenen					
+a2_nature		suo	en myr	n	bog	myrar	myren					
+a2_nature		niitty	en äng	n	meadow	ängar	ängen					
+a2_nature	nature_4_countryside	maaseutu / maalla	landsbygd / landet	n	countryside	-	landsbygden					
+a2_nature	nature_4_national_park	kansallispuisto	en nationalpark	n	national park	nationalparker	nationalparken					
+a2_nature	nature_4_trail	polku	en stig	n	path	stigar	stigen					
+a2_nature	verbs2_4_hike	vaeltaa / patikoida / retkeillä	vandra	v	hike			vandrar	vandrade	vandrat		
+a2_nature		retkeily / luonnossa liikkuminen	friluftsliv	n	outdoor life	-	friluftslivet					
+a2_nature		jokamiehenoikeus	allemansrätt	n	everyman's right	-	allemansrätten					
+a2_nature		teltta	ett tält	n	tent	tält	tältet					
+a2_nature		telttailla / yöpyä teltassa	tälta	v	camp			tältar	tältade	tältat		
+a2_nature		nuotio	en lägereld / en brasa	n	campfire	lägereldar	lägerelden					
+a2_nature		reppu / rinkka	en ryggsäck	n	backpack	ryggsäckar	ryggsäcken					
+a2_nature		metsästää	jaga	v	hunt			jagar	jagade	jagat		
+a2_culture_sport		kulttuuri	kultur	n	culture	kulturer	kulturen					
+a2_culture_sport	general_4_event	tapahtuma	ett evenemang	n	event	evenemang	evenemanget					
+a2_culture_sport	sports_5_match	ottelu / matsi	en match	n	match	matcher	matchen					
+a2_culture_sport	sports_5_team	joukkue	ett lag	n	team	lag	laget					
+a2_culture_sport	sports_events_8_player	pelaaja	en spelare	n	player	spelare	spelaren					
+a2_culture_sport	sports_4_goalkeeper	maalivahti	en målvakt	n	goalkeeper	målvakter	målvakten					
+a2_culture_sport	free_time_7_coach	valmentaja	en tränare	n	coach	tränare	tränaren					
+a2_culture_sport	sports_events_8_referee	erotuomari / tuomari	en domare	n	referee	domare	domaren					
+a2_culture_sport	sports_events_8_opponent	vastustaja	en motståndare	n	opponent	motståndare	motståndaren					
+a2_culture_sport	sports_events_8_fan	fani / kannattaja	en supporter / ett fan	n	fan	supportrar	supportern					
+a2_culture_sport	verbs2_4_support	kannattaa (joukkuetta)	hålla på / heja på	v	support			håller på	höll på	hållit på		
+a2_culture_sport		katsoja	en åskådare	n	spectator	åskådare	åskådaren					
+a2_culture_sport		yleisö	en publik	n	audience	publiker	publiken					
+a2_culture_sport	sports_events_8_win	voittaa	vinna	v	win			vinner	vann	vunnit		
+a2_culture_sport	sports_events_8_lose	hävitä (kilpailu, peli)	förlora	v	lose			förlorar	förlorade	förlorat		
+a2_culture_sport	gaming_fortnite_victory	voitto (kilpailussa)	en seger	n	victory	segrar	segern					
+a2_culture_sport		tappio	en förlust	n	defeat	förluster	förlusten					
+a2_culture_sport	sports_events_8_draw	tasapeli / tasan	oavgjort	adv	draw							
+a2_culture_sport		maali (urheilussa)	ett mål	n	goal	mål	målet					
+a2_culture_sport	sports_events_8_score	tehdä maali	göra mål	v	score a goal			gör mål	gjorde mål	gjort mål		
+a2_culture_sport	sports_4_point	piste (urheilu, koe)	en poäng	n	point	poäng	poängen					
+a2_culture_sport		puoliaika (ottelun)	en halvlek	n	half	halvlekar	halvleken					
+a2_culture_sport		finaali / loppuottelu	en final	n	final	finaler	finalen					
+a2_culture_sport	free_time_7_competition	kilpailu	en tävling	n	competition	tävlingar	tävlingen					
+a2_culture_sport		kilpailla	tävla	v	compete			tävlar	tävlade	tävlat		
+a2_culture_sport	sports_events_8_tournament	turnaus	en turnering	n	tournament	turneringar	turneringen					
+a2_culture_sport	sports_events_8_championship	mestaruuskilpailut / mestaruus	ett mästerskap	n	championship	mästerskap	mästerskapet					
+a2_culture_sport	sports_4_champion	mestari	en mästare	n	champion	mästare	mästaren					
+a2_culture_sport	sports_events_8_medal	mitali	en medalj	n	medal	medaljer	medaljen					
+a2_culture_sport	places_4_stadium	stadion / areena	en arena	n	stadium	arenor	arenan					
+a2_culture_sport	sports_4_sports_field	kenttä (urheilu)	en plan	n	field	planer	planen					
+a2_culture_sport		uimahalli	en simhall	n	swimming hall	simhallar	simhallen					
+a2_culture_sport		kuntosali / sali	ett gym	n	gym	gym	gymmet					
+a2_culture_sport		treenata / harjoitella (urheilussa)	träna	v	train			tränar	tränade	tränat		
+a2_culture_sport		treeni / harjoitukset	träning	n	training	-	träningen					
+a2_culture_sport	free_time_7_club	seura (urheiluseura) / yhdistys	en förening / en klubb	n	club	föreningar	föreningen					
+a2_culture_sport	free_time_7_member	jäsen	en medlem	n	member	medlemmar	medlemmen					
+a2_culture_sport	sports_4_floorball	salibandy / sähly	innebandy	n	floorball	-	innebandyn					
+a2_culture_sport	sports_4_downhill_skiing	laskettelu	utförsåkning	n	downhill skiing	-	utförsåkningen					
+a2_culture_sport		ratsastus	ridning	n	horse riding	-	ridningen					
+a2_culture_sport		golf	golf	n	golf	-	golfen					
+a2_culture_sport	free_time_7_concert	konsertti	en konsert	n	concert	konserter	konserten					
+a2_culture_sport		bändi / yhtye	ett band	n	band	band	bandet					
+a2_culture_sport		biisi / kappale (musiikki)	en låt	n	song	låtar	låten					
+a2_culture_sport		albumi / levy	ett album	n	album	album	albumet					
+a2_culture_sport	free_time_7_instrument	soitin	ett instrument	n	instrument	instrument	instrumentet					
+a2_culture_sport		kuoro	en kör	n	choir	körer	kören					
+a2_culture_sport		ooppera	en opera	n	opera	operor	operan					
+a2_culture_sport	culture_8_festival	festivaali / festarit	en festival	n	festival	festivaler	festivalen					
+a2_culture_sport	culture_8_theatre	teatteri	en teater	n	theatre	teatrar	teatern					
+a2_culture_sport		näytelmä	en pjäs	n	play	pjäser	pjäsen					
+a2_culture_sport	people_4_actor	näyttelijä	en skådespelare	n	actor	skådespelare	skådespelaren					
+a2_culture_sport		esitys (teatteri) / näytös	en föreställning	n	performance	föreställningar	föreställningen					
+a2_culture_sport	hobbies_4_stage	näyttämö / lava	en scen	n	stage	scener	scenen					
+a2_culture_sport	culture_8_museum	museo	ett museum	n	museum	museer	museet					
+a2_culture_sport		näyttely	en utställning	n	exhibition	utställningar	utställningen					
+a2_culture_sport		galleria	ett galleri	n	gallery	gallerier	galleriet					
+a2_culture_sport		pääsymaksu / sisäänpääsy	ett inträde / en entré	n	admission	inträden	inträdet					
+a2_culture_sport		loppuunmyyty	utsåld	adj	sold out						utsålt	utsålda
+a2_culture_sport		julkkis / julkisuuden henkilö	en kändis	n	celebrity	kändisar	kändisen					
+a2_culture_sport		arvostelu (kirjan, elokuvan)	en recension	n	review	recensioner	recensionen					
+a2_culture_sport		dekkari / salapoliisiromaani	en deckare	n	crime novel	deckare	deckaren					
+a2_culture_sport	school_4_comic	sarjakuva	en serie	n	comic	serier	serien					
+a2_culture_sport	media_8_newspaper	sanomalehti / lehti	en tidning / en dagstidning	n	newspaper	tidningar	tidningen					
+a2_culture_sport	school_4_magazine	aikakauslehti	en tidskrift / ett magasin	n	magazine	tidskrifter	tidskriften					
+a2_culture_sport	media_8_news	uutiset	nyheter	n	news	nyheter	nyheterna					
+a2_culture_sport		tv-ohjelma	ett tv-program	n	TV programme	tv-program	tv-programmet					
+a2_culture_sport		tv-sarja / sarja	en tv-serie	n	TV series	tv-serier	tv-serien					
+a2_culture_sport		kanava (tv)	en kanal	n	channel	kanaler	kanalen					
+a2_culture_sport		suora lähetys	en direktsändning	n	live broadcast	direktsändningar	direktsändningen					
+a2_culture_sport		dokumentti / dokumenttielokuva	en dokumentär	n	documentary	dokumentärer	dokumentären					
+a2_culture_sport		podcast / podi	en podd / en podcast	n	podcast	poddar	podden					

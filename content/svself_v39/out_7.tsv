@@ -1,0 +1,378 @@
+topic	id	fi	sv	pos	en	pl	def	pres	pret	sup	neut	apl
+a2_verbs	verbs_action_visit	käydä kylässä / vierailla	hälsa på / besöka	v	visit			hälsar på	hälsade på	hälsat på		
+a2_verbs		ottaa mukaan / tuoda mukanaan	ta med	v	bring (along)			tar med	tog med	tagit med		
+a2_verbs	verbs1_4_remember	muistaa	komma ihåg / minnas	v	remember			kommer ihåg	kom ihåg	kommit ihåg		
+a2_verbs	verbs1_4_wear	pitää yllään / olla päällä (vaatteesta)	ha på sig	v	wear			har på sig	hade på sig	haft på sig		
+a2_verbs	verbs1_4_forget	unohtaa	glömma	v	forget			glömmer	glömde	glömt		
+a2_verbs	verbs1_4_try	yrittää	försöka	v	try			försöker	försökte	försökt		
+a2_verbs		kokeilla	prova	v	try out			provar	provade	provat		
+a2_verbs		päättää	bestämma / besluta	v	decide			bestämmer	bestämde	bestämt		
+a2_verbs	verbs1_4_choose	valita	välja	v	choose			väljer	valde	valt		
+a2_verbs	verbs2_4_happen	tapahtua	hända / ske	v	happen			händer	hände	hänt		
+a2_verbs	verbs2_4_continue	jatkaa / jatkua	fortsätta	v	continue			fortsätter	fortsatte	fortsatt		
+a2_verbs	verbs1_4_finish	lopettaa / loppua	sluta	v	stop			slutar	slutade	slutat		
+a2_verbs	verbs_action_stay	jäädä / pysähtyä	stanna	v	stay			stannar	stannade	stannat		
+a2_verbs	verbs1_4_leave	jättää / lähteä (jostakin)	lämna	v	leave			lämnar	lämnade	lämnat		
+a2_verbs		hakea (noutaa) / noutaa	hämta	v	fetch			hämtar	hämtade	hämtat		
+a2_verbs	verbs2_4_send	lähettää	skicka	v	send			skickar	skickade	skickat		
+a2_verbs	verbs1_4_show	näyttää (jollekulle)	visa	v	show			visar	visade	visat		
+a2_verbs	money_7_borrow	lainata (joltakulta)	låna	v	borrow			lånar	lånade	lånat		
+a2_verbs	money_7_lend	lainata (jollekulle)	låna ut	v	lend			lånar ut	lånade ut	lånat ut		
+a2_verbs		kantaa	bära	v	carry			bär	bar	burit		
+a2_verbs	verbs1_4_put	laittaa (pitkälleen) / panna (pitkälleen)	lägga	v	put (lay)			lägger	lade	lagt		
+a2_verbs		laittaa (pystyyn)	ställa	v	put (stand)			ställer	ställde	ställt		
+a2_verbs		laittaa (paikalleen, istumaan)	sätta	v	put (set)			sätter	satte	satt		
+a2_verbs		ripustaa / roikkua	hänga	v	hang			hänger	hängde	hängt		
+a2_verbs	verbs1_4_throw	heittää	kasta	v	throw			kastar	kastade	kastat		
+a2_verbs		heittää pois / heittää roskiin	slänga	v	throw away			slänger	slängde	slängt		
+a2_verbs	verbs1_4_pull	vetää	dra	v	pull			drar	drog	dragit		
+a2_verbs	verbs1_4_push	painaa (nappia) / työntää	trycka	v	push			trycker	tryckte	tryckt		
+a2_verbs		pitää (kädessä) / pitää kiinni	hålla	v	hold			håller	höll	hållit		
+a2_verbs		päästää irti / päästää	släppa	v	let go			släpper	släppte	släppt		
+a2_verbs	verbs1_4_fall	kaatua / pudota	ramla / falla	v	fall			ramlar	ramlade	ramlat		
+a2_verbs		pudottaa / hukata	tappa	v	drop			tappar	tappade	tappat		
+a2_verbs	phrasal_9_look_for	etsiä	leta / söka	v	look for			letar	letade	letat		
+a2_verbs		muuttaa (jotakin) / muokata	ändra	v	change			ändrar	ändrade	ändrat		
+a2_verbs		muuttua	förändras / ändras	v	change (become different)			förändras	förändrades	förändrats		
+a2_verbs		vaikuttaa (joltakin)	verka	v	seem			verkar	verkade	verkat		
+a2_verbs	verbs2_4_look_like	näyttää (joltakin)	se ut	v	look like			ser ut	såg ut	sett ut		
+a2_verbs		kuulostaa	låta	v	sound			låter	lät	låtit		
+a2_verbs	verbs1_4_let	sallia	tillåta	v	allow			tillåter	tillät	tillåtit		
+a2_verbs		tuntea (ihminen)	känna	v	know (a person)			känner	kände	känt		
+a2_verbs		tuntea olonsa (joksikin)	känna sig	v	feel			känner sig	kände sig	känt sig		
+a2_verbs		tunnistaa	känna igen	v	recognize			känner igen	kände igen	känt igen		
+a2_verbs		tuntua	kännas	v	feel (seem)			känns	kändes	känts		
+a2_verbs		huomata	märka / lägga märke till	v	notice			märker	märkte	märkt		
+a2_verbs		ihmetellä / miettiä (kysyen)	undra	v	wonder			undrar	undrade	undrat		
+a2_verbs	communication_9_explain	selittää	förklara	v	explain			förklarar	förklarade	förklarat		
+a2_verbs	communication_9_describe	kuvailla / kuvata	beskriva	v	describe			beskriver	beskrev	beskrivit		
+a2_verbs	verbs2_4_tell	kertoa	berätta	v	tell			berättar	berättade	berättat		
+a2_verbs	verbs2_4_ask_for	pyytää	be	v	ask for			ber	bad	bett		
+a2_verbs		kiittää	tacka	v	thank			tackar	tackade	tackat		
+a2_verbs		tervehtiä	hälsa	v	greet			hälsar	hälsade	hälsat		
+a2_verbs	verbs1_4_cry	itkeä	gråta	v	cry			gråter	grät	gråtit		
+a2_verbs	verbs_communication_shout	huutaa	skrika / ropa	v	shout			skriker	skrek	skrikit		
+a2_verbs	verbs2_4_promise	luvata	lova	v	promise			lovar	lovade	lovat		
+a2_verbs		kieltää (sallimasta)	förbjuda	v	forbid			förbjuder	förbjöd	förbjudit		
+a2_verbs		tarjota (esim. kahvit)	bjuda på	v	treat (someone to)			bjuder på	bjöd på	bjudit på		
+a2_verbs	verbs1_4_use	käyttää	använda	v	use			använder	använde	använt		
+a2_verbs	verbs1_4_should	pitäisi	borde	v	should			bör	borde	bort		
+a2_verbs		jaksaa	orka	v	have the energy			orkar	orkade	orkat		
+a2_verbs		ehtiä	hinna	v	have time			hinner	hann	hunnit		
+a2_verbs	education_9_succeed	onnistua	lyckas	v	succeed			lyckas	lyckades	lyckats		
+a2_verbs	education_9_fail	epäonnistua	misslyckas	v	fail			misslyckas	misslyckades	misslyckats		
+a2_verbs		uskaltaa	våga	v	dare			vågar	vågade	vågat		
+a2_verbs		olla tapana / tavata (tehdä jotakin)	bruka	v	usually do			brukar	brukade	brukat		
+a2_verbs	verbs2_4_fit	sopia	passa	v	suit			passar	passade	passat		
+a2_verbs		kaivata / ikävöidä	sakna	v	miss			saknar	saknade	saknat		
+a2_verbs	verbs1_4_hurry	kiirehtiä / pitää kiirettä	skynda sig	v	hurry			skyndar sig	skyndade sig	skyndat sig		
+a2_verbs	verbs1_4_rest	levätä	vila	v	rest			vilar	vilade	vilat		
+a2_verbs		rentoutua	koppla av / slappna av	v	relax			kopplar av	kopplade av	kopplat av		
+a2_verbs		nukahtaa	somna	v	fall asleep			somnar	somnade	somnat		
+a2_verbs	phrasal_9_take_off	riisua	ta av sig	v	take off			tar av sig	tog av sig	tagit av sig		
+a2_verbs	phrasal_9_turn_on	laittaa päälle (laite)	sätta på	v	turn on			sätter på	satte på	satt på		
+a2_verbs	phrasal_9_turn_off	sammuttaa (laite) / laittaa pois päältä	stänga av	v	turn off			stänger av	stängde av	stängt av		
+a2_verbs		sytyttää / laittaa (valo) päälle	tända	v	light			tänder	tände	tänt		
+a2_verbs		sammuttaa (valo, tuli)	släcka	v	put out			släcker	släckte	släckt		
+a2_verbs		mennä rikki / hajota	gå sönder	v	break (down)			går sönder	gick sönder	gått sönder		
+a2_verbs	verbs2_4_fill	täyttää	fylla	v	fill			fyller	fyllde	fyllt		
+a2_verbs		riittää	räcka	v	be enough			räcker	räckte	räckt		
+a2_verbs		verrata	jämföra	v	compare			jämför	jämförde	jämfört		
+a2_verbs	verbs2_4_check	tarkistaa	kolla / kontrollera	v	check			kollar	kollade	kollat		
+a2_verbs	verbs2_4_follow	seurata	följa	v	follow			följer	följde	följt		
+a2_verbs		lähteä mukaan / tulla mukaan	följa med	v	come along			följer med	följde med	följt med		
+a2_verbs		palata / tulla takaisin	komma tillbaka / återvända	v	come back			kommer tillbaka	kom tillbaka	kommit tillbaka		
+a2_verbs	verbs1_4_arrive	saapua (perille) / tulla perille	komma fram / anlända	v	arrive			kommer fram	kom fram	kommit fram		
+a2_verbs		kadota / hävitä (näkyvistä)	försvinna	v	disappear			försvinner	försvann	försvunnit		
+a2_verbs		olla olemassa / löytyä	finnas	v	exist			finns	fanns	funnits		
+a2_verbs		jakaa (osiin, toisten kanssa)	dela	v	share			delar	delade	delat		
+a2_verbs	verbs1_4_collect	kerätä	samla	v	collect			samlar	samlade	samlat		
+a2_verbs	verbs1_4_add	lisätä	lägga till	v	add			lägger till	lade till	lagt till		
+a2_verbs	verbs1_4_count	laskea (lukuja)	räkna	v	count			räknar	räknade	räknat		
+a2_verbs	verbs2_4_weigh	painaa (kiloja) / punnita	väga	v	weigh			väger	vägde	vägt		
+a2_verbs		suunnitella	planera	v	plan			planerar	planerade	planerat		
+a2_verbs	verbs2_4_get_ready	valmistautua	förbereda sig	v	get ready			förbereder sig	förberedde sig	förberett sig		
+a2_verbs		tutustua (ihmiseen)	lära känna	v	get to know			lär känna	lärde känna	lärt känna		
+a2_verbs		esitellä	presentera	v	introduce			presenterar	presenterade	presenterat		
+a2_verbs		riippua (jostakin) / johtua (jostakin)	bero på	v	depend on			beror på	berodde på	berott på		
+a2_verbs		käsitellä (aihetta) / olla kyse (jostakin)	handla om	v	be about			handlar om	handlade om	handlat om		
+a2_verbs	perusverbit_have	omistaa	äga	v	own			äger	ägde	ägt		
+a2_verbs	verbs2_4_mean	tarkoittaa (merkitä)	betyda	v	mean			betyder	betydde	betytt		
+a2_verbs		tarkoittaa (ihminen tarkoittaa)	mena	v	mean (intend)			menar	menade	menat		
+a2_verbs		välittää (jostakin)	bry sig om	v	care about			bryr sig om	brydde sig om	brytt sig om		
+a2_verbs		puuhata / olla tekemässä (jotakin)	hålla på med	v	be busy with			håller på med	höll på med	hållit på med		
+a2_verbs		olla varaa	ha råd	v	afford			har råd	hade råd	haft råd		
+a2_verbs		olla kiire	ha bråttom	v	be in a hurry			har bråttom	hade bråttom	haft bråttom		
+a2_verbs		huvittaa / olla halua	ha lust	v	feel like			har lust	hade lust	haft lust		
+a2_verbs		lukita	låsa	v	lock			låser	låste	låst		
+a2_verbs	verbs2_4_knock	koputtaa	knacka	v	knock			knackar	knackade	knackat		
+a2_verbs	gaming_minecraft_build	rakentaa	bygga	v	build			bygger	byggde	byggt		
+a2_verbs	verbs2_4_create	luoda	skapa	v	create			skapar	skapade	skapat		
+a2_verbs	verbs1_4_touch	koskea / koskettaa	röra	v	touch			rör	rörde	rört		
+a2_verbs	verbs1_4_move	liikkua	röra sig	v	move			rör sig	rörde sig	rört sig		
+a2_verbs	verbs1_4_pick_up	nostaa	lyfta	v	lift			lyfter	lyfte	lyft		
+a2_verbs		leikata (saksilla)	klippa	v	cut (with scissors)			klipper	klippte	klippt		
+a2_verbs		tottua	vänja sig	v	get used to			vänjer sig	vande sig	vant sig		
+a2_verbs		valehdella	ljuga	v	lie			ljuger	ljög	ljugit		
+a2_verbs	verbs1_4_guess	arvata	gissa	v	guess			gissar	gissade	gissat		
+a2_verbs	verbs2_4_take_care_of	hoitaa	sköta	v	take care of			sköter	skötte	skött		
+a2_verbs		palauttaa	lämna tillbaka	v	return (give back)			lämnar tillbaka	lämnade tillbaka	lämnat tillbaka		
+a2_verbs		ottaa vastaan / vastaanottaa	ta emot	v	receive			tar emot	tog emot	tagit emot		
+a2_verbs		olla mukana / osallistua	vara med	v	take part			är med	var med	varit med		
+a2_verbs		perua / peruuttaa	ställa in	v	cancel			ställer in	ställde in	ställt in		
+a2_verbs		pärjätä / selviytyä	klara sig	v	manage			klarar sig	klarade sig	klarat sig		
+a2_adverbs	yleissanat_3_because	koska	eftersom	conj	because							
+a2_adverbs	little_4_but	mutta	men	conj	but							
+a2_adverbs	connectors_9_therefore	siksi / sen takia / sen vuoksi	därför	adv	therefore							
+a2_adverbs		sitten / sen jälkeen	sedan / sen	adv	then							
+a2_adverbs	yleissanat_3_before	ennen (jotakin)	före	prep	before							
+a2_adverbs		ennen kuin	innan	conj	before (conj.)							
+a2_adverbs		ennen vanhaan / ennen (menneisyydessä)	förr / förr i tiden	adv	in the past							
+a2_adverbs	yleissanat_3_after	jälkeen (jonkin)	efter	prep	after							
+a2_adverbs		jälkeenpäin / myöhemmin (tapahtuman jälkeen)	efteråt	adv	afterwards							
+a2_adverbs		kun (aikaa)	när	conj	when							
+a2_adverbs		silloin	då	adv	then (at that time)							
+a2_adverbs	little_4_if	jos	om	conj	if							
+a2_adverbs	sidesanat_5_although	vaikka	fast / fastän	conj	although							
+a2_adverbs	sidesanat_5_still	silti / kuitenkin (silti)	ändå	adv	still (nevertheless)							
+a2_adverbs		yhä / edelleen	fortfarande	adv	still							
+a2_adverbs	yleissanat_3_usually	yleensä / tavallisesti	vanligtvis / oftast / för det mesta	adv	usually							
+a2_adverbs		heti	genast / direkt / med en gång	adv	immediately							
+a2_adverbs	time_4_soon	pian / kohta	snart	adv	soon							
+a2_adverbs	time_4_finally	lopulta	till slut	adv	finally							
+a2_adverbs		vihdoin / viimein	äntligen	adv	at last							
+a2_adverbs	time_4_suddenly	yhtäkkiä / äkkiä	plötsligt	adv	suddenly							
+a2_adverbs	time_4_later	myöhemmin	senare	adv	later							
+a2_adverbs		aikaisemmin / aiemmin	tidigare	adv	earlier							
+a2_adverbs		äsken / juuri äsken	nyss	adv	just now (a moment ago)							
+a2_adverbs		juuri nyt / tällä hetkellä	just nu	adv	right now							
+a2_adverbs		nykyään / nykyisin	nuförtiden / numera	adv	nowadays							
+a2_adverbs	time_4_once	kerran	en gång	adv	once							
+a2_adverbs		harvoin	sällan	adv	rarely							
+a2_adverbs		tuskin	knappast	adv	hardly							
+a2_adverbs	little_4_at_least	ainakin	åtminstone	adv	at least							
+a2_adverbs	sidesanat_5_almost	melkein / lähes	nästan	adv	almost							
+a2_adverbs	sidesanat_5_enough	tarpeeksi / riittävästi	tillräckligt / nog	adv	enough							
+a2_adverbs	little_4_too	liian	för	adv	too							
+a2_adverbs		melko / aika / varsin	ganska	adv	quite							
+a2_adverbs	connectors_9_probably	luultavasti / todennäköisesti	antagligen / förmodligen / troligen	adv	probably							
+a2_adverbs	phrases_4_of_course	tietysti / tietenkin / totta kai	förstås / naturligtvis / självklart	adv	of course							
+a2_adverbs	connectors_9_actually	itse asiassa	faktiskt	adv	actually							
+a2_adverbs		oikeastaan	egentligen	adv	really (actually)							
+a2_adverbs		jopa	till och med	adv	even							
+a2_adverbs		muuten (sivumennen sanoen)	förresten	adv	by the way							
+a2_adverbs	places_dir_4_together	yhdessä	tillsammans	adv	together							
+a2_adverbs	places_dir_4_alone	yksin	ensam	adv	alone							
+a2_adverbs		nopeasti	snabbt	adv	quickly							
+a2_adverbs		hitaasti	långsamt	adv	slowly							
+a2_adverbs		vahingossa	av misstag	adv	by mistake							
+a2_adverbs		tahallaan	med flit / med avsikt	adv	on purpose							
+a2_adverbs		onneksi	som tur är / lyckligtvis	adv	luckily							
+a2_adverbs		valitettavasti	tyvärr / dessvärre	adv	unfortunately							
+a2_adverbs		ehdottomasti	absolut / definitivt	adv	definitely							
+a2_adverbs	little_4_really	todella / oikeasti	verkligen	adv	really							
+a2_adverbs		erityisesti / varsinkin	särskilt / speciellt	adv	especially							
+a2_adverbs		suunnilleen / noin	ungefär / cirka	adv	approximately							
+a2_adverbs		viimeksi	senast / sist	adv	last time							
+a2_adverbs		ensin / ensiksi	först	adv	first							
+a2_adverbs		samaan aikaan	samtidigt	adv	at the same time							
+a2_adverbs		sillä välin / sillä aikaa	under tiden	adv	meanwhile							
+a2_adverbs	time_4_in_time	ajoissa	i tid	adv	in time							
+a2_adverbs		ei enää	inte längre	adv	no longer							
+a2_adverbs	little_4_until	kunnes	tills / till dess att	conj	until							
+a2_adverbs		heti kun	så fort / så snart	conj	as soon as							
+a2_adverbs		joten	så	conj	so							
+a2_adverbs		vaan (ei tätä vaan tuota)	utan	conj	but (rather)							
+a2_adverbs	connectors_9_unless	ellei / jollei	om inte	conj	unless							
+a2_adverbs		täysin / kokonaan	helt / alldeles	adv	completely							
+a2_adverbs		osittain / osaksi	delvis	adv	partly							
+a2_adverbs		kauan / pitkään	länge	adv	for a long time							
+a2_adverbs		mieluummin	hellre	adv	rather							
+a2_describe	adjectives_advanced_6_important	tärkeä	viktig	adj	important						viktigt	viktiga
+a2_describe	connectors_9_possible	mahdollinen	möjlig	adj	possible						möjligt	möjliga
+a2_describe		mahdoton	omöjlig	adj	impossible						omöjligt	omöjliga
+a2_describe	adj_4_normal	tavallinen / normaali	vanlig / normal	adj	ordinary						vanligt	vanliga
+a2_describe	adj_4_different	erilainen	annorlunda / olik	adj	different						annorlunda	annorlunda
+a2_describe	adj_4_same	sama	samma	adj	same						samma	samma
+a2_describe		samanlainen	likadan / liknande	adj	similar						likadant	likadana
+a2_describe	adj_4_ready	valmis	klar / färdig	adj	ready						klart	klara
+a2_describe	adj_4_free	vapaa (ei varattu) / vapaana	ledig	adj	free (available)						ledigt	lediga
+a2_describe		ilmainen	gratis	adj	free (of charge)						gratis	gratis
+a2_describe		kiireinen / varattu	upptagen	adj	busy						upptaget	upptagna
+a2_describe	opposites_quiet	hiljainen	tyst	adj	quiet						tyst	tysta
+a2_describe	opposites_loud	äänekäs / kovaääninen	högljudd	adj	loud						högljutt	högljudda
+a2_describe	opposites_dirty	likainen	smutsig	adj	dirty						smutsigt	smutsiga
+a2_describe	opposites_clean	puhdas	ren	adj	clean						rent	rena
+a2_describe		siisti (järjestyksessä)	städad	adj	tidy						städat	städade
+a2_describe		sotkuinen	stökig	adj	messy						stökigt	stökiga
+a2_describe	adjectives_dangerous	vaarallinen	farlig	adj	dangerous						farligt	farliga
+a2_describe	adj_4_safe	turvallinen	trygg	adj	safe						tryggt	trygga
+a2_describe		varma (asiasta)	säker	adj	sure						säkert	säkra
+a2_describe	adjectives_comfortable	mukava (olla) / mukavan tuntuinen	bekväm	adj	comfortable						bekvämt	bekväma
+a2_describe	adj_4_interesting	kiinnostava / mielenkiintoinen	intressant	adj	interesting						intressant	intressanta
+a2_describe	adjectives_boring	tylsä / pitkäveteinen	tråkig	adj	boring						tråkigt	tråkiga
+a2_describe	adjectives_exciting	jännittävä	spännande	adj	exciting						spännande	spännande
+a2_describe	adjectives_famous	kuuluisa / tunnettu	känd / berömd	adj	famous						känt	kända
+a2_describe	adjectives_popular	suosittu	populär	adj	popular						populärt	populära
+a2_describe	adjectives_modern	moderni / nykyaikainen	modern	adj	modern						modernt	moderna
+a2_describe		vanhanaikainen	gammaldags / omodern	adj	old-fashioned						gammaldags	gammaldags
+a2_describe		outo / kummallinen	konstig / märklig	adj	strange						konstigt	konstiga
+a2_describe	adj_4_lovely	ihana	underbar / härlig	adj	lovely						underbart	underbara
+a2_describe	adj_4_fantastic	upea / fantastinen	fantastisk	adj	fantastic						fantastiskt	fantastiska
+a2_describe		kamala / kauhea	hemsk / förfärlig	adj	terrible						hemskt	hemska
+a2_describe	adj_4_perfect	täydellinen	perfekt	adj	perfect						perfekt	perfekta
+a2_describe		yleinen (kaikille avoin)	allmän	adj	public (general)						allmänt	allmänna
+a2_describe		yksityinen	privat	adj	private						privat	privata
+a2_describe		oikea (ei väärä)	rätt / korrekt	adj	right (correct)						rätt	rätta
+a2_describe		väärä	fel	adj	wrong						fel	fel
+a2_describe		todellinen / aito	riktig / verklig	adj	real						riktigt	riktiga
+a2_describe		selvä / selkeä	tydlig	adj	clear						tydligt	tydliga
+a2_describe	connectors_9_necessary	välttämätön / tarpeellinen	nödvändig	adj	necessary						nödvändigt	nödvändiga
+a2_describe	connectors_9_useful	hyödyllinen / käyttökelpoinen	användbar	adj	useful						användbart	användbara
+a2_describe	adj_4_dry	kuiva	torr	adj	dry						torrt	torra
+a2_describe	adj_4_wet	märkä	blöt / våt	adj	wet						blött	blöta
+a2_describe		pehmeä	mjuk	adj	soft						mjukt	mjuka
+a2_describe		terävä	vass	adj	sharp						vasst	vassa
+a2_describe		leveä	bred	adj	wide						brett	breda
+a2_describe		kapea	smal	adj	narrow						smalt	smala
+a2_describe		syvä	djup	adj	deep						djupt	djupa
+a2_describe	adj_4_high	korkea	hög	adj	high						högt	höga
+a2_describe		matala	låg	adj	low						lågt	låga
+a2_describe		paksu	tjock	adj	thick						tjockt	tjocka
+a2_describe		ohut	tunn	adj	thin						tunt	tunna
+a2_describe		pyöreä	rund	adj	round						runt	runda
+a2_describe	adj_4_dark	pimeä / tumma	mörk	adj	dark						mörkt	mörka
+a2_describe		valoisa / vaalea	ljus	adj	light (bright)						ljust	ljusa
+a2_describe	adj_4_fresh	tuore	färsk	adj	fresh						färskt	färska
+a2_describe	adj_4_local	paikallinen	lokal	adj	local						lokalt	lokala
+a2_describe		kansainvälinen	internationell	adj	international						internationellt	internationella
+a2_describe		ulkomainen / ulkomaalainen	utländsk	adj	foreign						utländskt	utländska
+a2_describe		rehellinen	ärlig	adj	honest						ärligt	ärliga
+a2_describe	adj_4_polite	kohtelias	artig	adj	polite						artigt	artiga
+a2_describe		ahkera	flitig	adj	hard-working						flitigt	flitiga
+a2_describe		tarkka / huolellinen	noggrann	adj	careful (thorough)						noggrant	noggranna
+a2_describe	adj_4_careful	varovainen	försiktig	adj	careful						försiktigt	försiktiga
+a2_describe	adj_4_helpful	avulias	hjälpsam	adj	helpful						hjälpsamt	hjälpsamma
+a2_describe		kärsivällinen	tålmodig	adj	patient						tålmodigt	tålmodiga
+a2_describe		rikas	rik	adj	rich						rikt	rika
+a2_describe	adj_4_poor	köyhä	fattig	adj	poor						fattigt	fattiga
+a2_describe		kokonainen / ehjä	hel	adj	whole						helt	hela
+a2_describe		yksinkertainen	enkel	adj	simple						enkelt	enkla
+a2_describe		monimutkainen	komplicerad	adj	complicated						komplicerat	komplicerade
+a2_describe		tyypillinen	typisk	adj	typical						typiskt	typiska
+a2_describe		harvinainen / epätavallinen	ovanlig / sällsynt	adj	unusual						ovanligt	ovanliga
+a2_describe		tuttu	bekant	adj	familiar						bekant	bekanta
+a2_describe		tuntematon	okänd	adj	unknown						okänt	okända
+a2_describe		edellinen	föregående	adj	previous						föregående	föregående
+a2_describe		ainoa	enda	adj	only						enda	enda
+a2_describe		erityinen	särskild / speciell	adj	special						särskilt	särskilda
+a2_describe		tietty	viss	adj	certain						visst	vissa
+b1_connectors		ensinnäkin / ensiksi (luettelossa)	för det första	adv	firstly							
+b1_connectors		toiseksi	för det andra	adv	secondly							
+b1_connectors		aluksi	till att börja med / inledningsvis	adv	to begin with							
+b1_connectors		seuraavaksi	därefter / härnäst	adv	next							
+b1_connectors		lopuksi	slutligen / till sist / avslutningsvis	adv	finally (lastly)							
+b1_connectors		lisäksi / sitä paitsi	dessutom	adv	in addition							
+b1_connectors		jonkin lisäksi	förutom	prep	besides							
+b1_connectors		samoin	likaså	adv	likewise							
+b1_connectors	connectors_9_however	kuitenkin	dock / emellertid	adv	however							
+b1_connectors	connectors_9_instead	sen sijaan	i stället / istället	adv	instead							
+b1_connectors		sen sijaan että	i stället för att / istället för att	conj	instead of							
+b1_connectors		siis	alltså	adv	so (thus)							
+b1_connectors		toisin sanoen	med andra ord	adv	in other words							
+b1_connectors		eli	det vill säga / dvs	adv	that is							
+b1_connectors		vaikka (jopa jos)	även om	conj	even if							
+b1_connectors		huolimatta siitä, että	trots att	conj	despite the fact that							
+b1_connectors	connectors_9_despite	jostakin huolimatta	trots	prep	despite							
+b1_connectors		jotta	för att / så att	conj	so that							
+b1_connectors		sillä (koska)	för	conj	for (because)							
+b1_connectors		näin ollen	således / därmed	adv	thus							
+b1_connectors		jonkin seurauksena	till följd av / som en följd av	prep	as a result of							
+b1_connectors	connectors_9_otherwise	muuten (muussa tapauksessa)	annars	adv	otherwise							
+b1_connectors		kuten	såsom	conj	such as							
+b1_connectors		päinvastoin	tvärtom	adv	on the contrary							
+b1_connectors		kun taas / sillä aikaa kun	medan	conj	whereas							
+b1_connectors		sitä vastoin	däremot	adv	on the other hand (in contrast)							
+b1_connectors		samalla tavalla	på samma sätt	adv	in the same way							
+b1_connectors		toisin kuin	till skillnad från	prep	unlike							
+b1_connectors		lyhyesti sanottuna	kort sagt	adv	in short							
+b1_connectors		yhteenvetona	sammanfattningsvis	adv	in summary							
+b1_connectors		kaiken kaikkiaan	på det hela taget / överlag	adv	all in all							
+b1_connectors		ennen kaikkea	framför allt	adv	above all							
+b1_connectors		pääasiassa / lähinnä	huvudsakligen / främst	adv	mainly							
+b1_connectors		joko ... tai	antingen ... eller	conj	either ... or							
+b1_connectors		ei ... eikä	varken ... eller	conj	neither ... nor							
+b1_connectors		sekä ... että	både ... och	conj	both ... and							
+b1_connectors		paitsi	utom	prep	except							
+b1_connectors		mikäli / siinä tapauksessa että	ifall	conj	in case							
+b1_connectors		edellyttäen että	förutsatt att	conj	provided that							
+b1_connectors		joka tapauksessa	i alla fall / i vilket fall som helst	adv	in any case							
+b1_connectors		tosin	visserligen	adv	admittedly							
+b1_connectors		nimittäin	nämligen	adv	namely							
+b1_connectors		jonkin takia / jonkin vuoksi	på grund av	prep	because of							
+b1_connectors		jonkin ansiosta	tack vare	prep	thanks to							
+b1_connectors		yleisesti ottaen	i allmänhet / generellt sett	adv	in general							
+b1_connectors		käytännössä	i praktiken	adv	in practice							
+b1_connectors		periaatteessa	i princip	adv	in principle							
+b1_connectors		siten / tällä tavoin	på så sätt / på så vis	adv	in that way							
+b1_connectors		siitä huolimatta	trots det	adv	nevertheless							
+b1_connectors		kunhan	bara / så länge	conj	as long as							
+b1_opinions	opinions_8_opinion	mielipide	en åsikt / en mening	n	opinion	åsikter	åsikten					
+b1_opinions	opinions_8_in_my_opinion	minun mielestäni / mielestäni	enligt min mening / enligt mig	phrase	in my opinion							
+b1_opinions		toisaalta	å andra sidan	phrase	on the other hand							
+b1_opinions		yhtäältä / toisaalta (ensimmäinen)	å ena sidan	phrase	on the one hand							
+b1_opinions	opinions_8_disagree	olla eri mieltä	vara oenig / vara oense / inte hålla med	v	disagree			är oenig	var oenig	varit oenig		
+b1_opinions		esimerkiksi	till exempel	phrase	for example							
+b1_opinions		siksi että	därför att	conj	because							
+b1_opinions	communication_9_suggest	ehdottaa	föreslå	v	suggest			föreslår	föreslog	föreslagit		
+b1_opinions		perustella	motivera / argumentera för	v	justify			motiverar	motiverade	motiverat		
+b1_opinions		väittää	påstå	v	claim			påstår	påstod	påstått		
+b1_opinions		myöntää (olevan totta)	erkänna / medge	v	admit			erkänner	erkände	erkänt		
+b1_opinions		kiistää / kieltää (olevan totta)	förneka	v	deny			förnekar	förnekade	förnekat		
+b1_opinions		vakuuttaa (saada uskomaan)	övertyga	v	convince			övertygar	övertygade	övertygat		
+b1_opinions	communication_9_persuade	suostutella / taivutella	övertala	v	persuade			övertalar	övertalade	övertalat		
+b1_opinions		vakuuttunut	övertygad	adj	convinced						övertygat	övertygade
+b1_opinions		keskustella	diskutera	v	discuss			diskuterar	diskuterade	diskuterat		
+b1_opinions	communication_9_conversation	keskustelu	en diskussion / ett samtal	n	discussion	diskussioner	diskussionen					
+b1_opinions		väittely	en debatt	n	debate	debatter	debatten					
+b1_opinions		argumentti	ett argument	n	argument	argument	argumentet					
+b1_opinions		perustelu	en motivering	n	justification	motiveringar	motiveringen					
+b1_opinions		näkökulma	ett perspektiv / en synvinkel	n	perspective	perspektiv	perspektivet					
+b1_opinions		kanta	en ståndpunkt	n	position (stance)	ståndpunkter	ståndpunkten					
+b1_opinions		ehdotus	ett förslag	n	suggestion	förslag	förslaget					
+b1_opinions		kritiikki	kritik	n	criticism	-	kritiken					
+b1_opinions		arvostella / kritisoida	kritisera	v	criticize			kritiserar	kritiserade	kritiserat		
+b1_opinions	verbs2_4_support	kannattaa (ajatusta) / tukea	stödja	v	support			stöder	stödde	stött		
+b1_opinions		vastustaa / olla vastaan	vara emot / motsätta sig	v	be against			är emot	var emot	varit emot		
+b1_opinions		olla jonkin puolesta / kannattaa (jotakin)	vara för	v	be in favour of			är för	var för	varit för		
+b1_opinions	opinions_8_prefer	pitää parempana / suosia	föredra	v	prefer			föredrar	föredrog	föredragit		
+b1_opinions		olla oikeassa	ha rätt	v	be right			har rätt	hade rätt	haft rätt		
+b1_opinions		olla väärässä	ha fel	v	be wrong			har fel	hade fel	haft fel		
+b1_opinions		epäillä (olla epävarma)	tvivla	v	doubt			tvivlar	tvivlade	tvivlat		
+b1_opinions		epävarma	osäker	adj	unsure						osäkert	osäkra
+b1_opinions		mitä mieltä olet?	vad tycker du	phrase	what do you think?							
+b1_opinions		se pitää paikkansa	det stämmer	phrase	that's correct							
+b1_opinions		olla jotakin mieltä / katsoa (olevan)	anse	v	consider (be of the opinion)			anser	ansåg	ansett		
+b1_opinions		ymmärrän mitä tarkoitat	jag förstår vad du menar	phrase	I see what you mean							
+b1_opinions		korostaa / painottaa	betona	v	emphasize			betonar	betonade	betonat		
+b1_opinions		huomauttaa	påpeka	v	point out			påpekar	påpekade	påpekat		
+b1_opinions		todeta	konstatera	v	state			konstaterar	konstaterade	konstaterat		
+b1_opinions	communication_9_mention	mainita	nämna	v	mention			nämner	nämnde	nämnt		
+b1_opinions		väite	ett påstående	n	claim	påståenden	påståendet					
+b1_opinions		vastaväite	en invändning	n	objection	invändningar	invändningen					
+b1_opinions		kompromissi	en kompromiss	n	compromise	kompromisser	kompromissen					
+b1_opinions		keskeyttää	avbryta	v	interrupt			avbryter	avbröt	avbrutit		
+b1_opinions		saanko sanoa jotain?	får jag säga något	phrase	may I say something?							
+b1_opinions		rehellisesti sanottuna	ärligt talat	phrase	honestly speaking							
+b1_opinions		henkilökohtaisesti	personligen	adv	personally							
+b1_opinions		tietääkseni	såvitt jag vet	phrase	as far as I know							
+b1_opinions		hyvä kysymys	bra fråga	phrase	good question							
+b1_opinions		asenne	en inställning / en attityd	n	attitude	inställningar	inställningen					
+b1_opinions		ennakkoluulo	en fördom	n	prejudice	fördomar	fördomen					
+b1_opinions		tosiasia / fakta	ett faktum	n	fact	fakta	faktumet					
+b1_opinions		puolustaa (kantaa)	försvara	v	defend			försvarar	försvarade	försvarat		
+b1_opinions		kyseenalaistaa	ifrågasätta	v	question			ifrågasätter	ifrågasatte	ifrågasatt		
+b1_opinions		johtopäätös	en slutsats	n	conclusion	slutsatser	slutsatsen					
+b1_opinions		olen osittain samaa mieltä	jag håller delvis med	phrase	I partly agree							
+b1_opinions		ottaa kantaa	ta ställning	v	take a stand			tar ställning	tog ställning	tagit ställning		
+b1_opinions		tärkeintä on, että	det viktigaste är att	phrase	the most important thing is that							

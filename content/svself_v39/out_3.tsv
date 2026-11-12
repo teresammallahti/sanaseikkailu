@@ -1,0 +1,295 @@
+topic	id	fi	sv	pos	en	pl	def	pres	pret	sup	neut	apl
+a1_town	places_town_town	kaupunki	en stad	n	town / city	städer	staden					
+a1_town		keskusta	ett centrum	n	town centre	centrum	centrumet					
+a1_town		kaupunginosa	en stadsdel	n	district	stadsdelar	stadsdelen					
+a1_town		kortteli	ett kvarter	n	block	kvarter	kvarteret					
+a1_town		kylä	en by	n	village	byar	byn					
+a1_town		maaseutu	landsbygd	n	countryside	-	landsbygden					
+a1_town	places_4_hometown	kotikaupunki	en hemstad	n	hometown	hemstäder	hemstaden					
+a1_town		pääkaupunki	en huvudstad	n	capital	huvudstäder	huvudstaden					
+a1_town	town_7_street	katu	en gata	n	street	gator	gatan					
+a1_town	places_4_road	tie	en väg	n	road	vägar	vägen					
+a1_town		jalkakäytävä	en trottoar	n	pavement	trottoarer	trottoaren					
+a1_town	town_7_corner	kulma (kadunkulma) / kadunkulma	ett hörn	n	corner	hörn	hörnet					
+a1_town		tori	ett torg	n	square / market square	torg	torget					
+a1_town	places_4_park	puisto	en park	n	park	parker	parken					
+a1_town	town_7_bridge	silta	en bro	n	bridge	broar	bron					
+a1_town	places_4_building	rakennus	en byggnad	n	building	byggnader	byggnaden					
+a1_town		kirkko	en kyrka	n	church	kyrkor	kyrkan					
+a1_town		kaupungintalo	ett stadshus / ett rådhus	n	town hall	stadshus	stadshuset					
+a1_town		poliisiasema	en polisstation	n	police station	polisstationer	polisstationen					
+a1_town	places_town_library	kirjasto	ett bibliotek	n	library	bibliotek	biblioteket					
+a1_town	places_town_caf	kahvila / kahvio	ett kafé / ett café / ett fik	n	café	kaféer	kaféet					
+a1_town	places_4_cinema	elokuvateatteri	en biograf / en bio	n	cinema	biografer	biografen					
+a1_town	places_4_shopping_centre	kauppakeskus / ostoskeskus	ett köpcentrum	n	shopping centre	köpcentrum	köpcentrumet					
+a1_town		uimahalli	en simhall	n	swimming hall	simhallar	simhallen					
+a1_town		satama	en hamn	n	harbour	hamnar	hamnen					
+a1_town	places_4_factory	tehdas	en fabrik	n	factory	fabriker	fabriken					
+a1_town	town_7_station	asema	en station	n	station	stationer	stationen					
+a1_town	places_4_train_station	rautatieasema / juna-asema	en järnvägsstation / en tågstation	n	railway station	järnvägsstationer	järnvägsstationen					
+a1_town		linja-autoasema / bussiasema	en busstation	n	bus station	busstationer	busstationen					
+a1_town	transport_5_bus_stop	pysäkki / bussipysäkki	en hållplats / en busshållplats	n	stop / bus stop	hållplatser	hållplatsen					
+a1_town		raide (asemalla)	ett spår	n	track / platform	spår	spåret					
+a1_town	travel_ticket	lippu (matkalippu) / matkalippu	en biljett	n	ticket	biljetter	biljetten					
+a1_town		matkakortti	ett resekort	n	travel card	resekort	resekortet					
+a1_town		aikataulu	en tidtabell	n	timetable	tidtabeller	tidtabellen					
+a1_town	travel_map	kartta	en karta	n	map	kartor	kartan					
+a1_town	transport_bus	bussi / linja-auto	en buss	n	bus	bussar	bussen					
+a1_town	transport_train	juna	ett tåg	n	train	tåg	tåget					
+a1_town	transport_tram	raitiovaunu / ratikka	en spårvagn	n	tram	spårvagnar	spårvagnen					
+a1_town	transport_metro	metro	en tunnelbana	n	underground / metro	tunnelbanor	tunnelbanan					
+a1_town	transport_taxi	taksi	en taxi	n	taxi	taxi	taxin					
+a1_town	transport_bicycle	polkupyörä / pyörä / fillari	en cykel	n	bicycle	cyklar	cykeln					
+a1_town	transport_boat	vene	en båt	n	boat	båtar	båten					
+a1_town	places_4_ferry	lautta / laiva (autolautta)	en färja	n	ferry	färjor	färjan					
+a1_town	transport_airplane	lentokone	ett flygplan	n	aeroplane	flygplan	flygplanet					
+a1_town	places_dir_4_left	vasemmalle / vasemmalla	till vänster	adv	to the left							
+a1_town	places_dir_4_right	oikealle / oikealla	till höger	adv	to the right							
+a1_town	town_7_straight_on	suoraan / suoraan eteenpäin	rakt fram	adv	straight on							
+a1_town	prepositions_near	lähellä	nära	prep	near							
+a1_town	town_7_far	kaukana / kauas	långt borta / långt bort / långt	adv	far away							
+a1_town	prepositions_next_to	vieressä	bredvid	prep	next to							
+a1_town	prepositions_opposite	vastapäätä	mittemot / mitt emot	prep	opposite							
+a1_town	prepositions_in_front_of	edessä	framför	prep	in front of							
+a1_town	prepositions_behind	takana	bakom	prep	behind							
+a1_town	prepositions_between	välissä	mellan	prep	between							
+a1_town	places_dir_4_in_the_middle	keskellä	mitt i	prep	in the middle of							
+a1_town		jalan / kävellen	till fots	adv	on foot							
+a1_town		bussilla	med buss / med bussen	phrase	by bus							
+a1_town	verbs_action_walk	kävellä	gå	v	walk			går	gick	gått		
+a1_town	verbs1_4_drive	ajaa (autoa)	köra	v	drive			kör	körde	kört		
+a1_town	verbs_action_ride_a_bike	pyöräillä / ajaa pyörällä	cykla	v	cycle			cyklar	cyklade	cyklat		
+a1_town		mennä (kulkuneuvolla) / ajaa (kulkuneuvolla)	åka	v	go (by vehicle)			åker	åkte	åkt		
+a1_town		mennä bussilla	ta bussen / åka buss	v	take the bus			tar bussen	tog bussen	tagit bussen		
+a1_town		nousta (kulkuneuvoon)	stiga på	v	get on			stiger på	steg på	stigit på		
+a1_town		jäädä pois (kulkuneuvosta)	stiga av / gå av	v	get off			stiger av	steg av	stigit av		
+a1_town	verbs1_4_arrive	saapua / tulla perille	komma fram	v	arrive			kommer fram	kom fram	kommit fram		
+a1_town		Missä asema on? / Missä asema sijaitsee?	Var ligger stationen? / Var är stationen?	phrase	Where is the station?							
+a1_town		Miten pääsen keskustaan?	Hur kommer jag till centrum?	phrase	How do I get to the town centre?							
+a1_town		Onko se kaukana?	Är det långt?	phrase	Is it far?							
+a1_town		Se on lähellä	Det är nära	phrase	It is near							
+a1_town		Yksi lippu, kiitos	En biljett, tack	phrase	One ticket, please							
+a1_town		Milloin bussi lähtee? / Mihin aikaan bussi lähtee?	När går bussen?	phrase	When does the bus leave?							
+a1_town		Paljonko lippu maksaa?	Vad kostar en biljett?	phrase	How much is a ticket?							
+a1_town		Olen eksyksissä / Olen eksynyt	Jag har gått vilse	phrase	I am lost							
+a1_daily	paivarutiinit_wake_up	herätä	vakna	v	wake up			vaknar	vaknade	vaknat		
+a1_daily	paivarutiinit_get_up	nousta (sängystä) / nousta ylös	stiga upp / gå upp	v	get up			stiger upp	steg upp	stigit upp		
+a1_daily	paivarutiinit_take_shower	käydä suihkussa	duscha	v	have a shower			duschar	duschade	duschat		
+a1_daily		peseytyä	tvätta sig	v	wash (oneself)			tvättar sig	tvättade sig	tvättat sig		
+a1_daily	chores_4_wash	pestä	tvätta	v	wash			tvättar	tvättade	tvättat		
+a1_daily		pestä kädet	tvätta händerna	v	wash one's hands			tvättar händerna	tvättade händerna	tvättat händerna		
+a1_daily	paivarutiinit_brush_teeth	pestä hampaat / harjata hampaat	borsta tänderna	v	brush one's teeth			borstar tänderna	borstade tänderna	borstat tänderna		
+a1_daily		kylpeä	bada	v	take a bath			badar	badade	badat		
+a1_daily		ajaa parta	raka sig	v	shave			rakar sig	rakade sig	rakat sig		
+a1_daily		meikata	sminka sig	v	put on make-up			sminkar sig	sminkade sig	sminkat sig		
+a1_daily		kammata hiukset / kammata	kamma sig / kamma håret	v	comb one's hair			kammar sig	kammade sig	kammat sig		
+a1_daily	paivarutiinit_get_dressed	pukeutua	klä på sig / klä sig	v	get dressed			klär på sig	klädde på sig	klätt på sig		
+a1_daily		riisuutua	klä av sig	v	get undressed			klär av sig	klädde av sig	klätt av sig		
+a1_daily	phrasal_9_put_on	pukea päälle (vaate)	ta på sig / sätta på sig	v	put on			tar på sig	tog på sig	tagit på sig		
+a1_daily	phrasal_9_take_off	riisua (vaate)	ta av sig	v	take off			tar av sig	tog av sig	tagit av sig		
+a1_daily	paivarutiinit_have_breakfast	syödä aamiaista / syödä aamupalaa	äta frukost	v	have breakfast			äter frukost	åt frukost	ätit frukost		
+a1_daily	paivarutiinit_have_lunch	syödä lounasta	äta lunch	v	have lunch			äter lunch	åt lunch	ätit lunch		
+a1_daily		syödä päivällistä / syödä illallista	äta middag	v	have dinner			äter middag	åt middag	ätit middag		
+a1_daily		keittää kahvia	koka kaffe / göra kaffe	v	make coffee			kokar kaffe	kokade kaffe	kokat kaffe		
+a1_daily		juoda kahvia	dricka kaffe	v	drink coffee			dricker kaffe	drack kaffe	druckit kaffe		
+a1_daily		pitää kahvitauko (ruotsalaisittain)	fika	v	have a coffee break			fikar	fikade	fikat		
+a1_daily		laittaa ruokaa / kokata	laga mat	v	cook			lagar mat	lagade mat	lagat mat		
+a1_daily		lähteä kotoa	gå hemifrån	v	leave home			går hemifrån	gick hemifrån	gått hemifrån		
+a1_daily		mennä töihin	gå till jobbet / åka till jobbet	v	go to work			går till jobbet	gick till jobbet	gått till jobbet		
+a1_daily	paivarutiinit_go_to_school	mennä kouluun	gå till skolan	v	go to school			går till skolan	gick till skolan	gått till skolan		
+a1_daily		tulla kotiin	komma hem	v	come home			kommer hem	kom hem	kommit hem		
+a1_daily		kotiin	hem	adv	home (to)							
+a1_daily	places_dir_4_at_home	kotona	hemma	adv	at home							
+a1_daily		hakea (noutaa) / noutaa	hämta	v	fetch / pick up			hämtar	hämtade	hämtat		
+a1_daily		ulkoiluttaa koiraa	gå ut med hunden	v	walk the dog			går ut med hunden	gick ut med hunden	gått ut med hunden		
+a1_daily		siivota	städa	v	clean			städar	städade	städat		
+a1_daily	chores_4_cleaning	siivous / siivoaminen	städning	n	cleaning	städningar	städningen					
+a1_daily	chores_4_chore	kotityö / kotiaskare	en hushållssyssla	n	household chore	hushållssysslor	hushållssysslan					
+a1_daily	chores_4_do_the_shopping	käydä kaupassa / tehdä ostokset	handla	v	do the shopping			handlar	handlade	handlat		
+a1_daily	chores_4_take_the_rubbish_out	viedä roskat / viedä roskat ulos	ta ut soporna / gå ut med soporna	v	take out the rubbish			tar ut soporna	tog ut soporna	tagit ut soporna		
+a1_daily	chores_4_set_the_table	kattaa pöytä	duka bordet	v	set the table			dukar bordet	dukade bordet	dukat bordet		
+a1_daily	chores_4_make_the_bed	pedata sänky / sijata sänky	bädda sängen	v	make the bed			bäddar sängen	bäddade sängen	bäddat sängen		
+a1_daily	verbs1_4_rest	levätä	vila	v	rest			vilar	vilade	vilat		
+a1_daily	verbs_action_sleep	nukkua	sova	v	sleep			sover	sov	sovit		
+a1_daily		nukahtaa	somna	v	fall asleep			somnar	somnade	somnat		
+a1_daily	paivarutiinit_go_to_bed	mennä nukkumaan / mennä sänkyyn	gå och lägga sig	v	go to bed			går och lägger sig	gick och lade sig	gått och lagt sig		
+a1_daily		laittaa herätyskello soimaan	ställa väckarklockan	v	set the alarm clock			ställer väckarklockan	ställde väckarklockan	ställt väckarklockan		
+a1_daily		herätyskello	en väckarklocka	n	alarm clock	väckarklockor	väckarklockan					
+a1_daily	verbs1_4_hurry	kiirehtiä / pitää kiirettä	skynda sig	v	hurry			skyndar sig	skyndade sig	skyndat sig		
+a1_daily		olla kiire	ha bråttom	v	be in a hurry			har bråttom	hade bråttom	haft bråttom		
+a1_daily		arki / arkipäivä	en vardag	n	everyday life / weekday	vardagar	vardagen					
+a1_daily		rutiini	en rutin	n	routine	rutiner	rutinen					
+a1_daily		suihku	en dusch	n	shower	duschar	duschen					
+a1_daily		hammasharja	en tandborste	n	toothbrush	tandborstar	tandborsten					
+a1_daily		hammastahna	tandkräm	n	toothpaste	-	tandkrämen					
+a1_daily	home_4_soap	saippua	en tvål	n	soap	tvålar	tvålen					
+a1_daily	home_4_shampoo	shampoo	ett schampo	n	shampoo	schampon	schampot					
+a1_daily		pyyhe	en handduk	n	towel	handdukar	handduken					
+a1_daily	verbs1_4_sit	istua	sitta	v	sit			sitter	satt	suttit		
+a1_daily		istuutua	sätta sig	v	sit down			sätter sig	satte sig	satt sig		
+a1_daily		seistä	stå	v	stand			står	stod	stått		
+a1_daily		maata / olla makuulla	ligga	v	lie			ligger	låg	legat		
+a1_daily		käydä makuulle	lägga sig	v	lie down			lägger sig	lade sig	lagt sig		
+a1_daily		laittaa (pystyyn)	ställa	v	put (standing)			ställer	ställde	ställt		
+a1_daily		laittaa (makuulleen)	lägga	v	put (lying)			lägger	lade	lagt		
+a1_daily	verbs1_4_put	laittaa (paikalleen) / panna	sätta	v	put / place			sätter	satte	satt		
+a1_daily	verbs1_4_open	avata	öppna	v	open			öppnar	öppnade	öppnat		
+a1_daily	verbs1_4_close	sulkea	stänga	v	close			stänger	stängde	stängt		
+a1_daily		sytyttää (valo) / laittaa valo päälle	tända	v	switch on (a light)			tänder	tände	tänt		
+a1_daily		sammuttaa (valo) / laittaa valo pois	släcka	v	switch off (a light)			släcker	släckte	släckt		
+a1_daily	verbs1_4_use	käyttää	använda	v	use			använder	använde	använt		
+a1_free_time	free_time_7_spare_time	vapaa-aika	fritid	n	free time	-	fritiden					
+a1_free_time	free_time_7_hobby	harrastus	en hobby / ett fritidsintresse	n	hobby	hobbyer	hobbyn					
+a1_free_time		Mitä teet vapaa-ajallasi?	Vad gör du på fritiden?	phrase	What do you do in your free time?							
+a1_free_time	hobbies_fun	hauskaa / kivaa	kul / roligt	adj	fun						kul	kul
+a1_free_time		tylsä / tylsää	tråkig / tråkigt	adj	boring						tråkigt	tråkiga
+a1_free_time	perusverbit_like	pitää (jostakin) / tykätä	tycka om / gilla	v	like			tycker om	tyckte om	tyckt om		
+a1_free_time		Pidän musiikista	Jag tycker om musik	phrase	I like music							
+a1_free_time	perusverbit_play	pelata (esim. jalkapalloa) / soittaa (soitinta)	spela	v	play			spelar	spelade	spelat		
+a1_free_time	hobbies_film	elokuva / leffa	en film	n	film	filmer	filmen					
+a1_free_time		mennä elokuviin	gå på bio	v	go to the cinema			går på bio	gick på bio	gått på bio		
+a1_free_time	verbs_action_watch_tv	katsoa televisiota / katsoa telkkaria / katsoa tv:tä	titta på tv / se på tv	v	watch TV			tittar på tv	tittade på tv	tittat på tv		
+a1_free_time		lukea	läsa	v	read			läser	läste	läst		
+a1_free_time	school_subjects_music	musiikki	musik	n	music	-	musiken					
+a1_free_time		kuunnella musiikkia	lyssna på musik	v	listen to music			lyssnar på musik	lyssnade på musik	lyssnat på musik		
+a1_free_time	hobbies_4_song	laulu	en sång	n	song	sånger	sången					
+a1_free_time	verbs1_4_sing	laulaa	sjunga	v	sing			sjunger	sjöng	sjungit		
+a1_free_time	people_4_singer	laulaja	en sångare	n	singer	sångare	sångaren					
+a1_free_time		kuoro	en kör	n	choir	körer	kören					
+a1_free_time		bändi / yhtye	ett band	n	band	band	bandet					
+a1_free_time	free_time_7_instrument	soitin	ett instrument	n	instrument	instrument	instrumentet					
+a1_free_time	hobbies_4_guitar	kitara	en gitarr	n	guitar	gitarrer	gitarren					
+a1_free_time		piano	ett piano	n	piano	pianon	pianot					
+a1_free_time	verbs_action_dance	tanssia	dansa	v	dance			dansar	dansade	dansat		
+a1_free_time		tanssi	en dans	n	dance	danser	dansen					
+a1_free_time		piirtää	rita	v	draw			ritar	ritade	ritat		
+a1_free_time	verbs_action_paint	maalata	måla	v	paint			målar	målade	målat		
+a1_free_time		valokuvata	fotografera	v	take photographs			fotograferar	fotograferade	fotograferat		
+a1_free_time		leipoa	baka	v	bake			bakar	bakade	bakat		
+a1_free_time	verbs2_4_knit	neuloa	sticka	v	knit			stickar	stickade	stickat		
+a1_free_time		kalastaa	fiska	v	fish			fiskar	fiskade	fiskat		
+a1_free_time	travel_6_travel	matkustaa	resa	v	travel			reser	reste	rest		
+a1_free_time		ulkoilla / olla ulkona	vara ute	v	spend time outdoors			är ute	var ute	varit ute		
+a1_free_time		käydä kävelyllä / kävellä (huvikseen)	promenera / ta en promenad	v	go for a walk			promenerar	promenerade	promenerat		
+a1_free_time		kävely / kävelylenkki	en promenad	n	walk	promenader	promenaden					
+a1_free_time		tavata ystäviä	träffa vänner / träffa kompisar	v	meet friends			träffar vänner	träffade vänner	träffat vänner		
+a1_free_time	free_time_7_club	kerho / seura / yhdistys	en förening / en klubb	n	club / association	föreningar	föreningen					
+a1_free_time	sports_4_sport	urheilu / liikunta	idrott / sport	n	sport	-	idrotten					
+a1_free_time	free_time_7_practise	treenata / harjoitella (urheilua)	träna	v	train / work out			tränar	tränade	tränat		
+a1_free_time		kuntosali / sali	ett gym	n	gym	gym	gymmet					
+a1_free_time		käydä kuntosalilla / käydä salilla	gå på gym	v	go to the gym			går på gym	gick på gym	gått på gym		
+a1_free_time	verbs_action_run	juosta	springa	v	run			springer	sprang	sprungit		
+a1_free_time		lenkkeillä / hölkätä	jogga	v	jog			joggar	joggade	joggat		
+a1_free_time	sports_running	juoksu / juokseminen	löpning	n	running	-	löpningen					
+a1_free_time	verbs_action_swim	uida	simma	v	swim			simmar	simmade	simmat		
+a1_free_time	sports_swimming	uinti / uiminen	simning	n	swimming	-	simningen					
+a1_free_time	sports_4_ski	hiihtää	åka skidor	v	ski			åker skidor	åkte skidor	åkt skidor		
+a1_free_time	sports_skiing	hiihto / hiihtäminen	skidåkning	n	skiing	-	skidåkningen					
+a1_free_time	sports_4_skate	luistella	åka skridskor	v	skate			åker skridskor	åkte skridskor	åkt skridskor		
+a1_free_time	hobbies_football	jalkapallo	fotboll	n	football	-	fotbollen					
+a1_free_time	sports_ice_hockey	jääkiekko	ishockey	n	ice hockey	-	ishockeyn					
+a1_free_time	sports_4_floorball	salibandy / sähly	innebandy	n	floorball	-	innebandyn					
+a1_free_time	sports_tennis	tennis	tennis	n	tennis	-	tennisen					
+a1_free_time		jooga	yoga	n	yoga	-	yogan					
+a1_weather	weather_seasons_weather	sää / ilma (sää)	väder	n	weather	-	vädret					
+a1_weather		Millainen sää on? / Millainen ilma on?	Hur är vädret?	phrase	What is the weather like?							
+a1_weather		On kaunis ilma	Det är fint väder	phrase	The weather is nice							
+a1_weather		On kylmä	Det är kallt	phrase	It is cold							
+a1_weather		On lämmin	Det är varmt	phrase	It is warm							
+a1_weather		sääennuste	en väderprognos	n	weather forecast	väderprognoser	väderprognosen					
+a1_weather	nature_7_temperature	lämpötila	en temperatur	n	temperature	temperaturer	temperaturen					
+a1_weather	numbers_4_degree	aste	en grad	n	degree	grader	graden					
+a1_weather		pakkanen	kyla / minusgrader	n	frost / freezing cold	-	kylan					
+a1_weather	weather_seasons_sun	aurinko	en sol	n	sun	solar	solen					
+a1_weather	verbs2_4_shine	paistaa (aurinko) / loistaa	skina	v	shine			skiner	sken	skinit		
+a1_weather	nature_7_sunny	aurinkoinen	solig	adj	sunny						soligt	soliga
+a1_weather	weather_seasons_rain	sade	regn	n	rain	-	regnet					
+a1_weather		sataa (vettä)	regna	v	rain			regnar	regnade	regnat		
+a1_weather	nature_4_rainy	sateinen	regnig	adj	rainy						regnigt	regniga
+a1_weather		sateenvarjo	ett paraply	n	umbrella	paraplyer	paraplyet					
+a1_weather	weather_seasons_snow	lumi	snö	n	snow	-	snön					
+a1_weather		sataa lunta	snöa	v	snow			snöar	snöade	snöat		
+a1_weather	nature_4_ice	jää	is	n	ice	-	isen					
+a1_weather	weather_seasons_wind	tuuli	en vind	n	wind	vindar	vinden					
+a1_weather		tuulla	blåsa	v	blow (wind)			blåser	blåste	blåst		
+a1_weather	nature_4_windy	tuulinen	blåsig	adj	windy						blåsigt	blåsiga
+a1_weather	weather_seasons_cloud	pilvi	ett moln	n	cloud	moln	molnet					
+a1_weather	nature_7_cloudy	pilvinen	molnig	adj	cloudy						molnigt	molniga
+a1_weather		sumu	en dimma	n	fog	dimmor	dimman					
+a1_weather	nature_7_foggy	sumuinen	dimmig	adj	foggy						dimmigt	dimmiga
+a1_weather	nature_7_thunder	ukkonen	åska	n	thunder	-	åskan					
+a1_weather	gaming_fortnite_storm	myrsky	en storm	n	storm	stormar	stormen					
+a1_weather	nature_4_chilly	viileä / kolea	sval	adj	cool / chilly						svalt	svala
+a1_weather	adj_4_wet	märkä	blöt / våt	adj	wet						blött	blöta
+a1_weather	adj_4_dry	kuiva	torr	adj	dry						torrt	torra
+a1_weather	time_4_season	vuodenaika	en årstid	n	season	årstider	årstiden					
+a1_weather	weather_seasons_spring	kevät	en vår	n	spring	vårar	våren					
+a1_weather	weather_seasons_summer	kesä	en sommar	n	summer	somrar	sommaren					
+a1_weather	weather_seasons_autumn	syksy	en höst	n	autumn	höstar	hösten					
+a1_weather	weather_seasons_winter	talvi	en vinter	n	winter	vintrar	vintern					
+a1_weather	environment_8_nature	luonto	natur	n	nature	-	naturen					
+a1_weather	nature_7_forest	metsä	en skog	n	forest	skogar	skogen					
+a1_weather	nature_7_lake	järvi	en sjö	n	lake	sjöar	sjön					
+a1_weather	nature_7_sea	meri	ett hav	n	sea	hav	havet					
+a1_weather	nature_7_river	joki	en å / en flod / en älv	n	river	åar	ån					
+a1_weather	nature_7_mountain	vuori	ett berg	n	mountain	berg	berget					
+a1_weather	gaming_fortnite_island	saari	en ö	n	island	öar	ön					
+a1_weather	nature_4_beach	ranta / uimaranta	en strand	n	beach / shore	stränder	stranden					
+a1_weather	nature_4_sky	taivas	en himmel	n	sky	himlar	himlen					
+a1_weather		kuu	en måne	n	moon	månar	månen					
+a1_weather	nature_4_star	tähti	en stjärna	n	star	stjärnor	stjärnan					
+a1_work_study	work_8_job	työ / työpaikka (toimi)	ett jobb / ett arbete	n	job / work	jobb	jobbet					
+a1_work_study	verbs1_4_work	tehdä töitä / työskennellä	jobba / arbeta	v	work			jobbar	jobbade	jobbat		
+a1_work_study		olla töissä	vara på jobbet	v	be at work			är på jobbet	var på jobbet	varit på jobbet		
+a1_work_study		Mitä teet työksesi?	Vad jobbar du med? / Vad arbetar du med?	phrase	What do you do for a living?							
+a1_work_study		Olen töissä opettajana	Jag jobbar som lärare / Jag arbetar som lärare	phrase	I work as a teacher							
+a1_work_study	people_4_profession	ammatti	ett yrke	n	profession	yrken	yrket					
+a1_work_study		työpaikka (paikka)	en arbetsplats	n	workplace	arbetsplatser	arbetsplatsen					
+a1_work_study		työpäivä	en arbetsdag	n	working day	arbetsdagar	arbetsdagen					
+a1_work_study		toimisto	ett kontor	n	office	kontor	kontoret					
+a1_work_study		kokous / tapaaminen	ett möte	n	meeting	möten	mötet					
+a1_work_study	school_subjects_break_time	tauko / välitunti	en rast / en paus	n	break	raster	rasten					
+a1_work_study		vapaa (töistä)	ledig	adj	free / off work						ledigt	lediga
+a1_work_study		tehtävä	en uppgift	n	task	uppgifter	uppgiften					
+a1_work_study	verbs_action_start	alkaa / aloittaa	börja	v	begin / start			börjar	började	börjat		
+a1_work_study	verbs1_4_finish	lopettaa / loppua	sluta	v	stop / finish			slutar	slutade	slutat		
+a1_work_study	technology_computer	tietokone	en dator	n	computer	datorer	datorn					
+a1_work_study	people_4_office_worker	toimistotyöntekijä	en kontorist	n	office worker	kontorister	kontoristen					
+a1_work_study	school_people_nurse	sairaanhoitaja / hoitaja	en sjuksköterska	n	nurse	sjuksköterskor	sjuksköterskan					
+a1_work_study		lähihoitaja	en undersköterska	n	practical nurse	undersköterskor	undersköterskan					
+a1_work_study	professions_police_officer	poliisi	en polis	n	police officer	poliser	polisen					
+a1_work_study	professions_shop_assistant	myyjä	en försäljare / en expedit	n	shop assistant	försäljare	försäljaren					
+a1_work_study	school_people_cook	kokki	en kock	n	cook / chef	kockar	kocken					
+a1_work_study	school_people_cleaner	siivooja	en städare	n	cleaner	städare	städaren					
+a1_work_study	professions_engineer	insinööri	en ingenjör	n	engineer	ingenjörer	ingenjören					
+a1_work_study	professions_driver	kuljettaja	en chaufför / en förare	n	driver	chaufförer	chauffören					
+a1_work_study	professions_hairdresser	kampaaja / parturi	en frisör	n	hairdresser	frisörer	frisören					
+a1_work_study	professions_farmer	maanviljelijä / viljelijä	en bonde / en lantbrukare	n	farmer	bönder	bonden					
+a1_work_study	professions_firefighter	palomies	en brandman	n	firefighter	brandmän	brandmannen					
+a1_work_study		rakennusmies / rakennustyöntekijä	en byggarbetare	n	construction worker	byggarbetare	byggarbetaren					
+a1_work_study		sähkömies / sähköasentaja	en elektriker	n	electrician	elektriker	elektrikern					
+a1_work_study	school_subjects_school	koulu	en skola	n	school	skolor	skolan					
+a1_work_study		päiväkoti	en förskola	n	nursery / preschool	förskolor	förskolan					
+a1_work_study		kurssi	en kurs	n	course	kurser	kursen					
+a1_work_study	school_people_teacher	opettaja / ope	en lärare	n	teacher	lärare	läraren					
+a1_work_study	school_people_student	opiskelija / oppilas	en studerande / en student / en elev	n	student	studerande	studeranden					
+a1_work_study	school_4_class	luokka (ryhmä)	en klass	n	class	klasser	klassen					
+a1_work_study	school_subjects_classroom	luokkahuone / luokka (huone)	ett klassrum	n	classroom	klassrum	klassrummet					
+a1_work_study	school_subjects_lesson	oppitunti / tunti (koulussa)	en lektion	n	lesson	lektioner	lektionen					
+a1_work_study	school_4_homework	läksy / kotitehtävä	en läxa	n	homework	läxor	läxan					
+a1_work_study	education_9_study	opiskella	studera / plugga	v	study			studerar	studerade	studerat		
+a1_work_study		Opiskelen ruotsia	Jag studerar svenska / Jag läser svenska / Jag pluggar svenska	phrase	I am studying Swedish							
+a1_work_study	verbs_communication_learn	oppia	lära sig	v	learn			lär sig	lärde sig	lärt sig		
+a1_work_study	verbs2_4_teach	opettaa	undervisa / lära ut	v	teach			undervisar	undervisade	undervisat		
+a1_work_study	verbs2_4_write	kirjoittaa	skriva	v	write			skriver	skrev	skrivit		
+a1_work_study	verbs1_4_count	laskea (numeroita)	räkna	v	count / calculate			räknar	räknade	räknat		
+a1_work_study	school_4_question	kysymys	en fråga	n	question	frågor	frågan					
+a1_work_study		vastaus	ett svar	n	answer	svar	svaret					
+a1_work_study	school_4_word	sana	ett ord	n	word	ord	ordet					
+a1_work_study		lause	en mening	n	sentence	meningar	meningen					
+a1_work_study	school_4_page	sivu	en sida	n	page	sidor	sidan					
+a1_work_study		sanakirja	en ordbok / ett lexikon	n	dictionary	ordböcker	ordboken					
+a1_work_study	school_objects_pen	kynä	en penna	n	pen	pennor	pennan					
+a1_work_study	school_4_paper	paperi	papper	n	paper	-	papperet					
+a1_work_study	general_4_error	virhe	ett fel	n	mistake	fel	felet					
+a1_work_study	de_k1_richtig	oikein / oikea (vastaus)	rätt / riktig	adj	right / correct						rätt	rätta

@@ -1,0 +1,242 @@
+topic	id	fi	sv	pos	en	pl	def	pres	pret	sup	neut	apl
+a1_core	pronouns_4_i	minä	jag	pron	I							
+a1_core	pronouns_4_you	sinä	du	pron	you (singular)							
+a1_core	pronouns_4_he	hän (mies)	han	pron	he							
+a1_core	pronouns_4_she	hän (nainen)	hon	pron	she							
+a1_core		se (en-sukuinen sana)	den	pron	it (common gender)							
+a1_core	pronouns_4_it	se (ett-sukuinen sana)	det	pron	it							
+a1_core	pronouns_4_we	me	vi	pron	we							
+a1_core		te	ni	pron	you (plural)							
+a1_core	pronouns_4_they	he / ne	de	pron	they							
+a1_core	pronouns_4_me	minut / minua / minulle	mig	pron	me							
+a1_core		sinut / sinua / sinulle	dig	pron	you (object)							
+a1_core	pronouns_4_him	hänet (mies) / häntä (mies)	honom	pron	him							
+a1_core		hänet (nainen) / häntä (nainen)	henne	pron	her (object)							
+a1_core	pronouns_4_us	meidät / meitä / meille	oss	pron	us							
+a1_core	pronouns_4_them	heidät / heitä / heille	dem	pron	them							
+a1_core		itsensä / itseään (refleksiivi)	sig	pron	oneself							
+a1_core	pronouns_4_my	minun	min / mitt / mina	pron	my							
+a1_core	pronouns_4_your	sinun	din / ditt / dina	pron	your (singular)							
+a1_core	pronouns_4_his	hänen (miehen)	hans	pron	his							
+a1_core	pronouns_4_her	hänen (naisen)	hennes	pron	her							
+a1_core	pronouns_4_our	meidän	vår / vårt / våra	pron	our							
+a1_core		teidän	er / ert / era	pron	your (plural)							
+a1_core	pronouns_4_their	heidän	deras	pron	their							
+a1_core		hänen oma / oma (refleksiivinen possessiivi)	sin / sitt / sina	pron	his/her own							
+a1_core		yleistävä tekijä (esim. 'sitä ei koskaan tiedä')	man	pron	one (generic)							
+a1_core	little_4_this	tämä	den här / det här	pron	this							
+a1_core	little_4_these	nämä	de här	pron	these							
+a1_core	little_4_that	tuo	den där / det där	pron	that							
+a1_core	little_4_those	nuo	de där	pron	those							
+a1_core	little_4_someone	joku	någon	pron	someone							
+a1_core	little_4_something	jokin / jotain / jotakin	något	pron	something							
+a1_core		jotkut / muutama	några	pron	some							
+a1_core	little_4_nobody	ei kukaan / ei yhtään	ingen	pron	nobody							
+a1_core	little_4_nothing	ei mitään	ingenting / inget	pron	nothing							
+a1_core	aikasanat_2_every	joka / jokainen	varje	pron	every							
+a1_core	little_4_other	muu / toinen	annan / annat / andra	pron	other							
+a1_core	adj_4_same	sama	samma	pron	same							
+a1_core		itse	själv / själva	pron	self							
+a1_core	little_4_own	oma	egen / eget / egna	pron	own							
+a1_core	sidesanat_5_both	molemmat / kumpikin	båda	pron	both							
+a1_core	little_4_what	mikä / mitä	vad	pron	what							
+a1_core	little_4_who	kuka	vem	pron	who							
+a1_core	little_4_where	missä	var	adv	where							
+a1_core		mihin / minne	vart	adv	where (to)							
+a1_core		mistä	varifrån	adv	where from							
+a1_core	little_4_when	milloin	när	adv	when							
+a1_core	little_4_why	miksi	varför	adv	why							
+a1_core	little_4_how	miten / kuinka	hur	adv	how							
+a1_core		kuinka paljon	hur mycket	phrase	how much							
+a1_core		kuinka monta	hur många	phrase	how many							
+a1_core	little_4_which	mikä (näistä) / kumpi	vilken / vilket / vilka	pron	which							
+a1_core	little_4_whose	kenen	vems	pron	whose							
+a1_core		millainen	hurdan	pron	what kind of							
+a1_core	prepositions_in	-ssa, -ssä (jonkin sisällä)	i	prep	in							
+a1_core	prepositions_on	päällä / -lla, -llä	på	prep	on							
+a1_core	prepositions_under	alla	under	prep	under							
+a1_core		yli	över	prep	over							
+a1_core	prepositions_above	yläpuolella	ovanför	prep	above							
+a1_core	prepositions_next_to	vieressä	bredvid	prep	next to							
+a1_core	prepositions_between	välissä	mellan	prep	between							
+a1_core	prepositions_behind	takana	bakom	prep	behind							
+a1_core	prepositions_in_front_of	edessä	framför	prep	in front of							
+a1_core	prepositions_opposite	vastapäätä	mittemot / mitt emot	prep	opposite							
+a1_core		ulkopuolella	utanför	prep	outside							
+a1_core		johonkin / -lle	till	prep	to							
+a1_core		jostakin / -lta, -ltä / -sta, -stä	från	prep	from							
+a1_core	little_4_with	kanssa / mukana	med	prep	with							
+a1_core		ilman	utan	prep	without							
+a1_core		varten	för	prep	for							
+a1_core		jostakin (aiheesta) / aiheesta	om	prep	about							
+a1_core		luona (jonkun)	hos	prep	at (someone's place)							
+a1_core		ääressä	vid	prep	at, by							
+a1_core		läpi / kautta	genom	prep	through							
+a1_core		kohti / vastaan	mot	prep	towards							
+a1_core		ympäri / ympärillä	runt / omkring	prep	around							
+a1_core	little_4_and	ja	och	conj	and							
+a1_core	little_4_or	tai / vai	eller	conj	or							
+a1_core	little_4_but	mutta	men	conj	but							
+a1_core		että	att	conj	that							
+a1_core		joka (relatiivipronomini) / mikä (relatiivipronomini)	som	conj	who, which (relative)							
+a1_core	little_4_than	kuin (vertailussa)	än	conj	than							
+a1_core		ei (kieltosana)	inte	adv	not							
+a1_core	little_4_also	myös	också	adv	also							
+a1_core		ei myöskään	inte heller	phrase	not either							
+a1_core	sidesanat_5_only	vain / ainoastaan	bara	adv	only							
+a1_core	little_4_maybe	ehkä / kenties	kanske	adv	maybe							
+a1_core	sidesanat_5_already	jo	redan	adv	already							
+a1_core	little_4_yet	ei vielä	inte än / inte ännu	phrase	not yet							
+a1_core	sidesanat_5_still	yhä / edelleen	fortfarande	adv	still							
+a1_core		täällä	här	adv	here							
+a1_core		siellä	där	adv	there							
+a1_core		tänne	hit	adv	here (to)							
+a1_core		sinne	dit	adv	there (to)							
+a1_core		kotona	hemma	adv	at home							
+a1_core		kotiin	hem	adv	home (to)							
+a1_core		sisällä (ei ulkona) / sisätiloissa	inne	adv	inside							
+a1_core		ulkona	ute	adv	outside							
+a1_core		sisään	in	adv	in (to)							
+a1_core		ulos	ut	adv	out (to)							
+a1_core		ylös	upp	adv	up							
+a1_core		alas	ner / ned	adv	down							
+a1_core		ylhäällä / yläkerrassa	uppe	adv	up (location)							
+a1_core		alhaalla / alakerrassa	nere	adv	down (location)							
+a1_core		pois (jonnekin)	bort	adv	away							
+a1_core		poissa	borta	adv	away, gone							
+a1_core		yhdessä	tillsammans	adv	together							
+a1_core	little_4_again	taas / uudelleen / uudestaan	igen	adv	again							
+a1_core	yleissanat_3_very	erittäin / tosi / hyvin (erittäin)	väldigt / mycket	adv	very							
+a1_core		aika (melko) / melko / melkoisen	ganska	adv	quite							
+a1_core	little_4_too	liian	för	adv	too							
+a1_core	little_4_so	niin / joten	så	adv	so							
+a1_core	little_4_really	oikeasti / todellakin	verkligen	adv	really							
+a1_core		mielellään	gärna	adv	gladly							
+a1_verbs	perusverbit_be	olla	vara	v	be			är	var	varit		
+a1_verbs	perusverbit_have	olla (jollakin) / omistaa	ha	v	have			har	hade	haft		
+a1_verbs	verbs1_4_become	tulla (joksikin)	bli	v	become			blir	blev	blivit		
+a1_verbs	verbs1_4_do	tehdä	göra	v	do			gör	gjorde	gjort		
+a1_verbs	perusverbit_go	mennä (kävellen) / kävellä	gå	v	go, walk			går	gick	gått		
+a1_verbs		mennä (kulkuneuvolla)	åka	v	go (by vehicle)			åker	åkte	åkt		
+a1_verbs	verbs1_4_come	tulla (jostakin)	komma	v	come			kommer	kom	kommit		
+a1_verbs		palata / tulla takaisin	komma tillbaka	v	come back			kommer tillbaka	kom tillbaka	kommit tillbaka		
+a1_verbs	verbs1_4_take	ottaa	ta	v	take			tar	tog	tagit		
+a1_verbs	verbs1_4_give	antaa (jollekin)	ge	v	give			ger	gav	gett		
+a1_verbs	verbs1_4_get	saada	få	v	get			får	fick	fått		
+a1_verbs	verbs1_4_let	antaa (jonkun tehdä) / sallia	låta	v	let			låter	lät	låtit		
+a1_verbs	verbs_communication_say	sanoa	säga	v	say			säger	sa	sagt		
+a1_verbs	verbs_communication_talk	puhua / jutella	prata / tala	v	talk			pratar	pratade	pratat		
+a1_verbs	verbs_communication_ask	kysyä	fråga	v	ask			frågar	frågade	frågat		
+a1_verbs		vastata	svara	v	answer			svarar	svarade	svarat		
+a1_verbs	verbs2_4_tell	kertoa	berätta	v	tell			berättar	berättade	berättat		
+a1_verbs	verbs2_4_write	kirjoittaa	skriva	v	write			skriver	skrev	skrivit		
+a1_verbs	verbs_communication_understand	ymmärtää	förstå	v	understand			förstår	förstod	förstått		
+a1_verbs	verbs1_4_know	tietää	veta	v	know			vet	visste	vetat		
+a1_verbs		tuntea (ihminen)	känna	v	know (a person)			känner	kände	känt		
+a1_verbs		luulla / uskoa	tro	v	believe			tror	trodde	trott		
+a1_verbs	verbs_communication_think	ajatella / miettiä	tänka	v	think			tänker	tänkte	tänkt		
+a1_verbs	verbs2_4_mean	tarkoittaa (ihminen)	mena	v	mean			menar	menade	menat		
+a1_verbs		merkitä / tarkoittaa (sana)	betyda	v	mean (of a word)			betyder	betydde	betytt		
+a1_verbs	perusverbit_can	voida / osata / pystyä	kunna	v	can			kan	kunde	kunnat		
+a1_verbs	perusverbit_want	haluta	vilja	v	want			vill	ville	velat		
+a1_verbs	verbs1_4_have_to	täytyä / pitää (tehdä) / joutua	måste	v	must			måste	måste	måst		
+a1_verbs		aikoa / tulla tekemään (tulevaisuus)	ska / skola	v	will, be going to			ska	skulle	skolat		
+a1_verbs		olla tapana	bruka	v	usually do			brukar	brukade	brukat		
+a1_verbs	perusverbit_1_need	tarvita	behöva	v	need			behöver	behövde	behövt		
+a1_verbs	perusverbit_see	nähdä	se	v	see			ser	såg	sett		
+a1_verbs	verbs_action_look	katsoa	titta	v	look			tittar	tittade	tittat		
+a1_verbs	verbs1_4_hear	kuulla	höra	v	hear			hör	hörde	hört		
+a1_verbs	verbs_communication_listen	kuunnella	lyssna	v	listen			lyssnar	lyssnade	lyssnat		
+a1_verbs	verbs1_4_show	näyttää (jollekin)	visa	v	show			visar	visade	visat		
+a1_verbs		pitää (kädessä) / pidellä	hålla	v	hold			håller	höll	hållit		
+a1_verbs		laittaa (makuulle) / laskea (pöydälle)	lägga	v	lay, put			lägger	la	lagt		
+a1_verbs		laittaa (pystyyn)	ställa	v	put (standing)			ställer	ställde	ställt		
+a1_verbs	verbs1_4_put	panna / laittaa (paikalleen)	sätta	v	put			sätter	satte	satt		
+a1_verbs		istuutua / istua alas	sätta sig	v	sit down			sätter sig	satte sig	satt sig		
+a1_verbs	verbs1_4_sit	istua	sitta	v	sit			sitter	satt	suttit		
+a1_verbs		seistä	stå	v	stand			står	stod	stått		
+a1_verbs		maata / olla (paikallaan, esim. pöydällä)	ligga	v	lie			ligger	låg	legat		
+a1_verbs	perusverbit_1_live	asua	bo	v	live (reside)			bor	bodde	bott		
+a1_verbs		elää	leva	v	live (be alive)			lever	levde	levt		
+a1_verbs	verbs1_4_work	tehdä työtä / työskennellä	arbeta / jobba	v	work			arbetar	arbetade	arbetat		
+a1_verbs	verbs1_4_rest	levätä	vila	v	rest			vilar	vilade	vilat		
+a1_verbs	verbs_communication_wait	odottaa	vänta	v	wait			väntar	väntade	väntat		
+a1_verbs	phrasal_9_look_for	etsiä	leta	v	look for			letar	letade	letat		
+a1_verbs	perusverbit_1_find	löytää	hitta	v	find			hittar	hittade	hittat		
+a1_verbs	verbs1_4_open	avata	öppna	v	open			öppnar	öppnade	öppnat		
+a1_verbs	verbs1_4_close	sulkea	stänga	v	close			stänger	stängde	stängt		
+a1_verbs	verbs_action_start	alkaa / aloittaa	börja	v	begin			börjar	började	börjat		
+a1_verbs	verbs1_4_finish	lopettaa / loppua	sluta	v	stop, finish			slutar	slutade	slutat		
+a1_verbs	verbs_action_stay	jäädä / pysähtyä / pysyä	stanna	v	stay, stop			stannar	stannade	stannat		
+a1_verbs	verbs1_4_leave	jättää / lähteä (jostakin)	lämna	v	leave			lämnar	lämnade	lämnat		
+a1_verbs		hakea (noutaa)	hämta	v	fetch			hämtar	hämtade	hämtat		
+a1_verbs		kantaa	bära	v	carry			bär	bar	burit		
+a1_verbs	verbs2_4_send	lähettää	skicka	v	send			skickar	skickade	skickat		
+a1_verbs	verbs1_4_use	käyttää	använda	v	use			använder	använde	använt		
+a1_verbs	verbs1_4_try	yrittää / kokeilla	försöka	v	try			försöker	försökte	försökt		
+a1_verbs	verbs1_4_forget	unohtaa	glömma	v	forget			glömmer	glömde	glömt		
+a1_verbs	perusverbit_1_help	auttaa	hjälpa	v	help			hjälper	hjälpte	hjälpt		
+a1_verbs	verbs2_4_happen	tapahtua	hända	v	happen			händer	hände	hänt		
+a1_verbs	verbs_action_run	juosta	springa	v	run			springer	sprang	sprungit		
+a1_verbs	verbs1_4_drive	ajaa (autoa)	köra	v	drive			kör	körde	kört		
+a1_verbs	verbs1_4_pull	vetää	dra	v	pull			drar	drog	dragit		
+a1_verbs	verbs1_4_push	työntää / painaa (nappia)	trycka	v	push			trycker	tryckte	tryckt		
+a1_verbs	perusverbit_1_love	rakastaa	älska	v	love			älskar	älskade	älskat		
+a1_verbs		olla olemassa / löytyä (jostakin)	finnas	v	exist, there is			finns	fanns	funnits		
+a1_verbs	verbs2_4_ask_for	pyytää	be	v	ask (for)			ber	bad	bett		
+a1_verbs	verbs1_4_choose	valita	välja	v	choose			väljer	valde	valt		
+a1_adjectives	opposites_big	iso / suuri	stor	adj	big						stort	stora
+a1_adjectives	opposites_small	pieni	liten	adj	small						litet	små
+a1_adjectives	opposites_new	uusi	ny	adj	new						nytt	nya
+a1_adjectives	opposites_old	vanha	gammal	adj	old						gammalt	gamla
+a1_adjectives		nuori	ung	adj	young						ungt	unga
+a1_adjectives	opposites_good	hyvä	bra	adj	good						bra	bra
+a1_adjectives	opposites_bad	huono	dålig	adj	bad						dåligt	dåliga
+a1_adjectives	opposites_easy	helppo / kevyt	lätt	adj	easy						lätt	lätta
+a1_adjectives	adjectives_advanced_6_difficult	vaikea	svår	adj	difficult						svårt	svåra
+a1_adjectives		kallis	dyr	adj	expensive						dyrt	dyra
+a1_adjectives		halpa	billig	adj	cheap						billigt	billiga
+a1_adjectives	opposites_fast	nopea	snabb	adj	fast						snabbt	snabba
+a1_adjectives	opposites_slow	hidas	långsam	adj	slow						långsamt	långsamma
+a1_adjectives	adj_4_warm	lämmin	varm	adj	warm						varmt	varma
+a1_adjectives	opposites_cold	kylmä	kall	adj	cold						kallt	kalla
+a1_adjectives	opposites_hot	kuuma	het	adj	hot						hett	heta
+a1_adjectives	opposites_tall	pitkä	lång	adj	long, tall						långt	långa
+a1_adjectives	opposites_short	lyhyt	kort	adj	short						kort	korta
+a1_adjectives	adj_4_high	korkea	hög	adj	high						högt	höga
+a1_adjectives		matala	låg	adj	low						lågt	låga
+a1_adjectives		paksu	tjock	adj	thick						tjockt	tjocka
+a1_adjectives	adj_4_thin	ohut	tunn	adj	thin						tunt	tunna
+a1_adjectives		leveä	bred	adj	wide						brett	breda
+a1_adjectives		kapea / hoikka	smal	adj	narrow						smalt	smala
+a1_adjectives	opposites_heavy	painava / raskas	tung	adj	heavy						tungt	tunga
+a1_adjectives	opposites_full	täysi / täynnä	full	adj	full						fullt	fulla
+a1_adjectives	opposites_empty	tyhjä	tom	adj	empty						tomt	tomma
+a1_adjectives		avoin / auki	öppen	adj	open						öppet	öppna
+a1_adjectives	adj_4_closed	suljettu / kiinni	stängd	adj	closed						stängt	stängda
+a1_adjectives		oikea (ei väärä) / oikein	rätt / riktig	adj	right, correct						rätt	rätta
+a1_adjectives		väärä / väärin	fel	adj	wrong						fel	fel
+a1_adjectives		hieno	fin	adj	fine, nice						fint	fina
+a1_adjectives		kaunis	vacker	adj	beautiful						vackert	vackra
+a1_adjectives		ruma	ful	adj	ugly						fult	fula
+a1_adjectives	adj_4_nice	mukava (esim. ilta, ihminen) / kiva	trevlig	adj	nice, pleasant						trevligt	trevliga
+a1_adjectives		hauska (asia) / kiva (tekeminen)	kul	adj	fun						kul	kul
+a1_adjectives	adjectives_boring	tylsä / pitkäveteinen	tråkig	adj	boring						tråkigt	tråkiga
+a1_adjectives	adj_4_interesting	kiinnostava / mielenkiintoinen	intressant	adj	interesting						intressant	intressanta
+a1_adjectives	adj_4_lovely	ihana	underbar / härlig	adj	wonderful						underbart	underbara
+a1_adjectives		tyhmä	dum	adj	stupid						dumt	dumma
+a1_adjectives	adj_4_dark	pimeä / tumma	mörk	adj	dark						mörkt	mörka
+a1_adjectives		valoisa / vaalea	ljus	adj	light, bright						ljust	ljusa
+a1_adjectives	adj_4_dry	kuiva	torr	adj	dry						torrt	torra
+a1_adjectives	adj_4_wet	märkä	blöt / våt	adj	wet						blött	blöta
+a1_adjectives	opposites_strong	vahva / voimakas	stark	adj	strong						starkt	starka
+a1_adjectives	opposites_weak	heikko	svag	adj	weak						svagt	svaga
+a1_adjectives		pehmeä	mjuk	adj	soft						mjukt	mjuka
+a1_adjectives	opposites_hard	kova	hård	adj	hard						hårt	hårda
+a1_adjectives		rikas	rik	adj	rich						rikt	rika
+a1_adjectives	adj_4_poor	köyhä	fattig	adj	poor						fattigt	fattiga
+a1_adjectives	general_4_whole	koko / kokonainen / ehjä	hel	adj	whole						helt	hela
+a1_adjectives		sopiva / juuri sopiva	lagom	adj	just right						lagom	lagom
+a1_adjectives		taitava / hyvä (jossakin)	duktig	adj	skilled, good at						duktigt	duktiga
+a1_adjectives	adjectives_dangerous	vaarallinen	farlig	adj	dangerous						farligt	farliga
+a1_adjectives	adjectives_modern	moderni / nykyaikainen	modern	adj	modern						modernt	moderna

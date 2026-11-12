@@ -1,0 +1,458 @@
+topic	id	fi	sv	pos	en	pl	def	pres	pret	sup	neut	apl
+a2_travel	travel_journey	matka	en resa	n	journey	resor	resan					
+a2_travel	travel_8_trip	retki / reissu	en utflykt	n	trip	utflykter	utflykten					
+a2_travel	travel_8_flight	lento	ett flyg / en flygning	n	flight	flyg	flyget					
+a2_travel	travel_airport	lentokenttä / lentoasema	en flygplats	n	airport	flygplatser	flygplatsen					
+a2_travel	travel_passport	passi	ett pass	n	passport	pass	passet					
+a2_travel	travel_8_suitcase	matkalaukku	en resväska / en väska	n	suitcase	resväskor	resväskan					
+a2_travel	travel_luggage	matkatavarat	bagage / packning	n	luggage	-	bagaget					
+a2_travel	travel_hotel	hotelli	ett hotell	n	hotel	hotell	hotellet					
+a2_travel	travel_8_accommodation	majoitus	ett boende	n	accommodation	boenden	boendet					
+a2_travel		varaus	en bokning	n	booking	bokningar	bokningen					
+a2_travel		varata	boka	v	book			bokar	bokade	bokat		
+a2_travel		peruuttaa (varaus) / perua	avboka	v	cancel			avbokar	avbokade	avbokat		
+a2_travel		vahvistaa (varaus)	bekräfta	v	confirm			bekräftar	bekräftade	bekräftat		
+a2_travel		vahvistus	en bekräftelse	n	confirmation	bekräftelser	bekräftelsen					
+a2_travel		vastaanotto (hotellin)	en reception	n	reception	receptioner	receptionen					
+a2_travel		yhden hengen huone	ett enkelrum	n	single room	enkelrum	enkelrummet					
+a2_travel		kahden hengen huone	ett dubbelrum	n	double room	dubbelrum	dubbelrummet					
+a2_travel		avainkortti	ett nyckelkort	n	key card	nyckelkort	nyckelkortet					
+a2_travel		retkeilymaja / hostelli	ett vandrarhem	n	hostel	vandrarhem	vandrarhemmet					
+a2_travel		leirintäalue	en campingplats / en camping	n	campsite	campingplatser	campingplatsen					
+a2_travel		teltta	ett tält	n	tent	tält	tältet					
+a2_travel		yöpyä / majoittua	övernatta	v	stay overnight			övernattar	övernattade	övernattat		
+a2_travel		kirjautua sisään (hotelliin) / tehdä lähtöselvitys	checka in	v	check in			checkar in	checkade in	checkat in		
+a2_travel		kirjautua ulos (hotellista)	checka ut	v	check out			checkar ut	checkade ut	checkat ut		
+a2_travel		sisältyä (hintaan)	ingå	v	be included			ingår	ingick	ingått		
+a2_travel		Aamiainen sisältyy hintaan.	Frukost ingår	phrase	Breakfast is included							
+a2_travel		Onko teillä vapaita huoneita?	Har ni några lediga rum?	phrase	Do you have any rooms available?							
+a2_travel		Haluaisin varata huoneen.	Jag skulle vilja boka ett rum	phrase	I would like to book a room							
+a2_travel		nähtävyys	en sevärdhet	n	sight	sevärdheter	sevärdheten					
+a2_travel	travel_tourist	turisti / matkailija	en turist	n	tourist	turister	turisten					
+a2_travel	people_4_guide	opas (henkilö)	en guide	n	guide	guider	guiden					
+a2_travel		opaskirja	en guidebok	n	guidebook	guideböcker	guideboken					
+a2_travel		kiertoajelu / opastettu kierros	en rundtur / en sightseeingtur	n	tour	rundturer	rundturen					
+a2_travel		matkailuneuvonta / matkailutoimisto	en turistbyrå	n	tourist office	turistbyråer	turistbyrån					
+a2_travel		matkatoimisto	en resebyrå	n	travel agency	resebyråer	resebyrån					
+a2_travel		valmismatka / pakettimatka	en charterresa / en paketresa	n	package holiday	charterresor	charterresan					
+a2_travel	travel_holiday	loma	en semester	n	holiday	semestrar	semestern					
+a2_travel		olla lomalla	vara på semester	v	be on holiday			är på semester	var på semester	varit på semester		
+a2_travel		lähteä matkalle	resa bort / åka bort	v	go away			reser bort	reste bort	rest bort		
+a2_travel	travel_8_destination	matkakohde / määränpää	ett resmål	n	destination	resmål	resmålet					
+a2_travel	travel_8_abroad	ulkomailla / ulkomaille	utomlands	adv	abroad							
+a2_travel		ulkomainen	utländsk	adj	foreign						utländskt	utländska
+a2_travel	travel_8_border	raja	en gräns	n	border	gränser	gränsen					
+a2_travel		tulli	en tull	n	customs	tullar	tullen					
+a2_travel		viisumi	ett visum	n	visa	visum	visumet					
+a2_travel		matkavakuutus	en reseförsäkring	n	travel insurance	reseförsäkringar	reseförsäkringen					
+a2_travel	travel_8_currency	valuutta	en valuta	n	currency	valutor	valutan					
+a2_travel		vaihtaa rahaa	växla pengar	v	exchange money			växlar pengar	växlade pengar	växlat pengar		
+a2_travel	travel_map	kartta	en karta	n	map	kartor	kartan					
+a2_travel	travel_souvenir	matkamuisto	en souvenir	n	souvenir	souvenirer	souveniren					
+a2_travel		postikortti	ett vykort	n	postcard	vykort	vykortet					
+a2_travel		vierailla / käydä (jossakin)	besöka	v	visit			besöker	besökte	besökt		
+a2_travel		linna	ett slott	n	castle	slott	slottet					
+a2_travel		näköala	en utsikt	n	view	utsikter	utsikten					
+a2_travel		lähtö	en avgång	n	departure	avgångar	avgången					
+a2_travel		saapuminen / tulo	en ankomst	n	arrival	ankomster	ankomsten					
+a2_travel	verbs1_4_arrive	saapua (perille) / tulla perille	komma fram / anlända	v	arrive			kommer fram	kom fram	kommit fram		
+a2_travel		lentää	flyga	v	fly			flyger	flög	flugit		
+a2_travel		nousta (lentokone)	lyfta	v	take off			lyfter	lyfte	lyft		
+a2_travel		laskeutua (lentokone)	landa	v	land			landar	landade	landat		
+a2_travel		lentoyhtiö	ett flygbolag	n	airline	flygbolag	flygbolaget					
+a2_travel		lähtöselvitys	en incheckning	n	check-in	incheckningar	incheckningen					
+a2_travel		turvatarkastus	en säkerhetskontroll	n	security check	säkerhetskontroller	säkerhetskontrollen					
+a2_travel		portti (lentokentällä) / lähtöportti	en gate	n	gate	gater	gaten					
+a2_travel		käsimatkatavara	handbagage	n	hand luggage	-	handbagaget					
+a2_travel		tarkastuskortti / koneeseennousukortti	ett boardingkort	n	boarding pass	boardingkort	boardingkortet					
+a2_travel		istumapaikka	en sittplats	n	seat	sittplatser	sittplatsen					
+a2_travel		ikkunapaikka	en fönsterplats	n	window seat	fönsterplatser	fönsterplatsen					
+a2_travel		käytäväpaikka	en gångplats	n	aisle seat	gångplatser	gångplatsen					
+a2_travel		menolippu / yhdensuuntainen lippu	en enkelbiljett	n	one-way ticket	enkelbiljetter	enkelbiljetten					
+a2_travel		meno-paluulippu	en returbiljett / en tur och retur-biljett	n	return ticket	returbiljetter	returbiljetten					
+a2_travel		matkustaja	en passagerare / en resenär	n	passenger	passagerare	passageraren					
+a2_travel		risteily	en kryssning	n	cruise	kryssningar	kryssningen					
+a2_travel		hytti	en hytt	n	cabin	hytter	hytten					
+a2_travel	travel_8_delay	viivästys / myöhästyminen	en försening	n	delay	förseningar	förseningen					
+a2_travel		myöhässä (oleva) / viivästynyt	försenad	adj	delayed						försenat	försenade
+a2_travel		peruttu / peruutettu	inställd	adj	cancelled						inställt	inställda
+a2_travel		aikaero	en tidsskillnad	n	time difference	tidsskillnader	tidsskillnaden					
+a2_travel	home_4_sunscreen	aurinkovoide / aurinkorasva	en solkräm	n	sunscreen	solkrämer	solkrämen					
+a2_travel		ottaa aurinkoa	sola	v	sunbathe			solar	solade	solat		
+a2_travel		pakata	packa	v	pack			packar	packade	packat		
+a2_travel		purkaa (matkalaukku)	packa upp	v	unpack			packar upp	packade upp	packat upp		
+a2_travel		Hyvää matkaa!	Trevlig resa!	phrase	Have a nice trip!							
+a2_transport	town_7_traffic_lights	liikennevalot / liikennevalo	ett trafikljus	n	traffic lights	trafikljus	trafikljuset					
+a2_transport	town_7_crossroads	risteys	en korsning	n	crossroads	korsningar	korsningen					
+a2_transport		liikenneympyrä	en rondell	n	roundabout	rondeller	rondellen					
+a2_transport		suojatie	ett övergångsställe	n	pedestrian crossing	övergångsställen	övergångsstället					
+a2_transport		jalankulkija	en fotgängare	n	pedestrian	fotgängare	fotgängaren					
+a2_transport		jalkakäytävä	en trottoar	n	pavement	trottoarer	trottoaren					
+a2_transport		pyörätie	en cykelbana / en cykelväg	n	cycle path	cykelbanor	cykelbanan					
+a2_transport	town_7_corner	kulma (kadun)	ett hörn	n	corner	hörn	hörnet					
+a2_transport	town_7_bridge	silta	en bro	n	bridge	broar	bron					
+a2_transport		tunneli	en tunnel	n	tunnel	tunnlar	tunneln					
+a2_transport		moottoritie	en motorväg	n	motorway	motorvägar	motorvägen					
+a2_transport		kaista	ett körfält	n	lane	körfält	körfältet					
+a2_transport		liikenne	trafik	n	traffic	-	trafiken					
+a2_transport		liikennesääntö	en trafikregel	n	traffic rule	trafikregler	trafikregeln					
+a2_transport		liikennemerkki	ett vägmärke / en vägskylt	n	road sign	vägmärken	vägmärket					
+a2_transport		nopeusrajoitus	en hastighetsbegränsning	n	speed limit	hastighetsbegränsningar	hastighetsbegränsningen					
+a2_transport		nopeus / vauhti	en hastighet	n	speed	hastigheter	hastigheten					
+a2_transport		ruuhka (liikenteessä) / jono (autojen)	en bilkö	n	traffic jam	bilköer	bilkön					
+a2_transport		ruuhka-aika / ruuhkaliikenne	rusningstrafik	n	rush hour	-	rusningstrafiken					
+a2_transport		kääntyä	svänga	v	turn			svänger	svängde	svängt		
+a2_transport	town_7_turn_left	kääntyä vasemmalle	svänga vänster / svänga till vänster	phrase	turn left							
+a2_transport	town_7_turn_right	kääntyä oikealle	svänga höger / svänga till höger	phrase	turn right							
+a2_transport		ylittää (katu)	gå över	v	cross			går över	gick över	gått över		
+a2_transport		ajokortti	ett körkort	n	driving licence	körkort	körkortet					
+a2_transport		ajaa (autoa)	köra	v	drive			kör	körde	kört		
+a2_transport	professions_driver	kuljettaja	en förare / en chaufför	n	driver	förare	föraren					
+a2_transport		parkkipaikka / pysäköintipaikka	en parkering / en parkeringsplats	n	car park	parkeringar	parkeringen					
+a2_transport		pysäköidä / parkkeerata	parkera	v	park			parkerar	parkerade	parkerat		
+a2_transport		pysäköintivirhemaksu / parkkisakko	en parkeringsbot	n	parking ticket	parkeringsböter	parkeringsboten					
+a2_transport		bensa / bensiini	bensin	n	petrol	-	bensinen					
+a2_transport		diesel	diesel	n	diesel	-	dieseln					
+a2_transport		huoltoasema / bensa-asema	en bensinmack / en bensinstation	n	petrol station	bensinmackar	bensinmacken					
+a2_transport		tankata	tanka	v	fill up			tankar	tankade	tankat		
+a2_transport		sähköauto	en elbil	n	electric car	elbilar	elbilen					
+a2_transport		ladata (sähköautoa)	ladda	v	charge			laddar	laddade	laddat		
+a2_transport		vuokra-auto	en hyrbil	n	rental car	hyrbilar	hyrbilen					
+a2_transport		rengas	ett däck	n	tyre	däck	däcket					
+a2_transport		turvavyö	ett säkerhetsbälte / ett bälte	n	seat belt	säkerhetsbälten	säkerhetsbältet					
+a2_transport		kypärä	en hjälm	n	helmet	hjälmar	hjälmen					
+a2_transport		korjaamo / autokorjaamo	en bilverkstad / en verkstad	n	garage	bilverkstäder	bilverkstaden					
+a2_transport		katsastus	en besiktning / en bilbesiktning	n	vehicle inspection	besiktningar	besiktningen					
+a2_transport		kolari / kolarointi	en krock	n	crash	krockar	krocken					
+a2_transport		jarruttaa	bromsa	v	brake			bromsar	bromsade	bromsat		
+a2_transport		pysähtyä	stanna	v	stop			stannar	stannade	stannat		
+a2_transport		peruuttaa (autolla)	backa	v	reverse			backar	backade	backat		
+a2_transport		ohittaa (autolla)	köra om	v	overtake			kör om	körde om	kört om		
+a2_transport		väistää / antaa tietä	lämna företräde	v	give way			lämnar företräde	lämnade företräde	lämnat företräde		
+a2_transport	places_4_lorry	kuorma-auto / rekka	en lastbil	n	lorry	lastbilar	lastbilen					
+a2_transport	places_4_ferry	lautta	en färja	n	ferry	färjor	färjan					
+a2_transport		sähköpotkulauta	en elsparkcykel	n	e-scooter	elsparkcyklar	elsparkcykeln					
+a2_transport		lähijuna	ett pendeltåg	n	commuter train	pendeltåg	pendeltåget					
+a2_transport		joukkoliikenne / julkinen liikenne	kollektivtrafik	n	public transport	-	kollektivtrafiken					
+a2_transport		matkakortti	ett reskort	n	travel card	reskort	reskortet					
+a2_transport		kuukausilippu	ett månadskort	n	monthly pass	månadskort	månadskortet					
+a2_transport		aikataulu	en tidtabell	n	timetable	tidtabeller	tidtabellen					
+a2_transport		laituri (asemalla)	en perrong	n	platform	perronger	perrongen					
+a2_transport		raide	ett spår	n	track	spår	spåret					
+a2_transport		nousta (kyytiin) / mennä (bussiin, junaan)	gå på / stiga på	v	get on			går på	gick på	gått på		
+a2_transport		jäädä pois (kyydistä)	gå av / stiga av	v	get off			går av	gick av	gått av		
+a2_transport		vaihtaa (junaa, bussia)	byta	v	change			byter	bytte	bytt		
+a2_transport		myöhästyä (junasta, bussista)	missa	v	miss			missar	missade	missat		
+a2_transport		olla myöhässä	vara sen / vara försenad	v	be late			är sen	var sen	varit sen		
+a2_transport		matka-aika	en restid	n	travel time	restider	restiden					
+a2_transport		kulkea työmatkoja / pendelöidä	pendla	v	commute			pendlar	pendlade	pendlat		
+a2_transport		kyyditä / antaa kyyti	skjutsa	v	give a lift			skjutsar	skjutsade	skjutsat		
+a2_transport		päästä (jonnekin) / kulkea	ta sig	v	get to			tar sig	tog sig	tagit sig		
+a2_transport		jalan / kävellen	till fots	adv	on foot							
+a2_transport		etäisyys	ett avstånd	n	distance	avstånd	avståndet					
+a2_transport		reitti	en rutt / en väg	n	route	rutter	rutten					
+a2_transport		eksyä	gå vilse / köra vilse	v	get lost			går vilse	gick vilse	gått vilse		
+a2_transport		kysyä tietä	fråga om vägen	phrase	ask the way							
+a2_transport		Miten pääsen ...?	Hur kommer jag till ...?	phrase	How do I get to ...?							
+a2_services		pankki	en bank	n	bank	banker	banken					
+a2_services		tili (pankkitili)	ett konto	n	account	konton	kontot					
+a2_services		tilinumero	ett kontonummer	n	account number	kontonummer	kontonumret					
+a2_services		avata tili	öppna ett konto	v	open an account			öppnar ett konto	öppnade ett konto	öppnat ett konto		
+a2_services		saldo	ett saldo	n	balance	saldon	saldot					
+a2_services		pankkikortti	ett bankkort	n	bank card	bankkort	bankkortet					
+a2_services		pankkiautomaatti	en bankomat / en uttagsautomat	n	cash machine	bankomater	bankomaten					
+a2_services		PIN-koodi / tunnusluku	en pinkod / en kod	n	PIN code	pinkoder	pinkoden					
+a2_services		nostaa (rahaa)	ta ut	v	withdraw			tar ut	tog ut	tagit ut		
+a2_services		tallettaa / panna tilille	sätta in	v	deposit			sätter in	satte in	satt in		
+a2_services		tilisiirto	en överföring	n	transfer	överföringar	överföringen					
+a2_services		verkkopankki	en internetbank / en nätbank	n	online bank	internetbanker	internetbanken					
+a2_services		lasku (maksettava)	en räkning / en faktura	n	bill	räkningar	räkningen					
+a2_services		eräpäivä	en förfallodag	n	due date	förfallodagar	förfallodagen					
+a2_services		maksu (palvelusta)	en avgift	n	fee	avgifter	avgiften					
+a2_services		posti (toimipaikka) / postitoimisto	ett postkontor / ett postombud	n	post office	postkontor	postkontoret					
+a2_services		paketti	ett paket	n	parcel	paket	paketet					
+a2_services	school_4_letter_kirje	kirje	ett brev	n	letter	brev	brevet					
+a2_services		postimerkki	ett frimärke	n	stamp	frimärken	frimärket					
+a2_services		kirjekuori	ett kuvert	n	envelope	kuvert	kuvertet					
+a2_services		postinumero	ett postnummer	n	postcode	postnummer	postnumret					
+a2_services		lähettää (paketti, kirje)	skicka	v	send			skickar	skickade	skickat		
+a2_services		noutaa / hakea (paketti)	hämta	v	collect			hämtar	hämtade	hämtat		
+a2_services		vastaanottaja	en mottagare	n	recipient	mottagare	mottagaren					
+a2_services		lähettäjä	en avsändare	n	sender	avsändare	avsändaren					
+a2_services		toimitus	en leverans	n	delivery	leveranser	leveransen					
+a2_services		virasto / viranomainen	en myndighet	n	authority	myndigheter	myndigheten					
+a2_services		virkailija / käsittelijä	en handläggare	n	case officer	handläggare	handläggaren					
+a2_services		asia (hoidettava)	ett ärende	n	errand	ärenden	ärendet					
+a2_services		asioida / hoitaa asioita	uträtta ärenden	v	run errands			uträttar ärenden	uträttade ärenden	uträttat ärenden		
+a2_services		lomake	en blankett	n	form	blanketter	blanketten					
+a2_services		täyttää (lomake)	fylla i	v	fill in			fyller i	fyllde i	fyllt i		
+a2_services		allekirjoittaa	skriva under / underteckna	v	sign			skriver under	skrev under	skrivit under		
+a2_services		allekirjoitus	en underskrift / en namnteckning	n	signature	underskrifter	underskriften					
+a2_services		asiakirja / dokumentti	ett dokument / en handling	n	document	dokument	dokumentet					
+a2_services		todistus (asiakirja)	ett intyg	n	certificate	intyg	intyget					
+a2_services		kopio	en kopia	n	copy	kopior	kopian					
+a2_services		henkilöllisyystodistus	en legitimation / ett id-kort	n	ID	legitimationer	legitimationen					
+a2_services		todistaa henkilöllisyytensä	legitimera sig	v	show ID			legitimerar sig	legitimerade sig	legitimerat sig		
+a2_services		henkilötunnus	ett personnummer	n	personal identity number	personnummer	personnumret					
+a2_services		ajanvaraus	en tidsbokning	n	appointment booking	tidsbokningar	tidsbokningen					
+a2_services		varata aika	boka en tid	v	make an appointment			bokar en tid	bokade en tid	bokat en tid		
+a2_services		jono	en kö	n	queue	köer	kön					
+a2_services		jonottaa	köa / stå i kö	v	queue			köar	köade	köat		
+a2_services		vuoronumero / jonotuslappu	en kölapp	n	queue ticket	kölappar	kölappen					
+a2_services		vuoro (jonossa)	en tur	n	turn	turer	turen					
+a2_services		vakuutus	en försäkring	n	insurance	försäkringar	försäkringen					
+a2_services		vakuutusyhtiö	ett försäkringsbolag	n	insurance company	försäkringsbolag	försäkringsbolaget					
+a2_services		korvaus	en ersättning	n	compensation	ersättningar	ersättningen					
+a2_services		hakea (lupaa, tukea)	ansöka om	v	apply for			ansöker om	ansökte om	ansökt om		
+a2_services		jättää (hakemus, lomake)	lämna in	v	hand in			lämnar in	lämnade in	lämnat in		
+a2_services		lupa	ett tillstånd	n	permit	tillstånd	tillståndet					
+a2_services		oleskelulupa	ett uppehållstillstånd	n	residence permit	uppehållstillstånd	uppehållstillståndet					
+a2_services		tuki / avustus	ett bidrag	n	benefit	bidrag	bidraget					
+a2_services	future_decision	päätös	ett beslut	n	decision	beslut	beslutet					
+a2_services		ilmoittautua / rekisteröityä	anmäla sig / registrera sig	v	register			anmäler sig	anmälde sig	anmält sig		
+a2_services		muuttoilmoitus	en flyttanmälan	n	change of address notification	flyttanmälningar	flyttanmälan					
+a2_services		tulkki	en tolk	n	interpreter	tolkar	tolken					
+a2_services		asiakaspalvelu	kundtjänst / kundservice	n	customer service	-	kundtjänsten					
+a2_services		palvelu	en tjänst / service	n	service	tjänster	tjänsten					
+a2_services		aukioloajat	öppettider	n	opening hours	-	öppettiderna					
+a2_services		valittaa / tehdä valitus	klaga / reklamera	v	complain			klagar	klagade	klagat		
+a2_services		valitus / reklamaatio	ett klagomål / en reklamation	n	complaint	klagomål	klagomålet					
+a2_services		kampaamo / parturi (liike)	en frisörsalong / en frisör	n	hair salon	frisörsalonger	frisörsalongen					
+a2_services		pesula	en kemtvätt / ett tvätteri	n	dry cleaner's	kemtvättar	kemtvätten					
+a2_services		Odottakaa hetki.	Vänta ett ögonblick	phrase	Wait a moment							
+a2_health		terveyskeskus	en vårdcentral	n	health centre	vårdcentraler	vårdcentralen					
+a2_health		vastaanotto (lääkärin)	en mottagning	n	surgery	mottagningar	mottagningen					
+a2_health		lääkäriaika / vastaanottoaika	en läkartid	n	doctor's appointment	läkartider	läkartiden					
+a2_health	health_7_hospital	sairaala	ett sjukhus	n	hospital	sjukhus	sjukhuset					
+a2_health		päivystys	en akutmottagning / akuten	n	emergency department	akutmottagningar	akutmottagningen					
+a2_health		ambulanssi	en ambulans	n	ambulance	ambulanser	ambulansen					
+a2_health	school_people_nurse	sairaanhoitaja / hoitaja / terveydenhoitaja	en sjuksköterska	n	nurse	sjuksköterskor	sjuksköterskan					
+a2_health	professions_dentist	hammaslääkäri	en tandläkare	n	dentist	tandläkare	tandläkaren					
+a2_health		potilas	en patient	n	patient	patienter	patienten					
+a2_health		terveydenhuolto	sjukvård / vård	n	health care	-	sjukvården					
+a2_health		terveys	hälsa	n	health	-	hälsan					
+a2_health		sairaus	en sjukdom	n	illness	sjukdomar	sjukdomen					
+a2_health		oire	ett symtom	n	symptom	symtom	symtomet					
+a2_health	health_7_fever	kuume	feber	n	fever	-	febern					
+a2_health	health_7_cough	yskä	hosta	n	cough	-	hostan					
+a2_health		yskiä	hosta	v	cough			hostar	hostade	hostat		
+a2_health		flunssa	en förkylning	n	cold	förkylningar	förkylningen					
+a2_health		vilustunut / flunssassa	förkyld	adj	have a cold						förkylt	förkylda
+a2_health		nuha	snuva	n	runny nose	-	snuvan					
+a2_health		influenssa	influensa	n	flu	-	influensan					
+a2_health		vatsatauti	magsjuka	n	stomach bug	-	magsjukan					
+a2_health	health_7_headache	päänsärky	huvudvärk	n	headache	-	huvudvärken					
+a2_health		hammassärky	tandvärk	n	toothache	-	tandvärken					
+a2_health	health_7_stomach_ache	vatsakipu / mahakipu	ont i magen / magont	phrase	stomach ache							
+a2_health	health_7_sore_throat	kurkkukipu	ont i halsen	phrase	sore throat							
+a2_health		korvatulehdus	en öroninflammation	n	ear infection	öroninflammationer	öroninflammationen					
+a2_health		tulehdus / infektio	en infektion / en inflammation	n	infection	infektioner	infektionen					
+a2_health	health_7_hurt	sattua / tehdä kipeää	göra ont	v	hurt			gör ont	gjorde ont	gjort ont		
+a2_health		Missä sattuu?	Var gör det ont?	phrase	Where does it hurt?							
+a2_health		huimaava (minua huimaa)	yr	adj	dizzy						yrt	yra
+a2_health		voida pahoin	må illa	v	feel sick			mår illa	mådde illa	mått illa		
+a2_health		oksentaa	kräkas / spy	v	vomit			kräks	kräktes	kräkts		
+a2_health		ripuli	diarré	n	diarrhoea	-	diarrén					
+a2_health		ihottuma	ett utslag	n	rash	utslag	utslaget					
+a2_health		kutista	klia	v	itch			kliar	kliade	kliat		
+a2_health		turvonnut	svullen	adj	swollen						svullet	svullna
+a2_health		allergia	en allergi	n	allergy	allergier	allergin					
+a2_health		allerginen	allergisk	adj	allergic						allergiskt	allergiska
+a2_health		Olen allerginen ...lle.	Jag är allergisk mot ...	phrase	I am allergic to ...							
+a2_health		astma	astma	n	asthma	-	astman					
+a2_health		diabetes	diabetes	n	diabetes	-	diabetesen					
+a2_health		verenpaine	ett blodtryck	n	blood pressure	blodtryck	blodtrycket					
+a2_health		veri	blod	n	blood	-	blodet					
+a2_health		verikoe	ett blodprov	n	blood test	blodprov	blodprovet					
+a2_health		tutkia (potilas)	undersöka	v	examine			undersöker	undersökte	undersökt		
+a2_health		tutkimus (lääkärin)	en undersökning	n	examination	undersökningar	undersökningen					
+a2_health		resepti (lääke)	ett recept	n	prescription	recept	receptet					
+a2_health		tabletti	en tablett	n	tablet	tabletter	tabletten					
+a2_health		särkylääke / kipulääke	en värktablett	n	painkiller	värktabletter	värktabletten					
+a2_health		antibiootti	antibiotika	n	antibiotics	-	antibiotikan					
+a2_health		annos (lääkettä)	en dos	n	dose	doser	dosen					
+a2_health		ottaa lääkettä	ta medicin	v	take medicine			tar medicin	tog medicin	tagit medicin		
+a2_health		kuumemittari	en termometer	n	thermometer	termometrar	termometern					
+a2_health	health_7_injury	vamma / loukkaantuminen	en skada	n	injury	skador	skadan					
+a2_health		loukkaantua / satuttaa itsensä	skada sig	v	hurt oneself			skadar sig	skadade sig	skadat sig		
+a2_health		kaatua	ramla / trilla	v	fall			ramlar	ramlade	ramlat		
+a2_health		murtaa (luu)	bryta	v	break			bryter	bröt	brutit		
+a2_health		luu	ett ben	n	bone	ben	benet					
+a2_health		nyrjäyttää	stuka	v	sprain			stukar	stukade	stukat		
+a2_health		haava	ett sår	n	wound	sår	såret					
+a2_health		laastari	ett plåster	n	plaster	plåster	plåstret					
+a2_health		side (haavan)	ett förband / ett bandage	n	bandage	förband	förbandet					
+a2_health		kainalosauva	en krycka	n	crutch	kryckor	kryckan					
+a2_health		pyörtyä	svimma	v	faint			svimmar	svimmade	svimmat		
+a2_health		hengittää	andas	v	breathe			andas	andades	andats		
+a2_health		niellä	svälja	v	swallow			sväljer	svalde	svalt		
+a2_health	verbs1_4_rest	levätä	vila	v	rest			vilar	vilade	vilat		
+a2_health		sairastua	bli sjuk	v	fall ill			blir sjuk	blev sjuk	blivit sjuk		
+a2_health		parantua	bli frisk	v	get well			blir frisk	blev frisk	blivit frisk		
+a2_health		sairausloma	en sjukskrivning	n	sick leave	sjukskrivningar	sjukskrivningen					
+a2_health		sairauslomalla (oleva)	sjukskriven	adj	on sick leave						sjukskrivet	sjukskrivna
+a2_health		lääkärintodistus	ett läkarintyg	n	medical certificate	läkarintyg	läkarintyget					
+a2_health		raskaana (oleva)	gravid	adj	pregnant						gravitt	gravida
+a2_health		vakava	allvarlig	adj	serious						allvarligt	allvarliga
+a2_health		lievä	lindrig	adj	mild						lindrigt	lindriga
+a2_health		kiireellinen / akuutti	akut	adj	urgent						akut	akuta
+a2_health		piilolinssi	en kontaktlins	n	contact lens	kontaktlinser	kontaktlinsen					
+a2_health		Tarvitsen lääkäriä.	Jag behöver en läkare	phrase	I need a doctor							
+a2_health		Soittakaa ambulanssi!	Ring en ambulans!	phrase	Call an ambulance!							
+a2_housing		vuokra	en hyra	n	rent	hyror	hyran					
+a2_housing		vuokrata	hyra	v	rent			hyr	hyrde	hyrt		
+a2_housing		vuokralainen	en hyresgäst	n	tenant	hyresgäster	hyresgästen					
+a2_housing		vuokranantaja	en hyresvärd	n	landlord	hyresvärdar	hyresvärden					
+a2_housing		vuokra-asunto	en hyresrätt / en hyreslägenhet	n	rented flat	hyresrätter	hyresrätten					
+a2_housing		omistusasunto / osakeasunto	en bostadsrätt	n	owner-occupied flat	bostadsrätter	bostadsrätten					
+a2_housing		taloyhtiö	en bostadsrättsförening	n	housing association	bostadsrättsföreningar	bostadsrättsföreningen					
+a2_housing		vastike / kuukausimaksu (asunnon)	en månadsavgift	n	maintenance charge	månadsavgifter	månadsavgiften					
+a2_housing		vuokrasopimus	ett hyreskontrakt	n	lease	hyreskontrakt	hyreskontraktet					
+a2_housing		vuokravakuus / takuuvuokra	en deposition	n	deposit	depositioner	depositionen					
+a2_housing		kerrostalo	ett flerbostadshus / ett hyreshus	n	block of flats	flerbostadshus	flerbostadshuset					
+a2_housing		omakotitalo	en villa	n	detached house	villor	villan					
+a2_housing		rivitalo	ett radhus	n	terraced house	radhus	radhuset					
+a2_housing		yksiö	en etta	n	studio flat	ettor	ettan					
+a2_housing		kaksio	en tvåa	n	two-room flat	tvåor	tvåan					
+a2_housing		neliömetri / neliö	en kvadratmeter / en kvadrat	n	square metre	kvadratmeter	kvadratmetern					
+a2_housing		kalustettu	möblerad	adj	furnished						möblerat	möblerade
+a2_housing		tilava	rymlig	adj	spacious						rymligt	rymliga
+a2_housing		ahdas	trång	adj	cramped						trångt	trånga
+a2_housing		viihtyisä / kodikas	mysig	adj	cosy						mysigt	mysiga
+a2_housing		asuntonäyttö	en visning	n	viewing	visningar	visningen					
+a2_housing		muuttaa (asuntoon)	flytta	v	move			flyttar	flyttade	flyttat		
+a2_housing		muutto	en flytt	n	move	flyttar	flytten					
+a2_housing		parveke	en balkong	n	balcony	balkonger	balkongen					
+a2_housing		kerros	en våning	n	floor	våningar	våningen					
+a2_housing		portaat / porras	en trappa	n	stairs	trappor	trappan					
+a2_housing		porraskäytävä / rappu	en trappuppgång	n	stairwell	trappuppgångar	trappuppgången					
+a2_housing	places_4_lift	hissi	en hiss	n	lift	hissar	hissen					
+a2_housing	home_4_basement	kellari	en källare	n	basement	källare	källaren					
+a2_housing		varasto (asunnon)	ett förråd	n	storage room	förråd	förrådet					
+a2_housing		autotalli	ett garage	n	garage	garage	garaget					
+a2_housing		postilaatikko	en brevlåda	n	letterbox	brevlådor	brevlådan					
+a2_housing	home_4_lock	lukko	ett lås	n	lock	lås	låset					
+a2_housing		lukita	låsa	v	lock			låser	låste	låst		
+a2_housing		pyykkitupa	en tvättstuga	n	laundry room	tvättstugor	tvättstugan					
+a2_housing		pyykki	tvätt	n	laundry	-	tvätten					
+a2_housing	chores_4_do_the_laundry	pestä pyykkiä	tvätta	v	do the laundry			tvättar	tvättade	tvättat		
+a2_housing		kuivata / kuivua	torka	v	dry			torkar	torkade	torkat		
+a2_housing		kuivausrumpu	en torktumlare	n	tumble dryer	torktumlare	torktumlaren					
+a2_housing		silittää	stryka	v	iron			stryker	strök	strukit		
+a2_housing		silitysrauta	ett strykjärn	n	iron	strykjärn	strykjärnet					
+a2_housing		tiskata	diska	v	wash up			diskar	diskade	diskat		
+a2_housing		tiskit / likaiset astiat	disk	n	dishes	-	disken					
+a2_housing	chores_4_vacuum	imuroida	dammsuga	v	vacuum			dammsuger	dammsög	dammsugit		
+a2_housing		pölynimuri / imuri	en dammsugare	n	vacuum cleaner	dammsugare	dammsugaren					
+a2_housing		pyyhkiä pölyt	damma	v	dust			dammar	dammade	dammat		
+a2_housing	chores_4_chore	kotityö / kotiaskare	en hushållssyssla	n	chore	hushållssysslor	hushållssysslan					
+a2_housing	environment_8_rubbish	roskat / jätteet	sopor	n	rubbish	-	soporna					
+a2_housing	chores_4_take_the_rubbish_out	viedä roskat	gå ut med soporna / slänga soporna	phrase	take the rubbish out							
+a2_housing		roskapussi	en soppåse	n	bin bag	soppåsar	soppåsen					
+a2_housing		tuulettaa	vädra	v	air			vädrar	vädrade	vädrat		
+a2_housing	chores_4_clear_the_snow	luoda lunta	skotta snö	v	clear the snow			skottar snö	skottade snö	skottat snö		
+a2_housing		leikata nurmikko	klippa gräset	v	mow the lawn			klipper gräset	klippte gräset	klippt gräset		
+a2_housing		korjata	laga / reparera	v	repair			lagar	lagade	lagat		
+a2_housing	adj_4_broken	rikki / rikkinäinen	trasig / sönder	adj	broken						trasigt	trasiga
+a2_housing		mennä rikki	gå sönder	v	break			går sönder	gick sönder	gått sönder		
+a2_housing		vuotaa	läcka	v	leak			läcker	läckte	läckt		
+a2_housing		putki	ett rör	n	pipe	rör	röret					
+a2_housing		hana	en kran	n	tap	kranar	kranen					
+a2_housing		vikailmoitus	en felanmälan	n	fault report	felanmälningar	felanmälan					
+a2_housing		huoltomies / kiinteistönhoitaja	en fastighetsskötare	n	caretaker	fastighetsskötare	fastighetsskötaren					
+a2_housing		remontti	en renovering	n	renovation	renoveringar	renoveringen					
+a2_housing		remontoida	renovera / rusta upp	v	renovate			renoverar	renoverade	renoverat		
+a2_housing		maalata (seinä)	måla	v	paint			målar	målade	målat		
+a2_housing		tapetti	en tapet	n	wallpaper	tapeter	tapeten					
+a2_housing		home (kosteusvaurio)	mögel	n	mould	-	möglet					
+a2_housing		sähkö	el / elektricitet	n	electricity	-	elen					
+a2_housing		sähkölasku	en elräkning	n	electricity bill	elräkningar	elräkningen					
+a2_housing		lämmitys	uppvärmning	n	heating	-	uppvärmningen					
+a2_housing		patteri (lämpö)	ett element	n	radiator	element	elementet					
+a2_housing		lämmin vesi	varmvatten	n	hot water	-	varmvattnet					
+a2_housing		pistorasia	ett eluttag / ett uttag	n	socket	eluttag	eluttaget					
+a2_housing		sulake	en säkring	n	fuse	säkringar	säkringen					
+a2_housing		hehkulamppu / polttimo	en glödlampa / en lampa	n	light bulb	glödlampor	glödlampan					
+a2_housing		sytyttää (valo)	tända	v	switch on			tänder	tände	tänt		
+a2_housing		sammuttaa (valo)	släcka	v	switch off			släcker	släckte	släckt		
+a2_cooking	cooking_7_recipe	resepti (ruoka)	ett recept	n	recipe	recept	receptet					
+a2_cooking	cooking_7_ingredient	ainekset / ainesosa / raaka-aine	en ingrediens	n	ingredient	ingredienser	ingrediensen					
+a2_cooking	chores_4_cooking	ruoanlaitto / kokkaus	matlagning	n	cooking	-	matlagningen					
+a2_cooking		laittaa ruokaa / kokata	laga mat	v	cook			lagar mat	lagade mat	lagat mat		
+a2_cooking		keittokirja	en kokbok	n	cookbook	kokböcker	kokboken					
+a2_cooking		kokki	en kock	n	cook	kockar	kocken					
+a2_cooking	cooking_7_boil	keittää / kiehua	koka	v	boil			kokar	kokade	kokat		
+a2_cooking	cooking_7_fry	paistaa (pannulla)	steka	v	fry			steker	stekte	stekt		
+a2_cooking	cooking_7_bake	leipoa	baka	v	bake			bakar	bakade	bakat		
+a2_cooking		grillata	grilla	v	grill			grillar	grillade	grillat		
+a2_cooking	verbs1_4_cut	leikata (veitsellä)	skära	v	cut			skär	skar	skurit		
+a2_cooking	cooking_7_chop	pilkkoa / paloitella	hacka	v	chop			hackar	hackade	hackat		
+a2_cooking	verbs2_4_peel	kuoria	skala	v	peel			skalar	skalade	skalat		
+a2_cooking		raastaa	riva	v	grate			river	rev	rivit		
+a2_cooking	cooking_7_stir	sekoittaa / hämmentää	röra om / blanda	v	stir			rör om	rörde om	rört om		
+a2_cooking		vatkata	vispa	v	whisk			vispar	vispade	vispat		
+a2_cooking		lisätä (ainesta)	tillsätta / lägga till	v	add			tillsätter	tillsatte	tillsatt		
+a2_cooking		kaataa (nestettä)	hälla	v	pour			häller	hällde	hällt		
+a2_cooking		lämmittää (ruokaa)	värma	v	heat			värmer	värmde	värmt		
+a2_cooking		sulattaa (voita)	smälta	v	melt			smälter	smälte	smält		
+a2_cooking		jäähtyä	svalna	v	cool down			svalnar	svalnade	svalnat		
+a2_cooking		maustaa	krydda	v	season			kryddar	kryddade	kryddat		
+a2_cooking		mauste	en krydda	n	spice	kryddor	kryddan					
+a2_cooking		suolata	salta	v	salt			saltar	saltade	saltat		
+a2_cooking	cooking_7_taste	maistaa	smaka	v	taste			smakar	smakade	smakat		
+a2_cooking		öljy	olja	n	oil	-	oljan					
+a2_cooking		kerma	grädde	n	cream	-	grädden					
+a2_cooking		kastike	en sås	n	sauce	såser	såsen					
+a2_cooking		taikina	en deg	n	dough	degar	degen					
+a2_cooking		hiiva	jäst	n	yeast	-	jästen					
+a2_cooking		desilitra	en deciliter	n	decilitre	deciliter	decilitern					
+a2_cooking	home_4_tablespoon	ruokalusikka (mittana) / ruokalusikallinen	en matsked	n	tablespoon	matskedar	matskeden					
+a2_cooking	home_4_teaspoon	teelusikka (mittana) / teelusikallinen	en tesked	n	teaspoon	teskedar	teskeden					
+a2_cooking	cooking_7_oven	uuni	en ugn	n	oven	ugnar	ugnen					
+a2_cooking		kattila	en kastrull / en gryta	n	saucepan	kastruller	kastrullen					
+a2_cooking	home_4_pan	paistinpannu / pannu	en stekpanna	n	frying pan	stekpannor	stekpannan					
+a2_cooking	cooking_7_bowl	kulho	en skål	n	bowl	skålar	skålen					
+a2_cooking		leikkuulauta	en skärbräda	n	chopping board	skärbrädor	skärbrädan					
+a2_cooking		vispilä	en visp	n	whisk	vispar	vispen					
+a2_cooking		raastin	ett rivjärn	n	grater	rivjärn	rivjärnet					
+a2_cooking		uunivuoka	en ugnsform	n	ovenproof dish	ugnsformar	ugnsformen					
+a2_cooking		uunipelti	en plåt / en bakplåt	n	baking tray	plåtar	plåten					
+a2_cooking		leivinpaperi	bakplåtspapper	n	baking paper	-	bakplåtspappret					
+a2_cooking	home_4_barbecue	grilli	en grill	n	barbecue	grillar	grillen					
+a2_cooking		kuori (hedelmän, perunan)	ett skal	n	peel	skal	skalet					
+a2_cooking		viipale	en skiva	n	slice	skivor	skivan					
+a2_cooking		raaka	rå	adj	raw						rått	råa
+a2_cooking		tuore	färsk	adj	fresh						färskt	färska
+a2_cooking		pakastettu	fryst	adj	frozen						fryst	frysta
+a2_cooking	adj_4_delicious	herkullinen / maukas	läcker / god	adj	delicious						läckert	läckra
+a2_cooking	adj_4_spicy	mausteinen	kryddig	adj	spicy						kryddigt	kryddiga
+a2_cooking		tulinen (ruoka)	stark	adj	hot						starkt	starka
+a2_cooking		karvas / kitkerä	besk	adj	bitter						beskt	beska
+a2_cooking		kasvissyöjä	en vegetarian	n	vegetarian	vegetarianer	vegetarianen					
+a2_cooking		vegaaninen	vegansk	adj	vegan						veganskt	veganska
+a2_cooking		gluteeniton	glutenfri	adj	gluten-free						glutenfritt	glutenfria
+a2_cooking		laktoositon	laktosfri	adj	lactose-free						laktosfritt	laktosfria
+a2_cooking		ateria	en måltid	n	meal	måltider	måltiden					
+a2_cooking	places_town_restaurant	ravintola	en restaurang	n	restaurant	restauranger	restaurangen					
+a2_cooking	food_4_menu	ruokalista	en meny / en matsedel	n	menu	menyer	menyn					
+a2_cooking		varata pöytä	boka ett bord	v	book a table			bokar ett bord	bokade ett bord	bokat ett bord		
+a2_cooking		Pöytä kahdelle, kiitos.	Ett bord för två, tack	phrase	A table for two, please							
+a2_cooking	verbs2_4_order	tilata	beställa	v	order			beställer	beställde	beställt		
+a2_cooking		tilaus	en beställning	n	order	beställningar	beställningen					
+a2_cooking		Haluaisin tilata ...	Jag skulle vilja beställa ...	phrase	I would like to order ...							
+a2_cooking		tarjoilija	en servitör / en servitris	n	waiter	servitörer	servitören					
+a2_cooking		alkuruoka	en förrätt	n	starter	förrätter	förrätten					
+a2_cooking		pääruoka	en varmrätt / en huvudrätt	n	main course	varmrätter	varmrätten					
+a2_cooking	food_4_dessert	jälkiruoka	en efterrätt / en dessert	n	dessert	efterrätter	efterrätten					
+a2_cooking		ruokalaji	en rätt	n	dish	rätter	rätten					
+a2_cooking		annos (ruoka-annos)	en portion	n	portion	portioner	portionen					
+a2_cooking		päivän lounas	dagens lunch / dagens rätt	phrase	lunch of the day							
+a2_cooking		noutopöytä / buffet	en buffé	n	buffet	bufféer	buffén					
+a2_cooking		noutoruoka	hämtmat	n	takeaway	-	hämtmaten					
+a2_cooking		pikaruoka	snabbmat	n	fast food	-	snabbmaten					
+a2_cooking		tarjota (ruokaa, juomaa)	bjuda på	v	treat			bjuder på	bjöd på	bjudit på		
+a2_cooking		lasku (ravintolassa)	en nota	n	bill	notor	notan					
+a2_cooking		Saanko laskun?	Kan jag få notan?	phrase	Can I have the bill?							
+a2_cooking		maksaa erikseen	betala var för sig	phrase	pay separately							
+a2_cooking		juomaraha / tippi	dricks	n	tip	-	dricksen					
+a2_cooking		Hyvää ruokahalua!	Smaklig måltid!	phrase	Enjoy your meal!							

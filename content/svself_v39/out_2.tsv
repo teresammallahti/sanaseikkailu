@@ -1,0 +1,335 @@
+topic	id	fi	sv	pos	en	pl	def	pres	pret	sup	neut	apl
+a1_body	body_parts_head	pää	ett huvud	n	head	huvuden	huvudet					
+a1_body		kasvot	ett ansikte	n	face	ansikten	ansiktet					
+a1_body	body_4_neck	kaula / kurkku (kehossa)	en hals	n	neck	halsar	halsen					
+a1_body		olkapää	en axel	n	shoulder	axlar	axeln					
+a1_body		käsivarsi	en arm	n	arm	armar	armen					
+a1_body	body_parts_hand	käsi / kämmen	en hand	n	hand	händer	handen					
+a1_body	body_4_finger	sormi	ett finger	n	finger	fingrar	fingret					
+a1_body		jalka (raaja) / sääri	ett ben	n	leg	ben	benet					
+a1_body	body_parts_foot	jalkaterä / jalka (terä)	en fot	n	foot	fötter	foten					
+a1_body		varvas	en tå	n	toe	tår	tån					
+a1_body	body_4_knee	polvi	ett knä	n	knee	knän	knät					
+a1_body	body_4_tummy	vatsa / maha	en mage	n	stomach	magar	magen					
+a1_body	body_4_back	selkä	en rygg	n	back	ryggar	ryggen					
+a1_body		rinta / rintakehä	ett bröst	n	chest	bröst	bröstet					
+a1_body	body_parts_mouth	suu	en mun	n	mouth	munnar	munnen					
+a1_body		huuli	en läpp	n	lip	läppar	läppen					
+a1_body	body_4_tooth	hammas	en tand	n	tooth	tänder	tanden					
+a1_body	body_parts_nose	nenä	en näsa	n	nose	näsor	näsan					
+a1_body	body_parts_ear	korva	ett öra	n	ear	öron	örat					
+a1_body	body_4_heart	sydän	ett hjärta	n	heart	hjärtan	hjärtat					
+a1_body		keho / vartalo	en kropp	n	body	kroppar	kroppen					
+a1_body	health_7_ill	sairas / kipeä	sjuk	adj	ill						sjukt	sjuka
+a1_body		terve	frisk	adj	healthy						friskt	friska
+a1_body	myself_tired	väsynyt	trött	adj	tired						trött	trötta
+a1_body	adj_4_sleepy	uninen	sömnig	adj	sleepy						sömnigt	sömniga
+a1_body		pirteä / virkeä	pigg	adj	alert						piggt	pigga
+a1_body	myself_hungry	nälkäinen	hungrig	adj	hungry						hungrigt	hungriga
+a1_body	adj_4_thirsty	janoinen	törstig	adj	thirsty						törstigt	törstiga
+a1_body		voida (hyvin tai huonosti)	må	v	feel			mår	mådde	mått		
+a1_body		Voin hyvin.	jag mår bra	phrase	I feel fine							
+a1_body		Voin huonosti.	jag mår dåligt / jag mår inte bra	phrase	I don't feel well							
+a1_body		Voin pahoin. / Minua oksettaa.	jag mår illa	phrase	I feel sick							
+a1_body	health_7_hurt	sattua (kipua)	göra ont	v	hurt			gör ont	gjorde ont	gjort ont		
+a1_body		Päätäni särkee. / Minulla on päänsärkyä.	jag har ont i huvudet	phrase	I have a headache							
+a1_body		Vatsaani sattuu. / Minulla on vatsakipua.	jag har ont i magen	phrase	I have a stomach ache							
+a1_body		kipu	en smärta	n	pain	smärtor	smärtan					
+a1_body		palella	frysa	v	be cold			fryser	frös	frusit		
+a1_body		aivastaa	nysa	v	sneeze			nyser	nös	nyst		
+a1_body	professions_doctor	lääkäri	en läkare / en doktor	n	doctor	läkare	läkaren					
+a1_body	health_7_pharmacy	apteekki	ett apotek	n	pharmacy	apotek	apoteket					
+a1_body	health_7_medicine	lääke	en medicin / ett läkemedel	n	medicine	mediciner	medicinen					
+a1_body		tabletti / pilleri	en tablett	n	tablet	tabletter	tabletten					
+a1_body		laastari	ett plåster	n	plaster	plåster	plåstret					
+a1_body		nenäliina	en näsduk	n	tissue	näsdukar	näsduken					
+a1_body		ottaa lääkettä	ta medicin	phrase	take medicine							
+a1_body		Parane pian!	krya på dig	phrase	get well soon							
+a1_body		Terveydeksi! (aivastaessa)	prosit	interj	bless you							
+a1_home		asunto / huoneisto	en lägenhet	n	flat	lägenheter	lägenheten					
+a1_home	house_rooms_house	talo	ett hus	n	house	hus	huset					
+a1_home		rivitalo	ett radhus	n	terraced house	radhus	radhuset					
+a1_home		kerros (talon)	en våning	n	floor (storey)	våningar	våningen					
+a1_home	house_rooms_home	koti	ett hem	n	home	hem	hemmet					
+a1_home		kotona	hemma	adv	at home							
+a1_home		kotiin	hem	adv	home (to)							
+a1_home	house_rooms_room	huone	ett rum	n	room	rum	rummet					
+a1_home	house_rooms_kitchen	keittiö	ett kök	n	kitchen	kök	köket					
+a1_home	home_4_living_room	olohuone	ett vardagsrum	n	living room	vardagsrum	vardagsrummet					
+a1_home	house_rooms_bedroom	makuuhuone	ett sovrum	n	bedroom	sovrum	sovrummet					
+a1_home	house_rooms_bathroom	kylpyhuone	ett badrum	n	bathroom	badrum	badrummet					
+a1_home	home_4_toilet	vessa / WC / käymälä	en toalett / en toa	n	toilet	toaletter	toaletten					
+a1_home	home_4_hall	eteinen	en hall	n	hall	hallar	hallen					
+a1_home		työhuone	ett arbetsrum	n	study	arbetsrum	arbetsrummet					
+a1_home		lastenhuone	ett barnrum	n	children's room	barnrum	barnrummet					
+a1_home	home_4_basement	kellari	en källare	n	basement	källare	källaren					
+a1_home	home_4_attic	ullakko / vintti	en vind	n	attic	vindar	vinden					
+a1_home		autotalli	ett garage	n	garage	garage	garaget					
+a1_home	house_rooms_garden	puutarha / piha	en trädgård / en gård	n	garden	trädgårdar	trädgården					
+a1_home		portaat / porras	en trappa	n	stairs	trappor	trappan					
+a1_home	home_4_floor	lattia	ett golv	n	floor	golv	golvet					
+a1_home	home_4_wall	seinä	en vägg	n	wall	väggar	väggen					
+a1_home	home_4_roof	katto	ett tak	n	roof	tak	taket					
+a1_home	house_rooms_window	ikkuna	ett fönster	n	window	fönster	fönstret					
+a1_home	house_rooms_door	ovi	en dörr	n	door	dörrar	dörren					
+a1_home	belongings_keys	avain / avaimet	en nyckel / nycklar	n	key	nycklar	nyckeln					
+a1_home	home_4_lock	lukko	ett lås	n	lock	lås	låset					
+a1_home		lukita	låsa	v	lock			låser	låste	låst		
+a1_home	places_4_lift	hissi	en hiss	n	lift	hissar	hissen					
+a1_home	home_4_sauna	sauna	en bastu	n	sauna	bastur	bastun					
+a1_home		huonekalu	en möbel	n	piece of furniture	möbler	möbeln					
+a1_home	house_rooms_table	pöytä	ett bord	n	table	bord	bordet					
+a1_home	home_4_chair	tuoli	en stol	n	chair	stolar	stolen					
+a1_home	house_rooms_sofa	sohva	en soffa	n	sofa	soffor	soffan					
+a1_home		nojatuoli	en fåtölj	n	armchair	fåtöljer	fåtöljen					
+a1_home	home_4_bed	sänky / vuode	en säng	n	bed	sängar	sängen					
+a1_home	house_rooms_shelf	hylly	en hylla	n	shelf	hyllor	hyllan					
+a1_home	home_4_bookcase	kirjahylly	en bokhylla	n	bookcase	bokhyllor	bokhyllan					
+a1_home		vaatekaappi	en garderob	n	wardrobe	garderober	garderoben					
+a1_home		kaappi	ett skåp	n	cupboard	skåp	skåpet					
+a1_home	school_4_desk	työpöytä / kirjoituspöytä	ett skrivbord	n	desk	skrivbord	skrivbordet					
+a1_home	home_4_box	laatikko	en låda	n	box	lådor	lådan					
+a1_home		matto	en matta	n	rug	mattor	mattan					
+a1_home		verho	en gardin	n	curtain	gardiner	gardinen					
+a1_home	home_4_lamp	lamppu / valaisin	en lampa	n	lamp	lampor	lampan					
+a1_home		sytyttää (valo) / laittaa valo päälle	tända	v	switch on (light)			tänder	tände	tänt		
+a1_home		sammuttaa (valo)	släcka	v	switch off (light)			släcker	släckte	släckt		
+a1_home		peili	en spegel	n	mirror	speglar	spegeln					
+a1_home		taulu (seinällä)	en tavla	n	picture (on wall)	tavlor	tavlan					
+a1_home		tyyny	en kudde	n	pillow	kuddar	kudden					
+a1_home		peitto	ett täcke	n	duvet	täcken	täcket					
+a1_home		jääkaappi	ett kylskåp	n	fridge	kylskåp	kylskåpet					
+a1_home		pakastin	en frys	n	freezer	frysar	frysen					
+a1_home		liesi	en spis	n	cooker	spisar	spisen					
+a1_home	home_4_microwave	mikroaaltouuni / mikro	en mikrovågsugn / en mikro	n	microwave	mikrovågsugnar	mikrovågsugnen					
+a1_home	home_4_dishwasher	astianpesukone	en diskmaskin	n	dishwasher	diskmaskiner	diskmaskinen					
+a1_home		pesukone / pyykinpesukone	en tvättmaskin	n	washing machine	tvättmaskiner	tvättmaskinen					
+a1_home		kahvinkeitin	en kaffebryggare	n	coffee maker	kaffebryggare	kaffebryggaren					
+a1_home		vedenkeitin	en vattenkokare	n	kettle	vattenkokare	vattenkokaren					
+a1_home		leivänpaahdin	en brödrost	n	toaster	brödrostar	brödrosten					
+a1_home		pölynimuri / imuri	en dammsugare	n	vacuum cleaner	dammsugare	dammsugaren					
+a1_home	home_4_television	televisio / TV	en tv / en teve	n	television	tv-apparater	tv:n					
+a1_home		veitsi	en kniv	n	knife	knivar	kniven					
+a1_home		haarukka	en gaffel	n	fork	gafflar	gaffeln					
+a1_home		lusikka	en sked	n	spoon	skedar	skeden					
+a1_home	home_4_teaspoon	teelusikka	en tesked	n	teaspoon	teskedar	teskeden					
+a1_home	home_4_tablespoon	ruokalusikka	en matsked	n	tablespoon	matskedar	matskeden					
+a1_home		aterimet	bestick	n	cutlery	bestick	besticket					
+a1_home	home_4_pan	paistinpannu / pannu	en stekpanna	n	frying pan	stekpannor	stekpannan					
+a1_home		suihku	en dusch	n	shower	duschar	duschen					
+a1_home		kylpyamme	ett badkar	n	bathtub	badkar	badkaret					
+a1_home		pesuallas / lavuaari	ett handfat	n	washbasin	handfat	handfatet					
+a1_home		hana	en kran	n	tap	kranar	kranen					
+a1_home		pyyhe	en handduk	n	towel	handdukar	handduken					
+a1_home	home_4_soap	saippua	en tvål	n	soap	tvålar	tvålen					
+a1_home	home_4_shampoo	shampoo	ett schampo	n	shampoo	schampon	schampot					
+a1_home		hammasharja	en tandborste	n	toothbrush	tandborstar	tandborsten					
+a1_home		hammastahna	tandkräm	n	toothpaste	tandkrämer	tandkrämen					
+a1_home		vessapaperi / WC-paperi	toalettpapper	n	toilet paper	-	toalettpappret					
+a1_home	home_4_hairbrush	hiusharja	en hårborste	n	hairbrush	hårborstar	hårborsten					
+a1_home		roska-astia / roskis	en soptunna	n	rubbish bin	soptunnor	soptunnan					
+a1_food	food_4_food	ruoka	mat	n	food	-	maten					
+a1_food		ateria	en måltid	n	meal	måltider	måltiden					
+a1_food	food_4_breakfast	aamiainen / aamupala	en frukost	n	breakfast	frukostar	frukosten					
+a1_food	food_4_lunch	lounas	en lunch	n	lunch	luncher	lunchen					
+a1_food	food_savoury_dinner	päivällinen / illallinen	en middag	n	dinner	middagar	middagen					
+a1_food		iltapala	kvällsmat	n	evening snack	-	kvällsmaten					
+a1_food	food_4_snack	välipala	ett mellanmål	n	snack	mellanmål	mellanmålet					
+a1_food		kahvihetki / kahvittelu	en fika	n	coffee break	-	fikan					
+a1_food	food_savoury_bread	leipä	ett bröd / bröd	n	bread	bröd	brödet					
+a1_food		näkkileipä	knäckebröd	n	crispbread	-	knäckebrödet					
+a1_food		ruisleipä	rågbröd	n	rye bread	-	rågbrödet					
+a1_food	food_4_toast	paahtoleipä	rostat bröd	n	toast	-	det rostade brödet					
+a1_food	food_4_sandwich	voileipä	en smörgås / en macka	n	sandwich	smörgåsar	smörgåsen					
+a1_food		leivänpäällinen / leikkele	pålägg	n	sandwich topping	-	pålägget					
+a1_food	food_4_butter	voi	smör	n	butter	-	smöret					
+a1_food	food_savoury_cheese	juusto	en ost / ost	n	cheese	ostar	osten					
+a1_food		kinkku	skinka	n	ham	-	skinkan					
+a1_food	food_4_sausage	makkara	en korv	n	sausage	korvar	korven					
+a1_food	food_savoury_meat	liha	kött	n	meat	-	köttet					
+a1_food		naudanliha	nötkött	n	beef	-	nötköttet					
+a1_food		sianliha	fläskkött / fläsk	n	pork	-	fläskköttet					
+a1_food	food_4_minced_meat	jauheliha	köttfärs	n	minced meat	-	köttfärsen					
+a1_food	food_savoury_chicken	kana (ruoka) / broileri	kyckling	n	chicken	kycklingar	kycklingen					
+a1_food	food_savoury_fish	kala	fisk / en fisk	n	fish	fiskar	fisken					
+a1_food	food_4_salmon	lohi	lax	n	salmon	laxar	laxen					
+a1_food	food_4_prawn	katkarapu	en räka	n	prawn	räkor	räkan					
+a1_food	food_4_egg	kananmuna / muna	ett ägg	n	egg	ägg	ägget					
+a1_food	food_savoury_milk	maito	mjölk	n	milk	-	mjölken					
+a1_food		jogurtti	yoghurt	n	yoghurt	-	yoghurten					
+a1_food		kerma	grädde	n	cream	-	grädden					
+a1_food	food_4_rice	riisi	ris	n	rice	-	riset					
+a1_food	food_savoury_pasta	pasta	pasta	n	pasta	-	pastan					
+a1_food	food_4_potato	peruna	en potatis	n	potato	potatisar	potatisen					
+a1_food	food_4_porridge	puuro	gröt	n	porridge	-	gröten					
+a1_food		murot / aamiaismurot	flingor	n	cereal	flingor	flingorna					
+a1_food	food_4_soup	keitto	en soppa	n	soup	soppor	soppan					
+a1_food	food_4_salad	salaatti	en sallad	n	salad	sallader	salladen					
+a1_food	food_savoury_pizza	pizza	en pizza	n	pizza	pizzor	pizzan					
+a1_food	food_4_hamburger	hampurilainen / burgeri	en hamburgare	n	hamburger	hamburgare	hamburgaren					
+a1_food	food_4_meatball	lihapulla	en köttbulle	n	meatball	köttbullar	köttbullen					
+a1_food		pihvi	en biff	n	steak	biffar	biffen					
+a1_food	food_4_pancake	pannukakku / lettu / ohukainen	en pannkaka	n	pancake	pannkakor	pannkakan					
+a1_food		kastike	en sås	n	sauce	såser	såsen					
+a1_food	food_4_flour	jauhot	mjöl	n	flour	-	mjölet					
+a1_food	cooking_7_sugar	sokeri	socker	n	sugar	-	sockret					
+a1_food		suola	salt	n	salt	-	saltet					
+a1_food		pippuri	peppar	n	pepper	-	pepparn					
+a1_food		öljy	olja	n	oil	-	oljan					
+a1_food	food_4_cinnamon	kaneli	kanel	n	cinnamon	-	kanelen					
+a1_food		ketsuppi	ketchup	n	ketchup	-	ketchupen					
+a1_food		sinappi	senap	n	mustard	-	senapen					
+a1_food		pähkinä	en nöt	n	nut	nötter	nöten					
+a1_food	food_4_biscuit	keksi / pikkuleipä	ett kex / en kaka	n	biscuit	kex	kexet					
+a1_food	food_savoury_cake	kakku / täytekakku	en tårta / en kaka	n	cake	tårtor	tårtan					
+a1_food		pulla	en bulle	n	bun	bullar	bullen					
+a1_food	food_4_cinnamon_roll	korvapuusti	en kanelbulle	n	cinnamon roll	kanelbullar	kanelbullen					
+a1_food	food_4_chocolate	suklaa	choklad	n	chocolate	-	chokladen					
+a1_food	food_4_ice_cream	jäätelö	glass	n	ice cream	-	glassen					
+a1_food	food_4_sweets	karkit / makeiset / karkki	godis	n	sweets	-	godiset					
+a1_food	food_4_jam	hillo	sylt	n	jam	-	sylten					
+a1_food	food_4_honey	hunaja	honung	n	honey	-	honungen					
+a1_food	food_4_crisps	perunalastut / sipsit	chips	n	crisps	-	chipsen					
+a1_food	food_4_fruit	hedelmä	en frukt	n	fruit	frukter	frukten					
+a1_food	food_4_berry	marja	ett bär	n	berry	bär	bäret					
+a1_food	fruit_apple	omena	ett äpple	n	apple	äpplen	äpplet					
+a1_food	fruit_banana	banaani	en banan	n	banana	bananer	bananen					
+a1_food	fruit_orange	appelsiini	en apelsin	n	orange	apelsiner	apelsinen					
+a1_food	fruit_pear	päärynä	ett päron	n	pear	päron	päronet					
+a1_food	fruit_lemon	sitruuna	en citron	n	lemon	citroner	citronen					
+a1_food	fruit_strawberry	mansikka	en jordgubbe	n	strawberry	jordgubbar	jordgubben					
+a1_food	fruit_grape	viinirypäle / rypäle	en vindruva	n	grape	vindruvor	vindruvan					
+a1_food	fruit_blueberry	mustikka	ett blåbär	n	blueberry	blåbär	blåbäret					
+a1_food	fruit_raspberry	vadelma	ett hallon	n	raspberry	hallon	hallonet					
+a1_food	fruit_pineapple	ananas	en ananas	n	pineapple	ananasar	ananasen					
+a1_food		meloni	en melon	n	melon	meloner	melonen					
+a1_food		vihannes / kasvis	en grönsak	n	vegetable	grönsaker	grönsaken					
+a1_food	food_4_carrot	porkkana	en morot	n	carrot	morötter	moroten					
+a1_food	food_savoury_tomato	tomaatti	en tomat	n	tomato	tomater	tomaten					
+a1_food	food_savoury_cucumber	kurkku (vihannes)	en gurka	n	cucumber	gurkor	gurkan					
+a1_food		sipuli	en lök	n	onion	lökar	löken					
+a1_food		valkosipuli	vitlök	n	garlic	-	vitlöken					
+a1_food		paprika	en paprika	n	pepper (vegetable)	paprikor	paprikan					
+a1_food		sieni	en svamp	n	mushroom	svampar	svampen					
+a1_food		kaali	kål	n	cabbage	-	kålen					
+a1_food	food_4_broccoli	parsakaali / brokkoli	broccoli	n	broccoli	-	broccolin					
+a1_food		herne	en ärta	n	pea	ärtor	ärtan					
+a1_food	food_savoury_water	vesi	vatten	n	water	-	vattnet					
+a1_food	food_savoury_juice	mehu	juice / saft	n	juice	-	juicen					
+a1_food		kahvi	kaffe	n	coffee	-	kaffet					
+a1_food	food_4_tea	tee	te	n	tea	-	teet					
+a1_food		olut	öl / en öl	n	beer	-	ölet					
+a1_food		viini	vin	n	wine	-	vinet					
+a1_food	food_4_soft_drink	limsa / virvoitusjuoma	läsk	n	soft drink	-	läsken					
+a1_food	food_4_hot_chocolate	kaakao	varm choklad / O'boy	n	hot chocolate	-	den varma chokladen					
+a1_food		pullo	en flaska	n	bottle	flaskor	flaskan					
+a1_food		purkki / tölkki	en burk	n	tin	burkar	burken					
+a1_food		paketti (maitoa, voita) / pakkaus	ett paket	n	packet	paket	paketet					
+a1_food		pussi	en påse	n	bag (small)	påsar	påsen					
+a1_food	general_4_piece	pala / palanen	en bit	n	piece	bitar	biten					
+a1_food		lautanen	en tallrik	n	plate	tallrikar	tallriken					
+a1_food	home_4_cup	kuppi	en kopp	n	cup	koppar	koppen					
+a1_food	home_4_glass	lasi (juoma-astia) / juomalasi	ett glas	n	glass	glas	glaset					
+a1_food		muki	en mugg	n	mug	muggar	muggen					
+a1_food	cooking_7_bowl	kulho	en skål	n	bowl	skålar	skålen					
+a1_food		lautasliina	en servett	n	napkin	servetter	servetten					
+a1_food	adj_4_tasty	hyvä (maultaan) / maukas	god	adj	tasty						gott	goda
+a1_food	adj_4_delicious	herkullinen	läcker / jättegod	adj	delicious						läckert	läckra
+a1_food		makea	söt	adj	sweet						sött	söta
+a1_food		suolainen	salt	adj	salty						salt	salta
+a1_food		hapan	sur	adj	sour						surt	sura
+a1_food		tulinen (maultaan)	stark	adj	hot (spicy)						starkt	starka
+a1_food	adj_4_fresh	tuore	färsk	adj	fresh						färskt	färska
+a1_food		pahan makuinen / ällöttävä	äcklig	adj	disgusting						äckligt	äckliga
+a1_food		kylläinen	mätt	adj	full (after eating)						mätt	mätta
+a1_food		kasvis- / vegetaarinen	vegetarisk	adj	vegetarian						vegetariskt	vegetariska
+a1_food	cooking_7_taste	maistua / maistaa	smaka	v	taste			smakar	smakade	smakat		
+a1_food		laittaa ruokaa / kokata	laga mat	v	cook			lagar mat	lagade mat	lagat mat		
+a1_food		Hyvää ruokahalua!	smaklig måltid	phrase	enjoy your meal							
+a1_food		Kiitos ruoasta!	tack för maten	phrase	thanks for the meal							
+a1_food		Kippis!	skål	interj	cheers							
+a1_food		parasta ennen	bäst före	phrase	best before							
+a1_shopping	places_town_shop	kauppa / myymälä	en affär / en butik	n	shop	affärer	affären					
+a1_shopping		ruokakauppa	en matbutik / en mataffär	n	grocery store	matbutiker	matbutiken					
+a1_shopping		tavaratalo	ett varuhus	n	department store	varuhus	varuhuset					
+a1_shopping	places_4_shopping_centre	kauppakeskus / ostoskeskus	ett köpcentrum	n	shopping centre	köpcentrum	köpcentrumet					
+a1_shopping		kioski	en kiosk	n	kiosk	kiosker	kiosken					
+a1_shopping		vaatekauppa	en klädaffär / en klädbutik	n	clothes shop	klädaffärer	klädaffären					
+a1_shopping	money_7_customer	asiakas	en kund	n	customer	kunder	kunden					
+a1_shopping		kassa (kaupassa)	en kassa	n	checkout	kassor	kassan					
+a1_shopping	shopping_money	raha / rahat	pengar	n	money	pengar	pengarna					
+a1_shopping	shopping_price	hinta	ett pris	n	price	priser	priset					
+a1_shopping	money_7_cost	maksaa (hinnasta)	kosta	v	cost			kostar	kostade	kostat		
+a1_shopping	shopping_pay	maksaa (lasku, ostos)	betala	v	pay			betalar	betalade	betalat		
+a1_shopping	shopping_buy	ostaa	köpa	v	buy			köper	köpte	köpt		
+a1_shopping	shopping_sell	myydä	sälja	v	sell			säljer	sålde	sålt		
+a1_shopping	chores_4_do_the_shopping	käydä kaupassa / tehdä ostoksia	handla	v	do the shopping			handlar	handlade	handlat		
+a1_shopping		kortti (maksukortti) / pankkikortti	ett kort / ett bankkort	n	card	kort	kortet					
+a1_shopping	money_7_cash	käteinen	kontanter	n	cash	kontanter	kontanterna					
+a1_shopping	shopping_receipt	kuitti	ett kvitto	n	receipt	kvitton	kvittot					
+a1_shopping	money_7_change	vaihtoraha	växel	n	change	-	växeln					
+a1_shopping	shopping_coin	kolikko	ett mynt	n	coin	mynt	myntet					
+a1_shopping		seteli	en sedel	n	banknote	sedlar	sedeln					
+a1_shopping	shopping_wallet	lompakko	en plånbok	n	wallet	plånböcker	plånboken					
+a1_shopping		kruunu (raha)	en krona	n	krona	kronor	kronan					
+a1_shopping	money_7_discount	alennus	en rabatt	n	discount	rabatter	rabatten					
+a1_shopping	money_7_sale	alennusmyynti / ale	en rea	n	sale	reor	rean					
+a1_shopping		ilmainen	gratis	adj	free (of charge)						gratis	gratis
+a1_shopping		auki / avoinna	öppen	adj	open						öppet	öppna
+a1_shopping	adj_4_closed	kiinni / suljettu	stängd	adj	closed						stängt	stängda
+a1_shopping		aukioloajat	öppettider	n	opening hours	öppettider	öppettiderna					
+a1_shopping		Paljonko se maksaa? / Mitä se maksaa?	vad kostar den / vad kostar det	phrase	how much is it							
+a1_shopping		Voinko auttaa?	kan jag hjälpa dig / kan jag hjälpa till	phrase	can I help you							
+a1_shopping		Katselen vain.	jag tittar bara	phrase	I'm just looking							
+a1_shopping		Voinko maksaa kortilla?	kan jag betala med kort	phrase	can I pay by card							
+a1_shopping		Otan sen.	jag tar den / jag tar det	phrase	I'll take it							
+a1_shopping		Saisinko...?	kan jag få	phrase	could I have							
+a1_shopping		ostaa netistä / tehdä verkko-ostoksia	handla på nätet	phrase	shop online							
+a1_shopping	money_7_try_on	sovittaa (vaatetta)	prova	v	try on			provar	provade	provat		
+a1_shopping		sovituskoppi	en provhytt	n	fitting room	provhytter	provhytten					
+a1_shopping		koko (vaatteen)	en storlek	n	size	storlekar	storleken					
+a1_shopping	verbs2_4_fit	sopia (kooltaan) / mahtua	passa	v	fit			passar	passade	passat		
+a1_shopping	clothes_4_clothes	vaatteet	kläder	n	clothes	kläder	kläderna					
+a1_shopping	clothes_shirt	kauluspaita / paita	en skjorta	n	shirt	skjortor	skjortan					
+a1_shopping	clothes_4_t_shirt	t-paita	en t-shirt	n	T-shirt	t-shirtar	t-shirten					
+a1_shopping	clothes_jumper	villapaita / neule / collegepaita	en tröja	n	jumper	tröjor	tröjan					
+a1_shopping	clothes_4_hoodie	huppari / huppupaita	en huvtröja / en hoodie	n	hoodie	huvtröjor	huvtröjan					
+a1_shopping		pusero / paitapusero	en blus	n	blouse	blusar	blusen					
+a1_shopping	clothes_trousers	housut	byxor	n	trousers	byxor	byxorna					
+a1_shopping	clothes_4_jeans	farkut	jeans	n	jeans	jeans	jeansen					
+a1_shopping	clothes_4_shorts	shortsit	shorts	n	shorts	shorts	shortsen					
+a1_shopping	clothes_4_skirt	hame	en kjol	n	skirt	kjolar	kjolen					
+a1_shopping	clothes_dress	mekko	en klänning	n	dress	klänningar	klänningen					
+a1_shopping	clothes_jacket	takki	en jacka	n	jacket	jackor	jackan					
+a1_shopping		päällystakki	en kappa / en rock	n	coat	kappor	kappan					
+a1_shopping		puku (miesten)	en kostym	n	suit	kostymer	kostymen					
+a1_shopping	clothes_4_tie	solmio	en slips	n	tie	slipsar	slipsen					
+a1_shopping	clothes_4_underwear	alusvaatteet	underkläder	n	underwear	underkläder	underkläderna					
+a1_shopping	clothes_4_pyjamas	pyjama / yöpuku	en pyjamas	n	pyjamas	pyjamasar	pyjamasen					
+a1_shopping	clothes_socks	sukka / sukat	en strumpa / strumpor	n	sock	strumpor	strumpan					
+a1_shopping	clothes_shoes	kenkä / kengät	en sko / skor	n	shoe	skor	skon					
+a1_shopping	clothes_4_boot	saapas	en stövel / en känga	n	boot	stövlar	stöveln					
+a1_shopping	clothes_4_trainer	lenkkari / lenkkitossu	en gympasko	n	trainer	gympaskor	gympaskon					
+a1_shopping	clothes_hat	pipo	en mössa	n	hat	mössor	mössan					
+a1_shopping	clothes_4_cap	lippalakki / lippis	en keps	n	cap	kepsar	kepsen					
+a1_shopping	clothes_4_scarf	kaulahuivi / huivi	en halsduk	n	scarf	halsdukar	halsduken					
+a1_shopping	clothes_4_glove	hansikas / käsine / hanska	en handske	n	glove	handskar	handsken					
+a1_shopping	clothes_4_mitten	lapanen / rukkanen	en vante	n	mitten	vantar	vanten					
+a1_shopping		vyö	ett bälte	n	belt	bälten	bältet					
+a1_shopping	belongings_bag	laukku / kassi	en väska / en kasse	n	bag	väskor	väskan					
+a1_shopping		tasku	en ficka	n	pocket	fickor	fickan					
+a1_shopping	clothes_4_sunglasses	aurinkolasit	solglasögon	n	sunglasses	solglasögon	solglasögonen					
+a1_shopping	colours_colour	väri	en färg	n	colour	färger	färgen					
+a1_shopping	colours_red	punainen	röd	adj	red						rött	röda
+a1_shopping	colours_blue	sininen	blå	adj	blue						blått	blå
+a1_shopping	colours_green	vihreä	grön	adj	green						grönt	gröna
+a1_shopping	colours_yellow	keltainen	gul	adj	yellow						gult	gula
+a1_shopping	colours_black	musta	svart	adj	black						svart	svarta
+a1_shopping	colours_white	valkoinen	vit	adj	white						vitt	vita
+a1_shopping	colours_pink	vaaleanpunainen / pinkki	rosa	adj	pink						rosa	rosa
+a1_shopping	colours_orange_colour	oranssi	orange	adj	orange						orange	orange
+a1_shopping	colours_purple	violetti / lila / purppura	lila / violett	adj	purple						lila	lila
+a1_shopping	colours_brown	ruskea	brun	adj	brown						brunt	bruna
+a1_shopping	colours_grey	harmaa	grå	adj	grey						grått	grå
+a1_shopping	adj_4_beige	beige	beige	adj	beige						beige	beige
+a1_shopping	de_k1_bunt	värikäs / kirjava / monivärinen	färgglad	adj	colourful						färgglatt	färgglada

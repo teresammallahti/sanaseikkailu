@@ -93,6 +93,33 @@
     border-color:#3f4899;
   }
 
+  /* Tilanvalinta (peruskoulu / itseopiskelu): sama tyyli kuin sanat/virkkeet-valitsimessa,
+     hillitty väri, jotta se ei kilpaile kielivalinnan kanssa. */
+  .study-switch{
+    width:100%;
+    max-width:900px;
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    margin-bottom:10px;
+  }
+  .study-switch-btn{
+    border:2px solid transparent;
+    background:var(--card-bg);
+    color:var(--ink);
+    padding:6px 16px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow: var(--shadow);
+  }
+  .study-switch-btn.active{
+    background:#00897b;
+    color:white;
+    border-color:#00695c;
+  }
+
   header{
     width:100%;
     max-width:900px;
@@ -229,6 +256,8 @@
     user-select:none;
     z-index:0;
   }
+  /* Itseopiskelutila: aikuiselle ei lasten tasomaskottia taustakuvaksi. */
+  body.self-mode .prompt-card::before, body.self-mode .answer-area::before{ display:none; }
   .prompt-card > *, .answer-area > *{
     position:relative;
     z-index:1;
@@ -675,10 +704,10 @@
     display:flex; flex-wrap:wrap; align-items:center;
     justify-content:flex-start; gap:6px 8px; margin-bottom:6px;
   }
-  .top-bar .lang-switch, .top-bar .practice-switch{ width:auto; margin-bottom:0; gap:6px; }
+  .top-bar .lang-switch, .top-bar .practice-switch, .top-bar .study-switch{ width:auto; margin-bottom:0; gap:6px; }
   .top-bar header{ width:auto; margin-bottom:0; flex:1 1 auto; }
   .top-bar .header-right{ flex-wrap:wrap; gap:6px; }
-  .lang-switch-btn, .practice-switch-btn{ padding:4px 12px; font-size:13px; }
+  .lang-switch-btn, .practice-switch-btn, .study-switch-btn{ padding:4px 12px; font-size:13px; }
   .tier-badge{ padding:5px 12px; }
   .tier-stars{ font-size:1.2em; }
   .lang-pill{ display:none !important; }
@@ -733,6 +762,11 @@
 <div class="app">
 
   <div class="top-bar">
+  <div class="study-switch" id="studySwitch">
+    <button class="study-switch-btn active" data-study="school" aria-pressed="true">🏫 Peruskoulu</button>
+    <button class="study-switch-btn" data-study="self" aria-pressed="false">🎓 Itseopiskelu</button>
+  </div>
+
   <div class="lang-switch" id="langSwitch">
     <button class="lang-switch-btn active" data-lang="en" aria-pressed="true"><span class="flag">🇬🇧</span> English</button>
     <button class="lang-switch-btn" data-lang="de" aria-pressed="false"><span class="flag">🇩🇪</span> Deutsch</button>
@@ -747,7 +781,7 @@
 
   <header>
     <div class="header-right">
-      <select id="gradeFilter"></select>
+      <select id="gradeFilter" title="Luokka-aste"></select>
       <button id="themeButton" type="button" title="Valitse teemat">Kaikki teemat</button>
       <button id="focusButton" type="button" title="Harjoittele vain aikuisen valitsemia viikon sanoja" style="display:none">📖 Viikon sanat</button>
       <div class="tier-badge" id="tierBadge" title="Palkintotaso valitulta luokka-asteelta">
@@ -922,8 +956,9 @@
   <div class="modal-overlay" id="adultModalOverlay">
     <div class="modal-card wide">
       <button class="modal-close" id="adultModalClose" aria-label="Sulje">✕</button>
-      <h2 class="modal-title">Aikuisen näkymä</h2>
+      <h2 class="modal-title" id="adultTitle">Aikuisen näkymä</h2>
       <p class="modal-subtitle" id="adultSubtitle"></p>
+      <div id="focusSection">
       <div class="adult-section">Viikon sanat (kirjan mukainen harjoituslista)</div>
       <div class="focus-box">
         <p class="adult-note">Kirjoita tai liitä sanat (englanniksi/saksaksi tai suomeksi) pilkulla tai rivinvaihdolla erotettuna. Lapsi voi sitten harjoitella vain näitä sanoja painikkeella "📖 Viikon sanat". Lista on kielikohtainen ja tallentuu tälle laitteelle.</p>
@@ -933,6 +968,7 @@
           <button type="button" id="focusClear">Tyhjennä lista</button>
         </div>
         <div class="focus-status" id="focusStatus"></div>
+      </div>
       </div>
       <div id="adultContent"></div>
     </div>
@@ -968,6 +1004,9 @@
 */
 
 const VOCAB = __WORD_DATA__;
+// Itseopiskelutilan rakenne: kielet, CEFR-tasot (A1/A2/B1) ja aihepiirit, jotka
+// kokoavat käsitteitä (sanojen id:itä) tasoittain. Tilat jakavat sanat ja edistymisen.
+const SELF_DATA = __SELF_DATA__;
 
 const DB_NAME = "kieliohjelma_db";
 const DB_VERSION = 1;
@@ -1028,20 +1067,84 @@ const LANGS = {
   de: { flag: "🇩🇪", label: "saksaksi", speech: "de-DE" },
   sv: { flag: "🇸🇪", label: "ruotsiksi", speech: "sv-SE" }
 };
-let targetLang = "en";
+
+// --- Opiskelutila: "school" (peruskoulu) tai "self" (itseopiskelu) ---
+// Oletus on peruskoulu, jotta nykyiset käyttäjät (esim. lapsi) eivät huomaa muutosta.
+// Kielivalinta muistetaan tilakohtaisesti (targetLang / targetLang_self), jotta
+// peruskouluun palatessa kieli ja luokka palautuvat ennalleen.
+let studyMode = "school";
+try { if (localStorage.getItem("studyMode") === "self") studyMode = "self"; } catch (e) { /* ei haittaa */ }
+
+function selfLevelIds(){ return SELF_DATA.levels.map(l => l.id); }
+let selfLevel = "A1";
 try {
-  const savedLang = localStorage.getItem("targetLang");
-  if (savedLang && LANGS[savedLang]) targetLang = savedLang;
-} catch (e) { /* localStorage ei käytettävissä - käytetään oletusta */ }
+  const savedLevel = localStorage.getItem("selfLevel");
+  if (savedLevel && selfLevelIds().includes(savedLevel)) selfLevel = savedLevel;
+} catch (e) { /* ei haittaa */ }
+function saveSelfLevel(){ try { localStorage.setItem("selfLevel", selfLevel); } catch (e) { /* ei haittaa */ } }
+
+// Kielet, jotka ovat käytettävissä annetussa tilassa (itseopiskelussa vain SELF_DATA.languages).
+function langsForMode(mode){
+  return mode === "self" ? Object.keys(LANGS).filter(l => SELF_DATA.languages.includes(l)) : Object.keys(LANGS);
+}
+function langStorageKey(mode){ return mode === "self" ? "targetLang_self" : "targetLang"; }
+function loadLangForMode(mode){
+  const allowed = langsForMode(mode);
+  try {
+    const saved = localStorage.getItem(langStorageKey(mode));
+    if (saved && LANGS[saved] && allowed.includes(saved)) return saved;
+  } catch (e) { /* localStorage ei käytettävissä - käytetään oletusta */ }
+  return mode === "self" ? (allowed[0] || "sv") : "en";
+}
+let targetLang = loadLangForMode(studyMode);
 
 // --- Sanaston valmistelu: suodata pois mallilauseet (esim. "my name is ...") ---
 // Sama sanasto ja samat id:t kaikille kielille - jokaisella sanalla on sekä en- että de-kenttä.
 function practiceWords(){
+  selfIndexCache = null; // itseopiskelun hakemisto rakennetaan uudelleen sanalistan mukaan
   // Sanalla täytyy olla kohdekielinen muoto (yläkoulun englanninkielisillä sanoilla ei ole saksaa).
+  // self_only-sanat (ei teemaa) kuuluvat vain itseopiskeluun, ei koskaan peruskouluun.
   return VOCAB.words.filter(w => !!w[targetLang] && !(w.de_only && targetLang !== "de") &&
+    (studyMode === "self" || !w.self_only) &&
+    // Peruskoulun ruotsi kattaa saman sanaston kuin saksa (opiskeluvuodet 1-6);
+    // itseopiskelua varten ruotsinnetut kirja- ja yläkoulusanat eivät tule kouluun.
+    (studyMode === "self" || targetLang !== "sv" || !!w.de) &&
     !w.fi.includes("...") && !w[targetLang].includes("..."));
 }
+let selfIndexCache = null;
 let PRACTICE_WORDS = practiceWords();
+
+// --- Itseopiskelun hakemisto: aihepiirien ja tasojen sanat nykyisellä kielellä ---
+// Aihepiirin käsitteistä otetaan vain ne, joilla on muoto kohdekielellä (PRACTICE_WORDS).
+function selfIndex(){
+  if (selfIndexCache) return selfIndexCache;
+  const byId = new Map(PRACTICE_WORDS.map(w => [w.id, w]));
+  const topicWords = new Map(), topicSets = new Map(), levelWords = new Map();
+  SELF_DATA.levels.forEach(l => levelWords.set(l.id, []));
+  const levelSeen = new Map(SELF_DATA.levels.map(l => [l.id, new Set()]));
+  SELF_DATA.topics.forEach(t => {
+    const words = (t.concepts || []).map(id => byId.get(id)).filter(Boolean);
+    topicWords.set(t.id, words);
+    topicSets.set(t.id, new Set(words.map(w => w.id)));
+    const seen = levelSeen.get(t.level), list = levelWords.get(t.level);
+    if (!list) return;
+    words.forEach(w => { if (!seen.has(w.id)){ seen.add(w.id); list.push(w); } });
+  });
+  selfIndexCache = { topicWords, topicSets, levelWords };
+  return selfIndexCache;
+}
+function selfTopicWords(topicId){ return selfIndex().topicWords.get(topicId) || []; }
+function selfLevelWords(levelId){ return selfIndex().levelWords.get(levelId) || []; }
+// Tason aihepiirit, joissa on sanoja valitulla kielellä.
+function selfTopicsForLevel(levelId){
+  return SELF_DATA.topics.filter(t => t.level === levelId && selfTopicWords(t.id).length);
+}
+// Kaikki itseopiskelun sanat (kaikki tasot) nykyisellä kielellä.
+function selfAllWords(){
+  const seen = new Set(), out = [];
+  SELF_DATA.levels.forEach(l => selfLevelWords(l.id).forEach(w => { if (!seen.has(w.id)){ seen.add(w.id); out.push(w); } }));
+  return out;
+}
 // Tietomalli v2: kielikohtainen suomen kehote (fi_<kieli>), jos yhteinen fi
 // sisältää esim. englannin homonyymin (spring = kevät / jousi), joka ei koske tätä kieltä.
 function fiFor(w){ return (w && w["fi_" + targetLang]) || (w && w.fi) || ""; }
@@ -1151,20 +1254,25 @@ function syncLangButtons(){
     const active = btn.dataset.lang === targetLang;
     btn.classList.toggle("active", active);
     btn.setAttribute("aria-pressed", active ? "true" : "false");
+    // Itseopiskelussa vain SELF_DATA.languages -kielet ovat käytössä, muut piilotetaan.
+    const available = langsForMode(studyMode).includes(btn.dataset.lang);
+    btn.style.display = available ? "" : "none";
+    btn.disabled = !available;
   });
   updateAutoSpeakLabel();
   updateGrammarAvailability();
 }
 
 function selectTargetLang(lang){
-  if (!LANGS[lang] || lang === targetLang) return;
+  if (!LANGS[lang] || lang === targetLang || !langsForMode(studyMode).includes(lang)) return;
   targetLang = lang;
-  try { localStorage.setItem("targetLang", targetLang); } catch (e) { /* ei haittaa */ }
+  try { localStorage.setItem(langStorageKey(studyMode), targetLang); } catch (e) { /* ei haittaa */ }
   syncLangButtons();
   PRACTICE_WORDS = practiceWords();
   // Kummallakin kielellä on oma luokka-aste muistissa (esim. saksa voi olla
-  // vasta alkanut, vaikka englanti olisi jo pidemmällä).
-  activeGrade = loadOrDetectGrade(targetLang);
+  // vasta alkanut, vaikka englanti olisi jo pidemmällä). Itseopiskelun taso
+  // ei riipu kielestä.
+  if (studyMode === "school") activeGrade = loadOrDetectGrade(targetLang);
   loadFocus();
   updateFocusUI();
   focusInput.value = "";
@@ -1184,15 +1292,30 @@ langSwitchButtons.forEach(btn => {
   btn.addEventListener("click", () => selectTargetLang(btn.dataset.lang));
 });
 
+// Teeman nimi: itseopiskelussa aihepiirin nimi, muuten koulun teeman nimi.
 function categoryName(id){
+  if (studyMode === "self"){
+    const t = SELF_DATA.topics.find(t => t.id === id);
+    if (t) return t.name_fi;
+  }
   const c = VOCAB.categories.find(c => c.id === id);
   return c ? c.name_fi : id;
 }
 
 function categoryGroup(id){
+  if (studyMode === "self") return "ops"; // aihepiireillä ei ole harrasteryhmää
   const c = VOCAB.categories.find(c => c.id === id);
   return c ? (c.group || "ops") : "ops";
 }
+
+// Aktiivinen "oppimisyksikkö": peruskoulussa luokka-aste (numero), itseopiskelussa
+// CEFR-taso (esim. "A1"). Pooli, palkintomittari ja täydennys käyttävät tätä.
+function activeUnit(){ return studyMode === "self" ? selfLevel : activeGrade; }
+function unitLabel(u){
+  const x = u === undefined ? activeUnit() : u;
+  return studyMode === "self" ? "taso " + x : x + ". luokka";
+}
+function unitsForLang(){ return studyMode === "self" ? selfLevelIds() : gradesForLang(); }
 
 // --- Luokka-asteet: sanasto ryhmitelty peruskoulun luokka-asteille 1-6 ---
 // Jokaisella teemakategorialla on VOCAB.categories-listassa "grade"-kenttä
@@ -1228,9 +1351,11 @@ function categoryGrade(c){
 // Sana kuuluu teemaan joko pääkategoriansa kautta tai lisäteemana (word.also,
 // esim. koealueet "Koe 1", joihin poimitaan sanoja eri luokka-asteiden teemoista).
 function wordInCategory(w, id){
+  if (studyMode === "self") return selfIndex().topicSets.has(id) && selfIndex().topicSets.get(id).has(w.id);
   return w.category === id || (Array.isArray(w.also) && w.also.includes(id));
 }
 function isExamCategory(id){
+  if (studyMode === "self") return false; // koeteemat eivät kuulu itseopiskeluun
   const c = VOCAB.categories.find(x => x.id === id);
   return !!(c && c.exam);
 }
@@ -1239,7 +1364,9 @@ function wordGrade(word){
   return categoryGrade(VOCAB.categories.find(c => c.id === word.category));
 }
 
+// Peruskoulussa g = luokka-aste, itseopiskelussa g = tason id (A1/A2/B1).
 function wordsForGrade(g){
+  if (studyMode === "self") return selfLevelWords(g);
   return PRACTICE_WORDS.filter(w => wordGrade(w) === g);
 }
 
@@ -1288,22 +1415,36 @@ function loadOrDetectGrade(lang){
 // valmistumistilanne (vihreä teksti) tai valittu luokka-aste voi olla muuttunut.
 function populateGradeOptions(){
   gradeFilter.innerHTML = "";
-  gradesForLang().forEach(g => {
+  const selfMode = studyMode === "self";
+  // Itseopiskelussa luokka-astevalitsimen tilalla on tasovalitsin A1 / A2 / B1.
+  gradeFilter.title = selfMode ? "Taso" : "Luokka-aste";
+  unitsForLang().forEach(g => {
     const opt = document.createElement("option");
     opt.value = String(g);
     const complete = isGradeComplete(g);
-    opt.textContent = (complete ? "✅ " : "") + g + ". luokka";
+    opt.textContent = (complete ? "✅ " : "") + (selfMode ? g : g + ". luokka");
+    if (selfMode){
+      const lv = SELF_DATA.levels.find(l => l.id === g);
+      opt.title = lv ? lv.name_fi : "";
+    }
     opt.style.color = complete ? "#2e7d32" : "";
-    if (g === activeGrade) opt.selected = true;
+    if (g === activeUnit()) opt.selected = true;
     gradeFilter.appendChild(opt);
   });
+  gradeFilter.value = String(activeUnit());
 }
 
 function setupGradeFilter(){
   populateGradeOptions();
   gradeFilter.addEventListener("change", () => {
-    activeGrade = parseInt(gradeFilter.value, 10);
-    saveGradeChoice(targetLang, activeGrade);
+    if (studyMode === "self"){
+      if (!selfLevelIds().includes(gradeFilter.value)) return;
+      selfLevel = gradeFilter.value;
+      saveSelfLevel();
+    } else {
+      activeGrade = parseInt(gradeFilter.value, 10);
+      saveGradeChoice(targetLang, activeGrade);
+    }
     selectedThemes = [];
     populateCategoryOptions();
     current = null;
@@ -1320,6 +1461,20 @@ function setupGradeFilter(){
 // Kun luokka-aste on kokonaan opittu, oppilas siirtyy automaattisesti seuraavalle
 // luokka-asteelle - tarkistetaan aina ennen uuden sanan valintaa.
 function maybeAdvanceGrade(){
+  if (studyMode === "self"){
+    // Taso opittu -> siirrytään seuraavalle tasolle, jolla on sanoja valitulla kielellä.
+    if (!isGradeComplete(selfLevel)) return;
+    const ids = selfLevelIds();
+    const next = ids.slice(ids.indexOf(selfLevel) + 1).find(id => wordsForGrade(id).length);
+    if (!next) return;
+    selfLevel = next;
+    saveSelfLevel();
+    selectedThemes = [];
+    populateGradeOptions();
+    populateCategoryOptions();
+    initSessionPool();
+    return;
+  }
   if (activeGrade < maxGrade() && isGradeComplete(activeGrade)){
     activeGrade += 1;
     saveGradeChoice(targetLang, activeGrade);
@@ -1333,6 +1488,10 @@ function maybeAdvanceGrade(){
 // (group=hobby), jotka näkyvät aina luokka-asteesta riippumatta. Valittuja teemoja
 // voi olla useita; tyhjä valinta tarkoittaa kaikkia teemoja.
 function selectableCategories(){
+  if (studyMode === "self"){
+    // Valitun tason aihepiirit (vain ne, joissa on sanoja valitulla kielellä).
+    return selfTopicsForLevel(selfLevel).map(t => ({ id: t.id, name_fi: t.name_fi, group: "ops" }));
+  }
   const langOk = c => !c.lang || c.lang === targetLang;
   if (practiceMode === "sentences"){
     const themed = new Set(sentencesForLang().filter(s => s.theme).map(s => s.theme));
@@ -1343,9 +1502,10 @@ function selectableCategories(){
 }
 
 function themeButtonLabel(){
-  if (!selectedThemes.length) return "Kaikki teemat";
+  const self = studyMode === "self";
+  if (!selectedThemes.length) return self ? "Kaikki aihepiirit" : "Kaikki teemat";
   if (selectedThemes.length === 1) return categoryName(selectedThemes[0]);
-  return selectedThemes.length + " teemaa";
+  return selectedThemes.length + (self ? " aihepiiriä" : " teemaa");
 }
 
 // Poistaa valinnasta teemat, jotka eivät ole valittavissa nykyisellä luokka-asteella.
@@ -1378,7 +1538,7 @@ function populateCategoryOptions(){
   cats.filter(c => c.group !== "hobby" && !c.exam).forEach(addRow);
   cats.filter(c => c.group === "hobby").forEach(addRow);
   themeModalSubtitle.textContent = selectedThemes.length
-    ? `Valittu ${selectedThemes.length} teemaa (${activeGrade}. luokka)`
+    ? `Valittu ${selectedThemes.length} teemaa (${unitLabel()})`
     : "Voit valita useita teemoja. Ei valintaa = kaikki teemat.";
 }
 
@@ -1430,7 +1590,7 @@ function setupCategoryFilter(){
 
 function activeWordPool(){
   const pool = eligibleWordsForCategoryScope(selectedThemes);
-  return pool.length ? pool : wordsForGrade(activeGrade);
+  return pool.length ? pool : wordsForGrade(activeUnit());
 }
 
 // Sanat, jotka voivat kiertää automaattisessa aktiivijoukossa valitulla luokka-asteella
@@ -1439,8 +1599,8 @@ function activeWordPool(){
 // vain käsin valittavissa. Usean teeman valinta = teemojen sanat yhdessä.
 function eligibleWordsForCategoryScope(sel){
   if (focusActive()) return PRACTICE_WORDS.filter(w => focusIds.includes(w.id));
-  if (!sel || !sel.length) return wordsForGrade(activeGrade);
-  const gradeIds = new Set(wordsForGrade(activeGrade).map(w => w.id));
+  if (!sel || !sel.length) return wordsForGrade(activeUnit());
+  const gradeIds = new Set(wordsForGrade(activeUnit()).map(w => w.id));
   return PRACTICE_WORDS.filter(w => sel.some(id => wordInCategory(w, id) &&
     (categoryGroup(id) === "hobby" || isExamCategory(id) || gradeIds.has(w.id))));
 }
@@ -1463,6 +1623,11 @@ function outsideTopUpAllowed(sel){
 // täydennystä lainkaan; nyt sielläkin täydennetään alempien luokkien kesken
 // jääneillä sanoilla.
 function fallbackGradeOrder(){
+  if (studyMode === "self"){
+    // Itseopiskelussa samalla periaatteella tasojen yli: ensin ylemmät, sitten alemmat.
+    const ids = selfLevelIds(), i = ids.indexOf(selfLevel);
+    return ids.slice(i + 1).concat(ids.slice(0, Math.max(i, 0)).reverse());
+  }
   const order = [];
   for (let g = activeGrade + 1; g <= maxGrade(); g++) order.push(g);
   for (let g = activeGrade - 1; g >= startGrade(); g--) order.push(g);
@@ -1591,9 +1756,11 @@ function renderTierBadge(){
   tierIcon.textContent = LEVEL_ICONS[t.majorIndex];
   tierLabelEl.textContent = tierLabel(t.majorIndex);
   tierStarsEl.textContent = "★".repeat(t.stars) + "☆".repeat(5 - t.stars);
-  tierBadge.title = `${MODE_NAMES[activeMode] || ""}: opittu ${t.n}/${wordsForGrade(activeGrade).length} sanaa (${activeGrade}. luokka, ${LANGS[targetLang].label}) — klikkaa nähdäksesi koko asteikon`;
+  tierBadge.title = `${MODE_NAMES[activeMode] || ""}: opittu ${t.n}/${wordsForGrade(activeUnit()).length} sanaa (${unitLabel()}, ${LANGS[targetLang].label}) — klikkaa nähdäksesi koko asteikon`;
   // Nykyisen tason maskotti isona, himmeänä taustakuvana sana- ja kirjoituslaatikossa (vaihe 18).
-  document.documentElement.style.setProperty("--tier-bg-icon", JSON.stringify(LEVEL_ICONS[t.majorIndex]));
+  // Itseopiskelussa (aikuinen) taustakuva jätetään pois.
+  document.documentElement.style.setProperty("--tier-bg-icon",
+    studyMode === "self" ? '""' : JSON.stringify(LEVEL_ICONS[t.majorIndex]));
   // Jos palkintoasteikko-modaali on auki, päivitetään sen sisältö samalla (esim. mode vaihtuu kesken).
   if (tierModalOverlay.classList.contains("visible")) renderTierModalContent();
 
@@ -1616,9 +1783,9 @@ function renderTierBadge(){
 function renderTierModalContent(){
   const t = tierByMode[activeMode] || tierByMode.keyboard;
   if (!t) return;
-  const gradeWordCount = wordsForGrade(activeGrade).length;
+  const gradeWordCount = wordsForGrade(activeUnit()).length;
   tierModalSubtitle.textContent =
-    `${MODE_NAMES[activeMode] || ""} · ${activeGrade}. luokka · ${LANGS[targetLang].label} · opittu ${t.n}/${gradeWordCount} sanaa`;
+    `${MODE_NAMES[activeMode] || ""} · ${unitLabel()} · ${LANGS[targetLang].label} · opittu ${t.n}/${gradeWordCount} sanaa`;
   tierScaleList.innerHTML = "";
   LEVELS.forEach((name, i) => {
     const row = document.createElement("div");
@@ -1671,7 +1838,7 @@ async function updateHeaderStats(){
   // Palkintotaso lasketaan VALITUN LUOKKA-ASTEEN sanastosta (ei koko kohdekielen
   // sanastosta eikä teemasuodattimesta), jotta mittari vaihtuu heti kun oppilas
   // vaihtaa luokka-astetta. Jokaiselle menetelmälle laskettu erikseen (ks. yllä).
-  const gradeWordsList = wordsForGrade(activeGrade);
+  const gradeWordsList = wordsForGrade(activeUnit());
   ["pen", "keyboard", "mic"].forEach(mode => {
     const check = MODE_GRADUATED_CHECK[mode];
     const n = gradeWordsList.filter(w => check(statsCache[statId(w)])).length;
@@ -1766,7 +1933,7 @@ function topUpPool(pool, sel, excludeIds){
   fillPoolFrom(primary.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MAX);
   fillPoolFrom(primary.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MAX);
   if (pool.length < ACTIVE_POOL_MIN && outside && sel.length){
-    const sameGrade = wordsForGrade(activeGrade).filter(w => !excludeIds.has(w.id));
+    const sameGrade = wordsForGrade(activeUnit()).filter(w => !excludeIds.has(w.id));
     fillPoolFrom(sameGrade.filter(w => statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
     fillPoolFrom(sameGrade.filter(w => !statsCache[statId(w)]), pool, excludeIds, ACTIVE_POOL_MIN);
   }
@@ -1787,13 +1954,13 @@ function initSessionPool(){
   sessionPool = buildSessionPool(selectedThemes);
   sessionPoolScope = scopeKey();
   sessionPoolMode = activeMode;
-  sessionPoolGrade = activeGrade;
+  sessionPoolGrade = activeUnit();
 }
 
 // Kutsutaan joka kierroksella pickWord():ssä. Pooli pysyy vakaana eikä rakennu
 // tyhjästä joka kerta - vain graduoituneet sanat poistetaan ja tilalle täydennetään.
 function pruneAndRefillSessionPool(){
-  if (sessionPoolScope !== scopeKey() || sessionPoolMode !== activeMode || sessionPoolGrade !== activeGrade){
+  if (sessionPoolScope !== scopeKey() || sessionPoolMode !== activeMode || sessionPoolGrade !== activeUnit()){
     initSessionPool();
     return;
   }
@@ -1819,6 +1986,15 @@ async function pickWord(){
     pool = sessionPool;
   }
   if (!pool.length) pool = activeWordPool();
+  if (!pool.length){
+    // Ei yhtään sanaa valitulla kielellä/tasolla (esim. itseopiskelun sisältö puuttuu).
+    current = null;
+    promptWord.textContent = "–";
+    promptHint.textContent = "Tälle valinnalle ei ole vielä sanoja.";
+    promptCategory.textContent = "";
+    await updateHeaderStats();
+    return;
+  }
   current = weightedPick(pool, current ? current.id : null);
   direction = Math.random() < 0.5 ? "target-fi" : "fi-target";
   renderPrompt();
@@ -1828,6 +2004,17 @@ async function pickWord(){
 function firstAcceptedAnswer(text){
   // Jos vastauksessa on vaihtoehtoja "/"-merkillä (esim. kohteliaisuusfraasit), näytetään ensimmäinen.
   return text.split("/")[0].trim();
+}
+
+// Sanan teema kortissa: itseopiskelussa valitun tason aihepiiri (tai ensimmäinen,
+// johon sana kuuluu), peruskoulussa sanan koulukategoria. Sanalla ei aina ole category-kenttää.
+function promptCategoryText(w){
+  if (studyMode === "self"){
+    const inTopic = id => wordInCategory(w, id);
+    const t = selfTopicsForLevel(selfLevel).find(t => inTopic(t.id)) || SELF_DATA.topics.find(t => inTopic(t.id));
+    return t ? t.name_fi : "";
+  }
+  return w.category ? categoryName(w.category) : "";
 }
 
 function renderPrompt(){
@@ -1842,7 +2029,7 @@ function renderPrompt(){
   // puhevaiheessa lapsen pitää itse koskettaa oikeaa kenttää, ettei Gboard
   // ponnahda esiin kutsumatta kesken piirtämisen.
   if (activeMode === "keyboard") answerBox.focus({ preventScroll: true });
-  promptCategory.textContent = categoryName(current.category);
+  promptCategory.textContent = promptCategoryText(current);
   if (direction === "target-fi"){
     promptWord.textContent = firstAcceptedAnswer(current[targetLang]);
     langPill.textContent = targetLang.toUpperCase();
@@ -1975,12 +2162,28 @@ async function recordResult(isCorrect, mode){
   await putStat(prev);
 }
 
-// Saksan substantiiveille näytetään monikkomuoto palautteessa (word.de_pl).
-function pluralNote(){
-  return (targetLang === "de" && current && current.de_pl) ? current.de_pl : "";
+// Taivutushuomautus palautteessa. Saksassa substantiivin monikko (word.de_pl);
+// ruotsissa lyhyesti sv_infl / sv_pl: substantiivi "bilen · bilar", verbi
+// "skriver · skrev · skrivit", adjektiivi "stort · stora".
+const SV_INFL_ORDER = ["def", "pl", "pres", "pret", "sup", "neut", "apl"];
+function svInflNote(w){
+  const infl = w.sv_infl || {};
+  return SV_INFL_ORDER
+    .map(k => k === "pl" ? w.sv_pl : infl[k])
+    .filter(Boolean)
+    .join(" · ");
 }
+function pluralNote(){
+  if (!current) return "";
+  if (targetLang === "de") return current.de_pl || "";
+  if (targetLang === "sv") return svInflNote(current);
+  return "";
+}
+// Huomautuksen otsikko: saksassa "Monikko", ruotsissa "Taivutus".
+function pluralNoteLabel(){ return targetLang === "sv" ? "Taivutus" : "Monikko"; }
 
 async function checkAnswer(userAnswer, mode){
+  if (!current) return; // ei sanaa näkyvissä (tyhjä pooli)
   const usedMode = mode || activeMode;
   const isCorrect = matchesAnswer(userAnswer, usedMode);
   feedback.className = "feedback " + (isCorrect ? "correct" : "incorrect");
@@ -1993,7 +2196,7 @@ async function checkAnswer(userAnswer, mode){
   if (pl){
     const span = document.createElement("span");
     span.className = "plural-note";
-    span.textContent = " · Monikko: " + pl;
+    span.textContent = " · " + pluralNoteLabel() + ": " + pl;
     feedback.appendChild(span);
   }
   await recordResult(isCorrect, usedMode);
@@ -2056,7 +2259,8 @@ document.getElementById("skipBtn").addEventListener("click", pickWord);
 // paljastettua vastausta voi vain kopioida - ainoa tapa jatkaa on Ohita, eikä
 // sana lasketa oikein tai väärin vastatuksi.
 revealBtn.addEventListener("click", () => {
-  revealBox.textContent = "🔤 " + acceptedAnswers()[0] + (pluralNote() ? " · Monikko: " + pluralNote() : "");
+  if (!current) return;
+  revealBox.textContent = "🔤 " + acceptedAnswers()[0] + (pluralNote() ? " · " + pluralNoteLabel() + ": " + pluralNote() : "");
   answerArea.classList.add("revealed");
 });
 
@@ -3000,7 +3204,8 @@ function saveFocus(){
     localStorage.setItem(focusOnKey(), focusOn ? "1" : "0");
   } catch (e) { /* ei haittaa */ }
 }
-function focusActive(){ return focusOn && focusIds.length > 0; }
+// Viikon sanat kuuluvat vain peruskouluun; itseopiskelussa ne ovat aina pois käytöstä.
+function focusActive(){ return studyMode === "school" && focusOn && focusIds.length > 0; }
 
 function normFocusToken(t){
   let x = stripParenthetical(String(t)).toLowerCase().replace(/[.,!?;:"']/g, "").replace(/\s+/g, " ").trim();
@@ -3030,7 +3235,7 @@ function parseFocusInput(text){
 
 function updateFocusUI(){
   const wordsMode = practiceMode === "words";
-  focusButton.style.display = wordsMode && focusIds.length ? "" : "none";
+  focusButton.style.display = studyMode === "school" && wordsMode && focusIds.length ? "" : "none";
   focusButton.classList.toggle("active", focusActive());
   focusButton.setAttribute("aria-pressed", focusActive() ? "true" : "false");
   const sentenceThemes = practiceMode === "sentences" && sentencesForLang().some(s => s.theme);
@@ -3123,7 +3328,53 @@ function adultStatsFor(words){
   return r;
 }
 
+// Päiväloki viimeiseltä 14 päivältä (uusin ensin).
+function recentDays(){
+  const log = loadDayLog();
+  const days = [];
+  for (let i = 0; i < 14; i++){
+    const d = new Date(); d.setDate(d.getDate() - i);
+    const key = localDateKey(d);
+    const e = (log[key] || {})[targetLang] || { a: 0, c: 0 };
+    days.push({ date: key, answers: e.a, correct: e.c });
+  }
+  return days;
+}
+function lastSeenForLang(){
+  let lastSeen = null;
+  Object.keys(statsCache).forEach(k => {
+    const st = statsCache[k];
+    if (st && st.language === targetLang && st.lastSeen && (!lastSeen || st.lastSeen > lastSeen)) lastSeen = st.lastSeen;
+  });
+  return lastSeen;
+}
+// Hankalat sanat: eniten virheitä, joita ei ole vielä graduoitu näppäimistövaiheessa.
+function hardWordsFrom(words){
+  return words
+    .map(w => ({ w, st: statsCache[statId(w)] }))
+    .filter(x => x.st && (x.st.incorrectCount || 0) >= 2 && !stageKeyboardGraduated(x.st))
+    .map(x => ({ id: x.w.id, word: firstAcceptedAnswer(x.w[targetLang]), fi: firstAcceptedAnswer(fiFor(x.w)),
+      wrong: x.st.incorrectCount, total: (x.st.correctCount || 0) + (x.st.incorrectCount || 0) }))
+    .sort((a, b) => (b.wrong - a.wrong) || (b.wrong / b.total - a.wrong / a.total))
+    .slice(0, 10);
+}
+
+// Itseopiskelun oma edistyminen: yhteenveto tasoittain ja aihepiireittäin + hankalat sanat.
+// Ei luokka-asteita eikä koealueita.
+function buildSelfReport(){
+  const levels = SELF_DATA.levels.map(l => ({ id: l.id, name: l.name_fi, ...adultStatsFor(selfLevelWords(l.id)) }));
+  const topics = SELF_DATA.topics
+    .filter(t => selfTopicWords(t.id).length)
+    .map(t => ({ id: t.id, name: t.name_fi, level: t.level, ...adultStatsFor(selfTopicWords(t.id)) }));
+  const words = selfAllWords();
+  return {
+    self: true, language: targetLang, all: adultStatsFor(words), levels, topics,
+    hard: hardWordsFrom(words), days: recentDays(), lastSeen: lastSeenForLang()
+  };
+}
+
 function buildProgressReport(){
+  if (studyMode === "self") return buildSelfReport();
   const grades = gradesForLang().map(g => ({ grade: g, ...adultStatsFor(wordsForGrade(g)) }));
   const themes = VOCAB.categories
     .filter(c => PRACTICE_WORDS.some(w => wordInCategory(w, c.id)))
@@ -3147,23 +3398,8 @@ function buildProgressReport(){
         .map(x => firstAcceptedAnswer(x.w[targetLang]));
       return { id: c.id, name: c.name_fi, ...adultStatsFor(ws), sentTotal: sl.length, sentSeen: sSeen, sentMastered: sMastered, weak };
     });
-  // Hankalat sanat: eniten virheitä, joita ei ole vielä graduoitu näppäimistövaiheessa.
-  const hard = PRACTICE_WORDS
-    .map(w => ({ w, st: statsCache[statId(w)] }))
-    .filter(x => x.st && (x.st.incorrectCount || 0) >= 2 && !stageKeyboardGraduated(x.st))
-    .map(x => ({ id: x.w.id, word: firstAcceptedAnswer(x.w[targetLang]), fi: firstAcceptedAnswer(fiFor(x.w)),
-      wrong: x.st.incorrectCount, total: (x.st.correctCount || 0) + (x.st.incorrectCount || 0) }))
-    .sort((a, b) => (b.wrong - a.wrong) || (b.wrong / b.total - a.wrong / a.total))
-    .slice(0, 10);
-  // Päiväloki viimeiseltä 14 päivältä (uusin ensin).
-  const log = loadDayLog();
-  const days = [];
-  for (let i = 0; i < 14; i++){
-    const d = new Date(); d.setDate(d.getDate() - i);
-    const key = localDateKey(d);
-    const e = (log[key] || {})[targetLang] || { a: 0, c: 0 };
-    days.push({ date: key, answers: e.a, correct: e.c });
-  }
+  const hard = hardWordsFrom(PRACTICE_WORDS);
+  const days = recentDays();
   const sents = sentencesForLang();
   const sentenceStats = gradesForLang().map(g => {
     const list = sentencesForGrade(g);
@@ -3171,19 +3407,48 @@ function buildProgressReport(){
     list.forEach(sn => { const st = statsCache[sentenceStatId(sn)]; if (st){ seen++; if (isSentenceLearned(sn)) mastered++; } });
     return { grade: g, total: list.length, seen, mastered };
   });
-  let lastSeen = null;
-  Object.keys(statsCache).forEach(k => {
-    const st = statsCache[k];
-    if (st && st.language === targetLang && st.lastSeen && (!lastSeen || st.lastSeen > lastSeen)) lastSeen = st.lastSeen;
-  });
+  const lastSeen = lastSeenForLang();
   return { language: targetLang, all, grades, themes, exams, hard, days, sentences: sentenceStats, sentenceTotal: sents.length, lastSeen };
 }
 
 function escHtml(t){ return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
 function pct(n, d){ return d ? Math.round(100 * n / d) : 0; }
 
+function renderSelfView(r){
+  const el = document.getElementById("adultContent");
+  document.getElementById("adultSubtitle").textContent =
+    `${LANGS[targetLang].label} · ` + (r.lastSeen ? "viimeksi harjoiteltu " + r.lastSeen.slice(0, 10) : "ei vielä harjoiteltu");
+  const bar = (n, d) => `<span class="adult-bar" style="width:${Math.round(60 * (d ? n / d : 0))}px"></span>`;
+  let h = `<div class="adult-section">Yhteenveto</div>`;
+  h += `<p class="adult-note">Sanoja nähty ${r.all.seen}/${r.all.total}. Täysin opittu (kynä, näppäimistö ja puhe) ${r.all.full}. `
+     + `Opittu vaiheittain: kynä ${r.all.pen}, näppäimistö ${r.all.keyboard}, puhe ${r.all.mic}.</p>`;
+  h += `<div class="adult-section">Tasoittain</div><table class="adult-table"><tr><th>Taso</th><th>Sanoja</th><th>Nähty</th><th>Kynä</th><th>Näppäimistö</th><th>Puhe</th><th>Täysin</th></tr>`;
+  r.levels.forEach(l => {
+    h += `<tr><td>${escHtml(l.name)}</td><td>${l.total}</td><td>${l.seen}</td><td>${l.pen}</td><td>${l.keyboard}</td><td>${l.mic}</td><td>${l.full} ${bar(l.full, l.total)}</td></tr>`;
+  });
+  h += `</table>`;
+  h += `<div class="adult-section">Aihepiireittäin</div><table class="adult-table"><tr><th>Aihepiiri</th><th>Taso</th><th>Sanoja</th><th>Nähty</th><th>Näppäimistö</th><th>Täysin</th></tr>`;
+  r.topics.forEach(t => {
+    h += `<tr><td>${escHtml(t.name)}</td><td>${escHtml(t.level)}</td><td>${t.total}</td><td>${t.seen}</td><td>${t.keyboard}</td><td>${t.full} ${bar(t.full, t.total)}</td></tr>`;
+  });
+  h += `</table>`;
+  h += `<div class="adult-section">Hankalat sanat</div>`;
+  if (r.hard.length){
+    h += `<table class="adult-table"><tr><th>Sana</th><th>Suomeksi</th><th>Väärin</th><th>Yrityksiä</th></tr>`;
+    r.hard.forEach(x => { h += `<tr><td>${escHtml(x.word)}</td><td>${escHtml(x.fi)}</td><td>${x.wrong}</td><td>${x.total}</td></tr>`; });
+    h += `</table><p class="adult-note">Sanat, joissa on vähintään 2 virhettä eikä näppäimistövaihe ole vielä opittu.</p>`;
+  } else {
+    h += `<p class="adult-note">Ei hankalia sanoja tällä hetkellä.</p>`;
+  }
+  h += `<div class="adult-section">Viimeiset 14 päivää</div><table class="adult-table"><tr><th>Päivä</th><th>Vastauksia</th><th>Oikein</th><th>%</th></tr>`;
+  r.days.forEach(d => { h += `<tr><td>${d.date}</td><td>${d.answers}</td><td>${d.correct}</td><td>${d.answers ? pct(d.correct, d.answers) + " %" : "–"}</td></tr>`; });
+  h += `</table>`;
+  el.innerHTML = h;
+}
+
 function renderAdultView(){
   const r = buildProgressReport();
+  if (r.self){ renderSelfView(r); return; }
   const el = document.getElementById("adultContent");
   document.getElementById("adultSubtitle").textContent =
     `${LANGS[targetLang].label} · ` + (r.lastSeen ? "viimeksi harjoiteltu " + r.lastSeen.slice(0, 10) : "ei vielä harjoiteltu");
@@ -3239,11 +3504,71 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && adultModalOverlay.classList.contains("visible")) closeAdultView();
 });
 
+// --- Opiskelutilan vaihto: peruskoulu <-> itseopiskelu ---
+const studySwitchButtons = document.querySelectorAll(".study-switch-btn");
+const practiceSwitchEl = document.getElementById("practiceSwitch");
+const adultBtnEl = document.getElementById("adultBtn");
+const adultTitleEl = document.getElementById("adultTitle");
+const focusSectionEl = document.getElementById("focusSection");
+// Peruskoulun luokka-aste muistissa tilanvaihdon yli (palautus ennalleen myös ilman tallennettua valintaa).
+let schoolGradeSnapshot = null;
+
+// Päivittää kaiken, mikä riippuu opiskelutilasta: tilanapit, kielinapit, harjoittelutavan
+// valitsin, aikuisen näkymän otsikot ja itseopiskelun ulkoasu.
+function syncStudyModeUI(){
+  const selfMode = studyMode === "self";
+  studySwitchButtons.forEach(b => {
+    const active = b.dataset.study === studyMode;
+    b.classList.toggle("active", active);
+    b.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+  document.body.classList.toggle("self-mode", selfMode);
+  syncLangButtons();
+  // Virkkeitä ei vielä ole itseopiskelulle, ja kielioppi on vain saksalle -> valitsin piiloon.
+  practiceSwitchEl.style.display = selfMode ? "none" : "";
+  adultBtnEl.textContent = selfMode ? "📊 Oma edistyminen" : "📊 Aikuisen näkymä";
+  adultBtnEl.title = selfMode ? "Oma edistymisesi tasoittain ja aihepiireittäin" : "Edistymisen yhteenveto aikuiselle";
+  adultTitleEl.textContent = selfMode ? "Oma edistyminen" : "Aikuisen näkymä";
+  focusSectionEl.style.display = selfMode ? "none" : "";
+}
+
+function setStudyMode(mode){
+  if ((mode !== "school" && mode !== "self") || mode === studyMode) return;
+  if (studyMode === "school") schoolGradeSnapshot = { lang: targetLang, grade: activeGrade };
+  studyMode = mode;
+  try { localStorage.setItem("studyMode", studyMode); } catch (e) { /* ei haittaa */ }
+  // Kieli palautetaan tilakohtaisesti (targetLang / targetLang_self).
+  targetLang = loadLangForMode(studyMode);
+  PRACTICE_WORDS = practiceWords();
+  if (studyMode === "self"){
+    if (practiceMode !== "words") setPracticeMode("words");
+  } else {
+    activeGrade = loadOrDetectGrade(targetLang);
+    if (schoolGradeSnapshot && schoolGradeSnapshot.lang === targetLang && gradesForLang().includes(schoolGradeSnapshot.grade)){
+      activeGrade = schoolGradeSnapshot.grade;
+    }
+  }
+  syncStudyModeUI();
+  loadFocus();
+  updateFocusUI();
+  focusInput.value = "";
+  selectedThemes = [];
+  populateGradeOptions();
+  populateCategoryOptions();
+  current = null;
+  initSessionPool();
+  pickWord();
+}
+
+studySwitchButtons.forEach(btn => {
+  btn.addEventListener("click", () => setStudyMode(btn.dataset.study));
+});
+
 // --- init ---
 window.addEventListener("resize", () => { if (activeMode === "pen") setupPenPad(); });
 
 (async function init(){
-  syncLangButtons(); // varmistaa napin tilan ja tekstin, jos kieli muistettiin laitteelta
+  syncStudyModeUI(); // tilavalitsin, kielinapit ja aikuisen näkymän tekstit tilan mukaan
   activeGrade = loadOrDetectGrade(targetLang); // ennen DB:tä -> oletus 1. luokka
   loadFocus();
   updateFocusUI();
@@ -3260,7 +3585,7 @@ window.addEventListener("resize", () => { if (activeMode === "pen") setupPenPad(
   // Nyt kun oikea edistyminen on tiedossa: jos luokka-astetta ei ole erikseen
   // valittu tällä laitteella, päätellään oppilaan todellinen lähtökohta
   // tilastoista (ks. detectFrontierGrade) sen sijaan että jäätäisiin ykkösluokkaan.
-  if (!hasExplicitGradeChoice(targetLang)){
+  if (studyMode === "school" && !hasExplicitGradeChoice(targetLang)){
     activeGrade = detectFrontierGrade();
     populateGradeOptions();
     selectedThemes = [];

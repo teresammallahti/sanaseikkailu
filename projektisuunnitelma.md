@@ -31,6 +31,7 @@ Pitkän tähtäimen tavoite: Sanaseikkailusta kehitetään **täysiverinen kielt
 
 Ohjelma jaetaan kahteen tilaan, jotka käyttävät samaa harjoitusmoottoria (piirrä/kirjoita/puhu, virkkeet, kielioppi, edistymisen tallennus) ja samaa käsitevarastoa, mutta eri rakennetta:
 
+- Käyttöliittymässä tilat ovat **🏫 Peruskoulu** ja **🎓 Itseopiskelu** (vaihe 39).
 - **Koulutila (lapset ja nuoret):** nykyinen malli ennallaan: luokka-asteet 1–9, kielten aloitusluokat (en 1., de/sv 4.), koeteemat, Viikon sanat, maskotit ja palkinnot.
 - **Itseopiskelutila (aikuiset):** CEFR-tasot A1 → A2 → B1 ja aikuisen arkeen sidotut aihepiirit, hillitty ulkoasu, tasonmääritys, selitetty kielioppi.
 
@@ -43,10 +44,27 @@ Miksi aikuiselle ei kannata koulurakennetta sellaisenaan:
 
 Päällekkäisyys on silti suuri (perussanasto, numerot, ruoka, perhe), joten käsitteet ovat yhteisiä ja vain niiden ryhmittely ja tahti eroavat (`data/school.json` vs. `data/self.json`).
 
+### Itseopiskelun työkalut: kehitysjono (vaihe 39)
+
+Ruotsin itseopiskelusanasto (A1–B1, 3119 käsitettä) on pohja; nämä työkalut rakennetaan sen päälle tässä järjestyksessä. Malli: sisältö Opus (tarkistus Fable käyttäjän komennosta), koodi Sonnet.
+
+1. **Tasonmääritys** — lyhyt testi (sanat tasoittain A1 → B1, mukautuva), joka asettaa lähtötason ja merkitsee osaamansa sanat opituiksi. Koodi; data valmiina.
+2. **Välitetty toisto ja päivätavoite** — kertausjono (spaced repetition) ja päivän tavoite (esim. 20 sanaa / 10 min), putkilaskuri aikuisen tyyliin.
+3. **Monivalinta ja yhdistely** — nopea tunnistusharjoitus aloittelijalle ennen kirjoittamista (4 vaihtoehtoa; parien yhdistely). Hyödyttää myös peruskoulua.
+4. **Taivutusharjoitus (ruotsi)** — en/ett, määräinen muoto, monikko, verbin preesens/preteriti/supiini, adjektiivin taivutus. Data on jo sanastossa (`def`, `pl`, `pres`, `pret`, `sup`, `neut`, `apl`).
+5. **Kuuntelu ja sanelu** — kuule ruotsiksi (sv-SE puhesynteesi) ja kirjoita / valitse merkitys.
+6. **Virkkeet ja dialogit aihepiireittäin** — itseopiskelun omat virkkeet (Opus), käyttävät nykyisiä virkeharjoituksia (kirjoita, täydennä, järjestä, kuuntele).
+7. **Kielioppiselitykset** — lyhyet suomenkieliset selitykset (V2-sanajärjestys, sivulauseen adverbi, en/ett, taivutusluokat), linkitetty harjoituksiin.
+8. **Lukutekstit** — lyhyet tasotekstit kysymyksineen, sanat linkitetty sanastoon.
+9. **Sanakortti / sanakirjanäkymä** — sanan taivutus, esimerkkilause, ääntäminen, aihepiiri; haku suomeksi ja ruotsiksi.
+10. **Edistymisen seuranta ja varmuuskopiomuistutus** — tasojen ja aihepiirien valmius, viikkonäkymä, muistutus varmuuskopiosta.
+
+Sisällön laatu: Fable-tarkistus 3119 sanalle (käyttäjän komennosta), Opuksen epävarmat kohdat (`svself/`-raportit) läpi samalla. Englannin ja saksan itseopiskelu: lisätään `forms/en.json` / `de.json` samoille käsitteille, kun ruotsin malli on koeteltu.
+
 ### Tiekartta (ehdotettu järjestys)
 
 - **A. Pohja (valmis/käynnissä):** kolme kieltä, sanat + virkkeet, kielioppi (de), aikuisen raportti, testit. Ruotsi lisätty (vaihe 37).
-- **B. Tasorakenne:** ✅ tietomalli v2 ja itseopiskelun aihepiiriluonnos (vaihe 38). Seuraavaksi: tilanvalinta käyttöliittymään, A1-ydinsanaston karsinta ja täydennys aikuiselle (nyt A1-luonnoksessa 1029 käsitettä englanniksi, joista 333 saksaksi/ruotsiksi; tavoite ~600, kaikilla kolmella kielellä), tasonmääritys.
+- **B. Tasorakenne:** ✅ tietomalli v2 (vaihe 38), tilanvalinta ja ruotsin A1–B1-sanasto (vaihe 39). Seuraavaksi: työkalujen kehitysjono yllä; aiemmin suunniteltu: tilanvalinta käyttöliittymään, A1-ydinsanaston karsinta ja täydennys aikuiselle (nyt A1-luonnoksessa 1029 käsitettä englanniksi, joista 333 saksaksi/ruotsiksi; tavoite ~600, kaikilla kolmella kielellä), tasonmääritys.
 - **C. Uudet harjoitustyypit:** monivalinta, yhdistely, sanelu, lukukappaleet. Nämä hyödyttävät myös koulutilaa.
 - **D. Ruotsin ja englannin kielioppi:** en/ett, englannin aikamuodot, saksan verbit/sijat.
 - **E. Kertausjärjestelmä (spaced repetition) ja päivätavoite.**
@@ -302,11 +320,13 @@ Vinkki: Chromen valikko → "Lisää aloitusnäyttöön" avaa sovelluksen kokoru
    - Samassa vaiheessa projektin suunta päivitettiin: ks. luku "Visio: täysiverinen itseopiskeluohjelma".
 38. **Ruotsin Fable-tarkistus + tietomalli v2 + tilajako (vaihe 38)** — ✅ Fable tarkisti käyttäjän komennosta ruotsin 481 sanaa (30 korjausta: ainesanat ilman artikkelia, väska / kasse, e-post, puuttuvat yleiset vaihtoehdot kuten idag/imorgon/igår, sockor, lycklig, hård; ei yhtään å/ä/ö- tai en/ett-virhettä) ja 60 virkettä (ei virheitä, 23 alt-täydennystä). Fablen havaitsemat englannin homonyymit suomen kehotteissa (kevät / jousi, kirja / varata, viivain / hallitsija, laskeutua / maa, jalka) korjattu kielikohtaisilla kehotteilla saksalle ja ruotsille. Uusi tietomalli v2 (ks. luku "Tietomalli v2"), sovellukseen `fiFor()`; sovelluksen toiminta muuten ennallaan (koulutila). Päätetty jakaa ohjelma koulutilaan ja aikuisen itseopiskelutilaan (ks. visio); `data/self.json` on ensimmäinen luonnos. Sanasto v18. 145 + 11 testiä (`tests/test_datamodel.py`), Artifact v38, vain paikallinen commit (ei pushia).
 
+39. **Tilanvalinta ja ruotsin itseopiskelusanasto (vaihe 39)** — ✅ Sonnet: tilavalitsin 🏫 Peruskoulu / 🎓 Itseopiskelu (`studyMode`, `selfLevel`, `targetLang_self`); itseopiskelussa tasot A1/A2/B1 luokka-asteiden tilalla, aihepiirit teemojen tilalla, vain ruotsi, maskotti/Viikon sanat/koeteemat/virkkeet piilossa, "📊 Oma edistyminen" -raportti tasoittain ja aihepiireittäin, ruotsin taivutus palautteessa (esim. "bilen · bilar"). Peruskoulu ennallaan (ruotsi koulussa = sama sanasto kuin saksa). Opus (9 rinnakkaista agenttia): ruotsin itseopiskelusanasto 49 aikuisen aihepiiriin, 3601 riviä → yhdistetty 3119 käsitteeksi (A1 1153, A2 1009, B1 957), joista 2065 uutta, 684 olemassa olevalle käsitteelle uusi ruotsin muoto; kaikilla substantiiveilla, verbeillä ja adjektiiveilla taivutusmuodot; kehotteet yksiselitteisiä (11 törmäystä korjattu). `check_data.py` tarkistaa itseopiskelun ruotsin (kehotteet, muotoilu, taivutus). Sanasto v19, 160 + 13 testiä. **Fable-tarkistus odottaa käyttäjän komentoa.**
+
 > Muistutussääntö: kun aloitatte uuden vaiheen, mainitkaa se — Claude tarkistaa suunnitelman ja muistuttaa, mikä malli kannattaa olla käytössä.
 
 ## Seuraavaksi käyttäjältä
 
-1. **Push GitHubiin** — käyttäjä päätti vaiheessa 37, ettei pushata vielä; paikallisia committeja kertyy (vaiheet 31–38 odottavat). Kun aika koittaa, aja koneellasi allekkain:
+1. **Push GitHubiin** — käyttäjä päätti vaiheessa 37, ettei pushata vielä; vaiheet 38–39 odottavat paikallisina committeina. Kun aika koittaa, aja koneellasi allekkain:
 
    ```powershell
    cd "G:\01 AI\05 Kieliohjelma"

@@ -19,6 +19,7 @@ if errors:
     print("ERROR: tietomallin tarkistus:", *errors[:20], sep="\n  ", file=sys.stderr)
     sys.exit(1)
 vocab, sentence_data = datamodel.to_legacy(model)
+self_data = datamodel.to_self_data(model)
 
 vocab_json = json.dumps(vocab, ensure_ascii=False, indent=2)
 
@@ -31,6 +32,8 @@ if "__SENTENCE_DATA__" not in template:
     sys.exit(1)
 full = template.replace("__WORD_DATA__", vocab_json).replace(
     "__SENTENCE_DATA__", json.dumps(sentence_data, ensure_ascii=False, indent=1))
+if "__SELF_DATA__" in template:
+    full = full.replace("__SELF_DATA__", json.dumps(self_data, ensure_ascii=False))
 
 with open(OUT_FULL, "w", encoding="utf-8") as f:
     f.write(full)
