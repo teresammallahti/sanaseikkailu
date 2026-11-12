@@ -1,0 +1,609 @@
+{
+ "description": "Koulutila: suomalaisen peruskoulun luokka-asteet. Teeman grade = kielen opiskeluvuosi; sovellus lisää kielen aloitusluokan (start_grade) - 1.",
+ "grades": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
+ ],
+ "start_grade": {
+  "en": 1,
+  "de": 4,
+  "sv": 4
+ },
+ "categories": [
+  {
+   "id": "school_people",
+   "name_fi": "Koulun ihmiset",
+   "group": "ops",
+   "grade": 3
+  },
+  {
+   "id": "school_subjects",
+   "name_fi": "Kouluaineet",
+   "group": "ops",
+   "grade": 3
+  },
+  {
+   "id": "weekdays",
+   "name_fi": "Viikonpäivät",
+   "group": "ops",
+   "grade": 2
+  },
+  {
+   "id": "places_town",
+   "name_fi": "Paikat kaupungissa",
+   "group": "ops",
+   "grade": 4
+  },
+  {
+   "id": "belongings",
+   "name_fi": "Tavarat ja asusteet",
+   "group": "ops",
+   "grade": 4
+  },
+  {
+   "id": "appearance",
+   "name_fi": "Ulkonäkö",
+   "group": "ops",
+   "grade": 4
+  },
+  {
+   "id": "food_savoury",
+   "name_fi": "Ruoka",
+   "group": "ops",
+   "grade": 3
+  },
+  {
+   "id": "fruit",
+   "name_fi": "Hedelmät ja marjat",
+   "group": "ops",
+   "grade": 2
+  },
+  {
+   "id": "polite_phrases",
+   "name_fi": "Kohteliaat ilmaukset",
+   "group": "ops",
+   "grade": 3
+  },
+  {
+   "id": "time",
+   "name_fi": "Kellonajat",
+   "group": "ops",
+   "grade": 4
+  },
+  {
+   "id": "family",
+   "name_fi": "Perhe",
+   "group": "ops",
+   "grade": 1
+  },
+  {
+   "id": "myself",
+   "name_fi": "Minä itse",
+   "group": "ops",
+   "grade": 3
+  },
+  {
+   "id": "hobbies",
+   "name_fi": "Harrastukset ja vapaa-aika",
+   "group": "ops",
+   "grade": 2
+  },
+  {
+   "id": "greetings_phrases",
+   "name_fi": "Tervehdykset ja arki-ilmaukset",
+   "group": "ops",
+   "grade": 1
+  },
+  {
+   "id": "colours",
+   "name_fi": "Värit",
+   "group": "ops",
+   "grade": 1
+  },
+  {
+   "id": "numbers",
+   "name_fi": "Numerot",
+   "group": "ops",
+   "grade": 1
+  },
+  {
+   "id": "gaming_minecraft",
+   "name_fi": "Pelisanasto: Minecraft",
+   "group": "hobby",
+   "grade": null
+  },
+  {
+   "id": "gaming_fortnite",
+   "name_fi": "Pelisanasto: Fortnite",
+   "group": "hobby",
+   "grade": null
+  },
+  {
+   "id": "weather_seasons",
+   "name_fi": "Sää ja vuodenajat",
+   "group": "ops",
+   "grade": 2
+  },
+  {
+   "id": "animals",
+   "name_fi": "Eläimet",
+   "group": "ops",
+   "grade": 1
+  },
+  {
+   "id": "house_rooms",
+   "name_fi": "Koti ja huoneet",
+   "group": "ops",
+   "grade": 2
+  },
+  {
+   "id": "body_parts",
+   "name_fi": "Kehonosat",
+   "group": "ops",
+   "grade": 1
+  },
+  {
+   "id": "clothes",
+   "name_fi": "Vaatteet",
+   "group": "ops",
+   "grade": 2
+  },
+  {
+   "id": "school_objects",
+   "name_fi": "Koulutarvikkeet",
+   "group": "ops",
+   "grade": 2
+  },
+  {
+   "id": "personality",
+   "name_fi": "Luonteenpiirteet",
+   "group": "ops",
+   "grade": 4
+  },
+  {
+   "id": "opposites",
+   "name_fi": "Vastakohdat",
+   "group": "ops",
+   "grade": 3
+  },
+  {
+   "id": "verbs_action",
+   "name_fi": "Toimintaverbit",
+   "group": "ops",
+   "grade": 4
+  },
+  {
+   "id": "verbs_communication",
+   "name_fi": "Puhumisverbit",
+   "group": "ops",
+   "grade": 4
+  },
+  {
+   "id": "perusverbit_1",
+   "name_fi": "Perusverbit",
+   "group": "ops",
+   "grade": 1
+  },
+  {
+   "id": "paivarutiinit_4",
+   "name_fi": "Päivärutiinit",
+   "group": "ops",
+   "grade": 4
+  },
+  {
+   "id": "professions_5",
+   "name_fi": "Ammatit",
+   "group": "ops",
+   "grade": 5
+  },
+  {
+   "id": "sports_5",
+   "name_fi": "Urheilulajit",
+   "group": "ops",
+   "grade": 5
+  },
+  {
+   "id": "transport_5",
+   "name_fi": "Kulkuvälineet",
+   "group": "ops",
+   "grade": 5
+  },
+  {
+   "id": "prepositions_5",
+   "name_fi": "Sijaintisanat",
+   "group": "ops",
+   "grade": 5
+  },
+  {
+   "id": "feelings_advanced_5",
+   "name_fi": "Tunteet",
+   "group": "ops",
+   "grade": 5
+  },
+  {
+   "id": "shopping_5",
+   "name_fi": "Ostoksilla",
+   "group": "ops",
+   "grade": 5
+  },
+  {
+   "id": "travel_6",
+   "name_fi": "Matkustaminen",
+   "group": "ops",
+   "grade": 6
+  },
+  {
+   "id": "technology_6",
+   "name_fi": "Teknologia",
+   "group": "ops",
+   "grade": 6
+  },
+  {
+   "id": "verbs_past_6",
+   "name_fi": "Verbit (mennyt aika)",
+   "group": "ops",
+   "grade": 6
+  },
+  {
+   "id": "adjectives_advanced_6",
+   "name_fi": "Kuvailevat sanat",
+   "group": "ops",
+   "grade": 6
+  },
+  {
+   "id": "countries_6",
+   "name_fi": "Maat ja kansallisuudet",
+   "group": "ops",
+   "grade": 6
+  },
+  {
+   "id": "future_plans_6",
+   "name_fi": "Tulevaisuuden suunnitelmat",
+   "group": "ops",
+   "grade": 6
+  },
+  {
+   "id": "aikasanat_2",
+   "name_fi": "Aikasanat",
+   "group": "ops",
+   "grade": 2
+  },
+  {
+   "id": "yleissanat_3",
+   "name_fi": "Aika- ja yleissanat",
+   "group": "ops",
+   "grade": 3
+  },
+  {
+   "id": "sidesanat_5",
+   "name_fi": "Sidesanat ja täsmentimet",
+   "group": "ops",
+   "grade": 5
+  },
+  {
+   "id": "free_time_7",
+   "name_fi": "Vapaa-aika ja harrastukset",
+   "group": "ops",
+   "grade": 7
+  },
+  {
+   "id": "health_7",
+   "name_fi": "Terveys ja kehon vaivat",
+   "group": "ops",
+   "grade": 7
+  },
+  {
+   "id": "cooking_7",
+   "name_fi": "Ruoanlaitto",
+   "group": "ops",
+   "grade": 7
+  },
+  {
+   "id": "money_7",
+   "name_fi": "Ostokset ja raha",
+   "group": "ops",
+   "grade": 7
+  },
+  {
+   "id": "town_7",
+   "name_fi": "Kaupunki ja reittiohjeet",
+   "group": "ops",
+   "grade": 7
+  },
+  {
+   "id": "nature_7",
+   "name_fi": "Sää ja luonto",
+   "group": "ops",
+   "grade": 7
+  },
+  {
+   "id": "relationships_7",
+   "name_fi": "Ihmissuhteet",
+   "group": "ops",
+   "grade": 7
+  },
+  {
+   "id": "media_8",
+   "name_fi": "Media ja sosiaalinen media",
+   "group": "ops",
+   "grade": 8
+  },
+  {
+   "id": "travel_8",
+   "name_fi": "Matkailu ja lomat",
+   "group": "ops",
+   "grade": 8
+  },
+  {
+   "id": "environment_8",
+   "name_fi": "Ympäristö",
+   "group": "ops",
+   "grade": 8
+  },
+  {
+   "id": "work_8",
+   "name_fi": "Ammatit ja työelämä",
+   "group": "ops",
+   "grade": 8
+  },
+  {
+   "id": "culture_8",
+   "name_fi": "Kulttuuri ja juhlat",
+   "group": "ops",
+   "grade": 8
+  },
+  {
+   "id": "sports_events_8",
+   "name_fi": "Urheilutapahtumat",
+   "group": "ops",
+   "grade": 8
+  },
+  {
+   "id": "opinions_8",
+   "name_fi": "Tunteet ja mielipiteet",
+   "group": "ops",
+   "grade": 8
+  },
+  {
+   "id": "society_9",
+   "name_fi": "Yhteiskunta ja oikeudet",
+   "group": "ops",
+   "grade": 9
+  },
+  {
+   "id": "education_9",
+   "name_fi": "Koulutus ja tulevaisuus",
+   "group": "ops",
+   "grade": 9
+  },
+  {
+   "id": "science_9",
+   "name_fi": "Tiede ja teknologia",
+   "group": "ops",
+   "grade": 9
+  },
+  {
+   "id": "sustainability_9",
+   "name_fi": "Kestävä kehitys ja elämäntavat",
+   "group": "ops",
+   "grade": 9
+  },
+  {
+   "id": "communication_9",
+   "name_fi": "Viestintä",
+   "group": "ops",
+   "grade": 9
+  },
+  {
+   "id": "connectors_9",
+   "name_fi": "Liittosanat ja abstraktit sanat",
+   "group": "ops",
+   "grade": 9
+  },
+  {
+   "id": "phrasal_9",
+   "name_fi": "Yleiset phrasal verbit",
+   "group": "ops",
+   "grade": 9
+  },
+  {
+   "id": "animals_4",
+   "name_fi": "Eläimet",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "food_4",
+   "name_fi": "Ruoka ja juomat",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "home_4",
+   "name_fi": "Koti ja kodin esineet",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "chores_4",
+   "name_fi": "Kotityöt",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "nature_4",
+   "name_fi": "Luonto ja sää",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "body_4",
+   "name_fi": "Keho ja ulkonäkö",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "people_4",
+   "name_fi": "Ihmiset ja ammatit",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "fantasy_4",
+   "name_fi": "Sadut ja mielikuvitus",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "places_4",
+   "name_fi": "Paikat ja kulkuneuvot",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "clothes_4",
+   "name_fi": "Vaatteet ja asusteet",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "school_4",
+   "name_fi": "Koulu, kirjat ja tekniikka",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "hobbies_4",
+   "name_fi": "Harrastukset, leikit ja juhlat",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "sports_4",
+   "name_fi": "Urheilu ja talvilajit",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "calendar_4",
+   "name_fi": "Kuukaudet ja juhlapäivät",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "time_4",
+   "name_fi": "Aika ja ajanilmaukset",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "numbers_4",
+   "name_fi": "Luvut ja mitat",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "countries_4",
+   "name_fi": "Maat ja kielet",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "pronouns_4",
+   "name_fi": "Persoonapronominit",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "little_4",
+   "name_fi": "Kysymys- ja pikkusanat",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "places_dir_4",
+   "name_fi": "Suunnat ja paikkasanat",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "general_4",
+   "name_fi": "Yleisiä sanoja",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "verbs1_4",
+   "name_fi": "Verbit 1",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "verbs2_4",
+   "name_fi": "Verbit 2",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "adj_4",
+   "name_fi": "Adjektiivit",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "phrases_4",
+   "name_fi": "Fraasit ja huudahdukset",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true
+  },
+  {
+   "id": "koe1_4",
+   "name_fi": "Koe 1",
+   "group": "ops",
+   "grade": 4,
+   "no_de": true,
+   "exam": true,
+   "lang": "en"
+  },
+  {
+   "id": "koe1_de",
+   "name_fi": "Koe 1",
+   "group": "ops",
+   "grade": 1,
+   "exam": true,
+   "lang": "de"
+  }
+ ]
+}

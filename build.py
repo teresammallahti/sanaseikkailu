@@ -1,18 +1,24 @@
 import json, os, re, sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
+import datamodel
 
 # Polut ovat suhteessa tämän skriptin sijaintiin, joten build toimii suoraan
 # repokansiosta millä tahansa koneella (ei enää kovakoodattuja /tmp-polkuja).
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "index_template.html")
-VOCAB = os.path.join(HERE, "en_1_9lk_v17.json")
+DATA = os.path.join(HERE, "data")  # tietomalli v2 (vaihe 38)
 OUT_FULL = os.path.join(HERE, "index.html")
 OUT_FRAGMENT = os.path.join(HERE, "sanaseikkailu.html")
 
 with open(TEMPLATE, "r", encoding="utf-8") as f:
     template = f.read()
 
-with open(VOCAB, "r", encoding="utf-8") as f:
-    vocab = json.load(f)
+model = datamodel.load(DATA)
+errors, warnings = datamodel.validate(model)
+if errors:
+    print("ERROR: tietomallin tarkistus:", *errors[:20], sep="\n  ", file=sys.stderr)
+    sys.exit(1)
+vocab, sentence_data = datamodel.to_legacy(model)
 
 vocab_json = json.dumps(vocab, ensure_ascii=False, indent=2)
 
@@ -20,7 +26,11 @@ if "__WORD_DATA__" not in template:
     print("ERROR: __WORD_DATA__ placeholder not found in template", file=sys.stderr)
     sys.exit(1)
 
-full = template.replace("__WORD_DATA__", vocab_json)
+if "__SENTENCE_DATA__" not in template:
+    print("ERROR: __SENTENCE_DATA__ placeholder not found in template", file=sys.stderr)
+    sys.exit(1)
+full = template.replace("__WORD_DATA__", vocab_json).replace(
+    "__SENTENCE_DATA__", json.dumps(sentence_data, ensure_ascii=False, indent=1))
 
 with open(OUT_FULL, "w", encoding="utf-8") as f:
     f.write(full)
@@ -49,4 +59,5 @@ with open(OUT_FRAGMENT, "w", encoding="utf-8") as f:
     f.write(fragment)
 
 print("Built:", OUT_FULL, "and", OUT_FRAGMENT)
-print("Vocab words:", len(vocab["words"]), "version:", vocab["meta"].get("version"))
+print("Vocab words:", len(vocab["words"]), "version:", vocab["meta"].get("version"),
+      "sentences:", {k: len(v) for k, v in sentence_data.items()})

@@ -27,10 +27,26 @@ Pitkän tähtäimen tavoite: Sanaseikkailusta kehitetään **täysiverinen kielt
 10. **Saavutettavuus ja käyttöliittymä.** Toimii puhelimella, tabletilla ja tietokoneella; näppäimistö ja kosketus; isot kirjasimet, kontrasti, lukihäiriöystävällinen kirjasinvaihtoehto.
 11. **Oikeudet ja lisenssit.** Selvitettävä ennen julkaisua: sanaston/virkkeiden alkuperä, äänilähteet (nykyinen selaimen puhesynteesi riittää alkuun), tietosuoja (tiedot vain laitteella).
 
+### Kaksi tilaa: koulutila ja itseopiskelutila (päätetty vaiheessa 38)
+
+Ohjelma jaetaan kahteen tilaan, jotka käyttävät samaa harjoitusmoottoria (piirrä/kirjoita/puhu, virkkeet, kielioppi, edistymisen tallennus) ja samaa käsitevarastoa, mutta eri rakennetta:
+
+- **Koulutila (lapset ja nuoret):** nykyinen malli ennallaan: luokka-asteet 1–9, kielten aloitusluokat (en 1., de/sv 4.), koeteemat, Viikon sanat, maskotit ja palkinnot.
+- **Itseopiskelutila (aikuiset):** CEFR-tasot A1 → A2 → B1 ja aikuisen arkeen sidotut aihepiirit, hillitty ulkoasu, tasonmääritys, selitetty kielioppi.
+
+Miksi aikuiselle ei kannata koulurakennetta sellaisenaan:
+1. **Aihepiirien järjestys seuraa lapsen elämää:** värit, lelut, eläimet, koulutarvikkeet, pelisanasto ja sadut tulevat ensin; aikuinen tarvitsee heti asumisen, työn, terveyden, asioinnin ja matkustamisen sanastoa.
+2. **Tahti on koulun:** koulussa A1-taso venyy usealle vuodelle (pari tuntia viikossa); aikuinen voi edetä samaan tasoon muutamassa kuukaudessa, ja luokka-asteet vain hidastavat ja hämärtävät tavoitetta.
+3. **Luokka-aste ei kerro aikuiselle mitään** ("ruotsin 4. luokka"), kun taas CEFR-tasot ovat vertailukelpoisia kurssien, YKI-testin ja työnantajien kanssa.
+4. **Sisältö on osin oppikirjasidonnaista** (4. lk:n kirjasanasto, Koe-teemat), mikä palvelee vain kyseisen kirjan käyttäjää.
+5. **Aikuinen hyötyy eksplisiittisestä kieliopista** heti alussa, lapsi oppii enemmän toistolla ja leikillä; myös palkinnot ja maskotit ovat lapselle suunniteltuja.
+
+Päällekkäisyys on silti suuri (perussanasto, numerot, ruoka, perhe), joten käsitteet ovat yhteisiä ja vain niiden ryhmittely ja tahti eroavat (`data/school.json` vs. `data/self.json`).
+
 ### Tiekartta (ehdotettu järjestys)
 
 - **A. Pohja (valmis/käynnissä):** kolme kieltä, sanat + virkkeet, kielioppi (de), aikuisen raportti, testit. Ruotsi lisätty (vaihe 37).
-- **B. Tasorakenne:** A1–B1 rinnakkain luokka-asteiden kanssa; tasomääritys; kielikohtaiset ydinsanastot (taajuuslistat → Opus-luonnos → Fable-tarkistus).
+- **B. Tasorakenne:** ✅ tietomalli v2 ja itseopiskelun aihepiiriluonnos (vaihe 38). Seuraavaksi: tilanvalinta käyttöliittymään, A1-ydinsanaston karsinta ja täydennys aikuiselle (nyt A1-luonnoksessa 1029 käsitettä englanniksi, joista 333 saksaksi/ruotsiksi; tavoite ~600, kaikilla kolmella kielellä), tasonmääritys.
 - **C. Uudet harjoitustyypit:** monivalinta, yhdistely, sanelu, lukukappaleet. Nämä hyödyttävät myös koulutilaa.
 - **D. Ruotsin ja englannin kielioppi:** en/ett, englannin aikamuodot, saksan verbit/sijat.
 - **E. Kertausjärjestelmä (spaced repetition) ja päivätavoite.**
@@ -38,6 +54,19 @@ Pitkän tähtäimen tavoite: Sanaseikkailusta kehitetään **täysiverinen kielt
 - **G. Muut lähtökielet** (esim. englanti → ruotsi), vasta kun suomi-pohja on vakaa.
 
 Päätökset ennen B-vaihetta (kysytään käyttäjältä, kun siihen tullaan): sisältölähde ja lisenssi, kohdeyleisö (aikuiset vs. nuoret), halutaanko mukaan tilit/synkronointi.
+
+## Tietomalli v2 (vaihe 38)
+
+Sanasto ja virkkeet ovat kansiossa `data/` (ei enää yhdessä `en_1_9lk_vNN.json`-tiedostossa eikä virkkeitä `index_template.html`:ssä):
+
+- `data/meta.json`: versio (v18), kielet, muutosloki (vanha historia `legacy_meta`-kentässä).
+- `data/concepts.json`: kielestä riippumattomat käsitteet (`id`, `fi` = suomen kehote, `cat` = koulutilan teema, `also` = lisäteemat). Käsitteen id on vanha sanan id, joten laitteelle tallennettu edistyminen säilyy.
+- `data/forms/en.json`, `de.json`, `sv.json`: kielikohtaiset muodot (`text` = hyväksytyt vastaukset " / " eroteltuna, `pl` = monikko, `fi` = kielikohtainen kehote, kun yhteinen kehote ei sovi, esim. spring = "kevät / jousi" → ruotsiksi ja saksaksi pelkkä "kevät"). Kieli ei enää riipu englannista: käsitteellä voi olla pelkkä saksan tai ruotsin muoto.
+- `data/school.json`: koulutila (luokka-asteet, aloitusluokat, 93 teemaa).
+- `data/self.json`: itseopiskelutila, LUONNOS: tasot A1/A2/B1 ja 29 aihepiiriä, jotka kokoavat käsitteet koulun teemoista (`from_categories`, `add`, `exclude`); lapsi-/koulusidonnaiset teemat on rajattu pois (`not_in_self`).
+- `data/sentences/<kieli>.json`: virkkeet (`text`, `fi`, `alt`, `grade`, `theme`; myöhemmin `level`).
+
+Työkalut: `tools/datamodel.py` (lataus, `validate()`, `to_legacy()` = sovelluksen nykyinen muoto, `self_topic_concepts()`), `tools/migrate_v17_to_v2.py` (kertaluonteinen siirto, tulos tarkistettu identtiseksi v17:n kanssa), `tools/apply_sv_fable_v38.py`. `build.py` lukee mallin, validoi sen ja upottaa sanaston ja virkkeet sovellukseen. Tiedostot on kirjoitettu yksi alkio per rivi, jotta git-diffit pysyvät luettavina ja sisältötyön (Opus/Fable) voi tehdä kieli kerrallaan.
 
 ## Arkkitehtuurilinjaus: kevytohjelma, ei "oikea" sovellus
 
@@ -271,12 +300,13 @@ Vinkki: Chromen valikko → "Lisää aloitusnäyttöön" avaa sovelluksen kokoru
    - Huom: englannin virkkeitä luokille 7–9 ei vielä ole (virketila näyttää "Ei vielä virkkeitä"); `meta.level` jätettiin "4lk" tallennusavainten säilyttämiseksi.
 37. **Ruotsi (sv) kolmanneksi kieleksi (vaihe 37)** — ✅ Opus kirjoitti ruotsinnokset 481 sanalle (kaikki sanat, joilla on saksa ja luokka ≤ 6; ei Koe 1 -englantia, ei `de_only`) ja 60 ruotsin virkettä (`sv_g1_*`–`sv_g3_*`, 20 / opiskeluvuosi). Sovellukseen 🇸🇪 Svenska -nappi, ruotsin kielitila (puhesynteesi sv-SE), å/ä/ö-lievennys virkkeissä (å/ä→a, ö→o), ruotsin apusanat täydennystehtävässä, numerosanat 0–20; ruotsi alkaa 4. luokalta kuten saksa. Sanojen vastauksissa å/ä/ö ja artikkeli (en/ett) vaaditaan täsmälleen. Kielioppi-harjoitus on toistaiseksi vain saksalle. Sanasto v17 (`en_1_9lk_v17.json`), `check_data.py` tarkistaa ruotsin kentät. 144 testiä, Artifact v37. **Fable-tarkistus odottaa käyttäjän komentoa:** 481 sanaa + 60 virkettä. **Ei pushattu** (käyttäjän ohje) - vain paikallinen commit.
    - Samassa vaiheessa projektin suunta päivitettiin: ks. luku "Visio: täysiverinen itseopiskeluohjelma".
+38. **Ruotsin Fable-tarkistus + tietomalli v2 + tilajako (vaihe 38)** — ✅ Fable tarkisti käyttäjän komennosta ruotsin 481 sanaa (30 korjausta: ainesanat ilman artikkelia, väska / kasse, e-post, puuttuvat yleiset vaihtoehdot kuten idag/imorgon/igår, sockor, lycklig, hård; ei yhtään å/ä/ö- tai en/ett-virhettä) ja 60 virkettä (ei virheitä, 23 alt-täydennystä). Fablen havaitsemat englannin homonyymit suomen kehotteissa (kevät / jousi, kirja / varata, viivain / hallitsija, laskeutua / maa, jalka) korjattu kielikohtaisilla kehotteilla saksalle ja ruotsille. Uusi tietomalli v2 (ks. luku "Tietomalli v2"), sovellukseen `fiFor()`; sovelluksen toiminta muuten ennallaan (koulutila). Päätetty jakaa ohjelma koulutilaan ja aikuisen itseopiskelutilaan (ks. visio); `data/self.json` on ensimmäinen luonnos. Sanasto v18. 145 + 11 testiä (`tests/test_datamodel.py`), Artifact v38, vain paikallinen commit (ei pushia).
 
 > Muistutussääntö: kun aloitatte uuden vaiheen, mainitkaa se — Claude tarkistaa suunnitelman ja muistuttaa, mikä malli kannattaa olla käytössä.
 
 ## Seuraavaksi käyttäjältä
 
-1. **Push GitHubiin** — käyttäjä päätti vaiheessa 37, ettei pushata vielä; paikallisia committeja kertyy (vaiheet 31–37 odottavat). Kun aika koittaa, aja koneellasi allekkain:
+1. **Push GitHubiin** — käyttäjä päätti vaiheessa 37, ettei pushata vielä; paikallisia committeja kertyy (vaiheet 31–38 odottavat). Kun aika koittaa, aja koneellasi allekkain:
 
    ```powershell
    cd "G:\01 AI\05 Kieliohjelma"

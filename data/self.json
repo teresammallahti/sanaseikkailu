@@ -1,0 +1,382 @@
+{
+ "description": "Itseopiskelutila aikuiselle (LUONNOS, vaihe 38). CEFR-tasot ja aihepiirit. Aihepiiri kokoaa käsitteet koulutilan teemoista (from_categories) + add - exclude. Aikuisen ydinsanasto täydennetään omana sisältövaiheenaan (Opus-luonnos -> Fable-tarkistus); sitä ennen moni aihepiiri on vain englanniksi.",
+ "status": "draft",
+ "levels": [
+  {
+   "id": "A1",
+   "name_fi": "A1 – Alkeet",
+   "goal_fi": "Selviää tutuista arkitilanteista: esittäytyminen, perhe, numerot ja aika, ruoka, ostokset, koti ja kaupungilla liikkuminen. Ymmärtää ja tuottaa lyhyitä, yksinkertaisia virkkeitä."
+  },
+  {
+   "id": "A2",
+   "name_fi": "A2 – Perustaso",
+   "goal_fi": "Kertoo menneestä ja tulevasta, asioi (terveys, raha, matkustaminen, työ), ilmaisee tunteita ja mielipiteitä yksinkertaisesti."
+  },
+  {
+   "id": "B1",
+   "name_fi": "B1 – Itsenäinen kielenkäyttäjä",
+   "goal_fi": "Keskustelee yhteiskunnasta, työstä, opiskelusta, ympäristöstä ja kulttuurista; perustelee mielipiteitä ja ymmärtää pidempiä tekstejä."
+  }
+ ],
+ "topics": [
+  {
+   "id": "a1_greetings",
+   "name_fi": "Tervehdykset ja kohteliaisuus",
+   "level": "A1",
+   "from_categories": [
+    "greetings_phrases",
+    "polite_phrases",
+    "phrases_4"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a1_numbers_time",
+   "name_fi": "Numerot, aika ja kalenteri",
+   "level": "A1",
+   "from_categories": [
+    "numbers",
+    "numbers_4",
+    "weekdays",
+    "time",
+    "aikasanat_2",
+    "calendar_4",
+    "time_4"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a1_me_family",
+   "name_fi": "Minä, perhe ja ihmiset",
+   "level": "A1",
+   "from_categories": [
+    "myself",
+    "family",
+    "appearance",
+    "personality",
+    "pronouns_4"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a1_food",
+   "name_fi": "Ruoka ja juoma",
+   "level": "A1",
+   "from_categories": [
+    "food_savoury",
+    "fruit",
+    "food_4"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a1_home",
+   "name_fi": "Koti ja kotityöt",
+   "level": "A1",
+   "from_categories": [
+    "house_rooms",
+    "home_4",
+    "chores_4"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a1_town",
+   "name_fi": "Kaupunki ja liikkuminen",
+   "level": "A1",
+   "from_categories": [
+    "places_town",
+    "transport_5",
+    "prepositions_5",
+    "places_4",
+    "places_dir_4"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a1_shopping",
+   "name_fi": "Ostokset, vaatteet ja värit",
+   "level": "A1",
+   "from_categories": [
+    "shopping_5",
+    "clothes",
+    "clothes_4",
+    "belongings",
+    "colours"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a1_body",
+   "name_fi": "Keho",
+   "level": "A1",
+   "from_categories": [
+    "body_parts",
+    "body_4"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a1_weather",
+   "name_fi": "Sää, vuodenajat ja luonto",
+   "level": "A1",
+   "from_categories": [
+    "weather_seasons",
+    "nature_4"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a1_free_time",
+   "name_fi": "Vapaa-aika ja urheilu",
+   "level": "A1",
+   "from_categories": [
+    "hobbies",
+    "sports_5",
+    "hobbies_4",
+    "sports_4"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a1_verbs",
+   "name_fi": "Perusverbit",
+   "level": "A1",
+   "from_categories": [
+    "perusverbit_1",
+    "verbs_action",
+    "verbs_communication",
+    "paivarutiinit_4",
+    "verbs1_4",
+    "verbs2_4"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a1_core",
+   "name_fi": "Pikkusanat ja peruskuvailu",
+   "level": "A1",
+   "from_categories": [
+    "opposites",
+    "yleissanat_3",
+    "little_4",
+    "general_4",
+    "adj_4"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a2_work",
+   "name_fi": "Työ ja ammatit",
+   "level": "A2",
+   "from_categories": [
+    "professions_5",
+    "people_4",
+    "work_8"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a2_travel",
+   "name_fi": "Matkustaminen ja maat",
+   "level": "A2",
+   "from_categories": [
+    "travel_6",
+    "countries_6",
+    "countries_4",
+    "travel_8"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a2_health",
+   "name_fi": "Terveys",
+   "level": "A2",
+   "from_categories": [
+    "health_7"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a2_money",
+   "name_fi": "Raha ja asiointi",
+   "level": "A2",
+   "from_categories": [
+    "money_7"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a2_cooking",
+   "name_fi": "Ruoanlaitto",
+   "level": "A2",
+   "from_categories": [
+    "cooking_7"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a2_directions",
+   "name_fi": "Reittiohjeet",
+   "level": "A2",
+   "from_categories": [
+    "town_7"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a2_past_future",
+   "name_fi": "Menneestä ja tulevasta kertominen",
+   "level": "A2",
+   "from_categories": [
+    "verbs_past_6",
+    "future_plans_6"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a2_feelings",
+   "name_fi": "Tunteet ja mielipiteet",
+   "level": "A2",
+   "from_categories": [
+    "feelings_advanced_5",
+    "opinions_8"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a2_tech_media",
+   "name_fi": "Teknologia ja media",
+   "level": "A2",
+   "from_categories": [
+    "technology_6",
+    "media_8"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a2_people",
+   "name_fi": "Ihmissuhteet ja vapaa-aika",
+   "level": "A2",
+   "from_categories": [
+    "relationships_7",
+    "free_time_7"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "a2_linking",
+   "name_fi": "Sidesanat ja kuvailu",
+   "level": "A2",
+   "from_categories": [
+    "sidesanat_5",
+    "adjectives_advanced_6"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "b1_society",
+   "name_fi": "Yhteiskunta",
+   "level": "B1",
+   "from_categories": [
+    "society_9"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "b1_education",
+   "name_fi": "Koulutus ja ura",
+   "level": "B1",
+   "from_categories": [
+    "education_9"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "b1_science",
+   "name_fi": "Tiede ja teknologia",
+   "level": "B1",
+   "from_categories": [
+    "science_9"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "b1_environment",
+   "name_fi": "Ympäristö ja luonto",
+   "level": "B1",
+   "from_categories": [
+    "environment_8",
+    "sustainability_9",
+    "nature_7"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "b1_culture",
+   "name_fi": "Kulttuuri, juhlat ja tapahtumat",
+   "level": "B1",
+   "from_categories": [
+    "culture_8",
+    "sports_events_8"
+   ],
+   "add": [],
+   "exclude": []
+  },
+  {
+   "id": "b1_communication",
+   "name_fi": "Viestintä ja abstraktit sanat",
+   "level": "B1",
+   "from_categories": [
+    "communication_9",
+    "connectors_9",
+    "phrasal_9"
+   ],
+   "add": [],
+   "exclude": []
+  }
+ ],
+ "not_in_self": {
+  "reason": "Lapsille/kouluun sidotut teemat, eivät kuulu aikuisen ydinsisältöön",
+  "categories": [
+   "school_people",
+   "school_subjects",
+   "school_objects",
+   "school_4",
+   "gaming_minecraft",
+   "gaming_fortnite",
+   "fantasy_4",
+   "animals",
+   "animals_4",
+   "koe1_4",
+   "koe1_de"
+  ]
+ }
+}

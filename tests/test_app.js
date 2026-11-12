@@ -785,6 +785,18 @@ test('Virkkeet: pickSentenceRound valitsee aktiivisen luokan virkkeen', async ()
   app.dispose();
 });
 
+test('Tietomalli v2: kielikohtainen suomen kehote (fiFor) ja ruotsin Fable-korjaukset', async () => {
+  const app = await boot({ localStorage: { targetLang: 'sv' } });
+  assert.strictEqual(app.run('VOCAB.meta.version'), 'v18');
+  assert.strictEqual(app.run('fiFor(VOCAB.words.find(w => w.id === "weather_seasons_spring"))'), 'kevät');
+  assert.strictEqual(app.run('VOCAB.words.find(w => w.id === "weather_seasons_snow").sv'), 'snö');
+  app.run('selectTargetLang("en")');
+  assert.strictEqual(app.run('fiFor(VOCAB.words.find(w => w.id === "weather_seasons_spring"))'), 'kevät / jousi');
+  assert.strictEqual(app.run('VOCAB.words.filter(w => w.de_only).length'), 37);
+  assert.ok(app.run('SENTENCE_DATA.sv.find(s => s.id === "sv_g1_6").alt.includes("Min systers namn är Elsa.")'));
+  app.dispose();
+});
+
 test('Ruotsi: nappi, kielitila ja sanasto (sv)', async () => {
   const app = await boot();
   assert.ok(app.langButtons.find(b => b.dataset.lang === 'sv'), 'ruotsin nappi puuttuu');

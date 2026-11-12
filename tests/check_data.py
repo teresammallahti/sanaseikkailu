@@ -4,7 +4,9 @@ import json, re, subprocess, sys, collections
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-VOCAB = REPO / "en_1_9lk_v17.json"
+sys.path.insert(0, str(REPO / "tools"))
+import datamodel  # tietomalli v2 (vaihe 38): data/ -> sovelluksen muoto
+MODEL = datamodel.load(REPO / "data")
 TEMPLATE = REPO / "index_template.html"
 
 ERR, WARN, INFO = collections.defaultdict(list), collections.defaultdict(list), collections.defaultdict(list)
@@ -13,33 +15,11 @@ def warn(g, m): WARN[g].append(m)
 def info(g, m): INFO[g].append(m)
 
 def load_sentences():
-    src = TEMPLATE.read_text(encoding="utf-8")
-    m = re.search(r"const\s+SENTENCE_DATA\s*=\s*\{", src)
-    if not m:
-        err("Load", "SENTENCE_DATA not found in index_template.html"); return {}
-    i = m.end() - 1; depth = 0; j = i; instr = None; esc = False
-    while j < len(src):  # brace-match, aware of strings and comments
-        c = src[j]
-        if instr:
-            if esc: esc = False
-            elif c == "\\": esc = True
-            elif c == instr: instr = None
-        elif c in "\"'`": instr = c
-        elif src.startswith("//", j): j = src.index("\n", j); continue
-        elif src.startswith("/*", j): j = src.index("*/", j) + 1
-        elif c == "{": depth += 1
-        elif c == "}":
-            depth -= 1
-            if depth == 0: break
-        j += 1
-    literal = src[i:j + 1]
-    r = subprocess.run(["node", "-e", "console.log(JSON.stringify(" + literal + "))"],
-                       capture_output=True, text=True)
-    if r.returncode != 0:
-        err("Load", "Node failed to evaluate SENTENCE_DATA: " + r.stderr.strip()[:300]); return {}
-    return json.loads(r.stdout)
+    return datamodel.to_legacy(MODEL)[1]
 
-data = json.load(open(VOCAB, encoding="utf-8"))
+data = datamodel.to_legacy(MODEL)[0]
+for e in datamodel.validate(MODEL)[0]: err("Model", e)
+for w_ in datamodel.validate(MODEL)[1]: warn("Model", w_)
 ALLW = data["words"]  # sis. de_only-sanat (vain saksan harjoitukseen)
 SD = load_sentences()
 cats = data["categories"]; words = data["words"]; ewords = [w for w in words if not w.get("de_only")]; sents = SD.get("en", []) if SD else []
