@@ -24,7 +24,7 @@ import json
 from pathlib import Path
 
 LANGS = ["en", "de", "sv"]
-INFL = ("def", "pres", "pret", "sup", "neut", "apl")
+INFL = ("def", "pres", "pret", "sup", "neut", "apl", "past", "pp", "pres3")
 
 
 def _load(p):
@@ -74,6 +74,8 @@ def to_legacy(m):
                 w[f"{lang}_pl"] = f["pl"]
             if f.get("fi"):
                 w[f"fi_{lang}"] = f["fi"]
+            if f.get("self_only"):
+                w.setdefault("self_langs", []).append(lang)  # muoto vain itseopiskeluun
             infl = {k: f[k] for k in INFL if f.get(k)}
             if infl:
                 w[f"{lang}_infl"] = infl
@@ -81,8 +83,8 @@ def to_legacy(m):
             w["also"] = c["also"]
         if c.get("pos"):
             w["pos"] = c["pos"]
-        if not en and c.get("cat"):
-            w["de_only"] = True  # vanha lippu: ei englannin muotoa
+        if c.get("cat") and (not en or en.get("self_only")):
+            w["de_only"] = True  # koulussa ei englannin muotoa  # vanha lippu: ei englannin muotoa
         words.append(w)
     meta = dict(m["meta"].get("legacy_meta", {}))
     meta["version"] = m["meta"]["version"]

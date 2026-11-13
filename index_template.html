@@ -493,14 +493,40 @@
     justify-content:center;
   }
   .grammar-tabs{ display:flex; gap:8px; justify-content:center; margin-bottom:10px; }
-  .grammar-tab{ border:2px solid transparent; background:var(--card-bg); color:var(--ink); padding:6px 16px; border-radius:999px;
+  .grammar-tab, .infl-tab{ border:2px solid transparent; background:var(--card-bg); color:var(--ink); padding:6px 16px; border-radius:999px;
     font-size:14px; font-weight:700; cursor:pointer; box-shadow:var(--shadow); }
-  .grammar-tab.active{ background:#8e6bbf; color:#fff; }
+  .grammar-tab.active, .infl-tab.active{ background:#8e6bbf; color:#fff; }
   .grammar-btns{ display:flex; gap:12px; justify-content:center; margin:14px 0; }
   .grammar-btns .btn{ min-width:84px; font-size:1.3em; }
   .grammar-btns .btn.right{ outline:4px solid #43a047; }
   .grammar-btns .btn.wrong{ outline:4px solid #e53935; }
   .feedback .plural-note{ font-weight:600; }
+  /* Taivutusharjoitus (vaihe 43): tiiviit välilehdet ja kentät pystytabletille */
+  .infl-tabs{ flex-wrap:wrap; gap:6px; }
+  .infl-tabs .infl-tab{ padding:4px 12px; font-size:13px; }
+  .infl-inputs{ display:flex; flex-direction:column; gap:8px; width:100%; max-width:420px; margin:10px auto; }
+  .infl-field{ display:flex; align-items:center; gap:10px; }
+  .infl-field > span{ flex:0 0 38%; font-size:13px; font-weight:700; color:#7a7189; text-align:right; }
+  .infl-field .answer-box{ flex:1 1 auto; min-width:0; margin:0; }
+  .infl-field .answer-box.right{ border-color:var(--good); background:#e3f6e8; }
+  .infl-field .answer-box.wrong{ border-color:var(--bad); background:#fdeaea; }
+  .infl-card .prompt-word{ font-size:clamp(26px,7vw,40px); }
+  body.self-mode .infl-tabs .infl-tab{ box-shadow:none; border-color:#d9d3e6; font-weight:600; }
+  body.self-mode .infl-tabs .infl-tab.active{ background:var(--accent-dark); border-color:var(--accent-dark); }
+  body.self-mode .grammar-btns .btn{ border-radius:10px; font-weight:700; }
+  /* Kuuntele-harjoitus (vaihe 44): tiivis pystytabletille, itseopiskelussa hillitty */
+  .listen-card{ padding:10px 14px; text-align:center; }
+  .listen-card .prompt-hint{ margin:2px 0 6px; }
+  .listen-actions{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:6px 0 2px; }
+  .listen-btn{ min-height:44px; padding:8px 16px; font-size:15px; }
+  .listen-btn:disabled{ opacity:.5; cursor:default; }
+  .listen-notice{ width:100%; max-width:700px; box-sizing:border-box; margin:6px auto; padding:12px 14px; border-radius:14px;
+    background:#fff4e5; border:2px solid #f2c27b; color:var(--ink); font-weight:700; text-align:center; }
+  .listen-notice[hidden]{ display:none; }
+  #listenAnswerArea[hidden], #listenCard[hidden], #listenScore[hidden]{ display:none; }
+  .listen-input-wrap{ display:block; }
+  body.self-mode .listen-btn{ border-radius:10px; font-weight:600; box-shadow:none; }
+  body.self-mode .listen-notice{ border-radius:10px; }
   .btn{
     border:none;
     padding: 12px 28px;
@@ -865,6 +891,8 @@
     <button class="practice-switch-btn" data-practice="sentences" id="sentencesSwitchBtn" aria-pressed="false">📝 Virkkeet</button>
     <button class="practice-switch-btn" data-practice="grammar" id="grammarSwitchBtn" aria-pressed="false" style="display:none">🔤 Kielioppi</button>
     <button class="practice-switch-btn" data-practice="match" id="matchSwitchBtn" aria-pressed="false">🔗 Yhdistä</button>
+    <button class="practice-switch-btn" data-practice="infl" id="inflSwitchBtn" aria-pressed="false" style="display:none">🔤 Taivutus</button>
+    <button class="practice-switch-btn" data-practice="listen" id="listenSwitchBtn" aria-pressed="false">🎧 Kuuntele</button>
   </div>
 
   <header>
@@ -1017,6 +1045,48 @@
 
         <div class="feedback" id="sentenceFeedback"></div>
       </section>
+    </div>
+
+    <div id="inflPractice" hidden>
+      <div class="grammar-tabs infl-tabs" id="inflTabs"></div>
+      <section class="prompt-card infl-card">
+        <div class="prompt-hint" id="inflHint">…</div>
+        <div class="prompt-word" id="inflWord">…</div>
+        <div class="prompt-category" id="inflFi"></div>
+      </section>
+      <div class="grammar-btns" id="inflChoiceBtns" hidden></div>
+      <div class="infl-inputs" id="inflInputs" hidden></div>
+      <div class="actions">
+        <button class="btn primary" id="inflCheck" type="button" hidden>Tarkista</button>
+        <button class="btn ghost" id="inflSkip" type="button">Ohita</button>
+      </div>
+      <div class="feedback" id="inflFeedback"></div>
+      <div class="progress-label" id="inflScore"></div>
+    </div>
+
+    <div id="listenPractice" hidden>
+      <div class="grammar-tabs infl-tabs" id="listenTabs"></div>
+      <div class="listen-notice" id="listenNotice" role="alert" hidden></div>
+      <section class="prompt-card listen-card" id="listenCard">
+        <div class="prompt-hint" id="listenHint">…</div>
+        <div class="listen-actions">
+          <button class="btn ghost listen-btn" id="listenReplay" type="button">🔊 Kuuntele uudelleen</button>
+          <button class="btn ghost listen-btn" id="listenSlow" type="button">🐢 Hitaasti</button>
+          <button class="btn ghost listen-btn" id="listenReveal" type="button">👁️ Näytä</button>
+        </div>
+      </section>
+      <section class="answer-area" id="listenAnswerArea">
+        <div class="answer-input-wrap visible listen-input-wrap" id="listenWriteWrap">
+          <input type="text" class="answer-box" id="listenInput" placeholder="Kirjoita kuulemasi..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false">
+        </div>
+        <div class="choice-wrap" id="listenChoices" role="group" aria-label="Vaihtoehdot"></div>
+        <div class="actions">
+          <button class="btn ghost" id="listenSkip" type="button">Ohita</button>
+          <button class="btn primary" id="listenCheck" type="button">Tarkista</button>
+        </div>
+        <div class="feedback" id="listenFeedback"></div>
+      </section>
+      <div class="progress-label" id="listenScore"></div>
     </div>
 
     <div id="grammarPractice" hidden>
@@ -1233,9 +1303,9 @@ function practiceWords(){
   // self_only-sanat (ei teemaa) kuuluvat vain itseopiskeluun, ei koskaan peruskouluun.
   return VOCAB.words.filter(w => !!w[targetLang] && !(w.de_only && targetLang !== "de") &&
     (studyMode === "self" || !w.self_only) &&
-    // Peruskoulun ruotsi kattaa saman sanaston kuin saksa (opiskeluvuodet 1-6);
-    // itseopiskelua varten ruotsinnetut kirja- ja yläkoulusanat eivät tule kouluun.
-    (studyMode === "self" || targetLang !== "sv" || !!w.de) &&
+    // Itseopiskelua varten koulun käsitteille lisätyt muodot (self_langs, tietomalli
+    // forms/<kieli>.json: self_only) eivät näy peruskoulussa.
+    (studyMode === "self" || !(w.self_langs || []).includes(targetLang)) &&
     // Aukolliset ilmaukset ("jag heter ...") ovat mukana vain itseopiskelussa;
     // peruskoulussa ne suodatetaan pois kuten ennen.
     (studyMode === "self" || (!w.fi.includes("...") && !w[targetLang].includes("..."))));
@@ -1335,6 +1405,9 @@ const matchPracticeEl = document.getElementById("matchPractice");
 const practiceSwitchButtons = document.querySelectorAll(".practice-switch-btn");
 const grammarPracticeEl = document.getElementById("grammarPractice");
 const grammarSwitchBtn = document.getElementById("grammarSwitchBtn");
+const inflPracticeEl = document.getElementById("inflPractice");
+const inflSwitchBtn = document.getElementById("inflSwitchBtn");
+const listenPracticeEl = document.getElementById("listenPractice");
 const sentencesSwitchBtn = document.getElementById("sentencesSwitchBtn");
 const sentenceProgressLabel = document.getElementById("sentenceProgressLabel");
 const sentenceLangPill = document.getElementById("sentenceLangPill");
@@ -1410,6 +1483,7 @@ function selectTargetLang(lang){
   try { localStorage.setItem(langStorageKey(studyMode), targetLang); } catch (e) { /* ei haittaa */ }
   syncLangButtons();
   PRACTICE_WORDS = practiceWords();
+  updateInflAvailability(); // taivutusvaihtoehto riippuu kielen taivutusdatasta
   // Kummallakin kielellä on oma luokka-aste muistissa (esim. saksa voi olla
   // vasta alkanut, vaikka englanti olisi jo pidemmällä). Itseopiskelun taso
   // ei riipu kielestä.
@@ -1428,6 +1502,8 @@ function selectTargetLang(lang){
     pickSentenceRound();
   }
   if (practiceMode === "match") startMatchRound();
+  if (practiceMode === "infl") startInflRound(true);
+  if (practiceMode === "listen") startListenRound(true);
   offerPlacementIfFirstTime();
 }
 
@@ -1598,7 +1674,9 @@ function setupGradeFilter(){
       pickSentenceRound();
     }
     if (practiceMode === "grammar") pickGrammarRound();
+    if (practiceMode === "infl") startInflRound(false);
     if (practiceMode === "match") startMatchRound();
+    if (practiceMode === "listen") startListenRound(false);
   });
 }
 
@@ -1696,6 +1774,7 @@ function applyThemeChange(){
     pickSentenceRound();
   }
   if (practiceMode === "match") startMatchRound();
+  if (practiceMode === "listen") startListenRound(false);
 }
 
 function toggleTheme(id, on){
@@ -2082,7 +2161,8 @@ function fillPoolFrom(candidates, pool, excludeIds, needed){
 // Tunnistusharjoittelu (monivalinta, yhdistely) lasketaan samaan ryhmään: sanaa on harjoiteltu
 // vain tunnistamalla, ei vielä tuottavasti.
 function hasRecognitionPractice(stat){
-  return !!stat && ((stat.choiceCorrect || 0) + (stat.choiceWrong || 0) + (stat.matchCorrect || 0) + (stat.matchWrong || 0)) > 0;
+  return !!stat && ((stat.choiceCorrect || 0) + (stat.choiceWrong || 0) + (stat.matchCorrect || 0) + (stat.matchWrong || 0) +
+    (stat.dictCorrect || 0) + (stat.dictWrong || 0) + (stat.listenCorrect || 0) + (stat.listenWrong || 0)) > 0;
 }
 function isRecognizedOnly(stat){
   return !!stat && (!!stat.recognized || hasRecognitionPractice(stat)) && !stat.correctCount && !stat.incorrectCount;
@@ -2432,12 +2512,14 @@ function svInflNote(w){
     .filter(Boolean)
     .join(" · ");
 }
-function pluralNote(){
-  if (!current) return "";
-  if (targetLang === "de") return current.de_pl || "";
-  if (targetLang === "sv") return svInflNote(current);
+// Taivutushuomautus annetulle sanalle (sama sisältö kuin pluralNote; käytössä myös Kuuntele-harjoituksessa).
+function wordNote(w){
+  if (!w) return "";
+  if (targetLang === "de") return w.de_pl || "";
+  if (targetLang === "sv") return svInflNote(w);
   return "";
 }
+function pluralNote(){ return wordNote(current); }
 // Huomautuksen otsikko: saksassa "Monikko", ruotsissa "Taivutus".
 function pluralNoteLabel(){ return targetLang === "sv" ? "Taivutus" : "Monikko"; }
 
@@ -2616,7 +2698,11 @@ async function answerChoice(i){
 const RECOG_HEAT_MAX = 4;
 const RECOG_FIELDS = {
   choice: { ok: "choiceCorrect", bad: "choiceWrong", streak: "streakChoice" },
-  match:  { ok: "matchCorrect",  bad: "matchWrong",  streak: "streakMatch" }
+  match:  { ok: "matchCorrect",  bad: "matchWrong",  streak: "streakMatch" },
+  // Kuuntele-harjoitus (vaihe 44): sanelu on tuottavaa mutta kuuntelupohjaista, joten sekin
+  // kirjataan omiin kenttiinsä (ei graduoi, ei kosketa kertausväliin); kuullun ymmärtäminen = monivalinta.
+  dict:   { ok: "dictCorrect",   bad: "dictWrong",   streak: "streakDict" },
+  listen: { ok: "listenCorrect", bad: "listenWrong", streak: "streakListen" }
 };
 async function recordRecognition(word, isCorrect, method, countDaily){
   const f = RECOG_FIELDS[method];
@@ -3135,7 +3221,7 @@ const SENTENCE_STOPWORDS = new Set([
   "could","for","with","as","than","also","by"
 ]);
 
-let practiceMode = "words"; // "words" | "sentences" | "grammar" | "match"
+let practiceMode = "words"; // "words" | "sentences" | "grammar" | "match" | "infl" | "listen"
 let currentSentence = null;
 let currentExerciseType = null;
 let sentenceBlankIndex = -1;
@@ -3503,14 +3589,20 @@ function setPracticeMode(mode){
   wordPracticeEl.hidden = mode !== "words";
   sentencePracticeEl.hidden = mode !== "sentences";
   grammarPracticeEl.hidden = mode !== "grammar";
+  inflPracticeEl.hidden = mode !== "infl";
   matchPracticeEl.hidden = mode !== "match";
+  listenPracticeEl.hidden = mode !== "listen";
   populateCategoryOptions();
   updateFocusUI();
   clearTimeout(autoSpeakTimer);
+  clearTimeout(listenPlayTimer);
+  clearTimeout(listenTimer);
   if (window.speechSynthesis) speechSynthesis.cancel();
   if (mode === "sentences") pickSentenceRound();
   if (mode === "grammar") pickGrammarRound();
+  if (mode === "infl") startInflRound(true);
   if (mode === "match") startMatchRound();
+  if (mode === "listen") startListenRound(true);
 }
 
 // Harjoittelutavan valitsin näkyy molemmissa tiloissa. Itseopiskelussa virkkeet (ei vielä
@@ -3521,6 +3613,7 @@ function syncPracticeSwitchUI(){
   practiceSwitchEl.style.display = "";
   sentencesSwitchBtn.style.display = selfMode ? "none" : "";
   updateGrammarAvailability();
+  updateInflAvailability();
 }
 
 practiceSwitchButtons.forEach(btn => {
@@ -3846,6 +3939,738 @@ document.querySelectorAll(".grammar-tab").forEach(b => b.addEventListener("click
 
 
 
+// --- Taivutusharjoitus "🔤 Taivutus" (vaihe 43) ---
+// Datavetoinen: INFL_SPEC kertoo kielittäin tehtävätyypit (kentät ja ehdot); uusi kieli
+// (englanti: en_pl, en_infl.past/pp; saksa: de_pl, de_infl.pres3/pret/pp) tulee käyttöön
+// pelkällä datalla. Kentät luetaan sanan <kieli>_infl-oliosta ("infl.def") tai <kieli>_pl:stä ("pl");
+// substantiivin suku luetaan perusmuodon artikkelista (sv en/ett, de der/die/das).
+// Tehtävä-kentät: pos = sanaluokka, kind = "choice" (valitaan artikkeli) | "type" (kirjoitetaan
+// yksi muoto; pick "one" arpoo yhden kentistä) | "multi" (kaikki kentät kerralla),
+// single = perusmuoto ei saa olla monisanainen, art = näytetäänkö artikkeli kehotteessa.
+// Kirjaus: oma tilasto (localStorage inflStats_<kieli>) + päivätavoite itseopiskelussa;
+// EI kosketa sanatilastoon, graduointiin eikä kertausväliin.
+const INFL_MIN_WORDS = 20;   // taivutusvaihtoehto näkyy vain, jos kielellä on näin monta taivutussanaa
+const INFL_MIN_POOL = 5;     // alle tämän pooli täydennetään seuraavalla ryhmällä
+const INFL_FRESH_SHARE = 0.2; // todennäköisyys ottaa harjoittelematon sana, kun harjoitelluista riittää
+const INFL_SPEC = {
+  sv: {
+    article: /^(en|ett)\s+(\S.*)$/i,
+    tasks: [
+      { id: "gender", label: "en / ett", pos: "n", kind: "choice", choices: ["en", "ett"], hint: "en vai ett?" },
+      { id: "def", label: "Määräinen", pos: "n", kind: "type", single: true, art: false,
+        fields: [{ path: "infl.def", name: "määräinen muoto" }] },
+      { id: "pl", label: "Monikko", pos: "n", kind: "type", single: true, art: true,
+        fields: [{ path: "pl", name: "monikko" }] },
+      { id: "verb", label: "Verbi", pos: "v", kind: "type", pick: "one", fields: [
+        { path: "infl.pres", name: "preesens" }, { path: "infl.pret", name: "preteriti" }, { path: "infl.sup", name: "supiini" }] },
+      { id: "verbAll", label: "Verbi ×3", pos: "v", kind: "multi", fields: [
+        { path: "infl.pres", name: "preesens" }, { path: "infl.pret", name: "preteriti" }, { path: "infl.sup", name: "supiini" }] },
+      { id: "adj", label: "Adjektiivi", pos: "adj", kind: "type", pick: "one", fields: [
+        { path: "infl.neut", name: "ett-muoto" }, { path: "infl.apl", name: "monikko / määräinen muoto" }] }
+    ]
+  },
+  en: {
+    tasks: [
+      { id: "pl", label: "Monikko", pos: "n", kind: "type", single: true, art: true,
+        fields: [{ path: "pl", name: "monikko" }] },
+      { id: "verb", label: "Verbi", pos: "v", kind: "type", pick: "one", fields: [
+        { path: "infl.past", name: "imperfekti (past)" }, { path: "infl.pp", name: "partisiippi (pp)" }] },
+      { id: "verbAll", label: "Verbi ×2", pos: "v", kind: "multi", fields: [
+        { path: "infl.past", name: "imperfekti (past)" }, { path: "infl.pp", name: "partisiippi (pp)" }] }
+    ]
+  },
+  de: {
+    article: /^(der|die|das)\s+(\S.*)$/i,
+    tasks: [
+      { id: "gender", label: "der / die / das", pos: "n", kind: "choice", choices: ["der", "die", "das"], hint: "Mikä artikkeli?" },
+      { id: "pl", label: "Monikko", pos: "n", kind: "type", single: true, art: true,
+        fields: [{ path: "pl", name: "monikko", optArt: /^die\s+/ }] },
+      { id: "verb", label: "Verbi", pos: "v", kind: "type", pick: "one", fields: [
+        { path: "infl.pres3", name: "preesens (er/sie/es)" }, { path: "infl.pret", name: "imperfekti" }, { path: "infl.pp", name: "partisiippi" }] },
+      { id: "verbAll", label: "Verbi ×3", pos: "v", kind: "multi", fields: [
+        { path: "infl.pres3", name: "preesens (er/sie/es)" }, { path: "infl.pret", name: "imperfekti" }, { path: "infl.pp", name: "partisiippi" }] }
+    ]
+  }
+};
+// Palautteen taivutusrivin kentät sanaluokittain (kielestä riippumatta; puuttuvat ohitetaan).
+const INFL_ROW = {
+  n: ["infl.def", "pl"],
+  v: ["infl.pres", "infl.pres3", "infl.past", "infl.pret", "infl.sup", "infl.pp"],
+  adj: ["infl.neut", "infl.apl"]
+};
+
+function inflTasks(){ return (INFL_SPEC[targetLang] || {}).tasks || []; }
+// Taivutuskentän arvo; "-" ja tyhjä = ei muotoa.
+function inflField(w, path){
+  const v = path === "pl" ? w[targetLang + "_pl"] : (w[targetLang + "_infl"] || {})[path.slice(5)];
+  const t = typeof v === "string" ? v.trim() : "";
+  return t === "-" ? "" : t;
+}
+// Perusmuoto: ensimmäinen vaihtoehto; substantiivilla artikkeli erotetaan. Artikkeli voi puuttua
+// ensimmäiseltä vaihtoehdolta ("måndag / en måndag") ja löytyä samasta sanasta toiselta.
+function inflBaseParts(w, task){
+  const alts = String(w[targetLang] || "").split("/").map(s => s.trim()).filter(Boolean);
+  const first = alts[0] || "";
+  const re = (INFL_SPEC[targetLang] || {}).article;
+  if (task.pos !== "n" || !re) return { art: "", noun: first };
+  const m = re.exec(first);
+  if (m) return { art: m[1].toLowerCase(), noun: m[2] };
+  for (const a of alts.slice(1)){
+    const mm = re.exec(a);
+    if (mm && mm[2].toLowerCase() === first.toLowerCase()) return { art: mm[1].toLowerCase(), noun: first };
+  }
+  return { art: "", noun: first };
+}
+// Vastausten vertailumuoto: isot kirjaimet ja loppuvälimerkit eivät merkitse, å/ä/ö ja muut merkit kyllä.
+function inflNorm(s, optArt){
+  let t = normalize(String(s || ""));
+  if (optArt) t = t.replace(optArt, "").trim();
+  return t;
+}
+// Sopiiko sana tehtävään? Palauttaa null tai { base, art, fields }.
+function inflFieldsFor(w, task){
+  if (!w || w.pos !== task.pos) return null;
+  const raw = String(w[targetLang] || "");
+  if (!raw || /\.\.\.|…/.test(raw)) return null; // aukolliset ilmaukset pois
+  const parts = inflBaseParts(w, task);
+  if (!parts.noun) return null;
+  if (task.single && /\s/.test(parts.noun)) return null; // monisanaiset fraasit pois
+  if (task.kind === "choice"){
+    return parts.art && task.choices.includes(parts.art) ? { base: parts.noun, art: parts.art, fields: [] } : null;
+  }
+  const fields = task.fields.map(f => Object.assign({ value: inflField(w, f.path) }, f));
+  const present = fields.filter(f => f.value);
+  if (task.kind === "multi") return present.length === fields.length ? { base: parts.noun, art: parts.art, fields } : null;
+  // Muoto, joka on sama kuin perusmuoto (erisnimi, "-" monikko, taipumaton adjektiivi), ei tee tehtävästä mielekästä.
+  const baseN = inflNorm(parts.noun);
+  const diff = present.filter(f => inflNorm(f.value, f.optArt) !== baseN);
+  return diff.length ? { base: parts.noun, art: parts.art, fields: diff } : null;
+}
+// Taivutusrivi palautteeseen: "en bil – bilen – bilar", "skriva – skriver – skrev – skrivit".
+function inflRow(w){
+  const parts = [firstAcceptedAnswer(String(w[targetLang] || ""))];
+  (INFL_ROW[w.pos] || []).forEach(p => { const v = inflField(w, p); if (v) parts.push(v); });
+  return parts.join(" – ");
+}
+// Luo kysymyksen (verbin/adjektiivin yksittäinen muoto arvotaan tässä).
+function inflMakeQuestion(w, task){
+  const info = inflFieldsFor(w, task);
+  if (!info) return null;
+  const q = { w, task, key: task.id + ":" + w.id, row: inflRow(w), fi: firstAcceptedAnswer(fiFor(w)) };
+  q.word = task.kind !== "choice" && task.art && info.art ? info.art + " " + info.base : info.base;
+  if (task.kind === "choice"){
+    q.correct = info.art;
+    q.choices = task.choices;
+    q.hint = task.hint;
+  } else if (task.kind === "multi"){
+    q.fields = info.fields;
+    q.hint = "Kirjoita kaikki muodot";
+  } else {
+    const f = task.pick === "one" ? info.fields[Math.floor(Math.random() * info.fields.length)] : info.fields[0];
+    q.fields = [f];
+    q.hint = "Kirjoita " + f.name;
+  }
+  return q;
+}
+// Taivutussanojen määrä (muut kuin pelkkä suku) nykyisellä kielellä: riittävyysehto.
+function inflEligibleWordCount(){
+  const tasks = inflTasks().filter(t => t.kind !== "choice");
+  return PRACTICE_WORDS.filter(w => tasks.some(t => inflFieldsFor(w, t))).length;
+}
+// Peruskoulussa vain ruotsi ("Kielioppi"); saksan Kielioppi-harjoitus säilyy ennallaan.
+function inflAvailable(){
+  if (!INFL_SPEC[targetLang]) return false;
+  if (studyMode === "school" && targetLang !== "sv") return false;
+  return inflEligibleWordCount() >= INFL_MIN_WORDS;
+}
+function updateInflAvailability(){
+  const available = inflAvailable();
+  inflSwitchBtn.style.display = available ? "" : "none";
+  inflSwitchBtn.textContent = studyMode === "school" ? "🔤 Kielioppi" : "🔤 Taivutus";
+  if (!available && practiceMode === "infl") setPracticeMode("words");
+}
+
+// Tilasto: { "<tehtävä>:<sanan id>": { c, w } } per kieli; heikoimmin menneet tulevat useammin.
+function inflStatsKey(lang){ return "inflStats_" + (lang || targetLang); }
+function inflStatsLoad(){
+  try { const o = JSON.parse(localStorage.getItem(inflStatsKey()) || "{}"); return o && typeof o === "object" ? o : {}; }
+  catch (e) { return {}; }
+}
+function inflStatsSave(st){ try { localStorage.setItem(inflStatsKey(), JSON.stringify(st)); } catch (e) { /* ei haittaa */ } }
+function inflWeight(st){
+  if (!st) return 2;
+  return 1 + 2 * Math.max(0, (st.w || 0) - (st.c || 0)) + ((st.c || 0) < 2 ? 1 : 0);
+}
+
+// Sanapooli tehtävälle: nykyisen tason (peruskoulussa luokka-asteeseen asti) sanat, joille on
+// tilasto (jo harjoiteltu), sitten muut tason sanat, sitten muut tasot.
+function inflPool(task){
+  const all = PRACTICE_WORDS;
+  let level;
+  if (studyMode === "self") level = selfLevelWords(selfLevel);
+  else level = all.filter(w => { const g = wordGrade(w); return g != null && g <= activeGrade; });
+  const inLevel = new Set(level.map(w => w.id));
+  const ok = w => !!inflFieldsFor(w, task);
+  const seen = w => !!statsCache[statId(w)];
+  const lv = level.filter(ok);
+  const rest = all.filter(w => !inLevel.has(w.id) && ok(w));
+  return {
+    primary: lv.filter(seen), secondary: lv.filter(w => !seen(w)),
+    rest: rest.filter(seen).concat(rest.filter(w => !seen(w)))
+  };
+}
+function inflCandidates(task){
+  const p = inflPool(task);
+  let list = p.primary;
+  if (list.length < INFL_MIN_POOL) list = list.concat(p.secondary);
+  if (list.length < INFL_MIN_POOL) list = list.concat(p.rest);
+  return { list, fresh: p.primary.length >= INFL_MIN_POOL ? p.secondary : [] };
+}
+
+let inflTask = "mix";        // valittu välilehti: "mix" tai tehtävän id
+let inflQ = null;            // nykyinen kysymys
+let inflLocked = false;
+let inflSession = { c: 0, t: 0 };
+let inflTabBtns = [];
+let inflInputEls = [];
+let inflChoiceEls = [];
+let inflTimer = null;
+const inflTabsEl = document.getElementById("inflTabs");
+const inflChoiceBtnsEl = document.getElementById("inflChoiceBtns");
+const inflInputsEl = document.getElementById("inflInputs");
+const inflCheckBtn = document.getElementById("inflCheck");
+const inflFeedbackEl = document.getElementById("inflFeedback");
+
+function inflActiveTasks(){
+  const all = inflTasks();
+  return inflTask === "mix" ? all : all.filter(t => t.id === inflTask);
+}
+function pickInflQuestion(){
+  const avail = inflActiveTasks().map(t => ({ t, c: inflCandidates(t) })).filter(x => x.c.list.length);
+  if (!avail.length) return null;
+  const chosen = avail[Math.floor(Math.random() * avail.length)]; // Sekoituksessa tehtävätyypit tasaisesti
+  let words = chosen.c.list;
+  if (chosen.c.fresh.length && Math.random() < INFL_FRESH_SHARE) words = chosen.c.fresh;
+  if (words.length > 1 && inflQ) words = words.filter(w => w.id !== inflQ.w.id);
+  const st = inflStatsLoad();
+  const weights = words.map(w => inflWeight(st[chosen.t.id + ":" + w.id]));
+  let r = Math.random() * weights.reduce((a, b) => a + b, 0), pick = words[words.length - 1];
+  for (let i = 0; i < words.length; i++){ r -= weights[i]; if (r <= 0){ pick = words[i]; break; } }
+  return inflMakeQuestion(pick, chosen.t);
+}
+
+function buildInflTabs(){
+  inflTabsEl.innerHTML = "";
+  inflTabBtns = [];
+  const tasks = inflTasks().filter(t => PRACTICE_WORDS.some(w => inflFieldsFor(w, t)));
+  if (inflTask !== "mix" && !tasks.some(t => t.id === inflTask)) inflTask = "mix";
+  const defs = (tasks.length > 1 ? [{ id: "mix", label: "Sekoitus" }] : []).concat(tasks);
+  if (tasks.length <= 1 && tasks.length) inflTask = tasks[0].id;
+  defs.forEach(t => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "infl-tab" + (t.id === inflTask ? " active" : "");
+    b.textContent = t.label;
+    b.dataset.task = t.id;
+    b.addEventListener("click", () => setInflTask(t.id));
+    inflTabsEl.appendChild(b);
+    inflTabBtns.push(b);
+  });
+}
+function setInflTask(id){
+  inflTask = id;
+  inflTabBtns.forEach(b => b.classList.toggle("active", b.dataset.task === id));
+  inflQ = null;
+  pickInflRound();
+}
+function startInflRound(rebuildTabs){
+  if (rebuildTabs) buildInflTabs();
+  inflQ = null;
+  pickInflRound();
+}
+
+function pickInflRound(){ renderInflQuestion(pickInflQuestion()); }
+
+function renderInflQuestion(q){
+  clearTimeout(inflTimer);
+  inflFeedbackEl.className = "feedback";
+  inflFeedbackEl.textContent = "";
+  inflLocked = false;
+  inflInputsEl.innerHTML = ""; inflInputEls = [];
+  inflChoiceBtnsEl.innerHTML = ""; inflChoiceEls = [];
+  document.getElementById("inflScore").textContent = inflSession.t ? `Oikein ${inflSession.c}/${inflSession.t}` : "";
+  inflQ = q;
+  if (!q){
+    inflChoiceBtnsEl.hidden = true; inflInputsEl.hidden = true; inflCheckBtn.hidden = true;
+    document.getElementById("inflHint").textContent = "Taivutus";
+    document.getElementById("inflWord").textContent = "–";
+    document.getElementById("inflFi").textContent = "Ei sopivia sanoja tälle valinnalle.";
+    return;
+  }
+  document.getElementById("inflHint").textContent = q.hint;
+  document.getElementById("inflWord").textContent = q.word;
+  document.getElementById("inflFi").textContent = q.fi;
+  const isChoice = q.task.kind === "choice";
+  inflChoiceBtnsEl.hidden = !isChoice;
+  inflInputsEl.hidden = isChoice;
+  inflCheckBtn.hidden = isChoice;
+  if (isChoice){
+    q.choices.forEach(c => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "btn primary";
+      b.textContent = c;
+      b.dataset.choice = c;
+      b.addEventListener("click", () => answerInflChoice(c));
+      inflChoiceBtnsEl.appendChild(b);
+      inflChoiceEls.push(b);
+    });
+    return;
+  }
+  q.fields.forEach((f, i) => {
+    const row = document.createElement("label");
+    row.className = "infl-field";
+    if (q.fields.length > 1){
+      const span = document.createElement("span");
+      span.textContent = f.name;
+      row.appendChild(span);
+    }
+    const box = document.createElement("input");
+    box.type = "text";
+    box.className = "answer-box";
+    box.setAttribute("autocomplete", "off");
+    box.setAttribute("autocapitalize", "none");
+    box.setAttribute("spellcheck", "false");
+    if (q.fields.length === 1) box.setAttribute("placeholder", "Kirjoita muoto");
+    box.addEventListener("keydown", e => {
+      if (e.key !== "Enter") return;
+      if (i < inflInputEls.length - 1) inflInputEls[i + 1].focus({ preventScroll: true });
+      else answerInflTyped();
+    });
+    row.appendChild(box);
+    inflInputsEl.appendChild(row);
+    inflInputEls.push(box);
+  });
+  inflInputEls[0].focus({ preventScroll: true });
+}
+
+// Kirjaus: oma tilasto, päiväloki ja (itseopiskelussa) päivätavoite. Sanatilastoa, graduointia
+// ja kertausväliä ei kosketa.
+function inflFinish(ok, message){
+  inflFeedbackEl.className = "feedback " + (ok ? "correct" : "incorrect");
+  inflFeedbackEl.textContent = message;
+  inflLocked = true;
+  inflSession.t += 1; if (ok) inflSession.c += 1;
+  const st = inflStatsLoad();
+  const rec = st[inflQ.key] || { c: 0, w: 0 };
+  if (ok) rec.c += 1; else rec.w += 1;
+  st[inflQ.key] = rec;
+  inflStatsSave(st);
+  logPractice(ok);
+  if (studyMode === "self") finishDailyUpdate(dailyRecordAnswer());
+  document.getElementById("inflScore").textContent = `Oikein ${inflSession.c}/${inflSession.t}`;
+  const delayed = inflQ;
+  inflTimer = setTimeout(() => { if (inflQ === delayed && inflLocked) pickInflRound(); },
+    (ok ? 1100 : 2400) + (!ok && delayed.fields && delayed.fields.length > 1 ? 800 : 0));
+}
+function inflMessage(ok, answerText){
+  return (ok ? "🎉 Oikein! " : "🙈 Ei ihan. Oikea vastaus: " + answerText + " · ") + "Taivutus: " + inflQ.row;
+}
+function answerInflChoice(c){
+  if (inflLocked || !inflQ || inflQ.task.kind !== "choice") return;
+  const ok = c === inflQ.correct;
+  inflChoiceEls.forEach(b => {
+    if (b.dataset.choice === inflQ.correct) b.classList.add("right");
+    else if (b.dataset.choice === c) b.classList.add("wrong");
+    b.disabled = true;
+  });
+  inflFinish(ok, inflMessage(ok, inflQ.correct));
+}
+function answerInflTyped(){
+  if (inflLocked || !inflQ || inflQ.task.kind === "choice") return;
+  const typed = inflInputEls.map(b => b.value);
+  if (typed.every(t => !inflNorm(t))) return; // tyhjää ei lasketa vastaukseksi
+  let all = true;
+  inflQ.fields.forEach((f, i) => {
+    const accepted = f.value.split("/").map(a => inflNorm(a, f.optArt)).filter(Boolean);
+    const good = accepted.includes(inflNorm(typed[i], f.optArt));
+    if (!good) all = false;
+    inflInputEls[i].classList.add(good ? "right" : "wrong");
+  });
+  inflFinish(all, inflMessage(all, inflQ.fields.map(f => firstAcceptedAnswer(f.value)).join(" · ")));
+}
+inflCheckBtn.addEventListener("click", answerInflTyped);
+document.getElementById("inflSkip").addEventListener("click", () => { inflLocked = false; pickInflRound(); });
+
+// --- Kuuntele-harjoitus "🎧 Kuuntele" (vaihe 44) ---
+// Kaksi tehtävätyyppiä (valitaan harjoituksen sisällä) + valinnainen kolmas:
+//  - "dict" Sanelu: sana luetaan kohdekielellä (speechSynthesis), sanaa ei näytetä, käyttäjä kirjoittaa
+//    kuulemansa. Artikkeli saa puuttua (ei kuulu aina selvästi); palaute kertoo koko muodon.
+//  - "comp" Kuullun ymmärtäminen: sana luetaan, valitaan suomennos neljästä (buildChoiceQuestion,
+//    vaihtoehdot suomeksi).
+//  - "sent" Virkesanelu (vain peruskoulu, jos kielellä on virkkeitä): sama kuin sanelu, sisältö SENTENCE_DATA.
+// SISÄLTÖLÄHDE on abstrakti: listenItems(tyyppi) palauttaa kuunneltavia kohteita
+//   { kind, id, key, text (puhuttava), forms (hyväksytyt kirjoitusasut), full (koko muoto palautteeseen),
+//     fi, note (taivutushuomautus), word | sentence }.
+// Uusi sisältö (esim. dialogit) lisätään tekemällä uusi kohdetyyppi (kind) + haara listenItems():ssa;
+// puhe, tarkistus ja kirjaus toimivat kohteen kenttien kautta eivätkä tiedä sisällön alkuperästä.
+// KIRJAUS: sanelu -> dictCorrect/dictWrong/streakDict, ymmärtäminen -> listenCorrect/listenWrong/
+// streakListen (recordRecognition): ei graduoi eikä pidennä kertausväliä; päivätavoitteeseen lasketaan
+// jokainen vastaus itseopiskelussa. Virkesanelun tilasto on laitekohtainen (localStorage listenStats_<kieli>).
+const LISTEN_SLOW_RATE = 0.6;     // "🐢 Hitaasti"
+const LISTEN_AUTOPLAY_MS = 300;   // kohteen automaattinen toisto kysymyksen alussa
+const LISTEN_RECENT_MAX = 3;      // viimeisimmät kohteet, joita ei toisteta heti uudelleen
+const LISTEN_LANG_GEN = { en: "englannin", de: "saksan", sv: "ruotsin" }; // "Laitteessa ei ole ruotsin puheääntä"
+const LISTEN_ARTICLE = {
+  en: /^(a|an|the)\s+(\S.*)$/i,
+  de: /^(der|die|das)\s+(\S.*)$/i,
+  sv: /^(en|ett)\s+(\S.*)$/i
+};
+const LISTEN_TYPES = [
+  { id: "dict", label: "✍️ Sanelu" },
+  { id: "comp", label: "👂 Ymmärtäminen" },
+  { id: "sent", label: "📝 Virkesanelu" }
+];
+
+let listenType = "dict";     // valittu tehtävätyyppi
+let listenQ = null;          // nykyinen kysymys { type, item, options? }
+let listenLocked = false;
+let listenSession = { c: 0, t: 0 };
+let listenRecent = [];       // viimeisimpien kohteiden avaimet
+let listenTabBtns = [];
+let listenChoiceBtns = [];
+let listenPlayTimer = null;  // automaattitoisto
+let listenTimer = null;      // siirtymä seuraavaan kysymykseen
+let listenSupportOk = null;  // viimeksi todettu tuki (voiceschanged-tapahtuman vertailuun)
+const listenTabsEl = document.getElementById("listenTabs");
+const listenNoticeEl = document.getElementById("listenNotice");
+const listenCardEl = document.getElementById("listenCard");
+const listenHintEl = document.getElementById("listenHint");
+const listenReplayBtn = document.getElementById("listenReplay");
+const listenSlowBtn = document.getElementById("listenSlow");
+const listenRevealBtn = document.getElementById("listenReveal");
+const listenAnswerAreaEl = document.getElementById("listenAnswerArea");
+const listenWriteWrapEl = document.getElementById("listenWriteWrap");
+const listenInputEl = document.getElementById("listenInput");
+const listenChoicesEl = document.getElementById("listenChoices");
+const listenCheckBtn = document.getElementById("listenCheck");
+const listenSkipBtn = document.getElementById("listenSkip");
+const listenFeedbackEl = document.getElementById("listenFeedback");
+const listenScoreEl = document.getElementById("listenScore");
+
+// --- Puhesynteesin tuki: selain + kohdekielen ääni ---
+function listenVoiceMatches(v, speech){
+  const norm = x => String(x || "").toLowerCase().replace("_", "-");
+  const l = norm(v && v.lang), s = norm(speech);
+  return l === s || l.split("-")[0] === s.split("-")[0];
+}
+// Palauttaa { ok, msg }. Jos äänilistaa ei ole vielä ladattu (tyhjä), oletetaan tuki: selaimet
+// täyttävät listan myöhemmin (voiceschanged) eikä tyhjä lista todista, ettei ääntä ole.
+function listenSupport(){
+  if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined"){
+    return { ok: false, msg: "Selain ei tue puhesynteesiä, joten kuunteluharjoitusta ei voi tehdä tässä laitteessa." };
+  }
+  let voices = [];
+  try { voices = typeof speechSynthesis.getVoices === "function" ? (speechSynthesis.getVoices() || []) : []; }
+  catch (e) { voices = []; }
+  if (voices.length && !voices.some(v => listenVoiceMatches(v, LANGS[targetLang].speech))){
+    return { ok: false, msg: `Laitteessa ei ole ${LISTEN_LANG_GEN[targetLang] || LANGS[targetLang].label} puheääntä` };
+  }
+  return { ok: true, msg: "" };
+}
+// Lausuu tekstin kohdekielellä annetulla nopeudella (1 = normaali).
+function listenSpeak(text, rate){
+  if (!listenSupport().ok || !text) return false;
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = LANGS[targetLang].speech;
+  u.rate = rate || 1;
+  try {
+    const v = typeof speechSynthesis.getVoices === "function" ? (speechSynthesis.getVoices() || []).find(x => listenVoiceMatches(x, u.lang)) : null;
+    if (v) u.voice = v;
+  } catch (e) { /* ääni valitaan selaimen oletuksella */ }
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+  return true;
+}
+
+// --- Sisältölähde ---
+function listenWordItem(w){
+  const raw = String(w && w[targetLang] || "");
+  if (!raw || wordHasGap(w)) return null; // aukollisia ilmauksia ei voi lausua mielekkäästi
+  const text = stripParenthetical(firstAcceptedAnswer(raw));
+  if (!text) return null;
+  const re = LISTEN_ARTICLE[targetLang];
+  const forms = [];
+  raw.split("/").forEach(a => {
+    const f = stripParenthetical(a).trim();
+    if (!f) return;
+    if (!forms.includes(f)) forms.push(f);
+    const m = re && re.exec(f);
+    if (m && !forms.includes(m[2])) forms.push(m[2]); // artikkelitta kelpaa myös
+  });
+  return { kind: "word", id: w.id, key: "word:" + w.id, text, forms, full: text,
+    fi: firstAcceptedAnswer(fiFor(w)), note: wordNote(w), word: w };
+}
+function listenSentenceItem(s){
+  const text = s && s[targetLang];
+  if (!text) return null;
+  return { kind: "sentence", id: s.id, key: "sent:" + s.id, text, forms: sentenceAcceptedForms(s),
+    full: text, fi: s.fi || "", note: "", sentence: s };
+}
+function listenWeightedOrder(list, weightOf){
+  return list
+    .map(x => ({ x, k: Math.pow(Math.random(), 1 / Math.max(0.01, weightOf(x))) }))
+    .sort((a, b) => b.k - a.k)
+    .map(o => o.x);
+}
+// Sanaehdokkaat: aktiivinen pooli (itseopiskelussa erääntyneet ensin, sitten tuoreet, ks. matchOrdered);
+// jos kuunneltavia on liian vähän, täydennetään saman rajauksen / tason sanoilla.
+function listenWordCandidates(){
+  pruneAndRefillSessionPool();
+  let base = sessionPool.slice();
+  const dueOnly = studyMode === "self" && reviewDueOnly;
+  if (dueOnly){
+    const due = dueWords();
+    if (due.length) base = due;
+  }
+  let list = matchOrdered(base);
+  const enough = l => l.filter(w => listenWordItem(w)).length > LISTEN_RECENT_MAX;
+  if (!enough(list) && !dueOnly){
+    const seen = new Set(list.map(w => w.id));
+    const more = matchOrdered(eligibleWordsForCategoryScope(selectedThemes)).filter(w => !seen.has(w.id));
+    list = list.concat(more);
+    if (!enough(list) && outsideTopUpAllowed(selectedThemes)){
+      more.forEach(w => seen.add(w.id));
+      list = list.concat(matchOrdered(wordsForGrade(activeUnit())).filter(w => !seen.has(w.id)));
+    }
+  }
+  return list;
+}
+// Kuunneltavat kohteet tehtävätyypille, parhaassa järjestyksessä (ensimmäinen valitaan).
+function listenItems(type){
+  if (type === "sent"){
+    const st = listenStatsLoad();
+    return listenWeightedOrder(activeSentencePool(), s => inflWeight(st["sent:" + s.id]))
+      .map(listenSentenceItem).filter(Boolean);
+  }
+  return listenWordCandidates().map(listenWordItem).filter(Boolean);
+}
+function listenTypesAvailable(){
+  return LISTEN_TYPES.filter(t => t.id !== "sent" || (studyMode === "school" && sentencesForLang().length > 0));
+}
+
+// Virkesanelun oma tilasto: { "sent:<id>": { c, w } } (ei kosketa virketilastoon eikä graduointiin).
+function listenStatsKey(){ return "listenStats_" + targetLang; }
+function listenStatsLoad(){
+  try { const o = JSON.parse(localStorage.getItem(listenStatsKey()) || "{}"); return o && typeof o === "object" ? o : {}; }
+  catch (e) { return {}; }
+}
+function listenStatsSave(st){ try { localStorage.setItem(listenStatsKey(), JSON.stringify(st)); } catch (e) { /* ei haittaa */ } }
+
+// --- Tarkistus ---
+// Sanat: sama normalisointi kuin näppäimistövastauksissa (canonical); virkkeet: normalizeSentence.
+function listenMatches(item, typed){
+  const norm = item.kind === "sentence" ? normalizeSentence : s => canonical(s, false);
+  const t = norm(typed || "");
+  return !!t && item.forms.some(f => norm(f) === t);
+}
+
+// --- Kysymyksen valinta ---
+function pickListenQuestion(){
+  const items = listenItems(listenType);
+  const order = items.filter(it => !listenRecent.includes(it.key)).concat(items.filter(it => listenRecent.includes(it.key)));
+  for (const item of order){
+    if (listenType === "comp"){
+      const cq = buildChoiceQuestion(item.word, choicePools(), { dir: "target-fi", excludeGaps: true });
+      if (cq.options.length < 2) continue; // ei yhtään häiriötä: ei mielekäs kysymys
+      return { type: "comp", item, options: cq.options };
+    }
+    return { type: listenType, item };
+  }
+  return null;
+}
+
+function buildListenTabs(){
+  const types = listenTypesAvailable();
+  if (!types.some(t => t.id === listenType)) listenType = "dict";
+  listenTabsEl.innerHTML = "";
+  listenTabBtns = [];
+  types.forEach(t => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "infl-tab" + (t.id === listenType ? " active" : "");
+    b.textContent = t.label;
+    b.dataset.task = t.id;
+    b.addEventListener("click", () => setListenType(t.id));
+    listenTabsEl.appendChild(b);
+    listenTabBtns.push(b);
+  });
+}
+function setListenType(id){
+  if (!listenTypesAvailable().some(t => t.id === id)) return;
+  listenType = id;
+  listenTabBtns.forEach(b => b.classList.toggle("active", b.dataset.task === id));
+  listenRecent = [];
+  pickListenRound();
+}
+
+// Näyttää joko ilmoituksen (ei puhetukea: harjoitusta ei voi aloittaa) tai harjoituksen.
+function listenApplySupport(){
+  const sup = listenSupport();
+  listenSupportOk = sup.ok;
+  listenNoticeEl.hidden = sup.ok;
+  listenNoticeEl.textContent = sup.msg;
+  listenCardEl.hidden = !sup.ok;
+  listenAnswerAreaEl.hidden = !sup.ok;
+  listenScoreEl.hidden = !sup.ok;
+  [listenReplayBtn, listenSlowBtn, listenRevealBtn, listenCheckBtn, listenSkipBtn].forEach(b => { b.disabled = !sup.ok; });
+  return sup.ok;
+}
+function startListenRound(rebuildTabs){
+  if (rebuildTabs){ buildListenTabs(); listenRecent = []; }
+  clearTimeout(listenPlayTimer);
+  clearTimeout(listenTimer);
+  listenQ = null;
+  if (!listenApplySupport()){
+    if (window.speechSynthesis) speechSynthesis.cancel();
+    return;
+  }
+  pickListenRound();
+}
+function pickListenRound(){
+  if (!listenApplySupport()){ listenQ = null; return; }
+  renderListenQuestion(pickListenQuestion());
+}
+
+function listenHintText(type){
+  const lang = LANGS[targetLang].label; // esim. "ruotsiksi"
+  if (type === "comp") return "Kuuntele ja valitse suomennos ↓";
+  if (type === "sent") return `Kuuntele ja kirjoita virke ${lang} ↓`;
+  return `Kuuntele ja kirjoita ${lang} ↓`;
+}
+
+function renderListenQuestion(q){
+  clearTimeout(listenPlayTimer);
+  clearTimeout(listenTimer);
+  listenQ = q;
+  listenLocked = false;
+  listenFeedbackEl.className = "feedback";
+  listenFeedbackEl.textContent = "";
+  listenInputEl.value = "";
+  listenInputEl.disabled = false;
+  listenChoicesEl.innerHTML = "";
+  listenChoiceBtns = [];
+  listenScoreEl.textContent = listenSession.t ? `Oikein ${listenSession.c}/${listenSession.t}` : "";
+  const comp = !!q && q.type === "comp";
+  listenWriteWrapEl.classList.toggle("visible", !comp);
+  listenChoicesEl.classList.toggle("visible", comp);
+  listenCheckBtn.hidden = comp;
+  listenRevealBtn.hidden = comp;
+  if (!q){
+    listenHintEl.textContent = "Tälle valinnalle ei ole vielä kuunneltavaa.";
+    listenWriteWrapEl.classList.remove("visible");
+    [listenReplayBtn, listenSlowBtn, listenRevealBtn, listenCheckBtn].forEach(b => { b.disabled = true; });
+    return;
+  }
+  [listenReplayBtn, listenSlowBtn, listenRevealBtn, listenCheckBtn].forEach(b => { b.disabled = false; });
+  listenHintEl.textContent = listenHintText(q.type);
+  listenRecent.push(q.item.key);
+  if (listenRecent.length > LISTEN_RECENT_MAX) listenRecent.shift();
+  if (comp){
+    q.options.forEach((o, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "choice-option";
+      b.textContent = o.text;
+      b.dataset.index = String(i);
+      b.addEventListener("click", () => answerListenChoice(i));
+      listenChoicesEl.appendChild(b);
+      listenChoiceBtns.push(b);
+    });
+  } else {
+    listenInputEl.focus({ preventScroll: true });
+  }
+  // Kohde luetaan automaattisesti; sanaa ei näytetä missään vaiheessa ennen vastausta tai "Näytä"-nappia.
+  listenPlayTimer = setTimeout(() => listenSpeak(q.item.text, 1), LISTEN_AUTOPLAY_MS);
+}
+
+// Palaute: "🎉 Oikein! en bil · auto · Taivutus: bilen · bilar" - koko muoto, suomennos ja huomautus.
+function listenFeedbackText(ok, item, revealed){
+  const head = revealed ? "👁️ Oikea vastaus:" : (ok ? "🎉 Oikein!" : "🙈 Ei ihan. Oikea vastaus:");
+  let t = head + " " + item.full;
+  if (item.fi) t += " · " + item.fi;
+  if (item.note) t += " · " + pluralNoteLabel() + ": " + item.note;
+  return t;
+}
+
+// Yhteinen päätös: lukitus, palaute, kirjaus ja siirtymä seuraavaan. mode: "answer" | "reveal".
+async function finishListen(ok, mode){
+  const q = listenQ;
+  if (!q || listenLocked) return;
+  listenLocked = true;
+  const item = q.item;
+  const revealed = mode === "reveal";
+  listenFeedbackEl.className = "feedback " + (ok ? "correct" : "incorrect");
+  listenFeedbackEl.textContent = listenFeedbackText(ok, item, revealed);
+  listenInputEl.disabled = true;
+  listenSession.t += 1; if (ok) listenSession.c += 1;
+  listenScoreEl.textContent = `Oikein ${listenSession.c}/${listenSession.t}`;
+  // "Näytä" kirjataan väärin menneeksi, mutta ei päivätavoitteeseen.
+  const countDaily = !revealed;
+  const next = (ok ? 1100 : 2600) + (item.note && !ok ? 800 : 0);
+  listenTimer = setTimeout(() => { if (listenQ === q && listenLocked) pickListenRound(); }, next);
+  if (item.kind === "word"){
+    await recordRecognition(item.word, ok, q.type === "comp" ? "listen" : "dict", countDaily);
+  } else {
+    const st = listenStatsLoad();
+    const rec = st[item.key] || { c: 0, w: 0 };
+    if (ok) rec.c += 1; else rec.w += 1;
+    st[item.key] = rec;
+    listenStatsSave(st);
+    logPractice(ok);
+    if (studyMode === "self" && countDaily) finishDailyUpdate(dailyRecordAnswer());
+  }
+}
+
+function answerListenTyped(){
+  if (listenLocked || !listenQ || listenQ.type === "comp") return;
+  if (!listenInputEl.value.trim()){
+    listenFeedbackEl.className = "feedback";
+    listenFeedbackEl.textContent = "✍️ Kirjoita ensin kuulemasi.";
+    return;
+  }
+  return finishListen(listenMatches(listenQ.item, listenInputEl.value), "answer");
+}
+function answerListenChoice(i){
+  if (listenLocked || !listenQ || listenQ.type !== "comp") return;
+  const opt = listenQ.options[i];
+  if (!opt) return;
+  listenChoiceBtns.forEach((b, k) => {
+    b.disabled = true;
+    if (listenQ.options[k].correct) b.classList.add("correct");
+    else if (k === i) b.classList.add("wrong");
+  });
+  return finishListen(!!opt.correct, "answer");
+}
+
+listenReplayBtn.addEventListener("click", () => { if (listenQ) listenSpeak(listenQ.item.text, 1); });
+listenSlowBtn.addEventListener("click", () => { if (listenQ) listenSpeak(listenQ.item.text, LISTEN_SLOW_RATE); });
+listenRevealBtn.addEventListener("click", () => {
+  if (!listenQ || listenLocked || listenQ.type === "comp") return;
+  finishListen(false, "reveal");
+});
+listenCheckBtn.addEventListener("click", answerListenTyped);
+listenInputEl.addEventListener("keydown", e => { if (e.key === "Enter") answerListenTyped(); });
+listenSkipBtn.addEventListener("click", () => { listenLocked = false; pickListenRound(); });
+// Äänilista latautuu usein vasta sivun avaamisen jälkeen: päivitetään näkymä vain jos tuki muuttui.
+try {
+  if (window.speechSynthesis && typeof speechSynthesis.addEventListener === "function"){
+    speechSynthesis.addEventListener("voiceschanged", () => {
+      if (practiceMode === "listen" && listenSupport().ok !== listenSupportOk) startListenRound(false);
+    });
+  }
+} catch (e) { /* ei haittaa */ }
+
 // --- Viikon sanat (vaihe 27) ---
 // Aikuinen syöttää kirjan mukaisen viikon sanalistan; lapsi voi harjoitella vain
 // niitä. Lista ja päällä/pois-tila ovat kielikohtaisia (localStorage). Kun tila on
@@ -3905,7 +4730,7 @@ function parseFocusInput(text){
 }
 
 function updateFocusUI(){
-  const wordsMode = practiceMode === "words" || practiceMode === "match"; // yhdistely käyttää samaa poolia
+  const wordsMode = practiceMode === "words" || practiceMode === "match" || practiceMode === "listen"; // yhdistely ja kuuntelu käyttävät samaa poolia
   focusButton.style.display = studyMode === "school" && wordsMode && focusIds.length ? "" : "none";
   focusButton.classList.toggle("active", focusActive());
   focusButton.setAttribute("aria-pressed", focusActive() ? "true" : "false");
@@ -3929,6 +4754,7 @@ function applyFocusChange(){
   initSessionPool();
   pickWord();
   if (practiceMode === "match") startMatchRound();
+  if (practiceMode === "listen") startListenRound(false);
 }
 
 focusSave.addEventListener("click", () => {
@@ -4391,6 +5217,7 @@ function setReviewDueOnly(on){
   current = null;
   pickWord();
   if (practiceMode === "match") startMatchRound();
+  if (practiceMode === "listen") startListenRound(false);
 }
 
 const dailyLabelEl = document.getElementById("dailyLabel");
@@ -4501,6 +5328,8 @@ function setStudyMode(mode){
   initSessionPool();
   pickWord();
   if (practiceMode === "match") startMatchRound();
+  if (practiceMode === "infl") startInflRound(true);
+  if (practiceMode === "listen") startListenRound(true);
   offerPlacementIfFirstTime();
 }
 

@@ -1,0 +1,391 @@
+id	en	en_infl	de	de_infl
+greetings_phrases_hello	hello		hallo	
+s_a1_how_are_you	how are you?		wie geht es dir? / wie geht's?	
+s_a1_thank_you_very_much	thank you very much / thanks a lot		vielen Dank / danke schön	
+s_a1_pardon	pardon? / sorry?		wie bitte?	
+s_a1_do_you_understand	do you understand?		verstehst du?	
+phrases_4_can_i_have	Can I have...?		Kann ich ... haben? / Könnte ich ... bekommen?	
+s_a1_have_a_nice_day	have a nice day		schönen Tag noch / einen schönen Tag noch	
+s_a1_first_name	first name	pl=first names	der Vorname	pl=die Vornamen
+s_a1_i_am_years_old	I am ... years old / I'm ... years old		ich bin ... Jahre alt	
+s_a1_postcode	postcode	pl=postcodes	die Postleitzahl	pl=die Postleitzahlen
+countries_4_country	country	pl=countries	das Land	pl=die Länder
+countries_swedish	Swedish		schwedisch	
+s_a1_what_do_you_do_for_a_living	what do you do for a living? / what do you do?		was machst du beruflich? / was bist du von Beruf?	
+numbers_zero	zero		null	
+numbers_eight	eight		acht	
+numbers_sixteen	sixteen		sechzehn	
+numbers_4_fifty	fifty		fünfzig	
+numbers_4_first	first		erste	
+s_a1_ninth	ninth		neunte	
+little_4_many	many		viele	
+s_a1_less_fewer	less / fewer		weniger	
+s_a1_centimetre	centimetre	pl=centimetres	der Zentimeter	pl=die Zentimeter
+numbers_4_cent	cent	pl=cents	der Cent	pl=die Cent
+s_a1_half_past_two	half past two		halb drei	
+aikasanat_2_day	day	pl=days	der Tag	pl=die Tage
+time_4_in_the_evening	in the evening		am Abend / abends	
+s_a1_the_day_before_yesterday	the day before yesterday		vorgestern	
+aikasanat_2_weekend	weekend	pl=weekends	das Wochenende	pl=die Wochenenden
+calendar_4_august	August	pl=-	der August	pl=-
+weather_seasons_winter	winter	pl=winters	der Winter	pl=die Winter
+time_4_later	later		später	
+time_early	early		früh	
+s_a1_how_long	how long?		wie lange?	
+people_4_boy	boy	pl=boys	der Junge	pl=die Jungen
+family_grandpa	grandfather / grandpa	pl=grandfathers	der Großvater	pl=die Großväter
+relationships_7_relative	relative	pl=relatives	der Verwandte / die Verwandte	pl=die Verwandten
+school_people_friend	friend	pl=friends	der Freund / die Freundin	pl=die Freunde
+s_a1_teenager	teenager	pl=teenagers	der Teenager / der Jugendliche	pl=die Teenager
+opposites_tall	tall		groß	
+body_4_cute	cute		süß / niedlich	
+s_a1_grey_haired	grey-haired		grauhaarig	
+appearance_green_eyes	green eyes		grüne Augen	
+s_a1_personality	personality / character	pl=personalities	die Persönlichkeit / der Charakter	pl=die Persönlichkeiten
+s_a1_capable_good_at_sth	capable / good / skilful		tüchtig / gut / geschickt	
+s_a1_sociable	sociable		gesellig / kontaktfreudig	
+body_4_finger	finger	pl=fingers	der Finger	pl=die Finger
+body_parts_mouth	mouth	pl=mouths	der Mund	pl=die Münder
+s_a1_healthy	healthy / well		gesund	
+s_a1_i_don_t_feel_well	I don't feel well / I feel unwell		mir geht es schlecht / mir geht es nicht gut	
+professions_doctor	doctor	pl=doctors	der Arzt / die Ärztin	pl=die Ärzte
+s_a1_flat	flat / apartment	pl=flats	die Wohnung	pl=die Wohnungen
+house_rooms_kitchen	kitchen	pl=kitchens	die Küche	pl=die Küchen
+home_4_basement	basement	pl=basements	der Keller	pl=die Keller
+house_rooms_window	window	pl=windows	das Fenster	pl=die Fenster
+house_rooms_table	table	pl=tables	der Tisch	pl=die Tische
+s_a1_cupboard	cupboard	pl=cupboards	der Schrank	pl=die Schränke
+s_a1_mirror	mirror	pl=mirrors	der Spiegel	pl=die Spiegel
+home_4_dishwasher	dishwasher	pl=dishwashers	die Spülmaschine / die Geschirrspülmaschine	pl=die Spülmaschinen
+s_a1_fork	fork	pl=forks	die Gabel	pl=die Gabeln
+s_a1_washbasin	washbasin / sink	pl=washbasins	das Waschbecken	pl=die Waschbecken
+home_4_hairbrush	hairbrush	pl=hairbrushes	die Haarbürste	pl=die Haarbürsten
+food_4_snack	snack	pl=snacks	der Snack / die Zwischenmahlzeit	pl=die Snacks
+food_4_butter	butter	pl=-	die Butter	pl=-
+food_savoury_chicken	chicken	pl=chickens	das Hähnchen / das Hühnchen	pl=die Hähnchen
+food_4_rice	rice	pl=-	der Reis	pl=-
+food_4_hamburger	hamburger	pl=hamburgers	der Hamburger	pl=die Hamburger
+s_a1_pepper	pepper	pl=-	der Pfeffer	pl=-
+s_a1_bun	bun / sweet bun	pl=buns	die Zimtschnecke / das süße Brötchen	pl=die Zimtschnecken
+food_4_fruit	fruit	pl=fruits	die Frucht / das Obst	pl=die Früchte
+fruit_grape	grape	pl=grapes	die Weintraube / die Traube	pl=die Weintrauben
+food_savoury_cucumber	cucumber	pl=cucumbers	die Gurke	pl=die Gurken
+food_savoury_water	water	pl=-	das Wasser	pl=-
+s_a1_bottle	bottle	pl=bottles	die Flasche	pl=die Flaschen
+s_a1_mug	mug	pl=mugs	der Becher / die Tasse	pl=die Becher
+s_a1_hot_spicy	hot / spicy		scharf	
+places_town_shop	shop	pl=shops	das Geschäft / der Laden	pl=die Geschäfte
+shopping_money	money	pl=-	das Geld	pl=-
+money_7_cash	cash	pl=-	das Bargeld	pl=-
+s_a1_free_of_charge	free / free of charge		kostenlos / gratis / umsonst	
+s_a1_i_ll_take_it	I'll take it		ich nehme es / ich nehme ihn / ich nehme sie	
+clothes_4_t_shirt	T-shirt	pl=T-shirts	das T-Shirt	pl=die T-Shirts
+clothes_dress	dress	pl=dresses	das Kleid	pl=die Kleider
+s_a1_shoe	shoe / shoes	pl=shoes	der Schuh / die Schuhe	pl=die Schuhe
+s_a1_belt	belt	pl=belts	der Gürtel	pl=die Gürtel
+colours_yellow	yellow		gelb	
+adj_4_beige	beige		beige	
+s_a1_capital	capital / capital city	pl=capitals	die Hauptstadt	pl=die Hauptstädte
+places_4_building	building	pl=buildings	das Gebäude	pl=die Gebäude
+s_a1_harbour	harbour / port	pl=harbours	der Hafen	pl=die Häfen
+s_a1_travel_card	travel card	pl=travel cards	die Fahrkarte / die Verkehrskarte	pl=die Fahrkarten
+transport_bicycle	bicycle	pl=bicycles	das Fahrrad / das Rad	pl=die Fahrräder
+town_7_far	far		weit / weit weg	
+s_a1_by_bus	by bus		mit dem Bus	
+verbs1_4_arrive	arrive	past=arrived;pp=arrived	ankommen	pres3=kommt an;pret=kam an;pp=ist angekommen
+s_a1_i_am_lost	I am lost / I'm lost / I've got lost		ich habe mich verlaufen / ich habe mich verirrt	
+s_a1_take_a_bath	have a bath / take a bath / bathe	past=had a bath;pp=had a bath	baden	pres3=badet;pret=badete;pp=hat gebadet
+paivarutiinit_have_breakfast	have breakfast	past=had breakfast;pp=had breakfast	frühstücken	pres3=frühstückt;pret=frühstückte;pp=hat gefrühstückt
+paivarutiinit_go_to_school	go to school	past=went to school;pp=gone to school	zur Schule gehen / in die Schule gehen	pres3=geht zur Schule;pret=ging zur Schule;pp=ist zur Schule gegangen
+chores_4_set_the_table	set the table	past=set the table;pp=set the table	den Tisch decken	pres3=deckt den Tisch;pret=deckte den Tisch;pp=hat den Tisch gedeckt
+verbs1_4_hurry	hurry	past=hurried;pp=hurried	sich beeilen	pres3=beeilt sich;pret=beeilte sich;pp=hat sich beeilt
+s_a1_lie_down	lie down	past=lay down;pp=lain down	sich hinlegen	pres3=legt sich hin;pret=legte sich hin;pp=hat sich hingelegt
+s_a1_what_do_you_do_in_your_free_ti	What do you do in your free time?		Was machst du in deiner Freizeit?	
+verbs_action_watch_tv	watch television	past=watched television;pp=watched television	fernsehen	pres3=sieht fern;pret=sah fern;pp=hat ferngesehen
+s_a1_band	band	pl=bands	die Band	pl=die Bands
+s_a1_take_photographs	take photographs / take photos / photograph	past=took photographs;pp=taken photographs	fotografieren	pres3=fotografiert;pret=fotografierte;pp=hat fotografiert
+s_a1_meet_friends	meet friends	past=met friends;pp=met friends	Freunde treffen	pres3=trifft Freunde;pret=traf Freunde;pp=hat Freunde getroffen
+sports_running	running	pl=-	das Laufen	pl=-
+sports_4_floorball	floorball	pl=-	das Unihockey / das Floorball	pl=-
+s_a1_weather_forecast	weather forecast	pl=weather forecasts	der Wetterbericht / die Wettervorhersage	pl=die Wetterberichte
+s_a1_rain	rain	past=rained;pp=rained	regnen	pres3=regnet;pret=regnete;pp=hat geregnet
+nature_4_windy	windy		windig	
+adj_4_wet	wet		nass	
+gaming_fortnite_island	island	pl=islands	die Insel	pl=die Inseln
+s_a1_i_work_as_a_teacher	I work as a teacher		ich arbeite als Lehrer / ich arbeite als Lehrerin	
+s_a1_task	task / exercise	pl=tasks	die Aufgabe	pl=die Aufgaben
+professions_shop_assistant	shop assistant	pl=shop assistants	der Verkäufer / die Verkäuferin	pl=die Verkäufer
+s_a1_construction_worker	construction worker / builder	pl=construction workers	der Bauarbeiter / die Bauarbeiterin	pl=die Bauarbeiter
+school_subjects_classroom	classroom	pl=classrooms	das Klassenzimmer / der Klassenraum	pl=die Klassenzimmer
+school_4_question	question	pl=questions	die Frage	pl=die Fragen
+general_4_error	error	pl=errors	der Fehler	pl=die Fehler
+s_a1_you_plural	you		ihr	
+s_a1_oneself	oneself / himself / herself / themselves		sich	
+s_a1_his_her_own	his own / her own / its own / their own		sein / ihr	
+s_a1_some	some / a few		einige / ein paar	
+sidesanat_5_both	both		beide	
+little_4_how	how		wie	
+prepositions_above	above		über	
+s_a1_at_someone_s_place	at / with		bei	
+s_a1_that	that		dass	
+sidesanat_5_already	already		schon	
+s_a1_outside_2	outside / outdoors		draußen	
+s_a1_away_gone	away / gone		weg / fort	
+s_a1_gladly	gladly / with pleasure		gern / gerne	
+verbs1_4_take	take	past=took;pp=taken	nehmen / bringen	pres3=nimmt;pret=nahm;pp=hat genommen
+verbs2_4_tell	tell	past=told;pp=told	erzählen	pres3=erzählt;pret=erzählte;pp=hat erzählt
+perusverbit_can	can	past=could;pp=-	können	pres3=kann;pret=konnte;pp=hat gekonnt
+verbs1_4_hear	hear	past=heard;pp=heard	hören	pres3=hört;pret=hörte;pp=hat gehört
+verbs_action_stay	stay	past=stayed;pp=stayed	bleiben	pres3=bleibt;pret=blieb;pp=ist geblieben
+verbs1_4_pull	pull	past=pulled;pp=pulled	ziehen	pres3=zieht;pret=zog;pp=hat gezogen
+opposites_new	new		neu	
+opposites_fast	fast		schnell	
+adj_4_thin	thin		dünn	
+s_a1_fine_nice	fine / nice		fein / schön	
+s_a1_soft	soft		weich	
+travel_journey	journey	pl=journeys	die Reise	pl=die Reisen
+travel_8_accommodation	accommodation	pl=-	die Unterkunft	pl=die Unterkünfte
+s_a2_double_room	double room	pl=double rooms	das Doppelzimmer	pl=die Doppelzimmer
+s_a2_be_included	be included	past=was included;pp=been included	inbegriffen sein / enthalten sein	pres3=ist inbegriffen;pret=war inbegriffen;pp=ist inbegriffen gewesen
+s_a2_tour	tour / sightseeing tour / guided tour	pl=tours	die Rundfahrt / die Führung	pl=die Rundfahrten
+travel_8_abroad	abroad		im Ausland / ins Ausland	
+travel_souvenir	souvenir	pl=souvenirs	das Souvenir / das Andenken	pl=die Souvenirs
+s_a2_land	land	past=landed;pp=landed	landen	pres3=landet;pret=landete;pp=ist gelandet
+s_a2_window_seat	window seat	pl=window seats	der Fensterplatz	pl=die Fensterplätze
+s_a2_delayed	delayed / late		verspätet	
+town_7_traffic_lights	traffic lights	pl=traffic lights	die Ampel	pl=die Ampeln
+s_a2_lane	lane	pl=lanes	die Fahrspur / die Spur	pl=die Fahrspuren
+s_a2_turn	turn	past=turned;pp=turned	abbiegen	pres3=biegt ab;pret=bog ab;pp=ist abgebogen
+s_a2_petrol	petrol	pl=-	das Benzin	pl=-
+s_a2_seat_belt	seat belt	pl=seat belts	der Sicherheitsgurt / der Gurt	pl=die Sicherheitsgurte
+s_a2_overtake	overtake	past=overtook;pp=overtaken	überholen	pres3=überholt;pret=überholte;pp=hat überholt
+s_a2_change	change	past=changed;pp=changed	umsteigen	pres3=steigt um;pret=stieg um;pp=ist umgestiegen
+s_a2_route	route	pl=routes	die Route / der Weg	pl=die Routen
+s_a2_balance	balance	pl=balances	der Kontostand / das Guthaben	pl=die Kontostände
+s_a2_bill	bill / invoice	pl=bills	die Rechnung	pl=die Rechnungen
+s_a2_recipient	recipient	pl=recipients	der Empfänger / die Empfängerin	pl=die Empfänger
+s_a2_sign	sign	past=signed;pp=signed	unterschreiben	pres3=unterschreibt;pret=unterschrieb;pp=hat unterschrieben
+s_a2_queue	queue	pl=queues	die Schlange / die Warteschlange	pl=die Schlangen
+s_a2_hand_in	hand in / submit	past=handed in;pp=handed in	einreichen / abgeben	pres3=reicht ein;pret=reichte ein;pp=hat eingereicht
+s_a2_customer_service	customer service	pl=-	der Kundendienst / der Kundenservice	pl=-
+s_a2_surgery	surgery / doctor's surgery	pl=surgeries	die Arztpraxis / die Praxis / die Sprechstunde	pl=die Arztpraxen
+s_a2_health	health	pl=-	die Gesundheit	pl=-
+s_a2_runny_nose	runny nose / cold	pl=runny noses	der Schnupfen	pl=-
+s_a2_infection	infection / inflammation	pl=infections	die Infektion / die Entzündung	pl=die Infektionen
+s_a2_swollen	swollen		geschwollen	
+s_a2_blood_test	blood test	pl=blood tests	die Blutprobe / der Bluttest	pl=die Blutproben
+health_7_injury	injury	pl=injuries	die Verletzung	pl=die Verletzungen
+s_a2_crutch	crutch	pl=crutches	die Krücke	pl=die Krücken
+s_a2_medical_certificate	medical certificate / sick note	pl=medical certificates	das Attest / das ärztliche Attest	pl=die Atteste
+s_a2_rent	rent	pl=rents	die Miete	pl=die Mieten
+s_a2_lease	lease / tenancy agreement	pl=leases	der Mietvertrag	pl=die Mietverträge
+s_a2_spacious	spacious / roomy		geräumig	
+s_a2_storage_room	storage room / storeroom	pl=storage rooms	der Abstellraum / der Kellerraum	pl=die Abstellräume
+s_a2_iron_2	iron	pl=irons	das Bügeleisen	pl=die Bügeleisen
+chores_4_clear_the_snow	clear the snow	past=cleared the snow;pp=cleared the snow	Schnee schippen / Schnee räumen	pres3=schippt Schnee;pret=schippte Schnee;pp=hat Schnee geschippt
+s_a2_caretaker	caretaker	pl=caretakers	der Hausmeister / die Hausmeisterin	pl=die Hausmeister
+s_a2_radiator	radiator	pl=radiators	der Heizkörper	pl=die Heizkörper
+cooking_7_boil	boil	past=boiled;pp=boiled	kochen	pres3=kocht;pret=kochte;pp=hat gekocht
+s_a2_whisk	whisk / beat	past=whisked;pp=whisked	schlagen / verquirlen	pres3=schlägt;pret=schlug;pp=hat geschlagen
+s_a2_salt	salt	past=salted;pp=salted	salzen	pres3=salzt;pret=salzte;pp=hat gesalzen
+s_a2_grater	grater	pl=graters	die Reibe	pl=die Reiben
+s_a2_frozen	frozen		tiefgekühlt / gefroren	
+food_4_menu	menu	pl=menus	die Speisekarte	pl=die Speisekarten
+s_a2_main_course	main course	pl=main courses	das Hauptgericht / der Hauptgang	pl=die Hauptgerichte
+s_a2_treat	treat	past=treated;pp=treated	einladen	pres3=lädt ein;pret=lud ein;pp=hat eingeladen
+work_8_interview	interview	pl=interviews	das Vorstellungsgespräch	pl=die Vorstellungsgespräche
+s_a2_earn	earn	past=earned;pp=earned	verdienen	pres3=verdient;pret=verdiente;pp=hat verdient
+s_a2_be_off_work	be off work / be off	past=was off work;pp=been off work	frei haben	pres3=hat frei;pret=hatte frei;pp=hat frei gehabt
+work_8_employee	employee	pl=employees	der Arbeitnehmer / der Angestellte	pl=die Arbeitnehmer
+s_a2_employment_contract	employment contract	pl=employment contracts	der Arbeitsvertrag	pl=die Arbeitsverträge
+s_a2_vacancy	vacancy / job vacancy	pl=vacancies	die freie Stelle / die offene Stelle	pl=die freien Stellen
+s_a2_become_unemployed	become unemployed / lose one's job	past=became unemployed;pp=become unemployed	arbeitslos werden	pres3=wird arbeitslos;pret=wurde arbeitslos;pp=ist arbeitslos geworden
+s_a2_intern	intern / trainee	pl=interns	der Praktikant / die Praktikantin	pl=die Praktikanten
+s_a2_civil_servant	civil servant / official	pl=civil servants	der Beamte / die Beamtin	pl=die Beamten
+s_a2_programmer	programmer	pl=programmers	der Programmierer / die Programmiererin	pl=die Programmierer
+s_a2_comprehensive_school	comprehensive school	pl=comprehensive schools	die Gesamtschule	pl=die Gesamtschulen
+s_a2_student_financial_aid	student financial aid / student grant	pl=-	die Studienförderung / das BAföG	pl=-
+s_a2_note	note	pl=notes	die Notiz	pl=die Notizen
+education_9_mark	mark	pl=marks	die Note	pl=die Noten
+s_a2_language_skills	language skills	pl=language skills	die Sprachkenntnisse	pl=die Sprachkenntnisse
+communication_9_translate	translate	past=translated;pp=translated	übersetzen	pres3=übersetzt;pret=übersetzte;pp=hat übersetzt
+s_a2_how_do_you_say_in_swedish	how do you say ... in Swedish?		wie sagt man ... auf Schwedisch?	
+s_a2_the_line_is_busy	the line is engaged / the line is busy		die Leitung ist besetzt / es ist besetzt	
+s_a2_attach	attach	past=attached;pp=attached	anhängen / beifügen	pres3=hängt an;pret=hängte an;pp=hat angehängt
+s_a2_take_a_picture	take a picture / take a photo	past=took a picture;pp=taken a picture	ein Foto machen / ein Bild machen	pres3=macht ein Foto;pret=machte ein Foto;pp=hat ein Foto gemacht
+technology_internet	internet	pl=-	das Internet	pl=-
+s_a2_online_shop	online shop	pl=online shops	der Onlineshop / der Online-Shop	pl=die Onlineshops
+money_7_save	save	past=saved;pp=saved	speichern / sparen	pres3=speichert;pret=speicherte;pp=hat gespeichert
+s_a2_like	like	past=liked;pp=liked	liken	pres3=likt;pret=likte;pp=hat geliked
+s_a2_in_a_bad_mood	in a bad mood		schlecht gelaunt / schlechter Laune	
+adj_4_angry	angry		wütend / böse	
+adj_4_scary	scary		unheimlich / gruselig	
+s_a2_relaxed	relaxed		entspannt	
+opinions_8_grateful	grateful		dankbar	
+s_a2_depressed	depressed / down / low		niedergeschlagen / deprimiert	
+s_a2_unfortunately	unfortunately		leider	
+s_a2_think	think	past=thought;pp=thought	finden / meinen	pres3=findet;pret=fand;pp=hat gefunden
+s_a2_unsure	unsure / uncertain		unsicher	
+s_a2_date	date	pl=dates	das Date / die Verabredung	pl=die Dates
+s_a2_hug_2	hug	pl=hugs	die Umarmung	pl=die Umarmungen
+s_a2_bridegroom	bridegroom / groom	pl=bridegrooms	der Bräutigam	pl=die Bräutigame
+hobbies_4_party	party	pl=parties	die Party / das Fest / die Feier	pl=die Partys
+s_a2_birthday_party	birthday party	pl=birthday parties	die Geburtstagsfeier / die Geburtstagsparty	pl=die Geburtstagsfeiern
+s_a2_may_day	May Day	pl=-	der Erste Mai / der Maifeiertag	pl=-
+family_pet	pet	pl=pets	das Haustier	pl=die Haustiere
+animals_4_goat	goat	pl=goats	die Ziege	pl=die Ziegen
+animals_4_fox	fox	pl=foxes	der Fuchs	pl=die Füchse
+animals_4_swan	swan	pl=swans	der Schwan	pl=die Schwäne
+s_a2_butterfly	butterfly	pl=butterflies	der Schmetterling	pl=die Schmetterlinge
+nature_4_grass	grass	pl=grasses	das Gras	pl=die Gräser
+s_a2_jetty	jetty / pier	pl=jetties	der Steg / der Bootssteg	pl=die Stege
+verbs2_4_hike	hike	past=hiked;pp=hiked	wandern	pres3=wandert;pret=wanderte;pp=ist gewandert
+general_4_event	event	pl=events	die Veranstaltung / das Ereignis	pl=die Veranstaltungen
+sports_events_8_fan	fan	pl=fans	der Fan	pl=die Fans
+sports_events_8_draw	draw		das Unentschieden / unentschieden	
+sports_events_8_tournament	tournament	pl=tournaments	das Turnier	pl=die Turniere
+sports_4_downhill_skiing	downhill skiing	pl=-	das Skifahren / das Abfahrtsskifahren	pl=-
+culture_8_theatre	theatre	pl=theatres	das Theater	pl=die Theater
+s_a2_admission	admission / admission fee / entrance fee	pl=-	der Eintritt / das Eintrittsgeld	pl=-
+media_8_news	news	pl=-	die Nachrichten	pl=die Nachrichten
+s_a2_bring_along	bring along / take along / bring	past=brought along;pp=brought along	mitnehmen / mitbringen	pres3=nimmt mit;pret=nahm mit;pp=hat mitgenommen
+s_a2_hang	hang	past=hung;pp=hung	hängen / aufhängen	pres3=hängt;pret=hängte;pp=hat gehängt
+s_a2_sound	sound	past=sounded;pp=sounded	klingen	pres3=klingt;pret=klang;pp=hat geklungen
+verbs2_4_promise	promise	past=promised;pp=promised	versprechen	pres3=verspricht;pret=versprach;pp=hat versprochen
+phrasal_9_turn_on	turn on	past=turned on;pp=turned on	einschalten / anmachen	pres3=schaltet ein;pret=schaltete ein;pp=hat eingeschaltet
+s_a2_disappear	disappear / vanish	past=disappeared;pp=disappeared	verschwinden	pres3=verschwindet;pret=verschwand;pp=ist verschwunden
+s_a2_care_about	care about	past=cared about;pp=cared about	sich kümmern um / sich interessieren für	pres3=kümmert sich um;pret=kümmerte sich um;pp=hat sich gekümmert um
+verbs1_4_move	move	past=moved;pp=moved	sich bewegen	pres3=bewegt sich;pret=bewegte sich;pp=hat sich bewegt
+s_a2_receive	receive	past=received;pp=received	empfangen / entgegennehmen	pres3=empfängt;pret=empfing;pp=hat empfangen
+s_a2_before_conj	before		bevor	
+yleissanat_3_usually	usually		normalerweise / meistens	
+s_a2_nowadays	nowadays / these days		heutzutage / heute	
+s_a2_even	even		sogar	
+s_a2_especially	especially / particularly		besonders / vor allem	
+s_a2_as_soon_as	as soon as		sobald	
+connectors_9_possible	possible		möglich	
+opposites_loud	loud		laut	
+adjectives_famous	famous		berühmt	
+s_a2_real	real / genuine		echt / wirklich	
+s_a2_international	international		international	
+s_a2_complicated	complicated		kompliziert	
+s_a2_certain	certain		bestimmt / gewiss	
+s_b1_minister	minister	pl=ministers	der Minister / die Ministerin	pl=die Minister
+s_b1_voter	voter	pl=voters	der Wähler / die Wählerin	pl=die Wähler
+s_b1_political	political		politisch	
+s_b1_welfare_state	welfare state	pl=welfare states	der Wohlfahrtsstaat / der Sozialstaat	pl=die Wohlfahrtsstaaten
+society_9_democracy	democracy	pl=democracies	die Demokratie	pl=die Demokratien
+s_b1_power	power	pl=powers	die Macht	pl=die Mächte
+s_b1_social_democrat	social democrat	pl=social democrats	der Sozialdemokrat / die Sozialdemokratin	pl=die Sozialdemokraten
+s_b1_foreign_policy	foreign policy	pl=-	die Außenpolitik	pl=-
+s_b1_seek_asylum	seek asylum / apply for asylum		Asyl beantragen / um Asyl bitten	
+s_b1_association	association / society / club	pl=associations	der Verein	pl=die Vereine
+s_b1_mortgage	mortgage	pl=mortgages	der Immobilienkredit / die Hypothek	pl=die Immobilienkredite
+s_b1_pay_the_bills	pay the bills		die Rechnungen bezahlen	
+s_b1_income	income	pl=incomes	das Einkommen	pl=die Einkommen
+s_b1_consume	consume	past=consumed;pp=consumed	verbrauchen / konsumieren	pres3=verbraucht;pret=verbrauchte;pp=hat verbraucht
+s_b1_guarantee	guarantee / warranty	pl=guarantees	die Garantie	pl=die Garantien
+s_b1_profit	profit	pl=profits	der Gewinn	pl=die Gewinne
+s_b1_gdp	GDP / gross domestic product	pl=-	das BIP / das Bruttoinlandsprodukt	pl=-
+s_b1_finance	finance / fund	past=financed;pp=financed	finanzieren	pres3=finanziert;pret=finanzierte;pp=hat finanziert
+s_b1_wealth	wealth / fortune	pl=-	das Vermögen	pl=die Vermögen
+s_b1_skilled	skilled / skilful		geschickt / fähig / kompetent	
+s_b1_permanent_job	permanent job		die Festanstellung / die feste Stelle	
+s_b1_bonus	bonus	pl=bonuses	der Bonus	pl=die Boni
+s_b1_flexitime	flexitime	pl=-	die Gleitzeit	pl=-
+s_b1_mentor	mentor	pl=mentors	der Mentor / die Mentorin	pl=die Mentoren
+s_b1_management	management	pl=-	die Geschäftsleitung / die Leitung	pl=die Geschäftsleitungen
+environment_8_environment	environment	pl=environments	die Umwelt	pl=-
+sustainability_9_carbon_footprint	carbon footprint	pl=carbon footprints	der CO2-Fußabdruck / der ökologische Fußabdruck	pl=die CO2-Fußabdrücke
+s_b1_sort	sort / separate	past=sorted;pp=sorted	trennen / sortieren	pres3=trennt;pret=trennte;pp=hat getrennt
+s_b1_packaging	packaging	pl=-	die Verpackung	pl=die Verpackungen
+s_b1_solar_energy	solar energy / solar power	pl=-	die Solarenergie / die Sonnenenergie	pl=-
+s_b1_fossil_fuels	fossil fuels		fossile Brennstoffe / die fossilen Brennstoffe	
+s_b1_sustainable_development	sustainable development		nachhaltige Entwicklung / die nachhaltige Entwicklung	
+s_b1_die_out	die out / become extinct	past=died out;pp=died out	aussterben	pres3=stirbt aus;pret=starb aus;pp=ist ausgestorben
+s_b1_glacier	glacier	pl=glaciers	der Gletscher	pl=die Gletscher
+s_b1_do_research	do research / research	past=did research;pp=done research	forschen	pres3=forscht;pret=forschte;pp=hat geforscht
+s_b1_measurement	measurement	pl=measurements	die Messung	pl=die Messungen
+s_b1_microscope	microscope	pl=microscopes	das Mikroskop	pl=die Mikroskope
+s_b1_inventor	inventor	pl=inventors	der Erfinder / die Erfinderin	pl=die Erfinder
+s_b1_automatic	automatic		automatisch	
+s_b1_software	software	pl=-	die Software	pl=-
+s_b1_database	database	pl=databases	die Datenbank	pl=die Datenbanken
+s_b1_chatbot	chatbot	pl=chatbots	der Chatbot	pl=die Chatbots
+s_b1_source_criticism	source criticism	pl=-	die Quellenkritik	pl=-
+s_b1_letter_to_the_editor	letter to the editor	pl=letters to the editor	der Leserbrief	pl=die Leserbriefe
+s_b1_reader	reader	pl=readers	der Leser / die Leserin	pl=die Leser
+s_b1_streaming_service	streaming service	pl=streaming services	der Streamingdienst	pl=die Streamingdienste
+s_b1_clickbait	clickbait	pl=-	der Clickbait / der Klickköder	pl=-
+s_b1_freedom_of_the_press	freedom of the press / press freedom	pl=-	die Pressefreiheit	pl=-
+s_b1_poem	poem	pl=poems	das Gedicht	pl=die Gedichte
+s_b1_multicultural	multicultural		multikulturell	
+koe1_4_ballet	ballet	pl=ballets	das Ballett	pl=die Ballette
+s_b1_folk_music	folk music	pl=-	die Volksmusik	pl=-
+s_b1_artistic	artistic		künstlerisch	
+s_b1_century	century	pl=centuries	das Jahrhundert	pl=die Jahrhunderte
+s_b1_priest	priest	pl=priests	der Priester / der Pfarrer	pl=die Priester
+sustainability_9_exercise	exercise	pl=-	die Bewegung / der Sport	pl=-
+s_b1_vitamin	vitamin	pl=vitamins	das Vitamin	pl=die Vitamine
+adj_4_healthy	healthy		gesund	
+s_b1_relaxation	relaxation	pl=-	die Entspannung	pl=-
+s_b1_loneliness	loneliness	pl=-	die Einsamkeit	pl=-
+s_b1_treat	treat	past=treated;pp=treated	behandeln	pres3=behandelt;pret=behandelte;pp=hat behandelt
+s_b1_virus	virus	pl=viruses	das Virus	pl=die Viren
+s_b1_alcohol	alcohol	pl=-	der Alkohol	pl=-
+connectors_9_fair	fair		gerecht / fair	
+s_b1_robbery	robbery	pl=robberies	der Raubüberfall / der Raub	pl=die Raubüberfälle
+s_b1_threaten	threaten	past=threatened;pp=threatened	drohen / bedrohen	pres3=droht;pret=drohte;pp=hat gedroht
+s_b1_sentence_2	sentence	past=sentenced;pp=sentenced	verurteilen	pres3=verurteilt;pret=verurteilte;pp=hat verurteilt
+s_b1_punish	punish	past=punished;pp=punished	bestrafen	pres3=bestraft;pret=bestrafte;pp=hat bestraft
+s_b1_illegal	illegal		illegal / gesetzwidrig	
+nature_4_fire	fire	pl=fires	der Brand / das Feuer	pl=die Brände
+s_b1_rescue	rescue / save	past=rescued;pp=rescued	retten	pres3=rettet;pret=rettete;pp=hat gerettet
+s_b1_become_an_adult	become an adult / grow up	past=became an adult;pp=become an adult	erwachsen werden	pres3=wird erwachsen;pret=wurde erwachsen;pp=ist erwachsen geworden
+s_b1_stage_of_life	stage of life / phase of life	pl=stages of life	die Lebensphase / der Lebensabschnitt	pl=die Lebensphasen
+s_b1_blended_family	blended family / stepfamily	pl=blended families	die Patchworkfamilie	pl=die Patchworkfamilien
+relationships_7_trust	trust	pl=-	das Vertrauen	pl=-
+verbs1_4_die	die	past=died;pp=died	sterben	pres3=stirbt;pret=starb;pp=ist gestorben
+opinions_8_opinion	opinion	pl=opinions	die Meinung	pl=die Meinungen
+s_b1_justify	justify / give reasons for	past=justified;pp=justified	begründen	pres3=begründet;pret=begründete;pp=hat begründet
+communication_9_conversation	conversation	pl=conversations	das Gespräch / die Diskussion	pl=die Gespräche
+s_b1_be_against	be against / oppose	past=was against;pp=been against	dagegen sein / ablehnen	pres3=ist dagegen;pret=war dagegen;pp=ist dagegen gewesen
+s_b1_state	state / note	past=stated;pp=stated	feststellen	pres3=stellt fest;pret=stellte fest;pp=hat festgestellt
+s_b1_personally	personally		persönlich	
+s_b1_i_partly_agree	I partly agree / I agree in part		ich stimme teilweise zu / ich bin teilweise einverstanden	
+s_b1_consequence	consequence	pl=consequences	die Folge / die Konsequenz	pl=die Folgen
+future_future	future	pl=futures	die Zukunft	pl=-
+s_b1_prerequisite	prerequisite / precondition	pl=prerequisites	die Voraussetzung	pl=die Voraussetzungen
+s_b1_value	value	pl=values	der Wert	pl=die Werte
+s_b1_method	method	pl=methods	die Methode	pl=die Methoden
+s_b1_reality	reality	pl=realities	die Wirklichkeit / die Realität	pl=die Wirklichkeiten
+s_b1_opportunity	opportunity / occasion	pl=opportunities	die Gelegenheit	pl=die Gelegenheiten
+s_b1_moment	moment	pl=moments	der Moment / der Augenblick	pl=die Momente
+s_b1_sign	sign	pl=signs	das Zeichen	pl=die Zeichen
+s_b1_opposite	opposite	pl=opposites	das Gegenteil	pl=die Gegenteile
+s_b1_negative	negative		negativ	
+phrasal_9_look_forward_to	look forward to	past=looked forward to;pp=looked forward to	sich freuen auf	pres3=freut sich auf;pret=freute sich auf;pp=hat sich gefreut auf
+s_b1_give_in	give in	past=gave in;pp=given in	nachgeben	pres3=gibt nach;pret=gab nach;pp=hat nachgegeben
+s_b1_get_rid_of	get rid of	past=got rid of;pp=got rid of	loswerden	pres3=wird los;pret=wurde los;pp=ist losgeworden
+s_b1_take_it_easy	take it easy	past=took it easy;pp=taken it easy	es ruhig angehen lassen	pres3=lässt es ruhig angehen;pret=ließ es ruhig angehen;pp=hat es ruhig angehen lassen
+s_b1_think_over	think over / consider	past=thought over;pp=thought over	überlegen / sich überlegen	pres3=überlegt;pret=überlegte;pp=hat überlegt
+s_b1_postpone	postpone / put off	past=postponed;pp=postponed	verschieben	pres3=verschiebt;pret=verschob;pp=hat verschoben
+s_b1_devote_oneself_to	devote oneself to	past=devoted oneself to;pp=devoted oneself to	sich widmen	pres3=widmet sich;pret=widmete sich;pp=hat sich gewidmet
+s_b1_expect	expect	past=expected;pp=expected	erwarten	pres3=erwartet;pret=erwartete;pp=hat erwartet
+s_b1_demand_2	demand / require	past=demanded;pp=demanded	verlangen / fordern	pres3=verlangt;pret=verlangte;pp=hat verlangt
+s_b1_realize	realise / realize	past=realised;pp=realised	erkennen / einsehen / begreifen	pres3=erkennt;pret=erkannte;pp=hat erkannt
+s_b1_solve	solve	past=solved;pp=solved	lösen	pres3=löst;pret=löste;pp=hat gelöst
+s_b1_encourage	encourage	past=encouraged;pp=encouraged	ermutigen	pres3=ermutigt;pret=ermutigte;pp=hat ermutigt
+s_b1_destroy	destroy / ruin	past=destroyed;pp=destroyed	zerstören / ruinieren	pres3=zerstört;pret=zerstörte;pp=hat zerstört
+s_b1_spend	spend	past=spent;pp=spent	verbringen	pres3=verbringt;pret=verbrachte;pp=hat verbracht
+s_b1_finally_lastly	finally / lastly / in conclusion		zum Schluss / schließlich / abschließend	
+s_b1_in_other_words	in other words		mit anderen Worten / anders gesagt	
+s_b1_as_a_result_of	as a result of		infolge / als Folge von	
+s_b1_in_short	in short / in brief		kurz gesagt / kurzum	
+s_b1_except	except / apart from		außer	
+s_b1_in_general	in general / generally		im Allgemeinen / allgemein	
+s_b1_the_nordic_council	the Nordic Council		der Nordische Rat	
+s_b1_bilingual	bilingual		zweisprachig	
+s_b1_sami	Sami	pl=Sami	der Same / die Samin	pl=die Samen
+s_b1_turku	Turku	pl=-	Turku	pl=-
+s_b1_sweden_s_national_day	Sweden's National Day / Swedish National Day		der schwedische Nationalfeiertag / der Nationalfeiertag Schwedens	

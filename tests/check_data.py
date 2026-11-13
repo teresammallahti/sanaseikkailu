@@ -20,8 +20,14 @@ def load_sentences():
 data = datamodel.to_legacy(MODEL)[0]
 for e in datamodel.validate(MODEL)[0]: err("Model", e)
 for w_ in datamodel.validate(MODEL)[1]: warn("Model", w_)
+import copy
+FULLW = data["words"]  # alkuperäinen näkymä (itseopiskelun tarkistus)
 SELFW = [w for w in data["words"] if w.get("self_only")]  # vain itseopiskelu (oma tarkistus lopussa)
-data["words"] = [w for w in data["words"] if not w.get("self_only")]
+data["words"] = [copy.deepcopy(w) for w in data["words"] if not w.get("self_only")]
+for _w in data["words"]:  # koulun näkymä: itseopiskelun muodot pois
+    for _l in _w.pop("self_langs", []):
+        if _l == "en" and _w.get("de_only"): continue  # viitekenttä, ei harjoitella
+        _w.pop(_l, None); _w.pop(_l + "_pl", None); _w.pop(_l + "_infl", None); _w.pop("fi_" + _l, None)
 ALLW = data["words"]  # sis. de_only-sanat (vain saksan harjoitukseen)
 SD = load_sentences()
 cats = data["categories"]; words = data["words"]; ewords = [w for w in words if not w.get("de_only")]; sents = SD.get("en", []) if SD else []
@@ -103,13 +109,13 @@ for w in words:
         if "..." in (w.get(f) or ""):
             info("Pattern phrases with '...' (filtered from practice)",
                  f"{w['id']}: en={w['en']!r} fi={w['fi']!r} de={w.get('de')!r}"); break
-def practicable(w): return "..." not in w["fi"] and "..." not in w["en"]
+def practicable(w): return "..." not in w["fi"] and "..." not in w.get("en", "")
 
 # ---------- ambiguity ----------
 def norm(s): return s.strip().lower()
 def alts(s): return [norm(a) for a in s.split("/") if a.strip()]
 by_en = collections.defaultdict(list)
-for w in ewords: by_en[norm(w["en"])].append(w)
+for w in ewords: by_en[norm(w.get("en", ""))].append(w)
 for en, ws in sorted(by_en.items()):
     if len(ws) > 1:
         fis = {norm(w["fi"]) for w in ws}
@@ -121,7 +127,7 @@ for en, ws in sorted(by_en.items()):
 fi_map = collections.defaultdict(lambda: collections.defaultdict(list))
 for w in ewords:
     if not practicable(w): continue
-    for a in alts(w["fi"]): fi_map[a][norm(w["en"])].append(w["id"])
+    for a in alts(w["fi"]): fi_map[a][norm(w.get("en", ""))].append(w["id"])
 for fi, m in sorted(fi_map.items()):
     if len(m) > 1:
         warn("Same fi, different en (fi->en ambiguous)", f"{fi!r} -> " + " | ".join(f"{en!r}" for en in m))
@@ -142,7 +148,7 @@ def clean(p): return re.sub(r"\(.*?\)", "", p).strip()
 noun_like = lambda en: bool(re.fullmatch(r"[A-Za-z]+", en.strip()))
 for w in words:
     if "de" not in w: continue  # yläkoulun sanoilla ei saksaa
-    de, en, wid = w["de"], w["en"], w["id"]
+    de, en, wid = w["de"], w.get("en", ""), w["id"]
     parts = [clean(p) for p in de.split("/") if p.strip()]
     has_art = [bool(re.match(rf"{ART}\s", p)) for p in parts]
     for p in parts:
@@ -218,7 +224,7 @@ def forms(w): return set(stem(w)) | {w}
 vocab_by_grade = collections.defaultdict(set); allvocab = set()
 for w in ewords:
     ts = set()
-    for a in re.split(r"/", w["en"]):
+    for a in re.split(r"/", w.get("en", "")):
         for t in tok(a.lower().replace("...", " ")): ts |= forms(t)
     allvocab |= ts
     g = wgrade(w)
@@ -243,7 +249,7 @@ info("Top 30 sentence words NOT in vocabulary at all", ", ".join(f"{w}({n})" for
 SELF_TOPIC = {}
 for t in MODEL["self"]["topics"]:
     for cid in t["concepts"]: SELF_TOPIC[cid] = t
-_byid = {w["id"]: w for w in ALLW + SELFW}
+_byid = {w["id"]: w for w in FULLW}
 _shown = collections.defaultdict(list)
 for cid, t in SELF_TOPIC.items():
     w = _byid.get(cid)

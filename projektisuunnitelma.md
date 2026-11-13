@@ -51,8 +51,8 @@ Ruotsin itseopiskelusanasto (A1–B1, 3119 käsitettä) on pohja; nämä työkal
 1. ✅ (vaihe 40) **Tasonmääritys** — lyhyt testi (sanat tasoittain A1 → B1, mukautuva), joka asettaa lähtötason ja merkitsee osaamansa sanat opituiksi. Koodi; data valmiina.
 2. ✅ (vaihe 41) **Välitetty toisto ja päivätavoite** — kertausjono (spaced repetition) ja päivän tavoite (esim. 20 sanaa / 10 min), putkilaskuri aikuisen tyyliin.
 3. ✅ (vaihe 42) **Monivalinta ja yhdistely** — nopea tunnistusharjoitus aloittelijalle ennen kirjoittamista (4 vaihtoehtoa; parien yhdistely). Hyödyttää myös peruskoulua.
-4. **Taivutusharjoitus (ruotsi)** — en/ett, määräinen muoto, monikko, verbin preesens/preteriti/supiini, adjektiivin taivutus. Data on jo sanastossa (`def`, `pl`, `pres`, `pret`, `sup`, `neut`, `apl`).
-5. **Kuuntelu ja sanelu** — kuule ruotsiksi (sv-SE puhesynteesi) ja kirjoita / valitse merkitys.
+4. ✅ (vaihe 43) **Taivutusharjoitus (ruotsi)** — en/ett, määräinen muoto, monikko, verbin preesens/preteriti/supiini, adjektiivin taivutus. Data on jo sanastossa (`def`, `pl`, `pres`, `pret`, `sup`, `neut`, `apl`).
+5. ✅ pohja (vaihe 43) **Kuuntelu ja sanelu** — kuule ruotsiksi (sv-SE puhesynteesi) ja kirjoita / valitse merkitys.
 6. **Virkkeet ja dialogit aihepiireittäin** — itseopiskelun omat virkkeet (Opus), käyttävät nykyisiä virkeharjoituksia (kirjoita, täydennä, järjestä, kuuntele).
 7. **Kielioppiselitykset** — lyhyet suomenkieliset selitykset (V2-sanajärjestys, sivulauseen adverbi, en/ett, taivutusluokat), linkitetty harjoituksiin.
 8. **Lukutekstit** — lyhyet tasotekstit kysymyksineen, sanat linkitetty sanastoon.
@@ -60,6 +60,26 @@ Ruotsin itseopiskelusanasto (A1–B1, 3119 käsitettä) on pohja; nämä työkal
 10. **Edistymisen seuranta ja varmuuskopiomuistutus** — tasojen ja aihepiirien valmius, viikkonäkymä, muistutus varmuuskopiosta.
 
 Sisällön laatu: ✅ Fable-tarkistus 3119 sanalle tehty (vaihe 40). Englannin ja saksan itseopiskelu: lisätään `forms/en.json` / `de.json` samoille käsitteille, kun ruotsin malli on koeteltu.
+
+### Ehdotus: dynaaminen eteneminen päivätavoitteen jälkeen (vaihe 43, odottaa hyväksyntää)
+
+Havainto (käyttäjä): itseopiskelu rajoittaa päivän opittavia liikaa – kun päivän tavoite (20 vastausta) ja uusien sanojen kiintiö (10) täyttyvät, uutta ei tule ja harjoittelu muuttuu pelkäksi kertaukseksi.
+
+Ehdotettu mekanismi, neljä osaa:
+1. **Jatkovalikko tavoitteen täytyttyä** ("Päivän tavoite täynnä – jatketaanko?"): "+10 uutta sanaa", "Haastekierros" (kohta 3), "Kertaa vaikeimmat", "Lopeta tältä päivältä". Valinta ei koskaan pakota lopettamaan.
+2. **Mukautuva uusien sanojen kiintiö**: kiintiö säätyy automaattisesti suoriutumisen ja kertauskuorman mukaan. Jos viimeisen päivän osumatarkkuus on ≥ 85 % ja huomenna erääntyviä on vähän (esim. < 2 × päivätavoite), kiintiö kasvaa (+5, max 40); jos tarkkuus < 70 % tai kertausjono paisuu, kiintiö pienenee (min 5). Ennuste "huomenna kerrattavia n" näkyy, jotta käyttäjä ymmärtää, miksi uutta tulee tai ei tule.
+3. **Sanan haasteportaat**: jokainen sana etenee portaita tunnistus (Valitse/Yhdistä) → tuotto (kirjoita) → taivutus → kuuntelu/sanelu → käyttö virkkeessä. Tavoitteen jälkeen "Haastekierros" ottaa jo osattuja sanoja ja vie ne seuraavalle portaalle, joten haaste kasvaa ilman uusia sanoja; vaikeus nousee myös suunnan vaihdolla (suomi → kohdekieli) ja ajastetulla pikakierroksella.
+4. **Uudet sanat yleisyysjärjestyksessä ja seuraavan tason esimakuna**: uudet sanat valitaan aihepiirin sisällä yleisimmästä alkaen (`zipf_fi`, wordfreq), ja kun tason sanoista on opittu ~70 %, 10–20 % uusista sanoista tulee seuraavalta tasolta. Viikkotavoite (esim. 100 uutta sanaa tai 5 päivää) täydentää päivätavoitetta.
+
+Toteutus Sonnetilla (koodi, testit) heti hyväksynnän jälkeen; parametrit (rajat 85 % / 70 %, min/max) säädetään käyttökokemuksen mukaan.
+
+### Sanakirjasto (vaihe 43)
+
+- `data/lexicon/fi_kotus.tsv`: Kotimaisten kielten keskuksen nykysuomen sanalista (93 930 hakusanaa taivutusluokkineen, LGPL); pohja tulevalle haulle, suomen taivutukselle ja laajennuksille. Ei upoteta sovellukseen.
+- 4000 yleisintä Kotuksen perusmuotoa, joita sanastossa ei ollut (yleisyys wordfreq), käsiteltiin Opuksella: 3392 uutta käsitettä suomi–ruotsi–englanti–saksa taivutuksineen, tasot A1–B2 (uusi B2-taso, 13 aihepiiriä); 671 hylättiin (taivutusmuodot, puhekieli, karkea kieli, erisnimet).
+- Englanti ja saksa taivutuksineen kaikille aiemmille itseopiskelun käsitteille. Englannin ja saksan itseopiskelu on valmiina datassa (`self.json`: `languages_ready`), otetaan käyttöön Fable-tarkistuksen jälkeen.
+- Lähteet ja lisenssit: `data/LAHTEET.md`. Kotus ja kaikki.org/Wiktionary olivat suoraan estettyjä tästä ympäristöstä; Kotus haettiin GitHub-peilistä. Wiktionary-pohjaiset avoimet käännössanakirjat (CC BY-SA) voidaan myöhemmin käyttää ristiintarkistukseen, jos pääsy järjestyy.
+- Kirjaston koko nyt: 7073 käsitettä, ruotsin itseopiskelussa 6510 (A1 1221, A2 1719, B1 2184, B2 1386).
 
 ### Tiekartta (ehdotettu järjestys)
 
@@ -326,11 +346,13 @@ Vinkki: Chromen valikko → "Lisää aloitusnäyttöön" avaa sovelluksen kokoru
 41. **Kertausjärjestelmä ja päivätavoite (vaihe 41)** — ✅ Sonnet: välitetty toisto itseopiskelussa (`srsInterval`, `srsEase`, `srsDue`; 1 pv → väli × ease, max 365 pv; väärä / Näytä sana → 1 pv), erääntyneet ensin, uusia sanoja oletuksena 10/pv, "🔁 Kerrattavia" + "Kertaa erääntyneet"; päivätavoite 10/20/30/50 (oletus 20) ja päiväputki 🔥 (`selfDaily_<kieli>`); aukolliset ilmaukset ("jag heter ...") mukaan itseopiskeluun. Peruskoulu ennallaan.
 42. **Monivalinta ja yhdistely (vaihe 42)** — ✅ Sonnet: syöttötapa "☑️ Valitse" (4 vaihtoehtoa, yhteinen häiriölogiikka tasotestin kanssa) ja harjoitus "🔗 Yhdistä" (5 paria), molemmissa tiloissa. Tunnistusharjoituksia: kirjataan omiin kenttiin (`choice*`, `match*`, `recogHeat`), eivät valmista sanaa eivätkä pidennä kertausväliä; lasketaan päivätavoitteeseen. 210 + 13 testiä, Artifact v40. Tunnettu rajoitus: yhdistelyssä voi tulla lähes samamerkityksisiä pareja (esim. hej då / ha det bra); ulkoasu kokeiltu selaimessa, ei vielä tabletilla.
 
+43. **Taivutus, kuuntelu, sanakirjasto (vaihe 43)** — ✅ Sonnet: 🔤 Taivutus (en/ett, määräinen, monikko, verbi, verbi ×3, adjektiivi, sekoitus; datavetoinen `INFL_SPEC`, englanti/saksa valmiina; `inflStats_<kieli>`; peruskoulun ruotsissa nimellä Kielioppi) ja 🎧 Kuuntele -pohja (sanelu, kuullun ymmärtäminen, virkesanelu peruskoulussa; `dict*`, `listen*`, `listenItems()` laajennettava). Opus (18 agenttia): sanakirjasto (ks. luku Sanakirjasto). Koulun käsitteiden itseopiskelumuodot merkitty `self_only` (sovelluksessa `self_langs`), joten peruskoulu ennallaan. Sanasto v21, 242 + 13 testiä, Artifact v41. Ehdotus dynaamisesta etenemisestä odottaa hyväksyntää. **Fable-tarkistus odottaa:** 3392 uutta käsitettä (fi/sv/en/de) ja en/de 3118 käsitteelle.
+
 > Muistutussääntö: kun aloitatte uuden vaiheen, mainitkaa se — Claude tarkistaa suunnitelman ja muistuttaa, mikä malli kannattaa olla käytössä.
 
 ## Seuraavaksi käyttäjältä
 
-1. **Push GitHubiin** — käyttäjä päätti vaiheessa 37, ettei pushata vielä; vaiheet 38–42 odottavat paikallisina committeina. Kun aika koittaa, aja koneellasi allekkain:
+1. **Push GitHubiin** — käyttäjä päätti vaiheessa 37, ettei pushata vielä; vaiheet 40–43 odottavat paikallisina committeina. Kun aika koittaa, aja koneellasi allekkain:
 
    ```powershell
    cd "G:\01 AI\05 Kieliohjelma"

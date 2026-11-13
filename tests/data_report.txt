@@ -2,7 +2,7 @@ Sanaseikkailu data check: 1616 words, 93 categories, 338 sentences
 
 ===== ERRORS (0) =====
 
-===== WARNINGS (4) =====
+===== WARNINGS (14) =====
 
 [DE: possible missing article] (2)
   - polite_phrases_sorry: en='sorry' de='Entschuldigung / es tut mir leid'
@@ -11,8 +11,18 @@ Sanaseikkailu data check: 1616 words, 93 categories, 338 sentences
 [Sentence length not increasing] (1)
   - grade 7 avg 10.20 < grade 6 avg 11.30
 
-[Self sv taivutus] (1)
+[Self sv taivutus] (11)
   - myself_scared: adjektiivilta puuttuu taivutus: 'rädd'
+  - k_eilinen: adjektiivilta puuttuu taivutus: 'gårdagens'
+  - k_huominen: adjektiivilta puuttuu taivutus: 'morgondagens'
+  - k_puinen: adjektiivilta puuttuu taivutus: 'av trä'
+  - k_niminen: adjektiivilta puuttuu taivutus: 'som heter / vid namn'
+  - k_kaikenlainen: adjektiivilta puuttuu taivutus: 'all slags / alla möjliga'
+  - k_ylin: adjektiivilta puuttuu taivutus: 'översta / högsta'
+  - k_perattainen: adjektiivilta puuttuu taivutus: 'på varandra följande'
+  - k_tyylinen: adjektiivilta puuttuu taivutus: 'i stil med'
+  - k_veroinen: adjektiivilta puuttuu taivutus: 'i klass med / jämförbar med'
+  - k_vahin: adjektiivilta puuttuu taivutus: 'minst / minsta'
 
 ===== INFO (115) =====
 
@@ -28,7 +38,7 @@ Sanaseikkailu data check: 1616 words, 93 categories, 338 sentences
   - de_k1_minus: 'minus' = 'minus'
 
 [Swedish] (1)
-  - 1165 words with sv, 60 sentences ({1: 20, 2: 20, 3: 20})
+  - 481 words with sv, 60 sentences ({1: 20, 2: 20, 3: 20})
 
 [Words per grade] (1)
   - g1: 126, g2: 78, g3: 88, g4: 949, g5: 70, g6: 63, g7: 74, g8: 75, g9: 75, ungraded(hobby): 18
@@ -149,6 +159,6 @@ Sanaseikkailu data check: 1616 words, 93 categories, 338 sentences
   - mia(8), leo(8), max(7), anna(6), emma(6), got(4), going(3), much(3), can't(2), tom(2), taller(2), hiding(2), won(2), way(2), forgot(2), causes(2), ella(1), faster(1), ran(1), bit(1), caught(1), fancy(1), grandad(1), stopped(1), slid(1), fireworks(1), won't(1), pupils(1), speak(1), keep(1)
 
 [Self sv] (1)
-  - itseopiskelun ruotsi: 3118 käsitettä ({'A1': 1152, 'A2': 1009, 'B1': 957}), 49 aihepiiriä
+  - itseopiskelun ruotsi: 6510 käsitettä ({'A1': 1221, 'A2': 1719, 'B1': 2184, 'B2': 1386}), 62 aihepiiriä
 
-SUMMARY: 0 error(s), 4 warning(s)
+SUMMARY: 0 error(s), 14 warning(s)

@@ -1,0 +1,391 @@
+id	fi	sv	pos	en_nykyinen	en_viite	de_nykyinen	de_pl_nykyinen
+greetings_phrases_good_morning	huomenta / hyvää huomenta	god morgon	phrase	good morning		guten Morgen	
+greetings_phrases_see_you_later	nähdään myöhemmin / nähdään	vi ses senare / vi ses	phrase	see you later		bis später	
+polite_phrases_please	ole kiltti (pyydettäessä) / kiitos (pyydettäessä)	snälla / tack	interj	please		bitte	
+s_a1_yes_to_a_negative_question	kyllä (myöntävä vastaus kieltävään kysymykseen)	jo	interj		yes (to a negative question)		
+s_a1_can_you_repeat_that	voitko toistaa? / voitko sanoa uudestaan?	kan du upprepa det / kan du säga det igen	phrase		can you repeat that?		
+s_a1_happy_birthday	hyvää syntymäpäivää	grattis på födelsedagen	phrase		happy birthday		
+s_a1_enjoy_your_meal	hyvää ruokahalua / Hyvää ruokahalua!	smaklig måltid / Smaklig måltid!	phrase		enjoy your meal		
+s_a1_how_do_you_spell_it	miten se kirjoitetaan? / miten se tavataan?	hur stavas det	phrase		how do you spell it?		
+s_a1_i_was_born	olen syntynyt ...	jag är född ...	phrase		I was born ...		
+perusverbit_1_live	asua	bo	v	live		wohnen / leben	
+countries_finland	Suomi	Finland	n	Finland		Finnland	
+s_a1_finnish_language	suomi (kieli) / suomen kieli	finska	n		Finnish (language)		
+s_a1_divorced	eronnut (avioliitosta)	skild / frånskild	adj		divorced		
+numbers_four	neljä	fyra	num	four		vier	
+numbers_twelve	kaksitoista	tolv	num	twelve		zwölf	
+numbers_twenty	kaksikymmentä	tjugo	num	twenty		zwanzig	
+numbers_4_ninety	yhdeksänkymmentä	nittio	num	ninety			
+s_a1_fifth	viides	femte	num		fifth		
+numbers_4_quarter	neljäsosa / neljännes	en fjärdedel	n	quarter			
+s_a1_everything	kaikki (yksikkö, esim. kaikki on hyvin)	allt	pron		everything		
+s_a1_number	numero	ett nummer	n		number		
+s_a1_gram	gramma	ett gram	n		gram		
+phrases_4_what_time_is_it	Mitä kello on?	vad är klockan / hur mycket är klockan	phrase	What time is it?			
+time_4_minute	minuutti	en minut	n	minute			
+aikasanat_2_evening	ilta	en kväll	n	evening		der Abend	die Abende
+aikasanat_2_today	tänään	i dag / idag	adv	today		heute	
+weekdays_thursday	torstai	torsdag / en torsdag	n	Thursday		Donnerstag	
+calendar_4_april	huhtikuu	april	n	April			
+calendar_4_december	joulukuu	december	n	December			
+aikasanat_2_year	vuosi	ett år	n	year		das Jahr	die Jahre
+yleissanat_3_always	aina	alltid	adv	always		immer	
+s_a1_last_week	viime viikolla	förra veckan	phrase		last week		
+family_father	isä / iskä	en pappa / en far	n	father		der Vater	die Väter
+family_brother	veli	en bror	n	brother		der Bruder	die Brüder
+s_a1_uncle_father_s_brother	setä (isän veli)	en farbror	n		uncle (father's brother)		
+s_a1_partner	puoliso / kumppani	en partner	n		partner		
+family_baby	vauva	en bebis	n	baby		das Baby	die Babys
+verbs2_4_look_like	näyttää (joltakin)	se ut	v	look like			
+s_a1_slim	hoikka	smal	adj		slim		
+body_parts_eye	silmä	ett öga	n	eye		das Auge	die Augen
+appearance_long_hair	pitkät hiukset / pitkä tukka	långt hår	phrase	long hair		lange Haare	
+s_a1_tattoo	tatuointi	en tatuering	n		tattoo		
+personality_funny	hauska / hassu	rolig / lustig	adj	funny		lustig / witzig	
+personality_sporty	urheilullinen	sportig	adj	sporty		sportlich	
+body_4_neck	kaula	en hals	n	neck			
+body_4_knee	polvi	ett knä	n	knee			
+body_parts_ear	korva	ett öra	n	ear		das Ohr	die Ohren
+myself_hungry	nälkäinen	hungrig	adj	hungry		hungrig	
+s_a1_i_have_a_stomach_ache	Vatsaani sattuu. / Minulla on vatsakipua.	jag har ont i magen	phrase		I have a stomach ache		
+s_a1_plaster	laastari	ett plåster	n		plaster		
+house_rooms_home	koti	ett hem	n	home		das Zuhause	
+home_4_toilet	vessa / WC	en toalett / en toa	n	toilet			
+s_a1_stairs	portaat / porras	en trappa	n		stairs		
+s_a1_lock	lukita	låsa	v		lock		
+home_4_bed	sänky / vuode	en säng	n	bed			
+s_a1_curtain	verho	en gardin	n		curtain		
+s_a1_fridge	jääkaappi	ett kylskåp	n		fridge		
+s_a1_toaster	leivänpaahdin	en brödrost	n		toaster		
+s_a1_cutlery	aterimet	bestick	n		cutlery		
+home_4_shampoo	shampoo	ett schampo	n	shampoo			
+food_4_breakfast	aamiainen / aamupala	en frukost	n	breakfast			
+s_a1_rye_bread	ruisleipä	rågbröd	n		rye bread		
+food_savoury_meat	liha	kött	n	meat		das Fleisch	
+food_4_egg	kananmuna / muna	ett ägg	n	egg			
+s_a1_cereal	murot / aamiaismurot	flingor	n		cereal		
+s_a1_sauce	kastike	en sås	n		sauce		
+s_a1_mustard	sinappi	senap	n		mustard		
+food_4_sweets	karkit / makeiset / karkki	godis	n	sweets			
+fruit_orange	appelsiini	en apelsin	n	orange (hedelmä)		die Orange / die Apfelsine	die Orangen / die Apfelsinen
+s_a1_melon	meloni	en melon	n		melon		
+s_a1_mushroom	sieni	en svamp	n		mushroom		
+s_a1_beer	olut	öl / en öl	n		beer		
+general_4_piece	pala / palanen	en bit	n	piece			
+adj_4_delicious	herkullinen	läcker / jättegod / god	adj	delicious			
+s_a1_vegetarian	kasvis- / vegetaarinen	vegetarisk	adj		vegetarian		
+s_a1_kiosk	kioski	en kiosk	n		kiosk		
+shopping_buy	ostaa	köpa	v	buy		kaufen	
+s_a1_banknote	seteli	en sedel	n		banknote		
+s_a1_how_much_is_it	Paljonko se maksaa? / Mitä se maksaa?	vad kostar den / vad kostar det	phrase		how much is it		
+s_a1_size	koko (vaatteen)	en storlek	n		size		
+clothes_trousers	housut	byxor	n	trousers		die Hose	die Hosen
+clothes_4_tie	solmio	en slips	n	tie			
+clothes_4_cap	lippalakki / lippis	en keps	n	cap			
+colours_colour	väri	en färg	n	colour		die Farbe	die Farben
+colours_orange_colour	oranssi	orange	adj	orange (väri)		orange	
+s_a1_district	kaupunginosa	en stadsdel	n		district		
+town_7_corner	kulma / nurkka	ett hörn	n	corner			
+places_town_library	kirjasto	ett bibliotek	n	library		die Bibliothek / die Bücherei	die Bibliotheken / die Büchereien
+s_a1_bus_station	linja-autoasema / bussiasema	en busstation	n		bus station		
+transport_train	juna	ett tåg	n	train		der Zug	die Züge
+places_dir_4_left	vasemmalle / vasemmalla	till vänster	adv	left			
+prepositions_behind	takana	bakom	prep	behind		hinter	
+s_a1_go_by_vehicle	mennä (kulkuneuvolla) / ajaa (kulkuneuvolla)	åka	v		go (by vehicle)		
+s_a1_it_is_near	Se on lähellä	Det är nära	phrase		It is near		
+s_a1_wash_oneself	peseytyä	tvätta sig	v		wash (oneself)		
+paivarutiinit_get_dressed	pukeutua	klä på sig / klä sig	v	get dressed		sich anziehen	
+s_a1_drink_coffee	juoda kahvia	dricka kaffe	v		drink coffee		
+s_a1_clean	siivota	städa	v		clean		
+s_a1_fall_asleep	nukahtaa	somna	v		fall asleep		
+verbs1_4_sit	istua	sitta	v	sit			
+verbs1_4_close	sulkea	stänga	v	close			
+s_a1_i_like_music	Pidän musiikista	Jag tycker om musik / Jag gillar musik	phrase		I like music		
+hobbies_4_song	laulu	en sång	n	song			
+verbs_action_dance	tanssia	dansa	v	dance		tanzen	
+travel_6_travel	matkustaa	resa	v	travel		reisen	
+s_a1_gym	kuntosali / sali	ett gym	n		gym		
+sports_skiing	hiihto / hiihtäminen	skidåkning	n	skiing		das Skifahren / das Skilaufen	
+s_a1_what_is_the_weather_like	Millainen sää on? / Millainen ilma on?	Hur är vädret? / Vad är det för väder?	phrase		What is the weather like?		
+weather_seasons_sun	aurinko	en sol	n	sun		die Sonne	
+s_a1_snow	sataa lunta	snöa	v		snow		
+nature_7_foggy	sumuinen	dimmig	adj	foggy			
+nature_7_lake	järvi	en sjö	n	lake			
+nature_4_star	tähti	en stjärna	n	star			
+s_a1_office	toimisto	ett kontor	n		office		
+people_4_office_worker	toimistotyöntekijä	en kontorist	n	office worker			
+professions_driver	kuljettaja	en chaufför / en förare	n	driver		der Fahrer / die Fahrerin	die Fahrer / die Fahrerinnen
+s_a1_course	kurssi	en kurs	n		course		
+s_a1_i_am_studying_swedish	Opiskelen ruotsia	Jag studerar svenska / Jag läser svenska / Jag pluggar svenska	phrase		I am studying Swedish		
+school_4_page	sivu	en sida	n	page			
+pronouns_4_she	hän (nainen)	hon	pron	she			
+pronouns_4_him	hänet (mies) / häntä (mies)	honom	pron	him			
+pronouns_4_her	hänen (naisen)	hennes	pron	her			
+little_4_that	tuo	den där / det där	pron	that			
+little_4_other	muu / toinen	annan / annat / andra	pron	other			
+s_a1_where_to	mihin / minne	vart	adv		where (to)		
+prepositions_in	-ssa, -ssä / sisällä (jonkin)	i	prep	in		in	
+little_4_with	kanssa	med	prep	with			
+s_a1_around	ympäri / ympärillä	runt / omkring	prep		around		
+little_4_also	myös	också	adv	also			
+s_a1_there	siellä	där	adv		there		
+s_a1_down	alas	ner / ned	adv		down		
+s_a1_quite	aika (melko) / melko / melkoisen / aika / varsin	ganska	adv		quite		
+verbs1_4_do	tehdä	göra	v	do			
+verbs_communication_say	sanoa	säga	v	say		sagen	
+s_a1_believe	luulla / uskoa	tro	v		believe		
+s_a1_usually_do	olla tapana / tavata (tehdä jotakin)	bruka	v		usually do		
+s_a1_live_be_alive	elää	leva	v		live (be alive)		
+verbs1_4_try	yrittää / kokeilla	försöka	v	try			
+verbs2_4_ask_for	pyytää	be	v	ask for			
+opposites_easy	helppo	lätt	adj	easy		einfach	
+opposites_hot	kuuma	het / varm	adj	hot		heiß	
+opposites_full	täysi / täynnä	full	adj	full		voll	
+adj_4_dark	pimeä / tumma	mörk	adj	dark			
+general_4_whole	koko (kokonainen) / kokonainen	hel	adj	whole			
+travel_passport	passi	ett pass	n	passport		der Reisepass / der Pass	die Reisepässe / die Pässe
+s_a2_confirm	vahvistaa (varaus)	bekräfta	v		confirm		
+s_a2_tent	teltta	ett tält	n		tent		
+s_a2_sight	nähtävyys	en sevärdhet	n		sight		
+travel_holiday	loma	en semester / ett lov	n	holiday		der Urlaub / die Ferien	
+s_a2_visa	viisumi	ett visum	n		visa		
+s_a2_departure	lähtö	en avgång	n		departure		
+s_a2_gate	portti (lentokentällä) / lähtöportti	en gate	n		gate		
+s_a2_passenger	matkustaja	en passagerare / en resenär	n		passenger		
+s_a2_sunbathe	ottaa aurinkoa	sola	v		sunbathe		
+s_a2_pedestrian	jalankulkija	en fotgängare	n		pedestrian		
+s_a2_speed_limit	nopeusrajoitus	en hastighetsbegränsning	n		speed limit		
+s_a2_driving_licence	ajokortti	ett körkort	n		driving licence		
+s_a2_electric_car	sähköauto	en elbil	n		electric car		
+s_a2_crash	kolari / kolarointi	en krock	n		crash		
+s_a2_commuter_train	lähijuna	ett pendeltåg	n		commuter train		
+s_a2_commute	kulkea työmatkoja / pendelöidä / kulkea töihin toiselle paikkakunnalle	pendla	v		commute		
+s_a2_bank	pankki	en bank	n		bank		
+s_a2_withdraw	nostaa (rahaa)	ta ut	v		withdraw		
+school_4_letter_kirje	kirje	ett brev	n	letter (kirje)			
+s_a2_case_officer	virkailija / käsittelijä	en handläggare	n		case officer		
+s_a2_id	henkilöllisyystodistus	en legitimation / ett id-kort	n		ID		
+s_a2_insurance	vakuutus	en försäkring	n		insurance		
+future_decision	päätös	ett beslut	n	decision		die Entscheidung	die Entscheidungen
+s_a2_hair_salon	kampaamo / parturi (liike)	en frisörsalong / en frisör	n		hair salon		
+s_a2_ambulance	ambulanssi	en ambulans	n		ambulance		
+health_7_cough	yskä	hosta	n	cough			
+s_a2_toothache	hammassärky	tandvärk	n		toothache		
+s_a2_vomit	oksentaa	kräkas / spy	v		vomit		
+s_a2_asthma	astma	astma	n		asthma		
+s_a2_painkiller	särkylääke / kipulääke	en värktablett	n		painkiller		
+s_a2_bone	luu	ett ben	n		bone		
+s_a2_fall_ill	sairastua	bli sjuk	v		fall ill		
+s_a2_urgent	akuutti / kiireellinen (hoito)	akut	adj		urgent		
+s_a2_rented_flat	vuokra-asunto	en hyresrätt / en hyreslägenhet	n		rented flat		
+s_a2_studio_flat	yksiö	en etta	n		studio flat		
+s_a2_move	muuttaa (asuntoon)	flytta	v		move		
+chores_4_do_the_laundry	pestä pyykkiä	tvätta	v	do the laundry			
+s_a2_dust	pyyhkiä pölyt	damma	v		dust		
+s_a2_break_2	mennä rikki / hajota	gå sönder	v		break		
+s_a2_mould	home (kosteusvaurio)	mögel	n		mould		
+s_a2_light_bulb	hehkulamppu / polttimo	en glödlampa / en lampa	n		light bulb		
+cooking_7_chop	pilkkoa / paloitella	hacka	v	chop			
+s_a2_melt	sulattaa (voita) / sulaa	smälta	v		melt		
+cooking_7_oven	uuni	en ugn	n	oven			
+home_4_barbecue	grilli	en grill	n	barbecue			
+s_a2_vegan	vegaaninen	vegansk	adj		vegan		
+s_a2_order	tilaus	en beställning	n		order		
+s_a2_lunch_of_the_day	päivän lounas	dagens lunch / dagens rätt	phrase		lunch of the day		
+s_a2_job_search	työnhaku	jobbsökande / jobbsökning	n		job search		
+work_8_salary	palkka	en lön	n	salary			
+s_a2_night_shift	yövuoro	ett nattskift	n		night shift		
+s_a2_director	johtaja	en direktör	n		director		
+s_a2_project	projekti	ett projekt	n		project		
+s_a2_probation_period	koeaika	en prövotid	n		probation period		
+s_a2_lose_one_s_job	menettää työpaikkansa	förlora jobbet	v		lose one's job		
+s_a2_pension	eläke	en pension	n		pension		
+s_a2_working_environment	työympäristö	en arbetsmiljö	n		working environment		
+s_a2_cashier	kassanhoitaja / kassa (henkilö)	en kassör / en kassörska	n		cashier		
+s_a2_security_guard	vartija	en väktare	n		security guard		
+s_a2_higher_education_institution	korkeakoulu	en högskola	n		higher education institution		
+s_a2_lecture	luento	en föreläsning	n		lecture		
+future_exam	koe (koulussa) / tentti	ett prov / en tentamen	n	exam		die Prüfung	die Prüfungen
+education_9_knowledge	tietämys / osaaminen / tieto (osaaminen)	kunskap	n	knowledge			
+s_a2_grammar	kielioppi	grammatik	n		grammar		
+s_a2_adjective	adjektiivi	ett adjektiv	n		adjective		
+s_a2_reach	tavoittaa (puhelimella)	nå	v		reach		
+technology_message	viesti	ett meddelande	n	message		die Nachricht	die Nachrichten
+home_4_battery	akku / paristo	ett batteri	n	battery			
+s_a2_printer	tulostin	en skrivare	n		printer		
+s_a2_browser	selain	en webbläsare	n		browser		
+s_a2_update_2	päivitys	en uppdatering	n		update		
+school_4_log_in	kirjautua sisään / kirjautua	logga in	v	log in			
+s_a2_feel	tuntea itsensä (joksikin) / tuntea olonsa (joksikin)	känna sig	v		feel		
+s_a2_happiness	onnellisuus / onni (onnellisuus)	lycka	n		happiness		
+s_a2_annoying	ärsyttävä	irriterande	adj		annoying		
+general_4_worry	huoli	oro	n	worry			
+s_a2_surprise	yllättää	överraska	v		surprise		
+feelings_confused	hämmentynyt / ymmällään	förvirrad	adj	confused		verwirrt	
+s_a2_homesickness	koti-ikävä	hemlängtan	n		homesickness		
+opinions_8_hate	vihata	hata	v	hate			
+s_a2_be_wrong	olla väärässä	ha fel	v		be wrong		
+s_a2_friendship	ystävyys	vänskap / en vänskap	n		friendship		
+s_a2_love	rakkaus	kärlek	n		love		
+s_a2_get_married	mennä naimisiin	gifta sig	v		get married		
+s_a2_break_up	erota (seurustelukumppanista) / erota (parisuhteesta) / lopettaa suhde	göra slut	v		break up		
+s_a2_guest	vieras	en gäst	n		guest		
+calendar_4_christmas_eve	jouluaatto	julafton	n	Christmas Eve			
+s_a2_mother_s_day	äitienpäivä	mors dag / morsdag	n		Mother's Day		
+animals_cow	lehmä	en ko	n	cow		die Kuh	die Kühe
+animals_4_wild_animal	villieläin	ett vilt djur	n	wild animal			
+s_a2_hare	jänis	en hare	n		hare		
+s_a2_tick	punkki	en fästing	n		tick		
+s_a2_spruce	kuusi (puu)	en gran	n		spruce		
+s_a2_pick_berries	marjastaa / poimia marjoja	plocka bär	v		pick berries		
+s_a2_bog	suo	en myr	n		bog		
+s_a2_campfire	nuotio	en lägereld / en brasa	n		campfire		
+sports_4_goalkeeper	maalivahti	en målvakt	n	goalkeeper			
+sports_events_8_win	voittaa	vinna	v	win			
+s_a2_half	puoliaika (ottelun)	en halvlek	n		half		
+places_4_stadium	stadion	en arena / ett stadion	n	stadium			
+s_a2_song	biisi / kappale (musiikki)	en låt	n		song		
+hobbies_4_stage	näyttämö / lava	en scen	n	stage			
+s_a2_crime_novel	dekkari / salapoliisiromaani	en deckare	n		crime novel		
+s_a2_live_broadcast	suora lähetys	en direktsändning	n		live broadcast		
+s_a2_decide	päättää / päättää (tehdä jotain)	bestämma / besluta / bestämma sig	v		decide		
+s_a2_drop	pudottaa / hukata	tappa	v		drop		
+communication_9_describe	kuvailla / kuvata	beskriva	v	describe			
+s_a2_have_time	ehtiä	hinna	v		have time		
+s_a2_compare	verrata	jämföra	v		compare		
+verbs2_4_get_ready	valmistautua	förbereda sig	v	get ready			
+verbs2_4_knock	koputtaa	knacka	v	knock			
+s_a2_lie	valehdella	ljuga	v		lie		
+yleissanat_3_because	koska	eftersom / därför att / för att	conj	because		weil	
+s_a2_when	kun (aikaa)	när	conj		when		
+time_4_suddenly	yhtäkkiä / äkkiä	plötsligt	adv	suddenly			
+sidesanat_5_enough	tarpeeksi / riittävästi	tillräckligt / nog	adv	enough		genug	
+s_a2_slowly	hitaasti	långsamt	adv		slowly		
+s_a2_at_the_same_time	samaan aikaan	samtidigt	adv		at the same time		
+s_a2_completely	täysin / kokonaan	helt / alldeles	adv		completely		
+s_a2_similar	samanlainen	likadan / liknande	adj		similar		
+s_a2_messy	sotkuinen	stökig	adj		messy		
+adj_4_fantastic	upea / fantastinen	fantastisk	adj	fantastic			
+s_a2_sharp	terävä	vass	adj		sharp		
+adj_4_careful	varovainen	försiktig	adj	careful			
+s_a2_unknown	tuntematon	okänd	adj		unknown		
+s_b1_municipality	kunta	en kommun	n		municipality		
+s_b1_parliamentary_election	eduskuntavaalit	ett riksdagsval	n		parliamentary election		
+s_b1_election_campaign	vaalikampanja	en valkampanj	n		election campaign		
+s_b1_pass_a_law	hyväksyä (laki)	anta / godkänna	v		pass (a law)		
+s_b1_housing_allowance	asumistuki	ett bostadsbidrag	n		housing allowance		
+s_b1_racism	rasismi	rasism	n		racism		
+s_b1_the_left	vasemmisto	vänstern	n		the left		
+s_b1_administration	hallinto	en förvaltning	n		administration		
+s_b1_inhabitant	asukas	en invånare	n		inhabitant		
+s_b1_army	armeija	en armé	n		army		
+s_b1_economic	taloudellinen	ekonomisk	adj		economic		
+s_b1_pay_back	maksaa takaisin	betala tillbaka	v		pay back		
+s_b1_investment	sijoitus	en investering	n		investment		
+s_b1_the_price_falls	hinta laskee	priset sjunker	phrase		the price falls		
+s_b1_good_value	edullinen / hintansa arvoinen	prisvärd	adj		good value		
+general_4_product	tuote	en produkt	n	product			
+s_b1_recession	taantuma / lama	en lågkonjunktur / en recession	n		recession		
+s_b1_import_2	tuoda (maahan)	importera	v		import		
+s_b1_file_a_tax_return	tehdä veroilmoitus	deklarera	v		file a tax return		
+s_b1_qualification	pätevyys (muodollinen kelpoisuus)	en behörighet	n		qualification		
+s_b1_labour_market	työmarkkinat	en arbetsmarknad	n		labour market		
+s_b1_dismissal	irtisanominen	en uppsägning	n		dismissal		
+s_b1_trade_union	ammattiliitto	ett fackförbund / facket	n		trade union		
+s_b1_cooperation	yhteistyö	ett samarbete	n		cooperation		
+s_b1_success	menestys	en framgång	n		success		
+s_b1_start_a_company	perustaa yritys	starta ett företag / starta företag / grunda ett företag	phrase		start a company		
+sustainability_9_global_warming	ilmaston lämpeneminen	den globala uppvärmningen / global uppvärmning	phrase	global warming			
+sustainability_9_reduce	vähentää	minska	v	reduce			
+s_b1_food_waste	biojäte	matavfall	n		food waste		
+s_b1_energy_consumption	energiankulutus	energiförbrukning	n		energy consumption		
+s_b1_hydropower	vesivoima	vattenkraft	n		hydropower		
+s_b1_eutrophication	rehevöityminen	övergödning	n		eutrophication		
+s_b1_ecosystem	ekosysteemi	ett ekosystem	n		ecosystem		
+s_b1_flood	tulva	en översvämning	n		flood		
+s_b1_science	tiede	en vetenskap	n		science		
+s_b1_hypothesis	hypoteesi	en hypotes	n		hypothesis		
+general_4_result	tulos	ett resultat	n	result			
+science_9_discover	löytää (jotain uutta) / havaita	upptäcka	v	discover			
+s_b1_technology	teknologia / tekniikka	teknik / teknologi	n		technology		
+s_b1_electronics	elektroniikka	elektronik	n		electronics		
+school_4_coding	ohjelmointi / koodaus	programmering	n	coding			
+s_b1_hacker	hakkeri	en hackare	n		hacker		
+school_4_article	artikkeli / lehtijuttu	en artikel	n	article			
+s_b1_report_2	reportaasi	ett reportage	n		report		
+s_b1_tabloid	iltapäivälehti	en kvällstidning	n		tabloid		
+s_b1_news_broadcast	uutislähetys	en nyhetssändning	n		news broadcast		
+media_8_post	julkaisu (somessa) / päivitys	ett inlägg	n	post			
+verbs2_4_spread	levittää	sprida	v	spread			
+s_b1_art	taide	konst	n		art		
+s_b1_holiday	juhlapyhä / juhla (vuotuinen)	en högtid	n		holiday		
+s_b1_sculpture	veistos	en skulptur	n		sculpture		
+s_b1_short_story	novelli	en novell	n		short story		
+s_b1_handicraft	käsityö (taito)	ett hantverk	n		handicraft		
+s_b1_cultural_heritage	kulttuuriperintö	ett kulturarv	n		cultural heritage		
+fantasy_4_king	kuningas	en kung	n	king			
+s_b1_pray	rukoilla	be	v		pray		
+s_b1_muscle	lihas	en muskel	n		muscle		
+s_b1_overweight	ylipaino	övervikt	n		overweight		
+sustainability_9_lifestyle	elämäntapa	en livsstil	n	lifestyle			
+s_b1_depression	masennus	depression	n		depression		
+s_b1_vaccination	rokotus	en vaccination	n		vaccination		
+s_b1_recovery	toipuminen	återhämtning	n		recovery		
+s_b1_immune_system	vastustuskyky / immuunijärjestelmä	ett immunförsvar	n		immune system		
+s_b1_drug	huume	en drog	n		drug		
+s_b1_steal	varastaa	stjäla	v		steal		
+s_b1_victim	uhri	ett offer	n		victim		
+s_b1_trial	oikeudenkäynti	en rättegång	n		trial		
+s_b1_suspect	epäillä (rikoksesta)	misstänka	v		suspect		
+s_b1_contract	sopimus	ett avtal / ett kontrakt	n		contract		
+s_b1_warn	varoittaa	varna	v		warn		
+s_b1_first_aid	ensiapu	första hjälpen	n		first aid		
+s_b1_give_birth	synnyttää	föda	v		give birth		
+s_b1_middle_age	keski-ikä	medelålder	n		middle age		
+s_b1_bring_up	kasvattaa (lasta)	uppfostra	v		bring up		
+s_b1_engagement	kihlaus	en förlovning	n		engagement		
+s_b1_make_up	sopia riita / tehdä sovinto	bli sams / försonas	v		make up		
+verbs2_4_bury	haudata	begrava	v	bury			
+opinions_8_disagree	olla eri mieltä	vara oenig / vara oense / inte hålla med	v	disagree			
+s_b1_convince	vakuuttaa (saada uskomaan)	övertyga	v		convince		
+s_b1_position_stance	kanta	en ståndpunkt	n		position (stance)		
+s_b1_consider_be_of_the_opinion	katsoa (olevan) / olla jotakin mieltä (muodollinen)	anse	v		consider (be of the opinion)		
+s_b1_compromise	kompromissi	en kompromiss	n		compromise		
+s_b1_prejudice	ennakkoluulo	en fördom	n		prejudice		
+s_b1_possibility	mahdollisuus	en möjlighet	n		possibility		
+s_b1_change	muutos	en förändring / en ändring	n		change		
+s_b1_information	tieto (informaatio)	information	n		information		
+s_b1_challenge	haaste	en utmaning	n		challenge		
+s_b1_form	muoto	en form	n		form		
+s_b1_attention	huomio	uppmärksamhet	n		attention		
+s_b1_background	tausta	en bakgrund	n		background		
+s_b1_decrease	väheneminen / lasku	en minskning	n		decrease		
+s_b1_detail	yksityiskohta	en detalj	n		detail		
+s_b1_conflict	konflikti	en konflikt	n		conflict		
+s_b1_central	keskeinen	central	adj		central		
+s_b1_effective	tehokas	effektiv	adj		effective		
+s_b1_get_started	panna alulle / aloittaa	sätta igång	v		get started		
+free_time_7_join	liittyä / liittyä mukaan	gå med	v	join			
+s_b1_get_hold_of	saada käsiinsä / tavoittaa	få tag på / få tag i	v		get hold of		
+s_b1_watch_out	varoa / olla varuillaan	se upp	v		watch out		
+s_b1_belong_to	kuulua (johonkin)	höra till / tillhöra	v		belong to		
+s_b1_refrain_from	jättää tekemättä	låta bli	v		refrain from		
+s_b1_behave	käyttäytyä	bete sig	v		behave		
+s_b1_avoid	välttää	undvika	v		avoid		
+s_b1_carry_out	toteuttaa	genomföra	v		carry out		
+s_b1_hesitate	epäröidä	tveka	v		hesitate		
+s_b1_invest_2	panostaa	satsa	v		invest		
+s_b1_react	reagoida	reagera	v		react		
+s_b1_evaluate	arvioida (jälkikäteen)	utvärdera	v		evaluate		
+s_b1_firstly	ensinnäkin / ensiksi (luettelossa)	för det första	adv		firstly		
+connectors_9_however	kuitenkin	dock / emellertid	adv	however			
+connectors_9_despite	jostakin huolimatta	trots	prep	despite			
+s_b1_whereas	kun taas / sillä aikaa kun	medan	conj		whereas		
+s_b1_mainly	pääasiassa / lähinnä	huvudsakligen / främst	adv		mainly		
+s_b1_admittedly	tosin	visserligen	adv		admittedly		
+s_b1_nevertheless	siitä huolimatta	trots det / ändå	adv		nevertheless		
+s_b1_wellbeing_services_county	hyvinvointialue	ett välfärdsområde	n		wellbeing services county		
+s_b1_finland_swedish	suomenruotsalainen (adj.)	finlandssvensk	adj		Finland-Swedish		
+s_b1_uusimaa	Uusimaa	Nyland	n		Uusimaa		
+s_b1_take_a_sauna	saunoa	basta / bada bastu	v		take a sauna		
+s_b1_swedish_social_insurance_agenc	Vakuutuskassa (Ruotsin Kelaa vastaava virasto) / sosiaalivakuutusvirasto (Ruotsissa)	Försäkringskassan	n		Swedish Social Insurance Agency		

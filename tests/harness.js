@@ -228,7 +228,7 @@ function loadApp(options) {
   const mkButtons = (key, vals) => vals.map(v => { const b = makeElement('button'); b.dataset[key] = v; return b; });
   const langButtons = mkButtons('lang', ['en', 'de', 'sv']);
   const modeButtons = mkButtons('mode', ['pen', 'keyboard', 'mic', 'choice']);
-  const practiceButtons = mkButtons('practice', ['words', 'sentences', 'grammar', 'match']);
+  const practiceButtons = mkButtons('practice', ['words', 'sentences', 'grammar', 'match', 'infl', 'listen']);
   const studyButtons = mkButtons('study', ['school', 'self']);
   const docListeners = makeElement('document');
   const documentElement = makeElement('html');
@@ -261,7 +261,7 @@ function loadApp(options) {
   const speechSynthesis = {
     cancelCount: 0,
     cancel() { this.cancelCount++; },
-    speak(u) { spoken.push({ text: u.text, lang: u.lang }); }
+    speak(u) { spoken.push({ text: u.text, lang: u.lang, rate: u.rate, voice: u.voice }); }
   };
   function SpeechSynthesisUtterance(text) { this.text = text; this.lang = ''; }
 

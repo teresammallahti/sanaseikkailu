@@ -1,0 +1,63 @@
+# Aihepiirit (id [taso] nimi)
+- a1_greetings [A1] Tervehdykset ja kohteliaisuus
+- a1_personal [A1] Henkilötiedot ja esittäytyminen
+- a1_numbers [A1] Numerot, määrät ja mitat
+- a1_time [A1] Aika ja kalenteri
+- a1_family [A1] Perhe ja ihmiset
+- a1_appearance [A1] Ulkonäkö ja luonne
+- a1_body [A1] Keho ja vointi
+- a1_home [A1] Koti
+- a1_food [A1] Ruoka ja juoma
+- a1_shopping [A1] Ostokset, vaatteet ja värit
+- a1_town [A1] Kaupunki ja liikkuminen
+- a1_daily [A1] Arki ja päivärutiinit
+- a1_free_time [A1] Vapaa-aika ja harrastukset
+- a1_weather [A1] Sää ja luonto
+- a1_work_study [A1] Työ ja opiskelu
+- a1_core [A1] Pikkusanat
+- a1_verbs [A1] Perusverbit
+- a1_adjectives [A1] Yleisimmät adjektiivit
+- a2_travel [A2] Matkustaminen ja majoitus
+- a2_transport [A2] Liikenne ja reittiohjeet
+- a2_services [A2] Asiointi ja virastot
+- a2_health [A2] Terveys ja lääkärissä
+- a2_housing [A2] Asuminen
+- a2_cooking [A2] Ruoanlaitto ja ravintola
+- a2_work [A2] Työelämä
+- a2_education [A2] Koulutus ja kielten opiskelu
+- a2_communication [A2] Puhelin ja internet
+- a2_feelings [A2] Tunteet ja mielipiteet
+- a2_relationships [A2] Ihmissuhteet ja juhlat
+- a2_nature [A2] Luonto ja eläimet
+- a2_culture_sport [A2] Urheilu, kulttuuri ja media
+- a2_verbs [A2] Yleisiä verbejä
+- a2_adverbs [A2] Ajan ja tavan ilmaukset, sidesanat
+- a2_describe [A2] Kuvailevat adjektiivit
+- b1_society [B1] Yhteiskunta ja politiikka
+- b1_economy [B1] Talous ja kuluttaminen
+- b1_career [B1] Työ ja ura
+- b1_environment [B1] Ympäristö ja ilmasto
+- b1_science_tech [B1] Tiede ja teknologia
+- b1_media [B1] Media ja uutiset
+- b1_culture [B1] Kulttuuri ja perinteet
+- b1_wellbeing [B1] Terveys ja hyvinvointi
+- b1_law [B1] Laki, oikeudet ja turvallisuus
+- b1_life [B1] Elämänvaiheet ja ihmissuhteet
+- b1_opinions [B1] Mielipiteet ja keskustelu
+- b1_abstract [B1] Abstraktit sanat
+- b1_verbs [B1] B1-verbit ja partikkeliverbit
+- b1_connectors [B1] Tekstin jäsentäminen
+- b1_finland_nordic [B1] Suomi ja Pohjoismaat
+- b2_society [B2] Yhteiskunta, politiikka ja hallinto
+- b2_economy [B2] Talous, yritykset ja työelämä
+- b2_science [B2] Tiede, tekniikka ja tutkimus
+- b2_health [B2] Terveys, keho ja mieli
+- b2_environment [B2] Ympäristö, luonto ja maantiede
+- b2_culture [B2] Kulttuuri, taide, media ja viihde
+- b2_law [B2] Laki, oikeus, turvallisuus ja sotilasasiat
+- b2_everyday [B2] Arki, koti, ihmiset ja vapaa-aika
+- b2_communication [B2] Kieli, viestintä ja ajattelu
+- b2_abstract [B2] Abstraktit käsitteet
+- b2_verbs [B2] Verbit
+- b2_describe [B2] Adjektiivit ja adverbit
+- b2_function [B2] Rakennesanat ja ilmaukset (pronominit, partikkelit, konjunktiot, adverbit)
