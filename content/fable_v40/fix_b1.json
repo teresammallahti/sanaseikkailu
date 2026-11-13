@@ -1,0 +1,387 @@
+[
+ {
+  "id": "polite_phrases_please",
+  "field": "fi",
+  "old": "ole hyvä / kiitos (pyydettäessä) / ole kiltti",
+  "new": "ole kiltti (pyydettäessä) / kiitos (pyydettäessä)",
+  "reason": "Näytettävä kehote \"ole hyvä\" osoittaa sanaan varsågod (oma rivinsä); snälla/tack = pyyntö"
+ },
+ {
+  "id": "s_a1_you_re_welcome",
+  "field": "sv",
+  "old": "ingen orsak / för all del",
+  "new": "ingen orsak / varsågod / det var så lite / för all del",
+  "reason": "Yleisimmät vastaukset kiitokseen (varsågod, det var så lite) puuttuivat"
+ },
+ {
+  "id": "phrases_4_no_problem",
+  "field": "sv",
+  "old": "det gör inget / ingen fara",
+  "new": "det gör inget / det gör ingenting / ingen fara",
+  "reason": "Hyvin yleinen vaihtoehto \"det gör ingenting\" puuttui"
+ },
+ {
+  "id": "s_a1_how_are_you",
+  "field": "sv",
+  "old": "hur mår du / hur är det",
+  "new": "hur mår du / hur är det / hur är läget",
+  "reason": "Hyvin yleinen vaihtoehto \"hur är läget\" puuttui"
+ },
+ {
+  "id": "s_a1_and_you",
+  "field": "sv",
+  "old": "och du / själv då",
+  "new": "och du / du då / själv då",
+  "reason": "Yleinen vaihtoehto \"du då\" puuttui"
+ },
+ {
+  "id": "technology_email",
+  "field": "sv",
+  "old": "ett mejl / e-post",
+  "new": "e-post / mejl / ett mejl",
+  "reason": "Taivutuskentät (e-posten, ei monikkoa) kuuluvat sanalle e-post; ensisijainen muoto ja taivutus yhtenäisiksi"
+ },
+ {
+  "id": "perusverbit_1_live",
+  "field": "fi",
+  "old": "asua / elää",
+  "new": "asua",
+  "reason": "bo = asua; elää = leva on eri verbi, eikä taivutus (bor/bodde/bott) koske sitä"
+ },
+ {
+  "id": "perusverbit_1_live",
+  "field": "sv",
+  "old": "bo / leva",
+  "new": "bo",
+  "reason": "leva ei tarkoita asumista; kaksi eri verbiä samalla rivillä"
+ },
+ {
+  "id": "s_a1_i_m_from_finland",
+  "field": "sv",
+  "old": "jag kommer från Finland",
+  "new": "jag kommer från Finland / jag är från Finland",
+  "reason": "Yleinen vaihtoehto \"jag är från Finland\" puuttui"
+ },
+ {
+  "id": "s_a1_divorced",
+  "field": "sv",
+  "old": "skild",
+  "new": "skild / frånskild",
+  "reason": "frånskild on yleinen (mm. lomakkeissa) vaihtoehto"
+ },
+ {
+  "id": "countries_finland",
+  "field": "def",
+  "old": "Finland",
+  "new": "",
+  "reason": "Maannimellä ei ole määräistä muotoa; taivutusharjoitus kysyisi turhaan"
+ },
+ {
+  "id": "countries_sweden",
+  "field": "def",
+  "old": "Sverige",
+  "new": "",
+  "reason": "Maannimellä ei ole määräistä muotoa"
+ },
+ {
+  "id": "numbers_4_quarter",
+  "field": "fi",
+  "old": "neljännes / vartti",
+  "new": "neljäsosa / neljännes",
+  "reason": "\"vartti\" on en kvart (oma rivinsä), ei fjärdedel"
+ },
+ {
+  "id": "s_a1_number_numeral",
+  "field": "fi",
+  "old": "luku (numero)",
+  "new": "luku (lukuarvo, esim. suuri luku)",
+  "reason": "Tarkenne \"(numero)\" ohjaa sanaan nummer/siffra; numero on omana rivinään"
+ },
+ {
+  "id": "verbs1_4_count",
+  "field": "fi",
+  "old": "laskea",
+  "new": "laskea (lukuja, määrää)",
+  "reason": "\"laskea\" on monimerkityksinen (myös sänka, släppa); tarkenne puuttui"
+ },
+ {
+  "id": "time_o_clock",
+  "field": "fi",
+  "old": "tasatunti / kello (kellonaika, esim. 'kello kolme')",
+  "new": "kello (kellonajassa, esim. 'kello kolme')",
+  "reason": "Näytettävä kehote \"tasatunti\" ei tarkoita sanaa klockan"
+ },
+ {
+  "id": "s_a1_quarter_of_an_hour",
+  "field": "pl",
+  "old": "kvartar",
+  "new": "kvart",
+  "reason": "Ajanilmauksena monikko on taipumaton: tre kvart (kvartar ei käytössä tässä merkityksessä)"
+ },
+ {
+  "id": "time_4_time",
+  "field": "sv",
+  "old": "tid",
+  "new": "tid / en tid",
+  "reason": "Sanalla on monikko (tider) ja artikkelillinen muoto on yleinen; oppija voi kirjoittaa \"en tid\""
+ },
+ {
+  "id": "time_4_tonight",
+  "field": "fi",
+  "old": "tänä iltana / tänä yönä",
+  "new": "tänä iltana",
+  "reason": "\"tänä yönä\" on i natt, ei i kväll"
+ },
+ {
+  "id": "s_a1_the_day_after_tomorrow",
+  "field": "sv",
+  "old": "i övermorgon / iövermorgon",
+  "new": "i övermorgon",
+  "reason": "Yhteen kirjoitettu \"iövermorgon\" ei ole normin mukainen kirjoitusasu"
+ },
+ {
+  "id": "s_a1_the_day_before_yesterday",
+  "field": "sv",
+  "old": "i förrgår / iförrgår",
+  "new": "i förrgår",
+  "reason": "Yhteen kirjoitettu \"iförrgår\" ei ole normin mukainen kirjoitusasu"
+ },
+ {
+  "id": "time_late",
+  "field": "fi",
+  "old": "myöhässä / myöhään",
+  "new": "myöhään",
+  "reason": "\"myöhässä\" on (för)sen(t)/försenad; adverbi sent = myöhään"
+ },
+ {
+  "id": "time_late",
+  "field": "sv",
+  "old": "sent / sen",
+  "new": "sent",
+  "reason": "\"sen\" on adjektiivi, ei adverbi; pos = adv"
+ },
+ {
+  "id": "time_early",
+  "field": "sv",
+  "old": "tidigt / tidig",
+  "new": "tidigt",
+  "reason": "\"tidig\" on adjektiivi, ei adverbi \"aikaisin\""
+ },
+ {
+  "id": "aikasanat_2_weekend",
+  "field": "sv",
+  "old": "en helg",
+  "new": "en helg / ett veckoslut",
+  "reason": "Suomenruotsissa yleinen \"ett veckoslut\" vaihtoehdoksi"
+ },
+ {
+  "id": "weekdays_monday",
+  "field": "sv",
+  "old": "måndag",
+  "new": "måndag / en måndag",
+  "reason": "Laskettava substantiivi (monikko annettu); ohjeen mukainen artikkelillinen muoto hyväksyttävä"
+ },
+ {
+  "id": "weekdays_tuesday",
+  "field": "sv",
+  "old": "tisdag",
+  "new": "tisdag / en tisdag",
+  "reason": "Laskettava substantiivi (monikko annettu); ohjeen mukainen artikkelillinen muoto hyväksyttävä"
+ },
+ {
+  "id": "weekdays_wednesday",
+  "field": "sv",
+  "old": "onsdag",
+  "new": "onsdag / en onsdag",
+  "reason": "Laskettava substantiivi (monikko annettu); ohjeen mukainen artikkelillinen muoto hyväksyttävä"
+ },
+ {
+  "id": "weekdays_thursday",
+  "field": "sv",
+  "old": "torsdag",
+  "new": "torsdag / en torsdag",
+  "reason": "Laskettava substantiivi (monikko annettu); ohjeen mukainen artikkelillinen muoto hyväksyttävä"
+ },
+ {
+  "id": "weekdays_friday",
+  "field": "sv",
+  "old": "fredag",
+  "new": "fredag / en fredag",
+  "reason": "Laskettava substantiivi (monikko annettu); ohjeen mukainen artikkelillinen muoto hyväksyttävä"
+ },
+ {
+  "id": "weekdays_saturday",
+  "field": "sv",
+  "old": "lördag",
+  "new": "lördag / en lördag",
+  "reason": "Laskettava substantiivi (monikko annettu); ohjeen mukainen artikkelillinen muoto hyväksyttävä"
+ },
+ {
+  "id": "weekdays_sunday",
+  "field": "sv",
+  "old": "söndag",
+  "new": "söndag / en söndag",
+  "reason": "Laskettava substantiivi (monikko annettu); ohjeen mukainen artikkelillinen muoto hyväksyttävä"
+ },
+ {
+  "id": "calendar_4_january",
+  "field": "def",
+  "old": "januari",
+  "new": "",
+  "reason": "Kuukauden nimellä ei ole määräistä muotoa; kenttä toistaa perusmuodon"
+ },
+ {
+  "id": "calendar_4_february",
+  "field": "def",
+  "old": "februari",
+  "new": "",
+  "reason": "Kuukauden nimellä ei ole määräistä muotoa; kenttä toistaa perusmuodon"
+ },
+ {
+  "id": "calendar_4_march",
+  "field": "def",
+  "old": "mars",
+  "new": "",
+  "reason": "Kuukauden nimellä ei ole määräistä muotoa; kenttä toistaa perusmuodon"
+ },
+ {
+  "id": "calendar_4_april",
+  "field": "def",
+  "old": "april",
+  "new": "",
+  "reason": "Kuukauden nimellä ei ole määräistä muotoa; kenttä toistaa perusmuodon"
+ },
+ {
+  "id": "calendar_4_may",
+  "field": "def",
+  "old": "maj",
+  "new": "",
+  "reason": "Kuukauden nimellä ei ole määräistä muotoa; kenttä toistaa perusmuodon"
+ },
+ {
+  "id": "calendar_4_june",
+  "field": "def",
+  "old": "juni",
+  "new": "",
+  "reason": "Kuukauden nimellä ei ole määräistä muotoa; kenttä toistaa perusmuodon"
+ },
+ {
+  "id": "calendar_4_july",
+  "field": "def",
+  "old": "juli",
+  "new": "",
+  "reason": "Kuukauden nimellä ei ole määräistä muotoa; kenttä toistaa perusmuodon"
+ },
+ {
+  "id": "calendar_4_august",
+  "field": "def",
+  "old": "augusti",
+  "new": "",
+  "reason": "Kuukauden nimellä ei ole määräistä muotoa; kenttä toistaa perusmuodon"
+ },
+ {
+  "id": "calendar_4_september",
+  "field": "def",
+  "old": "september",
+  "new": "",
+  "reason": "Kuukauden nimellä ei ole määräistä muotoa; kenttä toistaa perusmuodon"
+ },
+ {
+  "id": "calendar_4_october",
+  "field": "def",
+  "old": "oktober",
+  "new": "",
+  "reason": "Kuukauden nimellä ei ole määräistä muotoa; kenttä toistaa perusmuodon"
+ },
+ {
+  "id": "calendar_4_november",
+  "field": "def",
+  "old": "november",
+  "new": "",
+  "reason": "Kuukauden nimellä ei ole määräistä muotoa; kenttä toistaa perusmuodon"
+ },
+ {
+  "id": "calendar_4_december",
+  "field": "def",
+  "old": "december",
+  "new": "",
+  "reason": "Kuukauden nimellä ei ole määräistä muotoa; kenttä toistaa perusmuodon"
+ },
+ {
+  "id": "people_4_boy",
+  "field": "fi",
+  "old": "poika",
+  "new": "poika (ei tyttö)",
+  "reason": "Tarkenne puuttui; sekoittuu riviin son (jonkun poika)"
+ },
+ {
+  "id": "people_4_boy",
+  "field": "sv",
+  "old": "en pojke",
+  "new": "en pojke / en kille",
+  "reason": "Hyvin yleinen \"en kille\" puuttui (vrt. flicka / tjej)"
+ },
+ {
+  "id": "family_grandma",
+  "field": "fi",
+  "old": "isoäiti / mummo / mummi",
+  "new": "isoäiti (äidin äiti) / mummo / mummi",
+  "reason": "Taivutus on sanan mormor; farmor on omana rivinään, tarkenne puuttui"
+ },
+ {
+  "id": "family_grandma",
+  "field": "sv",
+  "old": "en mormor / en farmor",
+  "new": "en mormor",
+  "reason": "farmor on eri sana omalla rivillään; taivutuskentät koskevat vain sanaa mormor"
+ },
+ {
+  "id": "family_grandpa",
+  "field": "fi",
+  "old": "isoisä / vaari / ukki / pappa",
+  "new": "isoisä (äidin isä) / ukki / vaari",
+  "reason": "Tarkenne puuttui; \"pappa\" sekoittuu ruotsin sanaan pappa = isä"
+ },
+ {
+  "id": "family_grandpa",
+  "field": "sv",
+  "old": "en morfar / en farfar",
+  "new": "en morfar",
+  "reason": "farfar on eri sana omalla rivillään; taivutuskentät koskevat vain sanaa morfar"
+ },
+ {
+  "id": "people_4_uncle",
+  "field": "fi",
+  "old": "eno / setä",
+  "new": "eno (äidin veli)",
+  "reason": "morbror on vain äidin veli; setä = farbror (oma rivinsä)"
+ },
+ {
+  "id": "people_4_aunt",
+  "field": "fi",
+  "old": "täti",
+  "new": "täti (äidin sisko)",
+  "reason": "moster on vain äidin sisko; isän sisko = faster (oma rivinsä)"
+ },
+ {
+  "id": "people_4_people",
+  "field": "sv",
+  "old": "folk / ett folk",
+  "new": "folk / människor",
+  "reason": "\"ett folk\" tarkoittaa kansaa, ei ihmisiä; människor on yleinen vastine"
+ },
+ {
+  "id": "personality_funny",
+  "field": "fi",
+  "old": "hassu / hauska",
+  "new": "hauska / hassu",
+  "reason": "rolig on ensisijaisesti hauska; \"hassu\" näytettävänä kehotteena harhaanjohtava"
+ },
+ {
+  "id": "s_a1_capable_good_at_sth",
+  "field": "fi",
+  "old": "reipas / taitava / hyvä (jossakin)",
+  "new": "taitava / hyvä (jossakin) / reipas",
+  "reason": "\"reipas\" on lapsille suunnattu merkitys; aikuiselle ensisijainen on taitava"
+ }
+]

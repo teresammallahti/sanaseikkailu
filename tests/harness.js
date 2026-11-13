@@ -227,8 +227,8 @@ function loadApp(options) {
   }
   const mkButtons = (key, vals) => vals.map(v => { const b = makeElement('button'); b.dataset[key] = v; return b; });
   const langButtons = mkButtons('lang', ['en', 'de', 'sv']);
-  const modeButtons = mkButtons('mode', ['pen', 'keyboard', 'mic']);
-  const practiceButtons = mkButtons('practice', ['words', 'sentences']);
+  const modeButtons = mkButtons('mode', ['pen', 'keyboard', 'mic', 'choice']);
+  const practiceButtons = mkButtons('practice', ['words', 'sentences', 'grammar', 'match']);
   const studyButtons = mkButtons('study', ['school', 'self']);
   const docListeners = makeElement('document');
   const documentElement = makeElement('html');

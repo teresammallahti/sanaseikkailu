@@ -1,0 +1,212 @@
+[
+ {
+  "id": "verbs_action_visit",
+  "field": "pres",
+  "old": "hälsar på",
+  "new": "besöker",
+  "reason": "Taivutus oli vaihtoehdon 'hälsa på' mukaan; ensimmäinen sv-muoto on besöka"
+ },
+ {
+  "id": "verbs_action_visit",
+  "field": "pret",
+  "old": "hälsade på",
+  "new": "besökte",
+  "reason": "Taivutus ensimmäisen sv-muodon (besöka) mukaan"
+ },
+ {
+  "id": "verbs_action_visit",
+  "field": "sup",
+  "old": "hälsat på",
+  "new": "besökt",
+  "reason": "Taivutus ensimmäisen sv-muodon (besöka) mukaan"
+ },
+ {
+  "id": "adjectives_famous",
+  "field": "neut",
+  "old": "känt",
+  "new": "berömt",
+  "reason": "Taivutus oli vaihtoehdon 'känd' mukaan; ensimmäinen sv-muoto on berömd"
+ },
+ {
+  "id": "adjectives_famous",
+  "field": "apl",
+  "old": "kända",
+  "new": "berömda",
+  "reason": "Taivutus ensimmäisen sv-muodon (berömd) mukaan"
+ },
+ {
+  "id": "sports_events_8_score",
+  "field": "fi",
+  "old": "tehdä maali / pistetilanne",
+  "new": "tehdä maali",
+  "reason": "'pistetilanne' ei vastaa verbiä göra mål"
+ },
+ {
+  "id": "society_9_vote",
+  "field": "fi",
+  "old": "äänestää / ääni (vaaleissa)",
+  "new": "äänestää",
+  "reason": "'ääni (vaaleissa)' on substantiivi (en röst, oma rivinsä s_b1_vote), ei verbin rösta merkitys"
+ },
+ {
+  "id": "verbs1_4_should",
+  "field": "sv",
+  "old": "borde",
+  "new": "borde / bör",
+  "reason": "Perusmuoto on böra; 'pitäisi' voidaan ilmaista myös preesensillä bör. Huom: taivutuskentät (bör/borde/bort) ovat böra-verbin, eivät sv-kentän muodon"
+ },
+ {
+  "id": "nature_4_leaf",
+  "field": "fi",
+  "old": "lehti",
+  "new": "lehti (puun)",
+  "reason": "Tarkenne: lehti voi olla myös sanomalehti (samassa erässä tidning)"
+ },
+ {
+  "id": "nature_4_leaf",
+  "field": "sv",
+  "old": "ett löv",
+  "new": "ett löv / ett blad",
+  "reason": "'ett blad' on yhtä yleinen vastine kasvin lehdelle"
+ },
+ {
+  "id": "gaming_fortnite_victory",
+  "field": "sv",
+  "old": "en seger",
+  "new": "en seger / en vinst",
+  "reason": "'vinst' on yleinen vastine voitolle (urheilu, pelit)"
+ },
+ {
+  "id": "places_4_stadium",
+  "field": "sv",
+  "old": "en arena",
+  "new": "en arena / ett stadion",
+  "reason": "Oppija kirjoittaa todennäköisesti 'stadion', joka on käypää ruotsia"
+ },
+ {
+  "id": "school_4_comic",
+  "field": "sv",
+  "old": "en serie",
+  "new": "en serie / en tecknad serie",
+  "reason": "Yleinen täsmällisempi vaihtoehto"
+ },
+ {
+  "id": "phrasal_9_turn_on",
+  "field": "sv",
+  "old": "sätta på",
+  "new": "sätta på / slå på",
+  "reason": "'slå på' on yhtä yleinen"
+ },
+ {
+  "id": "verbs2_4_take_care_of",
+  "field": "sv",
+  "old": "sköta",
+  "new": "sköta / ta hand om",
+  "reason": "'hoitaa' = hyvin usein 'ta hand om'; oppija kirjoittaa sen todennäköisesti"
+ },
+ {
+  "id": "s_a2_although",
+  "field": "sv",
+  "old": "fast / fastän",
+  "new": "fast / fastän / även om / trots att",
+  "reason": "Hyvin yleiset vaikka-konjunktiot puuttuivat"
+ },
+ {
+  "id": "time_4_finally",
+  "field": "sv",
+  "old": "till slut",
+  "new": "till slut / slutligen",
+  "reason": "Yleinen vaihtoehto"
+ },
+ {
+  "id": "places_dir_4_alone",
+  "field": "sv",
+  "old": "ensam",
+  "new": "ensam / själv",
+  "reason": "'själv' on yleinen vastine sanalle yksin (jag gjorde det själv)"
+ },
+ {
+  "id": "s_a2_quickly",
+  "field": "sv",
+  "old": "snabbt",
+  "new": "snabbt / fort",
+  "reason": "'fort' on hyvin yleinen"
+ },
+ {
+  "id": "adj_4_different",
+  "field": "sv",
+  "old": "annorlunda / olik",
+  "new": "annorlunda / olik / olika",
+  "reason": "'olika' on tavallisin vastine sanalle eri/erilainen (olika färger)"
+ },
+ {
+  "id": "adj_4_safe",
+  "field": "sv",
+  "old": "trygg",
+  "new": "trygg / säker",
+  "reason": "'säker' on yleinen vastine turvalliselle"
+ },
+ {
+  "id": "adjectives_comfortable",
+  "field": "fi",
+  "old": "mukava",
+  "new": "mukava (esim. tuoli, vaate)",
+  "reason": "'mukava' ilman tarkennetta ohjaa myös sanoihin trevlig/skön"
+ },
+ {
+  "id": "connectors_9_useful",
+  "field": "sv",
+  "old": "användbar",
+  "new": "användbar / nyttig",
+  "reason": "'nyttig' on yleinen vastine hyödylliselle"
+ },
+ {
+  "id": "s_a2_previous",
+  "field": "sv",
+  "old": "föregående",
+  "new": "föregående / förra",
+  "reason": "'förra' on arkikielessä yleisin (förra veckan)"
+ },
+ {
+  "id": "s_b1_municipal_election",
+  "field": "sv",
+  "old": "ett kommunalval",
+  "new": "ett kommunalval / ett kommunval",
+  "reason": "Ruotsissa yleinen muoto on kommunval; kommunalval on tavallinen etenkin Suomessa"
+ },
+ {
+  "id": "s_b1_opinion_poll",
+  "field": "sv",
+  "old": "en opinionsundersökning",
+  "new": "en opinionsundersökning / en opinionsmätning",
+  "reason": "'opinionsmätning' on yleisin sana mielipidemittauksesta"
+ },
+ {
+  "id": "s_b1_equal",
+  "field": "sv",
+  "old": "jämställd",
+  "new": "jämställd / jämlik",
+  "reason": "jämställd viittaa lähinnä sukupuolten tasa-arvoon; yleinen tasa-arvoinen = jämlik"
+ },
+ {
+  "id": "s_b1_duty",
+  "field": "sv",
+  "old": "en skyldighet",
+  "new": "en skyldighet / en plikt",
+  "reason": "'plikt' on yleinen vastine"
+ },
+ {
+  "id": "s_b1_member_state",
+  "field": "sv",
+  "old": "en medlemsstat",
+  "new": "en medlemsstat / ett medlemsland",
+  "reason": "'medlemsland' on yhtä yleinen"
+ },
+ {
+  "id": "s_b1_voluntary_work",
+  "field": "sv",
+  "old": "ideellt arbete",
+  "new": "ideellt arbete / volontärarbete / frivilligarbete",
+  "reason": "Yleiset vaihtoehdot, joita oppija todennäköisesti kirjoittaa"
+ }
+]

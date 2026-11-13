@@ -1,0 +1,324 @@
+[
+ {
+  "id": "cooking_7_ingredient",
+  "field": "fi",
+  "old": "ainekset / ainesosa / raaka-aine",
+  "new": "ainesosa / raaka-aine / aines",
+  "reason": "sv on yksikkö (en ingrediens); näytettävä kehote 'ainekset' oli monikko"
+ },
+ {
+  "id": "s_a2_bitter",
+  "field": "sv",
+  "old": "besk",
+  "new": "besk / bitter",
+  "reason": "'bitter' on hyvin yleinen vastine, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "s_a2_dish",
+  "field": "sv",
+  "old": "en rätt",
+  "new": "en rätt / en maträtt",
+  "reason": "'maträtt' yleinen vaihtoehto"
+ },
+ {
+  "id": "s_a2_treat",
+  "field": "fi",
+  "old": "tarjota (ruokaa, juomaa) / tarjota (maksaa toisen puolesta) / tarjota (esim. kahvit)",
+  "new": "tarjota (maksaa toisen puolesta, esim. kahvit) / kestitä",
+  "reason": "kehote 'tarjota (ruokaa, juomaa)' ohjaa sanaan servera; kolme lähes samaa vaihtoehtoa yhdistetty"
+ },
+ {
+  "id": "s_a2_job_search",
+  "field": "sv",
+  "old": "ett jobbsökande",
+  "new": "jobbsökande / jobbsökning",
+  "reason": "kappaleena laskematon: ei artikkelia; jobbsökning yleinen vaihtoehto"
+ },
+ {
+  "id": "s_a2_job_advertisement",
+  "field": "sv",
+  "old": "en platsannons",
+  "new": "en platsannons / en jobbannons",
+  "reason": "'jobbannons' on nykyruotsissa hyvin yleinen"
+ },
+ {
+  "id": "work_8_interview",
+  "field": "sv",
+  "old": "en intervju / en anställningsintervju",
+  "new": "en intervju / en anställningsintervju / en jobbintervju / en arbetsintervju",
+  "reason": "yleiset vaihtoehdot puuttuivat"
+ },
+ {
+  "id": "s_a2_shift",
+  "field": "sv",
+  "old": "ett skift",
+  "new": "ett skift / ett arbetspass / ett pass",
+  "reason": "'arbetspass' on riikinruotsissa yleisin sana yksittäiselle työvuorolle"
+ },
+ {
+  "id": "s_a2_unemployment_fund",
+  "field": "sv",
+  "old": "en a-kassa",
+  "new": "en a-kassa / en arbetslöshetskassa",
+  "reason": "koko muoto (ja Suomessa käytetty) hyväksyttävä"
+ },
+ {
+  "id": "s_a2_employment_certificate",
+  "field": "sv",
+  "old": "ett arbetsbetyg",
+  "new": "ett arbetsbetyg / ett arbetsintyg",
+  "reason": "'arbetsintyg' on Suomessa vakiintunut ja Ruotsissakin käytetty"
+ },
+ {
+  "id": "s_a2_economist",
+  "field": "fi",
+  "old": "ekonomi",
+  "new": "ekonomi (henkilö)",
+  "reason": "ilman tarkennetta oppija voi kirjoittaa sv 'ekonomi' (= talous)"
+ },
+ {
+  "id": "s_a2_student_financial_aid",
+  "field": "sv",
+  "old": "studiestöd",
+  "new": "studiestöd / studiemedel",
+  "reason": "riikinruotsissa opintotuki on 'studiemedel'; studiestöd on Suomen/yleistermi"
+ },
+ {
+  "id": "s_a2_study_counsellor",
+  "field": "sv",
+  "old": "en studievägledare",
+  "new": "en studievägledare / en studiehandledare",
+  "reason": "'studiehandledare' on Suomessa käytetty nimike"
+ },
+ {
+  "id": "s_a2_presentation",
+  "field": "sv",
+  "old": "ett föredrag",
+  "new": "ett föredrag / en presentation",
+  "reason": "'presentation' on nykykielessä yleisin vastine esitelmälle"
+ },
+ {
+  "id": "s_a2_phone_call",
+  "field": "sv",
+  "old": "ett samtal",
+  "new": "ett samtal / ett telefonsamtal",
+  "reason": "oppija kirjoittaa todennäköisesti 'telefonsamtal'"
+ },
+ {
+  "id": "s_a2_voicemail",
+  "field": "sv",
+  "old": "en röstbrevlåda",
+  "new": "en röstbrevlåda / en telefonsvarare",
+  "reason": "'telefonsvarare' on suora ja yleinen vastine puhelinvastaajalle"
+ },
+ {
+  "id": "school_4_text",
+  "field": "fi",
+  "old": "tekstata / teksti",
+  "new": "tekstata / lähettää tekstiviesti",
+  "reason": "'teksti' on substantiivi eikä vastaa verbiä sms:a"
+ },
+ {
+  "id": "s_a2_connection",
+  "field": "sv",
+  "old": "en uppkoppling",
+  "new": "en uppkoppling / en anslutning / en internetanslutning",
+  "reason": "yleiset vaihtoehdot puuttuivat"
+ },
+ {
+  "id": "media_8_website",
+  "field": "sv",
+  "old": "en webbplats / en hemsida",
+  "new": "en webbplats / en hemsida / en webbsida",
+  "reason": "fi-vaihtoehto 'verkkosivu' = webbsida"
+ },
+ {
+  "id": "s_a2_online_shop",
+  "field": "sv",
+  "old": "en nätbutik / e-handel",
+  "new": "en nätbutik / en webbutik / e-handel",
+  "reason": "'webbutik' hyvin yleinen"
+ },
+ {
+  "id": "technology_download",
+  "field": "fi",
+  "old": "ladata",
+  "new": "ladata (tiedosto netistä) / imuroida",
+  "reason": "pelkkä 'ladata' voi tarkoittaa myös akun lataamista (ladda)"
+ },
+ {
+  "id": "media_8_comment",
+  "field": "fi",
+  "old": "kommentoida / kommentti",
+  "new": "kommentoida",
+  "reason": "verbirivillä substantiivi 'kommentti' sekoittaa sanaluokat"
+ },
+ {
+  "id": "media_8_comment",
+  "field": "sv",
+  "old": "kommentera / en kommentar",
+  "new": "kommentera",
+  "reason": "verbirivillä substantiivi 'en kommentar' ei kuulu vastauksiin"
+ },
+ {
+  "id": "myself_happy",
+  "field": "fi",
+  "old": "iloinen / onnellinen",
+  "new": "iloinen",
+  "reason": "'onnellinen' on omana rivinään (lycklig); päällekkäisyys tekee kehotteesta moniselitteisen"
+ },
+ {
+  "id": "myself_happy",
+  "field": "sv",
+  "old": "glad / lycklig",
+  "new": "glad",
+  "reason": "lycklig kuuluu riville s_a2_happy; taivutus (glatt/glada) koskee vain glad-sanaa"
+ },
+ {
+  "id": "myself_scared",
+  "field": "neut",
+  "old": "rätt",
+  "new": "-",
+  "reason": "rädd-sanan neutria vältetään (SAOL: neutr. undviks); 'rätt' sekoittuu sanaan rätt = oikea"
+ },
+ {
+  "id": "opinions_8_upset",
+  "field": "fi",
+  "old": "järkyttynyt / pahoillaan",
+  "new": "järkyttynyt / kuohuksissa",
+  "reason": "'pahoillaan' = ledsen, ei chockad/upprörd"
+ },
+ {
+  "id": "feelings_embarrassed",
+  "field": "fi",
+  "old": "nolostunut / hämillään / nolo",
+  "new": "nolostunut / hämillään / nolona",
+  "reason": "'nolo' tarkoittaa noloa asiaa (pinsam), ei nolostunutta ihmistä"
+ },
+ {
+  "id": "feelings_jealous",
+  "field": "fi",
+  "old": "kateellinen / mustasukkainen",
+  "new": "kateellinen",
+  "reason": "mustasukkainen on omana rivinään (s_a2_jealous = svartsjuk)"
+ },
+ {
+  "id": "feelings_jealous",
+  "field": "sv",
+  "old": "avundsjuk / svartsjuk",
+  "new": "avundsjuk",
+  "reason": "svartsjuk = mustasukkainen, eri merkitys ja oma rivinsä"
+ },
+ {
+  "id": "s_a2_depressed",
+  "field": "sv",
+  "old": "nedstämd",
+  "new": "nedstämd / deprimerad",
+  "reason": "fi-vaihtoehto 'masentunut' = deprimerad, hyvin yleinen"
+ },
+ {
+  "id": "myself_excited",
+  "field": "sv",
+  "old": "spänd / ivrig",
+  "new": "entusiastisk / ivrig / taggad",
+  "reason": "'spänd' tarkoittaa ensisijaisesti jännittynyttä/kireää, harhaanjohtava vastine sanalle innostunut"
+ },
+ {
+  "id": "myself_excited",
+  "field": "neut",
+  "old": "spänt",
+  "new": "entusiastiskt",
+  "reason": "taivutus uuden pääsanan mukaan"
+ },
+ {
+  "id": "myself_excited",
+  "field": "apl",
+  "old": "spända",
+  "new": "entusiastiska",
+  "reason": "taivutus uuden pääsanan mukaan"
+ },
+ {
+  "id": "s_a2_acquaintance",
+  "field": "sv",
+  "old": "en bekanting / en bekant",
+  "new": "en bekant / en bekanting",
+  "reason": "normaali sana on 'en bekant'; 'bekanting' on arkinen ja harvinaisempi, vain vaihtoehdoksi"
+ },
+ {
+  "id": "s_a2_acquaintance",
+  "field": "def",
+  "old": "bekantingen",
+  "new": "den bekanta",
+  "reason": "adjektiivitaivutteinen substantiivi: en bekant – den bekanta"
+ },
+ {
+  "id": "s_a2_acquaintance",
+  "field": "pl",
+  "old": "bekantingar",
+  "new": "bekanta",
+  "reason": "adjektiivitaivutteinen substantiivi: monikko bekanta"
+ },
+ {
+  "id": "s_a2_kiss",
+  "field": "sv",
+  "old": "kyssa",
+  "new": "kyssa / pussa",
+  "reason": "fi-vaihtoehto 'pussata' = pussa, hyvin yleinen"
+ },
+ {
+  "id": "s_a2_mother_s_day",
+  "field": "sv",
+  "old": "morsdag",
+  "new": "mors dag / morsdag",
+  "reason": "riikinruotsissa kirjoitetaan erikseen 'mors dag'; yhdyssana on suomenruotsalainen"
+ },
+ {
+  "id": "s_a2_mother_s_day",
+  "field": "def",
+  "old": "morsdagen",
+  "new": "mors dag",
+  "reason": "erisnimen kaltainen juhlapäivä, ei erillistä määräistä muotoa"
+ },
+ {
+  "id": "s_a2_mother_s_day",
+  "field": "pl",
+  "old": "morsdagar",
+  "new": "",
+  "reason": "ei käytännössä monikkoa"
+ },
+ {
+  "id": "s_a2_father_s_day",
+  "field": "sv",
+  "old": "farsdag",
+  "new": "fars dag / farsdag",
+  "reason": "riikinruotsissa kirjoitetaan erikseen 'fars dag'; yhdyssana on suomenruotsalainen"
+ },
+ {
+  "id": "s_a2_father_s_day",
+  "field": "def",
+  "old": "farsdagen",
+  "new": "fars dag",
+  "reason": "erisnimen kaltainen juhlapäivä, ei erillistä määräistä muotoa"
+ },
+ {
+  "id": "s_a2_father_s_day",
+  "field": "pl",
+  "old": "farsdagar",
+  "new": "",
+  "reason": "ei käytännössä monikkoa"
+ },
+ {
+  "id": "s_a2_may_day",
+  "field": "sv",
+  "old": "första maj / valborg",
+  "new": "valborg / första maj / valborgsmässoafton",
+  "reason": "vappuaatto/vappu on ruotsiksi ensisijaisesti valborg; första maj jää vaihtoehdoksi"
+ },
+ {
+  "id": "s_a2_may_day",
+  "field": "def",
+  "old": "första maj",
+  "new": "valborg",
+  "reason": "pääsanan mukainen"
+ }
+]

@@ -1,0 +1,429 @@
+[
+ {
+  "id": "phrasal_9_take_off",
+  "field": "fi",
+  "old": "riisua / nousta ilmaan",
+  "new": "riisua (päältään)",
+  "reason": "'nousta ilmaan' on englannin take off -sanan toinen merkitys, ei vastaa ruotsin 'ta av sig'"
+ },
+ {
+  "id": "s_a1_make_coffee",
+  "field": "sv",
+  "old": "koka kaffe / göra kaffe",
+  "new": "koka kaffe / brygga kaffe / göra kaffe",
+  "reason": "brygga kaffe on hyvin yleinen vaihtoehto"
+ },
+ {
+  "id": "chores_4_cleaning",
+  "field": "pl",
+  "old": "städningar",
+  "new": "",
+  "reason": "ainesanana ilman artikkelia; monikko ei kuulu taivutusharjoitukseen"
+ },
+ {
+  "id": "chores_4_set_the_table",
+  "field": "sv",
+  "old": "duka bordet",
+  "new": "duka bordet / duka",
+  "reason": "pelkkä 'duka' on yleinen ja oikea vastaus"
+ },
+ {
+  "id": "chores_4_make_the_bed",
+  "field": "sv",
+  "old": "bädda sängen",
+  "new": "bädda sängen / bädda",
+  "reason": "pelkkä 'bädda' on yleinen ja oikea vastaus"
+ },
+ {
+  "id": "verbs1_4_put",
+  "field": "sv",
+  "old": "lägga / sätta",
+  "new": "lägga / sätta / ställa",
+  "reason": "kehote 'laittaa / panna' ei erota asentoverbejä; myös ställa on hyväksyttävä"
+ },
+ {
+  "id": "hobbies_fun",
+  "field": "fi",
+  "old": "hauskaa / hauskanpito / kivaa",
+  "new": "hauska / kiva",
+  "reason": "pos on adj; 'hauskanpito' on substantiivi eikä vastaa sanaa kul"
+ },
+ {
+  "id": "hobbies_fun",
+  "field": "sv",
+  "old": "kul / roligt",
+  "new": "kul / rolig",
+  "reason": "perusmuoto rolig (neutri roligt ei ole hakumuoto); neut/apl kul pätevät ensimmäiselle vaihtoehdolle"
+ },
+ {
+  "id": "perusverbit_like",
+  "field": "fi",
+  "old": "pitää / tykätä",
+  "new": "pitää (jostakin) / tykätä",
+  "reason": "pelkkä 'pitää' on monimerkityksinen (hålla, måste)"
+ },
+ {
+  "id": "perusverbit_play",
+  "field": "fi",
+  "old": "leikkiä / pelata / soittaa",
+  "new": "pelata / soittaa (soitinta)",
+  "reason": "leka (leikkiä) ja spela ovat eri verbejä; taivutus on spela-verbin"
+ },
+ {
+  "id": "perusverbit_play",
+  "field": "sv",
+  "old": "leka / spela",
+  "new": "spela",
+  "reason": "leka ei vastaa pelata/soittaa eikä taivutuskenttiä (spelar/spelade/spelat)"
+ },
+ {
+  "id": "s_a1_i_like_music",
+  "field": "sv",
+  "old": "Jag tycker om musik",
+  "new": "Jag tycker om musik / Jag gillar musik",
+  "reason": "gilla on hyväksytty verbin kohdalla ja yhtä yleinen"
+ },
+ {
+  "id": "free_time_7_practise",
+  "field": "fi",
+  "old": "treenata / harjoitella (urheilua) / harjoitella (kieltä, taitoa) / harjoitella (urheilussa)",
+  "new": "treenata / harjoitella (urheilua) / harjoitella (kieltä, taitoa)",
+  "reason": "kehotteessa sama vaihtoehto kahdesti"
+ },
+ {
+  "id": "s_a1_go_to_the_gym",
+  "field": "sv",
+  "old": "gå på gym",
+  "new": "gå på gym / gå på gymmet / gymma",
+  "reason": "yleiset vaihtoehdot, joita oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "s_a1_what_is_the_weather_like",
+  "field": "sv",
+  "old": "Hur är vädret?",
+  "new": "Hur är vädret? / Vad är det för väder?",
+  "reason": "toinen hyvin yleinen tapa kysyä säätä"
+ },
+ {
+  "id": "school_subjects_break_time",
+  "field": "fi",
+  "old": "välitunti / välkkä / tauko",
+  "new": "tauko (työssä, koulussa) / välitunti",
+  "reason": "aikuisen ohjelma: 'välkkä' pois ja työelämän merkitys ensin"
+ },
+ {
+  "id": "school_subjects_break_time",
+  "field": "sv",
+  "old": "en rast",
+  "new": "en rast / en paus",
+  "reason": "tauko = myös en paus, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "adj_4_free",
+  "field": "fi",
+  "old": "vapaa / ilmainen",
+  "new": "vapaa (ei töissä, ei varattu)",
+  "reason": "ledig ei tarkoita ilmaista (gratis); tarkenne erottaa sanasta fri"
+ },
+ {
+  "id": "verbs1_4_finish",
+  "field": "fi",
+  "old": "lopettaa",
+  "new": "lopettaa / loppua",
+  "reason": "sluta on myös intransitiivinen (loppua)"
+ },
+ {
+  "id": "school_people_nurse",
+  "field": "fi",
+  "old": "hoitaja / sairaanhoitaja / terveydenhoitaja",
+  "new": "sairaanhoitaja / hoitaja",
+  "reason": "'hoitaja' yksin on epämääräinen (lähihoitaja on eri sana); terveydenhoitaja ei vastaa sv-sanaa"
+ },
+ {
+  "id": "school_people_nurse",
+  "field": "sv",
+  "old": "en sjuksköterska / en skolsköterska",
+  "new": "en sjuksköterska / en sköterska",
+  "reason": "skolsköterska = kouluterveydenhoitaja, ei vastaa kehotetta"
+ },
+ {
+  "id": "s_a1_practical_nurse",
+  "field": "sv",
+  "old": "en undersköterska",
+  "new": "en undersköterska / en närvårdare",
+  "reason": "närvårdare on Suomessa virallinen ja yleinen nimike"
+ },
+ {
+  "id": "professions_shop_assistant",
+  "field": "sv",
+  "old": "en expedit / en försäljare",
+  "new": "en försäljare / en expedit",
+  "reason": "taivutusmuodot (försäljaren, försäljare) kuuluvat sanalle försäljare, jonka pitää olla ensimmäisenä"
+ },
+ {
+  "id": "professions_driver",
+  "field": "sv",
+  "old": "en förare / en chaufför",
+  "new": "en chaufför / en förare",
+  "reason": "taivutusmuodot (chauffören, chaufförer) kuuluvat sanalle chaufför, jonka pitää olla ensimmäisenä"
+ },
+ {
+  "id": "s_a1_nursery_preschool",
+  "field": "sv",
+  "old": "en förskola",
+  "new": "en förskola / ett dagis / ett daghem",
+  "reason": "dagis on yleinen puhekielessä, daghem Suomessa virallinen"
+ },
+ {
+  "id": "s_a1_student",
+  "field": "fi",
+  "old": "opiskelija / oppilas",
+  "new": "opiskelija",
+  "reason": "oppilas (elev) on eri sana kuin opiskelija"
+ },
+ {
+  "id": "s_a1_student",
+  "field": "sv",
+  "old": "en studerande / en student / en elev",
+  "new": "en student / en studerande",
+  "reason": "riikinruotsissa perussana on student; studerande on suomenruotsalainen/virallinen vaihtoehto; elev = oppilas"
+ },
+ {
+  "id": "s_a1_student",
+  "field": "def",
+  "old": "studeranden",
+  "new": "studenten",
+  "reason": "taivutus ensimmäisen sv-muodon mukaan"
+ },
+ {
+  "id": "s_a1_student",
+  "field": "pl",
+  "old": "studerande",
+  "new": "studenter",
+  "reason": "taivutus ensimmäisen sv-muodon mukaan"
+ },
+ {
+  "id": "de_k1_richtig",
+  "field": "fi",
+  "old": "oikein / oikea",
+  "new": "oikea (ei väärä) / oikein",
+  "reason": "pelkkä 'oikea' voisi olla myös höger; adjektiivin kehote ensin"
+ },
+ {
+  "id": "pronouns_4_you",
+  "field": "fi",
+  "old": "sinä / te",
+  "new": "sinä",
+  "reason": "'te' on eri sana (ni), jolla on oma rivinsä"
+ },
+ {
+  "id": "pronouns_4_he",
+  "field": "fi",
+  "old": "hän (poika)",
+  "new": "hän (mies)",
+  "reason": "aikuisten ohjelma; yhdenmukainen henne-rivin kanssa"
+ },
+ {
+  "id": "pronouns_4_she",
+  "field": "fi",
+  "old": "hän (tyttö)",
+  "new": "hän (nainen)",
+  "reason": "aikuisten ohjelma; yhdenmukainen henne-rivin kanssa"
+ },
+ {
+  "id": "pronouns_4_it",
+  "field": "fi",
+  "old": "se",
+  "new": "se (ett-sukuinen sana)",
+  "reason": "ilman tarkennetta ei erotu den-rivistä"
+ },
+ {
+  "id": "pronouns_4_me",
+  "field": "fi",
+  "old": "minut",
+  "new": "minut / minua / minulle",
+  "reason": "objektimuoto vastaa myös partitiivia ja allatiivia (vrt. dig-rivi)"
+ },
+ {
+  "id": "pronouns_4_him",
+  "field": "fi",
+  "old": "hänet (poika)",
+  "new": "hänet (mies) / häntä (mies)",
+  "reason": "aikuisten ohjelma; lisätty partitiivi kuten henne-rivillä"
+ },
+ {
+  "id": "pronouns_4_us",
+  "field": "fi",
+  "old": "meidät",
+  "new": "meidät / meitä / meille",
+  "reason": "objektimuoto vastaa myös partitiivia ja allatiivia"
+ },
+ {
+  "id": "pronouns_4_them",
+  "field": "fi",
+  "old": "heidät / niitä",
+  "new": "heidät / heitä / niitä",
+  "reason": "lisätty partitiivi heitä"
+ },
+ {
+  "id": "pronouns_4_your",
+  "field": "fi",
+  "old": "sinun / teidän",
+  "new": "sinun",
+  "reason": "'teidän' on eri sana (er), jolla on oma rivinsä"
+ },
+ {
+  "id": "pronouns_4_his",
+  "field": "fi",
+  "old": "hänen (pojan)",
+  "new": "hänen (miehen)",
+  "reason": "aikuisten ohjelma"
+ },
+ {
+  "id": "pronouns_4_her",
+  "field": "fi",
+  "old": "hänen (tytön)",
+  "new": "hänen (naisen)",
+  "reason": "aikuisten ohjelma"
+ },
+ {
+  "id": "aikasanat_2_every",
+  "field": "fi",
+  "old": "joka / jokainen",
+  "new": "joka (jokainen) / jokainen",
+  "reason": "pelkkä 'joka' sekoittuu relatiivipronominiin som"
+ },
+ {
+  "id": "little_4_other",
+  "field": "fi",
+  "old": "muu",
+  "new": "muu / toinen",
+  "reason": "annan = myös toinen"
+ },
+ {
+  "id": "sidesanat_5_both",
+  "field": "sv",
+  "old": "båda / både",
+  "new": "båda / bägge",
+  "reason": "både on konjunktio (både ... och = sekä ... että), ei 'molemmat'"
+ },
+ {
+  "id": "s_a1_what_kind_of",
+  "field": "sv",
+  "old": "hurdan",
+  "new": "hurdan / vad för slags / vilken sorts",
+  "reason": "hurdan on riikinruotsissa harvinaisempi; yleiset vaihtoehdot pitää hyväksyä"
+ },
+ {
+  "id": "prepositions_in",
+  "field": "fi",
+  "old": "sisällä",
+  "new": "-ssa, -ssä / sisällä (jonkin)",
+  "reason": "pelkkä 'sisällä' ohjaa adverbiin inne tai sanaan inuti"
+ },
+ {
+  "id": "prepositions_on",
+  "field": "fi",
+  "old": "päällä",
+  "new": "päällä (jonkin) / -lla, -llä",
+  "reason": "prepositio på vastaa ennen kaikkea adessiivia; tarkenne puuttui"
+ },
+ {
+  "id": "little_4_than",
+  "field": "fi",
+  "old": "kuin",
+  "new": "kuin (vertailussa: suurempi kuin)",
+  "reason": "pelkkä 'kuin' voi olla myös som (lika ... som)"
+ },
+ {
+  "id": "sidesanat_5_still",
+  "field": "fi",
+  "old": "silti / yhä / edelleen",
+  "new": "edelleen / yhä",
+  "reason": "'silti' on ändå, eri merkitys kuin fortfarande"
+ },
+ {
+  "id": "sidesanat_5_still",
+  "field": "sv",
+  "old": "fortfarande / ändå",
+  "new": "fortfarande / ännu",
+  "reason": "ändå = silti ei vastaa kehotetta; ännu on aito synonyymi"
+ },
+ {
+  "id": "little_4_too",
+  "field": "sv",
+  "old": "för",
+  "new": "för / alltför",
+  "reason": "alltför on yleinen vaihtoehto"
+ },
+ {
+  "id": "little_4_really",
+  "field": "fi",
+  "old": "oikeasti",
+  "new": "todella / oikeasti / tosiaan",
+  "reason": "verkligen = ennen kaikkea todella, tosiaan"
+ },
+ {
+  "id": "perusverbit_have",
+  "field": "fi",
+  "old": "omistaa",
+  "new": "olla jollakulla (minulla on) / omistaa",
+  "reason": "ha on ensisijaisesti omistusrakenne 'minulla on'; pelkkä 'omistaa' ohjaa verbiin äga, mutta taivutus on ha-verbin"
+ },
+ {
+  "id": "communication_9_reply",
+  "field": "fi",
+  "old": "vastata (viestiin) / vastaus",
+  "new": "vastata",
+  "reason": "'vastaus' on substantiivi (ett svar), jolla on oma rivinsä; viesti-tarkenne on tarpeeton"
+ },
+ {
+  "id": "verbs_communication_think",
+  "field": "fi",
+  "old": "ajatella / luulla / miettiä",
+  "new": "ajatella / miettiä",
+  "reason": "luulla = tro, jolla on oma rivinsä"
+ },
+ {
+  "id": "verbs_communication_think",
+  "field": "sv",
+  "old": "tänka / tro",
+  "new": "tänka",
+  "reason": "tro on eri verbi (luulla/uskoa) ja omalla rivillään"
+ },
+ {
+  "id": "verbs2_4_mean",
+  "field": "fi",
+  "old": "tarkoittaa",
+  "new": "tarkoittaa (ihminen: mitä tarkoitat?)",
+  "reason": "erotettava betyda-rivistä; taivutus on mena-verbin"
+ },
+ {
+  "id": "verbs2_4_mean",
+  "field": "sv",
+  "old": "mena / betyda",
+  "new": "mena",
+  "reason": "betyda on omalla rivillään eikä vastaa taivutuskenttiä"
+ },
+ {
+  "id": "verbs1_4_show",
+  "field": "fi",
+  "old": "näyttää",
+  "new": "näyttää (jotakin jollekulle)",
+  "reason": "pelkkä 'näyttää' voi olla myös se ut"
+ },
+ {
+  "id": "phrasal_9_look_for",
+  "field": "sv",
+  "old": "leta / söka",
+  "new": "leta / leta efter / söka",
+  "reason": "etsiä jotakin = leta efter; oppija kirjoittaa sen todennäköisesti"
+ },
+ {
+  "id": "verbs1_4_push",
+  "field": "fi",
+  "old": "työntää",
+  "new": "painaa / työntää (ovea)",
+  "reason": "trycka = ensisijaisesti painaa; työntää yleisesti on skjuta/knuffa"
+ }
+]

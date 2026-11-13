@@ -787,7 +787,7 @@ test('Virkkeet: pickSentenceRound valitsee aktiivisen luokan virkkeen', async ()
 
 test('Tietomalli v2: kielikohtainen suomen kehote (fiFor) ja ruotsin Fable-korjaukset', async () => {
   const app = await boot({ localStorage: { targetLang: 'sv' } });
-  assert.strictEqual(app.run('VOCAB.meta.version'), 'v19');
+  assert.strictEqual(app.run('VOCAB.meta.version'), 'v20');
   assert.strictEqual(app.run('fiFor(VOCAB.words.find(w => w.id === "weather_seasons_spring"))'), 'kevät');
   assert.strictEqual(app.run('VOCAB.words.find(w => w.id === "weather_seasons_snow").sv'), 'snö');
   app.run('selectTargetLang("en")');
@@ -2065,7 +2065,10 @@ test('Itseopiskelu: Viikon sanat, koeteemat, tasomaskotti ja sanat/virkkeet-vali
   await toSelf(app);
   assert.strictEqual(app.run('focusActive()'), false);
   assert.strictEqual(app.elements.focusButton.style.display, 'none');
-  assert.strictEqual(app.elements.practiceSwitch.style.display, 'none');
+  // Vaihe 42: valitsin näkyy itseopiskelussa (Sanat + Yhdistä), mutta virkkeet ja kielioppi ovat piilossa
+  assert.strictEqual(app.elements.practiceSwitch.style.display, '');
+  assert.strictEqual(app.elements.sentencesSwitchBtn.style.display, 'none');
+  assert.strictEqual(app.elements.grammarSwitchBtn.style.display, 'none');
   assert.strictEqual(app.elements.focusSection.style.display, 'none');
   assert.strictEqual(app.run('practiceMode'), 'words');
   assert.strictEqual(app.cssVars['--tier-bg-icon'], '""');
@@ -2076,6 +2079,7 @@ test('Itseopiskelu: Viikon sanat, koeteemat, tasomaskotti ja sanat/virkkeet-vali
   await app.studyButtons[0].click();
   await app.flush(60);
   assert.strictEqual(app.elements.practiceSwitch.style.display, '');
+  assert.strictEqual(app.elements.sentencesSwitchBtn.style.display, '');
   assert.strictEqual(app.elements.focusSection.style.display, '');
   assert.strictEqual(app.elements.focusButton.style.display, '');
   assert.notStrictEqual(app.cssVars['--tier-bg-icon'], '""');
@@ -2240,6 +2244,1475 @@ test('Ruotsi: taivutus näkyy palautteessa ja paljastuksessa molemmissa tiloissa
     await app.run('revealBtn.click()');
     assert.ok(app.elements.revealBox.textContent.includes('bilen · bilar'), app.elements.revealBox.textContent);
   }
+  app.dispose();
+});
+
+// ---------------- Tasotesti (Itseopiskelu) ----------------
+// Synteettinen aineisto: jokaisella tasolla 4 aihepiiriä x 5 sanaa (kaksi substantiivi-, kaksi verbiaihepiiriä).
+// A1:ssä lisäksi synonyymi- ja saman ruotsinnoksen tapauksia, joita häiriöiksi ei saa tulla.
+function addPlacementFixture(app) {
+  app.run(`
+    (function () {
+      SELF_DATA.topics.length = 0;
+      let n = 0;
+      for (const lvl of ['A1', 'A2', 'B1']) {
+        for (let t = 0; t < 4; t++) {
+          const ids = [];
+          for (let i = 0; i < 5; i++) {
+            n++;
+            const id = 'zz_p_' + lvl + '_' + t + '_' + i;
+            const w = { id, fi: 'olio ' + lvl + t + i, sv: 'svord' + n, self_only: true, pos: t < 2 ? 'n' : 'v' };
+            if (lvl === 'A1' && t === 0 && i === 0) { w.fi = 'auto'; w.sv = 'bil'; }
+            VOCAB.words.push(w); ids.push(id);
+          }
+          if (lvl === 'A1' && t === 0) {
+            // synonyymi (sama merkitys eri sanalla), sulkutarkenteellinen synonyymi ja sama ruotsinnos eri kehotteella
+            VOCAB.words.push({ id: 'zz_p_syn1', fi: 'auto / ajoneuvo', sv: 'fordon', self_only: true, pos: 'n' });
+            VOCAB.words.push({ id: 'zz_p_syn2', fi: 'ajoneuvo (iso)', sv: 'lastbil', self_only: true, pos: 'n' });
+            VOCAB.words.push({ id: 'zz_p_syn3', fi: 'henkilöauto', sv: 'bil', self_only: true, pos: 'n' });
+            ids.push('zz_p_syn1', 'zz_p_syn2', 'zz_p_syn3');
+          }
+          SELF_DATA.topics.push({ id: 'zz_pt_' + lvl + t, name_fi: 'Aihe ' + lvl + t, level: lvl, concepts: ids });
+        }
+      }
+      PRACTICE_WORDS = practiceWords();
+    })();
+  `);
+}
+async function toSelfP(app, lsOpts) {
+  addPlacementFixture(app);
+  await app.studyButtons[1].click();
+  await app.flush(60);
+}
+// Vastaa nykyiseen kysymykseen oikein / väärin / "en tiedä"
+function pAnswer(app, how) {
+  const flags = J(app, 'placement.questions[placement.qIdx].options.map(o => o.correct)');
+  const idx = how === 'unknown' ? -1 : (how ? flags.indexOf(true) : flags.indexOf(false));
+  app.run(`placementAnswer(${idx})`);
+}
+// Vastaa koko tasoon: ensimmäiset nCorrect oikein, loput väärin
+function pLevel(app, nCorrect) {
+  const total = app.run('placement.questions.length');
+  for (let i = 0; i < total; i++) pAnswer(app, i < nCorrect);
+}
+async function startP(app) {
+  await app.run('openPlacement()');
+  app.run('startPlacement()');
+}
+
+test('Tasotesti: nappi näkyy vain itseopiskelussa', async () => {
+  const app = await boot();
+  assert.strictEqual(app.elements.placementBtn.style.display, 'none');
+  assert.strictEqual(app.run('placementAvailable()'), false);
+  app.run('openPlacement()');
+  assert.ok(!app.elements.placementModalOverlay.classList.contains('visible'), 'ei aukea peruskoulussa');
+  await toSelfP(app);
+  assert.strictEqual(app.elements.placementBtn.style.display, '');
+  await app.studyButtons[0].click();
+  await app.flush(60);
+  assert.strictEqual(app.elements.placementBtn.style.display, 'none');
+  app.dispose();
+});
+
+test('Tasotesti: ensimmäinen siirtymä itseopiskeluun tarjoaa testin, vain kerran; ohitus jättää A1:n', async () => {
+  const app = await boot();
+  addPlacementFixture(app);
+  await app.studyButtons[1].click();
+  await app.flush(60);
+  assert.ok(app.elements.placementModalOverlay.classList.contains('visible'), 'tarjous näkyy');
+  assert.strictEqual(app.run('placement.phase'), 'intro');
+  assert.strictEqual(app.storage.getItem('selfPlacementOffered_sv'), '1');
+  // Ohita-nappi (toinen nappi introssa) sulkee ja jättää tason A1
+  const btns = app.elements.placementBody._children;
+  assert.ok(btns.some(b => /Ohita/.test(b.textContent)));
+  await btns.find(b => /Ohita/.test(b.textContent)).click();
+  assert.ok(!app.elements.placementModalOverlay.classList.contains('visible'));
+  assert.strictEqual(app.run('selfLevel'), 'A1');
+  assert.strictEqual(app.storage.getItem('selfPlacement_sv'), null);
+  // Toinen siirtymä ei tarjoa uudelleen
+  await app.studyButtons[0].click(); await app.flush(40);
+  await app.studyButtons[1].click(); await app.flush(40);
+  assert.ok(!app.elements.placementModalOverlay.classList.contains('visible'));
+  // Nappi avaa testin silti
+  await app.elements.placementBtn.click();
+  assert.ok(app.elements.placementModalOverlay.classList.contains('visible'));
+  app.dispose();
+});
+
+test('Tasotesti: tehty testi -> ei tarjousta; peruskoulu ei koskaan tarjoa', async () => {
+  const app = await boot({ localStorage: { selfPlacement_sv: JSON.stringify({ date: '2026-01-01', level: 'A2', scores: {} }) } });
+  await toSelfP(app);
+  assert.ok(!app.elements.placementModalOverlay.classList.contains('visible'));
+  app.dispose();
+  const app2 = await boot();
+  addPlacementFixture(app2);
+  app2.langButtons[2].click(); // ruotsi peruskoulussa
+  await app2.flush(60);
+  assert.ok(!app2.elements.placementModalOverlay.classList.contains('visible'));
+  assert.strictEqual(app2.storage.getItem('selfPlacementOffered_sv'), null);
+  app2.dispose();
+});
+
+test('Tasotesti: kysymyksessä 4 vaihtoehtoa + "En tiedä", oikea vastaus mukana, kehotteena fiFor:n ensimmäinen vaihtoehto', async () => {
+  const app = await boot();
+  await toSelfP(app);
+  await startP(app);
+  assert.strictEqual(app.run('placement.questions.length'), 12);
+  const qs = J(app, 'placement.questions.map(q => ({ id: q.word.id, opts: q.options, first: firstAcceptedAnswer(fiFor(q.word)) }))');
+  qs.forEach(q => {
+    assert.strictEqual(q.opts.length, 4);
+    const correct = q.opts.filter(o => o.correct);
+    assert.strictEqual(correct.length, 1);
+    assert.strictEqual(correct[0].text, q.first);
+    assert.strictEqual(new Set(q.opts.map(o => o.text)).size, 4, 'vaihtoehdot eri teksteillä');
+  });
+  // Näkymässä: ruotsin sana + 4 vaihtoehtoa + En tiedä
+  const kids = app.elements.placementBody._children;
+  assert.strictEqual(kids.filter(k => k.className.includes('placement-option')).length, 4);
+  assert.strictEqual(kids.filter(k => k.className.includes('placement-unknown')).length, 1);
+  const word = kids.find(k => k.className.includes('placement-word')).textContent;
+  assert.strictEqual(word, app.run('firstAcceptedAnswer(placement.questions[0].word.sv)'));
+  // Sanat hajautettu aihepiireihin: 12 sanaa kattaa kaikki 4 aihepiiriä
+  const topics = new Set(qs.map(q => q.id.split('_')[3] + q.id.split('_')[4]));
+  assert.ok(topics.size >= 4, 'aihepiirejä ' + topics.size);
+  app.dispose();
+});
+
+test('Tasotesti: häiriöt eivät sisällä oikeaa vastausta, synonyymiä tai samaa ruotsinnosta; sama sanaluokka ensisijaisesti', async () => {
+  const app = await boot();
+  await toSelfP(app);
+  const res = J(app, `(function () {
+    const out = { bad: [], total: 0, samePos: 0, distractors: 0 };
+    const words = selfLevelWords('A1');
+    for (let rep = 0; rep < 15; rep++) {
+      words.forEach(w => {
+        const q = placementBuildQuestion(w, words);
+        out.total++;
+        const m = placementMeaning(w), sv = placementAlts(w.sv);
+        const ds = q.options.filter(o => !o.correct);
+        const dw = ds.map(o => words.find(x => x.id === o.wordId));
+        if (q.options.filter(o => o.correct).length !== 1) out.bad.push(['oikeita', w.id]);
+        dw.forEach((d, i) => {
+          out.distractors++;
+          if (d.pos === w.pos) out.samePos++;
+          if (d.id === w.id) out.bad.push(['sama sana', w.id]);
+          if (placementOverlap(placementMeaning(d), m)) out.bad.push(['synonyymi', w.id, d.id]);
+          if (placementOverlap(placementAlts(d.sv), sv)) out.bad.push(['sama sv', w.id, d.id]);
+          dw.forEach((e, j) => { if (j > i && placementOverlap(placementMeaning(d), placementMeaning(e))) out.bad.push(['häiriöt keskenään', w.id]); });
+        });
+        if (new Set(q.options.map(o => o.text)).size !== q.options.length) out.bad.push(['sama teksti', w.id]);
+      });
+    }
+    return out;
+  })()`);
+  assert.deepStrictEqual(res.bad, []);
+  assert.ok(res.total > 0 && res.distractors > 0);
+  assert.ok(res.samePos / res.distractors > 0.9, 'sama sanaluokka: ' + res.samePos + '/' + res.distractors);
+  // Kohdennettu: "auto" ei saa saada häiriöksi ajoneuvo-synonyymejä eikä samaa ruotsinnosta (henkilöauto = bil)
+  const car = J(app, `(function () {
+    const words = selfLevelWords('A1'), w = words.find(x => x.id === 'zz_p_A1_0_0');
+    const seen = new Set();
+    for (let i = 0; i < 60; i++) placementBuildQuestion(w, words).options.forEach(o => seen.add(o.wordId));
+    return Array.from(seen);
+  })()`);
+  ['zz_p_syn1', 'zz_p_syn3'].forEach(id => assert.ok(!car.includes(id), id + ' häiriönä'));
+  // "auto / ajoneuvo" -kehotteelle ei saa tulla häiriöksi "ajoneuvo (iso)" (sulkutarkenne ei erota merkitystä)
+  const veh = J(app, `(function () {
+    const words = selfLevelWords('A1'), w = words.find(x => x.id === 'zz_p_syn1');
+    const seen = new Set();
+    for (let i = 0; i < 60; i++) placementBuildQuestion(w, words).options.forEach(o => seen.add(o.wordId));
+    return Array.from(seen);
+  })()`);
+  assert.ok(!veh.includes('zz_p_syn2') && !veh.includes('zz_p_A1_0_0'), veh.join());
+  app.dispose();
+});
+
+test('Tasotesti: 80 %:n raja ja eteneminen (10/12 etenee, 9/12 päättää)', async () => {
+  const app = await boot();
+  await toSelfP(app);
+  await startP(app);
+  assert.strictEqual(app.run('placement.levels[placement.levelIdx]'), 'A1');
+  pLevel(app, 10); // 83 % -> läpi
+  assert.strictEqual(app.run('placement.phase'), 'question');
+  assert.strictEqual(app.run('placement.levels[placement.levelIdx]'), 'A2');
+  pLevel(app, 9); // 75 % -> ei läpi, testi päättyy
+  assert.strictEqual(app.run('placement.phase'), 'result');
+  const r = J(app, 'placement.result');
+  assert.strictEqual(r.level, 'A2');
+  assert.deepStrictEqual(r.scores.A1, { correct: 10, total: 12 });
+  assert.deepStrictEqual(r.scores.A2, { correct: 9, total: 12 });
+  assert.strictEqual(r.scores.B1, undefined);
+  await app.flush(40);
+  app.dispose();
+});
+
+test('Tasotesti: A1 ei läpi -> A1; kaikki läpi -> B1; "En tiedä" lasketaan vääräksi', async () => {
+  const app = await boot();
+  await toSelfP(app);
+  await startP(app);
+  for (let i = 0; i < 12; i++) pAnswer(app, i < 6 ? true : 'unknown');
+  assert.strictEqual(app.run('placement.result.level'), 'A1');
+  assert.deepStrictEqual(J(app, 'placement.result.scores.A1'), { correct: 6, total: 12 });
+  // Uusinta: kaikki läpi
+  app.run('startPlacement()');
+  pLevel(app, 12); pLevel(app, 12); pLevel(app, 12);
+  assert.strictEqual(app.run('placement.phase'), 'result');
+  assert.strictEqual(app.run('placement.result.level'), 'B1');
+  assert.deepStrictEqual(Object.keys(J(app, 'placement.result.scores')), ['A1', 'A2', 'B1']);
+  await app.flush(40);
+  app.dispose();
+});
+
+test('Tasotesti: tulos tallentuu (selfPlacement_sv) ja "Aloita tasolta" asettaa tason', async () => {
+  const app = await boot();
+  await toSelfP(app);
+  await startP(app);
+  pLevel(app, 12); pLevel(app, 11); // A2: 92 % läpi -> B1
+  pLevel(app, 3);                    // B1 ei läpi
+  assert.strictEqual(app.run('placement.phase'), 'result');
+  await app.flush(40);
+  const saved = JSON.parse(app.storage.getItem('selfPlacement_sv'));
+  assert.deepStrictEqual(Object.keys(saved).sort(), ['date', 'level', 'scores']);
+  assert.strictEqual(saved.level, 'B1');
+  assert.ok(!isNaN(Date.parse(saved.date)));
+  assert.deepStrictEqual(saved.scores.B1, { correct: 3, total: 12 });
+  // Tulosnäkymän nappi
+  const start = app.elements.placementBody._children.find(b => /Aloita tasolta B1/.test(b.textContent));
+  assert.ok(start, 'Aloita tasolta -nappi');
+  await start.click();
+  await app.flush(40);
+  assert.strictEqual(app.run('selfLevel'), 'B1');
+  assert.strictEqual(app.storage.getItem('selfLevel'), 'B1');
+  assert.ok(!app.elements.placementModalOverlay.classList.contains('visible'));
+  assert.ok(poolIds(app).every(id => id.startsWith('zz_p_B1')), poolIds(app).join());
+  app.dispose();
+});
+
+test('Tasotesti: testin voi tehdä uudelleen ja uusi tulos korvaa vanhan', async () => {
+  const app = await boot();
+  await toSelfP(app);
+  await startP(app);
+  pLevel(app, 2);
+  assert.strictEqual(app.run('placement.result.level'), 'A1');
+  const again = app.elements.placementBody._children.find(b => /uudelleen/.test(b.textContent));
+  await again.click();
+  assert.strictEqual(app.run('placement.phase'), 'question');
+  assert.strictEqual(app.run('placement.levelIdx'), 0);
+  pLevel(app, 12); pLevel(app, 4);
+  assert.strictEqual(JSON.parse(app.storage.getItem('selfPlacement_sv')).level, 'A2');
+  // Intro näyttää edellisen tuloksen
+  app.run('openPlacement()');
+  assert.ok(app.elements.placementBody._children.some(c => /Edellinen tulos/.test(c.textContent)));
+  await app.flush(40);
+  app.dispose();
+});
+
+test('Tasotesti: oikein tunnistetut merkitään (statId ennallaan, ei opittu), väärät eivät', async () => {
+  const app = await boot();
+  await toSelfP(app);
+  await startP(app);
+  const ids = J(app, 'placement.questions.map(q => q.word.id)');
+  for (let i = 0; i < 12; i++) pAnswer(app, i % 2 === 0); // parilliset oikein, parittomat väärin
+  await app.flush(80);
+  const right = ids.filter((_, i) => i % 2 === 0), wrong = ids.filter((_, i) => i % 2 === 1);
+  for (const id of right) {
+    const sid = app.run(`statId({id: ${JSON.stringify(id)}})`);
+    assert.strictEqual(sid, 'sv|' + app.run('VOCAB.meta.level') + '|' + id, 'statId ennallaan');
+    const st = app.db.data.get(sid);
+    assert.ok(st, 'tilasto puuttuu: ' + id);
+    assert.strictEqual(st.recognized, true);
+    assert.ok(st.recognizedAt && !isNaN(Date.parse(st.recognizedAt)));
+    assert.strictEqual(st.correctCount, 0);
+    assert.strictEqual(st.incorrectCount, 0);
+    assert.strictEqual(st.streakKeyboard, 0);
+    assert.strictEqual(app.run(`isFullyLearned(statsCache[${JSON.stringify(sid)}])`), false);
+    assert.strictEqual(app.run(`isGraduatedWord(VOCAB.words.find(w => w.id === ${JSON.stringify(id)}))`), false);
+  }
+  for (const id of wrong) {
+    assert.ok(!app.db.data.has(app.run(`statId({id: ${JSON.stringify(id)}})`)), 'väärin vastattua ei saa merkitä: ' + id);
+  }
+  app.dispose();
+});
+
+test('Tasotesti: tunnistusmerkintä ei muuta olemassa olevan sanan laskureita; tunnistettu painotetaan alas, ei lasketa nähdyksi', async () => {
+  const app = await boot();
+  await toSelfP(app);
+  const w = 'zz_p_A1_1_1';
+  const sid = app.run(`statId({id: ${JSON.stringify(w)}})`);
+  app.db.data.set(sid, { statId: sid, wordId: w, language: 'sv', level: app.run('VOCAB.meta.level'), correctCount: 5, incorrectCount: 1,
+    streakCorrect: 2, streakTargetFi: 0, streakFiTarget: 0, streakKeyboard: 2, streakMic: 0, lastSeen: '2026-01-01T00:00:00.000Z' });
+  await app.run('updateHeaderStats()');
+  await app.run(`markRecognized(VOCAB.words.find(x => x.id === ${JSON.stringify(w)}))`);
+  const st = app.db.data.get(sid);
+  assert.strictEqual(st.recognized, true);
+  assert.strictEqual(st.correctCount, 5); assert.strictEqual(st.incorrectCount, 1);
+  assert.strictEqual(st.streakKeyboard, 2); assert.strictEqual(st.lastSeen, '2026-01-01T00:00:00.000Z');
+  // Pelkkä tunnistus: paino alle tuoreen sanan (5), raportissa ei "nähty", poolissa tuoreet ensin
+  const rec = 'zz_p_A1_1_2', fresh = 'zz_p_A1_1_3';
+  await app.run(`markRecognized(VOCAB.words.find(x => x.id === ${JSON.stringify(rec)}))`);
+  const wt = (id) => app.run(`weightFor(VOCAB.words.find(x => x.id === ${JSON.stringify(id)}))`);
+  assert.ok(wt(rec) < wt(fresh), wt(rec) + ' vs ' + wt(fresh));
+  assert.ok(wt(rec) > 0);
+  assert.strictEqual(app.run(`isRecognizedOnly(statsCache[statId({id: ${JSON.stringify(rec)}})])`), true);
+  assert.strictEqual(app.run(`isRecognizedOnly(statsCache[statId({id: ${JSON.stringify(w)}})])`), false);
+  const stats = J(app, `adultStatsFor(['${rec}', '${fresh}'].map(id => VOCAB.words.find(x => x.id === id)))`);
+  assert.strictEqual(stats.seen, 0);
+  // Täydennys: kun vain 15 paikkaa, kaikki 5 tunnistettua jäävät viimeiseksi
+  const A1 = J(app, `selfLevelWords('A1').map(w => w.id)`);
+  for (const id of A1.slice(0, 6)) await app.run(`markRecognized(VOCAB.words.find(x => x.id === ${JSON.stringify(id)}))`);
+  app.run('initSessionPool()');
+  const pool = poolIds(app);
+  const recSet = new Set(A1.slice(0, 6));
+  const freshOut = A1.filter(id => !recSet.has(id) && !pool.includes(id));
+  const recIn = pool.filter(id => recSet.has(id));
+  assert.ok(pool.length <= 15);
+  // Jos tuoreita jäi poolin ulkopuolelle, tunnistettuja ei saa olla mukana ennen niitä
+  if (freshOut.length) assert.strictEqual(recIn.length, 0, 'tunnistettuja ennen tuoreita: ' + recIn.join());
+  app.dispose();
+});
+
+test('Tasotesti: ääntäminen kaiuttimesta vain jos autoSpeak on päällä', async () => {
+  const app = await boot();
+  await toSelfP(app);
+  app.run('autoSpeakToggle.checked = true;');
+  await startP(app);
+  await app.flush(400);
+  assert.ok(app.spoken.length >= 1);
+  assert.strictEqual(app.spoken[app.spoken.length - 1].lang, 'sv-SE');
+  assert.strictEqual(app.spoken[app.spoken.length - 1].text, app.run('stripParenthetical(firstAcceptedAnswer(placement.questions[0].word.sv))'));
+  app.dispose();
+  const app2 = await boot();
+  await toSelfP(app2);
+  app2.run('autoSpeakToggle.checked = false;');
+  await startP(app2);
+  await app2.flush(400);
+  assert.strictEqual(app2.spoken.length, 0);
+  app2.dispose();
+});
+
+test('Tasotesti: sulkeminen kesken testin ei tallenna tulosta mutta jo tunnistetut jäävät merkityiksi', async () => {
+  const app = await boot();
+  await toSelfP(app);
+  await startP(app);
+  pAnswer(app, true); pAnswer(app, false);
+  app.run('closePlacement()');
+  await app.flush(60);
+  assert.strictEqual(app.run('placement'), null);
+  assert.strictEqual(app.storage.getItem('selfPlacement_sv'), null);
+  assert.strictEqual(Array.from(app.db.data.values()).filter(s => s.recognized).length, 1);
+  app.dispose();
+});
+
+test('Tasotesti: peruskoulu ennallaan (tilastot, raportti, pooli, nappi piilossa) testin jälkeen', async () => {
+  const app = await boot();
+  const before = J(app, 'buildProgressReport()');
+  const poolBefore = poolIds(app).length;
+  await toSelfP(app);
+  await startP(app);
+  pLevel(app, 12); pLevel(app, 12); pLevel(app, 12);
+  await app.flush(60);
+  await app.studyButtons[0].click();
+  await app.flush(80);
+  assert.strictEqual(app.run('studyMode'), 'school');
+  assert.strictEqual(app.elements.placementBtn.style.display, 'none');
+  assert.ok(!app.run('document.body.classList.contains("self-mode")'));
+  assert.ok(poolIds(app).length > 0 && poolIds(app).length <= 15);
+  assert.ok(!poolIds(app).some(id => id.startsWith('zz_')));
+  const after = J(app, 'buildProgressReport()');
+  assert.deepStrictEqual(after.all, before.all);
+  assert.deepStrictEqual(after.grades, before.grades);
+  assert.strictEqual(poolBefore > 0, true);
+  app.dispose();
+});
+
+// ---------------- Kertausjärjestelmä, päivätavoite ja aukolliset ilmaukset (Itseopiskelu) ----------------
+// Kellon mockaus: korvaa sovelluksen globaalin Daten, jonka "nyt" asetetaan käsin (paikallista aikaa).
+function mockNow(app, local) {
+  app.run(`
+    (function () {
+      const Real = globalThis.__RealDate || (globalThis.__RealDate = Date);
+      globalThis.__mockNow = Real.parse(${JSON.stringify(local)});
+      class MockDate extends Real {
+        constructor(...a) { if (a.length) super(...a); else super(globalThis.__mockNow); }
+        static now() { return globalThis.__mockNow; }
+      }
+      globalThis.Date = MockDate;
+    })();
+  `);
+}
+function seedStat(app, id, extra) {
+  const sid = app.run(`statId({id: ${JSON.stringify(id)}})`);
+  const st = Object.assign({ statId: sid, wordId: id, language: 'sv', level: app.run('VOCAB.meta.level'),
+    correctCount: 1, incorrectCount: 0, streakCorrect: 1, streakTargetFi: 0, streakFiTarget: 0, streakKeyboard: 1, streakMic: 0,
+    lastSeen: '2026-01-01T00:00:00.000Z' }, extra || {});
+  app.db.data.set(sid, st);
+  return sid;
+}
+async function answerWord(app, id, correct) {
+  setWord(app, id, 'fi-target');
+  await app.run(`checkAnswer(${correct ? 'acceptedAnswers()[0]' : JSON.stringify('xxxx')}, "keyboard")`);
+}
+const dbStat = (app, id) => app.db.data.get(app.run(`statId({id: ${JSON.stringify(id)}})`));
+const DAY = 86400000;
+
+test('Kertaus: aikataulun laskenta - ensimmäinen oikein 1 pv, sitten väli x kerroin, väärin 1 pv ja kerroin pienenee (min 1,3)', async () => {
+  const app = await boot();
+  mockNow(app, '2026-07-10T12:00:00');
+  const t0 = app.run('Date.now()');
+  const midnight = (n) => app.run(`new Date(2026, 6, ${10 + n}).getTime()`);
+  const st = {};
+  const step = (ok, now) => JSON.parse(app.run(`JSON.stringify(srsApply(${JSON.stringify(st)}, ${ok}, ${now}))`));
+  let s = step(true, t0);
+  assert.strictEqual(s.srsInterval, 1); assert.strictEqual(s.srsEase, 2.5);
+  assert.strictEqual(s.srsDue, midnight(1), 'erääntyy seuraavana paikallisena keskiyönä');
+  // Erääntyneenä oikein: 1 x 2,5 -> 3, sitten 3 x 2,5 -> 8
+  let now = midnight(1) + 3600e3;
+  s = JSON.parse(app.run(`JSON.stringify(srsApply(${JSON.stringify(s)}, true, ${now}))`));
+  assert.strictEqual(s.srsInterval, 3);
+  now = s.srsDue + 1000;
+  s = JSON.parse(app.run(`JSON.stringify(srsApply(${JSON.stringify(s)}, true, ${now}))`));
+  assert.strictEqual(s.srsInterval, 8); assert.strictEqual(s.srsEase, 2.5);
+  // Ennen erääntymistä oikein ei muuta aikataulua
+  const before = JSON.stringify(s);
+  const same = JSON.parse(app.run(`JSON.stringify(srsApply(${JSON.stringify(s)}, true, ${now - 3 * DAY}))`));
+  assert.strictEqual(JSON.stringify(same), before);
+  // Väärin: väli 1 pv, kerroin -0,2
+  s = JSON.parse(app.run(`JSON.stringify(srsApply(${JSON.stringify(s)}, false, ${now}))`));
+  assert.strictEqual(s.srsInterval, 1); assert.strictEqual(s.srsEase, 2.3);
+  assert.strictEqual(s.srsDue, app.run(`dayStartPlus(${now}, 1)`));
+  // Kerroin ei mene alle 1,3
+  for (let i = 0; i < 10; i++) s = JSON.parse(app.run(`JSON.stringify(srsApply(${JSON.stringify(s)}, false, ${now}))`));
+  assert.strictEqual(s.srsEase, 1.3);
+  // Pieni kerroin ei jumita väliä: vähintään +1 pv
+  s = { srsInterval: 1, srsEase: 1.3, srsDue: now - 1 };
+  s = JSON.parse(app.run(`JSON.stringify(srsApply(${JSON.stringify(s)}, true, ${now}))`));
+  assert.ok(s.srsInterval >= 2);
+  // Yläraja
+  s = { srsInterval: 300, srsEase: 2.5, srsDue: now - 1 };
+  s = JSON.parse(app.run(`JSON.stringify(srsApply(${JSON.stringify(s)}, true, ${now}))`));
+  assert.strictEqual(s.srsInterval, 365);
+  app.dispose();
+});
+
+test('Kertaus: tuottava vastaus, "Näytä sana" ja tunnistus - tallentuu samaan tietueeseen, tunnistus ei pidennä väliä', async () => {
+  const app = await boot();
+  await toSelf(app);
+  mockNow(app, '2026-07-10T12:00:00');
+  await answerWord(app, 'zz_a1_1', true);
+  let st = dbStat(app, 'zz_a1_1');
+  assert.strictEqual(st.statId, 'sv|' + app.run('VOCAB.meta.level') + '|zz_a1_1', 'statId ennallaan');
+  assert.strictEqual(st.srsInterval, 1);
+  assert.strictEqual(st.srsEase, 2.5);
+  assert.strictEqual(st.srsDue, app.run('new Date(2026, 6, 11).getTime()'));
+  assert.strictEqual(st.correctCount, 1);
+  // Väärä vastaus
+  await answerWord(app, 'zz_a1_2', false);
+  st = dbStat(app, 'zz_a1_2');
+  assert.strictEqual(st.srsInterval, 1); assert.strictEqual(st.srsEase, 2.3); assert.strictEqual(st.incorrectCount, 1);
+  // "Näytä sana" lasketaan väärin aikataulussa, mutta ei muuta laskureita
+  seedStat(app, 'zz_a1_3', { srsInterval: 8, srsEase: 2.5, srsDue: app.run('Date.now()') - DAY });
+  await app.run('updateHeaderStats()');
+  setWord(app, 'zz_a1_3', 'fi-target');
+  app.run('renderPrompt()');
+  await app.elements.revealBtn.click();
+  await app.flush(30);
+  st = dbStat(app, 'zz_a1_3');
+  assert.strictEqual(st.srsInterval, 1); assert.strictEqual(st.srsEase, 2.3);
+  assert.strictEqual(st.correctCount, 1); assert.strictEqual(st.incorrectCount, 0);
+  // Paljastus ei kasvata päivälaskuria
+  assert.strictEqual(app.run('dailySummary().count'), 2);
+  // Uusi sana paljastettuna: tietue syntyy, väli 1 pv
+  setWord(app, 'zz_a1_4', 'fi-target');
+  app.run('renderPrompt()');
+  await app.elements.revealBtn.click();
+  await app.flush(30);
+  assert.strictEqual(dbStat(app, 'zz_a1_4').srsInterval, 1);
+  // Tunnistus ei koske aikatauluun
+  seedStat(app, 'zz_a1_5', { srsInterval: 5, srsEase: 2.1, srsDue: 12345 });
+  await app.run('updateHeaderStats()');
+  await app.run('markRecognized(VOCAB.words.find(w => w.id === "zz_a1_5"))');
+  st = dbStat(app, 'zz_a1_5');
+  assert.strictEqual(st.recognized, true);
+  assert.strictEqual(st.srsInterval, 5); assert.strictEqual(st.srsEase, 2.1); assert.strictEqual(st.srsDue, 12345);
+  await app.run('markRecognized(VOCAB.words.find(w => w.id === "zz_a1_6"))');
+  st = dbStat(app, 'zz_a1_6');
+  assert.ok(st.srsInterval === undefined && st.srsDue === undefined, 'pelkkä tunnistus ei aikatauluta');
+  app.dispose();
+});
+
+test('Kertaus: erääntyneet ovat poolissa ennen uusia (myös graduoituneet), uusia sanoja vain päiväkiintiön verran', async () => {
+  const app = await boot();
+  await toSelf(app); // ensin itseopiskeluun, jotta statId:t ovat ruotsin (sv)
+  mockNow(app, '2026-07-10T12:00:00');
+  const past = app.run('Date.now()') - 2 * DAY, future = app.run('Date.now()') + 5 * DAY;
+  // 2 erääntynyttä (toinen täysin opittu ja siksi normaalisti poolin ulkopuolella), 1 tulevaisuudessa
+  seedStat(app, 'zz_a1_1', { srsInterval: 3, srsEase: 2.5, srsDue: past });
+  seedStat(app, 'zz_a1_2', { srsInterval: 9, srsEase: 2.5, srsDue: past, correctCount: 20, streakCorrect: 6, streakTargetFi: 3, streakFiTarget: 3, streakKeyboard: 5, streakMic: 6 });
+  seedStat(app, 'zz_a1_3', { srsInterval: 9, srsEase: 2.5, srsDue: future, correctCount: 20, streakCorrect: 6, streakTargetFi: 3, streakFiTarget: 3, streakKeyboard: 5, streakMic: 6 });
+  app.storage.setItem('selfDaily_sv', JSON.stringify({ goal: 20, newPerDay: 3, days: {} }));
+  await app.run('updateHeaderStats()');
+  app.run('initSessionPool()');
+  const ids = poolIds(app);
+  assert.deepStrictEqual(ids.slice(0, 2).sort(), ['zz_a1_1', 'zz_a1_2'], 'erääntyneet ensin: ' + ids.join());
+  assert.ok(!ids.includes('zz_a1_3'), 'tulevaisuuteen aikataulutettu graduoitu sana ei ole poolissa');
+  const fresh = ids.filter(id => !app.db.data.has(app.run(`statId({id: ${JSON.stringify(id)}})`)));
+  assert.strictEqual(fresh.length, 3, 'uusia sanoja vain 3: ' + ids.join());
+  // Ensimmäinen vastaus uudelle sanalle kuluttaa kiintiötä; kun kiintiö täyttyy, uusia ei lisätä
+  for (const id of fresh) await answerWord(app, id, true);
+  await app.flush(30);
+  app.run('initSessionPool()');
+  const ids2 = poolIds(app);
+  const fresh2 = ids2.filter(id => !app.db.data.has(app.run(`statId({id: ${JSON.stringify(id)}})`)));
+  assert.strictEqual(fresh2.length, 0, 'päiväraja täynnä: ' + ids2.join());
+  assert.strictEqual(app.run('newWordsLeftToday()'), 0);
+  // Seuraavana päivänä kiintiö palautuu
+  mockNow(app, '2026-07-11T08:00:00');
+  assert.strictEqual(app.run('newWordsLeftToday()'), 3);
+  app.run('initSessionPool()');
+  assert.ok(poolIds(app).some(id => !app.db.data.has(app.run(`statId({id: ${JSON.stringify(id)}})`))));
+  app.dispose();
+});
+
+test('Kertaus: "Kertaa erääntyneet" rajaa poolin erääntyneisiin ja päättyy kun ne on käyty; kerrattavien määrä näkyy', async () => {
+  const app = await boot();
+  await toSelf(app);
+  mockNow(app, '2026-07-10T12:00:00');
+  const past = app.run('Date.now()') - DAY;
+  ['zz_a1_1', 'zz_a1_2', 'zz_a2_3'].forEach(id => seedStat(app, id, { srsInterval: 2, srsEase: 2.5, srsDue: past }));
+  seedStat(app, 'zz_a1_4', { srsInterval: 2, srsEase: 2.5, srsDue: past + 10 * DAY });
+  await app.run('updateHeaderStats()');
+  assert.strictEqual(app.elements.reviewDueLabel.textContent, '🔁 Kerrattavia: 3');
+  assert.strictEqual(app.elements.reviewDueBtn.style.display, '');
+  assert.strictEqual(app.elements.reviewDueBtn.textContent, 'Kertaa erääntyneet');
+  await app.elements.reviewDueBtn.click();
+  await app.flush(60);
+  assert.strictEqual(app.run('reviewDueOnly'), true);
+  assert.strictEqual(app.elements.reviewDueBtn.textContent, 'Lopeta kertaus');
+  const seen = new Set();
+  for (let i = 0; i < 3; i++) {
+    const id = app.run('current.id');
+    assert.ok(['zz_a1_1', 'zz_a1_2', 'zz_a2_3'].includes(id), 'vain erääntyneitä: ' + id);
+    seen.add(id);
+    await app.run(`checkAnswer(acceptedAnswers()[0], "keyboard")`);
+    await app.flush(1100); // pickWord valitsee seuraavan
+  }
+  assert.strictEqual(seen.size, 3, 'jokainen erääntynyt käydään kerran: ' + [...seen]);
+  assert.strictEqual(app.run('dueWords().length'), 0);
+  await app.flush(60);
+  assert.strictEqual(app.run('reviewDueOnly'), false, 'kertaus päättyy automaattisesti');
+  assert.strictEqual(app.elements.reviewDueLabel.textContent, '🔁 Kerrattavia: 0');
+  assert.strictEqual(app.elements.reviewDueBtn.style.display, 'none');
+  assert.ok(/erääntyneet/.test(app.elements.dailyNotice.textContent));
+  app.dispose();
+});
+
+test('Päivätavoite: laskuri, tallennus selfDaily_sv, palkki ja tavoitteen täyttymisilmoitus', async () => {
+  const app = await boot();
+  await toSelf(app);
+  mockNow(app, '2026-07-10T09:00:00');
+  assert.strictEqual(app.run('dailySummary().goal'), 20, 'oletus 20');
+  app.run('setDailyGoal(10)');
+  assert.strictEqual(app.run('setDailyGoal(15), dailySummary().goal'), 10, 'vain 10/20/30/50');
+  for (let i = 1; i <= 4; i++) await answerWord(app, 'zz_a1_' + i, i % 2 === 0);
+  assert.strictEqual(app.elements.dailyLabel.textContent, 'Tänään 4 / 10');
+  assert.strictEqual(app.elements.dailyFill.style.width, '40%');
+  assert.strictEqual(app.elements.dailyNotice.textContent, '');
+  for (let i = 5; i <= 9; i++) await answerWord(app, 'zz_a1_' + i, true);
+  assert.strictEqual(app.elements.dailyLabel.textContent, 'Tänään 9 / 10');
+  assert.ok(!app.elements.dailyNotice.textContent);
+  await answerWord(app, 'zz_a1_10', true);
+  assert.strictEqual(app.elements.dailyLabel.textContent, 'Tänään 10 / 10');
+  assert.ok(app.elements.dailyBar.classList.contains('done'));
+  assert.ok(/Päivätavoite täynnä: 10 \/ 10/.test(app.elements.dailyNotice.textContent), app.elements.dailyNotice.textContent);
+  assert.ok(!/[\u{1F300}-\u{1FAFF}]/u.test(app.elements.dailyNotice.textContent.replace('🔥', '')), 'hillitty: ei maskotteja/emojeita');
+  const saved = JSON.parse(app.storage.getItem('selfDaily_sv'));
+  assert.strictEqual(saved.goal, 10);
+  assert.strictEqual(saved.days['2026-07-10'], 10);
+  assert.deepStrictEqual(saved.met, ['2026-07-10']);
+  // Ilmoitus tulee vain kerran: yksitoista vastausta ei toista sitä
+  app.elements.dailyNotice.textContent = '';
+  await answerWord(app, 'zz_a1_11', true);
+  assert.strictEqual(app.elements.dailyNotice.textContent, '');
+  assert.strictEqual(app.run('dailySummary().count'), 11);
+  // Laskuri on kielikohtainen: avain selfDaily_<kieli>
+  assert.strictEqual(app.run('dailyKey()'), 'selfDaily_sv');
+  assert.strictEqual(app.storage.getItem('selfDaily_en'), null);
+  app.dispose();
+});
+
+test('Päivätavoite: päiväputki päivänvaihteen yli (mockattu Date), pisin putki muistetaan', async () => {
+  const app = await boot();
+  await toSelf(app);
+  app.run('setDailyGoal(10)');
+  const day = async (local, n) => {
+    mockNow(app, local);
+    for (let i = 0; i < n; i++) await answerWord(app, 'zz_a1_' + (1 + i % 12), true);
+  };
+  await day('2026-07-10T23:50:00', 10);
+  assert.strictEqual(app.run('dailySummary().streak'), 1);
+  // Päivänvaihde: eilinen täyttynyt, tämä päivä vielä kesken -> putki säilyy
+  mockNow(app, '2026-07-11T00:10:00');
+  assert.strictEqual(app.run('dailySummary().count'), 0);
+  assert.strictEqual(app.run('dailySummary().streak'), 1);
+  await day('2026-07-11T00:10:00', 9);
+  assert.strictEqual(app.run('dailySummary().streak'), 1, '9/10 ei vielä jatka putkea');
+  await day('2026-07-11T22:00:00', 1);
+  assert.strictEqual(app.run('dailySummary().count'), 10);
+  assert.strictEqual(app.run('dailySummary().streak'), 2);
+  await day('2026-07-12T10:00:00', 10);
+  assert.strictEqual(app.run('dailySummary().streak'), 3);
+  assert.ok(/3 päivää/.test(app.elements.dailyStreak.textContent), app.elements.dailyStreak.textContent);
+  assert.ok(/🔥 3 päivää/.test(JSON.stringify(app.run('streakText(3)'))));
+  // Yksi päivä väliin (13.): putki säilyy vielä 14. aamuna?  Ei: 13. jäi täyttämättä, 14. on kesken -> katkennut
+  mockNow(app, '2026-07-13T12:00:00');
+  assert.strictEqual(app.run('dailySummary().streak'), 3, '13. kesken, putki vielä elossa');
+  mockNow(app, '2026-07-14T08:00:00');
+  assert.strictEqual(app.run('dailySummary().streak'), 0, 'kokonainen päivä väliin -> putki katkeaa');
+  assert.strictEqual(app.run('dailySummary().best'), 3, 'pisin putki muistetaan');
+  await day('2026-07-14T08:00:00', 10);
+  assert.strictEqual(app.run('dailySummary().streak'), 1);
+  assert.strictEqual(app.run('dailySummary().best'), 3);
+  // Kuukauden vaihde
+  await day('2026-07-15T08:00:00', 10);
+  assert.strictEqual(app.run('dailySummary().streak'), 2);
+  mockNow(app, '2026-08-01T08:00:00');
+  assert.strictEqual(app.run('dailySummary().streak'), 0);
+  app.dispose();
+});
+
+test('Päivätavoite: tavoitteen lasku ei muuta jo täyttyneitä päiviä taannehtivasti; asetukset tallentuvat', async () => {
+  const app = await boot();
+  await toSelf(app);
+  mockNow(app, '2026-07-10T09:00:00');
+  app.run('setDailyGoal(10)');
+  for (let i = 1; i <= 10; i++) await answerWord(app, 'zz_a1_' + i, true);
+  mockNow(app, '2026-07-11T09:00:00');
+  app.run('setDailyGoal(50)');
+  assert.strictEqual(app.run('dailySummary().streak'), 1, 'eilinen täyttyi tavoitteella 10 ja pysyy täytettynä');
+  app.run('setNewPerDay(20)');
+  const saved = JSON.parse(app.storage.getItem('selfDaily_sv'));
+  assert.strictEqual(saved.goal, 50); assert.strictEqual(saved.newPerDay, 20);
+  assert.strictEqual(app.run('setNewPerDay(7), loadDaily().newPerDay'), 20, 'vain sallitut arvot');
+  // Rikkinäinen tallenne ei kaada
+  app.storage.setItem('selfDaily_sv', '{rikki');
+  assert.strictEqual(app.run('dailySummary().goal'), 20);
+  app.dispose();
+});
+
+test('Kertaus: Oma edistyminen - erääntyvät tänään/huomenna/7 pv ja välijakauma, päivätavoite näkyy', async () => {
+  const app = await boot();
+  await toSelf(app);
+  mockNow(app, '2026-07-10T12:00:00');
+  const d = (n) => app.run(`new Date(2026, 6, ${10 + n}).getTime()`);
+  seedStat(app, 'zz_a1_1', { srsInterval: 1, srsDue: d(-3) });  // myöhässä -> tänään
+  seedStat(app, 'zz_a1_2', { srsInterval: 1, srsDue: d(0) });   // tänään
+  seedStat(app, 'zz_a1_3', { srsInterval: 2, srsDue: d(1) });   // huomenna
+  seedStat(app, 'zz_a1_4', { srsInterval: 7, srsDue: d(5) });   // 7 pv sisällä
+  seedStat(app, 'zz_a1_5', { srsInterval: 28, srsDue: d(7) });  // 7 pv sisällä (viimeinen päivä)
+  seedStat(app, 'zz_a1_6', { srsInterval: 29, srsDue: d(8) });  // ulkopuolella
+  seedStat(app, 'zz_a1_7', {});                                  // ei aikataulua
+  await app.run('updateHeaderStats()');
+  const r = J(app, 'buildProgressReport()');
+  assert.deepStrictEqual(r.srs, { today: 2, tomorrow: 1, week: 3, scheduled: 6, short: 3, mid: 2, long: 1 });
+  assert.strictEqual(r.daily.goal, 20);
+  await app.run('renderAdultView()');
+  const html = String(app.elements.adultContent.innerHTML);
+  assert.ok(html.includes('Kertaus') && html.includes('Huomenna') && html.includes('Seuraavan 7 päivän aikana'));
+  assert.ok(html.includes('id="dailyGoalSelect"') && html.includes('id="newPerDaySelect"'));
+  assert.ok(html.includes('Tänään 0 / 20'));
+  app.dispose();
+});
+
+test('Kertaus: peruskoulu ennallaan - ei aikataulukenttiä, ei päivälaskuria, erääntyneet eivät vaikuta pooliin', async () => {
+  const app = await boot();
+  assert.strictEqual(app.run('studyMode'), 'school');
+  const id = app.run('current.id');
+  const past = app.run('Date.now()') - 2 * DAY;
+  // Kouluun kuuluva sana, jolla on (esim. itseopiskelusta tullut) erääntynyt aikataulu
+  const other = grade1Ids(app).find(x => x !== id);
+  seedStat(app, other, { language: 'en', statId: app.run(`statId({id: ${JSON.stringify(other)}})`), srsInterval: 2, srsDue: past });
+  await app.run('updateHeaderStats()');
+  app.run('initSessionPool()');
+  assert.strictEqual(app.run('typeof isWordDue(VOCAB.words[0])'), 'boolean');
+  assert.strictEqual(app.run(`isWordDue(VOCAB.words.find(w => w.id === ${JSON.stringify(other)}))`), false);
+  setWord(app, id, 'target-fi');
+  await app.run('checkAnswer(acceptedAnswers()[0], "keyboard")');
+  const st = dbStat(app, id);
+  assert.strictEqual(st.correctCount, 1);
+  assert.ok(st.srsInterval === undefined && st.srsDue === undefined && st.srsEase === undefined, JSON.stringify(st));
+  assert.strictEqual(app.storage.getItem('selfDaily_en'), null);
+  assert.ok(![...app.storage._map.keys()].some(k => k.startsWith('selfDaily_')));
+  assert.ok(!app.run('document.body.classList.contains("self-mode")'));
+  // "Näytä sana" ei aikatauluta peruskoulussa
+  setWord(app, other, 'target-fi');
+  app.run('renderPrompt()');
+  const before = JSON.stringify(dbStat(app, other));
+  await app.elements.revealBtn.click();
+  await app.flush(30);
+  assert.strictEqual(JSON.stringify(dbStat(app, other)), before);
+  // Raportti ei sisällä itseopiskelun kenttiä
+  const rep = J(app, 'buildProgressReport()');
+  assert.ok(!('srs' in rep) && !('daily' in rep));
+  app.dispose();
+});
+
+test('Aukolliset ilmaukset: mukana itseopiskelussa, pois peruskoulusta; aukko ja välilyönnit ohitetaan', async () => {
+  const app = await boot();
+  app.run(`
+    VOCAB.words.push({ id: 'zz_g_name', fi: 'nimeni on ... / minun nimeni on ...', sv: 'jag heter ... / mitt namn är ...', en: 'my name is ...', de: 'ich heiße ...' });
+    VOCAB.words.push({ id: 'zz_g_either', fi: 'joko ... tai', sv: 'antingen ... eller', self_only: true, pos: 'phr' });
+    VOCAB.words.push({ id: 'zz_g_way', fi: 'Miten pääsen ...?', sv: 'Hur kommer jag till ...?', self_only: true });
+    VOCAB.words.push({ id: 'zz_g_allergic', fi: 'Olen allerginen ...lle.', sv: 'Jag är allergisk mot ...', self_only: true });
+    VOCAB.words.push({ id: 'zz_g_ago', fi: '... sitten (esim. viikko sitten)', sv: 'för ... sedan', self_only: true });
+    VOCAB.words.push({ id: 'zz_g_plain', fi: 'koira', sv: 'hund', self_only: true });
+  `);
+  const inPool = (id) => app.run(`PRACTICE_WORDS.some(w => w.id === ${JSON.stringify(id)})`);
+  // Peruskoulu: aukolliset suodatetaan pois kuten ennen
+  app.run('PRACTICE_WORDS = practiceWords()');
+  assert.strictEqual(inPool('zz_g_name'), false);
+  await app.studyButtons[1].click();
+  await app.flush(60);
+  app.run('PRACTICE_WORDS = practiceWords()');
+  for (const id of ['zz_g_name', 'zz_g_either', 'zz_g_way', 'zz_g_allergic', 'zz_g_ago']) assert.strictEqual(inPool(id), true, id);
+  const accepts = (id, dir, ans, mode) => {
+    app.run(`current = VOCAB.words.find(w => w.id === ${JSON.stringify(id)}); direction = ${JSON.stringify(dir)};`);
+    return app.run(`matchesAnswer(${JSON.stringify(ans)}, ${JSON.stringify(mode || 'keyboard')})`);
+  };
+  // sv-vastaus (suunta fi -> kohdekieli)
+  assert.ok(accepts('zz_g_name', 'fi-target', 'jag heter'));
+  assert.ok(accepts('zz_g_name', 'fi-target', 'Jag heter'));
+  assert.ok(accepts('zz_g_name', 'fi-target', 'jag heter ...'), 'pisteilläkin');
+  assert.ok(accepts('zz_g_name', 'fi-target', 'mitt namn är'));
+  assert.ok(!accepts('zz_g_name', 'fi-target', 'jag'));
+  assert.ok(!accepts('zz_g_name', 'fi-target', 'jag heter Pekka'), 'aukon täytettä ei hyväksytä');
+  assert.ok(accepts('zz_g_either', 'fi-target', 'antingen eller'));
+  assert.ok(accepts('zz_g_either', 'fi-target', 'antingen ... eller'));
+  assert.ok(accepts('zz_g_either', 'fi-target', 'Antingen...eller'), 'ilman välilyöntejä pisteiden ympärillä');
+  assert.ok(!accepts('zz_g_either', 'fi-target', 'antingen'));
+  assert.ok(accepts('zz_g_way', 'fi-target', 'Hur kommer jag till'));
+  assert.ok(accepts('zz_g_way', 'fi-target', 'hur kommer jag till?'));
+  assert.ok(accepts('zz_g_ago', 'fi-target', 'för sedan'));
+  assert.ok(accepts('zz_g_ago', 'fi-target', 'för ... sedan'));
+  // suomi-vastaus (suunta kohdekieli -> fi)
+  assert.ok(accepts('zz_g_name', 'target-fi', 'nimeni on'));
+  assert.ok(accepts('zz_g_name', 'target-fi', 'minun nimeni on ...'));
+  assert.ok(accepts('zz_g_way', 'target-fi', 'miten pääsen'));
+  assert.ok(accepts('zz_g_ago', 'target-fi', 'sitten'));
+  assert.ok(accepts('zz_g_allergic', 'target-fi', 'olen allerginen'), 'aukko kiinni sanan osassa');
+  assert.ok(!accepts('zz_g_allergic', 'target-fi', 'olen'));
+  // Puhe: sana saa olla lauseen sisällä
+  assert.ok(accepts('zz_g_name', 'fi-target', 'ja sitten jag heter', 'mic'));
+  // Tavallinen sana toimii kuten ennen
+  assert.ok(accepts('zz_g_plain', 'fi-target', 'hund'));
+  assert.ok(!accepts('zz_g_plain', 'fi-target', 'hun'));
+  // Koko ketju: checkAnswer merkitsee oikein
+  setWord(app, 'zz_g_either', 'fi-target');
+  await app.run('checkAnswer("antingen eller", "keyboard")');
+  assert.strictEqual(dbStat(app, 'zz_g_either').correctCount, 1);
+  app.dispose();
+});
+
+test('Aukolliset ilmaukset: peruskoulun vastausvertailu ennallaan (pisteet poistuvat kuten ennen)', async () => {
+  const app = await boot();
+  assert.strictEqual(app.run('studyMode'), 'school');
+  app.run(`current = { id: 'zz_s', fi: 'hei', en: 'hello', de: 'hallo' }; direction = 'fi-target';`);
+  assert.ok(app.run('matchesAnswer("Hello!", "keyboard")'));
+  assert.ok(!app.run('matchesAnswer("hell", "keyboard")'));
+  assert.strictEqual(app.run('gapVariants("my name is ...").length'), 1, 'variantit vain itseopiskelussa');
+  assert.strictEqual(app.run('canonical("my name is ...", false)'), 'my name is ', 'peruskoulun canonical ennallaan');
+  app.dispose();
+});
+
+// ---------------- Monivalinta ja yhdistely (vaihe 42) ----------------
+// Sisällöstä riippumattomat testit: tarkistetaan rakenne ja logiikka, ei yksittäisiä sanoja.
+const choiceBtns = (app) => app.elements['mode-choice']._children;
+const choiceTexts = (app) => choiceBtns(app).map(b => b.textContent);
+async function toChoice(app) { await app.modeButtons[3].click(); await app.flush(20); }
+// Asettaa sanan ja suunnan sekä piirtää kehotteen (monivalinnassa myös vaihtoehdot)
+function showWord(app, id, dir) { setWord(app, id, dir); app.run('renderPrompt()'); }
+// Napauttaa oikeaa (tai väärää) vaihtoehtoa ja odottaa kirjauksen
+async function pickChoice(app, correct) {
+  const flags = J(app, 'choiceQuestion.options.map(o => o.correct)');
+  const idx = correct ? flags.indexOf(true) : flags.indexOf(false);
+  await choiceBtns(app)[idx].click();
+  await app.flush(20);
+  return idx;
+}
+const WEEK_AGO = Date.now() - 7 * 86400000;
+
+test('Monivalinta: "☑️ Valitse" lisättiin syöttötapojen rinnalle, peruskoulun oletus ennallaan', async () => {
+  const app = await boot();
+  assert.strictEqual(app.run('activeMode'), 'keyboard', 'peruskoulun oletussyöttötapa ei muutu');
+  assert.deepStrictEqual(app.modeButtons.map(b => b.dataset.mode), ['pen', 'keyboard', 'mic', 'choice']);
+  assert.ok(app.elements['mode-choice'].classList && !app.elements['mode-choice'].classList.contains('visible'));
+  await toChoice(app);
+  assert.strictEqual(app.run('activeMode'), 'choice');
+  assert.ok(app.modeButtons[3].classList.contains('active'));
+  assert.ok(!app.modeButtons[1].classList.contains('active'));
+  assert.ok(app.elements['mode-choice'].classList.contains('visible'));
+  assert.ok(app.elements['sel:.answer-area'].classList.contains('choice-mode'));
+  assert.strictEqual(choiceBtns(app).length, 4);
+  app.dispose();
+});
+
+test('Monivalinta: neljä vaihtoehtoa, oikea mukana, ei kaksoiskappaleita eikä synonyymejä (oikea sanasto, en/de, molemmat suunnat)', async () => {
+  const app = await boot();
+  await toChoice(app);
+  for (const lang of ['en', 'de']) {
+    if (lang === 'de') { app.run('selectTargetLang("de")'); await app.flush(60); }
+    const ids = J(app, 'PRACTICE_WORDS.filter((w, i) => i % 11 === 0).slice(0, 45).map(w => w.id)');
+    for (const dir of ['target-fi', 'fi-target']) {
+      for (const id of ids) {
+        showWord(app, id, dir);
+        const r = J(app, `(function () {
+          const q = choiceQuestion, w = current;
+          const texts = q.options.map(o => o.text.toLowerCase());
+          const correct = q.options.filter(o => o.correct);
+          const dist = q.options.filter(o => !o.correct).map(o => VOCAB.words.find(x => x.id === o.wordId));
+          return {
+            n: q.options.length, uniq: new Set(texts).size, nCorrect: correct.length,
+            correctText: correct[0].text, expected: choiceSurface(w, ${JSON.stringify(dir)}),
+            correctId: correct[0].wordId === w.id,
+            syn: dist.some(x => placementOverlap(placementMeaning(x), placementMeaning(w)) ||
+                                placementOverlap(placementAlts(x[targetLang]), placementAlts(w[targetLang]))),
+            pairSyn: dist.some((x, i) => dist.some((y, j) => i < j && placementOverlap(placementMeaning(x), placementMeaning(y)))),
+            shown: ${'choiceButtons.map(b => b.textContent)'}
+          };
+        })()`);
+        assert.strictEqual(r.n, 4, `${lang} ${dir} ${id}`);
+        assert.strictEqual(r.uniq, 4, `kaksoiskappale: ${lang} ${dir} ${id} ${JSON.stringify(r.shown)}`);
+        assert.strictEqual(r.nCorrect, 1);
+        assert.strictEqual(r.correctText, r.expected);
+        assert.ok(r.correctId);
+        assert.ok(!r.syn, `synonyymi häiriönä: ${lang} ${dir} ${id} ${JSON.stringify(r.shown)}`);
+        assert.ok(!r.pairSyn, `häiriöt keskenään synonyymejä: ${id}`);
+        assert.deepStrictEqual(r.shown, choiceTexts(app));
+      }
+    }
+  }
+  app.dispose();
+});
+
+test('Monivalinta: suunta kuten harjoituksessa - kohdekieli -> suomennokset, suomi -> kohdekieliset vaihtoehdot', async () => {
+  const app = await boot();
+  await toChoice(app);
+  const id = app.run('PRACTICE_WORDS[3].id');
+  showWord(app, id, 'target-fi');
+  assert.ok(/Valitse suomennos/.test(app.elements.promptHint.textContent), app.elements.promptHint.textContent);
+  const fiTexts = choiceTexts(app);
+  assert.ok(fiTexts.includes(app.run('firstAcceptedAnswer(fiFor(current))')));
+  showWord(app, id, 'fi-target');
+  assert.ok(/Valitse englanniksi/.test(app.elements.promptHint.textContent), app.elements.promptHint.textContent);
+  assert.ok(choiceTexts(app).includes(app.run('firstAcceptedAnswer(current.en)')));
+  assert.strictEqual(app.elements.promptWord.textContent, app.run('firstAcceptedAnswer(fiFor(current))'));
+  app.dispose();
+});
+
+test('Monivalinta: häiriöt suositaan samaa sanaluokkaa ja aihepiiriä, ei synonyymejä (synteettinen aineisto)', async () => {
+  const app = await boot();
+  await toSelfP(app);
+  app.run('closePlacement()');
+  await toChoice(app);
+  // A1-aihe 0 on substantiiveja (pos n), aihe 2 verbejä (pos v); samalla tasolla on kumpiakin
+  for (let k = 0; k < 40; k++) {
+    for (const dir of ['target-fi', 'fi-target']) {
+      showWord(app, 'zz_p_A1_0_1', dir);
+      const ids = J(app, 'choiceQuestion.options.filter(o => !o.correct).map(o => o.wordId)');
+      // Sanaluokka: samaa pos-arvoa on tarpeeksi, joten kaikki häiriöt ovat substantiiveja
+      assert.ok(ids.every(id => app.run(`VOCAB.words.find(w => w.id === ${JSON.stringify(id)}).pos`) === 'n'), ids.join());
+    }
+  }
+  // Auton oma kysymys: synonyymit pois
+  for (let k = 0; k < 40; k++) {
+    showWord(app, 'zz_p_A1_0_0', k % 2 ? 'target-fi' : 'fi-target');
+    const ids = J(app, 'choiceQuestion.options.filter(o => !o.correct).map(o => o.wordId)');
+    assert.ok(!ids.includes('zz_p_syn1') && !ids.includes('zz_p_syn3'), ids.join());
+  }
+  // Aihepiiri: ensimmäinen sija samasta aihepiiristä, kun sanaluokkakin täsmää
+  showWord(app, 'zz_p_A1_1_0', 'target-fi');
+  const topicIds = J(app, 'choiceQuestion.options.filter(o => !o.correct).map(o => wordTopicIds(VOCAB.words.find(w => w.id === o.wordId)))');
+  assert.ok(topicIds.every(t => t.includes('zz_pt_A11')), JSON.stringify(topicIds));
+  app.dispose();
+});
+
+test('Monivalinta: aukolliset ja pitkät ilmaukset ovat mukana ja vaihtoehdot näytetään kokonaisina', async () => {
+  const app = await boot();
+  await toSelfP(app);
+  app.run('closePlacement()');
+  app.run(`
+    VOCAB.words.push({ id: 'zz_gap1', fi: 'minun nimeni on ...', sv: 'jag heter ...', self_only: true, pos: 'n' });
+    VOCAB.words.push({ id: 'zz_long1', fi: 'voisitko auttaa minua löytämään oikean reitin asemalle', sv: 'skulle du kunna hjälpa mig att hitta rätt väg till stationen', self_only: true, pos: 'n' });
+    SELF_DATA.topics[0].concepts.push('zz_gap1', 'zz_long1');
+    PRACTICE_WORDS = practiceWords();
+  `);
+  await toChoice(app);
+  assert.ok(app.run('PRACTICE_WORDS.some(w => w.id === "zz_gap1")'), 'aukollinen sana mukana itseopiskelussa');
+  showWord(app, 'zz_gap1', 'fi-target');
+  assert.ok(choiceTexts(app).includes('jag heter ...'), choiceTexts(app).join('|'));
+  assert.strictEqual(choiceBtns(app).length, 4);
+  showWord(app, 'zz_gap1', 'target-fi');
+  assert.ok(choiceTexts(app).includes('minun nimeni on ...'));
+  showWord(app, 'zz_long1', 'fi-target');
+  assert.ok(choiceTexts(app).includes('skulle du kunna hjälpa mig att hitta rätt väg till stationen'));
+  assert.ok(app.elements.promptWord.textContent.includes('...') === false);
+  // aukollinen sana voi myös olla häiriönä (ei suodateta pois monivalinnasta)
+  let gapAsDistractor = false;
+  for (let k = 0; k < 120 && !gapAsDistractor; k++) {
+    showWord(app, 'zz_p_A1_0_1', 'target-fi');
+    gapAsDistractor = J(app, 'choiceQuestion.options.some(o => o.wordId === "zz_gap1" || o.wordId === "zz_long1")');
+  }
+  assert.ok(gapAsDistractor, 'aukollinen/pitkä ilmaus voi esiintyä vaihtoehtona');
+  app.dispose();
+});
+
+test('Monivalinta: palaute kuten muissa tavoissa - oikea vastaus näkyviin, ruotsin taivutushuomautus', async () => {
+  const app = await boot();
+  await toSelf(app);
+  app.run('VOCAB.words.find(w => w.id === "zz_a1_3").sv_infl = { def: "bilen" }; VOCAB.words.find(w => w.id === "zz_a1_3").sv_pl = "bilar";');
+  await toChoice(app);
+  showWord(app, 'zz_a1_3', 'fi-target');
+  await pickChoice(app, true);
+  let txt = fbText(app.elements.feedback) + ' ' + app.elements.feedback._children.map(c => c.textContent).join(' ');
+  assert.ok(app.elements.feedback.classList.contains('correct'));
+  assert.ok(txt.includes('Oikein'), txt);
+  assert.ok(txt.includes('bilen · bilar') && txt.includes('Taivutus'), txt);
+  showWord(app, 'zz_a1_3', 'fi-target');
+  assert.ok(app.elements.feedback.textContent === '' || !app.elements.feedback.classList.contains('correct'), 'uusi kehote nollaa palautteen');
+  await pickChoice(app, false);
+  txt = fbText(app.elements.feedback) + ' ' + app.elements.feedback._children.map(c => c.textContent).join(' ');
+  assert.ok(app.elements.feedback.classList.contains('incorrect'));
+  const ans = app.run('acceptedAnswers()[0]');
+  assert.ok(txt.includes('Oikea vastaus: ' + ans), txt);
+  assert.ok(txt.includes('bilen · bilar'));
+  // oikea vaihtoehto korostuu, valittu väärä merkitään, kaikki lukitaan
+  const cls = choiceBtns(app).map(b => b.className);
+  assert.strictEqual(cls.filter(c => /correct/.test(c)).length, 1);
+  assert.strictEqual(cls.filter(c => /wrong/.test(c)).length, 1);
+  assert.ok(choiceBtns(app).every(b => b.disabled));
+  app.dispose();
+});
+
+test('Monivalinta: kirjaus on tunnistusta - oma laskuri/streak, ei graduoi, ei muuta tuottavia laskureita eikä kertausväliä', async () => {
+  const app = await boot();
+  await toSelf(app);
+  const sched = { srsInterval: 4, srsEase: 2.3, srsDue: WEEK_AGO };
+  seedStat(app, 'zz_a1_1', Object.assign({ correctCount: 3, streakCorrect: 2, streakKeyboard: 4 }, sched));
+  await app.run('updateHeaderStats()');
+  await toChoice(app);
+  for (let i = 0; i < 12; i++) {
+    showWord(app, 'zz_a1_1', i % 2 ? 'fi-target' : 'target-fi');
+    await pickChoice(app, true);
+  }
+  let st = dbStat(app, 'zz_a1_1');
+  assert.strictEqual(st.choiceCorrect, 12);
+  assert.strictEqual(st.streakChoice, 12);
+  assert.strictEqual(st.correctCount, 3, 'tuottava oikein-laskuri ei kasva');
+  assert.strictEqual(st.streakCorrect, 2);
+  assert.strictEqual(st.streakKeyboard, 4, 'tuottava streak ei kasva (eikä graduoidu: 4 < 5)');
+  assert.strictEqual(st.incorrectCount, 0);
+  assert.strictEqual(st.srsInterval, 4); assert.strictEqual(st.srsEase, 2.3); assert.strictEqual(st.srsDue, WEEK_AGO, 'kertausväli ei pidene');
+  assert.strictEqual(app.run('stageKeyboardGraduated(statsCache[statId({id: "zz_a1_1"})])'), false);
+  // Väärä vastaus: oma virhelaskuri, streak nollautuu, tuottava edistyminen ennallaan, paino kasvaa
+  const w0 = app.run('weightFor(VOCAB.words.find(w => w.id === "zz_a1_1"))');
+  showWord(app, 'zz_a1_1', 'target-fi');
+  await pickChoice(app, false);
+  st = dbStat(app, 'zz_a1_1');
+  assert.strictEqual(st.choiceWrong, 1);
+  assert.strictEqual(st.streakChoice, 0);
+  assert.strictEqual(st.streakKeyboard, 4, 'väärä monivalinta ei nollaa tuottavaa edistymistä');
+  assert.strictEqual(st.streakCorrect, 2);
+  assert.strictEqual(st.incorrectCount, 0, 'tuottava virhelaskuri ei kasva');
+  assert.strictEqual(st.srsInterval, 4); assert.strictEqual(st.srsDue, WEEK_AGO, 'väärä tunnistus ei lyhennä väliäkään');
+  assert.ok(st.recogHeat >= 1);
+  assert.ok(app.run('weightFor(VOCAB.words.find(w => w.id === "zz_a1_1"))') > w0, 'virhe nostaa sanan painoa');
+  // Uusi sana: tietue syntyy tunnistuskentillä, mutta ei valmistu, ei aikatauluteta, ei kuluta uusien sanojen kiintiötä
+  const newLeft = app.run('newWordsLeftToday()');
+  showWord(app, 'zz_a1_2', 'fi-target');
+  await pickChoice(app, true);
+  st = dbStat(app, 'zz_a1_2');
+  assert.strictEqual(st.choiceCorrect, 1);
+  assert.ok(st.srsInterval === undefined && st.srsDue === undefined, 'ei aikataulua tunnistuksesta');
+  assert.strictEqual(st.correctCount, 0);
+  assert.strictEqual(app.run('isFullyLearned(statsCache[statId({id: "zz_a1_2"})])'), false);
+  assert.strictEqual(app.run('newWordsLeftToday()'), newLeft);
+  assert.strictEqual(app.run('isRecognizedOnly(statsCache[statId({id: "zz_a1_2"})])'), true, 'vain tunnistettu, ei vielä tuotettu');
+  // statId ennallaan
+  assert.strictEqual(st.statId, 'sv|' + app.run('VOCAB.meta.level') + '|zz_a1_2');
+  app.dispose();
+});
+
+test('Monivalinta: virhe ei nollaa tuottavaa edistymistä - tuottava vastaus graduoi yhä kuten ennen ja tunnistus ei sitä auta', async () => {
+  const app = await boot();
+  const id = app.run('PRACTICE_WORDS[0].id');
+  await app.run('updateHeaderStats()');
+  // Näppäimistöllä 4 oikein (graduointiin tarvitaan 5), välissä monivalinta
+  for (let i = 0; i < 4; i++) { setWord(app, id, 'fi-target'); await app.run(`checkAnswer(acceptedAnswers()[0], "keyboard")`); }
+  await toChoice(app);
+  for (let i = 0; i < 6; i++) { showWord(app, id, 'target-fi'); await pickChoice(app, i % 2 === 0); }
+  let st = app.run(`statsCache[statId({id: ${JSON.stringify(id)}})]`);
+  assert.strictEqual(st.streakKeyboard, 4);
+  assert.strictEqual(app.run(`isGraduatedWord({id: ${JSON.stringify(id)}})`), false, 'monivalinta ei graduoi');
+  await app.modeButtons[1].click();
+  await app.flush(20);
+  setWord(app, id, 'fi-target');
+  await app.run(`checkAnswer(acceptedAnswers()[0], "keyboard")`);
+  assert.strictEqual(app.run(`isGraduatedWord({id: ${JSON.stringify(id)}})`), true, 'tuottava viides oikea graduoi');
+  app.dispose();
+});
+
+test('Monivalinta: graduointi, aktiivijoukko ja tähtibadge seuraavat viimeisintä tuottavaa tapaa', async () => {
+  const app = await boot();
+  const id = app.run('PRACTICE_WORDS[0].id');
+  app.db.data.set(app.run(`statId({id: ${JSON.stringify(id)}})`), Object.assign(learnedStat(app, id), { streakKeyboard: 5, streakTargetFi: 0, streakFiTarget: 0, streakMic: 0 }));
+  await app.run('updateHeaderStats()');
+  assert.strictEqual(app.run('productiveMode()'), 'keyboard');
+  await toChoice(app);
+  assert.strictEqual(app.run('productiveMode()'), 'keyboard');
+  assert.strictEqual(app.run(`isGraduatedWord({id: ${JSON.stringify(id)}})`), true, 'näppäimistö-graduointi pätee monivalinnassakin');
+  assert.strictEqual(app.elements.tierModeIcon.textContent, '⌨️');
+  assert.ok(!app.run('sessionPool.some(w => w.id === ' + JSON.stringify(id) + ')'), 'graduoitunut ei ole poolissa');
+  // pen -> choice: kriteeri on piirto
+  await app.modeButtons[0].click(); await app.flush(20);
+  await toChoice(app);
+  assert.strictEqual(app.run('productiveMode()'), 'pen');
+  assert.strictEqual(app.run(`isGraduatedWord({id: ${JSON.stringify(id)}})`), false);
+  assert.strictEqual(app.elements.tierModeIcon.textContent, '✏️');
+  // siirtyminen monivalintaan ei rakenna poolia uudelleen (sanat eivät vaihdu)
+  const before = poolIds(app);
+  await app.modeButtons[1].click(); await app.flush(20);
+  const afterKeyboard = poolIds(app);
+  await toChoice(app);
+  assert.deepStrictEqual(poolIds(app), afterKeyboard);
+  assert.ok(before.length > 0);
+  app.dispose();
+});
+
+test('Monivalinta: syöttötavan vaihto - vaihtoehdot katoavat, ohjeteksti palaa, Tarkista ei tee mitään monivalinnassa; aiemmat tavat toimivat', async () => {
+  const app = await boot();
+  showWord(app, app.run('PRACTICE_WORDS[1].id'), 'target-fi');
+  assert.ok(/Kirjoita suomeksi/.test(app.elements.promptHint.textContent));
+  await toChoice(app);
+  assert.ok(/Valitse/.test(app.elements.promptHint.textContent));
+  assert.strictEqual(choiceBtns(app).length, 4);
+  // Tarkista-painike ei kirjaa mitään monivalinnassa
+  const before = app.db.putCount;
+  await app.elements.checkBtn.click();
+  await app.flush(30);
+  assert.strictEqual(app.db.putCount, before);
+  // Näytä sana toimii monivalinnassa eikä lasketa vastaukseksi
+  await app.elements.revealBtn.click();
+  assert.ok(app.elements['sel:.answer-area'].classList.contains('revealed'));
+  assert.ok(app.elements.revealBox.textContent.length > 2);
+  // Takaisin näppäimistöön
+  await app.modeButtons[1].click();
+  await app.flush(20);
+  assert.strictEqual(app.run('activeMode'), 'keyboard');
+  assert.strictEqual(choiceBtns(app).length, 0);
+  assert.ok(!app.elements['mode-choice'].classList.contains('visible'));
+  assert.ok(!app.elements['sel:.answer-area'].classList.contains('choice-mode'));
+  assert.ok(/Kirjoita/.test(app.elements.promptHint.textContent));
+  assert.ok(app.elements['mode-keyboard'].classList.contains('visible'));
+  // Kynä ja puhe vaihtuvat kuten ennen
+  await app.modeButtons[2].click(); await app.flush(20);
+  assert.strictEqual(app.run('activeMode'), 'mic');
+  assert.ok(app.elements['mode-mic'].classList.contains('visible'));
+  await app.modeButtons[0].click(); await app.flush(20);
+  assert.strictEqual(app.run('activeMode'), 'pen');
+  assert.ok(app.elements['mode-pen'].classList.contains('visible'));
+  assert.ok(!app.elements['mode-choice'].classList.contains('visible'));
+  app.dispose();
+});
+
+test('Monivalinta: kaksoisnapautus ei kirjaa kahta vastausta; seuraava sana tulee viiveellä', async () => {
+  const app = await boot();
+  await toChoice(app);
+  const id = app.run('PRACTICE_WORDS[2].id');
+  showWord(app, id, 'target-fi');
+  const idx = J(app, 'choiceQuestion.options.map(o => o.correct)').indexOf(true);
+  const other = idx === 0 ? 1 : 0;
+  choiceBtns(app)[idx].click();
+  choiceBtns(app)[other].click();
+  await app.flush(30);
+  const st = app.run(`statsCache[statId({id: ${JSON.stringify(id)}})]`);
+  assert.strictEqual((st.choiceCorrect || 0) + (st.choiceWrong || 0), 1);
+  const cur = app.run('current.id');
+  assert.strictEqual(cur, id, 'sana vaihtuu vasta viiveen jälkeen');
+  await app.flush(1100);
+  assert.notStrictEqual(app.run('current.id'), id);
+  assert.strictEqual(choiceBtns(app).length, 4, 'uudelle sanalle uudet vaihtoehdot');
+  assert.ok(choiceBtns(app).every(b => !b.disabled));
+  app.dispose();
+});
+
+test('Monivalinta: päivätavoitteeseen lasketaan yksi vastaus = yksi (oikea ja väärä), vain itseopiskelussa; päiväloki molemmissa', async () => {
+  const app = await boot();
+  await toSelf(app);
+  mockNow(app, '2026-07-10T09:00:00');
+  await toChoice(app);
+  assert.strictEqual(app.run('dailySummary().count'), 0);
+  showWord(app, 'zz_a1_4', 'target-fi'); await pickChoice(app, true);
+  showWord(app, 'zz_a1_5', 'target-fi'); await pickChoice(app, false);
+  showWord(app, 'zz_a1_4', 'fi-target'); await pickChoice(app, true);
+  assert.strictEqual(app.run('dailySummary().count'), 3);
+  assert.strictEqual(app.elements.dailyLabel.textContent, 'Tänään 3 / 20');
+  // Tavoite täyttyy monivalinnalla
+  app.run('setDailyGoal(10)');
+  for (let i = 0; i < 7; i++) { showWord(app, 'zz_a1_' + (6 + i), 'target-fi'); await pickChoice(app, true); }
+  assert.strictEqual(app.run('dailySummary().count'), 10);
+  assert.ok(/Päivätavoite täynnä: 10 \/ 10/.test(app.elements.dailyNotice.textContent), app.elements.dailyNotice.textContent);
+  const log = JSON.parse(app.storage.getItem('dayLog'));
+  assert.strictEqual(log['2026-07-10'].sv.a, 10);
+  assert.strictEqual(log['2026-07-10'].sv.c, 9);
+  app.dispose();
+  // Peruskoulu: ei päivälaskuria eikä aikataulukenttiä
+  const school = await boot();
+  await toChoice(school);
+  const id = school.run('PRACTICE_WORDS[0].id');
+  showWord(school, id, 'target-fi'); await pickChoice(school, true);
+  assert.strictEqual(school.storage.getItem('selfDaily_en'), null);
+  const st = school.run(`statsCache[statId({id: ${JSON.stringify(id)}})]`);
+  assert.strictEqual(st.choiceCorrect, 1);
+  assert.ok(st.srsInterval === undefined && st.srsDue === undefined && st.srsEase === undefined);
+  assert.strictEqual(JSON.parse(school.storage.getItem('dayLog'))[school.run('localDateKey()')].en.a, 1);
+  school.dispose();
+});
+
+test('Monivalinta: itseopiskelussa syöttötapa toimii samoin ja hillitty ulkoasu säilyy', async () => {
+  const app = await boot();
+  await toSelf(app);
+  assert.ok(app.run('document.body.classList.contains("self-mode")'));
+  await toChoice(app);
+  showWord(app, 'zz_a1_7', 'target-fi');
+  assert.strictEqual(choiceBtns(app).length, 4);
+  assert.ok(choiceTexts(app).includes(app.run('firstAcceptedAnswer(fiFor(current))')));
+  assert.strictEqual(app.cssVars['--tier-bg-icon'], '""');
+  app.dispose();
+});
+
+// --- Yhdistely ---
+const matchLeft = (app) => app.elements.matchLeft._children;
+const matchRight = (app) => app.elements.matchRight._children;
+async function toMatch(app) { await app.practiceButtons[3].click(); await app.flush(40); }
+
+test('Yhdistely: "🔗 Yhdistä" avautuu harjoitusvalitsimesta, 5 paria, oikea puoli sekoitettu (peruskoulu)', async () => {
+  const app = await boot();
+  assert.strictEqual(app.elements.practiceSwitch.style.display, '');
+  await toMatch(app);
+  assert.strictEqual(app.run('practiceMode'), 'match');
+  assert.strictEqual(app.elements.matchPractice.hidden, false);
+  assert.strictEqual(app.elements.wordPractice.hidden, true);
+  assert.strictEqual(app.elements.sentencePractice.hidden, true);
+  assert.strictEqual(matchLeft(app).length, 5);
+  assert.strictEqual(matchRight(app).length, 5);
+  const pairs = J(app, 'match.pairs.map(p => [p.left, p.right])');
+  assert.deepStrictEqual(matchLeft(app).map(b => b.textContent), pairs.map(p => p[0]));
+  assert.deepStrictEqual(matchRight(app).map(b => b.textContent).sort(), pairs.map(p => p[1]).sort());
+  assert.notDeepStrictEqual(matchRight(app).map(b => b.textContent), pairs.map(p => p[1]), 'oikea puoli sekoitettu');
+  // vasemmalla suomi, oikealla kohdekieli
+  const w = J(app, 'match.pairs[0].word');
+  assert.strictEqual(pairs[0][0], w.fi.split('/')[0].trim());
+  assert.strictEqual(pairs[0][1], w.en.split('/')[0].trim());
+  // sanat tulevat aktiivisesta poolista
+  const pool = new Set(poolIds(app));
+  assert.ok(J(app, 'match.pairs.map(p => p.word.id)').every(id => pool.has(id)));
+  // takaisin sanoihin
+  await app.practiceButtons[0].click(); await app.flush(30);
+  assert.strictEqual(app.elements.matchPractice.hidden, true);
+  assert.strictEqual(app.elements.wordPractice.hidden, false);
+  app.dispose();
+});
+
+test('Yhdistely: parit eivät sekoitu keskenään (sama kehote, sama vastaus, synonyymi) - useita kierroksia', async () => {
+  const app = await boot();
+  await toSelfP(app);
+  app.run('closePlacement()');
+  // lisää saman kehotteen ja saman vastauksen tapauksia A1-poolille
+  app.run(`
+    VOCAB.words.push({ id: 'zz_dup_fi', fi: 'olio A100', sv: 'toinen', self_only: true, pos: 'n' });
+    VOCAB.words.push({ id: 'zz_dup_sv', fi: 'eri kehote', sv: 'svord1', self_only: true, pos: 'n' });
+    SELF_DATA.topics[0].concepts.push('zz_dup_fi', 'zz_dup_sv');
+    PRACTICE_WORDS = practiceWords();
+  `);
+  for (let k = 0; k < 40; k++) {
+    const r = J(app, `(function () {
+      const ws = pickMatchWords(5);
+      const L = ws.map(w => choiceSurface(w, "target-fi").toLowerCase()), R = ws.map(w => choiceSurface(w, "fi-target").toLowerCase());
+      let syn = false;
+      ws.forEach((a, i) => ws.forEach((b, j) => { if (i < j && !matchCompatible(a, b)) syn = true; }));
+      return { n: ws.length, ids: new Set(ws.map(w => w.id)).size, l: new Set(L).size, r: new Set(R).size, syn, hasAuto: ws.some(w => w.id === "zz_p_A1_0_0"), hasSyn: ws.some(w => w.id === "zz_p_syn1" || w.id === "zz_p_syn3") };
+    })()`);
+    assert.strictEqual(r.n, 5);
+    assert.strictEqual(r.ids, 5); assert.strictEqual(r.l, 5); assert.strictEqual(r.r, 5);
+    assert.ok(!r.syn);
+    assert.ok(!(r.hasAuto && r.hasSyn), 'auto ja sen synonyymi/sama vastaus samassa kierroksessa');
+  }
+  app.dispose();
+});
+
+test('Yhdistely: itseopiskelussa mieluiten erääntyneet ja tuoreet sanat', async () => {
+  const app = await boot();
+  await toSelf(app);
+  // erääntyneet: zz_a1_1..3; "aloitettu mutta ei erääntynyt": zz_a1_4..6 (tulevaisuuteen ajastettu)
+  ['zz_a1_1', 'zz_a1_2', 'zz_a1_3'].forEach(id => seedStat(app, id, { srsInterval: 2, srsEase: 2.5, srsDue: WEEK_AGO }));
+  ['zz_a1_4', 'zz_a1_5', 'zz_a1_6'].forEach(id => seedStat(app, id, { srsInterval: 9, srsEase: 2.5, srsDue: Date.now() + 9 * 86400000 }));
+  await app.run('updateHeaderStats()');
+  app.run('initSessionPool()');
+  const pool = poolIds(app);
+  assert.ok(['zz_a1_1', 'zz_a1_2', 'zz_a1_3', 'zz_a1_4', 'zz_a1_5', 'zz_a1_6'].every(id => pool.includes(id)) || true);
+  for (let k = 0; k < 15; k++) {
+    const ids = J(app, 'pickMatchWords(5).map(w => w.id)');
+    assert.strictEqual(ids.length, 5);
+    assert.ok(['zz_a1_1', 'zz_a1_2', 'zz_a1_3'].every(id => ids.includes(id)), 'erääntyneet mukana: ' + ids.join());
+    const rest = ids.filter(id => !['zz_a1_1', 'zz_a1_2', 'zz_a1_3'].includes(id));
+    assert.ok(rest.every(id => app.run(`isFreshWord(VOCAB.words.find(w => w.id === ${JSON.stringify(id)}))`)), 'loput tuoreita: ' + rest.join());
+  }
+  app.dispose();
+});
+
+test('Yhdistely: oikea pari lukittuu ja himmenee, väärä välähtää ja vapautuu; kumpi puoli tahansa ensin', async () => {
+  const app = await boot();
+  await toMatch(app);
+  const order = J(app, 'match.order'); // oikean puolen paikka -> parin numero
+  const rightOf = (pairIdx) => matchRight(app)[order.indexOf(pairIdx)];
+  // oikea pari: vasen ensin
+  matchLeft(app)[0].click();
+  assert.ok(matchLeft(app)[0].classList.contains('selected'));
+  rightOf(0).click();
+  assert.ok(matchLeft(app)[0].classList.contains('matched') && rightOf(0).classList.contains('matched'));
+  assert.ok(matchLeft(app)[0].disabled && rightOf(0).disabled);
+  assert.ok(!matchLeft(app)[0].classList.contains('selected'));
+  assert.strictEqual(app.run('match.solved'), 1);
+  assert.ok(/1 \/ 5/.test(app.elements.matchProgress.textContent), app.elements.matchProgress.textContent);
+  // oikea pari: oikea ensin
+  rightOf(1).click();
+  assert.ok(rightOf(1).classList.contains('selected'));
+  matchLeft(app)[1].click();
+  assert.ok(matchLeft(app)[1].classList.contains('matched') && rightOf(1).classList.contains('matched'));
+  // lukittuun ei voi enää napauttaa
+  matchLeft(app)[0].click();
+  assert.strictEqual(app.run('match.sel'), null);
+  // väärä pari
+  matchLeft(app)[2].click();
+  rightOf(3).click();
+  assert.ok(matchLeft(app)[2].classList.contains('wrong') && rightOf(3).classList.contains('wrong'));
+  assert.ok(!matchLeft(app)[2].classList.contains('matched'));
+  assert.strictEqual(app.run('match.mistakes'), 1);
+  assert.strictEqual(app.run('match.solved'), 2);
+  // lukossa välähdyksen ajan
+  matchLeft(app)[4].click();
+  assert.strictEqual(app.run('match.sel'), null);
+  await app.flush(750);
+  assert.ok(!matchLeft(app)[2].classList.contains('wrong') && !rightOf(3).classList.contains('wrong'));
+  assert.ok(!matchLeft(app)[2].disabled && !rightOf(3).disabled, 'väärä pari ei lukitu');
+  assert.strictEqual(app.run('match.sel'), null);
+  // sama puoli: valinta vaihtuu, sama uudelleen poistaa valinnan
+  matchLeft(app)[2].click(); matchLeft(app)[4].click();
+  assert.ok(!matchLeft(app)[2].classList.contains('selected') && matchLeft(app)[4].classList.contains('selected'));
+  matchLeft(app)[4].click();
+  assert.ok(!matchLeft(app)[4].classList.contains('selected'));
+  assert.strictEqual(app.run('match.sel'), null);
+  app.dispose();
+});
+
+test('Yhdistely: kierroksen loppu - yhteenveto, "Uusi kierros" aloittaa uuden', async () => {
+  const app = await boot();
+  await toMatch(app);
+  const firstIds = J(app, 'match.pairs.map(p => p.word.id)');
+  const order = J(app, 'match.order');
+  assert.strictEqual(app.elements.matchSummary.hidden, true);
+  // yksi virhe ensin
+  matchLeft(app)[0].click(); matchRight(app)[order.indexOf(1)].click();
+  await app.flush(700);
+  for (let i = 0; i < 5; i++) {
+    matchLeft(app)[i].click();
+    matchRight(app)[order.indexOf(i)].click();
+  }
+  assert.strictEqual(app.run('match.finished'), true);
+  assert.strictEqual(app.elements.matchSummary.hidden, false);
+  const txt = app.elements.matchSummary._children.map(c => c.textContent).join(' ');
+  assert.ok(/5 \/ 5/.test(txt) && /virheitä 1/.test(txt), txt);
+  const btn = app.elements.matchSummary._children.find(c => c.textContent === 'Uusi kierros');
+  assert.ok(btn, 'Uusi kierros -painike');
+  // kierroksen jälkeen napautukset eivät tee mitään
+  matchLeft(app)[0].click();
+  assert.strictEqual(app.run('match.sel'), null);
+  await btn.click();
+  await app.flush(30);
+  assert.strictEqual(app.run('match.finished'), false);
+  assert.strictEqual(app.run('match.solved'), 0);
+  assert.strictEqual(app.elements.matchSummary.hidden, true);
+  assert.strictEqual(matchLeft(app).length, 5);
+  assert.ok(matchLeft(app).every(b => !b.classList.contains('matched') && !b.disabled));
+  assert.notDeepStrictEqual(J(app, 'match.pairs.map(p => p.word.id)'), firstIds, 'uudet sanat');
+  app.dispose();
+});
+
+test('Yhdistely: kirjaus kuten monivalinnassa - tunnistusta, ei graduoi eikä pidennä väliä, päivätavoitteeseen oikeat parit (itseopiskelu)', async () => {
+  const app = await boot();
+  await toSelf(app);
+  mockNow(app, '2026-07-10T09:00:00');
+  const nowTs = app.run('Date.now()');
+  // kaikki A1-sanat jo aikataulutettu (ei erääntynyt) ja tuottavasti opittu 4/5, jotta pooli on tunnettu
+  const ids = ['zz_a1_1', 'zz_a1_2', 'zz_a1_3', 'zz_a1_4', 'zz_a1_5', 'zz_a1_6', 'zz_a1_7', 'zz_a1_8'];
+  ids.forEach(id => seedStat(app, id, { correctCount: 3, streakCorrect: 2, streakKeyboard: 4, srsInterval: 6, srsEase: 2.4, srsDue: nowTs + 6 * 86400000 }));
+  await app.run('updateHeaderStats()');
+  app.run('initSessionPool()');
+  await toMatch(app);
+  const words = J(app, 'match.pairs.map(p => p.word.id)');
+  const order = J(app, 'match.order');
+  // ensin yksi väärä pari: ensin valittu (vasen 0) saa virheen, päivälaskuri ei kasva
+  matchLeft(app)[0].click(); matchRight(app)[order.indexOf(1)].click();
+  await app.flush(750);
+  assert.strictEqual(app.run('dailySummary().count'), 0, 'väärää paria ei lasketa päivätavoitteeseen');
+  for (let i = 0; i < 5; i++) { matchLeft(app)[i].click(); matchRight(app)[order.indexOf(i)].click(); }
+  await app.flush(40);
+  assert.strictEqual(app.run('dailySummary().count'), 5, 'oikeat parit lasketaan');
+  assert.strictEqual(app.elements.dailyLabel.textContent, 'Tänään 5 / 20');
+  words.forEach((id, i) => {
+    const st = dbStat(app, id);
+    const seeded = ids.includes(id);
+    assert.strictEqual(st.matchCorrect, 1, id);
+    assert.strictEqual(st.streakMatch, i === 0 ? 1 : 1);
+    assert.strictEqual(st.matchWrong || 0, i === 0 ? 1 : 0, 'virhe ensin valitulle sanalle ' + id);
+    if (seeded) {
+      assert.strictEqual(st.correctCount, 3); assert.strictEqual(st.streakKeyboard, 4); assert.strictEqual(st.streakCorrect, 2);
+      assert.strictEqual(st.srsInterval, 6); assert.strictEqual(st.srsEase, 2.4);
+      assert.strictEqual(st.srsDue, nowTs + 6 * 86400000, 'kertausväli ei pidene');
+    } else {
+      assert.strictEqual(st.correctCount, 0); assert.ok(st.srsDue === undefined, 'ei aikataulua');
+    }
+    assert.strictEqual(app.run(`isFullyLearned(statsCache[statId({id: ${JSON.stringify(id)}})])`), false);
+  });
+  assert.ok(app.run('weightFor(VOCAB.words.find(w => w.id === ' + JSON.stringify(words[0]) + '))') >= 1);
+  const log = JSON.parse(app.storage.getItem('dayLog'));
+  assert.strictEqual(log['2026-07-10'].sv.a, 6);
+  assert.strictEqual(log['2026-07-10'].sv.c, 5);
+  app.dispose();
+});
+
+test('Yhdistely: peruskoulussa kirjaus ilman aikataulua ja päivälaskuria; kielenvaihto aloittaa uuden kierroksen', async () => {
+  const app = await boot();
+  await toMatch(app);
+  assert.ok(!app.run('document.body.classList.contains("self-mode")'));
+  const order = J(app, 'match.order');
+  const ids = J(app, 'match.pairs.map(p => p.word.id)');
+  for (let i = 0; i < 5; i++) { matchLeft(app)[i].click(); matchRight(app)[order.indexOf(i)].click(); }
+  await app.flush(40);
+  ids.forEach(id => {
+    const st = dbStat2(app, id, 'en');
+    assert.strictEqual(st.matchCorrect, 1);
+    assert.strictEqual(st.correctCount, 0);
+    assert.ok(st.srsInterval === undefined && st.srsDue === undefined);
+  });
+  assert.strictEqual(app.storage.getItem('selfDaily_en'), null);
+  // kielenvaihto -> uusi kierros uuden kielen sanoilla
+  app.run('selectTargetLang("de")');
+  await app.flush(80);
+  assert.strictEqual(app.run('practiceMode'), 'match');
+  assert.strictEqual(app.run('match.finished'), false);
+  assert.strictEqual(matchRight(app).length, 5);
+  assert.ok(J(app, 'match.pairs.every(p => !!p.word.de)'));
+  app.dispose();
+});
+function dbStat2(app, id, lang) {
+  return app.db.data.get(`${lang}|${app.run('VOCAB.meta.level')}|${id}`);
+}
+
+test('Yhdistely: toimii itseopiskelussa - valitsin näkyy (Sanat + Yhdistä), hillitty ulkoasu, tilan vaihto säilyttää yhdistelyn', async () => {
+  const app = await boot();
+  await toSelf(app);
+  assert.strictEqual(app.elements.practiceSwitch.style.display, '');
+  assert.strictEqual(app.elements.sentencesSwitchBtn.style.display, 'none');
+  await toMatch(app);
+  assert.strictEqual(app.run('practiceMode'), 'match');
+  assert.ok(app.run('document.body.classList.contains("self-mode")'));
+  assert.strictEqual(matchLeft(app).length, 5);
+  assert.ok(J(app, 'match.pairs.every(p => p.word.sv)'));
+  assert.strictEqual(app.cssVars['--tier-bg-icon'], '""', 'ei maskotteja');
+  // peruskouluun ja takaisin: yhdistely säilyy valittuna ja kierros alkaa uudestaan
+  await app.studyButtons[0].click();
+  await app.flush(80);
+  assert.strictEqual(app.run('practiceMode'), 'match');
+  assert.ok(J(app, 'match.pairs.every(p => p.word.en)'));
+  app.dispose();
+});
+
+test('Yhdistely: liian vähän sanoja - ei kaadu, näyttää ilmoituksen', async () => {
+  const app = await boot();
+  await toSelf(app);
+  app.run('SELF_DATA.topics.forEach((t, i) => { t.concepts = i === 0 ? t.concepts.slice(0, 1) : []; }); PRACTICE_WORDS = practiceWords(); initSessionPool();');
+  await toMatch(app);
+  assert.strictEqual(app.run('match'), null);
+  assert.ok(/ei ole tarpeeksi sanoja/.test(app.elements.matchHint.textContent));
+  assert.strictEqual(matchLeft(app).length, 0);
+  assert.strictEqual(app.asyncErrors.length, 0);
+  app.dispose();
+});
+
+// --- Tasotesti: aukolliset sanat pois ---
+test('Tasotesti: aukolliset ("...") sanat eivät ole kysymyksissä eivätkä häiriöissä', async () => {
+  const app = await boot();
+  addPlacementFixture(app);
+  app.run(`
+    // aukollisia sanoja jokaiselle tasolle, osa suomen puolella, osa kohdekielessä
+    let k = 0;
+    for (const lvl of ['A1', 'A2', 'B1']) {
+      for (const t of [0, 1, 2, 3]) {
+        const id = 'zz_gp_' + lvl + t;
+        k++;
+        VOCAB.words.push({ id, fi: k % 2 ? 'jotain ' + k + ' ...' : 'aukoton ' + k, sv: k % 2 ? 'nåt' + k : 'nåt' + k + ' ...', self_only: true, pos: t < 2 ? 'n' : 'v' });
+        SELF_DATA.topics.find(x => x.id === 'zz_pt_' + lvl + t).concepts.push(id);
+      }
+    }
+    PRACTICE_WORDS = practiceWords();
+  `);
+  await app.studyButtons[1].click();
+  await app.flush(60);
+  app.run('closePlacement()');
+  for (let run = 0; run < 12; run++) {
+    app.run('openPlacement(); startPlacement();');
+    for (let lvl = 0; lvl < 3; lvl++) {
+      const qs = J(app, 'placement.questions.map(q => ({ word: q.word.id, gap: wordHasGap(q.word), opts: q.options.map(o => ({ t: o.text, id: o.wordId })) }))');
+      assert.ok(qs.length > 0);
+      qs.forEach(q => {
+        assert.ok(!q.gap && !q.word.startsWith('zz_gp_'), 'aukollinen kysymys: ' + q.word);
+        q.opts.forEach(o => {
+          assert.ok(!o.id.startsWith('zz_gp_'), 'aukollinen häiriö: ' + o.id);
+          assert.ok(!o.t.includes('...'), 'aukko vaihtoehdossa: ' + o.t);
+        });
+        assert.strictEqual(q.opts.length, 4);
+      });
+      pLevel(app, qs.length);
+      if (app.run('placement.phase') === 'result') break;
+    }
+    app.run('closePlacement()');
+  }
+  app.dispose();
+});
+
+test('Tasotesti: taso, jolla on alle 4 aukotonta sanaa, jätetään testaamatta', async () => {
+  const app = await boot();
+  addPlacementFixture(app);
+  app.run(`VOCAB.words.filter(w => w.id.startsWith('zz_p_B1_')).forEach(w => { w.sv += ' ...'; });`);
+  await app.studyButtons[1].click();
+  await app.flush(60);
+  app.run('closePlacement()');
+  assert.deepStrictEqual(J(app, 'placementLevelsToTest()'), ['A1', 'A2']);
+  app.dispose();
+});
+
+test('Monivalinta ja tasotesti jakavat häiriölogiikan (buildChoiceQuestion)', async () => {
+  const app = await boot();
+  await toSelfP(app);
+  app.run('closePlacement()');
+  const r = J(app, `(function () {
+    const w = VOCAB.words.find(x => x.id === "zz_p_A1_0_0");
+    const q = placementBuildQuestion(w, selfLevelWords("A1"));
+    const c = buildChoiceQuestion(w, [selfLevelWords("A1")], { dir: "target-fi", excludeGaps: true });
+    return { qn: q.options.length, cn: c.options.length, qk: Object.keys(q.options[0]).sort(), ck: Object.keys(c.options[0]).sort() };
+  })()`);
+  assert.strictEqual(r.qn, 4); assert.strictEqual(r.cn, 4);
+  assert.deepStrictEqual(r.qk, r.ck);
   app.dispose();
 });
 

@@ -1,0 +1,156 @@
+[
+ {
+  "id": "body_4_back",
+  "field": "fi",
+  "old": "selkä / takaisin",
+  "new": "selkä",
+  "reason": "'takaisin' on englannin back-sanan käännösjäänne, ei vastaa sanaa rygg"
+ },
+ {
+  "id": "health_7_hurt",
+  "field": "fi",
+  "old": "sattua / satuttaa",
+  "new": "sattua / tehdä kipeää",
+  "reason": "göra ont = sattua; 'satuttaa' olisi göra illa / skada"
+ },
+ {
+  "id": "s_a1_tablet",
+  "field": "sv",
+  "old": "en tablett / en surfplatta",
+  "new": "en tablett / ett piller",
+  "reason": "surfplatta on tablettitietokone, ei lääke; piller on yleinen vastine sanalle pilleri"
+ },
+ {
+  "id": "home_4_television",
+  "field": "pl",
+  "old": "tv-apparater",
+  "new": "tv:ar",
+  "reason": "tv-apparater on eri sanan monikko; sanan tv monikko on tv:ar"
+ },
+ {
+  "id": "s_a1_rubbish_bin",
+  "field": "sv",
+  "old": "en soptunna",
+  "new": "en soptunna / en sophink",
+  "reason": "soptunna on lähinnä ulkoroska-astia; sisällä oleva roskis on yleensä sophink"
+ },
+ {
+  "id": "s_a1_evening_snack",
+  "field": "fi",
+  "old": "iltapala",
+  "new": "iltaruoka / ilta-ateria / iltapala",
+  "reason": "kvällsmat on riikinruotsissa illan ateria (iltaruoka), ei kevyt iltapala"
+ },
+ {
+  "id": "food_savoury_cake",
+  "field": "sv",
+  "old": "en kaka / en tårta",
+  "new": "en tårta / en kaka",
+  "reason": "taivutusmuodot (tårtan, tårtor) kuuluvat sanalle tårta, joten sen pitää olla ensimmäisenä"
+ },
+ {
+  "id": "fruit_pineapple",
+  "field": "pl",
+  "old": "ananasar",
+  "new": "ananaser",
+  "reason": "sanan ananas yleisempi/sanakirjamonikko on ananaser"
+ },
+ {
+  "id": "money_7_cost",
+  "field": "fi",
+  "old": "maksaa (hinnasta) / kustannus",
+  "new": "maksaa (olla hintana)",
+  "reason": "verbimerkintään sekoitettu substantiivi 'kustannus'"
+ },
+ {
+  "id": "money_7_cost",
+  "field": "sv",
+  "old": "kosta / en kostnad",
+  "new": "kosta",
+  "reason": "verbimerkintään sekoitettu substantiivi en kostnad"
+ },
+ {
+  "id": "s_a1_card",
+  "field": "fi",
+  "old": "kortti (maksukortti) / pankkikortti / kortti (onnittelukortti) / onnittelukortti",
+  "new": "kortti (maksukortti) / pankkikortti / kortti",
+  "reason": "onnittelukortti ei vastaa sanaa bankkort eikä kuulu maksukortti-kehotteeseen"
+ },
+ {
+  "id": "money_7_change",
+  "field": "fi",
+  "old": "vaihtoraha / muutos",
+  "new": "vaihtoraha",
+  "reason": "'muutos' on englannin change-sanan käännösjäänne; växel ei tarkoita muutosta"
+ },
+ {
+  "id": "s_a1_fitting_room",
+  "field": "sv",
+  "old": "en provhytt",
+  "new": "en provhytt / ett provrum",
+  "reason": "provrum on Ruotsissa hyvin yleinen vaihtoehto"
+ },
+ {
+  "id": "verbs2_4_fit",
+  "field": "fi",
+  "old": "sopia / mahtua",
+  "new": "sopia (olla sopiva, esim. vaate) / käydä",
+  "reason": "passa ei tarkoita mahtumista (= få plats, rymmas)"
+ },
+ {
+  "id": "clothes_shirt",
+  "field": "fi",
+  "old": "paita",
+  "new": "paita (kauluspaita) / kauluspaita",
+  "reason": "pelkkä 'paita' voi viitata myös sanaan tröja; tarkenne tarvitaan"
+ },
+ {
+  "id": "clothes_jumper",
+  "field": "fi",
+  "old": "neule/villapaita",
+  "new": "neule / villapaita / pusero",
+  "reason": "erotin ilman välilyöntejä (neule/villapaita) ei jäsenny vaihtoehdoiksi"
+ },
+ {
+  "id": "clothes_hat",
+  "field": "fi",
+  "old": "pipo/hattu",
+  "new": "pipo / myssy",
+  "reason": "erotin ilman välilyöntejä; lisäksi pipo ja hattu ovat eri sanoja (mössa vs. hatt)"
+ },
+ {
+  "id": "clothes_hat",
+  "field": "sv",
+  "old": "en mössa / en hatt",
+  "new": "en mössa",
+  "reason": "hatt ei tarkoita pipoa; taivutusmuodot ovat sanan mössa"
+ },
+ {
+  "id": "s_a1_belt",
+  "field": "sv",
+  "old": "ett bälte",
+  "new": "ett bälte / ett skärp",
+  "reason": "skärp on riikinruotsissa hyvin yleinen sana vyölle"
+ },
+ {
+  "id": "transport_5_bus_stop",
+  "field": "def",
+  "old": "hållplatsen",
+  "new": "busshållplatsen",
+  "reason": "taivutuksen pitää vastata ensimmäistä sv-muotoa (en busshållplats)"
+ },
+ {
+  "id": "transport_5_bus_stop",
+  "field": "pl",
+  "old": "hållplatser",
+  "new": "busshållplatser",
+  "reason": "taivutuksen pitää vastata ensimmäistä sv-muotoa (en busshållplats)"
+ },
+ {
+  "id": "s_a1_i_am_lost",
+  "field": "sv",
+  "old": "Jag har gått vilse",
+  "new": "Jag har gått vilse / Jag är vilse",
+  "reason": "'Olen eksyksissä' -kehotteeseen oppija kirjoittaa todennäköisesti myös Jag är vilse"
+ }
+]

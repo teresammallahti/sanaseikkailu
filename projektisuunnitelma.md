@@ -48,9 +48,9 @@ Päällekkäisyys on silti suuri (perussanasto, numerot, ruoka, perhe), joten k�
 
 Ruotsin itseopiskelusanasto (A1–B1, 3119 käsitettä) on pohja; nämä työkalut rakennetaan sen päälle tässä järjestyksessä. Malli: sisältö Opus (tarkistus Fable käyttäjän komennosta), koodi Sonnet.
 
-1. **Tasonmääritys** — lyhyt testi (sanat tasoittain A1 → B1, mukautuva), joka asettaa lähtötason ja merkitsee osaamansa sanat opituiksi. Koodi; data valmiina.
-2. **Välitetty toisto ja päivätavoite** — kertausjono (spaced repetition) ja päivän tavoite (esim. 20 sanaa / 10 min), putkilaskuri aikuisen tyyliin.
-3. **Monivalinta ja yhdistely** — nopea tunnistusharjoitus aloittelijalle ennen kirjoittamista (4 vaihtoehtoa; parien yhdistely). Hyödyttää myös peruskoulua.
+1. ✅ (vaihe 40) **Tasonmääritys** — lyhyt testi (sanat tasoittain A1 → B1, mukautuva), joka asettaa lähtötason ja merkitsee osaamansa sanat opituiksi. Koodi; data valmiina.
+2. ✅ (vaihe 41) **Välitetty toisto ja päivätavoite** — kertausjono (spaced repetition) ja päivän tavoite (esim. 20 sanaa / 10 min), putkilaskuri aikuisen tyyliin.
+3. ✅ (vaihe 42) **Monivalinta ja yhdistely** — nopea tunnistusharjoitus aloittelijalle ennen kirjoittamista (4 vaihtoehtoa; parien yhdistely). Hyödyttää myös peruskoulua.
 4. **Taivutusharjoitus (ruotsi)** — en/ett, määräinen muoto, monikko, verbin preesens/preteriti/supiini, adjektiivin taivutus. Data on jo sanastossa (`def`, `pl`, `pres`, `pret`, `sup`, `neut`, `apl`).
 5. **Kuuntelu ja sanelu** — kuule ruotsiksi (sv-SE puhesynteesi) ja kirjoita / valitse merkitys.
 6. **Virkkeet ja dialogit aihepiireittäin** — itseopiskelun omat virkkeet (Opus), käyttävät nykyisiä virkeharjoituksia (kirjoita, täydennä, järjestä, kuuntele).
@@ -59,7 +59,7 @@ Ruotsin itseopiskelusanasto (A1–B1, 3119 käsitettä) on pohja; nämä työkal
 9. **Sanakortti / sanakirjanäkymä** — sanan taivutus, esimerkkilause, ääntäminen, aihepiiri; haku suomeksi ja ruotsiksi.
 10. **Edistymisen seuranta ja varmuuskopiomuistutus** — tasojen ja aihepiirien valmius, viikkonäkymä, muistutus varmuuskopiosta.
 
-Sisällön laatu: Fable-tarkistus 3119 sanalle (käyttäjän komennosta), Opuksen epävarmat kohdat (`svself/`-raportit) läpi samalla. Englannin ja saksan itseopiskelu: lisätään `forms/en.json` / `de.json` samoille käsitteille, kun ruotsin malli on koeteltu.
+Sisällön laatu: ✅ Fable-tarkistus 3119 sanalle tehty (vaihe 40). Englannin ja saksan itseopiskelu: lisätään `forms/en.json` / `de.json` samoille käsitteille, kun ruotsin malli on koeteltu.
 
 ### Tiekartta (ehdotettu järjestys)
 
@@ -322,11 +322,15 @@ Vinkki: Chromen valikko → "Lisää aloitusnäyttöön" avaa sovelluksen kokoru
 
 39. **Tilanvalinta ja ruotsin itseopiskelusanasto (vaihe 39)** — ✅ Sonnet: tilavalitsin 🏫 Peruskoulu / 🎓 Itseopiskelu (`studyMode`, `selfLevel`, `targetLang_self`); itseopiskelussa tasot A1/A2/B1 luokka-asteiden tilalla, aihepiirit teemojen tilalla, vain ruotsi, maskotti/Viikon sanat/koeteemat/virkkeet piilossa, "📊 Oma edistyminen" -raportti tasoittain ja aihepiireittäin, ruotsin taivutus palautteessa (esim. "bilen · bilar"). Peruskoulu ennallaan (ruotsi koulussa = sama sanasto kuin saksa). Opus (9 rinnakkaista agenttia): ruotsin itseopiskelusanasto 49 aikuisen aihepiiriin, 3601 riviä → yhdistetty 3119 käsitteeksi (A1 1153, A2 1009, B1 957), joista 2065 uutta, 684 olemassa olevalle käsitteelle uusi ruotsin muoto; kaikilla substantiiveilla, verbeillä ja adjektiiveilla taivutusmuodot; kehotteet yksiselitteisiä (11 törmäystä korjattu). `check_data.py` tarkistaa itseopiskelun ruotsin (kehotteet, muotoilu, taivutus). Sanasto v19, 160 + 13 testiä. **Fable-tarkistus odottaa käyttäjän komentoa.**
 
+40. **Fable-tarkistus + tasonmääritys (vaihe 40)** — ✅ Fable (9 erää) tarkisti ruotsin itseopiskelusanaston: 323 korjausta (167 vastausta, 110 kehotetta, 46 taivutusmuotoa; tyypillisiä: englannin kaksoismerkitykset kehotteissa, kaksi sanaa samalla rivillä, taivutus väärälle vaihtoehdolle), ei poistoja eikä tasosiirtoja; 4 kehotetörmäystä korjattu käsin. Korjaukset `tools/apply_sv_self_fable_v40.py`, raportit `content/fable_v40/`. Sonnet: 🎯 Tasotesti (tunnistus 4 vaihtoehdosta, ~12 sanaa/taso, ≥ 80 % → seuraava taso, tarjotaan ensimmäisellä siirtymällä, `selfPlacement_<kieli>`; oikein tunnistetut sanat painottuvat vähemmän, eivät valmistu opituiksi). Sanasto v20.
+41. **Kertausjärjestelmä ja päivätavoite (vaihe 41)** — ✅ Sonnet: välitetty toisto itseopiskelussa (`srsInterval`, `srsEase`, `srsDue`; 1 pv → väli × ease, max 365 pv; väärä / Näytä sana → 1 pv), erääntyneet ensin, uusia sanoja oletuksena 10/pv, "🔁 Kerrattavia" + "Kertaa erääntyneet"; päivätavoite 10/20/30/50 (oletus 20) ja päiväputki 🔥 (`selfDaily_<kieli>`); aukolliset ilmaukset ("jag heter ...") mukaan itseopiskeluun. Peruskoulu ennallaan.
+42. **Monivalinta ja yhdistely (vaihe 42)** — ✅ Sonnet: syöttötapa "☑️ Valitse" (4 vaihtoehtoa, yhteinen häiriölogiikka tasotestin kanssa) ja harjoitus "🔗 Yhdistä" (5 paria), molemmissa tiloissa. Tunnistusharjoituksia: kirjataan omiin kenttiin (`choice*`, `match*`, `recogHeat`), eivät valmista sanaa eivätkä pidennä kertausväliä; lasketaan päivätavoitteeseen. 210 + 13 testiä, Artifact v40. Tunnettu rajoitus: yhdistelyssä voi tulla lähes samamerkityksisiä pareja (esim. hej då / ha det bra); ulkoasu kokeiltu selaimessa, ei vielä tabletilla.
+
 > Muistutussääntö: kun aloitatte uuden vaiheen, mainitkaa se — Claude tarkistaa suunnitelman ja muistuttaa, mikä malli kannattaa olla käytössä.
 
 ## Seuraavaksi käyttäjältä
 
-1. **Push GitHubiin** — käyttäjä päätti vaiheessa 37, ettei pushata vielä; vaiheet 38–39 odottavat paikallisina committeina. Kun aika koittaa, aja koneellasi allekkain:
+1. **Push GitHubiin** — käyttäjä päätti vaiheessa 37, ettei pushata vielä; vaiheet 38–42 odottavat paikallisina committeina. Kun aika koittaa, aja koneellasi allekkain:
 
    ```powershell
    cd "G:\01 AI\05 Kieliohjelma"

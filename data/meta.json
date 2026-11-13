@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "version": "v19",
+  "version": "v20",
   "native": "fi",
   "languages": [
     "en",
@@ -14,7 +14,8 @@
   },
   "changelog": [
     "v18 (vaihe 38): tietomalli v2 - käsitteet (concepts.json) erotettu kielikohtaisista muodoista (forms/), koulutila (school.json) ja itseopiskelutila (self.json) omiksi rakenteikseen, virkkeet omiin tiedostoihinsa. Ruotsin Fable-tarkistuksen korjaukset. Kielikohtaiset suomen kehotteet (forms/<kieli>.json: fi). Aiempi historia: legacy_meta.changelog.",
-    "v19 (vaihe 39): itseopiskelutila ('Peruskoulu' / 'Itseopiskelu'). Ruotsin itseopiskelusanasto A1-B1: 49 aihepiiriä, 3119 käsitettä (2065 uutta vain itseopiskelun käsitettä, 684 olemassa olevalle käsitteelle uusi ruotsin muoto), taivutukset (substantiivi def/pl, verbi pres/pret/sup, adjektiivi neut/apl). Opus-luonnos, Fable-tarkistus odottaa."
+    "v19 (vaihe 39): itseopiskelutila ('Peruskoulu' / 'Itseopiskelu'). Ruotsin itseopiskelusanasto A1-B1: 49 aihepiiriä, 3119 käsitettä (2065 uutta vain itseopiskelun käsitettä, 684 olemassa olevalle käsitteelle uusi ruotsin muoto), taivutukset (substantiivi def/pl, verbi pres/pret/sup, adjektiivi neut/apl). Opus-luonnos, Fable-tarkistus odottaa.",
+    "v20 (vaihe 40): ruotsin itseopiskelusanaston Fable-tarkistus: 323 korjausta (167 vastausta, 110 kehotetta, 46 taivutusmuotoa), 4 kehotetörmäystä korjattu."
   ],
   "legacy_meta": {
     "title": "Englannin sanasto - 4. luokka (pilotti)",

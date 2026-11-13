@@ -2,7 +2,7 @@ Sanaseikkailu data check: 1616 words, 93 categories, 338 sentences
 
 ===== ERRORS (0) =====
 
-===== WARNINGS (3) =====
+===== WARNINGS (4) =====
 
 [DE: possible missing article] (2)
   - polite_phrases_sorry: en='sorry' de='Entschuldigung / es tut mir leid'
@@ -10,6 +10,9 @@ Sanaseikkailu data check: 1616 words, 93 categories, 338 sentences
 
 [Sentence length not increasing] (1)
   - grade 7 avg 10.20 < grade 6 avg 11.30
+
+[Self sv taivutus] (1)
+  - myself_scared: adjektiivilta puuttuu taivutus: 'rädd'
 
 ===== INFO (115) =====
 
@@ -146,6 +149,6 @@ Sanaseikkailu data check: 1616 words, 93 categories, 338 sentences
   - mia(8), leo(8), max(7), anna(6), emma(6), got(4), going(3), much(3), can't(2), tom(2), taller(2), hiding(2), won(2), way(2), forgot(2), causes(2), ella(1), faster(1), ran(1), bit(1), caught(1), fancy(1), grandad(1), stopped(1), slid(1), fireworks(1), won't(1), pupils(1), speak(1), keep(1)
 
 [Self sv] (1)
-  - itseopiskelun ruotsi: 3119 käsitettä ({'A1': 1153, 'A2': 1009, 'B1': 957}), 49 aihepiiriä
+  - itseopiskelun ruotsi: 3118 käsitettä ({'A1': 1152, 'A2': 1009, 'B1': 957}), 49 aihepiiriä
 
-SUMMARY: 0 error(s), 3 warning(s)
+SUMMARY: 0 error(s), 4 warning(s)

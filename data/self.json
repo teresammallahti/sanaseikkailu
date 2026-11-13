@@ -1,6 +1,6 @@
 {
  "description": "Itseopiskelutila aikuiselle (vaihe 39). CEFR-tasot ja aikuisen aihepiirit; aihepiirin käsitteet listattu eksplisiittisesti (concepts). Ensimmäisenä kielenä ruotsi; kieli on itseopiskelussa käytettävissä, kun sillä on muotoja aihepiirin käsitteille (languages).",
- "status": "draft (Opus-luonnos vaihe 39; Fable-tarkistus odottaa)",
+ "status": "Opus-luonnos (vaihe 39) + Fable-tarkistus (vaihe 40)",
  "languages": [
   "sv"
  ],
@@ -1107,8 +1107,7 @@
     "s_a1_dictionary",
     "school_objects_pen",
     "school_4_paper",
-    "general_4_error",
-    "de_k1_richtig"
+    "general_4_error"
    ]
   },
   {

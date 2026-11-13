@@ -1,0 +1,156 @@
+[
+ {
+  "id": "opposites_hard",
+  "field": "fi",
+  "old": "vaikea / kova",
+  "new": "kova (ei pehmeä)",
+  "reason": "Kehote 'vaikea' on päällekkäinen svår-rivin kanssa ja taivutus (hårt/hårda) kuuluu sanalle hård; rajataan merkitykseen 'kova'."
+ },
+ {
+  "id": "opposites_hard",
+  "field": "sv",
+  "old": "svår / hård",
+  "new": "hård",
+  "reason": "Svår on jo omana rivinään; taivutuskentät ovat sanan hård."
+ },
+ {
+  "id": "opposites_hot",
+  "field": "fi",
+  "old": "kuuma / tulinen",
+  "new": "kuuma",
+  "reason": "'Tulinen' (ruoasta) on ruotsiksi stark/kryddstark, ei het; harhaanjohtava vaihtoehto pois."
+ },
+ {
+  "id": "opposites_hot",
+  "field": "sv",
+  "old": "varm / het",
+  "new": "het / varm",
+  "reason": "Taivutus (hett/heta) kuuluu sanalle het, joten se ensimmäiseksi; varm jää hyväksytyksi vaihtoehdoksi."
+ },
+ {
+  "id": "general_4_whole",
+  "field": "fi",
+  "old": "koko",
+  "new": "koko (kokonainen) / kokonainen",
+  "reason": "Pelkkä 'koko' sekoittuu substantiiviin koko (storlek); tarkenne tarvitaan."
+ },
+ {
+  "id": "s_a1_just_right",
+  "field": "fi",
+  "old": "sopiva / juuri sopiva / sopivasti / juuri sopiva (lagom)",
+  "new": "juuri sopiva (ei liikaa eikä liian vähän) / sopivasti / sopiva",
+  "reason": "Kehotteessa toistoa ja sv-sana vuotaa kehotteeseen ('(lagom)'); pelkkä 'sopiva' ohjaa myös sanoihin lämplig/passande."
+ },
+ {
+  "id": "s_a2_be_on_holiday",
+  "field": "sv",
+  "old": "vara på semester",
+  "new": "vara på semester / ha semester",
+  "reason": "'Ha semester' on hyvin yleinen ilmaus, jonka oppija todennäköisesti kirjoittaa."
+ },
+ {
+  "id": "s_a2_speed",
+  "field": "sv",
+  "old": "en hastighet",
+  "new": "en hastighet / en fart",
+  "reason": "Kehotteessa on myös 'vauhti', jonka luonteva vastine on fart."
+ },
+ {
+  "id": "s_a2_rush_hour",
+  "field": "fi",
+  "old": "ruuhka-aika / ruuhkaliikenne",
+  "new": "ruuhkaliikenne / ruuhka-ajan liikenne",
+  "reason": "Rusningstrafik = ruuhkaliikenne; 'ruuhka-aika' olisi rusningstid."
+ },
+ {
+  "id": "s_a2_petrol",
+  "field": "fi",
+  "old": "bensa / bensiini",
+  "new": "bensiini / bensa",
+  "reason": "Näytettävän kehotteen pitää olla yleiskielinen sana, ei puhekielinen 'bensa'."
+ },
+ {
+  "id": "s_a2_platform",
+  "field": "sv",
+  "old": "en perrong",
+  "new": "en perrong / en plattform",
+  "reason": "Plattform on asemilla yhtä yleinen kuin perrong."
+ },
+ {
+  "id": "s_a2_make_an_appointment",
+  "field": "sv",
+  "old": "boka en tid",
+  "new": "boka tid / boka en tid",
+  "reason": "Artikkeliton 'boka tid' on yleisin muoto; lisätty hyväksytyksi."
+ },
+ {
+  "id": "s_a2_permit",
+  "field": "fi",
+  "old": "lupa / lupa (virallinen)",
+  "new": "lupa (virallinen) / lupa",
+  "reason": "Tarkenteellinen muoto ensimmäiseksi; pelkkä 'lupa' ohjaa myös sanaan lov."
+ },
+ {
+  "id": "s_a2_health_centre",
+  "field": "sv",
+  "old": "en vårdcentral",
+  "new": "en vårdcentral / en hälsocentral",
+  "reason": "Hälsocentral on Suomessa yleinen muoto; lisätty vaihtoehdoksi."
+ },
+ {
+  "id": "health_7_cough",
+  "field": "fi",
+  "old": "yskä / yskiä",
+  "new": "yskä",
+  "reason": "Substantiivirivillä oli verbi 'yskiä', jolla on oma rivinsä (s_a2_cough)."
+ },
+ {
+  "id": "health_7_sore_throat",
+  "field": "sv",
+  "old": "ont i halsen",
+  "new": "ont i halsen / halsont",
+  "reason": "Halsont on yleinen, vrt. magont viereisellä rivillä."
+ },
+ {
+  "id": "s_a2_infection",
+  "field": "fi",
+  "old": "tulehdus / infektio",
+  "new": "infektio / tulehdus",
+  "reason": "Taivutus on sanan infektion; 'tulehdus' ensimmäisenä ohjaa sanaan inflammation."
+ },
+ {
+  "id": "s_a2_dizzy",
+  "field": "fi",
+  "old": "huimaava (minua huimaa)",
+  "new": "pyörryksissä (minua huimaa) / huimausta tunteva",
+  "reason": "'Huimaava' tarkoittaa suomessa huimausta aiheuttavaa/hurjaa, ei henkilön tilaa (yr)."
+ },
+ {
+  "id": "s_a2_urgent",
+  "field": "fi",
+  "old": "kiireellinen / akuutti",
+  "new": "akuutti / kiireellinen (hoito)",
+  "reason": "Pelkkä 'kiireellinen' ohjaa sanaan brådskande; akut on nimenomaan akuutti."
+ },
+ {
+  "id": "s_a2_antibiotics",
+  "field": "fi",
+  "old": "antibiootti",
+  "new": "antibiootit / antibiootti",
+  "reason": "Antibiotika on monikko-/kollektiivimuoto (yks. ett antibiotikum)."
+ },
+ {
+  "id": "s_a2_thermometer",
+  "field": "sv",
+  "old": "en termometer",
+  "new": "en termometer / en febertermometer",
+  "reason": "Kuumemittarin täsmällinen vastine febertermometer hyväksytyksi."
+ },
+ {
+  "id": "s_a2_block_of_flats",
+  "field": "sv",
+  "old": "ett flerbostadshus / ett hyreshus",
+  "new": "ett flerbostadshus / ett lägenhetshus / ett höghus / ett hyreshus",
+  "reason": "Arkikielen lägenhetshus ja Suomessa vakiintunut höghus puuttuivat; flerbostadshus on virastokieltä."
+ }
+]

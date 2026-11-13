@@ -1,0 +1,296 @@
+[
+ {
+  "id": "environment_8_waste",
+  "field": "fi",
+  "old": "jäte / tuhlata",
+  "new": "jäte",
+  "reason": "'tuhlata' on verbi eikä vastaa sanaa avfall (englannin waste -sekaannus)"
+ },
+ {
+  "id": "science_9_research",
+  "field": "fi",
+  "old": "tutkimus / tutkia",
+  "new": "tutkimus (tutkimustoiminta)",
+  "reason": "'tutkia' on verbi, ei vastaa substantiivia forskning; tarkenne erottaa sanasta en studie"
+ },
+ {
+  "id": "science_9_space",
+  "field": "fi",
+  "old": "avaruus / tila",
+  "new": "avaruus",
+  "reason": "'tila' ei vastaa sanaa rymden (englannin space -sekaannus)"
+ },
+ {
+  "id": "media_8_post",
+  "field": "fi",
+  "old": "julkaisu / julkaista",
+  "new": "julkaisu (somessa) / päivitys",
+  "reason": "'julkaista' on verbi (publicera, oma rivinsä); tarkenne osoittaa somejulkaisuun"
+ },
+ {
+  "id": "s_b1_education",
+  "field": "fi",
+  "old": "koulutus (ammatillinen)",
+  "new": "koulutus",
+  "reason": "tarkenne 'ammatillinen' ohjaa vastaamaan yrkesutbildning; utbildning on yleissana"
+ },
+ {
+  "id": "s_b1_wealth",
+  "field": "fi",
+  "old": "omaisuus",
+  "new": "omaisuus (varallisuus)",
+  "reason": "ilman tarkennetta oppija voi vastata egendom"
+ },
+ {
+  "id": "s_b1_qualification",
+  "field": "fi",
+  "old": "pätevyys",
+  "new": "pätevyys (muodollinen kelpoisuus)",
+  "reason": "ilman tarkennetta kompetens on yhtä luonteva vastaus"
+ },
+ {
+  "id": "s_b1_qualified",
+  "field": "fi",
+  "old": "pätevä",
+  "new": "pätevä (muodollisesti kelpoinen)",
+  "reason": "ilman tarkennetta kompetent/kvalificerad on yhtä luonteva vastaus"
+ },
+ {
+  "id": "s_b1_discovery",
+  "field": "fi",
+  "old": "löytö",
+  "new": "löytö (uuden asian keksiminen)",
+  "reason": "ilman tarkennetta oppija voi vastata ett fynd"
+ },
+ {
+  "id": "s_b1_custom",
+  "field": "fi",
+  "old": "tapa (kulttuurinen) / tapakulttuuri",
+  "new": "tapa (kulttuurinen)",
+  "reason": "'tapakulttuuri' tarkoittaa etikettiä eikä vastaa sanaa en sed"
+ },
+ {
+  "id": "s_b1_dismiss",
+  "field": "pret",
+  "old": "sade upp",
+  "new": "sa upp",
+  "reason": "nykyruotsissa sa on yleisempi kuin sade"
+ },
+ {
+  "id": "s_b1_resign",
+  "field": "pret",
+  "old": "sade upp sig",
+  "new": "sa upp sig",
+  "reason": "nykyruotsissa sa on yleisempi kuin sade"
+ },
+ {
+  "id": "media_8_social_media",
+  "field": "def",
+  "old": "sociala medierna",
+  "new": "de sociala medierna",
+  "reason": "adjektiivin kanssa määräinen muoto vaatii etuartikkelin de"
+ },
+ {
+  "id": "adjectives_ancient",
+  "field": "neut",
+  "old": "forntida",
+  "new": "uråldrigt",
+  "reason": "taivutuksen pitää vastata ensimmäistä sv-muotoa uråldrig"
+ },
+ {
+  "id": "adjectives_ancient",
+  "field": "apl",
+  "old": "forntida",
+  "new": "uråldriga",
+  "reason": "taivutuksen pitää vastata ensimmäistä sv-muotoa uråldrig"
+ },
+ {
+  "id": "s_b1_pay_the_bills",
+  "field": "sv",
+  "old": "betala räkningar",
+  "new": "betala räkningar / betala räkningarna",
+  "reason": "kehote 'maksaa laskut' johtaa luontevasti myös määräiseen muotoon"
+ },
+ {
+  "id": "s_b1_tax_return",
+  "field": "sv",
+  "old": "en deklaration",
+  "new": "en deklaration / en skattedeklaration / en självdeklaration",
+  "reason": "skattedeklaration on Suomessa virallinen ja yleinen; självdeklaration yleinen Ruotsissa"
+ },
+ {
+  "id": "s_b1_vat",
+  "field": "sv",
+  "old": "moms",
+  "new": "moms / mervärdesskatt",
+  "reason": "mervärdesskatt on virallinen termi ja kehotteen 'arvonlisävero' suora vastine"
+ },
+ {
+  "id": "s_b1_further_training",
+  "field": "sv",
+  "old": "en vidareutbildning",
+  "new": "en vidareutbildning / en fortbildning",
+  "reason": "fortbildning on täydennyskoulutuksen yleinen vastine"
+ },
+ {
+  "id": "s_b1_professional_skill",
+  "field": "sv",
+  "old": "yrkeskunskap",
+  "new": "yrkeskunskap / yrkeskunnande / yrkesskicklighet",
+  "reason": "yrkeskunnande ja yrkesskicklighet ovat yhtä yleisiä ammattitaidon vastineita"
+ },
+ {
+  "id": "s_b1_work_experience",
+  "field": "sv",
+  "old": "en arbetslivserfarenhet",
+  "new": "en arbetslivserfarenhet / en arbetserfarenhet",
+  "reason": "arbetserfarenhet on hyvin yleinen rinnakkaismuoto"
+ },
+ {
+  "id": "s_b1_working_life",
+  "field": "sv",
+  "old": "ett arbetsliv",
+  "new": "ett arbetsliv / arbetslivet",
+  "reason": "sanaa käytetään lähes aina määräisenä; oppija kirjoittaa todennäköisesti arbetslivet"
+ },
+ {
+  "id": "s_b1_permanent_job",
+  "field": "sv",
+  "old": "en fast anställning",
+  "new": "en fast anställning / ett fast jobb / en tillsvidareanställning",
+  "reason": "ett fast jobb on kehotteen 'työpaikka' luontevin vastaus; tillsvidareanställning virallinen termi"
+ },
+ {
+  "id": "s_b1_work_from_home",
+  "field": "sv",
+  "old": "jobba hemifrån / arbeta på distans",
+  "new": "jobba hemifrån / arbeta på distans / jobba på distans / arbeta hemifrån",
+  "reason": "täsmällinen vertailu hylkäisi yhtä oikeat jobba/arbeta-yhdistelmät"
+ },
+ {
+  "id": "s_b1_network",
+  "field": "sv",
+  "old": "ett kontaktnät",
+  "new": "ett kontaktnät / ett nätverk",
+  "reason": "nätverk on yleisin vastine ja oppijan todennäköisin vastaus"
+ },
+ {
+  "id": "s_b1_hr_department",
+  "field": "sv",
+  "old": "en personalavdelning",
+  "new": "en personalavdelning / en HR-avdelning",
+  "reason": "HR-avdelning on yleinen ja kehotteessa on 'HR'"
+ },
+ {
+  "id": "s_b1_start_a_company",
+  "field": "sv",
+  "old": "starta ett företag",
+  "new": "starta ett företag / starta företag / grunda ett företag",
+  "reason": "starta företag (ilman artikkelia) ja grunda ett företag ovat yhtä yleisiä"
+ },
+ {
+  "id": "s_b1_carbon_neutral",
+  "field": "sv",
+  "old": "klimatneutral",
+  "new": "klimatneutral / koldioxidneutral",
+  "reason": "koldioxidneutral on kehotteen 'hiilineutraali' suora ja yleinen vastine"
+ },
+ {
+  "id": "s_b1_nature_conservation",
+  "field": "sv",
+  "old": "naturskydd",
+  "new": "naturskydd / naturvård",
+  "reason": "naturvård on riikinruotsissa yleisin luonnonsuojelun sana"
+ },
+ {
+  "id": "s_b1_study",
+  "field": "sv",
+  "old": "en studie",
+  "new": "en studie / en undersökning",
+  "reason": "undersökning on yleinen yksittäisen tutkimuksen vastine"
+ },
+ {
+  "id": "places_4_lab",
+  "field": "sv",
+  "old": "ett laboratorium",
+  "new": "ett laboratorium / ett labb",
+  "reason": "kehotteessa on 'labra'; labb on yleinen arkimuoto"
+ },
+ {
+  "id": "s_b1_software",
+  "field": "sv",
+  "old": "en programvara / mjukvara",
+  "new": "en programvara / programvara / mjukvara / en mjukvara",
+  "reason": "ainesanamainen käyttö: artikkeliton ja artikkelillinen muoto pitää hyväksyä molemmista sanoista"
+ },
+ {
+  "id": "s_b1_cybersecurity",
+  "field": "sv",
+  "old": "it-säkerhet / datasäkerhet",
+  "new": "it-säkerhet / datasäkerhet / cybersäkerhet / informationssäkerhet",
+  "reason": "cybersäkerhet ja informationssäkerhet ovat nykyään yleisiä vastineita"
+ },
+ {
+  "id": "s_b1_computer_virus",
+  "field": "sv",
+  "old": "ett virus / ett datavirus",
+  "new": "ett virus / ett datavirus / ett datorvirus",
+  "reason": "datorvirus on yleinen rinnakkaismuoto"
+ },
+ {
+  "id": "s_b1_chatbot",
+  "field": "sv",
+  "old": "en chattbot",
+  "new": "en chattbot / en chattrobot",
+  "reason": "chattrobot on Språkrådetin suosittama ja kehotteen 'keskustelurobotti' suora vastine"
+ },
+ {
+  "id": "s_b1_streaming_service",
+  "field": "sv",
+  "old": "en streamingtjänst",
+  "new": "en streamingtjänst / en strömningstjänst",
+  "reason": "strömningstjänst on yleinen ruotsinkielinen rinnakkaismuoto (vrt. strömma)"
+ },
+ {
+  "id": "s_b1_like",
+  "field": "sv",
+  "old": "en gilla-markering",
+  "new": "en gilla-markering / en like",
+  "reason": "en like on arkikielessä selvästi yleisin"
+ },
+ {
+  "id": "s_b1_reliable",
+  "field": "sv",
+  "old": "pålitlig / trovärdig",
+  "new": "pålitlig / trovärdig / tillförlitlig",
+  "reason": "tillförlitlig on yleinen etenkin lähteistä ja tiedosta puhuttaessa"
+ },
+ {
+  "id": "s_b1_lyrics",
+  "field": "sv",
+  "old": "en sångtext",
+  "new": "en sångtext / en låttext",
+  "reason": "låttext on nykykielessä yleisempi"
+ },
+ {
+  "id": "s_b1_design",
+  "field": "sv",
+  "old": "design",
+  "new": "design / formgivning",
+  "reason": "formgivning on kehotteen 'muotoilu' varsinainen ruotsinkielinen vastine"
+ },
+ {
+  "id": "s_b1_decade",
+  "field": "sv",
+  "old": "ett decennium",
+  "new": "ett decennium / ett årtionde",
+  "reason": "årtionde on yhtä yleinen (vrt. århundrade vuosisata-rivillä)"
+ },
+ {
+  "id": "s_b1_era",
+  "field": "sv",
+  "old": "en epok",
+  "new": "en epok / en era / en tidsålder",
+  "reason": "era ja tidsålder ovat yleisiä aikakauden vastineita"
+ }
+]

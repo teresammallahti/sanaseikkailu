@@ -1,0 +1,16 @@
+[
+{"id":"s_b1_finally_lastly","field":"sv","old":"slutligen / till sist / avslutningsvis","new":"slutligen / till sist / till slut / avslutningsvis","reason":"\"till slut\" on hyvin yleinen vastine sanalle lopuksi, oppija kirjoittaa sen todennäköisesti"},
+{"id":"s_b1_next","field":"sv","old":"därefter / härnäst","new":"därefter / härnäst / sedan","reason":"\"sedan\" on yleisin tapa sanoa seuraavaksi luettelossa; hylkääminen olisi väärä virhe"},
+{"id":"s_b1_to_begin_with","field":"sv","old":"till att börja med / inledningsvis","new":"till att börja med / inledningsvis / till en början","reason":"\"till en början\" on yleinen vastine sanalle aluksi"},
+{"id":"s_b1_besides","field":"sv","old":"förutom","new":"förutom / utöver","reason":"\"utöver\" on täsmällinen ja yleinen vastine merkitykselle jonkin lisäksi"},
+{"id":"s_b1_except","field":"sv","old":"utom","new":"utom / förutom","reason":"\"förutom\" on nykyruotsissa yleisin vastine sanalle paitsi; oppija kirjoittaa sen todennäköisesti"},
+{"id":"s_b1_for_because","field":"fi","old":"sillä (koska)","new":"sillä (rinnastuskonjunktio, ei eftersom)","reason":"Tarkenne (koska) ohjaa vastaukseen eftersom/därför att; kehotteen pitää osoittaa yksiselitteisesti sanaan för"},
+{"id":"s_b1_such_as","field":"fi","old":"kuten","new":"kuten (esimerkkejä lueteltaessa)","reason":"Pelkkä kuten viittaa ensisijaisesti sanaan som; tarkenne tarvitaan, jotta kehote osoittaa sanaan såsom"},
+{"id":"s_b1_such_as","field":"sv","old":"såsom","new":"såsom / som","reason":"\"som\" on yleinen ja oikea vastaus samassa merkityksessä (länder som Finland och Sverige)"},
+{"id":"s_b1_all_in_all","field":"sv","old":"på det hela taget / överlag","new":"på det hela taget / allt som allt / överlag","reason":"\"allt som allt\" on suora ja hyvin yleinen vastine ilmaukselle kaiken kaikkiaan"},
+{"id":"s_b1_above_all","field":"sv","old":"framför allt","new":"framför allt / framförallt","reason":"Yhteen kirjoitettu muoto on yleinen ja SAOL:n hyväksymä (vrt. i stället / istället)"},
+{"id":"s_b1_in_case","field":"sv","old":"ifall","new":"ifall / om","reason":"mikäli = om on yleisin vastine; oppija kirjoittaa sen todennäköisesti"},
+{"id":"s_b1_in_any_case","field":"sv","old":"i alla fall / i vilket fall som helst","new":"i alla fall / hur som helst / i vilket fall som helst","reason":"\"hur som helst\" on hyvin yleinen vastine ilmaukselle joka tapauksessa"},
+{"id":"s_b1_nevertheless","field":"sv","old":"trots det","new":"trots det / ändå","reason":"\"ändå\" on yleisin vastine ilmaukselle siitä huolimatta; hylkääminen olisi väärä virhe"},
+{"id":"s_b1_swedish_social_insurance_agenc","field":"fi","old":"sosiaalivakuutusvirasto (Ruotsissa)","new":"Vakuutuskassa (Ruotsin Kelaa vastaava virasto) / sosiaalivakuutusvirasto (Ruotsissa)","reason":"Försäkringskassanin vakiintunut suomenkielinen nimi on Vakuutuskassa; nykyinen kehote ei johdata oikeaan sanaan"}
+]
