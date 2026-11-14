@@ -61,7 +61,7 @@ Ruotsin itseopiskelusanasto (A1–B1, 3119 käsitettä) on pohja; nämä työkal
 
 Sisällön laatu: ✅ Fable-tarkistus 3119 sanalle tehty (vaihe 40). Englannin ja saksan itseopiskelu: lisätään `forms/en.json` / `de.json` samoille käsitteille, kun ruotsin malli on koeteltu.
 
-### Ehdotus: dynaaminen eteneminen päivätavoitteen jälkeen (vaihe 43, odottaa hyväksyntää)
+### Dynaaminen eteneminen päivätavoitteen jälkeen (ehdotus vaihe 43, ✅ toteutettu vaiheessa 44)
 
 Havainto (käyttäjä): itseopiskelu rajoittaa päivän opittavia liikaa – kun päivän tavoite (20 vastausta) ja uusien sanojen kiintiö (10) täyttyvät, uutta ei tule ja harjoittelu muuttuu pelkäksi kertaukseksi.
 
@@ -71,13 +71,13 @@ Ehdotettu mekanismi, neljä osaa:
 3. **Sanan haasteportaat**: jokainen sana etenee portaita tunnistus (Valitse/Yhdistä) → tuotto (kirjoita) → taivutus → kuuntelu/sanelu → käyttö virkkeessä. Tavoitteen jälkeen "Haastekierros" ottaa jo osattuja sanoja ja vie ne seuraavalle portaalle, joten haaste kasvaa ilman uusia sanoja; vaikeus nousee myös suunnan vaihdolla (suomi → kohdekieli) ja ajastetulla pikakierroksella.
 4. **Uudet sanat yleisyysjärjestyksessä ja seuraavan tason esimakuna**: uudet sanat valitaan aihepiirin sisällä yleisimmästä alkaen (`zipf_fi`, wordfreq), ja kun tason sanoista on opittu ~70 %, 10–20 % uusista sanoista tulee seuraavalta tasolta. Viikkotavoite (esim. 100 uutta sanaa tai 5 päivää) täydentää päivätavoitetta.
 
-Toteutus Sonnetilla (koodi, testit) heti hyväksynnän jälkeen; parametrit (rajat 85 % / 70 %, min/max) säädetään käyttökokemuksen mukaan.
+✅ Käyttäjä hyväksyi, toteutettu vaiheessa 44 (Sonnet). Parametrit (85 % / 70 %, ±5, min 5 / max 40, esimaku 15 %, viikkotavoite 70 / 5 pv) ovat vakioita `index_template.html`:ssä ja säädetään käyttökokemuksen mukaan.
 
 ### Sanakirjasto (vaihe 43)
 
 - `data/lexicon/fi_kotus.tsv`: Kotimaisten kielten keskuksen nykysuomen sanalista (93 930 hakusanaa taivutusluokkineen, LGPL); pohja tulevalle haulle, suomen taivutukselle ja laajennuksille. Ei upoteta sovellukseen.
 - 4000 yleisintä Kotuksen perusmuotoa, joita sanastossa ei ollut (yleisyys wordfreq), käsiteltiin Opuksella: 3392 uutta käsitettä suomi–ruotsi–englanti–saksa taivutuksineen, tasot A1–B2 (uusi B2-taso, 13 aihepiiriä); 671 hylättiin (taivutusmuodot, puhekieli, karkea kieli, erisnimet).
-- Englanti ja saksa taivutuksineen kaikille aiemmille itseopiskelun käsitteille. Englannin ja saksan itseopiskelu on valmiina datassa (`self.json`: `languages_ready`), otetaan käyttöön Fable-tarkistuksen jälkeen.
+- Englanti ja saksa taivutuksineen kaikille aiemmille itseopiskelun käsitteille; Fable-tarkistettu (vaihe 45) ja käytössä itseopiskelussa (vaihe 46).
 - Lähteet ja lisenssit: `data/LAHTEET.md`. Kotus ja kaikki.org/Wiktionary olivat suoraan estettyjä tästä ympäristöstä; Kotus haettiin GitHub-peilistä. Wiktionary-pohjaiset avoimet käännössanakirjat (CC BY-SA) voidaan myöhemmin käyttää ristiintarkistukseen, jos pääsy järjestyy.
 - Kirjaston koko nyt: 7073 käsitettä, ruotsin itseopiskelussa 6510 (A1 1221, A2 1719, B1 2184, B2 1386).
 
@@ -348,11 +348,15 @@ Vinkki: Chromen valikko → "Lisää aloitusnäyttöön" avaa sovelluksen kokoru
 
 43. **Taivutus, kuuntelu, sanakirjasto (vaihe 43)** — ✅ Sonnet: 🔤 Taivutus (en/ett, määräinen, monikko, verbi, verbi ×3, adjektiivi, sekoitus; datavetoinen `INFL_SPEC`, englanti/saksa valmiina; `inflStats_<kieli>`; peruskoulun ruotsissa nimellä Kielioppi) ja 🎧 Kuuntele -pohja (sanelu, kuullun ymmärtäminen, virkesanelu peruskoulussa; `dict*`, `listen*`, `listenItems()` laajennettava). Opus (18 agenttia): sanakirjasto (ks. luku Sanakirjasto). Koulun käsitteiden itseopiskelumuodot merkitty `self_only` (sovelluksessa `self_langs`), joten peruskoulu ennallaan. Sanasto v21, 242 + 13 testiä, Artifact v41. Ehdotus dynaamisesta etenemisestä odottaa hyväksyntää. **Fable-tarkistus odottaa:** 3392 uutta käsitettä (fi/sv/en/de) ja en/de 3118 käsitteelle.
 
+44. **Haasteet (vaihe 44)** — ✅ Sonnet: jatkovalikko tavoitteen täytyttyä (+10 uutta, haastekierros, 60 s pikakierros, kertaa vaikeimmat, lopeta), mukautuva uusien sanojen kiintiö (+5 / −5, 5–40, syy näkyy), "Huomenna kerrattavia", haasteportaat 0–5 (`wordStep`) ja haastekierros, uudet sanat `zipf_fi`-järjestyksessä, seuraavan tason esimaku (~15 % kun 70 % opittu), viikkotavoite. Avaimet `selfDaily_<kieli>` (uudet kentät), `selfChallenge_<kieli>`.
+45. **Fable-tarkistus: sanakirjasto, virkkeet ja dialogit (vaihe 45)** — ✅ Käyttäjän komennosta. Sanakirjasto: 545 korjausta (3392 uutta käsitettä + en/de 3118 käsitteelle; mm. puuttuvat yleiset vaihtoehdot, artikkelit, das Biathlon, Rückgeld, letztere). Koulun englannin sulkutarkenteet (orange (hedelmä) jne.) palautettiin, koska ne erottavat koulussa samannäköiset sanat. Opus kirjoitti ruotsin itseopiskeluun 496 virkettä ja 62 dialogia (8 + 1 / aihepiiri); Fable 221 korjausta (enimmäkseen han/hon- ja idag/i dag -vaihtoehtoja). Korjaukset `tools/apply_fable_v46.py`, raportit `content/fable_v45/`, `content/sent_v45/`. Sanasto v22.
+46. **Virkkeet ja dialogit, en/de itseopiskeluun, tablettitestaus (vaihe 46)** — ✅ Sonnet: 📝 Virkkeet itseopiskelussa (taso + aihepiirit), Kuuntele: 💬 Dialogi (koko dialogi / repliikkisanelu, A/B eri äänet) ja virkesanelu; porras 5 "virkkeessä" käytössä. Englanti ja saksa käyttöön itseopiskelussa (kaikki harjoitukset paitsi virkkeet/dialogit, jotka vain ruotsiksi). Emuloitu tablettitesti (iPad 810 px, Galaxy Tab S4 712 px, Playwright): ei vaakavieritystä, ei virheitä, lataus ~0,5 s; valintanapit olivat 27–34 px → kosketusnäytöillä vähintään 40 px; itseopiskelussa palkintotason nimi (Kärmes) piiloon. 287 + 13 testiä, Artifact v42. Oikea tablettitesti käyttäjällä.
+
 > Muistutussääntö: kun aloitatte uuden vaiheen, mainitkaa se — Claude tarkistaa suunnitelman ja muistuttaa, mikä malli kannattaa olla käytössä.
 
 ## Seuraavaksi käyttäjältä
 
-1. **Push GitHubiin** — käyttäjä päätti vaiheessa 37, ettei pushata vielä; vaiheet 40–43 odottavat paikallisina committeina. Kun aika koittaa, aja koneellasi allekkain:
+1. **Push GitHubiin** — käyttäjä päätti vaiheessa 37, ettei pushata vielä; vaiheet 44–46 odottavat paikallisina committeina. Kun aika koittaa, aja koneellasi allekkain:
 
    ```powershell
    cd "G:\01 AI\05 Kieliohjelma"

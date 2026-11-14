@@ -1,0 +1,81 @@
+topic	level	sv	fi	alt
+a1_numbers	A1	Jag har två barn.	Minulla on kaksi lasta.	
+a1_numbers	A1	Det kostar ungefär tio euro.	Se maksaa noin kymmenen euroa.	Den kostar ungefär tio euro.
+a1_numbers	A1	Hur många kommer i kväll?	Kuinka moni tulee tänä iltana?	Hur många kommer ikväll?
+a1_numbers	A1	Vi bor på tredje våningen.	Asumme kolmannessa kerroksessa.	
+a1_numbers	A1	Klockan är halv fem.	Kello on puoli viisi.	
+a1_numbers	A1	Sammanlagt blir det hundra euro.	Yhteensä se tekee sata euroa.	Det blir hundra euro sammanlagt. || Det blir sammanlagt hundra euro.
+a1_numbers	A1	Vi behöver lite mer mjölk.	Tarvitsemme vähän lisää maitoa.	
+a1_numbers	A1	Jag sover sju timmar per natt.	Nukun seitsemän tuntia yössä.	Jag sover sju timmar varje natt.
+a1_food	A1	Jag dricker kaffe med mjölk.	Juon kahvia maidon kanssa.	
+a1_food	A1	Vi äter fisk i kväll.	Syömme kalaa tänä iltana.	Vi äter fisk ikväll. || I kväll äter vi fisk. || Ikväll äter vi fisk.
+a1_food	A1	Brödet är färskt.	Leipä on tuoretta.	
+a1_food	A1	Kan du köpa en flaska vin?	Voitko ostaa pullon viiniä?	
+a1_food	A1	Jag lagar mat varje dag.	Laitan ruokaa joka päivä.	Varje dag lagar jag mat.
+a1_food	A1	Osten är bäst före fredag.	Juusto on parasta ennen perjantaita.	
+a1_food	A1	Vill du ha en kopp te?	Haluatko kupin teetä?	
+a1_food	A1	Tårtan smakar mycket gott.	Kakku maistuu todella hyvältä.	Tårtan smakar väldigt gott.
+a1_work_study	A1	Jag jobbar som lärare.	Työskentelen opettajana.	Jag arbetar som lärare.
+a1_work_study	A1	Hon är sjuksköterska.	Hän on sairaanhoitaja.	
+a1_work_study	A1	Jag börjar klockan åtta.	Aloitan kello kahdeksan.	
+a1_work_study	A1	Vi har ett möte i dag.	Meillä on kokous tänään.	Vi har ett möte idag. || I dag har vi ett möte. || Idag har vi ett möte.
+a1_work_study	A1	Han studerar på universitetet.	Hän opiskelee yliopistossa.	Han pluggar på universitetet.
+a1_work_study	A1	Jag är ledig på fredag.	Olen vapaalla perjantaina.	På fredag är jag ledig.
+a1_work_study	A1	Min dator är på kontoret.	Tietokoneeni on toimistolla.	
+a1_work_study	A1	Jag lär mig svenska på en kurs.	Opettelen ruotsia kurssilla.	Jag lär mig svenska på kursen.
+a2_services	A2	Jag har bokat tid på banken.	Olen varannut ajan pankista.	Jag har bokat en tid på banken.
+a2_services	A2	Hon ansökte om bidrag förra månaden.	Hän haki avustusta viime kuussa.	Förra månaden ansökte hon om bidrag. || Hon ansökte om ett bidrag förra månaden.
+a2_services	A2	Vi fick beslutet med posten i går.	Saimme päätöksen postissa eilen.	Vi fick beslutet med posten igår. || I går fick vi beslutet med posten. || Igår fick vi beslutet med posten.
+a2_services	A2	Du måste skriva under innan du lämnar in blanketten.	Sinun täytyy allekirjoittaa ennen kuin jätät lomakkeen.	Du måste skriva under innan du lämnar in formuläret.
+a2_services	A2	Jag tog ut pengar från mitt konto.	Nostin rahaa tililtäni.	
+a2_services	A2	Kön var lång, så jag tog en nummerlapp.	Jono oli pitkä, joten otin vuoronumerolapun.	
+a2_services	A2	Jag ringde kundtjänst eftersom räkningen var fel.	Soitin asiakaspalveluun, koska lasku oli väärin.	Jag ringde till kundtjänst eftersom räkningen var fel. || Jag ringde kundtjänsten eftersom räkningen var fel.
+a2_services	A2	Tjänsten är avgiftsfri för pensionärer.	Palvelu on maksuton eläkeläisille.	
+a2_communication	A2	Jag ringde dig, men det var upptaget.	Soitin sinulle, mutta puhelin oli varattu.	Jag ringde till dig, men det var upptaget.
+a2_communication	A2	Kan du ringa tillbaka i eftermiddag?	Voitko soittaa takaisin iltapäivällä?	
+a2_communication	A2	Hon har laddat ner en ny app.	Hän on ladannut uuden sovelluksen.	
+a2_communication	A2	Batteriet är slut, så jag kan inte svara.	Akku on loppu, joten en voi vastata.	
+a2_communication	A2	Jag skickade länken i ett meddelande.	Lähetin linkin viestissä.	
+a2_communication	A2	Glöm inte att bifoga filen!	Älä unohda liittää tiedostoa!	
+a2_communication	A2	Jag har installerat uppdateringen.	Olen asentanut päivityksen.	
+a2_communication	A2	Han laddade upp en video som många gillade.	Hän latasi nettiin videon, josta moni tykkäsi.	Han lade upp en video som många gillade.
+a2_adverbs	A2	Jag ringer dig så fort jag kommer hem.	Soitan sinulle heti kun tulen kotiin.	Jag ringer till dig så fort jag kommer hem. || Jag ringer dig så snart jag kommer hem.
+a2_adverbs	A2	Vi åt middag innan vi gick på bio.	Söimme päivällistä ennen kuin menimme elokuviin.	
+a2_adverbs	A2	Hon bor inte längre i Helsingfors.	Hän ei asu enää Helsingissä.	Hon bor inte i Helsingfors längre.
+a2_adverbs	A2	Jag kom inte eftersom jag var sjuk.	En tullut, koska olin sairas.	Jag kom inte därför att jag var sjuk.
+a2_adverbs	A2	Ibland jobbar jag hemifrån.	Joskus teen töitä kotoa käsin.	Jag jobbar ibland hemifrån. || Ibland arbetar jag hemifrån. || Jag arbetar ibland hemifrån.
+a2_adverbs	A2	Först åt vi, sedan gick vi ut.	Ensin söimme, sitten lähdimme ulos.	Först åt vi och sedan gick vi ut. || Först åt vi, sen gick vi ut.
+a2_adverbs	A2	Han har inte ens läst mejlet.	Hän ei ole edes lukenut sähköpostia.	Han har inte ens läst mailet.
+a2_adverbs	A2	Jag var där åtminstone tre gånger förra året.	Kävin siellä ainakin kolme kertaa viime vuonna.	Förra året var jag där åtminstone tre gånger.
+b1_science_tech	B1	Forskarna har upptäckt ett fenomen som ingen kan förklara ännu.	Tutkijat ovat löytäneet ilmiön, jota kukaan ei vielä osaa selittää.	Forskarna har upptäckt ett fenomen som ingen ännu kan förklara. || Forskarna har upptäckt ett fenomen som ingen kan förklara än.
+b1_science_tech	B1	Jag tycker att forskning borde få mer pengar från staten.	Mielestäni tutkimuksen pitäisi saada enemmän rahaa valtiolta.	Jag anser att forskning borde få mer pengar från staten. || Jag tycker att forskningen borde få mer pengar från staten.
+b1_science_tech	B1	Studien visar att resultatet beror på hur man mäter.	Tutkimus osoittaa, että tulos riippuu siitä, miten mitataan.	
+b1_science_tech	B1	Den nya versionen av appen sparar data automatiskt.	Sovelluksen uusi versio tallentaa tiedot automaattisesti.	Den nya versionen av appen sparar datan automatiskt.
+b1_science_tech	B1	Vi testade maskinen flera gånger innan den fungerade som den skulle.	Testasimme konetta monta kertaa, ennen kuin se toimi niin kuin piti.	
+b1_science_tech	B1	Enligt professorn har teorin ännu inte bevisats.	Professorin mukaan teoriaa ei ole vielä todistettu.	Enligt professorn har teorin inte bevisats ännu. || Enligt professorn har teorin inte bevisats än.
+b1_science_tech	B1	Det är viktigt att användarna kan justera inställningarna själva.	On tärkeää, että käyttäjät voivat itse säätää asetuksia.	Det är viktigt att användarna själva kan justera inställningarna.
+b1_science_tech	B1	Jag undrar om tekniken verkligen gör vårt liv enklare.	Mietin, tekeekö tekniikka todella elämästämme helpompaa.	Jag undrar om tekniken verkligen gör våra liv enklare.
+b1_opinions	B1	Enligt min mening borde vi diskutera frågan mer öppet.	Minun mielestäni meidän pitäisi keskustella asiasta avoimemmin.	Jag tycker att vi borde diskutera frågan mer öppet. || Jag anser att vi borde diskutera frågan mer öppet.
+b1_opinions	B1	Jag håller delvis med, men jag ser saken annorlunda.	Olen osittain samaa mieltä, mutta näen asian toisin.	Jag håller delvis med, men jag ser det annorlunda.
+b1_opinions	B1	Han vill inte ta ställning eftersom han inte har läst förslaget.	Hän ei halua ottaa kantaa, koska hän ei ole lukenut ehdotusta.	Han vill inte ta ställning eftersom han inte läst förslaget.
+b1_opinions	B1	Personligen är jag emot förslaget, men jag förstår argumenten.	Henkilökohtaisesti olen ehdotusta vastaan, mutta ymmärrän perustelut.	Personligen är jag emot förslaget, men jag förstår argumenten för det.
+b1_opinions	B1	Å andra sidan måste vi erkänna att planen inte har varit lyckad.	Toisaalta meidän täytyy myöntää, että suunnitelma ei ole onnistunut.	Å andra sidan måste vi erkänna att planen inte varit lyckad.
+b1_opinions	B1	Hon föreslog att vi skulle ta upp frågan på nästa möte.	Hän ehdotti, että ottaisimme asian esille seuraavassa kokouksessa.	Hon föreslog att vi skulle ta upp saken på nästa möte.
+b1_opinions	B1	Det viktigaste är att alla får säga sin åsikt.	Tärkeintä on, että kaikki saavat sanoa mielipiteensä.	
+b1_opinions	B1	Det stämmer inte alls att alla är oeniga om saken.	Ei pidä lainkaan paikkaansa, että kaikki ovat asiasta eri mieltä.	Det stämmer inte alls att alla är oense om saken.
+b2_economy	B2	Företaget drevs med förlust i flera år innan det gick i konkurs.	Yritystä pyöritettiin tappiollisena useita vuosia, ennen kuin se meni konkurssiin.	
+b2_economy	B2	Styrelsen har beslutat att anlita en konsult för att förbättra lönsamheten.	Hallitus on päättänyt palkata konsultin parantamaan kannattavuutta.	Styrelsen har bestämt att anlita en konsult för att förbättra lönsamheten.
+b2_economy	B2	Om vi investerade mer i logistik, skulle vår konkurrenskraft öka betydligt.	Jos investoisimme enemmän logistiikkaan, kilpailukykymme kasvaisi huomattavasti.	Om vi investerade mer i logistik skulle vår konkurrenskraft öka avsevärt. || Vår konkurrenskraft skulle öka betydligt om vi investerade mer i logistik.
+b2_economy	B2	Enligt regeringen ska subventionerna till sektorn minskas nästa år.	Hallituksen mukaan alan tukia on määrä vähentää ensi vuonna.	Subventionerna till sektorn ska minskas nästa år enligt regeringen.
+b2_economy	B2	Bristen på arbetskraft har blivit ett allvarligt problem för hela näringen.	Työvoimapulasta on tullut vakava ongelma koko elinkeinolle.	Bristen på arbetskraft har blivit ett allvarligt problem för hela branschen.
+b2_economy	B2	Koncernen äger flera fastigheter, men avkastningen har varit svag de senaste åren.	Konserni omistaa useita kiinteistöjä, mutta tuotto on ollut heikko viime vuosina.	Koncernen äger flera fastigheter, men avkastningen har varit svag under de senaste åren.
+b2_economy	B2	En hårdare reglering skulle kunna minska marginalerna för mindre företag.	Tiukempi sääntely voisi pienentää pienempien yritysten katteita.	En strängare reglering skulle kunna minska marginalerna för mindre företag.
+b2_economy	B2	Det nya konceptet genomfördes snabbt, men varumärket stärktes inte som man hade hoppats.	Uusi konsepti toteutettiin nopeasti, mutta brändi ei vahvistunut niin kuin oli toivottu.	Det nya konceptet genomfördes snabbt, men varumärket stärktes inte som man hoppats.
+b2_everyday	B2	Jag slog vad med min bror om att vårt lag skulle vinna matchen.	Löin vetoa veljeni kanssa siitä, että joukkueemme voittaisi ottelun.	
+b2_everyday	B2	Det var en riktig tabbe att glömma bort hennes födelsedag.	Oli todellinen moka unohtaa hänen syntymäpäivänsä.	Det var en riktig tabbe att glömma hennes födelsedag.
+b2_everyday	B2	Eftersom alla var hårt pressade på jobbet, sköts träffen upp till nästa månad.	Koska kaikilla oli kova paine töissä, tapaamista lykättiin ensi kuuhun.	Eftersom alla var hårt pressade på jobbet sköts träffen upp till nästa månad. || Träffen sköts upp till nästa månad eftersom alla var hårt pressade på jobbet.
+b2_everyday	B2	Belysningen i köket borde bytas ut eftersom den drar för mycket ström.	Keittiön valaistus pitäisi vaihtaa, koska se kuluttaa liikaa sähköä.	Belysningen i köket borde bytas eftersom den drar för mycket ström. || Belysningen i köket borde bytas ut eftersom den drar för mycket el.
+b2_everyday	B2	Nykomlingen i föreningen fick snabbt grepp om hur allt fungerade.	Yhdistyksen uusi tulokas pääsi nopeasti jyvälle siitä, miten kaikki toimi.	Nykomlingen i föreningen fick snabbt grepp om hur allting fungerade.
+b2_everyday	B2	Huset kräver mer underhåll än vi hade räknat med när vi köpte det.	Talo vaatii enemmän huoltoa kuin osasimme odottaa, kun ostimme sen.	Huset kräver mer underhåll än vi räknat med när vi köpte det.
+b2_everyday	B2	Om jag hade rätt utrustning, skulle jag gärna följa med på fjällturen.	Jos minulla olisi oikeat varusteet, lähtisin mielelläni mukaan tunturiretkelle.	Om jag hade rätt utrustning skulle jag gärna följa med på fjällturen. || Hade jag rätt utrustning skulle jag gärna följa med på fjällturen.
+b2_everyday	B2	En ulltröja håller dig varm även om den blir blöt.	Villapaita pitää sinut lämpimänä, vaikka se kastuisi.	En tröja av ull håller dig varm även om den blir blöt. || En ylletröja håller dig varm även om den blir blöt.

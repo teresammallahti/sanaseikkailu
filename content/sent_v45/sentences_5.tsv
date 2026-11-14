@@ -1,0 +1,81 @@
+topic	level	sv	fi	alt
+a1_family	A1	Min syster har två barn.	Siskollani on kaksi lasta.	
+a1_family	A1	Hans fru är lärare.	Hänen (miehen) vaimonsa on opettaja.	
+a1_family	A1	Vi bor nära min mormor.	Asumme lähellä mummoani (äidin äitiä).	Vi bor nära mormor.
+a1_family	A1	Min bror har en ny flickvän.	Veljelläni on uusi tyttöystävä.	
+a1_family	A1	Grannen har en liten bebis.	Naapurilla on pieni vauva.	Vår granne har en liten bebis.
+a1_family	A1	Mina föräldrar bor i Helsingfors.	Vanhempani asuvat Helsingissä.	
+a1_family	A1	Min dotter är tonåring nu.	Tyttäreni on nyt teini-ikäinen.	Min dotter är en tonåring nu. || Nu är min dotter tonåring.
+a1_family	A1	Han är min bästa vän.	Hän (mies) on paras ystäväni.	
+a1_town	A1	Stationen ligger nära centrum.	Asema on lähellä keskustaa.	Stationen är nära centrum.
+a1_town	A1	Gå rakt fram och sedan till vänster.	Mene suoraan eteenpäin ja sitten vasemmalle.	Gå rakt fram och sen till vänster.
+a1_town	A1	Biblioteket ligger bredvid kyrkan.	Kirjasto on kirkon vieressä.	Biblioteket är bredvid kyrkan.
+a1_town	A1	Jag åker buss till jobbet.	Menen töihin bussilla.	Jag tar bussen till jobbet. || Jag åker bussen till jobbet. || Jag åker buss till arbetet.
+a1_town	A1	Vi stiger av vid nästa station.	Jäämme pois seuraavalla asemalla.	Vi stiger av på nästa station.
+a1_town	A1	Är det långt till bron?	Onko sillalle pitkä matka?	
+a1_town	A1	Banken ligger mellan affären och kyrkan.	Pankki on kaupan ja kirkon välissä.	Banken är mellan affären och kyrkan.
+a1_town	A1	Jag går till fots till tunnelbanan.	Menen metroon jalkaisin.	Jag går till tunnelbanan till fots.
+a1_verbs	A1	Jag förstår inte frågan.	En ymmärrä kysymystä.	
+a1_verbs	A1	Kan du hjälpa mig?	Voitko auttaa minua?	
+a1_verbs	A1	Vi väntar på bussen.	Odotamme bussia.	
+a1_verbs	A1	Hon pratar med sin chef.	Hän (nainen) puhuu esimiehensä kanssa.	
+a1_verbs	A1	Jag letar efter mina nycklar.	Etsin avaimiani.	Jag letar efter nycklarna.
+a1_verbs	A1	Lyssna på mig!	Kuuntele minua!	
+a1_verbs	A1	Jag behöver mer tid.	Tarvitsen lisää aikaa.	Jag behöver mera tid.
+a1_verbs	A1	Vad hände i går?	Mitä eilen tapahtui?	Vad hände igår?
+a2_housing	A2	Vi flyttade till en hyresrätt förra året.	Muutimme vuokra-asuntoon viime vuonna.	Förra året flyttade vi till en hyresrätt.
+a2_housing	A2	Kranen i köket har gått sönder.	Keittiön hana on mennyt rikki.	Kökskranen har gått sönder.
+a2_housing	A2	Hyran blev dyrare efter renoveringen.	Vuokra kallistui remontin jälkeen.	Hyran blev högre efter renoveringen. || Efter renoveringen blev hyran dyrare.
+a2_housing	A2	Vi hade inget varmvatten i går.	Meillä ei ollut eilen lämmintä vettä.	Vi hade inget varmvatten igår. || I går hade vi inget varmvatten. || Igår hade vi inget varmvatten. || Vi hade inte något varmvatten i går.
+a2_housing	A2	Jag ringde fastighetsskötaren eftersom röret läckte.	Soitin talonmiehelle, koska putki vuoti.	Jag ringde till fastighetsskötaren eftersom röret läckte. || Jag ringde fastighetsskötaren för att röret läckte.
+a2_housing	A2	Har du skottat snö i dag?	Oletko luonut lunta tänään?	Har du skottat snö idag?
+a2_housing	A2	Vi hittade mögel i badrummet.	Löysimme hometta kylpyhuoneesta.	
+a2_housing	A2	Vi har ett förråd i källaren.	Meillä on varasto kellarissa.	I källaren har vi ett förråd.
+a2_relationships	A2	Vi träffades på en fest för fem år sedan.	Tapasimme juhlissa viisi vuotta sitten.	För fem år sedan träffades vi på en fest. || Vi träffades på en fest för fem år sen.
+a2_relationships	A2	Min syster gifte sig i somras.	Siskoni meni naimisiin viime kesänä.	I somras gifte sig min syster. || Min syster gifte sig förra sommaren.
+a2_relationships	A2	Jag har bjudit in tjugo gäster.	Olen kutsunut kaksikymmentä vierasta.	Jag har bjudit tjugo gäster.
+a2_relationships	A2	Han fyller fyrtio år på lördag.	Hän (mies) täyttää neljäkymmentä lauantaina.	Han fyller fyrtio på lördag. || På lördag fyller han fyrtio år.
+a2_relationships	A2	Hon bad om ursäkt för att hon kom sent.	Hän (nainen) pyysi anteeksi, että tuli myöhässä.	Hon bad om ursäkt eftersom hon kom sent.
+a2_relationships	A2	Vi har hållit kontakten sedan skolan.	Olemme pitäneet yhteyttä kouluajoista asti.	Vi har hållit kontakten sen skolan.
+a2_relationships	A2	De gjorde slut efter tre år.	He lopettivat seurustelun kolmen vuoden jälkeen.	Efter tre år gjorde de slut.
+a2_relationships	A2	Vi firade jul hos mina föräldrar.	Vietimme joulua vanhempieni luona.	Vi firade julen hos mina föräldrar.
+b1_society	B1	Jag tycker att alla borde rösta i valet.	Minusta kaikkien pitäisi äänestää vaaleissa.	Jag tycker att alla bör rösta i valet. || Jag anser att alla borde rösta i valet.
+b1_society	B1	Regeringen fattade beslutet utan att fråga kommunerna.	Hallitus teki päätöksen kysymättä kunnilta.	Regeringen tog beslutet utan att fråga kommunerna.
+b1_society	B1	Riksdagen antog den nya lagen med stor majoritet.	Eduskunta hyväksyi uuden lain suurella enemmistöllä.	
+b1_society	B1	Många demonstrerade eftersom de inte var nöjda med reformen.	Moni osoitti mieltään, koska he eivät olleet tyytyväisiä uudistukseen.	Många demonstrerade för att de inte var nöjda med reformen.
+b1_society	B1	Jämställdhet är viktigt i ett modernt samhälle.	Tasa-arvo on tärkeää nykyaikaisessa yhteiskunnassa.	Jämställdhet är viktig i ett modernt samhälle.
+b1_society	B1	Hon är riksdagsledamot och representerar ett litet parti.	Hän (nainen) on kansanedustaja ja edustaa pientä puoluetta.	
+b1_society	B1	Jag vet inte vilket parti jag ska rösta på.	En tiedä, mitä puoluetta äänestän.	
+b1_society	B1	Statsministern sa att kriget påverkar hela Europa.	Pääministeri sanoi, että sota vaikuttaa koko Eurooppaan.	Statsministern sade att kriget påverkar hela Europa.
+b1_culture	B1	Midsommar är en tradition som de flesta svenskar firar.	Juhannus on perinne, jota useimmat ruotsalaiset juhlivat.	
+b1_culture	B1	Jag tycker att romanen var bättre än filmen.	Minusta romaani oli parempi kuin elokuva.	
+b1_culture	B1	Konstnären som målade tavlan var inte känd när hon levde.	Taiteilija (nainen), joka maalasi taulun, ei ollut tunnettu eläessään.	
+b1_culture	B1	Kungen och drottningen besökte Helsingfors i fjol.	Kuningas ja kuningatar vierailivat Helsingissä viime vuonna.	Kungen och drottningen besökte Helsingfors förra året.
+b1_culture	B1	Enligt en gammal legend bodde en drake i sjön.	Vanhan legendan mukaan järvessä asui lohikäärme.	Enligt en gammal legend levde en drake i sjön.
+b1_culture	B1	Många går i kyrkan på julen trots att de inte är religiösa.	Moni käy kirkossa jouluna, vaikka ei ole uskonnollinen.	Många går i kyrkan på julen fast de inte är religiösa. || Många går i kyrkan på julen även om de inte är religiösa. || Många går i kyrkan på jul trots att de inte är religiösa.
+b1_culture	B1	Författaren skriver ofta om tro och skuld.	Kirjailija kirjoittaa usein uskosta ja syyllisyydestä.	
+b1_culture	B1	Konserten hade en fantastisk stämning.	Konsertissa oli upea tunnelma.	Det var en fantastisk stämning på konserten.
+b1_verbs	B1	Vi måste ta reda på vad som orsakade felet.	Meidän täytyy selvittää, mikä aiheutti virheen.	
+b1_verbs	B1	Jag hoppade över frukosten i morse eftersom jag var sen.	Jätin aamiaisen väliin tänä aamuna, koska olin myöhässä.	I morse hoppade jag över frukosten eftersom jag var sen. || Jag hoppade över frukosten i morse för att jag var sen.
+b1_verbs	B1	Kan du slå upp ordet i ordboken?	Voitko katsoa sanan sanakirjasta?	
+b1_verbs	B1	Företaget erbjuder kurser för att förbättra personalens kunskaper.	Yritys tarjoaa kursseja henkilöstön osaamisen parantamiseksi.	
+b1_verbs	B1	Jag vill bli av med alla gamla papper innan vi flyttar.	Haluan päästä eroon kaikista vanhoista papereista ennen kuin muutamme.	
+b1_verbs	B1	Vi tillbringade hela sommaren vid havet.	Vietimme koko kesän meren rannalla.	Hela sommaren tillbringade vi vid havet.
+b1_verbs	B1	Man måste ta hänsyn till att alla inte har bil.	On otettava huomioon, että kaikilla ei ole autoa.	Man måste ta hänsyn till att inte alla har bil.
+b1_verbs	B1	Jag kan inte föreställa mig ett liv utan musik.	En voi kuvitella elämää ilman musiikkia.	
+b2_health	B2	Rehabiliteringen efter operationen tog längre tid än läkarna hade räknat med.	Leikkauksen jälkeinen kuntoutus kesti pidempään kuin lääkärit olivat arvioineet.	Rehabiliteringen efter operationen tog längre tid än läkarna räknat med.
+b2_health	B2	Om tumören hade upptäckts tidigare, hade den kunnat behandlas med medicin.	Jos kasvain olisi havaittu aiemmin, sitä olisi voitu hoitaa lääkkeillä.	Om tumören hade upptäckts tidigare hade den kunnat behandlas med medicin. || Om tumören upptäckts tidigare hade den kunnat behandlas med medicin. || Hade tumören upptäckts tidigare, hade den kunnat behandlas med medicin. || Om tumören hade upptäckts tidigare, hade den kunnat behandlas med läkemedel.
+b2_health	B2	Ett högt intag av salt kan leda till förhöjt blodtryck.	Runsas suolan saanti voi johtaa kohonneeseen verenpaineeseen.	
+b2_health	B2	Många som har upplevt ett trauma behöver psykologiskt stöd under lång tid.	Monet, jotka ovat kokeneet trauman, tarvitsevat psykologista tukea pitkään.	Många som har upplevt ett trauma behöver psykologiskt stöd länge. || Många som upplevt ett trauma behöver psykologiskt stöd under lång tid.
+b2_health	B2	Illamående och klåda räknas till de vanligaste biverkningarna av läkemedlet.	Pahoinvointi ja kutina kuuluvat lääkkeen yleisimpiin sivuvaikutuksiin.	Illamående och klåda hör till de vanligaste biverkningarna av läkemedlet.
+b2_health	B2	Smittan sprids främst via saliv, till exempel när man delar glas.	Tartunta leviää pääasiassa syljen välityksellä, esimerkiksi kun jaetaan laseja.	Smittan sprids främst genom saliv, till exempel när man delar glas. || Smittan sprids framför allt via saliv, till exempel när man delar glas.
+b2_health	B2	Förebyggande arbete skulle kunna minska dödligheten i hjärt- och kärlsjukdomar avsevärt.	Ennaltaehkäisevä työ voisi vähentää sydän- ja verisuonitautikuolleisuutta huomattavasti.	Förebyggande arbete skulle avsevärt kunna minska dödligheten i hjärt- och kärlsjukdomar. || Förebyggande arbete skulle kunna minska dödligheten i hjärt-kärlsjukdomar avsevärt.
+b2_health	B2	Överläkaren menade att patientens syndrom sannolikt är medfött och inte orsakat av en infektion.	Ylilääkäri arveli, että potilaan oireyhtymä on todennäköisesti synnynnäinen eikä infektion aiheuttama.	Överläkaren menade att patientens syndrom troligen är medfött och inte orsakat av en infektion. || Överläkaren trodde att patientens syndrom sannolikt är medfött och inte orsakat av en infektion.
+b2_abstract	B2	Utgångspunkten för diskussionen var att alla parter skulle behandlas lika.	Keskustelun lähtökohtana oli, että kaikkia osapuolia kohdeltaisiin tasapuolisesti.	Utgångspunkten för diskussionen var att alla parter skulle behandlas likadant.
+b2_abstract	B2	Det finns inga bevis för att metoden faktiskt fungerar i praktiken.	Ei ole todisteita siitä, että menetelmä todella toimii käytännössä.	Det finns inget bevis för att metoden faktiskt fungerar i praktiken.
+b2_abstract	B2	Under rådande omständigheter vore det klokt att vänta med beslutet.	Vallitsevissa olosuhteissa olisi viisasta odottaa päätöksen kanssa.	Under rådande omständigheter skulle det vara klokt att vänta med beslutet. || Under de rådande omständigheterna vore det klokt att vänta med beslutet.
+b2_abstract	B2	Samtalet tog en oväntad vändning när ekonomin kom på tal.	Keskustelu sai odottamattoman käänteen, kun talous otettiin puheeksi.	Samtalet tog en oväntad vändning när man började prata om ekonomin.
+b2_abstract	B2	Hans trovärdighet skadades allvarligt av skandalen.	Skandaali vahingoitti vakavasti hänen (miehen) uskottavuuttaan.	Skandalen skadade hans trovärdighet allvarligt. || Skandalen skadade allvarligt hans trovärdighet.
+b2_abstract	B2	Det finns en tydlig tendens att unga flyttar till storstäderna.	On selvä suuntaus, että nuoret muuttavat suurkaupunkeihin.	Det finns en tydlig tendens att unga människor flyttar till storstäderna. || Det finns en tydlig tendens att unga flyttar till de stora städerna.
+b2_abstract	B2	I ett sådant scenario skulle hela projektet behöva läggas ner.	Sellaisessa skenaariossa koko hanke jouduttaisiin lopettamaan.	I ett sådant scenario skulle hela projektet behöva läggas ned.
+b2_abstract	B2	För oss är ett etiskt förhållningssätt en självklarhet, inte en extra kostnad.	Meille eettinen toimintatapa on itsestäänselvyys, ei ylimääräinen kustannus.	Ett etiskt förhållningssätt är en självklarhet för oss, inte en extra kostnad.

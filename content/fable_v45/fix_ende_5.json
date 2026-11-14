@@ -1,0 +1,359 @@
+[
+ {
+  "id": "colours_orange_colour",
+  "field": "en_text",
+  "old": "orange (väri)",
+  "new": "orange",
+  "reason": "vastauksessa oli suomenkielinen tarkenne (väri); oppija ei voi kirjoittaa sitä"
+ },
+ {
+  "id": "people_4_twins",
+  "field": "en_text",
+  "old": "twins",
+  "new": "twin / twins",
+  "reason": "kehote ja sv/de ovat yksikössä (kaksonen); yksikkö twin puuttui"
+ },
+ {
+  "id": "school_subjects_break_time",
+  "field": "en_text",
+  "old": "break time",
+  "new": "break / break time",
+  "reason": "tauko (työssä, koulussa) on break; break time on vain koulun välitunti"
+ },
+ {
+  "id": "school_subjects_break_time",
+  "field": "en_infl",
+  "old": "pl=break times",
+  "new": "pl=breaks",
+  "reason": "taivutus uuden päämuodon mukaan"
+ },
+ {
+  "id": "weekdays_saturday",
+  "field": "de_text",
+  "old": "Samstag / Sonnabend",
+  "new": "der Samstag / der Sonnabend",
+  "reason": "artikkeli puuttui (vrt. der April)"
+ },
+ {
+  "id": "phrasal_9_look_forward_to",
+  "field": "de_infl",
+  "old": "pret=freute sich auf;pp=hat sich gefreut auf;pres3=freut sich auf",
+  "new": "pret=freute sich auf;pp=hat sich auf ... gefreut;pres3=freut sich auf",
+  "reason": "perfektin sanajärjestys: prepositio ei tule partisiipin jälkeen (vrt. hat zu ... gehört)"
+ },
+ {
+  "id": "places_town_town",
+  "field": "en_text",
+  "old": "town",
+  "new": "town / city",
+  "reason": "yleinen vaihtoehto puuttui: city (kaupunki)"
+ },
+ {
+  "id": "general_4_error",
+  "field": "en_text",
+  "old": "error",
+  "new": "error / mistake",
+  "reason": "yleinen vaihtoehto puuttui: mistake (virhe)"
+ },
+ {
+  "id": "hobbies_4_gift",
+  "field": "en_text",
+  "old": "gift",
+  "new": "gift / present",
+  "reason": "yleinen vaihtoehto puuttui: present"
+ },
+ {
+  "id": "gaming_fortnite_victory",
+  "field": "en_text",
+  "old": "victory",
+  "new": "victory / win",
+  "reason": "yleinen vaihtoehto puuttui: win"
+ },
+ {
+  "id": "adjectives_famous",
+  "field": "en_text",
+  "old": "famous",
+  "new": "famous / well-known",
+  "reason": "kehotteessa myös tunnettu; well-known puuttui"
+ },
+ {
+  "id": "adjectives_famous",
+  "field": "de_text",
+  "old": "berühmt",
+  "new": "berühmt / bekannt",
+  "reason": "kehotteessa myös tunnettu; bekannt puuttui"
+ },
+ {
+  "id": "transport_metro",
+  "field": "en_text",
+  "old": "metro",
+  "new": "metro / underground / tube",
+  "reason": "brittienglannin underground/tube puuttui"
+ },
+ {
+  "id": "places_dir_4_left",
+  "field": "en_text",
+  "old": "left",
+  "new": "left / on the left / to the left",
+  "reason": "kehote vasemmalle/vasemmalla; prepositioilmaukset puuttuivat (vrt. de nach links)"
+ },
+ {
+  "id": "home_4_box",
+  "field": "en_text",
+  "old": "box",
+  "new": "box / drawer",
+  "reason": "laatikko/låda on myös vetolaatikko (de:ssä Schublade mukana)"
+ },
+ {
+  "id": "work_8_interview",
+  "field": "en_text",
+  "old": "interview",
+  "new": "interview / job interview",
+  "reason": "kehote työhaastattelu; job interview puuttui"
+ },
+ {
+  "id": "s_a2_term",
+  "field": "en_text",
+  "old": "term",
+  "new": "term / semester",
+  "reason": "yleinen vaihtoehto puuttui: semester"
+ },
+ {
+  "id": "s_a2_id",
+  "field": "en_text",
+  "old": "ID / identity card",
+  "new": "ID / identity card / ID card",
+  "reason": "yleinen vaihtoehto puuttui: ID card"
+ },
+ {
+  "id": "s_a2_seat_belt",
+  "field": "en_text",
+  "old": "seat belt",
+  "new": "seat belt / seatbelt",
+  "reason": "yhteen kirjoitettu seatbelt on yhtä yleinen"
+ },
+ {
+  "id": "home_4_barbecue",
+  "field": "en_text",
+  "old": "barbecue",
+  "new": "barbecue / grill",
+  "reason": "yleinen vaihtoehto puuttui: grill"
+ },
+ {
+  "id": "food_4_hamburger",
+  "field": "en_text",
+  "old": "hamburger",
+  "new": "hamburger / burger",
+  "reason": "kehotteessa burgeri; burger puuttui"
+ },
+ {
+  "id": "sports_events_8_fan",
+  "field": "en_text",
+  "old": "fan",
+  "new": "fan / supporter",
+  "reason": "kehotteessa kannattaja; supporter puuttui"
+ },
+ {
+  "id": "s_a2_annoying",
+  "field": "en_text",
+  "old": "annoying",
+  "new": "annoying / irritating",
+  "reason": "yleinen vaihtoehto puuttui: irritating"
+ },
+ {
+  "id": "s_a2_working_environment",
+  "field": "en_text",
+  "old": "working environment",
+  "new": "working environment / work environment",
+  "reason": "yleinen vaihtoehto puuttui: work environment"
+ },
+ {
+  "id": "science_9_artificial_intelligence",
+  "field": "en_text",
+  "old": "artificial intelligence",
+  "new": "artificial intelligence / AI",
+  "reason": "lyhenne AI puuttui (sv AI, de KI mukana)"
+ },
+ {
+  "id": "s_b1_emphasize",
+  "field": "en_text",
+  "old": "emphasise / stress",
+  "new": "emphasise / emphasize / stress",
+  "reason": "z-kirjoitusasu hyväksyttävä (vrt. realise / realize)"
+ },
+ {
+  "id": "s_b1_well_being",
+  "field": "en_text",
+  "old": "well-being",
+  "new": "well-being / wellbeing",
+  "reason": "yhteen kirjoitettu wellbeing on yleinen"
+ },
+ {
+  "id": "s_a2_hard_working",
+  "field": "en_text",
+  "old": "hard-working",
+  "new": "hard-working / hardworking",
+  "reason": "yhteen kirjoitettu hardworking on yleinen"
+ },
+ {
+  "id": "s_b1_make_up",
+  "field": "en_text",
+  "old": "make up",
+  "new": "make up / reconcile",
+  "reason": "yleinen vaihtoehto puuttui: reconcile (tehdä sovinto)"
+ },
+ {
+  "id": "s_b1_for_because",
+  "field": "en_text",
+  "old": "for",
+  "new": "for / because",
+  "reason": "konjunktio for on englannissa kirjallinen; oppija kirjoittaa because"
+ },
+ {
+  "id": "time_4_finally",
+  "field": "en_text",
+  "old": "finally",
+  "new": "finally / in the end / at last / eventually",
+  "reason": "lopulta/vihdoin: yleiset vastineet puuttuivat"
+ },
+ {
+  "id": "polite_phrases_sorry",
+  "field": "en_text",
+  "old": "sorry",
+  "new": "sorry / I'm sorry / excuse me",
+  "reason": "olen pahoillani = I'm sorry; ursäkta/Entschuldigung = excuse me"
+ },
+ {
+  "id": "phrases_4_can_i_have",
+  "field": "en_text",
+  "old": "Can I have...?",
+  "new": "Can I have...? / Could I have...? / May I have...?",
+  "reason": "Saisinko = Could/May I have; puuttuivat"
+ },
+ {
+  "id": "s_a1_enjoy_your_meal",
+  "field": "en_text",
+  "old": "enjoy your meal",
+  "new": "enjoy your meal / bon appétit",
+  "reason": "yleinen vaihtoehto puuttui: bon appétit"
+ },
+ {
+  "id": "s_a1_i_have_a_stomach_ache",
+  "field": "en_text",
+  "old": "I have a stomach ache / I've got a stomach ache",
+  "new": "I have a stomach ache / I've got a stomach ache / my stomach hurts",
+  "reason": "Vatsaani sattuu = my stomach hurts"
+ },
+ {
+  "id": "s_a1_i_have_a_stomach_ache",
+  "field": "de_text",
+  "old": "Ich habe Bauchschmerzen",
+  "new": "Ich habe Bauchschmerzen / Mein Bauch tut weh",
+  "reason": "Vatsaani sattuu = Mein Bauch tut weh"
+ },
+ {
+  "id": "s_a1_i_am_studying_swedish",
+  "field": "en_text",
+  "old": "I am studying Swedish / I'm studying Swedish",
+  "new": "I am studying Swedish / I'm studying Swedish / I study Swedish",
+  "reason": "yleinen vaihtoehto puuttui: I study Swedish"
+ },
+ {
+  "id": "s_a1_sociable",
+  "field": "en_text",
+  "old": "sociable",
+  "new": "sociable / social / outgoing",
+  "reason": "kehote sosiaalinen; oppija kirjoittaa social"
+ },
+ {
+  "id": "food_4_soft_drink",
+  "field": "en_text",
+  "old": "soft drink",
+  "new": "soft drink / fizzy drink",
+  "reason": "brittienglannin fizzy drink puuttui"
+ },
+ {
+  "id": "clothes_4_trainer",
+  "field": "en_text",
+  "old": "trainer",
+  "new": "trainer / sneaker",
+  "reason": "yleinen vaihtoehto puuttui: sneaker (de:ssä Sneaker mukana)"
+ },
+ {
+  "id": "adj_4_lovely",
+  "field": "en_text",
+  "old": "lovely",
+  "new": "lovely / wonderful",
+  "reason": "ihana/underbar = wonderful (de:ssä wunderbar mukana)"
+ },
+ {
+  "id": "s_a1_ore",
+  "field": "en_text",
+  "old": "öre",
+  "new": "öre / ore",
+  "reason": "englanniksi kirjoitetaan myös ore"
+ },
+ {
+  "id": "greetings_phrases_my_name_is",
+  "field": "de_text",
+  "old": "ich heiße ...",
+  "new": "ich heiße ... / mein Name ist ...",
+  "reason": "kehote nimeni on; mein Name ist puuttui"
+ },
+ {
+  "id": "s_a1_where_are_you_from",
+  "field": "de_text",
+  "old": "woher kommst du?",
+  "new": "woher kommst du? / wo kommst du her?",
+  "reason": "yleinen vaihtoehto puuttui: wo kommst du her?"
+ },
+ {
+  "id": "s_a1_english_language",
+  "field": "de_text",
+  "old": "das Englisch / die englische Sprache",
+  "new": "das Englisch / Englisch / die englische Sprache",
+  "reason": "kielen nimi kirjoitetaan yleensä ilman artikkelia"
+ },
+ {
+  "id": "appearance_curly_hair",
+  "field": "de_text",
+  "old": "lockige Haare",
+  "new": "lockige Haare / lockiges Haar / Locken",
+  "reason": "yleinen vaihtoehto puuttui: lockiges Haar, Locken"
+ },
+ {
+  "id": "s_a1_it_is_near",
+  "field": "de_text",
+  "old": "Es ist in der Nähe",
+  "new": "Es ist in der Nähe / Es ist nah",
+  "reason": "yleinen vaihtoehto puuttui: Es ist nah"
+ },
+ {
+  "id": "s_a2_dizzy",
+  "field": "de_text",
+  "old": "schwindlig",
+  "new": "schwindlig / schwindelig",
+  "reason": "rinnakkaismuoto schwindelig on yhtä yleinen"
+ },
+ {
+  "id": "work_8_employee",
+  "field": "de_text",
+  "old": "der Arbeitnehmer / der Angestellte",
+  "new": "der Arbeitnehmer / der Angestellte / der Mitarbeiter",
+  "reason": "yleinen vaihtoehto puuttui: der Mitarbeiter"
+ },
+ {
+  "id": "s_b1_burnout",
+  "field": "de_text",
+  "old": "das Burnout",
+  "new": "das Burnout / der Burnout",
+  "reason": "Duden: der tai das Burnout"
+ },
+ {
+  "id": "s_b1_virus",
+  "field": "de_text",
+  "old": "das Virus",
+  "new": "das Virus / der Virus",
+  "reason": "yleiskielessä myös der Virus (Duden)"
+ }
+]

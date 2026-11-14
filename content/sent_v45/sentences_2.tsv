@@ -1,0 +1,89 @@
+topic	level	sv	fi	alt
+a1_personal	A1	Jag heter Anna och kommer från Finland.	Nimeni on Anna ja olen kotoisin Suomesta.	Jag heter Anna och jag kommer från Finland.
+a1_personal	A1	Jag är fyrtio år.	Olen neljäkymmentävuotias.	Jag är 40 år. || Jag är fyrtio år gammal. || Jag är 40 år gammal.
+a1_personal	A1	Hur stavas ditt efternamn?	Miten sukunimesi kirjoitetaan?	Hur stavar man ditt efternamn?
+a1_personal	A1	Min fru talar svenska och finska.	Vaimoni puhuu ruotsia ja suomea.	Min fru pratar svenska och finska.
+a1_personal	A1	Vi bor i Helsingfors.	Asumme Helsingissä.	Vi bor i Helsinki.
+a1_personal	A1	Fyll i namn och adress här.	Täytä nimi ja osoite tähän.	Fyll i ditt namn och din adress här.
+a1_personal	A1	Är du gift eller singel?	Oletko naimisissa vai sinkku? |	
+a1_personal	A1	Han är svensk men bor i Finland.	Hän on ruotsalainen mutta asuu Suomessa.	Han är svensk men han bor i Finland. || Han är svensk, men han bor i Finland.
+a1_home	A1	Vi bor i en liten lägenhet.	Asumme pienessä asunnossa. |	
+a1_home	A1	Nyckeln ligger på bordet.	Avain on pöydällä.	Nyckeln är på bordet.
+a1_home	A1	Kan du släcka lampan i köket?	Voitko sammuttaa keittiön lampun?	Kan du släcka kökslampan?
+a1_home	A1	Huset har en bastu i källaren.	Talossa on sauna kellarissa.	Det finns en bastu i källaren.
+a1_home	A1	Vi har ingen hiss, bara en trappa.	Meillä ei ole hissiä, vain portaat.	Vi har inte någon hiss, bara en trappa.
+a1_home	A1	Soffan står vid fönstret.	Sohva on ikkunan vieressä.	Soffan är vid fönstret.
+a1_home	A1	Jag är hemma i kväll.	Olen kotona tänä iltana.	I kväll är jag hemma. || Jag är hemma ikväll.
+a1_home	A1	Det finns en spegel i badrummet.	Kylpyhuoneessa on peili.	I badrummet finns det en spegel. || I badrummet finns en spegel.
+a1_weather	A1	Det är kallt i dag.	Tänään on kylmä.	I dag är det kallt. || Det är kallt idag. || Idag är det kallt.
+a1_weather	A1	Solen skiner och himlen är blå.	Aurinko paistaa ja taivas on sininen. |	
+a1_weather	A1	Det snöar i Helsingfors.	Helsingissä sataa lunta.	I Helsingfors snöar det.
+a1_weather	A1	Hur är vädret i Stockholm?	Millainen sää Tukholmassa on? |	
+a1_weather	A1	Det är fem grader varmt.	On viisi astetta lämmintä.	Det är 5 grader varmt.
+a1_weather	A1	I morgon regnar det och blåser.	Huomenna sataa ja tuulee.	Det regnar och blåser i morgon. || Imorgon regnar det och blåser.
+a1_weather	A1	Det är fint väder, så vi går till stranden.	On kaunis sää, joten menemme rannalle.	Det är fint väder, vi går till stranden.
+a1_weather	A1	Det är dimma över sjön.	Järven yllä on sumua.	Över sjön är det dimma. || Det ligger dimma över sjön.
+a2_transport	A2	Jag var sen i morse eftersom det var bilkö på riksvägen.	Olin myöhässä tänä aamuna, koska valtatiellä oli ruuhkaa.	Jag var sen i morse för att det var bilkö på riksvägen. || I morse var jag sen eftersom det var bilkö på riksvägen.
+a2_transport	A2	Du måste byta till linje fyra vid stationen.	Sinun täytyy vaihtaa linjalle neljä asemalla.	Du måste byta till linje 4 vid stationen. || Vid stationen måste du byta till linje fyra.
+a2_transport	A2	Sväng vänster efter tunneln.	Käänny vasemmalle tunnelin jälkeen.	Sväng till vänster efter tunneln.
+a2_transport	A2	Vi hyrde en bil och körde söderut.	Vuokrasimme auton ja ajoimme etelään.	Vi hyrde en bil och körde mot söder.
+a2_transport	A2	Jag har haft körkort i tjugo år.	Minulla on ollut ajokortti kaksikymmentä vuotta.	Jag har haft körkort i 20 år.
+a2_transport	A2	Hur kommer jag till centralstationen härifrån?	Miten pääsen täältä keskusasemalle?	Hur kommer jag härifrån till centralstationen?
+a2_transport	A2	Hon stannade för att ladda bilen.	Hän pysähtyi lataamaan autoa.	Hon stannade för att ladda sin bil.
+a2_transport	A2	Det tog lång tid eftersom vi körde i fel riktning.	Kesti kauan, koska ajoimme väärään suuntaan.	Det tog lång tid för att vi körde i fel riktning. || Det tog lång tid eftersom vi körde åt fel håll.
+a2_education	A2	Kan du förklara vad det betyder?	Voitko selittää, mitä se tarkoittaa?	Kan du förklara vad det här betyder?
+a2_education	A2	Jag läste japanska när jag var på universitetet.	Opiskelin japania, kun olin yliopistossa.	Jag studerade japanska när jag var på universitetet. || Jag läste japanska när jag studerade på universitetet.
+a2_education	A2	Hon blev godkänd på provet.	Hän pääsi kokeesta läpi.	Hon blev godkänd i provet. || Hon klarade provet.
+a2_education	A2	Läraren rättade våra övningar i går.	Opettaja korjasi harjoituksemme eilen.	I går rättade läraren våra övningar. || Läraren rättade våra övningar igår.
+a2_education	A2	Jag har deltagit i en kurs i ukrainska.	Olen osallistunut ukrainan kurssille.	Jag har deltagit i en ukrainskakurs. || Jag har gått en kurs i ukrainska.
+a2_education	A2	Vi arbetade i grupper och översatte en text från danska.	Työskentelimme ryhmissä ja käänsimme tekstin tanskasta.	Vi jobbade i grupper och översatte en text från danska.
+a2_education	A2	Han talar flytande arabiska eftersom han växte upp i Egypten.	Hän puhuu sujuvaa arabiaa, koska hän kasvoi Egyptissä.	Han talar arabiska flytande eftersom han växte upp i Egypten. || Han talar flytande arabiska för att han växte upp i Egypten.
+a2_education	A2	Jag glömde miniräknaren hemma när vi hade prov.	Unohdin laskimen kotiin, kun meillä oli koe.	Jag glömde min miniräknare hemma när vi hade prov. || Jag glömde miniräknaren hemma när vi skrev prov.
+a2_verbs	A2	Du borde ta med en jacka.	Sinun pitäisi ottaa takki mukaan.	Du borde ta med dig en jacka.
+a2_verbs	A2	Jag orkade inte gå till gymmet i går.	En jaksanut mennä kuntosalille eilen.	I går orkade jag inte gå till gymmet. || Jag orkade inte gå till gymmet igår.
+a2_verbs	A2	Kommer du ihåg vad filmen handlade om?	Muistatko, mistä elokuva kertoi?	Minns du vad filmen handlade om?
+a2_verbs	A2	Vi har inte råd att flytta just nu.	Meillä ei ole juuri nyt varaa muuttaa.	Just nu har vi inte råd att flytta.
+a2_verbs	A2	Jag kände inte igen honom först.	En tunnistanut häntä aluksi.	Först kände jag inte igen honom.
+a2_verbs	A2	Glöm inte att lämna tillbaka boken.	Älä unohda palauttaa kirjaa. |	
+a2_verbs	A2	Vill du följa med på bio i kväll?	Haluatko lähteä mukaan elokuviin tänä iltana?	Vill du följa med på bio ikväll? || Vill du följa med på bio i kväll?
+a2_verbs	A2	Jag var tvungen att väcka barnen tidigt.	Minun oli pakko herättää lapset aikaisin.	Jag måste väcka barnen tidigt.
+b1_environment	B1	Jag tycker att vi borde spara mer energi hemma.	Minusta meidän pitäisi säästää enemmän energiaa kotona.	Jag tycker att vi bör spara mer energi hemma. || Jag anser att vi borde spara mer energi hemma.
+b1_environment	B1	Många arter dör ut eftersom deras miljö inte längre är skyddad.	Monet lajit kuolevat sukupuuttoon, koska niiden elinympäristö ei ole enää suojeltu.	Många arter dör ut eftersom deras miljö inte är skyddad längre. || Många arter dör ut för att deras miljö inte längre är skyddad.
+b1_environment	B1	Det är viktigt att vi återvinner plast och förpackningar.	On tärkeää, että kierrätämme muovia ja pakkauksia.	Det är viktigt att återvinna plast och förpackningar.
+b1_environment	B1	Jag är osäker på om kärnkraft verkligen är en hållbar lösning.	En ole varma, onko ydinvoima todella kestävä ratkaisu.	Jag är inte säker på om kärnkraft verkligen är en hållbar lösning. || Jag är osäker på om kärnkraften verkligen är en hållbar lösning.
+b1_environment	B1	Efter översvämningen var skörden mycket sämre än vanligt.	Tulvan jälkeen sato oli paljon tavallista huonompi.	Skörden var mycket sämre än vanligt efter översvämningen.
+b1_environment	B1	Vindkraft har blivit billigare, så fler länder satsar på den.	Tuulivoima on halventunut, joten yhä useammat maat panostavat siihen.	Vindkraften har blivit billigare, så fler länder satsar på den. || Vindkraft har blivit billigare, så allt fler länder satsar på den.
+b1_environment	B1	Om jorden fortsätter att värmas upp kommer det att bli fler katastrofer.	Jos maapallo jatkaa lämpenemistään, katastrofeja tulee enemmän.	Om jordklotet fortsätter att värmas upp kommer det att bli fler katastrofer. || Om jorden fortsätter att värmas upp blir det fler katastrofer.
+b1_environment	B1	Vi köper ekologisk mat även om den ofta är dyrare.	Ostamme luomuruokaa, vaikka se on usein kalliimpaa.	Vi köper ekologisk mat fast den ofta är dyrare. || Vi köper ekologisk mat trots att den ofta är dyrare.
+b1_life	B1	Mina föräldrar gick i pension förra året och har flyttat till landet.	Vanhempani jäivät eläkkeelle viime vuonna ja ovat muuttaneet maalle.	Mina föräldrar gick i pension i fjol och har flyttat till landet. || Mina föräldrar gick i pension förra året och har flyttat ut på landet.
+b1_life	B1	Jag flyttade hemifrån när jag var nitton.	Muutin pois kotoa, kun olin yhdeksäntoista.	Jag flyttade hemifrån när jag var 19. || Jag flyttade hemifrån när jag var nitton år.
+b1_life	B1	Det är svårt att lita på en partner som har varit otrogen.	On vaikea luottaa kumppaniin, joka on ollut uskoton.	Det är svårt att lita på en partner som varit otrogen.
+b1_life	B1	Min syster väntar barn och ska föda i mars.	Siskoni odottaa lasta, ja hänen on määrä synnyttää maaliskuussa.	Min syster väntar barn och föder i mars.
+b1_life	B1	Jag minns min barndom som en lycklig tid.	Muistan lapsuuteni onnellisena aikana.	Jag kommer ihåg min barndom som en lycklig tid.
+b1_life	B1	Det är svårt att trösta någon som har förlorat en förälder.	On vaikea lohduttaa ihmistä, joka on menettänyt vanhemman.	Det är svårt att trösta någon som förlorat en förälder.
+b1_life	B1	Min farfar var fortfarande vid liv när jag föddes.	Isoisäni oli vielä elossa, kun synnyin.	Min morfar var fortfarande vid liv när jag föddes. || Min farfar levde fortfarande när jag föddes. || Min morfar levde fortfarande när jag föddes. || Min farfar var ännu vid liv när jag föddes.
+b1_life	B1	De gick isär efter tjugo år, men de är fortfarande goda vänner.	He erosivat kahdenkymmenen vuoden jälkeen, mutta he ovat yhä hyviä ystäviä.	De gick isär efter 20 år, men de är fortfarande goda vänner. || De gick isär efter tjugo år men är fortfarande goda vänner.
+b2_society	B2	Förslaget godkändes enhälligt i kommittén.	Ehdotus hyväksyttiin valiokunnassa yksimielisesti.	Förslaget godkändes enhälligt av kommittén. || Kommittén godkände förslaget enhälligt.
+b2_society	B2	Valdeltagandet var lägre än väntat, särskilt bland unga väljare.	Äänestysaktiivisuus oli odotettua alhaisempi, etenkin nuorten äänestäjien keskuudessa.	Valdeltagandet var lägre än förväntat, särskilt bland unga väljare. || Valdeltagandet var lägre än väntat, framför allt bland unga väljare.
+b2_society	B2	Om regeringen hade lyssnat på experterna, hade krisen kanske kunnat undvikas.	Jos hallitus olisi kuunnellut asiantuntijoita, kriisi olisi ehkä voitu välttää.	Hade regeringen lyssnat på experterna, hade krisen kanske kunnat undvikas. || Om regeringen hade lyssnat på experterna hade krisen kanske kunnat undvikas.
+b2_society	B2	Talmannen sammankallade riksdagen till ett extra sammanträde.	Puhemies kutsui eduskunnan koolle ylimääräiseen istuntoon.	Talmannen kallade samman riksdagen till ett extra sammanträde.
+b2_society	B2	Finansministern presenterade nya riktlinjer för den offentliga ekonomin.	Valtiovarainministeri esitteli uudet suuntaviivat julkiselle taloudelle.	Finansministern presenterade nya riktlinjer för de offentliga finanserna.
+b2_society	B2	Flera aktörer har kritiserat partiets ställningstagande i frågan.	Useat toimijat ovat arvostelleet puolueen kannanottoa asiaan.	Partiets ställningstagande i frågan har kritiserats av flera aktörer.
+b2_society	B2	Stadsstyrelsen sammanträder varje måndag för att förbereda besluten.	Kaupunginhallitus kokoontuu joka maanantai valmistelemaan päätöksiä.	Stadsstyrelsen sammanträder varje måndag för att bereda besluten. || Stadsstyrelsen har möte varje måndag för att förbereda besluten.
+b2_society	B2	En ny generalsekreterare skulle behöva ett starkt mandat från medlemsländerna.	Uusi pääsihteeri tarvitsisi vahvan mandaatin jäsenmailta.	En ny generalsekreterare skulle behöva ett starkt mandat från medlemsstaterna.
+b2_law	B2	Den åtalade nekade till brottet trots att det fanns starka bevis.	Syytetty kiisti rikoksen, vaikka näyttö oli vahvaa.	Den åtalade förnekade brottet trots att det fanns starka bevis. || Den åtalade nekade till brottet fast det fanns starka bevis.
+b2_law	B2	Målet avgjordes i tingsrätten men överklagades sedan till hovrätten.	Asia ratkaistiin käräjäoikeudessa, mutta siitä valitettiin myöhemmin hovioikeuteen.	Målet avgjordes i tingsrätten men överklagades senare till hovrätten. || Målet avgjordes i tingsrätten, men det överklagades sedan till hovrätten.
+b2_law	B2	Enligt den nya lagstiftningen ska grov misshandel straffas hårdare.	Uuden lainsäädännön mukaan törkeästä pahoinpitelystä on rangaistava ankarammin.	Enligt den nya lagstiftningen ska grov misshandel bestraffas hårdare. || Grov misshandel ska straffas hårdare enligt den nya lagstiftningen.
+b2_law	B2	Polisen har inlett en utredning om gängets verksamhet.	Poliisi on aloittanut tutkinnan jengin toiminnasta.	Polisen har startat en utredning om gängets verksamhet. || Polisen har inlett en utredning av gängets verksamhet.
+b2_law	B2	Insamlingen av uppgifterna var i strid med dataskyddslagstiftningen.	Tietojen keruu oli tietosuojalainsäädännön vastaista.	Insamlingen av uppgifterna stred mot dataskyddslagstiftningen.
+b2_law	B2	Översten fick order om att flytta trupperna till basen i norr.	Eversti sai käskyn siirtää joukot pohjoisen tukikohtaan.	Översten fick order att flytta trupperna till basen i norr. || Översten fick order om att förflytta trupperna till basen i norr.
+b2_law	B2	Om ubåten hade upptäckts tidigare, hade flottan kunnat agera snabbare.	Jos sukellusvene olisi havaittu aiemmin, laivasto olisi voinut toimia nopeammin.	Hade ubåten upptäckts tidigare, hade flottan kunnat agera snabbare. || Om ubåten hade upptäckts tidigare hade flottan kunnat agera snabbare. || Om ubåten hade upptäckts tidigare, hade flottan kunnat reagera snabbare.
+b2_law	B2	Bekännelsen ansågs inte vara tillräcklig för en fällande dom.	Tunnustusta ei pidetty riittävänä langettavaan tuomioon.	Bekännelsen ansågs inte tillräcklig för en fällande dom.
+b2_function	B2	Det tar uppskattningsvis två timmar, i värsta fall tre.	Siihen menee arviolta kaksi tuntia, pahimmassa tapauksessa kolme.	Det tar uppskattningsvis två timmar eller i värsta fall tre.
+b2_function	B2	Han kunde inte ens laga mat, än mindre baka bröd.	Hän ei osannut edes laittaa ruokaa, saati leipoa leipää.	Han kunde inte ens laga mat, ännu mindre baka bröd.
+b2_function	B2	I regel svarar hon på mejl samma dag.	Yleensä hän vastaa sähköposteihin samana päivänä.	Hon svarar i regel på mejl samma dag. || I regel svarar hon på e-post samma dag. || I regel svarar hon på mejlen samma dag.
+b2_function	B2	Var och en måste ta ansvar för sina egna beslut.	Jokaisen on otettava vastuu omista päätöksistään.	Var och en måste ta ansvar för sina beslut.
+b2_function	B2	Från och med januari gäller nya regler för parkering.	Tammikuusta alkaen pysäköintiin sovelletaan uusia sääntöjä.	Från och med januari gäller nya parkeringsregler. || Nya regler för parkering gäller från och med januari.
+b2_function	B2	Förslaget är i sig inte dåligt, men det kommer vid fel tidpunkt.	Ehdotus ei sinänsä ole huono, mutta se tulee väärään aikaan.	Förslaget är inte dåligt i sig, men det kommer vid fel tidpunkt. || Förslaget är i sig inte dåligt, men det kommer vid fel tillfälle.
+b2_function	B2	Tänk om tåget är inställt på grund av stormen?	Entä jos juna on peruttu myrskyn takia?	Tänk om tåget har ställts in på grund av stormen?
+b2_function	B2	Det var onekligen ett modigt beslut, om än ett riskabelt.	Se oli kiistatta rohkea päätös, joskin riskialtis.	Det var onekligen ett modigt beslut, om än riskabelt. || Det var onekligen ett modigt, om än riskabelt, beslut.

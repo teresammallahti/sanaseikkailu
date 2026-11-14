@@ -76,7 +76,9 @@ for lang in ("en", "de", "sv"):
 for c in cj["concepts"]:
     w = re.sub(r"\s*\(.*?\)", "", c["fi"].split(" / ")[0]).strip().lower()
     c["zipf_fi"] = round(wordfreq.zipf_frequency(w, "fi"), 2)
-S["languages"] = ["sv"]; S["languages_ready"] = ["en", "de"]  # en/de käyttöön Fable-tarkistuksen jälkeen
+# HUOM (v47): en/de on otettu käyttöön itseopiskelussa Fable-tarkistuksen jälkeen. Älä palauta
+# arvoa ["sv"] / languages_ready -kenttää: uudelleenajo ei saa poistaa en/de-kieliä käytöstä.
+S["languages"] = ["sv", "en", "de"]; S.pop("languages_ready", None)
 S["status"] = "sv A1-B1 Fable-tarkistettu (v40); en/de ja B2-laajennus Opus-luonnos (v43), Fable-tarkistus odottaa"
 dm.dump_lines("concepts", cj["concepts"], D / "concepts.json")
 for l in F: dm.dump_lines("forms", F[l]["forms"], D / f"forms/{l}.json", meta=F[l]["meta"])

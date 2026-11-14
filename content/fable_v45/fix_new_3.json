@@ -1,0 +1,184 @@
+[
+ {
+  "id": "k_teko",
+  "field": "en_text",
+  "old": "act / deed",
+  "new": "act / deed / action",
+  "reason": "'action' on yleisin vastine, oppija kirjoittaa sen todennäköisesti"
+ },
+ {
+  "id": "k_vahissa",
+  "field": "sv_text",
+  "old": "på upphällningen",
+  "new": "på upphällningen / nästan slut",
+  "reason": "'på upphällningen' on harvinainen idiomi; yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "k_kierre",
+  "field": "fi",
+  "old": "kierre (noidankehä)",
+  "new": "kierre (paheneva kehitys, esim. velkakierre)",
+  "reason": "tarkenne 'noidankehä' ohjaa vastaukseen ond cirkel / vicious circle / Teufelskreis, ei spiral"
+ },
+ {
+  "id": "k_riistaa",
+  "field": "fi",
+  "old": "riistää",
+  "new": "riistää (viedä joltakulta jotakin)",
+  "reason": "monimerkityksinen (myös 'käyttää hyväksi'); tarkenne puuttui"
+ },
+ {
+  "id": "k_mika_tahansa",
+  "field": "sv_text",
+  "old": "vad som helst",
+  "new": "vad som helst / vilken som helst",
+  "reason": "yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "k_uutinen",
+  "field": "en_text",
+  "old": "piece of news / news item",
+  "new": "piece of news / news item / news",
+  "reason": "oppija kirjoittaa todennäköisimmin 'news'"
+ },
+ {
+  "id": "k_valtella",
+  "field": "en_text",
+  "old": "evade / dodge",
+  "new": "evade / dodge / avoid",
+  "reason": "'avoid' on yleisin vastine"
+ },
+ {
+  "id": "k_seasta",
+  "field": "de_text",
+  "old": "aus ... heraus",
+  "new": "aus / aus ... heraus",
+  "reason": "päämuotoa '...'-merkinnällä ei voi kirjoittaa täsmälleen; pelkkä 'aus' hyväksyttäväksi ja ensimmäiseksi"
+ },
+ {
+  "id": "k_paikkeilla",
+  "field": "de_text",
+  "old": "um ... herum / gegen",
+  "new": "gegen / um ... herum",
+  "reason": "päämuodoksi kirjoitettavissa oleva muoto; '...'-rakenne toiseksi"
+ },
+ {
+  "id": "k_hollanti",
+  "field": "sv_text",
+  "old": "nederländska",
+  "new": "nederländska / holländska",
+  "reason": "yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "k_hollanti",
+  "field": "de_text",
+  "old": "Niederländisch",
+  "new": "Niederländisch / Holländisch",
+  "reason": "yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "k_portugali",
+  "field": "de_text",
+  "old": "das Portugiesisch",
+  "new": "das Portugiesisch / Portugiesisch",
+  "reason": "artikkeliton muoto hyväksyttävä kuten muissa kielissä (Niederländisch, Norwegisch)"
+ },
+ {
+  "id": "k_kuumuus",
+  "field": "sv_text",
+  "old": "en hetta",
+  "new": "hetta",
+  "reason": "ainesana ilman artikkelia"
+ },
+ {
+  "id": "k_homoseksuaalisuus",
+  "field": "sv_text",
+  "old": "en homosexualitet",
+  "new": "homosexualitet",
+  "reason": "abstrakti ainesana ilman artikkelia"
+ },
+ {
+  "id": "k_riemu",
+  "field": "sv_text",
+  "old": "en glädje / ett jubel",
+  "new": "glädje / jubel",
+  "reason": "ainesanat ilman artikkelia"
+ },
+ {
+  "id": "k_sikio",
+  "field": "en_text",
+  "old": "foetus",
+  "new": "foetus / fetus",
+  "reason": "'fetus' on yleinen kirjoitusasu myös brittienglannissa (lääketiede)"
+ },
+ {
+  "id": "k_aikanaan",
+  "field": "fi",
+  "old": "aikanaan (aikanaan, tulevaisuudessa)",
+  "new": "aikanaan (sitten kun sen aika on)",
+  "reason": "tarkenne toisti kehotesanan"
+ },
+ {
+  "id": "k_vahin",
+  "field": "de_text",
+  "old": "geringst / mindest",
+  "new": "geringste / mindeste",
+  "reason": "vartalomuodot 'geringst/mindest' eivät ole itsenäisiä sanoja"
+ },
+ {
+  "id": "k_edes",
+  "field": "de_text",
+  "old": "auch nur / überhaupt",
+  "new": "einmal / auch nur",
+  "reason": "'überhaupt' ei vastaa sanaa 'edes'; ei edes = nicht einmal"
+ },
+ {
+  "id": "k_hiili",
+  "field": "de_text",
+  "old": "die Kohle",
+  "new": "die Kohle / der Kohlenstoff",
+  "reason": "en-vastineissa myös 'carbon'; saksassa alkuaine on Kohlenstoff"
+ },
+ {
+  "id": "k_ihme",
+  "field": "sv_text",
+  "old": "ett under",
+  "new": "ett under / ett mirakel",
+  "reason": "yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "k_kirjakauppa",
+  "field": "en_text",
+  "old": "bookshop",
+  "new": "bookshop / bookstore",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "k_harja",
+  "field": "fi",
+  "old": "harja",
+  "new": "harja (esim. hiusharja, siivousharja)",
+  "reason": "monimerkityksinen (hevosen harja, katon harja); tarkenne puuttui"
+ },
+ {
+  "id": "k_kandidaatti",
+  "field": "en_text",
+  "old": "bachelor",
+  "new": "bachelor / bachelor's degree",
+  "reason": "tutkinnon nimitys englanniksi on tavallisesti 'bachelor's degree'"
+ },
+ {
+  "id": "k_kesaisin",
+  "field": "sv_text",
+  "old": "på somrarna",
+  "new": "på somrarna / om somrarna",
+  "reason": "yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "k_villa",
+  "field": "taso",
+  "old": "B2",
+  "new": "B1",
+  "reason": "perussanastoa, B2 selvästi liian korkea"
+ }
+]

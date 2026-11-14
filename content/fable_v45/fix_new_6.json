@@ -1,0 +1,163 @@
+[
+ {
+  "id": "k_olo",
+  "field": "de_text",
+  "old": "das Befinden",
+  "new": "das Befinden / das Gefühl",
+  "reason": "yleinen vastine puuttui (en 'feeling', sv 'känsla')"
+ },
+ {
+  "id": "k_elava",
+  "field": "en_text",
+  "old": "living / live",
+  "new": "living / alive / live",
+  "reason": "hyvin yleinen 'alive' puuttui"
+ },
+ {
+  "id": "k_taistelu",
+  "field": "sv_text",
+  "old": "en kamp",
+  "new": "en kamp / en strid",
+  "reason": "yleinen vastine 'strid' (taistelu) puuttui"
+ },
+ {
+  "id": "k_taistelu",
+  "field": "de_text",
+  "old": "der Kampf",
+  "new": "der Kampf / die Schlacht",
+  "reason": "yleinen vastine puuttui (en 'battle')"
+ },
+ {
+  "id": "k_sairastaa",
+  "field": "fi",
+  "old": "sairastaa",
+  "new": "sairastaa (jotakin tautia)",
+  "reason": "tarkenne: vastaukset ovat 'kärsiä jostakin' -rakenteita"
+ },
+ {
+  "id": "k_sairastaa",
+  "field": "de_infl",
+  "old": "pret=litt an;pp=hat an … gelitten;pres3=leidet an",
+  "new": "pret=litt an;pp=hat gelitten;pres3=leidet an",
+  "reason": "perfektimuodossa ei ellipsiä; sama käytäntö kuin muissa prepositioverbeissä"
+ },
+ {
+  "id": "k_alempi",
+  "field": "de_text",
+  "old": "niedriger / unter",
+  "new": "niedriger / untere",
+  "reason": "'unter' on prepositio; adjektiivi on 'untere'"
+ },
+ {
+  "id": "k_ylempi",
+  "field": "de_text",
+  "old": "höher / ober",
+  "new": "höher / obere",
+  "reason": "'ober' ei ole itsenäinen muoto; adjektiivi on 'obere'"
+ },
+ {
+  "id": "k_ylempi",
+  "field": "sv_text",
+  "old": "övre",
+  "new": "övre / högre",
+  "reason": "'högre' puuttui (vrt. alempi = lägre / nedre)"
+ },
+ {
+  "id": "k_ylempi",
+  "field": "en_text",
+  "old": "upper",
+  "new": "upper / higher",
+  "reason": "'higher' puuttui (de:ssä höher)"
+ },
+ {
+  "id": "k_kannella",
+  "field": "fi",
+  "old": "kannella (juoruta)",
+  "new": "kannella (kieliä jostakusta)",
+  "reason": "'juoruta' on eri merkitys (gossip); vastaukset tarkoittavat kielimistä"
+ },
+ {
+  "id": "k_viro",
+  "field": "de_text",
+  "old": "das Estnische / Estnisch",
+  "new": "Estnisch / das Estnische",
+  "reason": "kielen nimen tavallinen muoto päämuodoksi"
+ },
+ {
+  "id": "k_synnytys",
+  "field": "en_text",
+  "old": "childbirth / labour",
+  "new": "childbirth / labour / birth / delivery",
+  "reason": "yleiset vastineet puuttuivat (de 'die Geburt')"
+ },
+ {
+  "id": "k_tuonne",
+  "field": "en_text",
+  "old": "over there",
+  "new": "over there / there",
+  "reason": "'there' on todennäköinen vastaus (sv dit, de dorthin)"
+ },
+ {
+  "id": "k_varapuheenjohtaja",
+  "field": "en_text",
+  "old": "vice-chair",
+  "new": "vice-chair / vice-chairman / deputy chair",
+  "reason": "yleiset vaihtoehdot puuttuivat"
+ },
+ {
+  "id": "k_etsinta",
+  "field": "sv_text",
+  "old": "ett sökande / en efterlysning",
+  "new": "ett sökande / en sökning",
+  "reason": "'efterlysning' = etsintäkuulutus, ei etsintä"
+ },
+ {
+  "id": "k_viehattaa",
+  "field": "en_text",
+  "old": "appeal / attract",
+  "new": "appeal to / attract / charm",
+  "reason": "transitiivinen viehättää = 'appeal to'; pelkkä 'appeal' on eri merkitys"
+ },
+ {
+  "id": "k_viehattaa",
+  "field": "en_infl",
+  "old": "past=appealed;pp=appealed",
+  "new": "past=appealed to;pp=appealed to",
+  "reason": "taivutus päämuodon mukaan"
+ },
+ {
+  "id": "k_luistaa",
+  "field": "sv_text",
+  "old": "flyta",
+  "new": "flyta / flyta på / gå bra",
+  "reason": "sujumisen merkityksessä luontevat 'flyta på', 'gå bra' puuttuivat"
+ },
+ {
+  "id": "k_kymmenkunta",
+  "field": "taso",
+  "old": "A1",
+  "new": "B1",
+  "reason": "ei A1-sanastoa (vrt. satakunta B2)"
+ },
+ {
+  "id": "k_lappa",
+  "field": "fi",
+  "old": "läppä (venttiili)",
+  "new": "läppä (esim. sydämen)",
+  "reason": "'venttiili' ohjaa vastaukseen Ventil/ventil; vastaukset ovat klaff/Klappe"
+ },
+ {
+  "id": "k_ymparille",
+  "field": "de_text",
+  "old": "um ... herum",
+  "new": "um ... herum / um",
+  "reason": "pelkkä 'um' on todennäköinen vastaus"
+ },
+ {
+  "id": "k_tietokirjailija",
+  "field": "sv_text",
+  "old": "en facklitteraturförfattare",
+  "new": "en facklitteraturförfattare / en fackboksförfattare",
+  "reason": "yleisempi 'fackboksförfattare' puuttui"
+ }
+]

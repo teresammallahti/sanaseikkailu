@@ -261,7 +261,7 @@ function loadApp(options) {
   const speechSynthesis = {
     cancelCount: 0,
     cancel() { this.cancelCount++; },
-    speak(u) { spoken.push({ text: u.text, lang: u.lang, rate: u.rate, voice: u.voice }); }
+    speak(u) { spoken.push({ text: u.text, lang: u.lang, rate: u.rate, voice: u.voice, pitch: u.pitch }); }
   };
   function SpeechSynthesisUtterance(text) { this.text = text; this.lang = ''; }
 

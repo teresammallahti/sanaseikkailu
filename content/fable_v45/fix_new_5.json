@@ -1,0 +1,114 @@
+[
+ {
+  "id": "k_japani",
+  "field": "de_text",
+  "old": "das Japanisch",
+  "new": "das Japanisch / Japanisch",
+  "reason": "kielen nimi kirjoitetaan yleensä ilman artikkelia; hyväksy myös se (vrt. k_unkari)"
+ },
+ {
+  "id": "k_kiina",
+  "field": "de_text",
+  "old": "das Chinesisch",
+  "new": "das Chinesisch / Chinesisch",
+  "reason": "kielen nimi yleensä ilman artikkelia; hyväksy myös se"
+ },
+ {
+  "id": "k_ukraina",
+  "field": "de_text",
+  "old": "das Ukrainisch",
+  "new": "das Ukrainisch / Ukrainisch",
+  "reason": "kielen nimi yleensä ilman artikkelia; hyväksy myös se"
+ },
+ {
+  "id": "k_islanti",
+  "field": "de_text",
+  "old": "das Isländisch",
+  "new": "das Isländisch / Isländisch",
+  "reason": "kielen nimi yleensä ilman artikkelia; hyväksy myös se"
+ },
+ {
+  "id": "k_runko",
+  "field": "fi",
+  "old": "runko",
+  "new": "runko (rakenteen, kehikko)",
+  "reason": "ilman tarkennetta oppija vastaa puun runko (stam/trunk/Stamm)"
+ },
+ {
+  "id": "k_lehdisto",
+  "field": "sv_text",
+  "old": "en press",
+  "new": "press / pressen",
+  "reason": "lehdistö-merkityksessä ei epämääräistä artikkelia; 'en press' = puristin"
+ },
+ {
+  "id": "k_ikainen",
+  "field": "en_text",
+  "old": "aged / of ... age",
+  "new": "aged / old / of ... age",
+  "reason": "'old' (ten years old) on yleisin vastine; sv ja de sisältävät jo gammal/alt"
+ },
+ {
+  "id": "k_jalkimmainen",
+  "field": "de_text",
+  "old": "letzterer / letzter",
+  "new": "letzterer / letztere",
+  "reason": "'letzter' = viimeinen, ei jälkimmäinen"
+ },
+ {
+  "id": "k_itku",
+  "field": "sv_text",
+  "old": "en gråt",
+  "new": "gråt",
+  "reason": "ainesana, ei epämääräistä artikkelia"
+ },
+ {
+  "id": "k_maali",
+  "field": "fi",
+  "old": "maali (väri)",
+  "new": "maali (maalaamiseen)",
+  "reason": "tarkenne 'väri' ohjaa vastaamaan colour; sv färg/de Farbe sopivat, en paint ei"
+ },
+ {
+  "id": "k_minua_vasyttaa",
+  "field": "en_text",
+  "old": "I'm tired / I feel sleepy",
+  "new": "I'm tired / I am tired / I feel sleepy / I'm sleepy",
+  "reason": "lyhentämätön muoto ja 'I'm sleepy' todennäköisiä vastauksia"
+ },
+ {
+  "id": "k_rattijuoppo",
+  "field": "en_text",
+  "old": "drink-driver",
+  "new": "drink-driver / drink driver / drunk driver",
+  "reason": "yleiset kirjoitusasut puuttuvat"
+ },
+ {
+  "id": "k_vilja",
+  "field": "sv_text",
+  "old": "säd",
+  "new": "säd / spannmål",
+  "reason": "spannmål on nykyruotsin yleisin vastine"
+ },
+ {
+  "id": "k_lukien",
+  "field": "de_text",
+  "old": "ab / von … an",
+  "new": "ab / von ... an",
+  "reason": "ellipsimerkki (…) ei ole kirjoitettavissa; muualla käytetään kolmea pistettä"
+ },
+ {
+  "id": "k_maailmankuva",
+  "field": "en_text",
+  "old": "world view",
+  "new": "world view / worldview",
+  "reason": "yhteen kirjoitettu muoto on hyvin yleinen"
+ },
+ {
+  "id": "k_nakyvyys",
+  "field": "sv_text",
+  "old": "en synlighet",
+  "new": "synlighet",
+  "reason": "jaoton abstraktisana, ei artikkelia (vrt. tystnad, kommunikation)"
+ }
+]

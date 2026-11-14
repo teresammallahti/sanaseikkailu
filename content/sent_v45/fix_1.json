@@ -1,0 +1,331 @@
+[
+ {
+  "id": "svs_a1_greetings_1",
+  "field": "alt",
+  "old": "Hej, hur är det?",
+  "new": "Hej, hur är det? || Hej, hur är läget? || Hej, hur har du det? || Hej, hur står det till?",
+  "reason": "Yleisiä vastineita kysymykselle 'mitä kuuluu?'"
+ },
+ {
+  "id": "svs_a1_greetings_2",
+  "field": "alt",
+  "old": "Bra, tack. Och du?",
+  "new": "Bra, tack. Och du? || Jag mår bra, tack. Du då? || Bra, tack. Du då?",
+  "reason": "'Du då?' on yhtä yleinen kuin 'Och du?'"
+ },
+ {
+  "id": "svs_a1_greetings_3",
+  "field": "alt",
+  "old": "Kul att träffas!",
+  "new": "Kul att träffas! || Trevligt att träffa dig! || Kul att träffa dig! || Roligt att träffas!",
+  "reason": "Hyvin todennäköisiä oikeita vastauksia"
+ },
+ {
+  "id": "svs_a1_greetings_5",
+  "field": "alt",
+  "old": "",
+  "new": "Jag förstår inte. Vad betyder detta? || Jag förstår inte. Vad betyder det?",
+  "reason": "'detta'/'det' ovat oikeita vastineita sanalle 'tämä' tässä yhteydessä"
+ },
+ {
+  "id": "svs_a1_body_4",
+  "field": "alt",
+  "old": "",
+  "new": "Han är sjuk och stannar hemma.",
+  "reason": "fi:n 'hän' on monitulkintainen; myös toinen pronomini hyväksyttävä"
+ },
+ {
+  "id": "svs_a1_body_5",
+  "field": "alt",
+  "old": "Jag måste gå till en läkare. || Jag måste gå till doktorn.",
+  "new": "Jag måste gå till en läkare. || Jag måste gå till doktorn. || Jag måste gå till läkare.",
+  "reason": "'gå till läkare' ilman artikkelia on vakiintunut ilmaus"
+ },
+ {
+  "id": "svs_a1_body_7",
+  "field": "alt",
+  "old": "Finns det ett apotek i närheten?",
+  "new": "Finns det ett apotek i närheten? || Finns det något apotek här i närheten? || Finns det något apotek i närheten?",
+  "reason": "'något apotek' on kysymyksessä yhtä luonteva kuin 'ett apotek'"
+ },
+ {
+  "id": "svs_a1_free_time_1",
+  "field": "alt",
+  "old": "",
+  "new": "Jag gillar musik.",
+  "reason": "'gilla' on yleinen synonyymi"
+ },
+ {
+  "id": "svs_a1_free_time_2",
+  "field": "alt",
+  "old": "Jag läser mycket på fritiden.",
+  "new": "Jag läser mycket på fritiden. || På min fritid läser jag mycket. || Jag läser mycket på min fritid.",
+  "reason": "fi 'vapaa-ajallani' ohjaa myös muotoon 'på min fritid'"
+ },
+ {
+  "id": "svs_a1_free_time_4",
+  "field": "alt",
+  "old": "Varje morgon springer han fem kilometer.",
+  "new": "Varje morgon springer han fem kilometer. || Hon springer fem kilometer varje morgon. || Varje morgon springer hon fem kilometer.",
+  "reason": "fi:n 'hän' on monitulkintainen; myös toinen pronomini hyväksyttävä"
+ },
+ {
+  "id": "svs_a1_free_time_8",
+  "field": "alt",
+  "old": "På lördag träffar vi vänner. || Vi träffar kompisar på lördag.",
+  "new": "På lördag träffar vi vänner. || Vi träffar kompisar på lördag. || På lördag träffar vi kompisar.",
+  "reason": "Puuttuva yhdistelmä (sanajärjestys + kompisar)"
+ },
+ {
+  "id": "svs_a2_travel_2",
+  "field": "sv",
+  "old": "Flyget var försenat i två timmar.",
+  "new": "Flyget var två timmar försenat.",
+  "reason": "'försenat i två timmar' on kömpelö; idiomaattinen muoto on 'två timmar försenat'"
+ },
+ {
+  "id": "svs_a2_travel_2",
+  "field": "alt",
+  "old": "Flyget var två timmar försenat.",
+  "new": "Flyget var försenat med två timmar. || Flyget var försenat i två timmar. || Planet var två timmar försenat.",
+  "reason": "Mallivastaus vaihdettu; aiempi sv ja 'försenat med' -rakenne hyväksytään alt-muotoina"
+ },
+ {
+  "id": "svs_a2_travel_4",
+  "field": "alt",
+  "old": "Vi reste till Italien förra sommaren. || I somras reste vi till Italien. || Vi reste till Italien i somras.",
+  "new": "Vi reste till Italien förra sommaren. || I somras reste vi till Italien. || Vi reste till Italien i somras. || Förra sommaren åkte vi till Italien. || Vi åkte till Italien förra sommaren.",
+  "reason": "'åka' on yleisin vastine verbille 'matkustaa'"
+ },
+ {
+  "id": "svs_a2_travel_5",
+  "field": "alt",
+  "old": "Kan du bekräfta bokningen per e-post? || Kan ni bekräfta bokningen via e-post?",
+  "new": "Kan du bekräfta bokningen per e-post? || Kan ni bekräfta bokningen via e-post? || Kan du bekräfta bokningen via mejl?",
+  "reason": "'mejl' on yleinen synonyymi"
+ },
+ {
+  "id": "svs_a2_travel_6",
+  "field": "alt",
+  "old": "Flyget lyfte först efter midnatt.",
+  "new": "Flyget lyfte först efter midnatt. || Flygplanet lyfte först efter midnatt.",
+  "reason": "'flygplanet' on yleinen vastine sanalle 'kone'"
+ },
+ {
+  "id": "svs_a2_travel_7",
+  "field": "alt",
+  "old": "Jag beställde en väckning klockan sex.",
+  "new": "Jag beställde en väckning klockan sex. || Jag beställde väckning till klockan sex.",
+  "reason": "fi 'kello kuudeksi' ohjaa myös muotoon 'till klockan sex'"
+ },
+ {
+  "id": "svs_a2_work_1",
+  "field": "alt",
+  "old": "Hon har fått ett jobb på ett lager.",
+  "new": "Hon har fått ett jobb på ett lager. || Han har fått jobb på ett lager. || Han har fått ett jobb på ett lager.",
+  "reason": "fi:n 'hän' on monitulkintainen; myös toinen pronomini hyväksyttävä"
+ },
+ {
+  "id": "svs_a2_work_2",
+  "field": "alt",
+  "old": "Jag skickade in min ansökan i förra veckan. || I förra veckan skickade jag min ansökan.",
+  "new": "Jag skickade in min ansökan i förra veckan. || I förra veckan skickade jag min ansökan. || Jag skickade min ansökan förra veckan. || Jag skickade in min ansökan förra veckan. || Förra veckan skickade jag min ansökan. || Förra veckan skickade jag in min ansökan. || I förra veckan skickade jag in min ansökan.",
+  "reason": "'förra veckan' ilman i-prepositiota on vähintään yhtä yleinen; puuttuvat yhdistelmät"
+ },
+ {
+  "id": "svs_a2_work_4",
+  "field": "alt",
+  "old": "Han har arbetat skift i tio år.",
+  "new": "Han har arbetat skift i tio år. || Hon har jobbat skift i tio år. || Hon har arbetat skift i tio år.",
+  "reason": "fi:n 'hän' on monitulkintainen; myös toinen pronomini hyväksyttävä"
+ },
+ {
+  "id": "svs_a2_work_6",
+  "field": "alt",
+  "old": "Min far är pensionerad sedan förra året. || Min pappa är pensionär sedan förra året.",
+  "new": "Min far är pensionerad sedan förra året. || Min pappa är pensionär sedan förra året. || Min pappa har varit pensionerad sedan förra året. || Min pappa har varit pensionär sedan förra året.",
+  "reason": "fi:n perfekti 'on ollut' ohjaa muotoon 'har varit', joka on oikein"
+ },
+ {
+  "id": "svs_a2_culture_sport_2",
+  "field": "alt",
+  "old": "Han gjorde två mål i den första perioden.",
+  "new": "Han gjorde två mål i den första perioden. || Hon gjorde två mål i första perioden. || Hon gjorde två mål i den första perioden.",
+  "reason": "fi:n 'hän' on monitulkintainen; myös toinen pronomini hyväksyttävä"
+ },
+ {
+  "id": "svs_a2_culture_sport_5",
+  "field": "alt",
+  "old": "Utställningen på museet var väldigt intressant.",
+  "new": "Utställningen på museet var väldigt intressant. || Museets utställning var mycket intressant.",
+  "reason": "fi 'museon näyttely' ohjaa genetiiviin, joka on oikein"
+ },
+ {
+  "id": "svs_a2_culture_sport_7",
+  "field": "alt",
+  "old": "Han har spelat golf i många år.",
+  "new": "Han har spelat golf i många år. || Hon har hållit på med golf i många år. || Hon har spelat golf i många år.",
+  "reason": "fi:n 'hän' on monitulkintainen; myös toinen pronomini hyväksyttävä"
+ },
+ {
+  "id": "svs_b1_career_1",
+  "field": "alt",
+  "old": "Efter tio år i samma bransch ville hon testa något nytt. || Hon ville prova något nytt efter tio år i samma bransch.",
+  "new": "Efter tio år i samma bransch ville hon testa något nytt. || Hon ville prova något nytt efter tio år i samma bransch. || Efter tio år i samma bransch ville han prova något nytt. || Efter tio år i samma bransch ville han testa något nytt. || Han ville prova något nytt efter tio år i samma bransch.",
+  "reason": "fi:n 'hän' on monitulkintainen; myös toinen pronomini hyväksyttävä"
+ },
+ {
+  "id": "svs_b1_career_2",
+  "field": "fi",
+  "old": "Uskon, että hyvä kontaktiverkosto on tärkeämpi kuin maisterin tutkinto.",
+  "new": "Uskon, että hyvä kontaktiverkosto on tärkeämpi kuin maisterintutkinto.",
+  "reason": "Yhdyssana: maisterintutkinto"
+ },
+ {
+  "id": "svs_b1_career_3",
+  "field": "alt",
+  "old": "Hon startade ett eget företag för att hon inte trivdes som anställd. || Hon startade eget företag eftersom hon inte trivdes som anställd.",
+  "new": "Hon startade ett eget företag för att hon inte trivdes som anställd. || Hon startade eget företag eftersom hon inte trivdes som anställd. || Han startade ett eget företag eftersom han inte trivdes som anställd. || Han startade ett eget företag för att han inte trivdes som anställd. || Han startade eget företag eftersom han inte trivdes som anställd.",
+  "reason": "fi:n 'hän' on monitulkintainen; myös toinen pronomini hyväksyttävä"
+ },
+ {
+  "id": "svs_b1_career_7",
+  "field": "alt",
+  "old": "Om man vill byta bransch måste man ofta utbilda sig igen. || Vill man byta bransch behöver man ofta utbilda sig igen.",
+  "new": "Om man vill byta bransch måste man ofta utbilda sig igen. || Vill man byta bransch behöver man ofta utbilda sig igen. || Vill man byta bransch måste man ofta utbilda sig igen.",
+  "reason": "Puuttuva yhdistelmä (käänteinen ehtolause + måste)"
+ },
+ {
+  "id": "svs_b1_career_8",
+  "field": "alt",
+  "old": "Facket förhandlar med arbetsgivaren för att slippa en strejk.",
+  "new": "Facket förhandlar med arbetsgivaren för att slippa en strejk. || Facket förhandlar med arbetsgivaren för att undvika strejk. || Fackförbundet förhandlar med arbetsgivaren för att undvika en strejk.",
+  "reason": "'undvika strejk' ilman artikkelia on yleinen; 'fackförbundet' on suora vastine sanalle ammattiliitto"
+ },
+ {
+  "id": "svs_b1_law_3",
+  "field": "alt",
+  "old": "Dagen efter anmälde hon brottet till polisen.",
+  "new": "Dagen efter anmälde hon brottet till polisen. || Hon anmälde brottet till polisen nästa dag. || Hon anmälde brottet till polisen följande dag. || Nästa dag anmälde hon brottet till polisen. || Följande dag anmälde hon brottet till polisen. || Han anmälde brottet till polisen dagen efter. || Dagen efter anmälde han brottet till polisen. || Han anmälde brottet till polisen nästa dag. || Han anmälde brottet till polisen följande dag. || Nästa dag anmälde han brottet till polisen. || Följande dag anmälde han brottet till polisen.",
+  "reason": "fi 'seuraavana päivänä' ohjaa myös muotoihin 'nästa dag'/'följande dag'; 'hän' monitulkintainen"
+ },
+ {
+  "id": "svs_b1_law_6",
+  "field": "alt",
+  "old": "Vittnet sa att hon inte hade sett angriparen.",
+  "new": "Vittnet sa att hon inte hade sett angriparen. || Vittnet berättade att han inte hade sett angriparen. || Vittnet sa att han inte hade sett angriparen.",
+  "reason": "fi:n 'hän' on monitulkintainen; myös toinen pronomini hyväksyttävä"
+ },
+ {
+  "id": "svs_b1_law_7",
+  "field": "alt",
+  "old": "Alla har rätt till en advokat, också den som är skyldig.",
+  "new": "Alla har rätt till en advokat, också den som är skyldig. || Alla har rätt till advokat, även den som är skyldig.",
+  "reason": "'rätt till advokat' ilman artikkelia on yleinen"
+ },
+ {
+  "id": "svs_b1_finland_nordic_1",
+  "field": "alt",
+  "old": "Finland har två officiella språk, finska och svenska.",
+  "new": "Finland har två officiella språk, finska och svenska. || I Finland finns två officiella språk, finska och svenska.",
+  "reason": "Muodollinen subjekti 'det' voi jäädä pois paikanmääreen jälkeen"
+ },
+ {
+  "id": "svs_b1_finland_nordic_5",
+  "field": "alt",
+  "old": "Min morfar berättade ofta om vinterkriget när jag var liten.",
+  "new": "Min morfar berättade ofta om vinterkriget när jag var liten. || När jag var liten berättade min farfar ofta om vinterkriget. || När jag var liten berättade min morfar ofta om vinterkriget.",
+  "reason": "Vaihtoehtoinen sanajärjestys puuttui"
+ },
+ {
+  "id": "svs_b1_finland_nordic_7",
+  "field": "alt",
+  "old": "På midsommar tänder man bål i hela Finland. || Under midsommar tänder man bål runt om i Finland.",
+  "new": "På midsommar tänder man bål i hela Finland. || Under midsommar tänder man bål runt om i Finland. || På midsommar tänder man bål runtom i Finland. || På midsommar tänder man brasor runt om i Finland. || Vid midsommar tänder man bål runt om i Finland.",
+  "reason": "Kirjoitusasu 'runtom'; 'brasor' on riikinruotsissa yleinen vastine; 'vid midsommar'"
+ },
+ {
+  "id": "svs_b2_culture_1",
+  "field": "alt",
+  "old": "Om filmen hade fått större synlighet skulle den ha blivit en succé. || Hade filmen fått mer synlighet skulle den ha blivit en succé. || Om filmen hade fått mer synlighet hade den blivit en succé.",
+  "new": "Om filmen hade fått större synlighet skulle den ha blivit en succé. || Hade filmen fått mer synlighet skulle den ha blivit en succé. || Om filmen hade fått mer synlighet hade den blivit en succé. || Hade filmen fått mer synlighet hade den blivit en succé.",
+  "reason": "Puuttuva yhdistelmä (käänteinen ehtolause + hade blivit)"
+ },
+ {
+  "id": "svs_b2_describe_1",
+  "field": "alt",
+  "old": "Priserna har ökat betydligt snabbare än lönerna.",
+  "new": "Priserna har ökat betydligt snabbare än lönerna. || Priserna har stigit avsevärt snabbare än lönerna.",
+  "reason": "'avsevärt' on yleinen vastine sanalle 'huomattavasti'"
+ },
+ {
+  "id": "svs_b2_describe_3",
+  "field": "alt",
+  "old": "Om vi hade haft en vecka till skulle resultatet ha blivit utmärkt. || Hade vi haft ytterligare en vecka skulle resultatet ha blivit utmärkt. || Om vi hade haft ytterligare en vecka hade resultatet blivit utmärkt.",
+  "new": "Om vi hade haft en vecka till skulle resultatet ha blivit utmärkt. || Hade vi haft ytterligare en vecka skulle resultatet ha blivit utmärkt. || Om vi hade haft ytterligare en vecka hade resultatet blivit utmärkt. || Om vi hade haft ytterligare en vecka skulle resultatet ha varit utmärkt. || Om vi hade haft en vecka till hade resultatet blivit utmärkt. || Hade vi haft ytterligare en vecka hade resultatet blivit utmärkt.",
+  "reason": "fi 'olisi ollut' ohjaa muotoon 'ha varit'; puuttuvat yhdistelmät"
+ },
+ {
+  "id": "svs_b2_describe_4",
+  "field": "alt",
+  "old": "Hon förstod så småningom att beslutet var slutgiltigt.",
+  "new": "Hon förstod så småningom att beslutet var slutgiltigt. || Så småningom förstod han att beslutet var slutgiltigt. || Han förstod så småningom att beslutet var slutgiltigt.",
+  "reason": "fi:n 'hän' on monitulkintainen; myös toinen pronomini hyväksyttävä"
+ },
+ {
+  "id": "svs_b2_describe_6",
+  "field": "alt",
+  "old": "Det var knappast en tillfällighet, utan han gjorde det helt medvetet.",
+  "new": "Det var knappast en tillfällighet, utan han gjorde det helt medvetet. || Det var knappast en slump, utan hon gjorde det helt medvetet. || Det var knappast en tillfällighet, utan hon gjorde det helt medvetet.",
+  "reason": "fi:n 'hän' on monitulkintainen; myös toinen pronomini hyväksyttävä"
+ },
+ {
+  "id": "svs_b2_describe_7",
+  "field": "alt",
+  "old": "Hon är överlägset den mest eftertraktade experten på området.",
+  "new": "Hon är överlägset den mest eftertraktade experten på området. || Han är överlägset den mest eftertraktade experten inom området. || Han är överlägset den mest eftertraktade experten på området.",
+  "reason": "fi:n 'hän' on monitulkintainen; myös toinen pronomini hyväksyttävä"
+ },
+ {
+  "id": "svs_b2_describe_8",
+  "field": "alt",
+  "old": "Fast det regnade kraftigt fortsatte festivalen för fullt hela kvällen. || Trots att det regnade kraftigt pågick festivalen för fullt hela kvällen.",
+  "new": "Fast det regnade kraftigt fortsatte festivalen för fullt hela kvällen. || Trots att det regnade kraftigt pågick festivalen för fullt hela kvällen. || Fastän det regnade kraftigt fortsatte festivalen för fullt hela kvällen.",
+  "reason": "'fastän' on yleinen vastine sanalle 'vaikka'"
+ },
+ {
+  "id": "svd_a2_travel_4",
+  "field": "fi",
+  "old": "Kyllä, olkaa hyvä. Lentoni oli myöhässä, siksi tulen näin myöhään.",
+  "new": "Kyllä, ole hyvä. Lentoni oli myöhässä, siksi tulen näin myöhään.",
+  "reason": "Dialogissa sinutellaan (ditt pass, vill du); teitittely 'olkaa hyvä' on epäjohdonmukainen"
+ },
+ {
+  "id": "svd_a2_culture_sport_6",
+  "field": "fi",
+  "old": "Ehdottomasti. Nyt meillä on mahdollisuus mestaruuteen.",
+  "new": "Ehdottomasti. Nyt meillä on mahdollisuus mestaruuskisoissa.",
+  "reason": "'en chans i mästerskapet' = mahdollisuus kisoissa/turnauksessa, ei 'mahdollisuus mestaruuteen'"
+ },
+ {
+  "id": "svd_b2_culture_3",
+  "field": "sv",
+  "old": "Vad tyckte du om sista episoden? Jag tyckte att slutet var förutsägbart.",
+  "new": "Vad tyckte du om sista avsnittet? Jag tyckte att slutet var förutsägbart.",
+  "reason": "Tv-sarjan jakso on ruotsiksi 'avsnitt'; 'episod' on tässä merkityksessä epäluonteva anglismi"
+ },
+ {
+  "id": "svd_b2_culture_4",
+  "field": "sv",
+  "old": "Jag håller inte med. Den bröt ju mot ett av genrens största tabun.",
+  "new": "Jag håller inte med. Det bröt ju mot ett av genrens största tabun.",
+  "reason": "Pronomini 'den' → 'det', koska viittauskohde on nyt ett-sukuinen (avsnittet/slutet); liittyy edellisen repliikin korjaukseen"
+ },
+ {
+  "id": "svd_b2_describe_7",
+  "field": "fi",
+  "old": "Tekisin siinä tapauksessa varmaan tarjouksen. Sen alueen asunnot ovat kuitenkin haluttuja.",
+  "new": "Tekisin siinä tapauksessa varmaan tarjouksen. Sen alueen asunnothan ovat haluttuja.",
+  "reason": "Partikkeli 'ju' = '-han' (yhteisesti tiedetty asia), ei 'kuitenkin'"
+ }
+]

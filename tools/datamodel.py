@@ -41,11 +41,18 @@ def load(data_dir):
         "self": _load(d / "self.json"),
         "forms": {},
         "sentences": {},
+        "self_sentences": {},
+        "dialogues": {},
     }
     for lang in m["meta"]["languages"]:
         m["forms"][lang] = _load(d / "forms" / f"{lang}.json")["forms"]
         sp = d / "sentences" / f"{lang}.json"
         m["sentences"][lang] = _load(sp)["sentences"] if sp.exists() else []
+        # Itseopiskelun virkkeet ja dialogit (vaihe 45): self_sentences/<kieli>.json, dialogues/<kieli>.json
+        sp = d / "self_sentences" / f"{lang}.json"
+        m["self_sentences"][lang] = _load(sp)["sentences"] if sp.exists() else []
+        sp = d / "dialogues" / f"{lang}.json"
+        m["dialogues"][lang] = _load(sp)["dialogues"] if sp.exists() else []
     return m
 
 
@@ -83,6 +90,8 @@ def to_legacy(m):
             w["also"] = c["also"]
         if c.get("pos"):
             w["pos"] = c["pos"]
+        if c.get("zipf_fi") is not None:
+            w["zipf_fi"] = c["zipf_fi"]  # suomen yleisyys (wordfreq): uusien sanojen järjestys itseopiskelussa
         if c.get("cat") and (not en or en.get("self_only")):
             w["de_only"] = True  # koulussa ei englannin muotoa  # vanha lippu: ei englannin muotoa
         words.append(w)
@@ -111,6 +120,9 @@ def to_self_data(m):
         "levels": [{"id": l["id"], "name_fi": l["name_fi"], "goal_fi": l.get("goal_fi", "")} for l in s["levels"]],
         "topics": [{"id": t["id"], "name_fi": t["name_fi"], "level": t["level"], "concepts": t["concepts"]}
                    for t in s["topics"]],
+        # virkkeet: {kieli: [{id, topic, level, text, fi, alt}]}, dialogit: {kieli: [{id, topic, level, title_fi, lines: [{speaker, text, fi}]}]}
+        "sentences": {l: v for l, v in m.get("self_sentences", {}).items() if v},
+        "dialogues": {l: v for l, v in m.get("dialogues", {}).items() if v},
     }
 
 

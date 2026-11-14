@@ -1,0 +1,81 @@
+topic	level	title_fi	line	speaker	sv	fi
+a1_appearance	A1	Uusi työkaveri	1	A	Känner du den nya kollegan?	Tunnetko uuden työkaverin?
+a1_appearance	A1	Uusi työkaveri	2	B	Nej, inte än. Hur ser hon ut?	En vielä. Miltä hän näyttää?
+a1_appearance	A1	Uusi työkaveri	3	A	Hon är ganska lång och har kort, rakt hår.	Hän on aika pitkä, ja hänellä on lyhyet suorat hiukset.
+a1_appearance	A1	Uusi työkaveri	4	B	Har hon glasögon?	Onko hänellä silmälasit?
+a1_appearance	A1	Uusi työkaveri	5	A	Ja, och hon har blå ögon. Hon är väldigt trevlig.	Kyllä, ja hänellä on siniset silmät. Hän on tosi mukava.
+a1_appearance	A1	Uusi työkaveri	6	B	Bra! Är hon social?	Hyvä! Onko hän sosiaalinen?
+a1_appearance	A1	Uusi työkaveri	7	A	Ja, men lite blyg först.	On, mutta aluksi vähän ujo.
+a1_appearance	A1	Uusi työkaveri	8	B	Då säger jag hej till henne i dag.	Sitten sanon hänelle tänään hei.
+a1_daily	A1	Kiireinen aamu	1	A	God morgon! Är du vaken?	Huomenta! Oletko hereillä?
+a1_daily	A1	Kiireinen aamu	2	B	Ja, men jag är så trött.	Olen, mutta olen tosi väsynyt.
+a1_daily	A1	Kiireinen aamu	3	A	Jag kokar kaffe. Vill du ha en kopp?	Keitän kahvia. Haluatko kupin?
+a1_daily	A1	Kiireinen aamu	4	B	Ja tack, men jag har bråttom.	Kiitos, mutta minulla on kiire.
+a1_daily	A1	Kiireinen aamu	5	A	Varför då?	Miksi?
+a1_daily	A1	Kiireinen aamu	6	B	Jag har ett möte klockan åtta.	Minulla on palaveri kello kahdeksan.
+a1_daily	A1	Kiireinen aamu	7	A	Då måste du skynda dig!	Sitten sinun täytyy pitää kiirettä!
+a1_daily	A1	Kiireinen aamu	8	B	Ja, jag duschar snabbt och går hemifrån.	Joo, käyn nopeasti suihkussa ja lähden kotoa.
+a1_adjectives	A1	Kaupassa: uusi takki	1	A	Hej! Jag letar efter en varm jacka.	Hei! Etsin lämmintä takkia.
+a1_adjectives	A1	Kaupassa: uusi takki	2	B	Den här är ny och mycket bra.	Tämä on uusi ja todella hyvä.
+a1_adjectives	A1	Kaupassa: uusi takki	3	A	Den är fin, men är den dyr?	Se on hieno, mutta onko se kallis?
+a1_adjectives	A1	Kaupassa: uusi takki	4	B	Nej, den är ganska billig.	Ei, se on aika halpa.
+a1_adjectives	A1	Kaupassa: uusi takki	5	A	Är den för stor för mig?	Onko se liian iso minulle?
+a1_adjectives	A1	Kaupassa: uusi takki	6	B	Nej, den är lagom.	Ei, se on sopiva.
+a1_adjectives	A1	Kaupassa: uusi takki	7	A	Bra, jag tar den!	Hyvä, otan sen!
+a1_adjectives	A1	Kaupassa: uusi takki	8	B	Tack så mycket!	Kiitos paljon!
+a2_cooking	A2	Ravintolassa	1	A	Hej, har ni ett bord för två?	Hei, onko teillä pöytää kahdelle?
+a2_cooking	A2	Ravintolassa	2	B	Ja, har ni bokat?	On, oletteko varanneet?
+a2_cooking	A2	Ravintolassa	3	A	Nej, tyvärr. Vi bestämde oss nyss.	Ei, valitettavasti. Päätimme vasta äsken.
+a2_cooking	A2	Ravintolassa	4	B	Inga problem. Varsågoda, här är menyn.	Ei hätää. Olkaa hyvä, tässä on ruokalista.
+a2_cooking	A2	Ravintolassa	5	A	Jag skulle vilja beställa dagens lunch. Är den vegansk?	Haluaisin tilata päivän lounaan. Onko se vegaaninen?
+a2_cooking	A2	Ravintolassa	6	B	Ja, det är en mild curry med ris.	On, se on mieto curry riisin kanssa.
+a2_cooking	A2	Ravintolassa	7	A	Perfekt. Och kan vi betala var för sig sedan?	Täydellistä. Ja voimmeko sitten maksaa erikseen?
+a2_cooking	A2	Ravintolassa	8	B	Självklart, det går bra.	Totta kai, se onnistuu.
+a2_nature	A2	Metsäretkellä	1	A	Titta, där borta vid stenen!	Katso, tuolla kiven vieressä!
+a2_nature	A2	Metsäretkellä	2	B	Vad är det? En hund?	Mikä se on? Koira?
+a2_nature	A2	Metsäretkellä	3	A	Nej, jag tror att det är en räv.	Ei, luulen että se on kettu.
+a2_nature	A2	Metsäretkellä	4	B	Vad fin päls den har!	Onpa sillä hieno turkki!
+a2_nature	A2	Metsäretkellä	5	A	Förra året såg jag ett lodjur här.	Viime vuonna näin täällä ilveksen.
+a2_nature	A2	Metsäretkellä	6	B	Verkligen? Var du inte rädd?	Oikeasti? Etkö pelännyt?
+a2_nature	A2	Metsäretkellä	7	A	Lite, men det sprang snabbt iväg.	Vähän, mutta se juoksi nopeasti pois.
+a2_nature	A2	Metsäretkellä	8	B	Kom, vi följer stigen upp till toppen.	Tule, seurataan polkua huipulle asti.
+b1_economy	B1	Lainaneuvottelu pankissa	1	A	Hej, jag skulle vilja prata om ett lån till mitt företag.	Hei, haluaisin puhua lainasta yritykselleni.
+b1_economy	B1	Lainaneuvottelu pankissa	2	B	Självklart. Vad ska pengarna användas till?	Totta kai. Mihin rahat on tarkoitus käyttää?
+b1_economy	B1	Lainaneuvottelu pankissa	3	A	Vi vill investera i en ny maskin så att produktionen blir effektivare.	Haluamme investoida uuteen koneeseen, jotta tuotanto tehostuu.
+b1_economy	B1	Lainaneuvottelu pankissa	4	B	Hur har omsättningen utvecklats det senaste året?	Miten liikevaihto on kehittynyt viime vuoden aikana?
+b1_economy	B1	Lainaneuvottelu pankissa	5	A	Den har ökat med femton procent, och vinsten har också vuxit.	Se on kasvanut viisitoista prosenttia, ja myös voitto on kasvanut.
+b1_economy	B1	Lainaneuvottelu pankissa	6	B	Det låter bra. Har ni några andra lån som ni redan betalar på?	Kuulostaa hyvältä. Onko teillä muita lainoja, joita jo maksatte?
+b1_economy	B1	Lainaneuvottelu pankissa	7	A	Bara ett litet lån som vi betalar tillbaka nästa år.	Vain yksi pieni laina, jonka maksamme takaisin ensi vuonna.
+b1_economy	B1	Lainaneuvottelu pankissa	8	B	Bra. Skicka gärna era siffror, så tar jag fram ett erbjudande.	Hyvä. Lähetä lukunne, niin laadin teille tarjouksen.
+b1_wellbeing	B1	Lääkärin vastaanotolla	1	A	Hej, vad kan jag hjälpa dig med i dag?	Hei, miten voin auttaa sinua tänään?
+b1_wellbeing	B1	Lääkärin vastaanotolla	2	B	Jag har sovit dåligt i flera veckor och känner mig väldigt trött.	Olen nukkunut huonosti useita viikkoja ja tunnen itseni todella väsyneeksi.
+b1_wellbeing	B1	Lääkärin vastaanotolla	3	A	Har du haft mycket stress på jobbet?	Onko sinulla ollut paljon stressiä töissä?
+b1_wellbeing	B1	Lääkärin vastaanotolla	4	B	Ja, och jag tror att det påverkar mitt humör också.	Kyllä, ja luulen, että se vaikuttaa myös mielialaani.
+b1_wellbeing	B1	Lääkärin vastaanotolla	5	A	Det är vanligt. Hur ser dina vanor ut när det gäller kost och motion?	Se on yleistä. Millaiset tapasi ovat ruokavalion ja liikunnan suhteen?
+b1_wellbeing	B1	Lääkärin vastaanotolla	6	B	Jag äter oregelbundet och har inte tränat på länge.	Syön epäsäännöllisesti enkä ole treenannut pitkään aikaan.
+b1_wellbeing	B1	Lääkärin vastaanotolla	7	A	Jag föreslår att du börjar röra på dig lite varje dag. Vi kan också boka en tid hos en psykolog.	Ehdotan, että alat liikkua vähän joka päivä. Voimme myös varata sinulle ajan psykologille.
+b1_wellbeing	B1	Lääkärin vastaanotolla	8	B	Det låter bra, tack.	Kuulostaa hyvältä, kiitos.
+b1_connectors	B1	Palaverin sopiminen	1	A	Ska vi ha mötet i dag eller i morgon?	Pidetäänkö palaveri tänään vai huomenna?
+b1_connectors	B1	Palaverin sopiminen	2	B	I morgon, för i dag har jag dessutom två andra möten.	Huomenna, sillä tänään minulla on lisäksi kaksi muuta palaveria.
+b1_connectors	B1	Palaverin sopiminen	3	A	Okej. Men vi måste i alla fall bestämma budgeten före fredag.	Okei. Mutta meidän täytyy joka tapauksessa päättää budjetti ennen perjantaita.
+b1_connectors	B1	Palaverin sopiminen	4	B	Visserligen, men vi har inte fått alla siffror än.	Totta kyllä, mutta emme ole vielä saaneet kaikkia lukuja.
+b1_connectors	B1	Palaverin sopiminen	5	A	Då skickar jag ett mejl till ekonomiavdelningen, så att vi får dem i tid.	Sitten lähetän sähköpostia talousosastolle, jotta saamme ne ajoissa.
+b1_connectors	B1	Palaverin sopiminen	6	B	Bra. Med tanke på tidsplanen borde vi framför allt fokusera på kostnaderna.	Hyvä. Aikataulu huomioon ottaen meidän pitäisi keskittyä ennen kaikkea kustannuksiin.
+b1_connectors	B1	Palaverin sopiminen	7	A	Håller med. Annars hinner vi inte bli klara.	Samaa mieltä. Muuten emme ehdi valmiiksi.
+b1_connectors	B1	Palaverin sopiminen	8	B	Vi ses alltså i morgon klockan tio.	Nähdään siis huomenna kello kymmenen.
+b2_environment	B2	Tunturivaelluksen suunnittelu	1	A	Har du sett väderprognosen inför vandringen i fjällen?	Oletko nähnyt sääennusteen tunturivaellusta varten?
+b2_environment	B2	Tunturivaelluksen suunnittelu	2	B	Ja, det varnas för snöyra på torsdag, så vi borde nog skjuta upp starten.	Kyllä, torstaiksi varoitetaan lumipyrystä, joten meidän pitäisi kai lykätä lähtöä.
+b2_environment	B2	Tunturivaelluksen suunnittelu	3	A	Det vore synd, men jag vill inte riskera att vi går vilse i ödemarken.	Se olisi harmi, mutta en halua ottaa riskiä, että eksymme erämaassa.
+b2_environment	B2	Tunturivaelluksen suunnittelu	4	B	Precis. Terrängen är karg och leden är dåligt markerad på vissa sträckor.	Juuri niin. Maasto on karua, ja reitti on paikoin huonosti merkitty.
+b2_environment	B2	Tunturivaelluksen suunnittelu	5	A	Om vi startade på fredag i stället skulle vi kunna nå sundet till lördag kväll.	Jos lähtisimme sen sijaan perjantaina, voisimme ehtiä salmelle lauantai-iltaan mennessä.
+b2_environment	B2	Tunturivaelluksen suunnittelu	6	B	Det borde gå. Men glöm inte myggmedel, knotten kan vara besvärliga även så här sent på säsongen.	Sen pitäisi onnistua. Mutta älä unohda hyttyskarkotetta, mäkärät voivat olla kiusallisia vielä näin myöhään kaudella.
+b2_environment	B2	Tunturivaelluksen suunnittelu	7	A	Bra påminnelse. Jag hoppas att vi får se en tjäder den här gången.	Hyvä muistutus. Toivon, että näemme tällä kertaa metson.
+b2_environment	B2	Tunturivaelluksen suunnittelu	8	B	Med lite tur. Jag packar kartan och kompassen i kväll.	Pienellä onnella. Pakkaan kartan ja kompassin tänä iltana.
+b2_verbs	B2	Säästöpaineet työpaikalla	1	A	Har du hunnit granska budgetförslaget som jag skickade i går?	Oletko ehtinyt käydä läpi budjettiehdotuksen, jonka lähetin eilen?
+b2_verbs	B2	Säästöpaineet työpaikalla	2	B	Ja, och jag måste säga att besparingarna verkar väl optimistiska.	Kyllä, ja minun on sanottava, että säästöt vaikuttavat turhan optimistisilta.
+b2_verbs	B2	Säästöpaineet työpaikalla	3	A	Ledningen vill att vi drar åt svångremmen utan att äventyra kvaliteten.	Johto haluaa, että kiristämme vyötä vaarantamatta laatua.
+b2_verbs	B2	Säästöpaineet työpaikalla	4	B	Det låter bra på papperet, men i praktiken skulle det försvåra arbetet för hela teamet.	Paperilla se kuulostaa hyvältä, mutta käytännössä se vaikeuttaisi koko tiimin työtä.
+b2_verbs	B2	Säästöpaineet työpaikalla	5	A	Vad föreslår du då?	Mitä sinä sitten ehdotat?
+b2_verbs	B2	Säästöpaineet työpaikalla	6	B	Att vi effektiviserar rutinerna först och undviker att skära ner på personalen.	Että tehostamme ensin rutiineja ja vältämme henkilöstön vähentämistä.
+b2_verbs	B2	Säästöpaineet työpaikalla	7	A	Kan du precisera det i ett kort förslag till fredag?	Voitko tarkentaa sen lyhyeksi ehdotukseksi perjantaiksi?
+b2_verbs	B2	Säästöpaineet työpaikalla	8	B	Visst, jag sammanfattar mina synpunkter och skickar dem till dig.	Totta kai, kokoan näkemykseni yhteen ja lähetän ne sinulle.

@@ -1,0 +1,567 @@
+id	taso	aihepiiri	pos	fi	sv_text	sv_infl	en_text	en_infl	de_text	de_infl
+k_juuri_2	A2	a2_nature	n	juuri (kasvin)	en rot	def=roten;pl=rötter	root	pl=roots	die Wurzel	pl=die Wurzeln
+k_tarjolla	B2	b2_function	adv	tarjolla	att tillgå		on offer		zu haben	
+k_edella_2	A2	a2_adverbs	adv	edellä (edessä, kärjessä)	före / framför		ahead / in front		voraus / vorn	
+k_keskenaan	B1	b1_connectors	adv	keskenään	sinsemellan / med varandra		among themselves / with each other		untereinander / miteinander	
+k_aho	B2	b2_environment	n	aho (metsäaukio)	en glänta	def=gläntan;pl=gläntor	glade / clearing	pl=glades	die Lichtung	pl=die Lichtungen
+k_kenraali	B2	b2_law	n	kenraali	en general	def=generalen;pl=generaler	general	pl=generals	der General	pl=die Generäle
+k_vakisin	B2	b2_describe	adv	väkisin	med våld / med tvång		by force / forcibly		gewaltsam / mit Gewalt	
+k_suosio	B1	b1_media	n	suosio	popularitet	def=populariteten	popularity		die Beliebtheit	
+k_paikoin	B2	b2_describe	adv	paikoin	på sina ställen / ställvis		in places / here and there		stellenweise	
+k_ennalta	B1	b1_connectors	adv	ennalta	i förväg		in advance / beforehand		im Voraus / vorher	
+k_naky	B2	b2_abstract	n	näky	en syn	def=synen;pl=syner	sight / vision	pl=sights	der Anblick	pl=die Anblicke
+k_lausunto	B1	b1_society	n	lausunto	ett utlåtande / ett uttalande	def=utlåtandet;pl=utlåtanden	statement / opinion	pl=statements	die Stellungnahme	pl=die Stellungnahmen
+k_kevyesti	A2	a2_adverbs	adv	kevyesti	lätt		lightly		leicht	
+k_haju	A2	a2_health	n	haju	en lukt	def=lukten;pl=lukter	smell / odour	pl=smells	der Geruch	pl=die Gerüche
+k_pettaa_2	B1	b1_verbs	v	pettää (jättää pulaan)	svika	pres=sviker;pret=svek;sup=svikit	let down / fail	past=let down;pp=let down	enttäuschen / im Stich lassen	pret=enttäuschte;pp=hat enttäuscht;pres3=enttäuscht
+k_raju	B2	b2_describe	adj	raju	våldsam / häftig	neut=våldsamt;apl=våldsamma	violent / fierce / drastic		heftig / gewaltig	
+k_lisays	B1	b1_abstract	n	lisäys	ett tillägg / en ökning	def=tillägget;pl=tillägg	addition / increase	pl=additions	die Ergänzung / die Erhöhung	pl=die Ergänzungen
+k_sivusta	B2	b2_function	adv	sivusta (seurata sivusta)	från sidan / från sidlinjen		from the sidelines / from the side		von der Seite / vom Rand aus	
+k_epaselva	A2	a2_describe	adj	epäselvä	oklar	neut=oklart;apl=oklara	unclear		unklar	
+k_kauppias	A2	a2_work	n	kauppias	en handlare / en köpman	def=handlaren;pl=handlare	shopkeeper / merchant / trader	pl=shopkeepers	der Händler / der Kaufmann	pl=die Händler
+k_sokea	A2	a2_health	adj	sokea	blind	neut=blint;apl=blinda	blind		blind	
+k_poikkeuksellisesti	B2	b2_describe	adv	poikkeuksellisesti	undantagsvis / exceptionellt		exceptionally		ausnahmsweise	
+k_kosteus	B1	b1_environment	n	kosteus	fukt	def=fukten	moisture / humidity		die Feuchtigkeit	
+k_nero	B1	b1_abstract	n	nero	ett geni	def=geniet;pl=genier	genius	pl=geniuses	das Genie	pl=die Genies
+k_paaoma	B1	b1_economy	n	pääoma	ett kapital	def=kapitalet;pl=kapital	capital		das Kapital	
+k_muistutus	A2	a2_communication	n	muistutus	en påminnelse	def=påminnelsen;pl=påminnelser	reminder	pl=reminders	die Erinnerung / die Mahnung	pl=die Erinnerungen
+k_kypsa	A2	a2_describe	adj	kypsä	mogen	neut=moget;apl=mogna	ripe / mature		reif	
+k_kaaos	B1	b1_abstract	n	kaaos	ett kaos	def=kaoset	chaos		das Chaos	
+k_tallella	B2	b2_function	adv	tallella	kvar / i behåll		intact / still there		noch da / erhalten	
+k_tragedia	B1	b1_media	n	tragedia	en tragedi	def=tragedin;pl=tragedier	tragedy	pl=tragedies	die Tragödie	pl=die Tragödien
+k_koettaa	B1	b1_verbs	v	koettaa	försöka	pres=försöker;pret=försökte;sup=försökt	try / attempt	past=tried;pp=tried	versuchen	pret=versuchte;pp=hat versucht;pres3=versucht
+k_mitaton	B2	b2_describe	adj	mitätön	obetydlig	neut=obetydligt;apl=obetydliga	insignificant / negligible		unbedeutend / geringfügig	
+k_yksityiskohtaisesti	B2	b2_describe	adv	yksityiskohtaisesti	detaljerat / i detalj		in detail		ausführlich / detailliert	
+k_maanjaristys	B1	b1_environment	n	maanjäristys	en jordbävning	def=jordbävningen;pl=jordbävningar	earthquake	pl=earthquakes	das Erdbeben	pl=die Erdbeben
+k_dramaattisesti	B2	b2_describe	adv	dramaattisesti	dramatiskt		dramatically		dramatisch	
+k_tyostaa	B2	b2_verbs	v	työstää	bearbeta	pres=bearbetar;pret=bearbetade;sup=bearbetat	work on / process	past=worked on;pp=worked on	bearbeiten	pret=bearbeitete;pp=hat bearbeitet;pres3=bearbeitet
+k_katolinen	B1	b1_culture	adj	katolinen	katolsk	neut=katolskt;apl=katolska	Catholic		katholisch	
+k_aikaisintaan	B1	b1_connectors	adv	aikaisintaan	tidigast		at the earliest		frühestens	
+k_tyydyttava	B1	b1_opinions	adj	tyydyttävä	tillfredsställande	neut=tillfredsställande;apl=tillfredsställande	satisfactory		befriedigend / zufriedenstellend	
+k_pikemmin	B1	b1_connectors	adv	pikemmin	snarare		rather		eher / vielmehr	
+k_tuotantokausi	B1	b1_media	n	tuotantokausi (tv-sarjan)	en säsong	def=säsongen;pl=säsonger	season / series	pl=seasons	die Staffel	pl=die Staffeln
+k_kirkonkyla	B1	b1_finland_nordic	n	kirkonkylä	en kyrkby	def=kyrkbyn;pl=kyrkbyar	church village / village centre	pl=church villages	das Kirchdorf	pl=die Kirchdörfer
+k_majakka	A2	a2_nature	n	majakka	en fyr	def=fyren;pl=fyrar	lighthouse	pl=lighthouses	der Leuchtturm	pl=die Leuchttürme
+k_lauluntekija	B1	b1_culture	n	lauluntekijä	en låtskrivare	def=låtskrivaren;pl=låtskrivare	songwriter	pl=songwriters	der Songwriter / der Liedermacher	pl=die Songwriter
+k_infrastruktuuri	B2	b2_society	n	infrastruktuuri	en infrastruktur	def=infrastrukturen;pl=infrastrukturer	infrastructure		die Infrastruktur	pl=die Infrastrukturen
+k_tuoksua	A2	a2_verbs	v	tuoksua	dofta	pres=doftar;pret=doftade;sup=doftat	smell	past=smelt;pp=smelt	duften	pret=duftete;pp=hat geduftet;pres3=duftet
+k_geneettisesti	B2	b2_science	adv	geneettisesti	genetiskt		genetically		genetisch	
+k_iloita	B1	b1_verbs	v	iloita	glädjas	pres=gläds;pret=gladdes;sup=glatts	rejoice / be glad	past=rejoiced;pp=rejoiced	sich freuen	pret=freute sich;pp=hat sich gefreut;pres3=freut sich
+k_naiivi	B1	b1_opinions	adj	naiivi	naiv	neut=naivt;apl=naiva	naive		naiv	
+k_kuningaskunta	B1	b1_society	n	kuningaskunta	ett kungarike	def=kungariket;pl=kungariken	kingdom	pl=kingdoms	das Königreich	pl=die Königreiche
+k_hyvittaa	B2	b2_economy	v	hyvittää	gottgöra / kompensera	pres=gottgör;pret=gottgjorde;sup=gottgjort	compensate / make up for	past=compensated;pp=compensated	entschädigen / gutschreiben	pret=entschädigte;pp=hat entschädigt;pres3=entschädigt
+k_kaivella	B2	b2_verbs	v	kaivella	rota / gräva	pres=rotar;pret=rotade;sup=rotat	rummage / dig around	past=rummaged;pp=rummaged	herumwühlen / kramen	pret=wühlte herum;pp=hat herumgewühlt;pres3=wühlt herum
+k_lahjakortti	A2	a2_relationships	n	lahjakortti	ett presentkort	def=presentkortet;pl=presentkort	gift voucher / gift card	pl=gift vouchers	der Gutschein / der Geschenkgutschein	pl=die Gutscheine
+k_joustaa	B1	b1_verbs	v	joustaa	vara flexibel / ge efter	pres=är flexibel;pret=var flexibel;sup=varit flexibel	be flexible / give	past=was flexible;pp=been flexible	flexibel sein / nachgeben	pret=war flexibel;pp=ist flexibel gewesen;pres3=ist flexibel
+k_hyvantekevaisyys	B1	b1_society	n	hyväntekeväisyys	välgörenhet	def=välgörenheten	charity		die Wohltätigkeit	
+k_kunnon	B1	b1_opinions	adj	kunnon (kunnollinen)	ordentlig	neut=ordentligt;apl=ordentliga	proper / decent		ordentlich / anständig	
+k_pikku	A2	a2_describe	adj	pikku (pieni)	liten	neut=litet;apl=små	little / small		klein	
+k_toimiva	B1	b1_abstract	adj	toimiva	fungerande	neut=fungerande;apl=fungerande	working / functioning		funktionierend	
+k_selkeasti	B1	b1_connectors	adv	selkeästi	tydligt / klart		clearly		deutlich / klar	
+k_erinomainen	A2	a2_describe	adj	erinomainen	utmärkt	neut=utmärkt;apl=utmärkta	excellent		ausgezeichnet / hervorragend	
+k_tosissaan	B1	b1_connectors	adv	tosissaan	på allvar		seriously / in earnest		ernsthaft / im Ernst	
+k_sittenkin	B1	b1_connectors	adv	sittenkin	ändå / trots allt		after all		doch / trotzdem	
+k_taloudellisesti	B1	b1_economy	adv	taloudellisesti	ekonomiskt		economically / financially		wirtschaftlich / finanziell	
+k_mukainen	B2	b2_describe	adj	mukainen (jonkin mukainen)	enlig	neut=enligt;apl=enliga	in accordance with / in line with		gemäß / entsprechend	
+k_paasaantoisesti	B2	b2_function	adv	pääsääntöisesti	i regel / huvudsakligen		as a rule / mainly		in der Regel / hauptsächlich	
+k_ennatys	A2	a2_culture_sport	n	ennätys	ett rekord	def=rekordet;pl=rekord	record	pl=records	der Rekord	pl=die Rekorde
+k_varautua	B1	b1_verbs	v	varautua	förbereda sig	pres=förbereder sig;pret=förberedde sig;sup=förberett sig	prepare / be prepared	past=prepared;pp=prepared	sich vorbereiten / sich einstellen	pret=bereitete sich vor;pp=hat sich vorbereitet;pres3=bereitet sich vor
+k_syopa	B1	b1_wellbeing	n	syöpä	cancer	def=cancern	cancer	pl=cancers	der Krebs	
+k_jazz	A2	a2_culture_sport	n	jazz	jazz	def=jazzen	jazz		der Jazz	
+k_kuvio	B1	b1_abstract	n	kuvio	ett mönster	def=mönstret;pl=mönster	pattern	pl=patterns	das Muster	pl=die Muster
+k_lukumaara	B1	b1_abstract	n	lukumäärä	ett antal	def=antalet;pl=antal	number	pl=numbers	die Anzahl	
+k_ilmapiiri	B1	b1_abstract	n	ilmapiiri	en stämning / en atmosfär	def=stämningen;pl=stämningar	atmosphere	pl=atmospheres	die Atmosphäre / die Stimmung	pl=die Atmosphären
+k_massiivinen	B2	b2_describe	adj	massiivinen	massiv	neut=massivt;apl=massiva	massive		massiv / gewaltig	
+k_kuoliaaksi	B2	b2_describe	adv	kuoliaaksi	ihjäl		to death		zu Tode / tot	
+k_suunnitteilla	B2	b2_function	adv	suunnitteilla	planerad / under planering		planned / in the pipeline		geplant / in Planung	
+k_single	B2	b2_culture	n	single (levytys)	en singel	def=singeln;pl=singlar	single	pl=singles	die Single	pl=die Singles
+k_helle	A2	a2_nature	n	helle	en hetta / värme	def=hettan	heat / hot weather		die Hitze	
+k_jannitys	B1	b1_abstract	n	jännitys	en spänning	def=spänningen;pl=spänningar	tension / excitement	pl=tensions	die Spannung	pl=die Spannungen
+k_liikkuva	B2	b2_describe	adj	liikkuva	rörlig	neut=rörligt;apl=rörliga	moving / mobile		beweglich	
+k_kilpaa	B2	b2_describe	adv	kilpaa	i kapp / ikapp		in a race / against each other		um die Wette	
+k_lataus_2	B1	b1_science_tech	n	lataus (tiedoston)	en nedladdning	def=nedladdningen;pl=nedladdningar	download	pl=downloads	der Download	pl=die Downloads
+k_pyynto	A2	a2_services	n	pyyntö	en begäran / en förfrågan	def=begäran;pl=begäranden	request	pl=requests	die Bitte	pl=die Bitten
+k_aita	A2	a2_housing	n	aita	ett staket	def=staketet;pl=staket	fence	pl=fences	der Zaun	pl=die Zäune
+k_jalo	B2	b2_describe	adj	jalo	ädel	neut=ädelt;apl=ädla	noble		edel	
+k_kyltti	A2	a2_transport	n	kyltti	en skylt	def=skylten;pl=skyltar	sign	pl=signs	das Schild	pl=die Schilder
+k_episodi	B2	b2_culture	n	episodi	en episod	def=episoden;pl=episoder	episode	pl=episodes	die Episode / die Folge	pl=die Episoden
+k_paaosa	B1	b1_culture	n	pääosa (elokuvassa)	en huvudroll	def=huvudrollen;pl=huvudroller	leading role / lead	pl=leading roles	die Hauptrolle	pl=die Hauptrollen
+k_mystinen	B2	b2_describe	adj	mystinen	mystisk	neut=mystiskt;apl=mystiska	mysterious / mystical		mysteriös / mystisch	
+k_konsultti	B2	b2_economy	n	konsultti	en konsult	def=konsulten;pl=konsulter	consultant	pl=consultants	der Berater	pl=die Berater
+k_edellakavija	B2	b2_abstract	n	edelläkävijä	en föregångare / en pionjär	def=föregångaren;pl=föregångare	pioneer / forerunner	pl=pioneers	der Vorreiter / der Pionier	pl=die Vorreiter
+k_maapallo	B1	b1_environment	n	maapallo	ett jordklot	def=jordklotet;pl=jordklot	globe / Earth	pl=globes	die Erdkugel / die Erde	
+k_ekonomisti	B2	b2_economy	n	ekonomisti	en ekonom	def=ekonomen;pl=ekonomer	economist	pl=economists	der Ökonom / der Wirtschaftswissenschaftler	pl=die Ökonomen
+k_ulkoministerio	B2	b2_society	n	ulkoministeriö	ett utrikesdepartement / ett utrikesministerium	def=utrikesdepartementet;pl=utrikesdepartement	foreign ministry / Foreign Office	pl=foreign ministries	das Außenministerium	pl=die Außenministerien
+k_loukkaus	B2	b2_law	n	loukkaus	en kränkning / en förolämpning	def=kränkningen;pl=kränkningar	violation / insult	pl=violations	die Verletzung / die Beleidigung	pl=die Verletzungen
+k_ammatillinen	B1	b1_career	adj	ammatillinen	yrkesinriktad / professionell	neut=yrkesinriktat;apl=yrkesinriktade	vocational / professional		beruflich	
+k_uskottavuus	B2	b2_abstract	n	uskottavuus	trovärdighet	def=trovärdigheten	credibility		die Glaubwürdigkeit	
+k_autio	B2	b2_describe	adj	autio	öde	neut=öde;apl=öde	deserted / desolate		verlassen / öde	
+k_aarioikeisto	B2	b2_society	n	äärioikeisto	extremhögern	def=extremhögern	far right / extreme right		die extreme Rechte	
+k_kayttotarkoitus	B2	b2_everyday	n	käyttötarkoitus	ett användningsområde / ett syfte	def=användningsområdet;pl=användningsområden	purpose / intended use	pl=purposes	der Verwendungszweck	pl=die Verwendungszwecke
+k_valittaja	B2	b2_economy	n	välittäjä	en mäklare / en förmedlare	def=mäklaren;pl=mäklare	broker / agent / intermediary	pl=brokers	der Vermittler / der Makler	pl=die Vermittler
+k_tappaja	B2	b2_law	n	tappaja	en mördare / en dråpare	def=mördaren;pl=mördare	killer	pl=killers	der Mörder / der Killer	pl=die Mörder
+k_satsata	B2	b2_verbs	v	satsata	satsa	pres=satsar;pret=satsade;sup=satsat	invest / bet	past=invested;pp=invested	investieren / setzen auf	pret=investierte;pp=hat investiert;pres3=investiert
+k_tutka	B2	b2_science	n	tutka	en radar	def=radarn;pl=radarer	radar	pl=radars	das Radar	pl=die Radare
+k_homoseksuaali	B2	b2_society	n	homoseksuaali	en homosexuell	def=den homosexuella;pl=homosexuella	homosexual / gay person	pl=homosexuals	der Homosexuelle	pl=die Homosexuellen
+k_aarioikeistolainen	B2	b2_describe	adj	äärioikeistolainen	högerextrem	neut=högerextremt;apl=högerextrema	far-right / right-wing extremist		rechtsextrem	
+k_yllattya	A2	a2_feelings	v	yllättyä	bli överraskad	pres=blir överraskad;pret=blev överraskad;sup=blivit överraskad	be surprised	past=was surprised;pp=been surprised	überrascht sein / staunen	pret=war überrascht;pp=ist überrascht gewesen;pres3=ist überrascht
+k_pommittaa	B2	b2_verbs	v	pommittaa	bomba	pres=bombar;pret=bombade;sup=bombat	bomb	past=bombed;pp=bombed	bombardieren	pret=bombardierte;pp=hat bombardiert;pres3=bombardiert
+k_syksyisin	A2	a2_adverbs	adv	syksyisin	på hösten / på hösterna		in autumn / every autumn		im Herbst	
+k_taksikuski	A2	a2_transport	n	taksikuski (taksinkuljettaja)	en taxichaufför	def=taxichauffören;pl=taxichaufförer	taxi driver	pl=taxi drivers	der Taxifahrer	pl=die Taxifahrer
+k_tamanhetkinen	B2	b2_describe	adj	tämänhetkinen	nuvarande / aktuell	neut=nuvarande;apl=nuvarande	current / present		derzeitig / aktuell	
+k_vedonlyonti	B2	b2_everyday	n	vedonlyönti	vadslagning	def=vadslagningen	betting		das Wetten	
+k_tuoreeltaan	B2	b2_function	adv	tuoreeltaan	färsk / genast		fresh / straight away		frisch / sofort	
+k_aliarvioida	B2	b2_verbs	v	aliarvioida	underskatta	pres=underskattar;pret=underskattade;sup=underskattat	underestimate	past=underestimated;pp=underestimated	unterschätzen	pret=unterschätzte;pp=hat unterschätzt;pres3=unterschätzt
+k_asti	A2	a2_adverbs	prep	asti (johonkin asti)	till / ända till		until / up to / as far as		bis	
+k_toisin	B1	b1_connectors	adv	toisin (eri tavalla)	annorlunda / på annat sätt		differently / otherwise		anders	
+k_ansiosta	B1	b1_connectors	prep	ansiosta (jonkin ansiosta)	tack vare		thanks to		dank	
+k_kapteeni	A2	a2_travel	n	kapteeni	en kapten	def=kaptenen;pl=kaptener	captain	pl=captains	der Kapitän	pl=die Kapitäne
+k_sisalle	A2	a2_adverbs	adv	sisälle	in / inomhus		inside / in		hinein / nach drinnen	
+k_rock	A2	a2_culture_sport	n	rock (musiikki)	rock	def=rocken	rock / rock music		die Rockmusik	
+k_kirjoitin	B1	b1_science_tech	n	kirjoitin (tulostin)	en skrivare	def=skrivaren;pl=skrivare	printer	pl=printers	der Drucker	pl=die Drucker
+k_harmittaa	A2	a2_feelings	v	harmittaa	förarga / reta	pres=förargar;pret=förargade;sup=förargat	annoy / bother	past=annoyed;pp=annoyed	ärgern	pret=ärgerte;pp=hat geärgert;pres3=ärgert
+k_haku	B1	b1_science_tech	n	haku (etsintä)	en sökning	def=sökningen;pl=sökningar	search	pl=searches	die Suche	pl=die Suchen
+k_hallita	B1	b1_society	v	hallita (maata)	styra / regera	pres=styr;pret=styrde;sup=styrt	rule / govern	past=ruled;pp=ruled	regieren	pret=regierte;pp=hat regiert;pres3=regiert
+k_pahoin	B1	b1_wellbeing	adv	pahoin (huonosti, vakavasti)	illa / svårt		badly / seriously		schwer / schlimm	
+k_niminen	A2	a2_describe	adj	niminen (jonkin niminen)	som heter / vid namn		named / called		namens / mit dem Namen	
+k_ilme	B1	b1_life	n	ilme	en min	def=minen;pl=miner	expression / look	pl=expressions	die Miene / der Gesichtsausdruck	pl=die Mienen
+k_positiivisesti	B1	b1_opinions	adv	positiivisesti	positivt		positively		positiv	
+k_maisteri	B1	b1_career	n	maisteri (tutkinto)	en masterexamen	def=masterexamen;pl=masterexamina	master's degree	pl=master's degrees	der Master	pl=die Master
+k_ralli	A2	a2_culture_sport	n	ralli	ett rally	def=rallyt;pl=rallyn	rally	pl=rallies	die Rallye	pl=die Rallyes
+k_satunnaisesti	B1	b1_connectors	adv	satunnaisesti	slumpmässigt / ibland		randomly / occasionally		zufällig / gelegentlich	
+k_paljolti	B2	b2_function	adv	paljolti	till stor del / i hög grad		largely / to a large extent		weitgehend / größtenteils	
+k_jarjestys	B1	b1_abstract	n	järjestys	en ordning	def=ordningen;pl=ordningar	order	pl=orders	die Reihenfolge / die Ordnung	pl=die Reihenfolgen
+k_brandi	B2	b2_economy	n	brändi	ett varumärke	def=varumärket;pl=varumärken	brand	pl=brands	die Marke	pl=die Marken
+k_piirre	B1	b1_abstract	n	piirre	ett drag	def=draget;pl=drag	feature / trait	pl=features	das Merkmal / der Zug	pl=die Merkmale
+k_kohdella	B1	b1_verbs	v	kohdella	behandla	pres=behandlar;pret=behandlade;sup=behandlat	treat	past=treated;pp=treated	behandeln	pret=behandelte;pp=hat behandelt;pres3=behandelt
+k_karsia	B2	b2_verbs	v	karsia	gallra / skära ner	pres=gallrar;pret=gallrade;sup=gallrat	cut back / weed out	past=cut back;pp=cut back	aussortieren / kürzen	pret=sortierte aus;pp=hat aussortiert;pres3=sortiert aus
+k_talvisin	A2	a2_adverbs	adv	talvisin	på vintrarna		in winter / in the winter		im Winter	
+k_niska	A2	a2_health	n	niska	en nacke	def=nacken;pl=nackar	neck / back of the neck	pl=necks	der Nacken	pl=die Nacken
+k_tukeva	B2	b2_describe	adj	tukeva	stadig	neut=stadigt;apl=stadiga	sturdy / solid		stabil / kräftig	
+k_paivisin	A2	a2_adverbs	adv	päivisin / päiväsaikaan	på dagarna / dagtid		during the day / by day		tagsüber	
+k_hahmottaa	B2	b2_verbs	v	hahmottaa	uppfatta / överblicka	pres=uppfattar;pret=uppfattade;sup=uppfattat	perceive / grasp / outline	past=perceived;pp=perceived	erfassen / umreißen	pret=erfasste;pp=hat erfasst;pres3=erfasst
+k_pera	B2	b2_everyday	n	perä (takaosa)	en bakdel / en akter	def=bakdelen;pl=bakdelar	rear / back / stern	pl=rears	das Heck / der hintere Teil	pl=die Hecks
+k_vuorovaikutus	B1	b1_abstract	n	vuorovaikutus	en interaktion / en växelverkan	def=interaktionen;pl=interaktioner	interaction	pl=interactions	die Interaktion / die Wechselwirkung	pl=die Interaktionen
+k_meikki	A1	a1_appearance	n	meikki	smink	def=sminket	make-up		das Make-up	
+k_kehno	B2	b2_describe	adj	kehno	dålig / klen	neut=dåligt;apl=dåliga	poor / feeble		dürftig / schlecht	
+k_laakitys	B1	b1_wellbeing	n	lääkitys	en medicinering	def=medicineringen;pl=medicineringar	medication	pl=medications	die Medikation	pl=die Medikationen
+k_itsenaisyys	B1	b1_finland_nordic	n	itsenäisyys	självständighet / oberoende	def=självständigheten	independence		die Unabhängigkeit	
+k_tykki	B2	b2_law	n	tykki	en kanon	def=kanonen;pl=kanoner	cannon / gun	pl=cannons	die Kanone	pl=die Kanonen
+k_miljonaari	B1	b1_economy	n	miljonääri	en miljonär	def=miljonären;pl=miljonärer	millionaire	pl=millionaires	der Millionär	pl=die Millionäre
+k_huomautus	B1	b1_opinions	n	huomautus	en anmärkning	def=anmärkningen;pl=anmärkningar	remark / comment / note	pl=remarks	die Bemerkung	pl=die Bemerkungen
+k_formaatti	B2	b2_culture	n	formaatti	ett format	def=formatet;pl=format	format	pl=formats	das Format	pl=die Formate
+k_energinen	A2	a2_describe	adj	energinen	energisk	neut=energiskt;apl=energiska	energetic		energiegeladen / energisch	
+k_harka	A2	a2_nature	n	härkä	en oxe / en tjur	def=oxen;pl=oxar	ox / bull	pl=oxen	der Ochse / der Stier	pl=die Ochsen
+k_kipina	B1	b1_abstract	n	kipinä	en gnista	def=gnistan;pl=gnistor	spark	pl=sparks	der Funke	pl=die Funken
+k_laheisyys	B1	b1_life	n	läheisyys	närhet	def=närheten	closeness / proximity		die Nähe	
+k_harkittu	B2	b2_describe	adj	harkittu	genomtänkt	neut=genomtänkt;apl=genomtänkta	considered / deliberate / well thought-out		überlegt / durchdacht	
+k_vino	A2	a2_describe	adj	vino	sned	neut=snett;apl=sneda	crooked / slanted / askew		schief	
+k_tuisku	B2	b2_environment	n	tuisku	en snöyra	def=snöyran;pl=snöyror	snowstorm / blizzard	pl=snowstorms	das Schneegestöber / der Schneesturm	pl=die Schneegestöber
+k_jatke	B2	b2_everyday	n	jatke	en förlängning	def=förlängningen;pl=förlängningar	extension	pl=extensions	die Verlängerung	pl=die Verlängerungen
+k_ylaosa	B2	b2_everyday	n	yläosa	en överdel	def=överdelen;pl=överdelar	top / upper part	pl=tops	das Oberteil / der obere Teil	pl=die Oberteile
+k_tunturi	B1	b1_finland_nordic	n	tunturi	ett fjäll	def=fjället;pl=fjäll	fell / mountain	pl=fells	der Fjell / der Berg	pl=die Fjelle
+k_pilkata	B1	b1_verbs	v	pilkata	håna	pres=hånar;pret=hånade;sup=hånat	mock / ridicule	past=mocked;pp=mocked	verspotten	pret=verspottete;pp=hat verspottet;pres3=verspottet
+k_prostituoitu	B2	b2_law	n	prostituoitu	en prostituerad	def=den prostituerade;pl=prostituerade	prostitute	pl=prostitutes	die Prostituierte	pl=die Prostituierten
+k_lastensuojelu	B2	b2_society	n	lastensuojelu	barnskydd	def=barnskyddet	child protection / child welfare		der Kinderschutz / die Jugendhilfe	
+k_kansallisesti	B2	b2_society	adv	kansallisesti	nationellt		nationally		national	
+k_anatomia	B2	b2_health	n	anatomia	anatomi	def=anatomin	anatomy		die Anatomie	
+k_herttuatar	B2	b2_society	n	herttuatar	en hertiginna	def=hertiginnan;pl=hertiginnor	duchess	pl=duchesses	die Herzogin	pl=die Herzoginnen
+k_jonkin_verran	A2	a2_adverbs	phrase	jonkin verran	något / en del		somewhat / to some extent		etwas / einigermaßen	
+k_talloin	B1	b1_connectors	adv	tällöin	då		then / in that case		dann / dabei	
+k_onnistunut	B1	b1_opinions	adj	onnistunut	lyckad	neut=lyckat;apl=lyckade	successful		gelungen / erfolgreich	
+k_lahtea_liikkeelle	B1	b1_verbs	v	lähteä liikkeelle	ge sig av / sätta igång	pres=ger sig av;pret=gav sig av;sup=gett sig av	set off / get going	past=set off;pp=set off	aufbrechen / losgehen	pret=brach auf;pp=ist aufgebrochen;pres3=bricht auf
+k_pitkalti	B2	b2_describe	adv	pitkälti	till stor del / i hög grad		largely / to a large extent		weitgehend / größtenteils	
+k_meneillaan	B1	b1_abstract	adv	meneillään	på gång / pågående		going on / under way		im Gange	
+k_ajoittain	B1	b1_connectors	adv	ajoittain	ibland / emellanåt		at times / occasionally		zeitweise / gelegentlich	
+k_koski	B1	b1_finland_nordic	n	koski	en fors	def=forsen;pl=forsar	rapids	pl=rapids	die Stromschnelle	pl=die Stromschnellen
+k_pahimmillaan	B2	b2_function	adv	pahimmillaan	i värsta fall		at worst		schlimmstenfalls / im schlimmsten Fall	
+k_sattumalta	B1	b1_connectors	adv	sattumalta	av en slump / händelsevis		by chance / by accident		zufällig	
+k_vieraissa	A2	a2_relationships	adv	vieraissa (kylässä)	på besök		visiting / on a visit		zu Besuch	
+k_harjoittaa	B2	b2_verbs	v	harjoittaa	utöva / bedriva	pres=utövar;pret=utövade;sup=utövat	practise / engage in	past=practised;pp=practised	ausüben / betreiben	pret=übte aus;pp=hat ausgeübt;pres3=übt aus
+k_legenda	B1	b1_culture	n	legenda	en legend	def=legenden;pl=legender	legend	pl=legends	die Legende	pl=die Legenden
+k_heikosti	B2	b2_describe	adv	heikosti	svagt / dåligt		weakly / poorly		schwach	
+k_kauheasti	A2	a2_adverbs	adv	kauheasti	hemskt / förfärligt		terribly / awfully		furchtbar / schrecklich	
+k_kohtaus	B1	b1_culture	n	kohtaus (elokuvan tai näytelmän)	en scen	def=scenen;pl=scener	scene	pl=scenes	die Szene	pl=die Szenen
+k_luettelo	B2	b2_communication	n	luettelo	en förteckning / en lista	def=förteckningen;pl=förteckningar	list / catalogue	pl=lists	das Verzeichnis / die Liste	pl=die Verzeichnisse
+k_toivottaa	A2	a2_relationships	v	toivottaa (esim. hyvää matkaa)	önska	pres=önskar;pret=önskade;sup=önskat	wish	past=wished;pp=wished	wünschen	pret=wünschte;pp=hat gewünscht;pres3=wünscht
+k_heina	A2	a2_nature	n	heinä	hö	def=höet	hay		das Heu	
+k_konkreettisesti	B2	b2_function	adv	konkreettisesti	konkret		concretely / in concrete terms		konkret	
+k_metalli	B1	b1_science_tech	n	metalli	en metall	def=metallen;pl=metaller	metal	pl=metals	das Metall	pl=die Metalle
+k_kasittamaton	B1	b1_opinions	adj	käsittämätön	obegriplig	neut=obegripligt;apl=obegripliga	incomprehensible / unbelievable		unbegreiflich / unfassbar	
+k_yhteystiedot	A2	a2_services	n	yhteystiedot	kontaktuppgifter	def=kontaktuppgifterna;pl=kontaktuppgifter	contact details	pl=contact details	die Kontaktdaten	pl=die Kontaktdaten
+k_mitta	B1	b1_science_tech	n	mitta	ett mått	def=måttet;pl=mått	measure / measurement	pl=measures	das Maß	pl=die Maße
+k_romania	A2	a2_education	n	romania (kieli)	rumänska	def=rumänskan	Romanian		Rumänisch	
+k_ajella	B1	b1_verbs	v	ajella	köra omkring / åka runt	pres=kör omkring;pret=körde omkring;sup=kört omkring	drive around	past=drove around;pp=driven around	herumfahren	pret=fuhr herum;pp=ist herumgefahren;pres3=fährt herum
+k_syvyys	B1	b1_science_tech	n	syvyys	ett djup	def=djupet;pl=djup	depth	pl=depths	die Tiefe	pl=die Tiefen
+k_lunastaa	B2	b2_verbs	v	lunastaa	lösa in / lösa ut	pres=löser in;pret=löste in;sup=löst in	redeem / collect	past=redeemed;pp=redeemed	einlösen	pret=löste ein;pp=hat eingelöst;pres3=löst ein
+k_ele	B2	b2_communication	n	ele	en gest	def=gesten;pl=gester	gesture	pl=gestures	die Geste	pl=die Gesten
+k_luontainen	B2	b2_describe	adj	luontainen	medfödd / naturlig	neut=medfött;apl=medfödda	innate / natural		angeboren / natürlich	
+k_trio	B2	b2_culture	n	trio	en trio	def=trion;pl=trior	trio	pl=trios	das Trio	pl=die Trios
+k_vilpittomasti	B2	b2_describe	adv	vilpittömästi	uppriktigt		sincerely		aufrichtig	
+k_nako	A2	a2_health	n	näkö	syn	def=synen	eyesight / sight		das Sehvermögen / die Sehkraft	
+k_karkottaa	B2	b2_law	v	karkottaa (maasta)	utvisa	pres=utvisar;pret=utvisade;sup=utvisat	deport / expel	past=deported;pp=deported	abschieben / ausweisen	pret=schob ab;pp=hat abgeschoben;pres3=schiebt ab
+k_merimies	A2	a2_work	n	merimies	en sjöman	def=sjömannen;pl=sjömän	sailor / seaman	pl=sailors	der Seemann / der Matrose	pl=die Seeleute
+k_hoiva	B1	b1_wellbeing	n	hoiva	omsorg / vård	def=omsorgen	care		die Pflege / die Fürsorge	
+k_onnellisesti	A2	a2_adverbs	adv	onnellisesti	lyckligt		happily		glücklich	
+k_apulanta	B2	b2_environment	n	apulanta (lannoite)	konstgödsel	def=konstgödseln	fertiliser	pl=fertilisers	der Kunstdünger / der Dünger	
+k_koukku	A2	a2_nature	n	koukku	en krok	def=kroken;pl=krokar	hook	pl=hooks	der Haken	pl=die Haken
+k_elvyttaa	B2	b2_verbs	v	elvyttää	återuppliva / stimulera	pres=återupplivar;pret=återupplivade;sup=återupplivat	revive / stimulate	past=revived;pp=revived	wiederbeleben / ankurbeln	pret=belebte wieder;pp=hat wiederbelebt;pres3=belebt wieder
+k_etninen	B2	b2_society	adj	etninen	etnisk	neut=etniskt;apl=etniska	ethnic		ethnisch	
+k_tunnistin	B2	b2_science	n	tunnistin (anturi)	en sensor / en givare	def=sensorn;pl=sensorer	sensor / detector	pl=sensors	der Sensor	pl=die Sensoren
+k_rajoitus	B1	b1_law	n	rajoitus	en begränsning	def=begränsningen;pl=begränsningar	restriction / limitation	pl=restrictions	die Einschränkung / die Beschränkung	pl=die Einschränkungen
+k_maantieteellisesti	B2	b2_environment	adv	maantieteellisesti	geografiskt		geographically		geografisch	
+k_varhainen	B1	b1_abstract	adj	varhainen	tidig	neut=tidigt;apl=tidiga	early		früh	
+k_suudelma	A2	a2_relationships	n	suudelma	en kyss	def=kyssen;pl=kyssar	kiss	pl=kisses	der Kuss	pl=die Küsse
+k_moninkertaisesti	B2	b2_describe	adv	moninkertaisesti	mångdubbelt		many times over		um ein Vielfaches / vielfach	
+k_kuilu	B2	b2_abstract	n	kuilu	en klyfta	def=klyftan;pl=klyftor	gap / chasm	pl=gaps	die Kluft	pl=die Klüfte
+k_nimellisesti	B2	b2_describe	adv	nimellisesti	nominellt		nominally		nominell / dem Namen nach	
+k_oikaisu	B2	b2_communication	n	oikaisu	en rättelse	def=rättelsen;pl=rättelser	correction	pl=corrections	die Berichtigung / die Korrektur	pl=die Berichtigungen
+k_mielivaltaisesti	B2	b2_describe	adv	mielivaltaisesti	godtyckligt		arbitrarily		willkürlich	
+k_liittokansleri	B2	b2_society	n	liittokansleri	en förbundskansler	def=förbundskanslern;pl=förbundskanslerer	federal chancellor	pl=federal chancellors	der Bundeskanzler	pl=die Bundeskanzler
+k_luonteva	B2	b2_describe	adj	luonteva	naturlig / otvungen	neut=naturligt;apl=naturliga	natural / effortless		natürlich / ungezwungen	
+k_seka	A2	a2_adverbs	conj	sekä (ja myös)	samt / och		as well as / and		sowie / und	
+k_helposti	A2	a2_adverbs	adv	helposti	lätt / enkelt		easily		leicht / einfach	
+k_osin	B1	b1_connectors	adv	osin / osittain	delvis		partly / partially		teilweise / zum Teil	
+k_tekija_2	B2	b2_culture	n	tekijä (joka on tehnyt)	en upphovsman / en skapare	def=upphovsmannen;pl=upphovsmän	author / maker / creator	pl=authors	der Urheber / der Macher	pl=die Urheber
+k_kiire	A2	a2_work	n	kiire	en brådska	def=brådskan	hurry / rush		die Eile	
+k_melkoinen	B2	b2_describe	adj	melkoinen	betydande / ansenlig	neut=betydande;apl=betydande	considerable / quite a		beträchtlich / ziemlich	
+k_kukin	B2	b2_function	pron	kukin	var och en / varje		each		jeder	
+k_jonkinlainen	A2	a2_adverbs	pron	jonkinlainen	någon sorts / något slags		some kind of / some sort of		irgendein / eine Art	
+k_toimittaa	B1	b1_verbs	v	toimittaa (viedä perille)	leverera	pres=levererar;pret=levererade;sup=levererat	deliver / supply	past=delivered;pp=delivered	liefern	pret=lieferte;pp=hat geliefert;pres3=liefert
+k_jospa	B2	b2_function	adv	jospa	tänk om / om nu		what if / how about		wie wäre es, wenn / vielleicht	
+k_kasittely	B1	b1_society	n	käsittely (asian käsittely)	en behandling	def=behandlingen;pl=behandlingar	handling / processing		die Bearbeitung / die Behandlung	pl=die Bearbeitungen
+k_siirto	B1	b1_economy	n	siirto	en överföring	def=överföringen;pl=överföringar	transfer	pl=transfers	die Übertragung / der Transfer	pl=die Übertragungen
+k_paajohtaja	B2	b2_economy	n	pääjohtaja	en generaldirektör	def=generaldirektören;pl=generaldirektörer	director general / chief executive	pl=directors general	der Generaldirektor	pl=die Generaldirektoren
+k_kokoon	B2	b2_function	adv	kokoon (yhteen)	ihop / samman		together / up		zusammen	
+k_elin	B1	b1_wellbeing	n	elin (ruumiin elin)	ett organ	def=organet;pl=organ	organ	pl=organs	das Organ	pl=die Organe
+k_vaikeasti	B2	b2_describe	adv	vaikeasti (vakavasti)	svårt		severely / with difficulty		schwer	
+k_katevasti	B2	b2_describe	adv	kätevästi	smidigt / bekvämt		conveniently / handily		praktisch / bequem	
+k_lupaus	A2	a2_relationships	n	lupaus	ett löfte	def=löftet;pl=löften	promise	pl=promises	das Versprechen	pl=die Versprechen
+k_yhtenainen	B2	b2_describe	adj	yhtenäinen	enhetlig	neut=enhetligt;apl=enhetliga	uniform / unified / coherent		einheitlich	
+k_rento	A2	a2_describe	adj	rento	avslappnad	neut=avslappnat;apl=avslappnade	relaxed / laid-back		entspannt / locker	
+k_nauha	B2	b2_everyday	n	nauha	ett band	def=bandet;pl=band	ribbon / tape / band	pl=ribbons	das Band	pl=die Bänder
+k_juutalainen	B1	b1_culture	adj	juutalainen	judisk	neut=judiskt;apl=judiska	Jewish		jüdisch	
+k_itsemurha	B2	b2_health	n	itsemurha	ett självmord	def=självmordet;pl=självmord	suicide	pl=suicides	der Selbstmord / der Suizid	pl=die Selbstmorde
+k_entapa	B2	b2_function	adv	entäpä	men om / hur är det med		what about / and what if		und was ist mit / wie wäre es	
+k_jyrkasti	B2	b2_describe	adv	jyrkästi (ehdottomasti)	bestämt / kategoriskt		firmly / flatly		entschieden / strikt	
+k_romahtaa	B1	b1_verbs	v	romahtaa	rasa / kollapsa	pres=rasar;pret=rasade;sup=rasat	collapse	past=collapsed;pp=collapsed	zusammenbrechen	pret=brach zusammen;pp=ist zusammengebrochen;pres3=bricht zusammen
+k_valiton	B2	b2_describe	adj	välitön (heti tapahtuva)	omedelbar	neut=omedelbart;apl=omedelbara	immediate / direct		unmittelbar / sofortig	
+k_milloinkaan	B2	b2_function	adv	milloinkaan (koskaan)	någonsin		ever		jemals / je	
+k_kasky	B1	b1_abstract	n	käsky	en order / en befallning	def=ordern;pl=order	order / command	pl=orders	der Befehl	pl=die Befehle
+k_hakeutua	B2	b2_verbs	v	hakeutua	söka sig	pres=söker sig;pret=sökte sig;sup=sökt sig	seek / head for	past=sought;pp=sought	sich begeben / aufsuchen	pret=begab sich;pp=hat sich begeben;pres3=begibt sich
+k_tormata	B1	b1_verbs	v	törmätä (osua johonkin)	krocka	pres=krockar;pret=krockade;sup=krockat	collide / crash	past=collided;pp=collided	zusammenstoßen	pret=stieß zusammen;pp=ist zusammengestoßen;pres3=stößt zusammen
+k_yrittajyys	B2	b2_economy	n	yrittäjyys	ett entreprenörskap / ett företagande	def=entreprenörskapet	entrepreneurship		das Unternehmertum	
+k_raketti	B1	b1_science_tech	n	raketti	en raket	def=raketen;pl=raketer	rocket	pl=rockets	die Rakete	pl=die Raketen
+k_jyrkka	A2	a2_describe	adj	jyrkkä	brant	neut=brant;apl=branta	steep		steil	
+k_varovaisesti	A2	a2_adverbs	adv	varovaisesti	försiktigt		carefully / cautiously		vorsichtig	
+k_ympyra	A2	a2_education	n	ympyrä	en cirkel	def=cirkeln;pl=cirklar	circle	pl=circles	der Kreis	pl=die Kreise
+k_ohjaamo	B2	b2_everyday	n	ohjaamo	en förarhytt / en cockpit	def=förarhytten;pl=förarhytter	cab / cockpit	pl=cabs	die Fahrerkabine / das Cockpit	pl=die Fahrerkabinen
+k_kukoistaa	B2	b2_verbs	v	kukoistaa	blomstra	pres=blomstrar;pret=blomstrade;sup=blomstrat	flourish / thrive	past=flourished;pp=flourished	blühen / florieren	pret=blühte;pp=hat geblüht;pres3=blüht
+k_upottaa	B2	b2_verbs	v	upottaa	sänka	pres=sänker;pret=sänkte;sup=sänkt	sink / immerse	past=sank;pp=sunk	versenken	pret=versenkte;pp=hat versenkt;pres3=versenkt
+k_puro	A2	a2_nature	n	puro	en bäck	def=bäcken;pl=bäckar	stream / brook	pl=streams	der Bach	pl=die Bäche
+k_nappara	B2	b2_describe	adj	näppärä	behändig / händig	neut=behändigt;apl=behändiga	handy / nifty		geschickt / praktisch	
+k_alaikainen	B1	b1_law	adj	alaikäinen	minderårig	neut=minderårigt;apl=minderåriga	underage / minor		minderjährig	
+k_suoritin	B2	b2_science	n	suoritin	en processor	def=processorn;pl=processorer	processor	pl=processors	der Prozessor	pl=die Prozessoren
+k_naennaisesti	B2	b2_describe	adv	näennäisesti	skenbart		seemingly / apparently		scheinbar	
+k_omillaan	B2	b2_function	adv	omillaan	på egen hand		on one's own		auf sich gestellt / allein	
+k_kohtalaisesti	B2	b2_describe	adv	kohtalaisesti	måttligt		moderately / fairly		mäßig / einigermaßen	
+k_elinikainen	B2	b2_describe	adj	elinikäinen	livslång	neut=livslångt;apl=livslånga	lifelong		lebenslang	
+k_pullollaan	B2	b2_describe	adv	pullollaan (täynnä)	full av / proppfull		full of / packed with		voll von / voller	
+k_rasti	B2	b2_everyday	n	rasti (merkki, ruksi)	ett kryss	def=krysset;pl=kryss	cross / tick	pl=crosses	das Kreuzchen / das Häkchen	pl=die Kreuzchen
+k_vapautus	B2	b2_law	n	vapautus (verosta, velvollisuudesta)	en befrielse	def=befrielsen;pl=befrielser	exemption / release	pl=exemptions	die Befreiung	pl=die Befreiungen
+k_viola	B2	b2_culture	n	viola (soitin)	en altfiol / en viola	def=altfiolen;pl=altfioler	viola	pl=violas	die Bratsche	pl=die Bratschen
+k_kateus	B1	b1_life	n	kateus	avundsjuka / avund	def=avundsjukan	envy / jealousy		der Neid	
+k_elavalta	B2	b2_function	adv	elävältä	levande		alive		lebendig	
+k_happo	B2	b2_science	n	happo	en syra	def=syran;pl=syror	acid	pl=acids	die Säure	pl=die Säuren
+k_vaivattomasti	B2	b2_describe	adv	vaivattomasti	obehindrat / utan ansträngning		effortlessly		mühelos	
+k_rinnastaa	B2	b2_verbs	v	rinnastaa	jämställa	pres=jämställer;pret=jämställde;sup=jämställt	equate / compare	past=equated;pp=equated	gleichsetzen	pret=setzte gleich;pp=hat gleichgesetzt;pres3=setzt gleich
+k_lumisade	A2	a2_nature	n	lumisade	ett snöfall	def=snöfallet;pl=snöfall	snowfall	pl=snowfalls	der Schneefall	pl=die Schneefälle
+k_piipahtaa	B2	b2_verbs	v	piipahtaa	titta in	pres=tittar in;pret=tittade in;sup=tittat in	pop in / drop by	past=popped in;pp=popped in	vorbeischauen	pret=schaute vorbei;pp=hat vorbeigeschaut;pres3=schaut vorbei
+k_sellainen	A1	a1_core	pron	sellainen	sådan	neut=sådant;apl=sådana	such / like that		solch / so ein	
+k_kovaa	A2	a2_adverbs	adv	kovaa (kovalla äänellä)	högt		loudly / loud		laut	
+k_versio	B1	b1_science_tech	n	versio	en version	def=versionen;pl=versioner	version	pl=versions	die Version	pl=die Versionen
+k_kokenut	B1	b1_career	adj	kokenut	erfaren	neut=erfaret;apl=erfarna	experienced		erfahren	
+k_tuotanto	B1	b1_economy	n	tuotanto	en produktion	def=produktionen;pl=produktioner	production	pl=productions	die Produktion	pl=die Produktionen
+k_kera	B2	b2_function	prep	kera (kanssa)	med		with		mit	
+k_kerroin	B2	b2_science	n	kerroin	en koefficient	def=koefficienten;pl=koefficienter	coefficient / factor	pl=coefficients	der Koeffizient	pl=die Koeffizienten
+k_veto_2	B2	b2_everyday	n	veto (ilmavirta)	ett drag	def=draget;pl=drag	draught	pl=draughts	der Luftzug	pl=die Luftzüge
+k_suuresti	B2	b2_describe	adv	suuresti	mycket / starkt		greatly		sehr / stark	
+k_suunnittelu	B1	b1_career	n	suunnittelu	en planering	def=planeringen;pl=planeringar	planning		die Planung	pl=die Planungen
+k_lopullinen	B1	b1_abstract	adj	lopullinen	slutgiltig	neut=slutgiltigt;apl=slutgiltiga	final		endgültig	
+k_muisti	B1	b1_wellbeing	n	muisti	ett minne	def=minnet;pl=minnen	memory	pl=memories	das Gedächtnis	pl=die Gedächtnisse
+k_vahinko	B1	b1_law	n	vahinko (vaurio)	en skada	def=skadan;pl=skador	damage		der Schaden	pl=die Schäden
+k_hurja	B2	b2_describe	adj	hurja	vild	neut=vilt;apl=vilda	wild / fierce		wild / heftig	
+k_maailmanlaajuisesti	B2	b2_describe	adv	maailmanlaajuisesti	globalt / världen över		globally / worldwide		weltweit	
+k_klubi	A2	a2_culture_sport	n	klubi	en klubb	def=klubben;pl=klubbar	club	pl=clubs	der Klub / der Club / der Verein	pl=die Klubs
+k_aloite	B1	b1_society	n	aloite	ett initiativ	def=initiativet;pl=initiativ	initiative	pl=initiatives	die Initiative	pl=die Initiativen
+k_kaikkialle	A2	a2_adverbs	adv	kaikkialle	överallt		everywhere		überallhin	
+k_kaksinkertainen	B1	b1_abstract	adj	kaksinkertainen	dubbel	neut=dubbelt;apl=dubbla	double		doppelt	
+k_laskin	A2	a2_education	n	laskin	en miniräknare	def=miniräknaren;pl=miniräknare	calculator	pl=calculators	der Taschenrechner	pl=die Taschenrechner
+k_leikki	A2	a2_culture_sport	n	leikki	en lek	def=leken;pl=lekar	game / play	pl=games	das Spiel	pl=die Spiele
+k_motiivi	B1	b1_abstract	n	motiivi	ett motiv	def=motivet;pl=motiv	motive	pl=motives	das Motiv	pl=die Motive
+k_palkkio	B1	b1_economy	n	palkkio	en belöning / ett arvode	def=belöningen;pl=belöningar	reward / fee	pl=rewards	die Belohnung / das Honorar	pl=die Belohnungen
+k_jaada_jumiin	B1	b1_verbs	phrase	jäädä jumiin	fastna		get stuck		stecken bleiben / hängen bleiben	
+k_islamilainen	B1	b1_culture	adj	islamilainen	islamisk	neut=islamiskt;apl=islamiska	Islamic		islamisch	
+k_poiketa_2	B2	b2_verbs	v	poiketa (erota)	avvika	pres=avviker;pret=avvek;sup=avvikit	deviate / differ	past=deviated;pp=deviated	abweichen	pret=wich ab;pp=ist abgewichen;pres3=weicht ab
+k_valillisesti	B2	b2_describe	adv	välillisesti	indirekt		indirectly		indirekt / mittelbar	
+k_tuska	B2	b2_health	n	tuska	en plåga / ångest	def=plågan;pl=plågor	agony / anguish		die Qual	pl=die Qualen
+k_sotilaallinen	B1	b1_law	adj	sotilaallinen	militär	neut=militärt;apl=militära	military		militärisch	
+k_vayla	B2	b2_everyday	n	väylä	en kanal / en led	def=kanalen;pl=kanaler	channel / route	pl=channels	der Kanal / der Weg	pl=die Kanäle
+k_puhuja	B1	b1_society	n	puhuja	en talare	def=talaren;pl=talare	speaker	pl=speakers	der Redner	pl=die Redner
+k_vuotuinen	B2	b2_describe	adj	vuotuinen	årlig	neut=årligt;apl=årliga	annual / yearly		jährlich	
+k_kosketus	B1	b1_abstract	n	kosketus	en beröring	def=beröringen;pl=beröringar	touch / contact	pl=touches	die Berührung	pl=die Berührungen
+k_paikoitellen	B2	b2_describe	adv	paikoitellen	på sina ställen / ställvis		in places / here and there		stellenweise	
+k_skenaario	B2	b2_abstract	n	skenaario	ett scenario	def=scenariot;pl=scenarier	scenario	pl=scenarios	das Szenario	pl=die Szenarien
+k_krapula	B1	b1_wellbeing	n	krapula	en baksmälla	def=baksmällan;pl=baksmällor	hangover	pl=hangovers	der Kater	pl=die Kater
+k_alamaki	B2	b2_environment	n	alamäki	en nedförsbacke	def=nedförsbacken;pl=nedförsbackar	downhill slope	pl=downhill slopes	der Abhang	pl=die Abhänge
+k_rajata	B2	b2_verbs	v	rajata	avgränsa	pres=avgränsar;pret=avgränsade;sup=avgränsat	limit / delimit	past=limited;pp=limited	begrenzen / abgrenzen	pret=begrenzte;pp=hat begrenzt;pres3=begrenzt
+k_kikka	B2	b2_everyday	n	kikka	ett knep	def=knepet;pl=knep	trick	pl=tricks	der Trick / der Kniff	pl=die Tricks
+k_kauhu	B1	b1_abstract	n	kauhu	en skräck	def=skräcken	horror / terror		das Entsetzen / der Schrecken	
+k_ohimennen	B2	b2_function	adv	ohimennen	i förbigående		in passing		nebenbei / beiläufig	
+k_valtiollinen	B2	b2_society	adj	valtiollinen	statlig	neut=statligt;apl=statliga	state / governmental		staatlich	
+k_tasapainottaa	B2	b2_verbs	v	tasapainottaa	balansera	pres=balanserar;pret=balanserade;sup=balanserat	balance	past=balanced;pp=balanced	ausgleichen	pret=glich aus;pp=hat ausgeglichen;pres3=gleicht aus
+k_olematon	B2	b2_describe	adj	olematon	obefintlig	neut=obefintligt;apl=obefintliga	non-existent		nicht existent / nicht vorhanden	
+k_kiihkea	B2	b2_describe	adj	kiihkeä	het / passionerad	neut=hett;apl=heta	heated / passionate		heftig / leidenschaftlich	
+k_miespuolinen	B2	b2_describe	adj	miespuolinen	manlig	neut=manligt;apl=manliga	male		männlich	
+k_kaavoitus	B2	b2_society	n	kaavoitus	planläggning	def=planläggningen	town planning / zoning		die Stadtplanung / die Bauleitplanung	
+k_alykkyys	B1	b1_abstract	n	älykkyys	en intelligens	def=intelligensen	intelligence		die Intelligenz	
+k_uskottavasti	B2	b2_describe	adv	uskottavasti	trovärdigt		credibly / convincingly		glaubwürdig / überzeugend	
+k_eittamatta	B2	b2_function	adv	eittämättä	otvivelaktigt		undeniably / unquestionably		unbestreitbar / zweifellos	
+k_elektroninen	B1	b1_science_tech	adj	elektroninen	elektronisk	neut=elektroniskt;apl=elektroniska	electronic		elektronisch	
+k_armollinen	B2	b2_describe	adj	armollinen	barmhärtig	neut=barmhärtigt;apl=barmhärtiga	merciful		gnädig / barmherzig	
+k_yksilollinen	B2	b2_describe	adj	yksilöllinen	individuell	neut=individuellt;apl=individuella	individual		individuell	
+k_grafiikka	B1	b1_science_tech	n	grafiikka	grafik	def=grafiken	graphics		die Grafik	pl=die Grafiken
+k_visuaalisesti	B2	b2_describe	adv	visuaalisesti	visuellt		visually		visuell	
+k_vakeva	B2	b2_describe	adj	väkevä	stark	neut=starkt;apl=starka	strong		stark	
+k_voimakkuus	B2	b2_science	n	voimakkuus	en styrka / en intensitet	def=styrkan;pl=styrkor	intensity / strength	pl=intensities	die Stärke / die Intensität	pl=die Stärken
+k_panna_vireille	B2	b2_law	phrase	panna vireille	inleda / väcka		initiate / institute		einleiten / anhängig machen	
+k_toki	B1	b1_connectors	adv	toki (tietysti)	visserligen / förstås		of course / certainly		freilich / natürlich / zwar	
+k_kohtaan	B1	b1_connectors	prep	kohtaan (jotakuta kohtaan)	mot / gentemot		towards / to		gegenüber	
+k_ikava_2	A2	a2_feelings	n	ikävä (kaipaus)	saknad / längtan	def=saknaden	longing		die Sehnsucht	pl=die Sehnsüchte
+k_siirtaa	A2	a2_verbs	v	siirtää	flytta	pres=flyttar;pret=flyttade;sup=flyttat	move / transfer	past=moved;pp=moved	verschieben / bewegen	pret=verschob;pp=hat verschoben;pres3=verschiebt
+k_kohde	B1	b1_abstract	n	kohde (tavoite)	ett mål / ett objekt	def=målet;pl=mål	target / object / destination	pl=targets	das Ziel / das Objekt	pl=die Ziele
+k_virallisesti	B1	b1_society	adv	virallisesti	officiellt		officially		offiziell	
+k_poikki_2	A2	a2_adverbs	prep	poikki (yli, halki)	tvärs över / över		across		quer über / über	
+k_tammi	A2	a2_nature	n	tammi (puu)	en ek	def=eken;pl=ekar	oak	pl=oaks	die Eiche	pl=die Eichen
+k_sisalta	A2	a2_adverbs	prep	sisältä (jonkin sisältä)	inifrån		from inside / from within		von innen / aus ... heraus	
+k_verotus	B1	b1_economy	n	verotus	beskattning	def=beskattningen	taxation		die Besteuerung	
+k_karjalainen	B1	b1_finland_nordic	adj	karjalainen	karelsk	neut=karelskt;apl=karelska	Karelian		karelisch	
+k_tulkinta	B1	b1_opinions	n	tulkinta	en tolkning	def=tolkningen;pl=tolkningar	interpretation	pl=interpretations	die Interpretation / die Auslegung	pl=die Interpretationen
+k_taikka	B2	b2_function	conj	taikka	eller		or		oder	
+k_korkealle	A2	a2_adverbs	adv	korkealle	högt / högt upp		high / up high		hoch / in die Höhe	
+k_urheilija	A2	a2_culture_sport	n	urheilija	en idrottare	def=idrottaren;pl=idrottare	athlete / sportsman	pl=athletes	der Sportler	pl=die Sportler
+k_vihollinen	B1	b1_law	n	vihollinen	en fiende	def=fienden;pl=fiender	enemy	pl=enemies	der Feind	pl=die Feinde
+k_este	B1	b1_abstract	n	este	ett hinder	def=hindret;pl=hinder	obstacle	pl=obstacles	das Hindernis	pl=die Hindernisse
+k_turvata	B1	b1_verbs	v	turvata	trygga / säkra	pres=tryggar;pret=tryggade;sup=tryggat	secure / safeguard	past=secured;pp=secured	sichern	pret=sicherte;pp=hat gesichert;pres3=sichert
+k_kaasu	B1	b1_science_tech	n	kaasu	en gas	def=gasen;pl=gaser	gas	pl=gases	das Gas	pl=die Gase
+k_punk	A2	a2_culture_sport	n	punk	punk	def=punken	punk		der Punk	
+k_ylin	A2	a2_describe	adj	ylin	översta / högsta		top / highest / uppermost		oberst / höchst	
+k_toimenpide	B1	b1_abstract	n	toimenpide	en åtgärd	def=åtgärden;pl=åtgärder	measure / action	pl=measures	die Maßnahme	pl=die Maßnahmen
+k_hallinta	B2	b2_abstract	n	hallinta (kontrolli)	en kontroll / en hantering	def=kontrollen;pl=kontroller	control / management	pl=controls	die Kontrolle / die Beherrschung	pl=die Kontrollen
+k_kaksin	A2	a2_adverbs	adv	kaksin (kahdestaan)	på tu man hand / två och två		just the two of us / in twos		zu zweit	
+k_tiivis	B1	b1_abstract	adj	tiivis (tiheä; läheinen)	tät / nära	neut=tätt;apl=täta	close / dense / tight		dicht / eng	
+k_puhaltaa	A2	a2_verbs	v	puhaltaa	blåsa	pres=blåser;pret=blåste;sup=blåst	blow	past=blew;pp=blown	blasen	pret=blies;pp=hat geblasen;pres3=bläst
+k_olla_koolla	B2	b2_function	phrase	olla koolla	vara samlad / vara församlad		be assembled / be gathered		versammelt sein	
+k_visa	A2	a2_culture_sport	n	visa (tietokilpailu)	en frågesport	def=frågesporten;pl=frågesporter	quiz	pl=quizzes	das Quiz	pl=die Quiz
+k_suhteellinen	B1	b1_abstract	adj	suhteellinen	relativ	neut=relativt;apl=relativa	relative		relativ	
+k_loukata	A2	a2_health	v	loukata (vahingoittaa kehoa)	skada	pres=skadar;pret=skadade;sup=skadat	injure / hurt	past=injured;pp=injured	verletzen	pret=verletzte;pp=hat verletzt;pres3=verletzt
+k_entuudestaan	B2	b2_function	adv	entuudestaan	sedan tidigare / sedan förut		already / from before / previously		schon / von früher	
+k_toisenlainen	A2	a2_describe	adj	toisenlainen	annorlunda / annan	neut=annorlunda;apl=annorlunda	different / of another kind		anders / andersartig	
+k_kitaristi	A2	a2_culture_sport	n	kitaristi	en gitarrist	def=gitarristen;pl=gitarrister	guitarist	pl=guitarists	der Gitarrist	pl=die Gitarristen
+k_poikkeava	B1	b1_abstract	adj	poikkeava	avvikande	neut=avvikande;apl=avvikande	deviating / unusual / different		abweichend	
+k_bravo	A2	a2_culture_sport	interj	bravo	bravo		bravo / well done		bravo	
+k_romahdus	B1	b1_economy	n	romahdus	en kollaps / ett ras	def=kollapsen;pl=kollapser	collapse / crash	pl=collapses	der Zusammenbruch / der Einbruch	pl=die Zusammenbrüche
+k_haka	B2	b2_everyday	n	haka (koukku, salpa)	en hake	def=haken;pl=hakar	hook / catch	pl=hooks	der Haken	pl=die Haken
+k_asteittain	B2	b2_describe	adv	asteittain	gradvis / stegvis		gradually / by degrees		schrittweise / allmählich	
+k_sveitsilainen	A2	a2_travel	adj	sveitsiläinen	schweizisk	neut=schweiziskt;apl=schweiziska	Swiss		schweizerisch / Schweizer	
+k_mekaaninen	B1	b1_science_tech	adj	mekaaninen	mekanisk	neut=mekaniskt;apl=mekaniska	mechanical		mechanisch	
+k_keventaa	B1	b1_verbs	v	keventää	lätta / minska	pres=lättar;pret=lättade;sup=lättat	lighten / ease / reduce	past=lightened;pp=lightened	entlasten / leichter machen	pret=entlastete;pp=hat entlastet;pres3=entlastet
+k_jaahalli	A2	a2_culture_sport	n	jäähalli	en ishall	def=ishallen;pl=ishallar	ice rink / ice hall	pl=ice rinks	die Eishalle	pl=die Eishallen
+k_soolo	B1	b1_culture	n	soolo	ett solo	def=solot;pl=solon	solo	pl=solos	das Solo	pl=die Solos
+k_hamara	B1	b1_abstract	adj	hämärä (epäselvä, himmeä)	dunkel / skum	neut=dunkelt;apl=dunkla	dim / vague / shady		dämmrig / dunkel / zwielichtig	
+k_kirves	A2	a2_housing	n	kirves	en yxa	def=yxan;pl=yxor	axe	pl=axes	die Axt	pl=die Äxte
+k_konferenssi	B1	b1_career	n	konferenssi	en konferens	def=konferensen;pl=konferenser	conference	pl=conferences	die Konferenz	pl=die Konferenzen
+k_talouspolitiikka	B1	b1_economy	n	talouspolitiikka	ekonomisk politik	def=den ekonomiska politiken	economic policy	pl=economic policies	die Wirtschaftspolitik	
+k_sattumoisin	B2	b2_function	adv	sattumoisin	händelsevis / av en slump		by chance / as it happens / coincidentally		zufällig / zufälligerweise	
+k_marssia	B1	b1_verbs	v	marssia	marschera	pres=marscherar;pret=marscherade;sup=marscherat	march	past=marched;pp=marched	marschieren	pret=marschierte;pp=ist marschiert;pres3=marschiert
+k_ideologinen	B2	b2_society	adj	ideologinen	ideologisk	neut=ideologiskt;apl=ideologiska	ideological		ideologisch	
+k_akillisesti	B2	b2_describe	adv	äkillisesti	plötsligt / abrupt		suddenly / abruptly		plötzlich / abrupt	
+k_alistaa	B2	b2_verbs	v	alistaa	underkuva / underordna	pres=underkuvar;pret=underkuvade;sup=underkuvat	subjugate / subordinate / oppress	past=subjugated;pp=subjugated	unterwerfen / unterordnen	pret=unterwarf;pp=hat unterworfen;pres3=unterwirft
+k_solmia_2	A2	a2_verbs	v	solmia (solmu)	knyta	pres=knyter;pret=knöt;sup=knutit	tie	past=tied;pp=tied	knoten / binden	pret=knotete;pp=hat geknotet;pres3=knotet
+k_armo	B1	b1_culture	n	armo	nåd	def=nåden	mercy / grace		die Gnade	
+k_viestittaa	B2	b2_communication	v	viestittää	signalera / kommunicera	pres=signalerar;pret=signalerade;sup=signalerat	signal / convey / communicate	past=signalled;pp=signalled	signalisieren / vermitteln	pret=signalisierte;pp=hat signalisiert;pres3=signalisiert
+k_esittaja	B1	b1_culture	n	esittäjä	en artist / en framförare	def=artisten;pl=artister	performer	pl=performers	der Interpret / der Darsteller	pl=die Interpreten
+k_viimeistella	B1	b1_verbs	v	viimeistellä	finputsa / färdigställa	pres=finputsar;pret=finputsade;sup=finputsat	finish off / finalise / polish	past=finished off;pp=finished off	fertigstellen / vollenden	pret=stellte fertig;pp=hat fertiggestellt;pres3=stellt fertig
+k_eeppinen	B2	b2_culture	adj	eeppinen	episk	neut=episkt;apl=episka	epic		episch	
+k_kaivo	A2	a2_housing	n	kaivo	en brunn	def=brunnen;pl=brunnar	well	pl=wells	der Brunnen	pl=die Brunnen
+k_kaupunginteatteri	A2	a2_culture_sport	n	kaupunginteatteri	en stadsteater	def=stadsteatern;pl=stadsteatrar	city theatre / municipal theatre	pl=city theatres	das Stadttheater	pl=die Stadttheater
+k_tassa	A1	a1_core	adv	tässä (tällä paikalla)	här		here		hier	
+k_eniten	A2	a2_adverbs	adv	eniten	mest		most		am meisten	
+k_kovasti	A2	a2_adverbs	adv	kovasti (paljon)	mycket / väldigt		very much / a lot		sehr / viel	
+k_pahasti	A2	a2_adverbs	adv	pahasti (vakavasti)	illa / svårt		badly		schlimm / schwer	
+k_arvoinen	B1	b1_economy	adj	arvoinen (jonkin arvoinen)	värd	neut=värt;apl=värda	worth		wert	
+k_varsinainen	B1	b1_abstract	adj	varsinainen	egentlig	neut=egentligt;apl=egentliga	actual / proper		eigentlich	
+k_jatkuva	B1	b1_abstract	adj	jatkuva	ständig / kontinuerlig	neut=ständigt;apl=ständiga	continuous / constant		ständig / dauernd	
+k_henkilokohtainen	B1	b1_life	adj	henkilökohtainen	personlig	neut=personligt;apl=personliga	personal		persönlich	
+k_testi	A2	a2_education	n	testi	ett test	def=testet;pl=test	test	pl=tests	der Test	pl=die Tests
+k_hirveasti	A2	a2_adverbs	adv	hirveästi	hemskt / förfärligt		terribly / awfully		furchtbar / schrecklich	
+k_tuoda_julki	B2	b2_communication	v	tuoda julki	offentliggöra	pres=offentliggör;pret=offentliggjorde;sup=offentliggjort	make public / disclose	past=made public;pp=made public	veröffentlichen / bekannt machen	pret=veröffentlichte;pp=hat veröffentlicht;pres3=veröffentlicht
+k_kokoonpano	B2	b2_culture	n	kokoonpano (joukkueen, yhtyeen)	en uppställning / en sammansättning	def=uppställningen;pl=uppställningar	line-up / composition	pl=line-ups	die Besetzung / die Aufstellung	pl=die Besetzungen
+k_neuvoa	A2	a2_verbs	v	neuvoa	råda / ge råd	pres=råder;pret=rådde;sup=rått	advise	past=advised;pp=advised	raten / beraten	pret=riet;pp=hat geraten;pres3=rät
+k_suhtautua	B1	b1_opinions	v	suhtautua (johonkin)	förhålla sig	pres=förhåller sig;pret=förhöll sig;sup=förhållit sig	feel about / regard	past=felt about;pp=felt about	sich verhalten zu / stehen zu	pret=verhielt sich;pp=hat sich verhalten;pres3=verhält sich
+k_viestinta	B1	b1_media	n	viestintä	kommunikation	def=kommunikationen	communication		die Kommunikation	
+k_epailematta	B1	b1_opinions	adv	epäilemättä	utan tvivel / otvivelaktigt		undoubtedly / without doubt		zweifellos / ohne Zweifel	
+k_puhdistaa	A2	a2_verbs	v	puhdistaa	rengöra / rensa	pres=rengör;pret=rengjorde;sup=rengjort	clean / purify	past=cleaned;pp=cleaned	reinigen / säubern	pret=reinigte;pp=hat gereinigt;pres3=reinigt
+k_kunpa	B2	b2_function	conj	kunpa (toive)	om bara		if only		wenn nur	
+k_haista	A2	a2_verbs	v	haista (joltakin)	lukta	pres=luktar;pret=luktade;sup=luktat	smell	past=smelt;pp=smelt	riechen	pret=roch;pp=hat gerochen;pres3=riecht
+k_tiedote	B1	b1_media	n	tiedote	ett meddelande / ett pressmeddelande	def=meddelandet;pl=meddelanden	bulletin / press release	pl=bulletins	die Mitteilung / die Pressemitteilung	pl=die Mitteilungen
+k_paasihteeri	B2	b2_society	n	pääsihteeri	en generalsekreterare	def=generalsekreteraren;pl=generalsekreterare	secretary-general	pl=secretaries-general	der Generalsekretär	pl=die Generalsekretäre
+k_valtakunnallisesti	B2	b2_society	adv	valtakunnallisesti	nationellt / i hela landet		nationally / nationwide		landesweit	
+k_pastori	B2	b2_culture	n	pastori	en präst / en pastor	def=prästen;pl=präster	pastor / vicar	pl=pastors	der Pastor / der Pfarrer	pl=die Pastoren
+k_varallisuus	B2	b2_economy	n	varallisuus	en förmögenhet	def=förmögenheten;pl=förmögenheter	wealth		das Vermögen	pl=die Vermögen
+k_verrattain	B2	b2_describe	adv	verrattain	förhållandevis / jämförelsevis		relatively / comparatively		verhältnismäßig / vergleichsweise	
+k_piikki	B2	b2_environment	n	piikki (terävä kärki)	en tagg	def=taggen;pl=taggar	thorn / spike	pl=thorns	der Stachel / der Dorn	pl=die Stacheln
+k_sitoa	B1	b1_verbs	v	sitoa	binda	pres=binder;pret=band;sup=bundit	tie / bind	past=tied;pp=tied	binden	pret=band;pp=hat gebunden;pres3=bindet
+k_huijaus	B1	b1_law	n	huijaus	ett bedrägeri / en bluff	def=bedrägeriet;pl=bedrägerier	scam / fraud	pl=scams	der Betrug / der Schwindel	
+k_englanninkielinen	A2	a2_education	adj	englanninkielinen	engelskspråkig	neut=engelskspråkigt;apl=engelskspråkiga	English-language / English-speaking		englischsprachig	
+k_rytmi	B1	b1_culture	n	rytmi	en rytm	def=rytmen;pl=rytmer	rhythm	pl=rhythms	der Rhythmus	pl=die Rhythmen
+k_halkaisija	B2	b2_science	n	halkaisija	en diameter	def=diametern;pl=diametrar	diameter	pl=diameters	der Durchmesser	pl=die Durchmesser
+k_kourallinen	B2	b2_everyday	n	kourallinen	en handfull	def=handfullen;pl=handfullar	handful	pl=handfuls	die Handvoll	
+k_turvapaikka	B1	b1_society	n	turvapaikka	asyl	def=asylen	asylum		das Asyl	
+k_vaunu	A2	a2_transport	n	vaunu (junan vaunu)	en vagn	def=vagnen;pl=vagnar	carriage / coach	pl=carriages	der Wagen / der Waggon	pl=die Wagen
+k_henkilollisyys	B1	b1_law	n	henkilöllisyys	en identitet	def=identiteten;pl=identiteter	identity	pl=identities	die Identität	pl=die Identitäten
+k_nuoli	A2	a2_culture_sport	n	nuoli	en pil	def=pilen;pl=pilar	arrow	pl=arrows	der Pfeil	pl=die Pfeile
+k_eettinen	B2	b2_abstract	adj	eettinen	etisk	neut=etiskt;apl=etiska	ethical		ethisch	
+k_valkea	B2	b2_describe	adj	valkea (kirjakielinen valkoinen)	vit	neut=vitt;apl=vita	white		weiß	
+k_terminaali	A2	a2_travel	n	terminaali	en terminal	def=terminalen;pl=terminaler	terminal	pl=terminals	das Terminal	pl=die Terminals
+k_hyvanen_aika	A2	a2_feelings	interj	hyvänen aika!	du milde! / herregud!		good heavens! / goodness me!		du meine Güte!	
+k_tahka	B2	b2_environment	n	tähkä	ett ax	def=axet;pl=ax	ear (of grain)	pl=ears	die Ähre	pl=die Ähren
+k_murhata	B1	b1_law	v	murhata	mörda	pres=mördar;pret=mördade;sup=mördat	murder	past=murdered;pp=murdered	ermorden	pret=ermordete;pp=hat ermordet;pres3=ermordet
+k_kaapata	B2	b2_law	v	kaapata	kapa	pres=kapar;pret=kapade;sup=kapat	hijack / seize	past=hijacked;pp=hijacked	entführen / kapern	pret=entführte;pp=hat entführt;pres3=entführt
+k_arvoisa	B2	b2_communication	adj	arvoisa (puhuttelussa)	ärad	neut=ärat;apl=ärade	honourable / dear		geehrt / verehrt	
+k_maailmanloppu	B2	b2_culture	n	maailmanloppu	jordens undergång / världens undergång		end of the world		der Weltuntergang	pl=die Weltuntergänge
+k_huumorintaju	B1	b1_life	n	huumorintaju	sinne för humor		sense of humour		der Sinn für Humor	
+k_ylistaa	B2	b2_verbs	v	ylistää	prisa / lovorda	pres=prisar;pret=prisade;sup=prisat	praise / extol	past=praised;pp=praised	preisen / loben	pret=pries;pp=hat gepriesen;pres3=preist
+k_myoden	B2	b2_function	prep	myöden (jotakin pitkin)	längs		along		entlang	
+k_kolumnisti	B2	b2_culture	n	kolumnisti	en krönikör / en kolumnist	def=krönikören;pl=krönikörer	columnist	pl=columnists	der Kolumnist	pl=die Kolumnisten
+k_toivoton	B1	b1_opinions	adj	toivoton	hopplös	neut=hopplöst;apl=hopplösa	hopeless		hoffnungslos	
+k_vastuullisesti	B2	b2_describe	adv	vastuullisesti	ansvarsfullt		responsibly		verantwortungsvoll / verantwortungsbewusst	
+k_vahatella	B2	b2_verbs	v	vähätellä	förringa / bagatellisera	pres=förringar;pret=förringade;sup=förringat	downplay / belittle	past=downplayed;pp=downplayed	herunterspielen / verharmlosen	pret=spielte herunter;pp=hat heruntergespielt;pres3=spielt herunter
+k_ulkoilu	B1	b1_wellbeing	n	ulkoilu	friluftsliv	def=friluftslivet	outdoor recreation / outdoor activities		die Bewegung im Freien	
+k_taklaus	B2	b2_culture	n	taklaus	en tackling	def=tacklingen;pl=tacklingar	tackle	pl=tackles	das Tackling / der Check	pl=die Tacklings
+k_linssi_2	A2	a2_cooking	n	linssi (palkokasvi)	en lins	def=linsen;pl=linser	lentil	pl=lentils	die Linse	pl=die Linsen
+k_pehmeasti	B2	b2_describe	adv	pehmeästi	mjukt		softly / gently		sanft / weich	
+k_liikaa	A2	a2_adverbs	adv	liikaa	för mycket		too much		zu viel	
+k_jatkuvasti	A2	a2_adverbs	adv	jatkuvasti	ständigt / hela tiden		constantly / continuously		ständig / dauernd	
+k_vika	A2	a2_services	n	vika (virhe)	ett fel	def=felet;pl=fel	fault / defect	pl=faults	der Fehler	pl=die Fehler
+k_asiantuntija	B1	b1_career	n	asiantuntija	en expert / en sakkunnig	def=experten;pl=experter	expert	pl=experts	der Experte / der Fachmann	pl=die Experten
+k_olla_kotoisin	A1	a1_personal	phrase	olla kotoisin (jostakin)	komma från / vara från		come from / be from		stammen aus / kommen aus	
+k_sailyttaa	B1	b1_verbs	v	säilyttää	bevara / behålla	pres=bevarar;pret=bevarade;sup=bevarat	preserve / keep	past=preserved;pp=preserved	bewahren / aufbewahren	pret=bewahrte;pp=hat bewahrt;pres3=bewahrt
+k_laajasti	B1	b1_abstract	adv	laajasti	brett / omfattande		widely / extensively		weitgehend / umfassend	
+k_alasti	A2	a2_describe	adv	alasti	naken		naked		nackt	
+k_italia	A1	a1_personal	n	italia (kieli)	italienska	def=italienskan	Italian		Italienisch	
+k_pukki	B2	b2_environment	n	pukki (eläin)	en bock	def=bocken;pl=bockar	billy goat / buck	pl=billy goats	der Bock / der Ziegenbock	pl=die Böcke
+k_maarata	B1	b1_verbs	v	määrätä (käskeä)	bestämma / beordra	pres=bestämmer;pret=bestämde;sup=bestämt	order / prescribe	past=ordered;pp=ordered	anordnen / bestimmen	pret=ordnete an;pp=hat angeordnet;pres3=ordnet an
+k_iskea	B1	b1_verbs	v	iskeä	slå	pres=slår;pret=slog;sup=slagit	strike / hit	past=struck;pp=struck	schlagen	pret=schlug;pp=hat geschlagen;pres3=schlägt
+k_soveltaa	B2	b2_verbs	v	soveltaa	tillämpa	pres=tillämpar;pret=tillämpade;sup=tillämpat	apply	past=applied;pp=applied	anwenden	pret=wandte an;pp=hat angewandt;pres3=wendet an
+k_herkasti	B2	b2_describe	adv	herkästi	lätt / gärna		easily / readily		leicht / schnell	
+k_ennestaan	B2	b2_function	adv	ennestään	sedan tidigare / redan		already / previously		bereits / schon vorher	
+k_vaativa	B1	b1_career	adj	vaativa	krävande	neut=krävande;apl=krävande	demanding		anspruchsvoll	
+k_vaihtoehtoisesti	B1	b1_connectors	adv	vaihtoehtoisesti	alternativt		alternatively		alternativ	
+k_feminismi	B2	b2_society	n	feminismi	en feminism	def=feminismen	feminism		der Feminismus	
+k_halli	A2	a2_culture_sport	n	halli	en hall	def=hallen;pl=hallar	hall	pl=halls	die Halle	pl=die Hallen
+k_messut	B1	b1_economy	n	messut	en mässa	def=mässan;pl=mässor	fair / trade fair	pl=fairs	die Messe	pl=die Messen
+k_metsastaja	B1	b1_environment	n	metsästäjä	en jägare	def=jägaren;pl=jägare	hunter	pl=hunters	der Jäger	pl=die Jäger
+k_saada_osakseen	B2	b2_verbs	v	saada osakseen (esim. kritiikkiä)	röna / få	pres=rönar;pret=rönte;sup=rönt	receive / meet with	past=received;pp=received	erfahren / ernten	pret=erfuhr;pp=hat erfahren;pres3=erfährt
+k_lasnaolo	B2	b2_abstract	n	läsnäolo	en närvaro	def=närvaron	presence		die Anwesenheit / die Präsenz	
+k_koukussa	B2	b2_health	adj	koukussa (riippuvainen)	beroende / fast	neut=beroende;apl=beroende	hooked / addicted		süchtig / abhängig	
+k_lohduttaa	B1	b1_life	v	lohduttaa	trösta	pres=tröstar;pret=tröstade;sup=tröstat	comfort / console	past=comforted;pp=comforted	trösten	pret=tröstete;pp=hat getröstet;pres3=tröstet
+k_kopioida	A2	a2_communication	v	kopioida	kopiera	pres=kopierar;pret=kopierade;sup=kopierat	copy	past=copied;pp=copied	kopieren	pret=kopierte;pp=hat kopiert;pres3=kopiert
+k_satunnainen	B1	b1_abstract	adj	satunnainen	slumpmässig / tillfällig	neut=slumpmässigt;apl=slumpmässiga	random / occasional		zufällig / gelegentlich	
+k_animaatio	B2	b2_culture	n	animaatio	en animation	def=animationen;pl=animationer	animation	pl=animations	die Animation / der Zeichentrickfilm	pl=die Animationen
+k_tasoittaa	B2	b2_verbs	v	tasoittaa	jämna ut / utjämna	pres=jämnar ut;pret=jämnade ut;sup=jämnat ut	even out / level	past=evened out;pp=evened out	ausgleichen / ebnen	pret=glich aus;pp=hat ausgeglichen;pres3=gleicht aus
+k_kamalasti	A2	a2_adverbs	adv	kamalasti	hemskt / förfärligt		terribly / awfully		furchtbar / schrecklich	
+k_optio	B2	b2_economy	n	optio (talous)	en option	def=optionen;pl=optioner	option / share option	pl=options	die Option	pl=die Optionen
+k_ylosalaisin	A2	a2_adverbs	adv	ylösalaisin	upp och ner		upside down		verkehrt herum / auf dem Kopf	
+k_lammita	B1	b1_environment	v	lämmitä	värmas upp / bli varm	pres=värms upp;pret=värmdes upp;sup=värmts upp	warm up / get warmer	past=warmed up;pp=warmed up	sich erwärmen / warm werden	pret=erwärmte sich;pp=hat sich erwärmt;pres3=erwärmt sich
+k_vallalla	B2	b2_function	adj	vallalla (olla vallalla)	rådande / förhärskande	neut=rådande;apl=rådande	prevailing / prevalent		vorherrschend	
+k_neuvonantaja	B2	b2_society	n	neuvonantaja	en rådgivare	def=rådgivaren;pl=rådgivare	adviser / advisor	pl=advisers	der Berater	pl=die Berater
+k_aarimmainen	B2	b2_describe	adj	äärimmäinen	extrem / yttersta	neut=extremt;apl=extrema	extreme / utmost		extrem / äußerst	
+k_laaketieteellinen	B1	b1_wellbeing	adj	lääketieteellinen	medicinsk	neut=medicinskt;apl=medicinska	medical		medizinisch	
+k_havittaja	B2	b2_law	n	hävittäjä (lentokone)	ett jaktplan	def=jaktplanet;pl=jaktplan	fighter jet / fighter	pl=fighter jets	das Kampfflugzeug	pl=die Kampfflugzeuge
+k_sauma	B2	b2_everyday	n	sauma	en söm / en fog	def=sömmen;pl=sömmar	seam	pl=seams	die Naht	pl=die Nähte
+k_arkisin	A2	a2_adverbs	adv	arkisin	på vardagar		on weekdays		werktags / an Werktagen	
+k_moraalisesti	B2	b2_abstract	adv	moraalisesti	moraliskt		morally		moralisch	
+k_ilmiselvasti	B2	b2_function	adv	ilmiselvästi	uppenbart / helt klart		obviously / clearly		offensichtlich / eindeutig	
+k_toisekseen	B2	b2_function	adv	toisekseen	för det andra		secondly		zweitens	
+k_sivistynyt	B2	b2_describe	adj	sivistynyt	bildad / kultiverad	neut=bildat;apl=bildade	educated / cultured / civilised		gebildet / kultiviert	
+k_haitata	B1	b1_verbs	v	haitata	störa / hindra	pres=stör;pret=störde;sup=stört	hinder / bother	past=hindered;pp=hindered	stören / behindern	pret=störte;pp=hat gestört;pres3=stört
+k_arvaamaton	B2	b2_describe	adj	arvaamaton	oberäknelig	neut=oberäkneligt;apl=oberäkneliga	unpredictable		unberechenbar	
+k_tulitauko	B2	b2_law	n	tulitauko	en vapenvila	def=vapenvilan;pl=vapenvilor	ceasefire	pl=ceasefires	die Waffenruhe	pl=die Waffenruhen
+k_sitkeasti	B2	b2_describe	adv	sitkeästi	envist / ihärdigt		persistently / doggedly		hartnäckig / beharrlich	
+k_rajahdysmaisesti	B2	b2_describe	adv	räjähdysmäisesti	explosionsartat		explosively / dramatically		explosionsartig	
+k_kylpyla	A2	a2_travel	n	kylpylä	en badanläggning / ett spa	def=badanläggningen;pl=badanläggningar	spa	pl=spas	das Spa / das Kurbad	pl=die Spas
+k_jakauma	B2	b2_science	n	jakauma	en fördelning	def=fördelningen;pl=fördelningar	distribution	pl=distributions	die Verteilung	pl=die Verteilungen
+k_taysosuma	B2	b2_everyday	n	täysosuma	en fullträff	def=fullträffen;pl=fullträffar	direct hit / bullseye	pl=direct hits	der Volltreffer	pl=die Volltreffer
+k_verohallinto	B2	b2_society	n	verohallinto	en skattemyndighet	def=skattemyndigheten;pl=skattemyndigheter	tax authority / tax administration	pl=tax authorities	die Steuerverwaltung / das Finanzamt	pl=die Steuerverwaltungen
+k_vaivihkaa	B2	b2_function	adv	vaivihkaa	i smyg / obemärkt		stealthily / unnoticed		heimlich / unbemerkt	
+k_ups	A1	a1_greetings	interj	ups	hoppsan / oj		oops		hoppla / ups	
+k_paalle	A2	a2_adverbs	prep	päälle (jonkin päälle)	på		onto / on		auf	
+k_etenkin	B1	b1_connectors	adv	etenkin	särskilt / speciellt		especially / particularly		besonders / vor allem	
+k_estaa	B1	b1_verbs	v	estää	förhindra / hindra	pres=förhindrar;pret=förhindrade;sup=förhindrat	prevent	past=prevented;pp=prevented	verhindern	pret=verhinderte;pp=hat verhindert;pres3=verhindert
+k_liiga	A2	a2_culture_sport	n	liiga (urheilusarja)	en liga	def=ligan;pl=ligor	league	pl=leagues	die Liga	pl=die Ligen
+k_tahden	B2	b2_function	prep	tähden (jonkin tähden)	för ... skull / på grund av		for the sake of / because of		um ... willen / wegen	
+k_johdosta	B2	b2_function	prep	johdosta (jonkin johdosta)	på grund av / till följd av		due to / as a result of		aufgrund / infolge	
+k_meno	B1	b1_economy	n	meno (kulu, maksu)	en utgift	def=utgiften;pl=utgifter	expense / expenditure	pl=expenses	die Ausgabe	pl=die Ausgaben
+k_avoimesti	B1	b1_opinions	adv	avoimesti	öppet		openly		offen	
+k_kasitys	B1	b1_opinions	n	käsitys	en uppfattning	def=uppfattningen;pl=uppfattningar	idea / notion / understanding	pl=ideas	die Vorstellung / die Auffassung	pl=die Vorstellungen
+k_alaspain	A2	a2_adverbs	adv	alaspäin	nedåt		downwards / down		nach unten / abwärts	
+k_sankari	A2	a2_culture_sport	n	sankari	en hjälte	def=hjälten;pl=hjältar	hero	pl=heroes	der Held	pl=die Helden
+k_saati	B2	b2_function	conj	saati (puhumattakaan)	än mindre / för att inte tala om		let alone / much less		geschweige denn	
+k_arvokas	A2	a2_describe	adj	arvokas	värdefull	neut=värdefullt;apl=värdefulla	valuable / precious		wertvoll	
+k_jumissa	B1	b1_abstract	adv	jumissa	fast		stuck		fest / blockiert	
+k_hyoty	B1	b1_abstract	n	hyöty	en nytta	def=nyttan	benefit / use / advantage	pl=benefits	der Nutzen / der Vorteil	
+k_kysella	B1	b1_verbs	v	kysellä	höra sig för / fråga runt	pres=hör sig för;pret=hörde sig för;sup=hört sig för	ask around / inquire	past=asked around;pp=asked around	herumfragen / sich erkundigen	pret=fragte herum;pp=hat herumgefragt;pres3=fragt herum
+k_asemasta	B2	b2_function	prep	asemasta (jonkin asemasta)	i stället för		instead of		anstatt / statt	
+k_tyokalu	A2	a2_housing	n	työkalu	ett verktyg	def=verktyget;pl=verktyg	tool	pl=tools	das Werkzeug	pl=die Werkzeuge
+k_jokunen	B2	b2_function	pron	jokunen	någon enstaka / några få		a few / some		ein paar / einige	
+k_taata	B1	b1_verbs	v	taata	garantera	pres=garanterar;pret=garanterade;sup=garanterat	guarantee / ensure	past=guaranteed;pp=guaranteed	garantieren / gewährleisten	pret=garantierte;pp=hat garantiert;pres3=garantiert
+k_ei_minnekaan	A2	a2_adverbs	adv	ei minnekään	ingenstans / inte någonstans		nowhere / anywhere		nirgendwohin	
+k_napata	B1	b1_verbs	v	napata	nappa / gripa	pres=nappar;pret=nappade;sup=nappat	grab / snatch / catch	past=grabbed;pp=grabbed	schnappen / packen	pret=schnappte;pp=hat geschnappt;pres3=schnappt
+k_virheellisesti	B2	b2_describe	adv	virheellisesti	felaktigt		incorrectly / erroneously		fälschlicherweise / falsch	
+k_lahetin	B2	b2_science	n	lähetin	en sändare	def=sändaren;pl=sändare	transmitter	pl=transmitters	der Sender	pl=die Sender
+k_hovioikeus	B2	b2_law	n	hovioikeus	en hovrätt	def=hovrätten;pl=hovrätter	court of appeal	pl=courts of appeal	das Oberlandesgericht / das Berufungsgericht	pl=die Oberlandesgerichte
+k_ensisijainen	B2	b2_describe	adj	ensisijainen	primär	neut=primärt;apl=primära	primary / main		vorrangig / primär	
+k_kutsua_koolle	B2	b2_society	phrase	kutsua koolle	sammankalla		convene / call together		einberufen	
+k_lempea	A2	a2_describe	adj	lempeä	blid / mild	neut=blitt;apl=blida	gentle / mild / kind		sanft / mild	
+k_tyytya	B2	b2_verbs	v	tyytyä (johonkin)	nöja sig	pres=nöjer sig;pret=nöjde sig;sup=nöjt sig	settle for / be content with	past=settled for;pp=settled for	sich begnügen / sich zufriedengeben	pret=begnügte sich;pp=hat sich begnügt;pres3=begnügt sich
+k_edullisesti	B1	b1_economy	adv	edullisesti	billigt / förmånligt		cheaply / inexpensively		günstig / preiswert	
+k_paallekkain	B1	b1_abstract	adv	päällekkäin	ovanpå varandra / överlappande		on top of each other / overlapping		übereinander	
+k_filmi	A2	a2_culture_sport	n	filmi	en film	def=filmen;pl=filmer	film	pl=films	der Film	pl=die Filme
+k_mafia	B2	b2_law	n	mafia	en maffia	def=maffian;pl=maffior	mafia	pl=mafias	die Mafia	pl=die Mafias
+k_valtuutettu	B1	b1_society	n	valtuutettu (valtuuston jäsen)	en fullmäktigeledamot	def=fullmäktigeledamoten;pl=fullmäktigeledamöter	councillor	pl=councillors	das Ratsmitglied	pl=die Ratsmitglieder
+k_joutua_koville	B2	b2_function	phrase	joutua koville	sättas på prov		be put to the test / be hard pressed		auf eine harte Probe gestellt werden	
+k_reuna	B1	b1_abstract	n	reuna	en kant	def=kanten;pl=kanter	edge	pl=edges	der Rand	pl=die Ränder
+k_kirkkaasti	B2	b2_describe	adv	kirkkaasti	klart / starkt		brightly / clearly		hell / klar	
+k_velkoja	B2	b2_economy	n	velkoja	en borgenär / en fordringsägare	def=borgenären;pl=borgenärer	creditor	pl=creditors	der Gläubiger	pl=die Gläubiger
+k_paikata	B1	b1_verbs	v	paikata	laga / lappa	pres=lagar;pret=lagade;sup=lagat	patch / mend	past=patched;pp=patched	flicken	pret=flickte;pp=hat geflickt;pres3=flickt
+k_luukku	A2	a2_housing	n	luukku	en lucka	def=luckan;pl=luckor	hatch / flap	pl=hatches	die Luke / die Klappe	pl=die Luken
+k_hairinta	B2	b2_law	n	häirintä	trakasserier	def=trakasserierna;pl=trakasserier	harassment		die Belästigung	pl=die Belästigungen
+k_psykologinen	B2	b2_health	adj	psykologinen	psykologisk	neut=psykologiskt;apl=psykologiska	psychological		psychologisch	
+k_hankaloittaa	B2	b2_verbs	v	hankaloittaa	försvåra	pres=försvårar;pret=försvårade;sup=försvårat	complicate / hamper	past=complicated;pp=complicated	erschweren	pret=erschwerte;pp=hat erschwert;pres3=erschwert
+k_betoni	B1	b1_science_tech	n	betoni	betong	def=betongen	concrete		der Beton	
+k_varis	A2	a2_nature	n	varis	en kråka	def=kråkan;pl=kråkor	crow	pl=crows	die Krähe	pl=die Krähen
+k_miina	B2	b2_law	n	miina	en mina	def=minan;pl=minor	mine	pl=mines	die Mine	pl=die Minen
+k_milloinkin	B2	b2_function	adv	milloinkin (kulloinkin)	vid varje tillfälle / för tillfället		at any given time / at the time		jeweils	
+k_kupari	B2	b2_science	n	kupari	koppar	def=koppern	copper		das Kupfer	
+k_siivu	A2	a2_cooking	n	siivu	en skiva	def=skivan;pl=skivor	slice	pl=slices	die Scheibe	pl=die Scheiben
+k_partaalle	B2	b2_function	prep	partaalle (jonkin partaalle)	till randen av / på gränsen till		to the brink of / to the verge of		an den Rand	
+k_panostus	B2	b2_economy	n	panostus	en satsning	def=satsningen;pl=satsningar	investment / effort	pl=investments	der Einsatz / die Investition	pl=die Einsätze
+k_kettera	B2	b2_describe	adj	ketterä	smidig / vig	neut=smidigt;apl=smidiga	agile / nimble		wendig / flink	
+k_journalismi	B2	b2_culture	n	journalismi	journalistik	def=journalistiken	journalism		der Journalismus	
+k_syrjassa	B2	b2_function	adv	syrjässä	avsides		out of the way / on the sidelines		abseits / abgelegen	
+k_vilkkaasti	B2	b2_describe	adv	vilkkaasti	livligt		actively / busily / briskly		lebhaft / rege	
+k_vauhdittaa	B2	b2_verbs	v	vauhdittaa	påskynda / skynda på	pres=påskyndar;pret=påskyndade;sup=påskyndat	speed up / accelerate / boost	past=sped up;pp=sped up	beschleunigen	pret=beschleunigte;pp=hat beschleunigt;pres3=beschleunigt
+k_analyytikko	B2	b2_economy	n	analyytikko	en analytiker	def=analytikern;pl=analytiker	analyst	pl=analysts	der Analyst	pl=die Analysten
+k_unelmoida	B1	b1_verbs	v	unelmoida	drömma	pres=drömmer;pret=drömde;sup=drömt	dream	past=dreamt;pp=dreamt	träumen	pret=träumte;pp=hat geträumt;pres3=träumt
+k_ruhtinas	B2	b2_society	n	ruhtinas	en furste	def=fursten;pl=furstar	prince	pl=princes	der Fürst	pl=die Fürsten

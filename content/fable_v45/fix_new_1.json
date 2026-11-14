@@ -1,0 +1,268 @@
+[
+ {
+  "id": "k_juuri",
+  "field": "sv_text",
+  "old": "just",
+  "new": "just / nyss / precis",
+  "reason": "yleiset vaihtoehdot 'nyss' ja 'precis' puuttuivat"
+ },
+ {
+  "id": "k_edustaa",
+  "field": "sv_text",
+  "old": "representera",
+  "new": "representera / företräda",
+  "reason": "yleinen vastine 'företräda' puuttui"
+ },
+ {
+  "id": "k_tanska",
+  "field": "de_text",
+  "old": "das Dänisch",
+  "new": "das Dänisch / Dänisch",
+  "reason": "kielen nimi kirjoitetaan yleensä ilman artikkelia"
+ },
+ {
+  "id": "k_puola",
+  "field": "de_text",
+  "old": "das Polnisch",
+  "new": "das Polnisch / Polnisch",
+  "reason": "kielen nimi kirjoitetaan yleensä ilman artikkelia"
+ },
+ {
+  "id": "k_ymmarrettava",
+  "field": "sv_text",
+  "old": "förståelig",
+  "new": "förståelig / begriplig",
+  "reason": "yleinen vastine 'begriplig' puuttui"
+ },
+ {
+  "id": "k_kiista",
+  "field": "de_infl",
+  "old": "pl=die Streitigkeiten",
+  "new": "pl=die Streite",
+  "reason": "monikko ei koske päämuotoa: der Streit → die Streite (Streitigkeiten on eri sanan monikko)"
+ },
+ {
+  "id": "k_lotto",
+  "field": "sv_text",
+  "old": "ett lotteri / lotto",
+  "new": "lotto / ett lotteri",
+  "reason": "lotto on ruotsiksi 'lotto'; 'lotteri' tarkoittaa arpajaisia yleensä"
+ },
+ {
+  "id": "k_lotto",
+  "field": "sv_infl",
+  "old": "def=lotteriet;pl=lotterier",
+  "new": "def=lottot",
+  "reason": "taivutus päämuodon mukaan"
+ },
+ {
+  "id": "k_vammainen",
+  "field": "sv_text",
+  "old": "funktionshindrad",
+  "new": "funktionshindrad / funktionsnedsatt / handikappad",
+  "reason": "nykyruotsin yleisin 'funktionsnedsatt' puuttui"
+ },
+ {
+  "id": "k_oksettaa",
+  "field": "fi",
+  "old": "oksettaa",
+  "new": "oksettaa (minua oksettaa)",
+  "reason": "vastineet ovat persoonasubjektillisia (må illa, feel sick); tarkenne kuten jännittää-sanassa"
+ },
+ {
+  "id": "k_itsekas",
+  "field": "sv_text",
+  "old": "självisk",
+  "new": "självisk / egoistisk",
+  "reason": "yleinen 'egoistisk' puuttui"
+ },
+ {
+  "id": "k_tietotekniikka",
+  "field": "de_text",
+  "old": "die Informationstechnik",
+  "new": "die Informationstechnik / die Informationstechnologie / die IT",
+  "reason": "yleiset vaihtoehdot puuttuivat (sv ja en hyväksyvät IT:n)"
+ },
+ {
+  "id": "k_valtiovarainministerio",
+  "field": "sv_text",
+  "old": "ett finansdepartement",
+  "new": "ett finansministerium / ett finansdepartement",
+  "reason": "Suomessa ministeriö on 'finansministerium'; 'departement' on Ruotsin termi"
+ },
+ {
+  "id": "k_valtiovarainministerio",
+  "field": "sv_infl",
+  "old": "def=finansdepartementet;pl=finansdepartement",
+  "new": "def=finansministeriet;pl=finansministerier",
+  "reason": "taivutus päämuodon mukaan"
+ },
+ {
+  "id": "k_valtuusto",
+  "field": "sv_text",
+  "old": "kommunfullmäktige",
+  "new": "kommunfullmäktige / fullmäktige",
+  "reason": "yleinen lyhyt muoto puuttui"
+ },
+ {
+  "id": "k_valtuusto",
+  "field": "en_text",
+  "old": "council",
+  "new": "council / municipal council / local council",
+  "reason": "tarkemmat yleiset vastineet puuttuivat"
+ },
+ {
+  "id": "k_osuuskauppa",
+  "field": "sv_text",
+  "old": "ett kooperativ",
+  "new": "en andelshandel / ett kooperativ",
+  "reason": "osuuskauppa on suomenruotsiksi 'andelshandel'; 'kooperativ' = osuuskunta (sama vastaus k_osuuskunta-sanalla)"
+ },
+ {
+  "id": "k_osuuskauppa",
+  "field": "sv_infl",
+  "old": "def=kooperativet;pl=kooperativ",
+  "new": "def=andelshandeln;pl=andelshandlar",
+  "reason": "taivutus päämuodon mukaan"
+ },
+ {
+  "id": "k_osuuskunta",
+  "field": "sv_text",
+  "old": "ett kooperativ / en ekonomisk förening",
+  "new": "ett kooperativ / ett andelslag / en ekonomisk förening",
+  "reason": "Suomessa käytetty 'andelslag' puuttui"
+ },
+ {
+  "id": "k_paradoksi",
+  "field": "de_text",
+  "old": "das Paradox",
+  "new": "das Paradox / das Paradoxon",
+  "reason": "yleinen rinnakkaismuoto 'Paradoxon' puuttui"
+ },
+ {
+  "id": "k_peloton",
+  "field": "sv_infl",
+  "old": "neut=orätt;apl=orädda",
+  "new": "neut=-;apl=orädda",
+  "reason": "neutrimuotoa 'orätt' ei käytetä (sekaantuu sanaan orätt 'vääryys')"
+ },
+ {
+  "id": "k_tallainen",
+  "field": "sv_text",
+  "old": "sådan / en sådan",
+  "new": "sådan här / en sådan här / sådan / en sådan",
+  "reason": "tällainen = 'sådan här' (vrt. tuollainen = sådan där)"
+ },
+ {
+  "id": "k_neitsyt",
+  "field": "sv_text",
+  "old": "en oskuld",
+  "new": "en oskuld / en jungfru",
+  "reason": "yleinen vastine 'jungfru' puuttui"
+ },
+ {
+  "id": "k_pykala",
+  "field": "de_text",
+  "old": "der Paragraf",
+  "new": "der Paragraf / der Paragraph",
+  "reason": "sallittu ja yleinen kirjoitusasu 'Paragraph' puuttui"
+ },
+ {
+  "id": "k_ikaan_kuin",
+  "field": "en_text",
+  "old": "as if",
+  "new": "as if / as though",
+  "reason": "yleinen 'as though' puuttui"
+ },
+ {
+  "id": "k_ikaan_kuin",
+  "field": "de_text",
+  "old": "als ob",
+  "new": "als ob / als wenn",
+  "reason": "yleinen 'als wenn' puuttui"
+ },
+ {
+  "id": "k_uudenlainen",
+  "field": "sv_text",
+  "old": "nyartad / ny",
+  "new": "ny / av nytt slag",
+  "reason": "'nyartad' ei ole käypää ruotsia"
+ },
+ {
+  "id": "k_uudenlainen",
+  "field": "sv_infl",
+  "old": "neut=nyartat;apl=nyartade",
+  "new": "neut=nytt;apl=nya",
+  "reason": "taivutus päämuodon mukaan"
+ },
+ {
+  "id": "k_kokko",
+  "field": "de_text",
+  "old": "das Feuer / das Lagerfeuer",
+  "new": "das Johannisfeuer / das Feuer / das Lagerfeuer",
+  "reason": "juhannuskokko on 'Johannisfeuer'; Lagerfeuer on nuotio"
+ },
+ {
+  "id": "k_kokko",
+  "field": "de_infl",
+  "old": "pl=die Feuer",
+  "new": "pl=die Johannisfeuer",
+  "reason": "taivutus päämuodon mukaan"
+ },
+ {
+  "id": "k_bingo",
+  "field": "sv_infl",
+  "old": "def=bingot",
+  "new": "def=bingon",
+  "reason": "bingo on en-sukuinen (SAOL: bingon)"
+ },
+ {
+  "id": "k_kaikkein",
+  "field": "de_text",
+  "old": "am allermeisten",
+  "new": "aller- / aller / am allermeisten",
+  "reason": "kaikkein + superlatiivi on saksassa etuliite aller- (allerbeste); 'am allermeisten' tarkoittaa 'kaikkein eniten'"
+ },
+ {
+  "id": "k_ehkaisy_2",
+  "field": "en_text",
+  "old": "contraception",
+  "new": "contraception / birth control",
+  "reason": "yleinen 'birth control' puuttui"
+ },
+ {
+  "id": "k_ampumahiihto",
+  "field": "de_text",
+  "old": "der Biathlon",
+  "new": "das Biathlon",
+  "reason": "väärä suku: Biathlon on neutri"
+ },
+ {
+  "id": "k_painostus",
+  "field": "sv_text",
+  "old": "ett tryck / en påtryckning",
+  "new": "en påtryckning / ett tryck",
+  "reason": "painostus on ensisijaisesti 'påtryckning'; 'tryck' on yleisemmin paine"
+ },
+ {
+  "id": "k_painostus",
+  "field": "sv_infl",
+  "old": "def=trycket;pl=tryck",
+  "new": "def=påtryckningen;pl=påtryckningar",
+  "reason": "taivutus päämuodon mukaan"
+ },
+ {
+  "id": "k_liikevoitto",
+  "field": "sv_text",
+  "old": "ett rörelseresultat",
+  "new": "en rörelsevinst / ett rörelseresultat",
+  "reason": "liikevoitto = 'rörelsevinst'; 'rörelseresultat' on liiketulos"
+ },
+ {
+  "id": "k_liikevoitto",
+  "field": "sv_infl",
+  "old": "def=rörelseresultatet;pl=rörelseresultat",
+  "new": "def=rörelsevinsten;pl=rörelsevinster",
+  "reason": "taivutus päämuodon mukaan"
+ }
+]

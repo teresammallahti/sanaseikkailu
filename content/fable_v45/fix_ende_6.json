@@ -1,0 +1,506 @@
+[
+ {
+  "id": "phrases_4_nice_to_meet_you",
+  "field": "en_text",
+  "old": "Nice to meet you!",
+  "new": "Nice to meet you! / pleased to meet you",
+  "reason": "yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "polite_phrases_excuse_me",
+  "field": "de_text",
+  "old": "Entschuldigung",
+  "new": "Entschuldigung / Entschuldigen Sie",
+  "reason": "yleinen teitittelymuoto puuttui"
+ },
+ {
+  "id": "time_4_tonight",
+  "field": "en_text",
+  "old": "tonight",
+  "new": "tonight / this evening",
+  "reason": "tänä iltana = myös this evening"
+ },
+ {
+  "id": "weekdays_monday",
+  "field": "de_text",
+  "old": "Montag",
+  "new": "der Montag / Montag",
+  "reason": "saksan substantiivi artikkelilla (vrt. der Mai); paljas muoto hyväksytään"
+ },
+ {
+  "id": "weekdays_sunday",
+  "field": "de_text",
+  "old": "Sonntag",
+  "new": "der Sonntag / Sonntag",
+  "reason": "saksan substantiivi artikkelilla; paljas muoto hyväksytään"
+ },
+ {
+  "id": "opposites_short",
+  "field": "de_text",
+  "old": "klein",
+  "new": "klein / kurz",
+  "reason": "lyhyt = kurz (hiukset, esine); klein vain ihmisen pituudesta"
+ },
+ {
+  "id": "s_a1_good_looking",
+  "field": "de_text",
+  "old": "gut aussehend / hübsch",
+  "new": "gut aussehend / gutaussehend / hübsch",
+  "reason": "yhteenkirjoitettu muoto on myös oikein"
+ },
+ {
+  "id": "body_4_blond",
+  "field": "en_text",
+  "old": "blond",
+  "new": "blond / blonde / fair",
+  "reason": "blonde ja fair ovat yleisiä vastineita"
+ },
+ {
+  "id": "appearance_straight_hair",
+  "field": "de_text",
+  "old": "glatte Haare",
+  "new": "glatte Haare / glattes Haar",
+  "reason": "yksikkömuoto yhtä yleinen"
+ },
+ {
+  "id": "body_4_tummy",
+  "field": "en_text",
+  "old": "tummy",
+  "new": "stomach / tummy / belly",
+  "reason": "vatsa/maha = ensisijaisesti stomach; tummy on lastenkieltä"
+ },
+ {
+  "id": "body_4_tummy",
+  "field": "en_infl",
+  "old": "pl=tummies",
+  "new": "pl=stomachs",
+  "reason": "taivutus päämuodon mukaan"
+ },
+ {
+  "id": "home_4_hall",
+  "field": "en_text",
+  "old": "hall",
+  "new": "hall / hallway",
+  "reason": "hallway yleinen vastine eteiselle"
+ },
+ {
+  "id": "home_4_microwave",
+  "field": "en_text",
+  "old": "microwave",
+  "new": "microwave / microwave oven",
+  "reason": "täysi muoto puuttui"
+ },
+ {
+  "id": "food_4_minced_meat",
+  "field": "en_text",
+  "old": "minced meat",
+  "new": "minced meat / mince",
+  "reason": "brittienglannissa yleisin muoto on mince"
+ },
+ {
+  "id": "food_4_ice_cream",
+  "field": "de_infl",
+  "old": "pl=die Eis",
+  "new": "",
+  "reason": "Eis-sanalla ei ole monikkoa (\"die Eis\" virheellinen)"
+ },
+ {
+  "id": "food_4_hot_chocolate",
+  "field": "en_text",
+  "old": "hot chocolate",
+  "new": "hot chocolate / cocoa",
+  "reason": "kaakao = myös cocoa"
+ },
+ {
+  "id": "adj_4_tasty",
+  "field": "en_text",
+  "old": "tasty",
+  "new": "tasty / good / delicious",
+  "reason": "kehote 'hyvä (maultaan)' → good; delicious yleinen"
+ },
+ {
+  "id": "clothes_jumper",
+  "field": "en_text",
+  "old": "jumper",
+  "new": "jumper / sweater / pullover",
+  "reason": "yleiset synonyymit puuttuivat"
+ },
+ {
+  "id": "clothes_hat",
+  "field": "en_text",
+  "old": "hat",
+  "new": "hat / beanie / woolly hat",
+  "reason": "pipo = beanie / woolly hat"
+ },
+ {
+  "id": "clothes_hat",
+  "field": "de_text",
+  "old": "die Mütze / der Hut",
+  "new": "die Mütze",
+  "reason": "der Hut = hattu, ei pipo"
+ },
+ {
+  "id": "clothes_hat",
+  "field": "de_infl",
+  "old": "pl=die Mützen / die Hüte",
+  "new": "pl=die Mützen",
+  "reason": "Hut poistettu"
+ },
+ {
+  "id": "colours_purple",
+  "field": "en_text",
+  "old": "purple",
+  "new": "purple / violet",
+  "reason": "violetti = myös violet"
+ },
+ {
+  "id": "places_town_caf",
+  "field": "en_text",
+  "old": "café",
+  "new": "café / cafe / coffee shop",
+  "reason": "aksentiton kirjoitusasu ja yleinen synonyymi"
+ },
+ {
+  "id": "places_4_train_station",
+  "field": "en_text",
+  "old": "train station",
+  "new": "train station / railway station",
+  "reason": "brittienglannin railway station puuttui"
+ },
+ {
+  "id": "places_dir_4_right",
+  "field": "en_text",
+  "old": "right",
+  "new": "right / on the right / to the right",
+  "reason": "kehote oikealle/oikealla → to/on the right"
+ },
+ {
+  "id": "verbs_action_walk",
+  "field": "de_text",
+  "old": "gehen",
+  "new": "gehen / zu Fuß gehen / laufen",
+  "reason": "kävellä = myös zu Fuß gehen / laufen"
+ },
+ {
+  "id": "paivarutiinit_take_shower",
+  "field": "en_text",
+  "old": "take a shower",
+  "new": "take a shower / have a shower / shower",
+  "reason": "brittienglannissa have a shower; myös pelkkä shower"
+ },
+ {
+  "id": "hobbies_fun",
+  "field": "de_text",
+  "old": "der Spaß",
+  "new": "lustig / spaßig",
+  "reason": "pos=adj, mutta vastine oli substantiivi der Spaß"
+ },
+ {
+  "id": "nature_4_chilly",
+  "field": "en_text",
+  "old": "chilly",
+  "new": "chilly / cool",
+  "reason": "viileä = cool"
+ },
+ {
+  "id": "people_4_profession",
+  "field": "en_text",
+  "old": "profession",
+  "new": "profession / occupation",
+  "reason": "ammatti = myös occupation"
+ },
+ {
+  "id": "perusverbit_go",
+  "field": "de_text",
+  "old": "gehen",
+  "new": "gehen / fahren",
+  "reason": "mennä (kulkuneuvolla) = fahren, vrt. ruotsin åka"
+ },
+ {
+  "id": "verbs1_4_let",
+  "field": "en_text",
+  "old": "let",
+  "new": "let / allow",
+  "reason": "kehotteen 'sallia' = allow (ruotsissa ja saksassa mukana)"
+ },
+ {
+  "id": "opposites_hard",
+  "field": "de_text",
+  "old": "schwer",
+  "new": "hart",
+  "reason": "kova (ei pehmeä) = hart; schwer = vaikea/painava (englannin hard-homonyymi)"
+ },
+ {
+  "id": "s_a2_reverse",
+  "field": "de_text",
+  "old": "rückwärts fahren / zurücksetzen",
+  "new": "rückwärtsfahren / rückwärts fahren / zurücksetzen",
+  "reason": "nykyoikeinkirjoitus: rückwärtsfahren yhteen; erilleen kirjoitettu hyväksytään"
+ },
+ {
+  "id": "s_a2_reverse",
+  "field": "de_infl",
+  "old": "pret=fuhr rückwärts;pp=ist rückwärts gefahren;pres3=fährt rückwärts",
+  "new": "pret=fuhr rückwärts;pp=ist rückwärtsgefahren;pres3=fährt rückwärts",
+  "reason": "partisiippi yhteen päämuodon mukaan"
+ },
+ {
+  "id": "s_a2_dry_cleaner_s",
+  "field": "en_infl",
+  "old": "pl=dry cleaner's",
+  "new": "pl=dry cleaners",
+  "reason": "monikko ei ole genetiivimuoto"
+ },
+ {
+  "id": "health_7_stomach_ache",
+  "field": "en_text",
+  "old": "stomach ache",
+  "new": "stomach ache / stomachache / tummy ache",
+  "reason": "yhteenkirjoitettu muoto yleinen"
+ },
+ {
+  "id": "s_a2_feel_sick",
+  "field": "de_text",
+  "old": "sich übel fühlen / sich schlecht fühlen",
+  "new": "sich schlecht fühlen / sich übel fühlen / mir ist schlecht / mir ist übel",
+  "reason": "'sich übel fühlen' harvinainen; luontevat ilmaukset lisätty"
+ },
+ {
+  "id": "s_a2_feel_sick",
+  "field": "de_infl",
+  "old": "pret=fühlte sich übel;pp=hat sich übel gefühlt;pres3=fühlt sich übel",
+  "new": "pret=fühlte sich schlecht;pp=hat sich schlecht gefühlt;pres3=fühlt sich schlecht",
+  "reason": "taivutus uuden päämuodon mukaan"
+ },
+ {
+  "id": "s_a2_internship",
+  "field": "en_text",
+  "old": "internship / work placement",
+  "new": "internship / work placement / work experience",
+  "reason": "brittienglannin work experience puuttui"
+ },
+ {
+  "id": "s_a2_occupational_health_care",
+  "field": "en_text",
+  "old": "occupational health care / occupational health service",
+  "new": "occupational health care / occupational healthcare / occupational health service / occupational health",
+  "reason": "yhteenkirjoitettu healthcare ja lyhyt muoto yleisiä"
+ },
+ {
+  "id": "school_4_school_year",
+  "field": "en_text",
+  "old": "school year",
+  "new": "school year / academic year",
+  "reason": "lukuvuosi = myös academic year"
+ },
+ {
+  "id": "s_a2_log_out",
+  "field": "en_text",
+  "old": "log out",
+  "new": "log out / sign out / log off",
+  "reason": "yleiset synonyymit"
+ },
+ {
+  "id": "myself_happy",
+  "field": "en_text",
+  "old": "happy",
+  "new": "happy / glad / cheerful",
+  "reason": "iloinen = myös glad / cheerful"
+ },
+ {
+  "id": "myself_happy",
+  "field": "de_text",
+  "old": "glücklich / froh",
+  "new": "froh / fröhlich / glücklich",
+  "reason": "iloinen = froh/fröhlich; glücklich = onnellinen"
+ },
+ {
+  "id": "s_a2_get_divorced",
+  "field": "en_text",
+  "old": "get divorced",
+  "new": "get divorced / divorce",
+  "reason": "pelkkä divorce yleinen"
+ },
+ {
+  "id": "s_a2_hen",
+  "field": "en_text",
+  "old": "hen",
+  "new": "hen / chicken",
+  "reason": "kana (eläin) = yleisimmin chicken; saksassa das Huhn jo mukana"
+ },
+ {
+  "id": "nature_4_trail",
+  "field": "en_text",
+  "old": "trail",
+  "new": "trail / path",
+  "reason": "polku = ensisijaisesti path"
+ },
+ {
+  "id": "verbs_communication_shout",
+  "field": "de_text",
+  "old": "schreien",
+  "new": "schreien / rufen",
+  "reason": "huutaa = myös rufen (vrt. ruotsin ropa)"
+ },
+ {
+  "id": "adj_4_ready",
+  "field": "en_text",
+  "old": "ready",
+  "new": "ready / finished / done",
+  "reason": "valmis = myös finished (vrt. färdig, fertig)"
+ },
+ {
+  "id": "s_a2_special",
+  "field": "de_text",
+  "old": "besonders / speziell",
+  "new": "besondere / speziell / besonderer / besonderes",
+  "reason": "besonders on adverbi; adjektiivi on besondere(r/s)"
+ },
+ {
+  "id": "society_9_election",
+  "field": "en_text",
+  "old": "election",
+  "new": "election / elections",
+  "reason": "kehote monikossa (vaalit)"
+ },
+ {
+  "id": "s_b1_share",
+  "field": "en_text",
+  "old": "share",
+  "new": "share / stock",
+  "reason": "osake = myös stock"
+ },
+ {
+  "id": "s_b1_agriculture",
+  "field": "en_text",
+  "old": "agriculture",
+  "new": "agriculture / farming",
+  "reason": "yleinen synonyymi"
+ },
+ {
+  "id": "s_b1_vat",
+  "field": "en_text",
+  "old": "VAT / value added tax",
+  "new": "VAT / value added tax / value-added tax",
+  "reason": "yhdysmerkillinen kirjoitusasu yleinen"
+ },
+ {
+  "id": "general_4_business",
+  "field": "en_text",
+  "old": "business",
+  "new": "company / business / firm",
+  "reason": "yritys = ensisijaisesti company"
+ },
+ {
+  "id": "general_4_business",
+  "field": "en_infl",
+  "old": "pl=businesses",
+  "new": "pl=companies",
+  "reason": "taivutus päämuodon mukaan"
+ },
+ {
+  "id": "s_b1_carbon_dioxide",
+  "field": "de_text",
+  "old": "das Kohlendioxid",
+  "new": "das Kohlendioxid / das Kohlenstoffdioxid",
+  "reason": "yleinen rinnakkaismuoto"
+ },
+ {
+  "id": "science_9_scientist",
+  "field": "en_text",
+  "old": "scientist",
+  "new": "scientist / researcher",
+  "reason": "tutkija = researcher"
+ },
+ {
+  "id": "s_b1_headline",
+  "field": "en_text",
+  "old": "headline",
+  "new": "headline / heading / title",
+  "reason": "otsikko ei rajoitu lehtiotsikkoon"
+ },
+ {
+  "id": "s_b1_freedom_of_speech",
+  "field": "en_text",
+  "old": "freedom of speech",
+  "new": "freedom of speech / freedom of expression / free speech",
+  "reason": "yleiset vaihtoehdot"
+ },
+ {
+  "id": "s_b1_freedom_of_speech",
+  "field": "de_text",
+  "old": "die Meinungsfreiheit",
+  "new": "die Meinungsfreiheit / die Redefreiheit",
+  "reason": "Redefreiheit on suora vastine"
+ },
+ {
+  "id": "s_b1_monument",
+  "field": "de_text",
+  "old": "das Denkmal",
+  "new": "das Denkmal / das Monument",
+  "reason": "Monument yleinen vastine"
+ },
+ {
+  "id": "s_b1_burnt_out",
+  "field": "en_text",
+  "old": "burnt out",
+  "new": "burnt out / burned out / exhausted",
+  "reason": "burned out yhtä yleinen; uupunut = exhausted"
+ },
+ {
+  "id": "s_b1_legal",
+  "field": "en_text",
+  "old": "legal",
+  "new": "legal / lawful",
+  "reason": "laillinen = myös lawful"
+ },
+ {
+  "id": "verbs1_4_grow_up",
+  "field": "de_text",
+  "old": "aufwachsen",
+  "new": "aufwachsen / erwachsen werden",
+  "reason": "'kasvaa aikuiseksi' = erwachsen werden"
+ },
+ {
+  "id": "opinions_8_in_my_opinion",
+  "field": "en_text",
+  "old": "in my opinion",
+  "new": "in my opinion / in my view / I think",
+  "reason": "yleiset vaihtoehdot (saksassa ich finde jo mukana)"
+ },
+ {
+  "id": "s_b1_point_out",
+  "field": "de_text",
+  "old": "hinweisen",
+  "new": "hinweisen / darauf hinweisen / anmerken",
+  "reason": "huomauttaa = darauf hinweisen / anmerken"
+ },
+ {
+  "id": "s_b1_cause",
+  "field": "en_text",
+  "old": "cause",
+  "new": "cause / reason",
+  "reason": "syy = myös reason (vrt. anledning, der Grund)"
+ },
+ {
+  "id": "s_b1_be_interested_in",
+  "field": "de_infl",
+  "old": "pret=interessierte sich für;pp=hat sich interessiert für;pres3=interessiert sich für",
+  "new": "pret=interessierte sich für;pp=hat sich für ... interessiert;pres3=interessiert sich für",
+  "reason": "partisiippi lauseen lopussa, prepositio ennen sitä"
+ },
+ {
+  "id": "s_b1_in_case",
+  "field": "en_text",
+  "old": "in case / if",
+  "new": "if / in case / provided that",
+  "reason": "mikäli = if; brittienglannin in case = 'siltä varalta että'"
+ },
+ {
+  "id": "s_b1_in_case",
+  "field": "de_text",
+  "old": "falls / im Falle, dass",
+  "new": "falls / wenn / im Falle, dass",
+  "reason": "wenn yleinen vastine"
+ }
+]

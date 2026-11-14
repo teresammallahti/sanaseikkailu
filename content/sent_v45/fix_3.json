@@ -1,0 +1,338 @@
+[
+ {
+  "id": "svs_a1_numbers_2",
+  "field": "alt",
+  "old": "Den kostar ungefär tio euro.",
+  "new": "Den kostar ungefär tio euro. || Det kostar cirka tio euro. || Det kostar omkring tio euro.",
+  "reason": "noin = ungefär/cirka/omkring; yleiset synonyymit"
+ },
+ {
+  "id": "svs_a1_numbers_6",
+  "field": "alt",
+  "old": "Det blir hundra euro sammanlagt. || Det blir sammanlagt hundra euro.",
+  "new": "Det blir hundra euro sammanlagt. || Det blir sammanlagt hundra euro. || Totalt blir det hundra euro. || Det blir totalt hundra euro.",
+  "reason": "yhteensä = sammanlagt/totalt"
+ },
+ {
+  "id": "svs_a1_numbers_8",
+  "field": "alt",
+  "old": "Jag sover sju timmar varje natt.",
+  "new": "Jag sover sju timmar varje natt. || Jag sover sju timmar om natten.",
+  "reason": "'om natten' on yleinen ja oikea vastine ilmaukselle 'yössä'"
+ },
+ {
+  "id": "svs_a1_food_8",
+  "field": "fi",
+  "old": "Kakku maistuu todella hyvältä.",
+  "new": "Täytekakku maistuu todella hyvältä.",
+  "reason": "tårta = täytekakku; pelkkä 'kakku' ohjaa myös sanaan kaka"
+ },
+ {
+  "id": "svs_a1_food_8",
+  "field": "alt",
+  "old": "Tårtan smakar väldigt gott.",
+  "new": "Tårtan smakar väldigt gott. || Tårtan smakar jättegott. || Tårtan smakar riktigt gott.",
+  "reason": "todella hyvältä = jättegott/riktigt gott ovat hyvin todennäköisiä vastauksia"
+ },
+ {
+  "id": "svs_a1_work_study_2",
+  "field": "alt",
+  "old": "",
+  "new": "Han är sjuksköterska.",
+  "reason": "fi:n 'hän' ei kerro sukupuolta; han/hon-vastine hyväksyttävä"
+ },
+ {
+  "id": "svs_a1_work_study_5",
+  "field": "alt",
+  "old": "Han pluggar på universitetet.",
+  "new": "Han pluggar på universitetet. || Hon studerar på universitetet. || Hon pluggar på universitetet. || Han studerar vid universitetet. || Hon studerar vid universitetet. || Han läser på universitetet. || Hon läser på universitetet.",
+  "reason": "fi:n 'hän' ei kerro sukupuolta; han/hon-vastine hyväksyttävä; lisäksi 'vid universitetet' ja 'läser på universitetet' ovat yleisiä"
+ },
+ {
+  "id": "svs_a2_services_2",
+  "field": "alt",
+  "old": "Förra månaden ansökte hon om bidrag. || Hon ansökte om ett bidrag förra månaden.",
+  "new": "Förra månaden ansökte hon om bidrag. || Hon ansökte om ett bidrag förra månaden. || Han ansökte om bidrag förra månaden. || Förra månaden ansökte han om bidrag. || Han ansökte om ett bidrag förra månaden.",
+  "reason": "fi:n 'hän' ei kerro sukupuolta; han/hon-vastine hyväksyttävä"
+ },
+ {
+  "id": "svs_a2_services_6",
+  "field": "alt",
+  "old": "",
+  "new": "Kön var lång, så jag tog en kölapp.",
+  "reason": "vuoronumerolappu = nummerlapp/kölapp"
+ },
+ {
+  "id": "svs_a2_services_7",
+  "field": "alt",
+  "old": "Jag ringde till kundtjänst eftersom räkningen var fel. || Jag ringde kundtjänsten eftersom räkningen var fel.",
+  "new": "Jag ringde till kundtjänst eftersom räkningen var fel. || Jag ringde kundtjänsten eftersom räkningen var fel. || Jag ringde kundtjänst eftersom fakturan var fel. || Jag ringde till kundtjänst eftersom fakturan var fel. || Jag ringde kundtjänsten eftersom fakturan var fel. || Jag ringde kundtjänst eftersom räkningen var felaktig.",
+  "reason": "lasku = räkning/faktura; 'felaktig' myös oikein"
+ },
+ {
+  "id": "svs_a2_services_8",
+  "field": "alt",
+  "old": "",
+  "new": "Tjänsten är gratis för pensionärer. || Tjänsten är kostnadsfri för pensionärer.",
+  "reason": "maksuton = avgiftsfri/gratis/kostnadsfri"
+ },
+ {
+  "id": "svs_a2_communication_1",
+  "field": "fi",
+  "old": "Soitin sinulle, mutta puhelin oli varattu.",
+  "new": "Soitin sinulle, mutta oli varattua.",
+  "reason": "sv:ssä 'det var upptaget'; 'puhelin oli varattu' ohjaa virheelliseen käännökseen 'telefonen var upptagen'"
+ },
+ {
+  "id": "svs_a2_communication_2",
+  "field": "fi",
+  "old": "Voitko soittaa takaisin iltapäivällä?",
+  "new": "Voitko soittaa takaisin tänä iltapäivänä?",
+  "reason": "'i eftermiddag' = tänä iltapäivänä; pelkkä 'iltapäivällä' ohjaa muotoon 'på eftermiddagen'"
+ },
+ {
+  "id": "svs_a2_communication_3",
+  "field": "alt",
+  "old": "",
+  "new": "Hon har laddat ned en ny app. || Han har laddat ner en ny app. || Han har laddat ned en ny app.",
+  "reason": "fi:n 'hän' ei kerro sukupuolta; han/hon-vastine hyväksyttävä; 'ladda ned' on yhtä oikea kirjoitusasu"
+ },
+ {
+  "id": "svs_a2_communication_8",
+  "field": "alt",
+  "old": "Han lade upp en video som många gillade.",
+  "new": "Han lade upp en video som många gillade. || Hon laddade upp en video som många gillade. || Hon lade upp en video som många gillade. || Han la upp en video som många gillade. || Hon la upp en video som många gillade.",
+  "reason": "fi:n 'hän' ei kerro sukupuolta; han/hon-vastine hyväksyttävä; 'la' on hyväksytty lyhyt muoto"
+ },
+ {
+  "id": "svs_a2_adverbs_3",
+  "field": "alt",
+  "old": "Hon bor inte i Helsingfors längre.",
+  "new": "Hon bor inte i Helsingfors längre. || Han bor inte längre i Helsingfors. || Han bor inte i Helsingfors längre.",
+  "reason": "fi:n 'hän' ei kerro sukupuolta; han/hon-vastine hyväksyttävä"
+ },
+ {
+  "id": "svs_a2_adverbs_6",
+  "field": "alt",
+  "old": "Först åt vi och sedan gick vi ut. || Först åt vi, sen gick vi ut.",
+  "new": "Först åt vi och sedan gick vi ut. || Först åt vi, sen gick vi ut. || Först åt vi och sen gick vi ut.",
+  "reason": "puuttuva yhdistelmä (och + sen)"
+ },
+ {
+  "id": "svs_a2_adverbs_7",
+  "field": "alt",
+  "old": "Han har inte ens läst mailet.",
+  "new": "Han har inte ens läst mailet. || Hon har inte ens läst mejlet. || Hon har inte ens läst mailet.",
+  "reason": "fi:n 'hän' ei kerro sukupuolta; han/hon-vastine hyväksyttävä"
+ },
+ {
+  "id": "svs_a2_adverbs_8",
+  "field": "alt",
+  "old": "Förra året var jag där åtminstone tre gånger.",
+  "new": "Förra året var jag där åtminstone tre gånger. || Jag var där minst tre gånger förra året. || Förra året var jag där minst tre gånger.",
+  "reason": "ainakin = åtminstone/minst"
+ },
+ {
+  "id": "svs_b1_science_tech_2",
+  "field": "alt",
+  "old": "Jag anser att forskning borde få mer pengar från staten. || Jag tycker att forskningen borde få mer pengar från staten.",
+  "new": "Jag anser att forskning borde få mer pengar från staten. || Jag tycker att forskningen borde få mer pengar från staten. || Jag tycker att forskning borde få mer pengar av staten. || Jag tycker att forskningen borde få mer pengar av staten.",
+  "reason": "'få pengar av staten' on yhtä yleinen kuin 'från staten'"
+ },
+ {
+  "id": "svs_b1_science_tech_3",
+  "field": "alt",
+  "old": "",
+  "new": "Undersökningen visar att resultatet beror på hur man mäter.",
+  "reason": "tutkimus = studie/undersökning"
+ },
+ {
+  "id": "svs_b1_science_tech_5",
+  "field": "alt",
+  "old": "",
+  "new": "Vi testade maskinen många gånger innan den fungerade som den skulle.",
+  "reason": "monta kertaa = flera/många gånger"
+ },
+ {
+  "id": "svs_b1_science_tech_8",
+  "field": "alt",
+  "old": "Jag undrar om tekniken verkligen gör våra liv enklare.",
+  "new": "Jag undrar om tekniken verkligen gör våra liv enklare. || Jag undrar om tekniken verkligen gör vårt liv lättare. || Jag undrar om tekniken verkligen gör våra liv lättare.",
+  "reason": "helpompaa = enklare/lättare; lättare on todennäköisin vastaus"
+ },
+ {
+  "id": "svs_b1_opinions_1",
+  "field": "alt",
+  "old": "Jag tycker att vi borde diskutera frågan mer öppet. || Jag anser att vi borde diskutera frågan mer öppet.",
+  "new": "Jag tycker att vi borde diskutera frågan mer öppet. || Jag anser att vi borde diskutera frågan mer öppet. || Enligt min mening borde vi diskutera saken mer öppet. || Enligt min åsikt borde vi diskutera frågan mer öppet. || Jag tycker att vi borde diskutera saken mer öppet.",
+  "reason": "asia = frågan/saken; 'enligt min åsikt' yleinen"
+ },
+ {
+  "id": "svs_b1_opinions_3",
+  "field": "alt",
+  "old": "Han vill inte ta ställning eftersom han inte läst förslaget.",
+  "new": "Han vill inte ta ställning eftersom han inte läst förslaget. || Hon vill inte ta ställning eftersom hon inte har läst förslaget. || Hon vill inte ta ställning eftersom hon inte läst förslaget.",
+  "reason": "fi:n 'hän' ei kerro sukupuolta; han/hon-vastine hyväksyttävä"
+ },
+ {
+  "id": "svs_b1_opinions_5",
+  "field": "alt",
+  "old": "Å andra sidan måste vi erkänna att planen inte varit lyckad.",
+  "new": "Å andra sidan måste vi erkänna att planen inte varit lyckad. || Å andra sidan måste vi erkänna att planen inte har lyckats. || Å andra sidan måste vi erkänna att planen inte lyckats.",
+  "reason": "fi 'ei ole onnistunut' kääntyy suoraan 'inte har lyckats'"
+ },
+ {
+  "id": "svs_b1_opinions_6",
+  "field": "alt",
+  "old": "Hon föreslog att vi skulle ta upp saken på nästa möte.",
+  "new": "Hon föreslog att vi skulle ta upp saken på nästa möte. || Han föreslog att vi skulle ta upp frågan på nästa möte. || Han föreslog att vi skulle ta upp saken på nästa möte.",
+  "reason": "fi:n 'hän' ei kerro sukupuolta; han/hon-vastine hyväksyttävä"
+ },
+ {
+  "id": "svs_b1_opinions_7",
+  "field": "alt",
+  "old": "",
+  "new": "Det viktigaste är att alla får säga sin mening. || Det viktigaste är att alla får säga vad de tycker.",
+  "reason": "yleiset oikeat vastineet ilmaukselle 'sanoa mielipiteensä'"
+ },
+ {
+  "id": "svs_b2_economy_1",
+  "field": "alt",
+  "old": "",
+  "new": "Företaget drevs med förlust under flera år innan det gick i konkurs.",
+  "reason": "'under flera år' yhtä oikein"
+ },
+ {
+  "id": "svs_b2_economy_2",
+  "field": "fi",
+  "old": "Hallitus on päättänyt palkata konsultin parantamaan kannattavuutta.",
+  "new": "Hallitus (yhtiön) on päättänyt palkata konsultin parantamaan kannattavuutta.",
+  "reason": "'hallitus' on monitulkintainen (regeringen/styrelsen); tarkenne ohjaa sanaan styrelsen"
+ },
+ {
+  "id": "svs_b2_economy_4",
+  "field": "fi",
+  "old": "Hallituksen mukaan alan tukia on määrä vähentää ensi vuonna.",
+  "new": "Hallituksen (maan) mukaan sektorin tukia on määrä vähentää ensi vuonna.",
+  "reason": "tarkenne erottaa regeringen/styrelsen; 'alan' ohjaisi sanaan branschen, sv:ssä on sektorn"
+ },
+ {
+  "id": "svs_b2_economy_4",
+  "field": "alt",
+  "old": "Subventionerna till sektorn ska minskas nästa år enligt regeringen.",
+  "new": "Subventionerna till sektorn ska minskas nästa år enligt regeringen. || Enligt regeringen ska stöden till sektorn minskas nästa år. || Enligt regeringen ska subventionerna till sektorn minska nästa år.",
+  "reason": "tuki = subvention/stöd; aktiivinen 'ska minska' myös luonteva"
+ },
+ {
+  "id": "svs_b2_economy_7",
+  "field": "alt",
+  "old": "En strängare reglering skulle kunna minska marginalerna för mindre företag.",
+  "new": "En strängare reglering skulle kunna minska marginalerna för mindre företag. || Hårdare reglering skulle kunna minska marginalerna för mindre företag. || Strängare reglering skulle kunna minska marginalerna för mindre företag. || En hårdare reglering kunde minska marginalerna för mindre företag.",
+  "reason": "artikkeliton muoto on hyvin todennäköinen ja oikea; 'kunde' = voisi"
+ },
+ {
+  "id": "svs_b2_everyday_2",
+  "field": "alt",
+  "old": "Det var en riktig tabbe att glömma hennes födelsedag.",
+  "new": "Det var en riktig tabbe att glömma hennes födelsedag. || Det var en riktig tabbe att glömma bort hans födelsedag. || Det var en riktig tabbe att glömma hans födelsedag.",
+  "reason": "fi:n 'hänen' ei kerro sukupuolta; hans/hennes"
+ },
+ {
+  "id": "svs_b2_everyday_8",
+  "field": "alt",
+  "old": "En tröja av ull håller dig varm även om den blir blöt. || En ylletröja håller dig varm även om den blir blöt.",
+  "new": "En tröja av ull håller dig varm även om den blir blöt. || En ylletröja håller dig varm även om den blir blöt. || En ulltröja håller dig varm även om den blir våt.",
+  "reason": "kastua = bli blöt/våt"
+ },
+ {
+  "id": "svd_a2_communication_5",
+  "field": "fi",
+  "old": "Lähetin hänelle linkin, mutta hän ei ole vastannut.",
+  "new": "Olen lähettänyt hänelle linkin, mutta hän ei ole vastannut.",
+  "reason": "sv on perfektissä (har skickat)"
+ },
+ {
+  "id": "svd_b1_opinions_1",
+  "field": "title_fi",
+  "old": "Kokouksessa",
+  "new": "Ennen kokousta",
+  "reason": "puhujat eivät ole kokouksessa: repliikissä 7 asia ehdotetaan 'på mötet i morgon'"
+ },
+ {
+  "id": "svd_b1_opinions_2",
+  "field": "title_fi",
+  "old": "Kokouksessa",
+  "new": "Ennen kokousta",
+  "reason": "puhujat eivät ole kokouksessa: repliikissä 7 asia ehdotetaan 'på mötet i morgon'"
+ },
+ {
+  "id": "svd_b1_opinions_3",
+  "field": "title_fi",
+  "old": "Kokouksessa",
+  "new": "Ennen kokousta",
+  "reason": "puhujat eivät ole kokouksessa: repliikissä 7 asia ehdotetaan 'på mötet i morgon'"
+ },
+ {
+  "id": "svd_b1_opinions_4",
+  "field": "title_fi",
+  "old": "Kokouksessa",
+  "new": "Ennen kokousta",
+  "reason": "puhujat eivät ole kokouksessa: repliikissä 7 asia ehdotetaan 'på mötet i morgon'"
+ },
+ {
+  "id": "svd_b1_opinions_5",
+  "field": "title_fi",
+  "old": "Kokouksessa",
+  "new": "Ennen kokousta",
+  "reason": "puhujat eivät ole kokouksessa: repliikissä 7 asia ehdotetaan 'på mötet i morgon'"
+ },
+ {
+  "id": "svd_b1_opinions_6",
+  "field": "title_fi",
+  "old": "Kokouksessa",
+  "new": "Ennen kokousta",
+  "reason": "puhujat eivät ole kokouksessa: repliikissä 7 asia ehdotetaan 'på mötet i morgon'"
+ },
+ {
+  "id": "svd_b1_opinions_7",
+  "field": "title_fi",
+  "old": "Kokouksessa",
+  "new": "Ennen kokousta",
+  "reason": "puhujat eivät ole kokouksessa: repliikissä 7 asia ehdotetaan 'på mötet i morgon'"
+ },
+ {
+  "id": "svd_b1_opinions_8",
+  "field": "title_fi",
+  "old": "Kokouksessa",
+  "new": "Ennen kokousta",
+  "reason": "puhujat eivät ole kokouksessa: repliikissä 7 asia ehdotetaan 'på mötet i morgon'"
+ },
+ {
+  "id": "svd_b1_opinions_5",
+  "field": "fi",
+  "old": "Se pitää tavallaan paikkansa, mutta meidän täytyy myös tavata.",
+  "new": "Se pitää tavallaan paikkansa, mutta meidän täytyy myös tavata toisiamme.",
+  "reason": "'träffas' on resiprookkinen; suomen 'tavata' jää ilman objektia vajaaksi"
+ },
+ {
+  "id": "svd_b1_opinions_8",
+  "field": "fi",
+  "old": "Reilua, minusta se on hyvä ratkaisu.",
+  "new": "Hienoa, minusta se on hyvä ratkaisu.",
+  "reason": "'schysst' on tässä hyväksyvä huudahdus (hienoa/hyvä), ei 'reilua'"
+ },
+ {
+  "id": "svd_b2_everyday_4",
+  "field": "sv",
+  "old": "Gärna. Ärligt talat är jag lite hårt pressad, det har varit mycket pyssel med förberedelserna.",
+  "new": "Gärna. Ärligt talat är jag ganska hårt pressad, det har varit mycket pyssel med förberedelserna.",
+  "reason": "'lite hårt pressad' on ristiriitainen yhdistelmä (lite + hårt); luonteva on 'ganska hårt pressad'"
+ },
+ {
+  "id": "svd_b2_everyday_4",
+  "field": "fi",
+  "old": "Mielelläni. Suoraan sanottuna olen vähän kovilla, valmisteluissa on ollut paljon puuhaa.",
+  "new": "Mielelläni. Suoraan sanottuna olen aika kovilla, valmisteluissa on ollut paljon puuhaa.",
+  "reason": "vastaa korjattua sv:tä (ganska hårt pressad)"
+ }
+]

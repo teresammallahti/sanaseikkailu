@@ -1,0 +1,81 @@
+topic	level	title_fi	line	speaker	sv	fi
+a1_family	A1	Valokuva perheestä	1	A	Vem är det på bilden?	Kuka kuvassa on?
+a1_family	A1	Valokuva perheestä	2	B	Det är min familj. Det här är min man.	Se on perheeni. Tämä on mieheni.
+a1_family	A1	Valokuva perheestä	3	A	Och vem är flickan?	Entä kuka tyttö on?
+a1_family	A1	Valokuva perheestä	4	B	Det är vår dotter. Hon är tio år.	Hän on tyttäremme. Hän on kymmenvuotias.
+a1_family	A1	Valokuva perheestä	5	A	Har du syskon?	Onko sinulla sisaruksia?
+a1_family	A1	Valokuva perheestä	6	B	Ja, jag har en bror och en syster.	Kyllä, minulla on veli ja sisko.
+a1_family	A1	Valokuva perheestä	7	A	Bor de också i Stockholm?	Asuvatko hekin Tukholmassa?
+a1_family	A1	Valokuva perheestä	8	B	Nej, min bror bor i Helsingfors.	Ei, veljeni asuu Helsingissä.
+a1_town	A1	Matkalla asemalle	1	A	Ursäkta, var ligger stationen?	Anteeksi, missä asema on?
+a1_town	A1	Matkalla asemalle	2	B	Gå rakt fram och sedan till höger.	Mene suoraan eteenpäin ja sitten oikealle.
+a1_town	A1	Matkalla asemalle	3	A	Är det långt?	Onko sinne pitkä matka?
+a1_town	A1	Matkalla asemalle	4	B	Nej, det är nära. Bara fem minuter till fots.	Ei, se on lähellä. Vain viisi minuuttia kävellen.
+a1_town	A1	Matkalla asemalle	5	A	När går tåget till Uppsala?	Milloin juna lähtee Uppsalaan?
+a1_town	A1	Matkalla asemalle	6	B	Det går klockan tre.	Se lähtee kello kolme.
+a1_town	A1	Matkalla asemalle	7	A	Vad kostar en biljett?	Paljonko lippu maksaa?
+a1_town	A1	Matkalla asemalle	8	B	Den kostar hundra kronor.	Se maksaa sata kruunua.
+a1_verbs	A1	Kadonnut puhelin	1	A	Vad gör du?	Mitä sinä teet?
+a1_verbs	A1	Kadonnut puhelin	2	B	Jag letar efter min telefon. Jag hittar den inte.	Etsin puhelintani. En löydä sitä.
+a1_verbs	A1	Kadonnut puhelin	3	A	Vänta, jag ringer den.	Odota, soitan siihen.
+a1_verbs	A1	Kadonnut puhelin	4	B	Tack! Nu hör jag den.	Kiitos! Nyt kuulen sen.
+a1_verbs	A1	Kadonnut puhelin	5	A	Var är den?	Missä se on?
+a1_verbs	A1	Kadonnut puhelin	6	B	Den ligger i min väska.	Se on laukussani.
+a1_verbs	A1	Kadonnut puhelin	7	A	Bra! Ska vi gå nu?	Hyvä! Lähdetäänkö nyt?
+a1_verbs	A1	Kadonnut puhelin	8	B	Ja, vi går.	Joo, mennään.
+a2_housing	A2	Vuotava putki	1	A	Hej, jag bor i lägenhet tolv. Röret under diskbänken läcker.	Hei, asun asunnossa kaksitoista. Tiskipöydän alla oleva putki vuotaa.
+a2_housing	A2	Vuotava putki	2	B	Oj då. När började det läcka?	Voi ei. Milloin se alkoi vuotaa?
+a2_housing	A2	Vuotava putki	3	A	I morse. Jag har ställt en hink under.	Tänä aamuna. Olen laittanut ämpärin alle.
+a2_housing	A2	Vuotava putki	4	B	Bra. Har du stängt av vattnet?	Hyvä. Oletko sulkenut veden?
+a2_housing	A2	Vuotava putki	5	A	Nej, jag vet inte hur man gör det.	En, en tiedä, miten se tehdään.
+a2_housing	A2	Vuotava putki	6	B	Det finns en kran under diskbänken. Vrid den åt höger.	Tiskipöydän alla on hana. Käännä sitä oikealle.
+a2_housing	A2	Vuotava putki	7	A	Okej, nu har jag gjort det. När kan ni komma?	Selvä, nyt tein sen. Milloin pääsette tulemaan?
+a2_housing	A2	Vuotava putki	8	B	Vår reparatör kommer i eftermiddag.	Korjaajamme tulee tänään iltapäivällä.
+a2_relationships	A2	Kutsu syntymäpäiville	1	A	Hej! Jag fyller trettio nästa lördag. Vill du komma på festen?	Hei! Täytän kolmekymmentä ensi lauantaina. Haluatko tulla juhliin?
+a2_relationships	A2	Kutsu syntymäpäiville	2	B	Gärna! Grattis i förväg. Var blir den?	Mielelläni! Onnea etukäteen. Missä juhlat pidetään?
+a2_relationships	A2	Kutsu syntymäpäiville	3	A	Hemma hos mig. Jag har bjudit in ungefär femton personer.	Minun luonani. Olen kutsunut noin viisitoista ihmistä.
+a2_relationships	A2	Kutsu syntymäpäiville	4	B	Får jag ta med min pojkvän?	Saanko ottaa poikaystäväni mukaan?
+a2_relationships	A2	Kutsu syntymäpäiville	5	A	Självklart! Jag vill gärna lära känna honom.	Totta kai! Haluaisin mielelläni tutustua häneen.
+a2_relationships	A2	Kutsu syntymäpäiville	6	B	Vad önskar du dig i present?	Mitä toivot lahjaksi?
+a2_relationships	A2	Kutsu syntymäpäiville	7	A	Ingenting, det räcker att ni kommer.	En mitään, riittää että tulette.
+a2_relationships	A2	Kutsu syntymäpäiville	8	B	Okej, vi ses på lördag då!	Selvä, nähdään sitten lauantaina!
+b1_society	B1	Kahvitaukokeskustelu vaaleista	1	A	Har du bestämt dig för vem du ska rösta på?	Oletko päättänyt, ketä äänestät?
+b1_society	B1	Kahvitaukokeskustelu vaaleista	2	B	Inte riktigt. Jag har läst partiernas program, men jag är fortfarande osäker.	En oikeastaan. Olen lukenut puolueiden ohjelmat, mutta olen yhä epävarma.
+b1_society	B1	Kahvitaukokeskustelu vaaleista	3	A	Vad är viktigast för dig?	Mikä on sinulle tärkeintä?
+b1_society	B1	Kahvitaukokeskustelu vaaleista	4	B	Skolan och vården. Kommunen har sparat för mycket de senaste åren.	Koulu ja terveydenhuolto. Kunta on säästänyt liikaa viime vuosina.
+b1_society	B1	Kahvitaukokeskustelu vaaleista	5	A	Det håller jag med om. Men någon måste ju betala.	Siitä olen samaa mieltä. Mutta jonkunhan täytyy maksaa.
+b1_society	B1	Kahvitaukokeskustelu vaaleista	6	B	Visst, men jag tycker att politikerna borde prioritera bättre.	Toki, mutta minusta poliitikkojen pitäisi priorisoida paremmin.
+b1_society	B1	Kahvitaukokeskustelu vaaleista	7	A	Ska du gå till vallokalen eller förtidsrösta?	Menetkö äänestyspaikalle vai äänestätkö ennakkoon?
+b1_society	B1	Kahvitaukokeskustelu vaaleista	8	B	Jag förtidsröstar nog, det går snabbare.	Äänestän varmaan ennakkoon, se käy nopeammin.
+b1_culture	B1	Museokäynti	1	A	Vad tyckte du om utställningen?	Mitä mieltä olit näyttelystä?
+b1_culture	B1	Museokäynti	2	B	Jag tyckte mycket om den, särskilt fotografierna från femtiotalet.	Pidin siitä kovasti, erityisesti 1950-luvun valokuvista.
+b1_culture	B1	Museokäynti	3	A	Ja, fotografen hade en väldigt personlig stil.	Niin, valokuvaajalla oli hyvin henkilökohtainen tyyli.
+b1_culture	B1	Museokäynti	4	B	Visste du att han nästan var okänd innan han dog?	Tiesitkö, että hän oli lähes tuntematon ennen kuolemaansa?
+b1_culture	B1	Museokäynti	5	A	Nej, det visste jag inte. Det är lite sorgligt.	En, sitä en tiennyt. Se on vähän surullista.
+b1_culture	B1	Museokäynti	6	B	Ska vi titta på den klassiska samlingen också?	Katsotaanko myös klassista kokoelmaa?
+b1_culture	B1	Museokäynti	7	A	Gärna, men först vill jag ha en kopp kaffe.	Mielelläni, mutta ensin haluan kupin kahvia.
+b1_culture	B1	Museokäynti	8	B	Bra idé, kaféet ligger på bottenvåningen.	Hyvä idea, kahvila on pohjakerroksessa.
+b1_verbs	B1	Projektipalaveri	1	A	Har vi gått igenom hela listan?	Olemmeko käyneet läpi koko listan?
+b1_verbs	B1	Projektipalaveri	2	B	Nästan. Vi måste fortfarande ta reda på varför kunderna klagar.	Melkein. Meidän täytyy vielä selvittää, miksi asiakkaat valittavat.
+b1_verbs	B1	Projektipalaveri	3	A	Jag tror att det beror på de nya priserna.	Luulen, että se johtuu uusista hinnoista.
+b1_verbs	B1	Projektipalaveri	4	B	Kan vi erbjuda dem någon rabatt?	Voimmeko tarjota heille jonkinlaisen alennuksen?
+b1_verbs	B1	Projektipalaveri	5	A	Kanske, men jag vill inte att det leder till förluster.	Ehkä, mutta en halua, että se johtaa tappioihin.
+b1_verbs	B1	Projektipalaveri	6	B	Då organiserar jag ett möte med ekonomiavdelningen.	Sitten järjestän palaverin talousosaston kanssa.
+b1_verbs	B1	Projektipalaveri	7	A	Bra. Meddela mig när du har pratat med dem.	Hyvä. Ilmoita minulle, kun olet puhunut heidän kanssaan.
+b1_verbs	B1	Projektipalaveri	8	B	Absolut. Ska vi gå vidare till nästa punkt?	Ehdottomasti. Siirrytäänkö seuraavaan kohtaan?
+b2_health	B2	Lääkärin vastaanotolla	1	A	Vad kan jag hjälpa dig med i dag?	Miten voin auttaa tänään?
+b2_health	B2	Lääkärin vastaanotolla	2	B	Jag har hittat en knöl på halsen och blev lite orolig.	Löysin kyhmyn kaulastani ja huolestuin vähän.
+b2_health	B2	Lääkärin vastaanotolla	3	A	Jag förstår. Hur länge har du haft den?	Ymmärrän. Kuinka kauan se on ollut siinä?
+b2_health	B2	Lääkärin vastaanotolla	4	B	Ungefär två veckor. Den gör inte ont, men jag har haft lite feber.	Noin kaksi viikkoa. Se ei satu, mutta minulla on ollut vähän kuumetta.
+b2_health	B2	Lääkärin vastaanotolla	5	A	Oftast är det en svullen lymfkörtel efter en infektion, men vi ska förstås undersöka den ordentligt.	Useimmiten se on infektion jälkeen turvonnut imusolmuke, mutta tutkimme sen tietysti huolellisesti.
+b2_health	B2	Lääkärin vastaanotolla	6	B	Skulle det vara möjligt att ta prover redan i dag?	Olisiko mahdollista ottaa näytteet jo tänään?
+b2_health	B2	Lääkärin vastaanotolla	7	A	Ja, jag skickar en remiss till labbet, så får du svar inom några dagar.	Kyllä, lähetän lähetteen laboratorioon, niin saat vastauksen muutamassa päivässä.
+b2_health	B2	Lääkärin vastaanotolla	8	B	Tack, det känns skönt att det tas på allvar.	Kiitos, on helpottavaa, että asia otetaan vakavasti.
+b2_abstract	B2	Strategiapalaveri	1	A	Innan vi bestämmer oss vill jag förstå omfattningen av problemet.	Ennen kuin päätämme, haluan ymmärtää ongelman laajuuden.
+b2_abstract	B2	Strategiapalaveri	2	B	Rimligt. Försäljningen har minskat i hela sektorn, inte bara hos oss.	Kohtuullista. Myynti on laskenut koko alalla, ei vain meillä.
+b2_abstract	B2	Strategiapalaveri	3	A	Är det en tillfällig vändning eller en långsiktig trend?	Onko kyse tilapäisestä käänteestä vai pitkäaikaisesta trendistä?
+b2_abstract	B2	Strategiapalaveri	4	B	Svårt att säga. Men om trenden håller i sig behöver vi en ny taktik.	Vaikea sanoa. Mutta jos trendi jatkuu, tarvitsemme uuden taktiikan.
+b2_abstract	B2	Strategiapalaveri	5	A	Vad skulle utgångspunkten vara i så fall?	Mikä silloin olisi lähtökohta?
+b2_abstract	B2	Strategiapalaveri	6	B	Vår närvaro på nätet. Där finns den största potentialen.	Läsnäolomme verkossa. Siellä on suurin potentiaali.
+b2_abstract	B2	Strategiapalaveri	7	A	Och timingen? Vi kan inte vänta för länge.	Entä ajoitus? Emme voi odottaa liian kauan.
+b2_abstract	B2	Strategiapalaveri	8	B	Jag föreslår att vi presenterar ett förslag i början av nästa kvartal.	Ehdotan, että esittelemme ehdotuksen ensi vuosineljänneksen alussa.

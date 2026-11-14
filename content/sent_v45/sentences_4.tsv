@@ -1,0 +1,81 @@
+topic	level	sv	fi	alt
+a1_time	A1	Vad är klockan nu?	Paljonko kello on nyt?	Hur mycket är klockan nu?
+a1_time	A1	Klockan är halv tre.	Kello on puoli kolme.	Den är halv tre.
+a1_time	A1	Jag tränar alltid på kvällen.	Treenaan aina iltaisin.	Jag tränar alltid på kvällarna.
+a1_time	A1	Vi ses i morgon.	Nähdään huomenna.	I morgon ses vi.
+a1_time	A1	Mötet börjar om en timme.	Kokous alkaa tunnin päästä.	Om en timme börjar mötet.
+a1_time	A1	Anna kommer sällan i tid.	Anna tulee harvoin ajoissa.	
+a1_time	A1	Jag är ledig nästa vecka.	Olen vapaalla ensi viikolla.	Nästa vecka är jag ledig.
+a1_time	A1	Vi åker till Stockholm i kväll.	Lähdemme Tukholmaan tänä iltana.	I kväll åker vi till Stockholm. || Vi reser till Stockholm i kväll.
+a1_shopping	A1	Vad kostar den här jackan?	Paljonko tämä takki maksaa?	Hur mycket kostar den här jackan?
+a1_shopping	A1	Jag tittar bara, tack.	Katselen vain, kiitos.	
+a1_shopping	A1	Har ni den i en större storlek?	Onko teillä sitä isommassa koossa?	Finns den i en större storlek?
+a1_shopping	A1	Jag vill köpa en svart kostym.	Haluan ostaa mustan puvun.	
+a1_shopping	A1	Kan jag betala med kort?	Voinko maksaa kortilla?	
+a1_shopping	A1	Affären är stängd på söndagar.	Kauppa on kiinni sunnuntaisin.	Butiken är stängd på söndagar. || På söndagar är affären stängd.
+a1_shopping	A1	Den blå skjortan passar bra.	Sininen paita istuu hyvin.	Den blåa skjortan passar bra.
+a1_shopping	A1	Jag handlar ofta kläder på nätet.	Ostan usein vaatteita netistä.	Jag köper ofta kläder på nätet.
+a1_core	A1	Jag är inte trött än.	En ole vielä väsynyt.	Jag är inte trött ännu.
+a1_core	A1	Peter bor här, men Anna bor där.	Peter asuu täällä, mutta Anna asuu tuolla.	
+a1_core	A1	Varför kommer du inte?	Miksi et tule?	
+a1_core	A1	Jag vet det redan.	Tiedän sen jo.	Jag vet redan det.
+a1_core	A1	Den här boken är ganska bra.	Tämä kirja on aika hyvä.	Den här boken är rätt bra.
+a1_core	A1	Vill du ha kaffe eller te?	Haluatko kahvia vai teetä?	
+a1_core	A1	Jag gör det själv.	Teen sen itse.	
+a1_core	A1	Jag förstår ingenting.	En ymmärrä mitään.	Jag förstår inte någonting.
+a2_health	A2	Jag har haft feber sedan i går.	Minulla on ollut kuumetta eilisestä asti.	Jag har haft feber sen i går.
+a2_health	A2	Läkaren undersökte mitt ben.	Lääkäri tutki jalkani.	Doktorn undersökte mitt ben.
+a2_health	A2	Min pappa ramlade och bröt benet.	Isäni kaatui ja mursi jalkansa.	Pappa ramlade och bröt benet. || Min far ramlade och bröt benet.
+a2_health	A2	Jag mår illa när jag åker buss.	Voin pahoin, kun matkustan bussilla.	Jag mår illa när jag åker med buss. || Jag mår illa när jag reser med buss.
+a2_health	A2	Läkaren frågade var det gjorde ont.	Lääkäri kysyi, mihin sattui.	Doktorn frågade var det gjorde ont.
+a2_health	A2	Du måste ta receptet till apoteket.	Sinun täytyy viedä resepti apteekkiin.	Du måste ta med receptet till apoteket.
+a2_health	A2	Jag blev sjuk förra veckan, men nu är jag frisk.	Sairastuin viime viikolla, mutta nyt olen terve.	Förra veckan blev jag sjuk, men nu är jag frisk.
+a2_health	A2	Ambulansen kom efter tio minuter.	Ambulanssi tuli kymmenen minuutin päästä.	
+a2_feelings	A2	Jag håller med dig.	Olen samaa mieltä kanssasi.	
+a2_feelings	A2	Vad tycker du om den nya filmen?	Mitä mieltä olet uudesta elokuvasta?	
+a2_feelings	A2	Tyvärr kunde jag inte komma i går.	Valitettavasti en päässyt tulemaan eilen.	Jag kunde tyvärr inte komma i går. || I går kunde jag tyvärr inte komma.
+a2_feelings	A2	Jag hoppas att du snart mår bättre.	Toivon, että voit pian paremmin.	Jag hoppas att du mår bättre snart.
+a2_feelings	A2	Lisa var orolig eftersom barnen kom hem sent.	Lisa oli huolissaan, koska lapset tulivat kotiin myöhään.	Lisa var orolig för att barnen kom hem sent.
+a2_feelings	A2	Jag är stolt över min dotter.	Olen ylpeä tyttärestäni.	
+a2_feelings	A2	Jag dricker hellre te än kaffe.	Juon mieluummin teetä kuin kahvia.	
+a2_feelings	A2	Vi blev glada när vi hörde nyheten.	Ilahduimme, kun kuulimme uutisen.	Vi blev glada när vi fick höra nyheten.
+a2_describe	A2	Lägenheten är liten men bekväm.	Asunto on pieni mutta mukava.	
+a2_describe	A2	Vi köpte en begagnad bil förra året.	Ostimme käytetyn auton viime vuonna.	Förra året köpte vi en begagnad bil.
+a2_describe	A2	Det var en tråkig film.	Se oli tylsä elokuva.	
+a2_describe	A2	Läkarens förklaring var tydlig och enkel.	Lääkärin selitys oli selkeä ja yksinkertainen.	Doktorns förklaring var tydlig och enkel.
+a2_describe	A2	Hotellrummet var rent men ganska trångt.	Hotellihuone oli puhdas mutta melko ahdas.	Hotellrummet var rent men rätt trångt.
+a2_describe	A2	Det är viktigt att vara noggrann i det här jobbet.	Tässä työssä on tärkeää olla huolellinen.	I det här jobbet är det viktigt att vara noggrann.
+a2_describe	A2	Restaurangen är populär bland turister.	Ravintola on suosittu turistien keskuudessa.	Restaurangen är populär bland turisterna.
+a2_describe	A2	Det var omöjligt att hitta en ledig plats.	Oli mahdotonta löytää vapaata paikkaa.	Det var omöjligt att hitta någon ledig plats.
+b1_media	B1	Jag tycker att man alltid borde kontrollera källan innan man delar en nyhet.	Minusta lähde pitäisi aina tarkistaa ennen kuin uutisen jakaa.	Jag tycker att man alltid bör kontrollera källan innan man delar en nyhet.
+b1_media	B1	Tidningen publicerade artikeln utan att faktagranska den.	Lehti julkaisi artikkelin faktantarkistamatta sitä.	
+b1_media	B1	Många unga får sina nyheter från sociala medier i stället för från tidningar.	Monet nuoret saavat uutisensa sosiaalisesta mediasta lehtien sijaan.	Många unga får sina nyheter från sociala medier istället för från tidningar. || Många unga får sina nyheter via sociala medier i stället för från tidningar.
+b1_media	B1	Programmet sänds på lördagar, men man kan se det i efterhand på nätet.	Ohjelma lähetetään lauantaisin, mutta sen voi katsoa jälkikäteen netistä.	Programmet sänds på lördagar, men det går att se det i efterhand på nätet.
+b1_media	B1	Jag prenumererar på en dagstidning eftersom jag vill stödja seriös journalistik.	Tilaan päivälehteä, koska haluan tukea laadukasta journalismia.	Jag prenumererar på en dagstidning för att jag vill stödja seriös journalistik. || Jag prenumererar på en dagstidning eftersom jag vill stödja kvalitetsjournalistik.
+b1_media	B1	Yttrandefriheten är viktig, men den betyder inte att man får sprida lögner.	Sananvapaus on tärkeää, mutta se ei tarkoita, että saa levittää valheita.	Yttrandefrihet är viktig, men den betyder inte att man får sprida lögner.
+b1_media	B1	Rubriken var bra, men själva artikeln var ganska tråkig.	Otsikko oli hyvä, mutta itse artikkeli oli melko tylsä.	Rubriken var bra, men själva artikeln var rätt tråkig.
+b1_media	B1	Jag förstår inte varför kanalen alltid visar så många repriser.	En ymmärrä, miksi kanava näyttää aina niin paljon uusintoja.	Jag förstår inte varför kanalen alltid sänder så många repriser.
+b1_abstract	B1	Det finns flera sätt att lösa det här problemet.	On olemassa useita tapoja ratkaista tämä ongelma.	Det finns flera olika sätt att lösa det här problemet. || Det finns flera sätt att lösa detta problem.
+b1_abstract	B1	Jag tror att den största skillnaden ligger i priset.	Uskon, että suurin ero on hinnassa.	Jag tror att den största skillnaden finns i priset.
+b1_abstract	B1	Ingen har riktigt förklarat vad syftet med förändringen är.	Kukaan ei ole oikeastaan selittänyt, mikä muutoksen tarkoitus on.	Ingen har egentligen förklarat vad syftet med förändringen är.
+b1_abstract	B1	Om vi inte gör något nu, kommer situationen att bli värre.	Jos emme tee nyt mitään, tilanne pahenee.	Om vi inte gör något nu blir situationen värre. || Om vi inte gör någonting nu, kommer situationen att bli värre.
+b1_abstract	B1	Det var ett modigt försök, även om det inte lyckades.	Se oli rohkea yritys, vaikka se ei onnistunutkaan.	Det var ett modigt försök, fast det inte lyckades.
+b1_abstract	B1	Den nuvarande modellen fungerar, men den har vissa risker.	Nykyinen malli toimii, mutta siihen liittyy tiettyjä riskejä.	Den nuvarande modellen fungerar men har vissa risker.
+b1_abstract	B1	Vi måste tänka på framtiden när vi fattar det här beslutet.	Meidän täytyy ajatella tulevaisuutta, kun teemme tämän päätöksen.	Vi måste tänka på framtiden när vi tar det här beslutet.
+b1_abstract	B1	I det här fallet tycker jag att vi borde välja det billigare alternativet.	Tässä tapauksessa minusta meidän pitäisi valita halvempi vaihtoehto.	I det här fallet tycker jag att vi bör välja det billigare alternativet. || Jag tycker att vi borde välja det billigare alternativet i det här fallet.
+b2_science	B2	Sannolikheten att resultatet beror på slumpen är statistiskt mycket liten.	Todennäköisyys sille, että tulos johtuu sattumasta, on tilastollisesti hyvin pieni.	Sannolikheten för att resultatet beror på slumpen är statistiskt mycket liten. || Sannolikheten att resultatet beror på en slump är statistiskt mycket liten.
+b2_science	B2	Sensorerna installerades förra året och har sedan dess skickat data varje timme.	Anturit asennettiin viime vuonna, ja ne ovat siitä lähtien lähettäneet dataa tunnin välein.	Sensorerna installerades i fjol och har sedan dess skickat data varje timme. || Sensorerna installerades förra året och har sedan dess skickat data en gång i timmen.
+b2_science	B2	Om processorn vore snabbare skulle beräkningarna ta betydligt mindre tid.	Jos prosessori olisi nopeampi, laskelmat veisivät huomattavasti vähemmän aikaa.	Om processorn var snabbare skulle beräkningarna ta betydligt mindre tid. || Om processorn vore snabbare skulle beräkningarna ta betydligt kortare tid.
+b2_science	B2	Kurvan i grafen visar hur spänningen förändras över tid.	Kuvaajan käyrä näyttää, miten jännite muuttuu ajan myötä.	Kurvan i grafen visar hur spänningen ändras över tid.
+b2_science	B2	Upptäckten anses vara ett av de största genombrotten inom genetisk forskning.	Löytöä pidetään yhtenä geenitutkimuksen suurimmista läpimurroista.	Upptäckten anses vara ett av de största genombrotten inom den genetiska forskningen. || Upptäckten anses vara ett av de största genombrotten i genetisk forskning.
+b2_science	B2	Malmen innehåller en blandning av koppar och tenn, vilket gör den värdefull.	Malmi sisältää kuparin ja tinan seosta, mikä tekee siitä arvokkaan.	
+b2_science	B2	Doktorsavhandlingen handlar om hur radar kan användas för att mäta snöns tjocklek.	Väitöskirja käsittelee sitä, miten tutkaa voidaan käyttää lumen paksuuden mittaamiseen.	Doktorsavhandlingen handlar om hur man kan använda radar för att mäta snöns tjocklek.
+b2_science	B2	Forskarna skulle behöva ett större urval för att kunna dra säkra slutsatser.	Tutkijat tarvitsisivat suuremman otoksen voidakseen tehdä varmoja johtopäätöksiä.	Forskarna skulle behöva ett större urval för att dra säkra slutsatser.
+b2_communication	B2	Begreppet saknar en tydlig definition, vilket ofta leder till missförstånd.	Käsitteellä ei ole selkeää määritelmää, mikä johtaa usein väärinkäsityksiin.	Begreppet saknar en klar definition, vilket ofta leder till missförstånd.
+b2_communication	B2	Det svenska uttrycket har ingen exakt motsvarighet på finska.	Ruotsinkielisellä ilmauksella ei ole tarkkaa vastinetta suomen kielessä.	Det svenska uttrycket saknar exakt motsvarighet på finska. || Det svenska uttrycket har ingen exakt motsvarighet i finskan.
+b2_communication	B2	Citatet lyftes ur sitt sammanhang och fick därför en helt annan betydelse.	Lainaus irrotettiin asiayhteydestään, ja siksi se sai aivan toisen merkityksen.	Citatet togs ur sitt sammanhang och fick därför en helt annan betydelse.
+b2_communication	B2	Om du hade gett ett förtydligande direkt, hade diskussionen blivit mer konstruktiv.	Jos olisit antanut tarkennuksen heti, keskustelusta olisi tullut rakentavampi.	Hade du gett ett förtydligande direkt, hade diskussionen blivit mer konstruktiv. || Om du hade gett ett förtydligande genast, hade diskussionen blivit mer konstruktiv.
+b2_communication	B2	Sarkasm är svår att uppfatta i skrift eftersom tonfall och gester saknas.	Sarkasmia on vaikea tunnistaa kirjoitetusta tekstistä, koska äänensävy ja eleet puuttuvat.	Sarkasm är svårt att uppfatta i skrift eftersom tonfall och gester saknas. || Sarkasm är svår att uppfatta i text eftersom tonfall och gester saknas.
+b2_communication	B2	Rapporten kommer att offentliggöras först efter en noggrann granskning.	Raportti julkistetaan vasta perusteellisen tarkastuksen jälkeen.	Rapporten offentliggörs först efter en noggrann granskning. || Rapporten kommer att offentliggöras först efter en ingående granskning. || Rapporten offentliggörs först efter en ingående granskning.
+b2_communication	B2	Samtalet gav mig en viktig insikt om hur mitt eget tankesätt påverkar andra.	Keskustelu antoi minulle tärkeän oivalluksen siitä, miten oma ajattelutapani vaikuttaa muihin.	Samtalet gav mig en viktig insikt i hur mitt eget tankesätt påverkar andra.
+b2_communication	B2	Det är en paradox att vi kommunicerar mer än någonsin men förstår varandra sämre.	On paradoksi, että viestimme enemmän kuin koskaan mutta ymmärrämme toisiamme huonommin.	Det är paradoxalt att vi kommunicerar mer än någonsin men förstår varandra sämre.

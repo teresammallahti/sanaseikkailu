@@ -1,0 +1,471 @@
+[
+ {
+  "id": "polite_phrases_thank_you",
+  "field": "en_text",
+  "old": "thank you",
+  "new": "thank you / thanks",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "polite_phrases_here_you_are",
+  "field": "en_text",
+  "old": "here you are",
+  "new": "here you are / here you go",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "little_4_a_little",
+  "field": "en_text",
+  "old": "a little",
+  "new": "a little / a bit",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "numbers_4_kilogram",
+  "field": "en_text",
+  "old": "kilogram",
+  "new": "kilogram / kilo / kilogramme",
+  "reason": "kehote \"kilo\"; brittiasu kilogramme"
+ },
+ {
+  "id": "s_a1_quarter_to",
+  "field": "en_text",
+  "old": "quarter to",
+  "new": "quarter to / a quarter to",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "time_4_in_time",
+  "field": "en_text",
+  "old": "in time",
+  "new": "in time / on time",
+  "reason": "ajoissa = myös on time"
+ },
+ {
+  "id": "time_4_in_time",
+  "field": "de_text",
+  "old": "rechtzeitig",
+  "new": "rechtzeitig / pünktlich",
+  "reason": "ajoissa = myös pünktlich"
+ },
+ {
+  "id": "health_7_ill",
+  "field": "en_text",
+  "old": "ill",
+  "new": "ill / sick",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "health_7_pharmacy",
+  "field": "en_text",
+  "old": "pharmacy",
+  "new": "pharmacy / chemist's / chemist",
+  "reason": "brittienglannin yleisin sana"
+ },
+ {
+  "id": "home_4_attic",
+  "field": "en_text",
+  "old": "attic",
+  "new": "attic / loft",
+  "reason": "brittienglannin yleinen vaihtoehto"
+ },
+ {
+  "id": "home_4_roof",
+  "field": "fi",
+  "old": "katto",
+  "new": "katto (ulkokatto)",
+  "reason": "katto = roof/Dach tai ceiling/Decke; ilman tarkennetta en/de monitulkintainen"
+ },
+ {
+  "id": "places_4_lift",
+  "field": "en_text",
+  "old": "lift",
+  "new": "lift / elevator",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "food_4_prawn",
+  "field": "en_text",
+  "old": "prawn",
+  "new": "prawn / shrimp",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "food_4_cinnamon_roll",
+  "field": "en_text",
+  "old": "cinnamon roll",
+  "new": "cinnamon roll / cinnamon bun",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "places_4_shopping_centre",
+  "field": "en_text",
+  "old": "shopping centre",
+  "new": "shopping centre / shopping mall / mall",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "transport_airplane",
+  "field": "en_text",
+  "old": "airplane",
+  "new": "aeroplane / plane / airplane",
+  "reason": "brittienglanti: aeroplane; airplane on amerikanenglantia, plane yleinen"
+ },
+ {
+  "id": "transport_airplane",
+  "field": "en_infl",
+  "old": "pl=airplanes",
+  "new": "pl=aeroplanes",
+  "reason": "taivutus päämuodon mukaan"
+ },
+ {
+  "id": "prepositions_next_to",
+  "field": "en_text",
+  "old": "next to",
+  "new": "next to / beside",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "chores_4_take_the_rubbish_out",
+  "field": "en_text",
+  "old": "take the rubbish out",
+  "new": "take the rubbish out / take out the rubbish",
+  "reason": "yhtä yleinen sanajärjestys"
+ },
+ {
+  "id": "chores_4_take_the_rubbish_out",
+  "field": "de_text",
+  "old": "den Müll rausbringen",
+  "new": "den Müll rausbringen / den Müll hinausbringen / den Müll runterbringen",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "free_time_7_practise",
+  "field": "en_text",
+  "old": "practise",
+  "new": "practise / train",
+  "reason": "kehote \"treenata\" = train"
+ },
+ {
+  "id": "nature_7_thunder",
+  "field": "en_text",
+  "old": "thunder",
+  "new": "thunder / thunderstorm",
+  "reason": "ukkonen = myös thunderstorm (de Gewitter)"
+ },
+ {
+  "id": "school_people_cook",
+  "field": "en_text",
+  "old": "cook",
+  "new": "cook / chef",
+  "reason": "kokki = yleisesti chef"
+ },
+ {
+  "id": "professions_firefighter",
+  "field": "en_text",
+  "old": "firefighter",
+  "new": "firefighter / fireman",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "aikasanat_2_every",
+  "field": "en_text",
+  "old": "every",
+  "new": "every / each",
+  "reason": "jokainen = each"
+ },
+ {
+  "id": "communication_9_reply",
+  "field": "en_text",
+  "old": "reply",
+  "new": "reply / answer",
+  "reason": "vastata = yleisimmin answer"
+ },
+ {
+  "id": "adj_4_high",
+  "field": "en_text",
+  "old": "high",
+  "new": "high / tall",
+  "reason": "korkea (rakennus, puu) = tall"
+ },
+ {
+  "id": "home_4_sunscreen",
+  "field": "en_text",
+  "old": "sunscreen",
+  "new": "sunscreen / sun cream / suncream / sunblock",
+  "reason": "brittienglannin yleisin sana on sun cream"
+ },
+ {
+  "id": "town_7_crossroads",
+  "field": "en_text",
+  "old": "crossroads",
+  "new": "crossroads / junction / intersection",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "verbs2_4_sign_up",
+  "field": "en_text",
+  "old": "sign up",
+  "new": "sign up / register / enrol",
+  "reason": "ilmoittautua = myös register/enrol"
+ },
+ {
+  "id": "cooking_7_recipe",
+  "field": "en_text",
+  "old": "recipe",
+  "new": "prescription / recipe",
+  "reason": "aihepiiri terveys: resepti = prescription; kehote kaksitulkintainen, joten molemmat hyväksytään"
+ },
+ {
+  "id": "cooking_7_recipe",
+  "field": "en_infl",
+  "old": "pl=recipes",
+  "new": "pl=prescriptions",
+  "reason": "taivutus päämuodon mukaan"
+ },
+ {
+  "id": "s_a2_hurt_oneself",
+  "field": "en_text",
+  "old": "hurt oneself / injure oneself",
+  "new": "hurt oneself / injure oneself / hurt yourself / get hurt / get injured",
+  "reason": "oppija kirjoittaa todennäköisemmin nämä kuin oneself-muodon"
+ },
+ {
+  "id": "s_a2_get_well",
+  "field": "en_text",
+  "old": "get well / recover",
+  "new": "get well / recover / get better",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "environment_8_rubbish",
+  "field": "en_text",
+  "old": "rubbish",
+  "new": "rubbish / waste",
+  "reason": "jätteet = waste"
+ },
+ {
+  "id": "opinions_8_annoyed",
+  "field": "en_text",
+  "old": "annoyed",
+  "new": "annoyed / irritated",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "opinions_8_upset",
+  "field": "en_text",
+  "old": "upset",
+  "new": "upset / shocked",
+  "reason": "järkyttynyt = shocked (sv chockad)"
+ },
+ {
+  "id": "animals_4_elk",
+  "field": "en_text",
+  "old": "elk",
+  "new": "elk / moose",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "nature_4_bush",
+  "field": "en_text",
+  "old": "bush",
+  "new": "bush / shrub",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "places_4_cottage",
+  "field": "en_text",
+  "old": "cottage",
+  "new": "cottage / summer cottage / cabin",
+  "reason": "kesämökki; cabin yleinen"
+ },
+ {
+  "id": "sports_5_match",
+  "field": "en_text",
+  "old": "match",
+  "new": "match / game",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "phrasal_9_turn_off",
+  "field": "en_text",
+  "old": "turn off",
+  "new": "turn off / switch off",
+  "reason": "brittienglannissa yhtä yleinen"
+ },
+ {
+  "id": "verbs1_4_pick_up",
+  "field": "en_text",
+  "old": "pick up",
+  "new": "pick up / lift / raise",
+  "reason": "nostaa = ensisijaisesti lift"
+ },
+ {
+  "id": "connectors_9_therefore",
+  "field": "en_text",
+  "old": "therefore",
+  "new": "therefore / that's why / so",
+  "reason": "siksi = arkikielessä that's why"
+ },
+ {
+  "id": "little_4_until",
+  "field": "en_text",
+  "old": "until",
+  "new": "until / till",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "s_b1_the_media",
+  "field": "en_text",
+  "old": "the media / news media",
+  "new": "the media / news media / media",
+  "reason": "artikkeliton muoto hyväksyttävä"
+ },
+ {
+  "id": "s_b1_middle_ages",
+  "field": "en_text",
+  "old": "the Middle Ages",
+  "new": "the Middle Ages / Middle Ages",
+  "reason": "artikkeliton muoto hyväksyttävä"
+ },
+ {
+  "id": "media_8_advertisement",
+  "field": "en_text",
+  "old": "advertisement",
+  "new": "advertisement / advert / ad",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "relationships_7_argue",
+  "field": "en_text",
+  "old": "argue",
+  "new": "argue / quarrel / fight",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "phrasal_9_look_after",
+  "field": "en_text",
+  "old": "look after",
+  "new": "look after / take care of",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "s_b1_adapt",
+  "field": "en_text",
+  "old": "adapt",
+  "new": "adapt / adjust",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "s_b1_so_thus",
+  "field": "en_text",
+  "old": "so",
+  "new": "so / thus / therefore",
+  "reason": "siis = myös thus/therefore"
+ },
+ {
+  "id": "weekdays_friday",
+  "field": "de_text",
+  "old": "Freitag",
+  "new": "der Freitag",
+  "reason": "artikkeli puuttui (vrt. der März, pl=die Freitage)"
+ },
+ {
+  "id": "s_a1_swedish_language",
+  "field": "de_text",
+  "old": "das Schwedisch / das Schwedische",
+  "new": "das Schwedisch / das Schwedische / Schwedisch",
+  "reason": "kielen nimi esiintyy yleensä ilman artikkelia"
+ },
+ {
+  "id": "culture_8_christmas",
+  "field": "de_text",
+  "old": "das Weihnachten / die Weihnachten",
+  "new": "das Weihnachten / die Weihnachten / Weihnachten",
+  "reason": "käytetään yleensä ilman artikkelia"
+ },
+ {
+  "id": "body_parts_hair",
+  "field": "de_text",
+  "old": "die Haare",
+  "new": "die Haare / das Haar",
+  "reason": "yksikkömuoto yhtä yleinen"
+ },
+ {
+  "id": "paivarutiinit_brush_teeth",
+  "field": "de_text",
+  "old": "Zähne putzen",
+  "new": "Zähne putzen / die Zähne putzen / sich die Zähne putzen",
+  "reason": "luontevin muoto on (sich) die Zähne putzen"
+ },
+ {
+  "id": "verbs_action_paint",
+  "field": "de_text",
+  "old": "malen",
+  "new": "malen / streichen",
+  "reason": "maalata (seinä, talo) = streichen; malen = maalata kuva"
+ },
+ {
+  "id": "pronouns_4_their",
+  "field": "de_text",
+  "old": "ihr",
+  "new": "ihr / ihre",
+  "reason": "feminiini/monikko, vrt. mein / meine"
+ },
+ {
+  "id": "s_a1_away",
+  "field": "de_text",
+  "old": "weg",
+  "new": "weg / fort",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "verbs_communication_listen",
+  "field": "de_text",
+  "old": "zuhören",
+  "new": "zuhören / hören / anhören",
+  "reason": "kuunnella (musiikkia, radiota) = hören, vrt. Musik hören"
+ },
+ {
+  "id": "s_a2_correct",
+  "field": "de_text",
+  "old": "korrigieren",
+  "new": "korrigieren / verbessern",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "technology_download",
+  "field": "de_text",
+  "old": "herunterladen",
+  "new": "herunterladen / downloaden / runterladen",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "myself_excited",
+  "field": "de_text",
+  "old": "aufgeregt",
+  "new": "aufgeregt / begeistert",
+  "reason": "innostunut = begeistert; aufgeregt on lähinnä jännittynyt"
+ },
+ {
+  "id": "school_4_magazine",
+  "field": "de_text",
+  "old": "die Zeitschrift",
+  "new": "die Zeitschrift / das Magazin",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "s_b1_study",
+  "field": "de_text",
+  "old": "die Studie",
+  "new": "die Studie / die Untersuchung",
+  "reason": "yleinen vaihtoehto, jonka oppija todennäköisesti kirjoittaa"
+ },
+ {
+  "id": "s_b1_question",
+  "field": "de_text",
+  "old": "infrage stellen",
+  "new": "infrage stellen / in Frage stellen / hinterfragen",
+  "reason": "yleinen kirjoitusasu ja synonyymi"
+ }
+]

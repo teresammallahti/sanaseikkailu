@@ -1,0 +1,233 @@
+[
+ {
+  "id": "svs_a1_daily_1",
+  "field": "alt",
+  "old": "",
+  "new": "Klockan sex vaknar jag.",
+  "reason": "Etulohkoinen sanajärjestys puuttui (vrt. muut kellonaikavirkkeet)."
+ },
+ {
+  "id": "svs_a1_daily_5",
+  "field": "alt",
+  "old": "Han går hemifrån klockan åtta. || Klockan åtta går hon hemifrån. || Klockan åtta går han hemifrån.",
+  "new": "Han går hemifrån klockan åtta. || Klockan åtta går hon hemifrån. || Klockan åtta går han hemifrån. || Hon åker hemifrån klockan åtta. || Han åker hemifrån klockan åtta.",
+  "reason": "'Lähtee kotoa' on yhtä hyvin 'åker hemifrån'."
+ },
+ {
+  "id": "svs_a1_daily_6",
+  "field": "alt",
+  "old": "",
+  "new": "Kan du gå ut med soporna? || Kan du slänga soporna?",
+  "reason": "Yleiset ja oikeat tavat sanoa 'viedä roskat'."
+ },
+ {
+  "id": "svs_a1_daily_8",
+  "field": "alt",
+  "old": "Klockan elva går vi och lägger oss.",
+  "new": "Klockan elva går vi och lägger oss. || Vi lägger oss klockan elva. || Klockan elva lägger vi oss.",
+  "reason": "'Lägga sig' yksinään on tavallinen ja oikea vastine 'mennä nukkumaan'."
+ },
+ {
+  "id": "svs_a1_adjectives_4",
+  "field": "alt",
+  "old": "",
+  "new": "Denna väska är tung.",
+  "reason": "'Denna väska' on oikea vaihtoehto ilmaukselle 'den här väskan'."
+ },
+ {
+  "id": "svs_a1_adjectives_6",
+  "field": "alt",
+  "old": "",
+  "new": "Svenskan är inte så svår.",
+  "reason": "Määräinen muoto + en-suvun kongruenssi on yhtä oikein."
+ },
+ {
+  "id": "svs_a1_adjectives_7",
+  "field": "alt",
+  "old": "",
+  "new": "Lägenheten är liten men trevlig.",
+  "reason": "'Kiva' kääntyy yhtä luontevasti 'trevlig'."
+ },
+ {
+  "id": "svs_a2_cooking_1",
+  "field": "alt",
+  "old": "Vi bokade ett bord för fyra.",
+  "new": "Vi bokade ett bord för fyra. || Vi bokade bord för fyra personer. || Vi bokade bord för fyra.",
+  "reason": "'Boka bord' ilman artikkelia on vakiintunut ilmaus."
+ },
+ {
+  "id": "svs_a2_cooking_2",
+  "field": "alt",
+  "old": "",
+  "new": "Jag vill gärna beställa dagens lunch.",
+  "reason": "Yleinen kohtelias vaihtoehto 'haluaisin'-rakenteelle."
+ },
+ {
+  "id": "svs_a2_cooking_3",
+  "field": "alt",
+  "old": "Han skar löken och stekte den i smör.",
+  "new": "Han skar löken och stekte den i smör. || Hon hackade löken och stekte den i smör. || Han hackade löken och stekte den i smör.",
+  "reason": "'Pilkkoi' on täsmällisimmin 'hackade'; 'skar' = leikkasi."
+ },
+ {
+  "id": "svs_a2_cooking_4",
+  "field": "alt",
+  "old": "",
+  "new": "Kan vi betala separat?",
+  "reason": "Yleinen synonyymi ilmaukselle 'var för sig'."
+ },
+ {
+  "id": "svs_a2_cooking_5",
+  "field": "alt",
+  "old": "Rör hela tiden om när du värmer såsen.",
+  "new": "Rör hela tiden om när du värmer såsen. || Rör om hela tiden när du värmer upp såsen.",
+  "reason": "'Värma upp' on yhtä tavallinen kuin 'värma'."
+ },
+ {
+  "id": "svs_a2_cooking_6",
+  "field": "alt",
+  "old": "",
+  "new": "Servitören frågade om vi ville ha någonting att dricka.",
+  "reason": "något/någonting ovat vaihdettavissa."
+ },
+ {
+  "id": "svs_a2_cooking_7",
+  "field": "alt",
+  "old": "",
+  "new": "Har du någon gång ätit rå fisk?",
+  "reason": "'Någon gång' on yleinen vastine sanalle 'koskaan' kysymyksessä."
+ },
+ {
+  "id": "svs_a2_cooking_8",
+  "field": "alt",
+  "old": "I lördags bjöd vi våra vänner på middag.",
+  "new": "I lördags bjöd vi våra vänner på middag. || Vi bjöd våra vänner på middag förra lördagen. || Förra lördagen bjöd vi våra vänner på middag.",
+  "reason": "'Viime lauantaina' kääntyy myös 'förra lördagen'."
+ },
+ {
+  "id": "svs_a2_nature_5",
+  "field": "alt",
+  "old": "",
+  "new": "Stigen leder upp till toppen av backen. || Stigen går upp till backens topp.",
+  "reason": "Yleinen verbisynonyymi ja s-genetiivi ovat oikein."
+ },
+ {
+  "id": "svs_a2_nature_7",
+  "field": "alt",
+  "old": "I Finland finns det både vargar och björnar.",
+  "new": "I Finland finns det både vargar och björnar. || I Finland finns både vargar och björnar.",
+  "reason": "Paikanmääreen jälkeen 'det' jää usein pois; oikea ja yleinen."
+ },
+ {
+  "id": "svs_a2_nature_8",
+  "field": "alt",
+  "old": "Det luktade blommor och hö på landet.",
+  "new": "Det luktade blommor och hö på landet. || På landet doftade det blommor och hö. || Det doftade blommor och hö på landet.",
+  "reason": "'Tuoksua' on täsmällisimmin 'dofta'; 'lukta' on neutraali 'haista'."
+ },
+ {
+  "id": "svs_b1_economy_1",
+  "field": "alt",
+  "old": "Jag tycker att priserna har stigit för mycket under det senaste året.",
+  "new": "Jag tycker att priserna har stigit för mycket under det senaste året. || Jag tycker att priserna har gått upp för mycket det senaste året.",
+  "reason": "'Gå upp' on yleinen synonyymi verbille 'stiga' hinnoista."
+ },
+ {
+  "id": "svs_b1_economy_2",
+  "field": "alt",
+  "old": "Bolaget exporterar de flesta av sina produkter till Tyskland. || Företaget exporterar de flesta produkterna till Tyskland.",
+  "new": "Bolaget exporterar de flesta av sina produkter till Tyskland. || Företaget exporterar de flesta produkterna till Tyskland. || Företaget exporterar största delen av sina produkter till Tyskland. || Företaget exporterar den största delen av sina produkter till Tyskland.",
+  "reason": "Suora ja oikea vastine ilmaukselle 'suurimman osan'."
+ },
+ {
+  "id": "svs_b1_economy_3",
+  "field": "alt",
+  "old": "Om man inte betalar tillbaka lånet i tid, blir det dyrt.",
+  "new": "Om man inte betalar tillbaka lånet i tid, blir det dyrt. || Det blir dyrt om man inte betalar tillbaka lånet i tid.",
+  "reason": "Päälause ensin -järjestys puuttui."
+ },
+ {
+  "id": "svs_b1_wellbeing_1",
+  "field": "alt",
+  "old": "Jag tycker att sömnen är lika viktig som kosten och motionen.",
+  "new": "Jag tycker att sömnen är lika viktig som kosten och motionen. || Jag tycker att sömn är lika viktigt som kost och motion.",
+  "reason": "Yleistävän paljaan substantiivin kanssa neutrimuotoinen predikatiivi ('sömn är viktigt') on oikein ja yleinen."
+ },
+ {
+  "id": "svs_b1_wellbeing_6",
+  "field": "alt",
+  "old": "Om man dricker för mycket alkohol, kan man bli beroende.",
+  "new": "Om man dricker för mycket alkohol, kan man bli beroende. || Man kan bli beroende om man dricker för mycket alkohol.",
+  "reason": "Päälause ensin -järjestys puuttui."
+ },
+ {
+  "id": "svs_b1_wellbeing_7",
+  "field": "alt",
+  "old": "Jag mår illa när jag inte ätit på hela dagen.",
+  "new": "Jag mår illa när jag inte ätit på hela dagen. || Jag mår dåligt när jag inte har ätit på hela dagen. || Jag mår dåligt när jag inte ätit på hela dagen.",
+  "reason": "'Huono olo' on yhtä hyvin 'mår dåligt'; 'mår illa' viittaa lähinnä pahoinvointiin."
+ },
+ {
+  "id": "svs_b1_connectors_1",
+  "field": "alt",
+  "old": "Jag tycker om både te och kaffe, men framför allt kaffe.",
+  "new": "Jag tycker om både te och kaffe, men framför allt kaffe. || Jag gillar både te och kaffe, men framförallt kaffe. || Jag tycker om både te och kaffe, men framförallt kaffe.",
+  "reason": "Kirjoitusasu 'framförallt' on hyväksytty rinnakkaismuoto."
+ },
+ {
+  "id": "svs_b1_connectors_2",
+  "field": "alt",
+  "old": "På grund av det dåliga vädret stannade vi hemma.",
+  "new": "På grund av det dåliga vädret stannade vi hemma. || Vi stannade hemma på grund av dåligt väder. || På grund av dåligt väder stannade vi hemma.",
+  "reason": "Epämääräinen muoto on yhtä luonteva vastine."
+ },
+ {
+  "id": "svs_b1_connectors_3",
+  "field": "alt",
+  "old": "Vi gick ut och promenerade trots att det regnade. || Trots att det regnade gick vi ut på en promenad.",
+  "new": "Vi gick ut och promenerade trots att det regnade. || Trots att det regnade gick vi ut på en promenad. || Fastän det regnade gick vi ut och promenerade. || Vi gick ut och promenerade fastän det regnade.",
+  "reason": "'Vaikka' kääntyy yhtä oikein 'fastän'."
+ },
+ {
+  "id": "svs_b2_verbs_7",
+  "field": "alt",
+  "old": "Resultatet speglar hur svårt det är att tillämpa lagen i praktiken.",
+  "new": "Resultatet speglar hur svårt det är att tillämpa lagen i praktiken. || Resultatet avspeglar hur svårt det är att tillämpa lagen i praktiken.",
+  "reason": "'Avspegla' on yleinen synonyymi."
+ },
+ {
+  "id": "svs_b2_environment_1",
+  "field": "fi",
+  "old": "Aukiolla kasvoi vuokkoja, vaikka aamuisin oli vielä hallaa.",
+  "new": "Metsäaukiolla kasvoi vuokkoja, vaikka aamuisin oli vielä hallaa.",
+  "reason": "'Aukio' ohjaa sanaan torg/plats; 'glänta' on metsäaukio."
+ },
+ {
+  "id": "svd_a1_daily_4",
+  "field": "fi",
+  "old": "Kiitos, mutta minulla on kiire.",
+  "new": "Kyllä kiitos, mutta minulla on kiire.",
+  "reason": "'Ja tack' = kyllä kiitos; myöntö puuttui."
+ },
+ {
+  "id": "svd_b1_economy_4",
+  "field": "fi",
+  "old": "Miten liikevaihto on kehittynyt viime vuoden aikana?",
+  "new": "Miten liikevaihto on kehittynyt viimeisen vuoden aikana?",
+  "reason": "'Det senaste året' = viimeisen vuoden aikana; 'viime vuoden' olisi 'förra året'."
+ },
+ {
+  "id": "svd_b1_economy_8",
+  "field": "fi",
+  "old": "Hyvä. Lähetä lukunne, niin laadin teille tarjouksen.",
+  "new": "Hyvä. Lähettäkää lukunne, niin laadin teille tarjouksen.",
+  "reason": "Yksikön imperatiivi ristiriidassa monikon 'lukunne/teille' kanssa."
+ },
+ {
+  "id": "svd_b1_wellbeing_7",
+  "field": "fi",
+  "old": "Ehdotan, että alat liikkua vähän joka päivä. Voimme myös varata sinulle ajan psykologille.",
+  "new": "Ehdotan, että alat liikkua vähän joka päivä. Voimme myös varata ajan psykologille.",
+  "reason": "Ruotsissa ei ole 'sinulle'; ylimääräinen merkitys pois."
+ }
+]

@@ -1,0 +1,81 @@
+topic	level	title_fi	line	speaker	sv	fi
+a1_numbers	A1	Torilla	1	A	Hej! Hur mycket kostar äpplena?	Hei! Paljonko omenat maksavat?
+a1_numbers	A1	Torilla	2	B	De kostar tre euro per kilo.	Ne maksavat kolme euroa kilolta.
+a1_numbers	A1	Torilla	3	A	Då tar jag två kilo, tack.	Sitten otan kaksi kiloa, kiitos.
+a1_numbers	A1	Torilla	4	B	Vill du ha något mer?	Haluatko jotain muuta?
+a1_numbers	A1	Torilla	5	A	Ja, ett par gurkor också.	Kyllä, myös pari kurkkua.
+a1_numbers	A1	Torilla	6	B	Sammanlagt blir det åtta euro.	Yhteensä se tekee kahdeksan euroa.
+a1_numbers	A1	Torilla	7	A	Varsågod, här är tio.	Ole hyvä, tässä on kymmenen.
+a1_numbers	A1	Torilla	8	B	Tack, och två euro tillbaka.	Kiitos, ja kaksi euroa takaisin.
+a1_food	A1	Kahvilassa	1	A	Hej! Vad vill du ha?	Hei! Mitä haluat?
+a1_food	A1	Kahvilassa	2	B	En kopp kaffe, tack.	Kupin kahvia, kiitos.
+a1_food	A1	Kahvilassa	3	A	Med mjölk?	Maidon kanssa?
+a1_food	A1	Kahvilassa	4	B	Nej, utan mjölk. Har ni något att äta?	Ei, ilman maitoa. Onko teillä jotain syötävää?
+a1_food	A1	Kahvilassa	5	A	Ja, vi har smörgåsar och tårta.	Kyllä, meillä on voileipiä ja kakkua.
+a1_food	A1	Kahvilassa	6	B	Jag tar en bit tårta.	Otan palan kakkua.
+a1_food	A1	Kahvilassa	7	A	Det blir sex euro.	Se tekee kuusi euroa.
+a1_food	A1	Kahvilassa	8	B	Varsågod.	Ole hyvä.
+a1_work_study	A1	Uusi työkaveri	1	A	Hej! Är du ny här?	Hei! Oletko uusi täällä?
+a1_work_study	A1	Uusi työkaveri	2	B	Ja, det är min första arbetsdag.	Kyllä, tämä on ensimmäinen työpäiväni.
+a1_work_study	A1	Uusi työkaveri	3	A	Välkommen! Vad jobbar du med?	Tervetuloa! Mitä teet työksesi?
+a1_work_study	A1	Uusi työkaveri	4	B	Jag är ingenjör. Och du?	Olen insinööri. Entä sinä?
+a1_work_study	A1	Uusi työkaveri	5	A	Jag jobbar med ekonomi här på kontoret.	Hoidan talousasioita täällä toimistolla.
+a1_work_study	A1	Uusi työkaveri	6	B	Var är mötet i dag?	Missä kokous on tänään?
+a1_work_study	A1	Uusi työkaveri	7	A	I rummet bredvid köket. Det börjar klockan tio.	Keittiön viereisessä huoneessa. Se alkaa kello kymmenen.
+a1_work_study	A1	Uusi työkaveri	8	B	Tack för hjälpen!	Kiitos avusta!
+a2_services	A2	Pankissa	1	A	Hej, jag skulle vilja öppna ett konto.	Hei, haluaisin avata tilin.
+a2_services	A2	Pankissa	2	B	Absolut. Har du bokat tid?	Totta kai. Oletko varannut ajan?
+a2_services	A2	Pankissa	3	A	Ja, jag bokade tid på nätet förra veckan.	Kyllä, varasin ajan netissä viime viikolla.
+a2_services	A2	Pankissa	4	B	Bra. Kan jag få se din legitimation?	Hyvä. Saanko nähdä henkilöllisyystodistuksesi?
+a2_services	A2	Pankissa	5	A	Varsågod. Behöver ni mina kontaktuppgifter också?	Ole hyvä. Tarvitsetteko myös yhteystietoni?
+a2_services	A2	Pankissa	6	B	Ja, skriv dem här och skriv under längst ner.	Kyllä, kirjoita ne tähän ja allekirjoita alareunaan.
+a2_services	A2	Pankissa	7	A	Kostar det något att ha ett konto?	Maksaako tilin pitäminen jotain?
+a2_services	A2	Pankissa	8	B	Nej, kontot är avgiftsfritt. Din pinkod kommer med posten.	Ei, tili on maksuton. PIN-koodisi tulee postissa.
+a2_communication	A2	Puhelu työpaikalle	1	A	Hej, det är Anna. Kan jag få prata med Erik?	Hei, täällä Anna. Saisinko puhua Erikin kanssa?
+a2_communication	A2	Puhelu työpaikalle	2	B	Tyvärr sitter han i ett möte just nu.	Valitettavasti hän on juuri nyt kokouksessa.
+a2_communication	A2	Puhelu työpaikalle	3	A	Kan jag lämna ett meddelande?	Voinko jättää viestin?
+a2_communication	A2	Puhelu työpaikalle	4	B	Visst. Vad gäller det?	Toki. Mitä asia koskee?
+a2_communication	A2	Puhelu työpaikalle	5	A	Jag har skickat en länk till honom, men han har inte svarat.	Lähetin hänelle linkin, mutta hän ei ole vastannut.
+a2_communication	A2	Puhelu työpaikalle	6	B	Jag ber honom ringa tillbaka när mötet är slut.	Pyydän häntä soittamaan takaisin, kun kokous on ohi.
+a2_communication	A2	Puhelu työpaikalle	7	A	Tack! Han kan nå mig på mobilen hela dagen.	Kiitos! Hän tavoittaa minut kännykästä koko päivän.
+a2_communication	A2	Puhelu työpaikalle	8	B	Det ska jag säga till honom. Ha en bra dag!	Sanon sen hänelle. Hyvää päivänjatkoa!
+a2_adverbs	A2	Myöhästyminen	1	A	Förlåt att jag är sen!	Anteeksi, että olen myöhässä!
+a2_adverbs	A2	Myöhästyminen	2	B	Ingen fara. Vad hände?	Ei hätää. Mitä tapahtui?
+a2_adverbs	A2	Myöhästyminen	3	A	Bussen kom inte, så jag fick vänta länge.	Bussi ei tullut, joten jouduin odottamaan pitkään.
+a2_adverbs	A2	Myöhästyminen	4	B	Det händer ibland. Åt du innan du kom?	Sitä sattuu joskus. Söitkö ennen kuin tulit?
+a2_adverbs	A2	Myöhästyminen	5	A	Nej, inte ens frukost.	En, en edes aamiaista.
+a2_adverbs	A2	Myöhästyminen	6	B	Då äter vi först och sedan börjar vi jobba.	Syödään siis ensin ja aletaan sitten tehdä töitä.
+a2_adverbs	A2	Myöhästyminen	7	A	Bra idé. Jag är förresten ledig i morgon.	Hyvä idea. Olen muuten vapaalla huomenna.
+a2_adverbs	A2	Myöhästyminen	8	B	Just det, det hade jag glömt.	Ai niin, sen olin unohtanut.
+b1_science_tech	B1	Uusi tulostin töissä	1	A	Har du testat den nya skrivaren?	Oletko testannut uutta tulostinta?
+b1_science_tech	B1	Uusi tulostin töissä	2	B	Ja, men jag tycker inte att den är särskilt lätt att använda.	Kyllä, mutta minusta se ei ole erityisen helppokäyttöinen.
+b1_science_tech	B1	Uusi tulostin töissä	3	A	Nej, jag fick justera inställningarna tre gånger innan den skrev ut något.	Ei niin, jouduin säätämään asetuksia kolme kertaa ennen kuin se tulosti mitään.
+b1_science_tech	B1	Uusi tulostin töissä	4	B	Det beror nog på att den behöver en uppdatering.	Se johtuu varmaan siitä, että se tarvitsee päivityksen.
+b1_science_tech	B1	Uusi tulostin töissä	5	A	Kanske det. Men enligt tillverkaren ska den ju fungera automatiskt.	Ehkä. Mutta valmistajan mukaanhan sen pitäisi toimia automaattisesti.
+b1_science_tech	B1	Uusi tulostin töissä	6	B	Tekniken är bra när den fungerar, men annars är den mest irriterande.	Tekniikka on hyvä, kun se toimii, mutta muuten se lähinnä ärsyttää.
+b1_science_tech	B1	Uusi tulostin töissä	7	A	Ska vi kontakta it-avdelningen?	Otetaanko yhteyttä IT-osastoon?
+b1_science_tech	B1	Uusi tulostin töissä	8	B	Ja, jag skickar ett meddelande till dem direkt.	Joo, lähetän heille viestin heti.
+b1_opinions	B1	Kokouksessa	1	A	Vad anser du om förslaget att alla ska jobba på kontoret tre dagar i veckan?	Mitä mieltä olet ehdotuksesta, että kaikki tekisivät töitä toimistolla kolmena päivänä viikossa?
+b1_opinions	B1	Kokouksessa	2	B	Bra fråga. Personligen är jag nog emot det.	Hyvä kysymys. Henkilökohtaisesti olen kai sitä vastaan.
+b1_opinions	B1	Kokouksessa	3	A	Varför då?	Miksi niin?
+b1_opinions	B1	Kokouksessa	4	B	Därför att många har långt till jobbet, och man jobbar ofta mer effektivt hemma.	Koska monella on pitkä työmatka, ja kotona työskentelee usein tehokkaammin.
+b1_opinions	B1	Kokouksessa	5	A	Det stämmer på sätt och vis, men vi behöver också träffas.	Se pitää tavallaan paikkansa, mutta meidän täytyy myös tavata.
+b1_opinions	B1	Kokouksessa	6	B	Jag håller delvis med. Två dagar vore kanske en bra kompromiss.	Olen osittain samaa mieltä. Kaksi päivää olisi ehkä hyvä kompromissi.
+b1_opinions	B1	Kokouksessa	7	A	Då föreslår vi det på mötet i morgon.	Ehdotetaan sitä sitten huomisessa kokouksessa.
+b1_opinions	B1	Kokouksessa	8	B	Schysst, det tycker jag är en bra lösning.	Reilua, minusta se on hyvä ratkaisu.
+b2_economy	B2	Investointipäätös	1	A	Har du hunnit läsa konsultens analys av vår logistik?	Oletko ehtinyt lukea konsultin analyysin logistiikastamme?
+b2_economy	B2	Investointipäätös	2	B	Ja, och ärligt talat blev jag förvånad över hur låg effektiviteten var.	Kyllä, ja suoraan sanottuna yllätyin siitä, kuinka heikko tehokkuus oli.
+b2_economy	B2	Investointipäätös	3	A	Samma här. Om vi automatiserade lagret skulle produktiviteten kunna öka rejält.	Samoin. Jos automatisoisimme varaston, tuottavuus voisi kasvaa reilusti.
+b2_economy	B2	Investointipäätös	4	B	Visst, men en sådan anskaffning kräver kapital som vi inte har just nu.	Toki, mutta sellainen hankinta vaatii pääomaa, jota meillä ei juuri nyt ole.
+b2_economy	B2	Investointipäätös	5	A	Det finns ju subventioner för den typen av investeringar.	Sellaisille investoinneillehan on olemassa tukia.
+b2_economy	B2	Investointipäätös	6	B	Det stämmer, men ansökan måste först godkännas av styrelsen.	Pitää paikkansa, mutta hallituksen täytyy ensin hyväksyä hakemus.
+b2_economy	B2	Investointipäätös	7	A	Då tar jag upp det på nästa styrelsemöte.	Otan sen sitten esille seuraavassa hallituksen kokouksessa.
+b2_economy	B2	Investointipäätös	8	B	Gör det. Lönsamheten är det viktigaste just nu.	Tee niin. Kannattavuus on nyt kaikkein tärkeintä.
+b2_everyday	B2	Grillijuhlien valmistelu	1	A	Har du fått tag på all utrustning till grillfesten på lördag?	Oletko saanut hankittua kaikki varusteet lauantain grillijuhliin?
+b2_everyday	B2	Grillijuhlien valmistelu	2	B	Nästan. Jag hittar bara inte stekspaden, den måste ha lånats ut till någon.	Melkein. En vain löydä paistinlastaa, se on varmaan lainattu jollekulle.
+b2_everyday	B2	Grillijuhlien valmistelu	3	A	Typiskt. Jag kan ta med vår, om du vill.	Tyypillistä. Voin tuoda meidän lastamme, jos haluat.
+b2_everyday	B2	Grillijuhlien valmistelu	4	B	Gärna. Ärligt talat är jag lite hårt pressad, det har varit mycket pyssel med förberedelserna.	Mielelläni. Suoraan sanottuna olen vähän kovilla, valmisteluissa on ollut paljon puuhaa.
+b2_everyday	B2	Grillijuhlien valmistelu	5	A	Jag förstår. Vore det enklare om några av oss kom tidigare och hjälpte till?	Ymmärrän. Olisiko helpompaa, jos jotkut meistä tulisivat aiemmin auttamaan?
+b2_everyday	B2	Grillijuhlien valmistelu	6	B	Det vore jättebra. Belysningen i trädgården behöver också fixas innan det blir mörkt.	Se olisi tosi hyvä. Puutarhan valaistuskin pitää korjata ennen kuin tulee pimeää.
+b2_everyday	B2	Grillijuhlien valmistelu	7	A	Det tar jag hand om. Kommer förresten de nya grannarna?	Hoidan sen. Tulevatko uudet naapurit muuten?
+b2_everyday	B2	Grillijuhlien valmistelu	8	B	Ja, jag bjöd in dem, så att de får träffa folk i området.	Kyllä, kutsuin heidät, jotta he pääsevät tutustumaan alueen ihmisiin.

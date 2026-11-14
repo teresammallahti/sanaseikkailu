@@ -1,0 +1,555 @@
+[
+ {
+  "id": "phrases_4_no_problem",
+  "field": "en_text",
+  "old": "No problem.",
+  "new": "no problem / it doesn't matter / never mind",
+  "reason": "kehote 'ei se mitään / ei haittaa': yleiset vastineet puuttuivat"
+ },
+ {
+  "id": "s_a1_you_re_welcome",
+  "field": "de_text",
+  "old": "gern geschehen / bitte / keine Ursache",
+  "new": "gern geschehen / bitte / keine Ursache / gerne / bitte schön",
+  "reason": "yleiset vaihtoehdot puuttuivat"
+ },
+ {
+  "id": "numbers_4_hundred",
+  "field": "en_text",
+  "old": "hundred",
+  "new": "hundred / a hundred / one hundred",
+  "reason": "oppija kirjoittaa usein 'a hundred' / 'one hundred' (de:ssä einhundert jo hyväksytty)"
+ },
+ {
+  "id": "s_a1_fourth",
+  "field": "de_text",
+  "old": "vierte",
+  "new": "vierte / vierter",
+  "reason": "yhdenmukainen 'zehnte / zehnter' -rivin kanssa"
+ },
+ {
+  "id": "little_4_a_lot",
+  "field": "en_text",
+  "old": "a lot",
+  "new": "a lot / much / many / lots",
+  "reason": "paljon = myös much/many"
+ },
+ {
+  "id": "s_a1_half_an_hour",
+  "field": "de_text",
+  "old": "die halbe Stunde",
+  "new": "die halbe Stunde / eine halbe Stunde",
+  "reason": "luontevin muoto 'eine halbe Stunde' hyväksyttävä"
+ },
+ {
+  "id": "weekdays_wednesday",
+  "field": "de_text",
+  "old": "Mittwoch",
+  "new": "der Mittwoch",
+  "reason": "saksan substantiivi artikkelin kanssa"
+ },
+ {
+  "id": "calendar_4_january",
+  "field": "en_infl",
+  "old": "pl=Januaries",
+  "new": "",
+  "reason": "'Januaries' ei ole oppijalle mielekäs muoto (July-rivillä ei monikkoa)"
+ },
+ {
+  "id": "weather_seasons_spring",
+  "field": "de_text",
+  "old": "der Frühling",
+  "new": "der Frühling / das Frühjahr",
+  "reason": "yleinen synonyymi puuttui"
+ },
+ {
+  "id": "family_mother",
+  "field": "en_text",
+  "old": "mother",
+  "new": "mother / mum",
+  "reason": "sv:ssä päämuoto mamma; mum hyvin yleinen"
+ },
+ {
+  "id": "family_mother",
+  "field": "de_text",
+  "old": "die Mutter",
+  "new": "die Mutter / die Mama",
+  "reason": "sv:ssä päämuoto mamma; Mama hyvin yleinen"
+ },
+ {
+  "id": "s_a1_grandmother_father_s_mother",
+  "field": "en_text",
+  "old": "grandmother / paternal grandmother",
+  "new": "grandmother / paternal grandmother / grandma",
+  "reason": "de:ssä Oma hyväksytty; grandma vastaava yleinen muoto"
+ },
+ {
+  "id": "personality_kind",
+  "field": "en_text",
+  "old": "kind",
+  "new": "kind / friendly / nice",
+  "reason": "kehotteessa myös 'ystävällinen' (de: freundlich / nett)"
+ },
+ {
+  "id": "personality_clever",
+  "field": "en_text",
+  "old": "clever",
+  "new": "clever / smart / intelligent",
+  "reason": "älykäs / fiksu: smart ja intelligent puuttuivat"
+ },
+ {
+  "id": "personality_clever",
+  "field": "de_text",
+  "old": "klug / schlau",
+  "new": "klug / schlau / intelligent",
+  "reason": "älykäs = myös intelligent"
+ },
+ {
+  "id": "s_a1_duvet",
+  "field": "en_text",
+  "old": "duvet / quilt",
+  "new": "duvet / quilt / blanket",
+  "reason": "peitto: blanket todennäköinen vastaus (de: die Decke hyväksytty)"
+ },
+ {
+  "id": "home_4_pan",
+  "field": "en_text",
+  "old": "pan",
+  "new": "frying pan / pan",
+  "reason": "kehotteen päämuoto paistinpannu = frying pan"
+ },
+ {
+  "id": "home_4_pan",
+  "field": "en_infl",
+  "old": "pl=pans",
+  "new": "pl=frying pans",
+  "reason": "taivutus uuden päämuodon mukaan"
+ },
+ {
+  "id": "s_a1_evening_snack",
+  "field": "en_text",
+  "old": "evening snack / supper",
+  "new": "evening meal / supper / evening snack",
+  "reason": "kehotteen päämuoto iltaruoka (sv kvällsmat, de Abendessen) = evening meal, ei snack"
+ },
+ {
+  "id": "s_a1_evening_snack",
+  "field": "en_infl",
+  "old": "pl=evening snacks",
+  "new": "pl=evening meals",
+  "reason": "taivutus uuden päämuodon mukaan"
+ },
+ {
+  "id": "s_a1_can_i_pay_by_card",
+  "field": "en_text",
+  "old": "can I pay by card?",
+  "new": "can I pay by card? / can I pay with a card? / can I pay with card?",
+  "reason": "yleinen vaihtoehto"
+ },
+ {
+  "id": "s_a1_can_i_pay_by_card",
+  "field": "de_text",
+  "old": "kann ich mit Karte zahlen?",
+  "new": "kann ich mit Karte zahlen? / kann ich mit Karte bezahlen?",
+  "reason": "bezahlen yhtä yleinen kuin zahlen"
+ },
+ {
+  "id": "prepositions_near",
+  "field": "en_text",
+  "old": "near",
+  "new": "near / close to",
+  "reason": "yleinen vaihtoehto"
+ },
+ {
+  "id": "prepositions_near",
+  "field": "de_text",
+  "old": "in der Nähe von",
+  "new": "in der Nähe von / nahe / bei",
+  "reason": "yleiset lyhyemmät vaihtoehdot"
+ },
+ {
+  "id": "verbs_action_ride_a_bike",
+  "field": "en_text",
+  "old": "ride a bike",
+  "new": "ride a bike / cycle / ride a bicycle",
+  "reason": "pyöräillä = cycle (britti)"
+ },
+ {
+  "id": "paivarutiinit_have_lunch",
+  "field": "en_text",
+  "old": "have lunch",
+  "new": "have lunch / eat lunch",
+  "reason": "yleinen vaihtoehto"
+ },
+ {
+  "id": "sports_4_skate",
+  "field": "en_text",
+  "old": "skate",
+  "new": "skate / ice-skate / ice skate",
+  "reason": "yleinen vaihtoehto"
+ },
+ {
+  "id": "sports_4_skate",
+  "field": "de_text",
+  "old": "Schlittschuh laufen",
+  "new": "Schlittschuh laufen / eislaufen",
+  "reason": "yleinen synonyymi"
+ },
+ {
+  "id": "work_8_job",
+  "field": "en_text",
+  "old": "job",
+  "new": "job / work",
+  "reason": "kehotteen päämuoto 'työ' = myös work (de: die Arbeit hyväksytty)"
+ },
+ {
+  "id": "verbs_action_start",
+  "field": "en_text",
+  "old": "start",
+  "new": "start / begin",
+  "reason": "de:ssä beginnen hyväksytty; begin puuttui"
+ },
+ {
+  "id": "professions_hairdresser",
+  "field": "en_text",
+  "old": "hairdresser",
+  "new": "hairdresser / barber",
+  "reason": "kehotteessa myös parturi"
+ },
+ {
+  "id": "school_subjects_lesson",
+  "field": "de_text",
+  "old": "die Unterrichtsstunde / die Schulstunde",
+  "new": "die Unterrichtsstunde / die Schulstunde / die Stunde",
+  "reason": "arkikielen yleisin muoto"
+ },
+ {
+  "id": "little_4_nobody",
+  "field": "en_text",
+  "old": "nobody",
+  "new": "nobody / no one",
+  "reason": "yleinen vaihtoehto"
+ },
+ {
+  "id": "s_a1_where_from",
+  "field": "en_text",
+  "old": "where from",
+  "new": "where from / from where",
+  "reason": "sanajärjestysvaihtoehto"
+ },
+ {
+  "id": "little_4_yet",
+  "field": "en_text",
+  "old": "yet",
+  "new": "not yet",
+  "reason": "kehote 'ei vielä' (sv inte än, de noch nicht); pelkkä 'yet' on väärä merkitys"
+ },
+ {
+  "id": "yleissanat_3_very",
+  "field": "en_text",
+  "old": "very",
+  "new": "very / really",
+  "reason": "kehotteessa tosi / todella"
+ },
+ {
+  "id": "s_a1_come_back",
+  "field": "de_text",
+  "old": "zurückkommen",
+  "new": "zurückkommen / zurückkehren",
+  "reason": "palata = zurückkehren (en: return hyväksytty)"
+ },
+ {
+  "id": "verbs_communication_talk",
+  "field": "en_text",
+  "old": "talk",
+  "new": "talk / speak",
+  "reason": "puhua = speak (de: sprechen päämuotona)"
+ },
+ {
+  "id": "verbs_action_look",
+  "field": "en_text",
+  "old": "look",
+  "new": "look / look at / watch",
+  "reason": "katsoa: pelkkä look liian suppea"
+ },
+ {
+  "id": "verbs1_4_push",
+  "field": "en_text",
+  "old": "push",
+  "new": "push / press",
+  "reason": "kehotteen päämuoto 'painaa (nappia)' = press"
+ },
+ {
+  "id": "opposites_small",
+  "field": "en_text",
+  "old": "small",
+  "new": "small / little",
+  "reason": "yleinen vaihtoehto"
+ },
+ {
+  "id": "adjectives_advanced_6_difficult",
+  "field": "en_text",
+  "old": "difficult",
+  "new": "difficult / hard",
+  "reason": "yleinen vaihtoehto"
+ },
+ {
+  "id": "adjectives_advanced_6_difficult",
+  "field": "de_text",
+  "old": "schwierig",
+  "new": "schwierig / schwer",
+  "reason": "yleinen vaihtoehto"
+ },
+ {
+  "id": "travel_8_trip",
+  "field": "en_text",
+  "old": "trip",
+  "new": "trip / excursion / outing",
+  "reason": "retki (sv utflykt, de Ausflug)"
+ },
+ {
+  "id": "s_a2_take_off",
+  "field": "de_infl",
+  "old": "pret=hob ab;pp=ist abgehoben;pres3=hebt ab",
+  "new": "pret=hob ab;pp=hat abgehoben;pres3=hebt ab",
+  "reason": "abheben taipuu haben-apuverbillä (das Flugzeug hat abgehoben)"
+ },
+ {
+  "id": "town_7_turn_left",
+  "field": "de_text",
+  "old": "links abbiegen",
+  "new": "links abbiegen / nach links abbiegen",
+  "reason": "yleinen vaihtoehto"
+ },
+ {
+  "id": "s_a2_parking_ticket",
+  "field": "en_text",
+  "old": "parking ticket",
+  "new": "parking ticket / parking fine",
+  "reason": "yleinen vaihtoehto (parkkisakko)"
+ },
+ {
+  "id": "chores_4_vacuum",
+  "field": "en_text",
+  "old": "vacuum",
+  "new": "vacuum / hoover",
+  "reason": "brittienglannin yleisin verbi"
+ },
+ {
+  "id": "cooking_7_stir",
+  "field": "en_text",
+  "old": "stir",
+  "new": "stir / mix",
+  "reason": "sekoittaa = mix (sv: blanda hyväksytty)"
+ },
+ {
+  "id": "cooking_7_stir",
+  "field": "de_text",
+  "old": "umrühren",
+  "new": "umrühren / rühren / mischen",
+  "reason": "yleiset vaihtoehdot"
+ },
+ {
+  "id": "work_8_apply",
+  "field": "en_text",
+  "old": "apply",
+  "new": "apply / apply for",
+  "reason": "työpaikkaa haetaan 'apply for'"
+ },
+ {
+  "id": "s_a2_vocabulary",
+  "field": "de_text",
+  "old": "der Wortschatz",
+  "new": "der Wortschatz / das Vokabular",
+  "reason": "yleinen synonyymi"
+ },
+ {
+  "id": "verbs2_4_call",
+  "field": "en_text",
+  "old": "call",
+  "new": "call / ring / phone",
+  "reason": "brittienglannissa ring/phone yleisiä"
+ },
+ {
+  "id": "s_a2_delete",
+  "field": "en_text",
+  "old": "delete",
+  "new": "delete / remove",
+  "reason": "sv:ssä 'ta bort' hyväksytty"
+ },
+ {
+  "id": "s_a2_fear",
+  "field": "de_text",
+  "old": "die Angst",
+  "new": "die Angst / die Furcht",
+  "reason": "yleinen synonyymi"
+ },
+ {
+  "id": "s_a2_sure",
+  "field": "en_text",
+  "old": "sure",
+  "new": "sure / certain",
+  "reason": "yleinen vaihtoehto"
+ },
+ {
+  "id": "s_a2_have_a_birthday",
+  "field": "en_text",
+  "old": "have a birthday / turn",
+  "new": "have a birthday",
+  "reason": "pelkkä 'turn' ei ole vastine ilman ikää"
+ },
+ {
+  "id": "future_goal",
+  "field": "en_text",
+  "old": "goal",
+  "new": "goal / aim / target",
+  "reason": "tavoite / päämäärä"
+ },
+ {
+  "id": "sports_4_sports_field",
+  "field": "en_text",
+  "old": "sports field",
+  "new": "sports field / pitch / field",
+  "reason": "brittienglannissa pitch yleisin"
+ },
+ {
+  "id": "school_4_comic",
+  "field": "en_text",
+  "old": "comic",
+  "new": "comic / comic strip",
+  "reason": "yleinen vaihtoehto"
+ },
+ {
+  "id": "s_a2_be_busy_with",
+  "field": "de_infl",
+  "old": "pret=beschäftigte sich mit;pp=hat sich beschäftigt mit;pres3=beschäftigt sich mit",
+  "new": "pret=beschäftigte sich mit;pp=hat sich mit ... beschäftigt;pres3=beschäftigt sich mit",
+  "reason": "partisiippi lauseen loppuun (vrt. 'ist um ... gegangen')"
+ },
+ {
+  "id": "s_a2_although",
+  "field": "en_text",
+  "old": "although / even though",
+  "new": "although / even though / though",
+  "reason": "yleinen vaihtoehto"
+ },
+ {
+  "id": "sidesanat_5_almost",
+  "field": "en_text",
+  "old": "almost",
+  "new": "almost / nearly",
+  "reason": "kehotteessa lähes; de:ssä beinahe hyväksytty"
+ },
+ {
+  "id": "opposites_quiet",
+  "field": "de_text",
+  "old": "leise",
+  "new": "leise / ruhig / still",
+  "reason": "hiljainen = myös ruhig/still"
+ },
+ {
+  "id": "adj_4_safe",
+  "field": "en_text",
+  "old": "safe",
+  "new": "safe / secure",
+  "reason": "sv:ssä säker hyväksytty"
+ },
+ {
+  "id": "s_b1_taxpayers_money",
+  "field": "en_text",
+  "old": "taxpayers' money",
+  "new": "taxpayers' money / tax money",
+  "reason": "yleinen vaihtoehto ilman heittomerkkiä"
+ },
+ {
+  "id": "s_b1_wealthy",
+  "field": "en_text",
+  "old": "wealthy",
+  "new": "wealthy / well-off / affluent",
+  "reason": "yleiset synonyymit (de:ssä kaksi vaihtoehtoa)"
+ },
+ {
+  "id": "s_b1_carbon_neutral",
+  "field": "en_text",
+  "old": "carbon neutral / climate neutral",
+  "new": "carbon neutral / carbon-neutral / climate neutral / climate-neutral",
+  "reason": "yhdysmerkillinen kirjoitusasu on yleinen ja vaaditaan täsmäosuma"
+ },
+ {
+  "id": "environment_8_recycle",
+  "field": "de_text",
+  "old": "recyceln",
+  "new": "recyceln / wiederverwerten",
+  "reason": "yleinen saksankielinen vastine"
+ },
+ {
+  "id": "places_4_lab",
+  "field": "en_text",
+  "old": "lab",
+  "new": "laboratory / lab",
+  "reason": "kehotteen päämuoto laboratorio; laboratory puuttui kokonaan"
+ },
+ {
+  "id": "places_4_lab",
+  "field": "en_infl",
+  "old": "pl=labs",
+  "new": "pl=laboratories",
+  "reason": "taivutus uuden päämuodon mukaan"
+ },
+ {
+  "id": "s_b1_sentence",
+  "field": "en_text",
+  "old": "sentence",
+  "new": "sentence / verdict / judgement",
+  "reason": "tuomio (de das Urteil) = myös verdict/judgement"
+ },
+ {
+  "id": "s_b1_purpose",
+  "field": "en_text",
+  "old": "purpose",
+  "new": "purpose / intention / aim",
+  "reason": "sv avsikt ja de Absicht hyväksytty; en vastaavat puuttuivat"
+ },
+ {
+  "id": "s_b1_force",
+  "field": "en_text",
+  "old": "force",
+  "new": "force / power / strength",
+  "reason": "voima ilman tarkennetta = myös power/strength"
+ },
+ {
+  "id": "s_b1_force",
+  "field": "de_text",
+  "old": "die Kraft",
+  "new": "die Kraft / die Stärke",
+  "reason": "voima = myös Stärke"
+ },
+ {
+  "id": "s_b1_appreciate",
+  "field": "en_text",
+  "old": "appreciate",
+  "new": "appreciate / value",
+  "reason": "yleinen vaihtoehto"
+ },
+ {
+  "id": "s_b1_appreciate",
+  "field": "de_text",
+  "old": "schätzen",
+  "new": "schätzen / wertschätzen",
+  "reason": "yleinen vaihtoehto"
+ },
+ {
+  "id": "s_b1_finland_swede",
+  "field": "en_text",
+  "old": "Finland Swede",
+  "new": "Finland Swede / Swedish-speaking Finn",
+  "reason": "englannissa yleisin ilmaus"
+ },
+ {
+  "id": "s_b1_sami_language",
+  "field": "de_text",
+  "old": "das Samische / die samische Sprache",
+  "new": "das Samische / die samische Sprache / Samisch",
+  "reason": "kielen nimi yleensä ilman artikkelia"
+ }
+]

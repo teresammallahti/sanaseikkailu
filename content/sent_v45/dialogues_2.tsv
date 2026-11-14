@@ -1,0 +1,89 @@
+topic	level	title_fi	line	speaker	sv	fi
+a1_personal	A1	Uusi työkaveri	1	A	Hej! Jag heter Mikko. Vad heter du?	Hei! Olen Mikko. Mikä sinun nimesi on?
+a1_personal	A1	Uusi työkaveri	2	B	Hej, jag heter Sara. Var kommer du ifrån?	Hei, olen Sara. Mistä olet kotoisin?
+a1_personal	A1	Uusi työkaveri	3	A	Jag kommer från Finland, från Tammerfors. Och du?	Olen kotoisin Suomesta, Tampereelta. Entä sinä?
+a1_personal	A1	Uusi työkaveri	4	B	Jag är född i Stockholm, men jag bor i Uppsala nu.	Olen syntynyt Tukholmassa, mutta asun nyt Uppsalassa.
+a1_personal	A1	Uusi työkaveri	5	A	Vilka språk talar du?	Mitä kieliä puhut?
+a1_personal	A1	Uusi työkaveri	6	B	Svenska, engelska och lite norska. Talar du svenska hemma?	Ruotsia, englantia ja vähän norjaa. Puhutko ruotsia kotona?
+a1_personal	A1	Uusi työkaveri	7	A	Nej, vi talar finska hemma.	Ei, kotona puhumme suomea.
+a1_personal	A1	Uusi työkaveri	8	B	Din svenska är jättebra!	Ruotsisi on tosi hyvää!
+a1_home	A1	Asunnon esittely	1	A	Välkommen! Kom in.	Tervetuloa! Tule sisään.
+a1_home	A1	Asunnon esittely	2	B	Tack! Vilken fin lägenhet. Hur många rum har ni?	Kiitos! Onpa hieno asunto. Montako huonetta teillä on?
+a1_home	A1	Asunnon esittely	3	A	Vi har tre rum och kök.	Meillä on kolme huonetta ja keittiö.
+a1_home	A1	Asunnon esittely	4	B	Och var är toaletten?	Entä missä vessa on?
+a1_home	A1	Asunnon esittely	5	A	Där, till vänster. Det finns en dusch också.	Tuolla, vasemmalla. Siellä on myös suihku.
+a1_home	A1	Asunnon esittely	6	B	Har ni bastu?	Onko teillä sauna?
+a1_home	A1	Asunnon esittely	7	A	Ja, det finns en bastu i källaren.	Kyllä, kellarissa on sauna.
+a1_home	A1	Asunnon esittely	8	B	Vad härligt!	Ihanaa!
+a1_weather	A1	Retkisuunnitelma	1	A	Hur blir vädret i morgon?	Millainen sää huomenna on?
+a1_weather	A1	Retkisuunnitelma	2	B	Det blir soligt och ganska varmt.	Tulee aurinkoista ja melko lämmintä.
+a1_weather	A1	Retkisuunnitelma	3	A	Bra! Ska vi åka till ön?	Hyvä! Lähdetäänkö saareen?
+a1_weather	A1	Retkisuunnitelma	4	B	Ja, men det kan blåsa mycket på havet.	Joo, mutta merellä voi tuulla kovasti.
+a1_weather	A1	Retkisuunnitelma	5	A	Då tar jag med en tjock tröja.	Otan sitten paksun villapaidan mukaan.
+a1_weather	A1	Retkisuunnitelma	6	B	Bra idé. På kvällen blir det svalt.	Hyvä idea. Illalla tulee viileää.
+a1_weather	A1	Retkisuunnitelma	7	A	Och om det regnar?	Entä jos sataa?
+a1_weather	A1	Retkisuunnitelma	8	B	Då stannar vi hemma och spelar kort.	Sitten jäämme kotiin pelaamaan korttia.
+a2_transport	A2	Tien kysyminen	1	A	Ursäkta, hur kommer jag till sjukhuset?	Anteeksi, miten pääsen sairaalaan?
+a2_transport	A2	Tien kysyminen	2	B	Kör rakt fram och sväng höger vid nästa korsning.	Aja suoraan eteenpäin ja käänny oikealle seuraavasta risteyksestä.
+a2_transport	A2	Tien kysyminen	3	A	Är det långt dit?	Onko sinne pitkä matka?
+a2_transport	A2	Tien kysyminen	4	B	Nej, ungefär tre kilometer. Men det är mycket trafik just nu.	Ei, noin kolme kilometriä. Mutta juuri nyt on paljon liikennettä.
+a2_transport	A2	Tien kysyminen	5	A	Jag har redan suttit i bilkö i en halvtimme.	Olen jo istunut ruuhkassa puoli tuntia.
+a2_transport	A2	Tien kysyminen	6	B	Då kan du ta vägen genom tunneln. Det brukar gå fortare.	Sitten voit ajaa tunnelin kautta. Sitä kautta pääsee yleensä nopeammin.
+a2_transport	A2	Tien kysyminen	7	A	Tack så mycket för hjälpen!	Kiitos paljon avusta!
+a2_transport	A2	Tien kysyminen	8	B	Ingen orsak. Lycka till!	Eipä kestä. Onnea matkaan!
+a2_education	A2	Kielikurssilla	1	A	Ursäkta, vad betyder ”flytande”?	Anteeksi, mitä ”flytande” tarkoittaa?
+a2_education	A2	Kielikurssilla	2	B	Det betyder att man talar ett språk mycket bra. Till exempel: ”Hon talar flytande svenska.”	Se tarkoittaa, että puhuu kieltä erittäin hyvin. Esimerkiksi: ”Hän puhuu sujuvaa ruotsia.”
+a2_education	A2	Kielikurssilla	3	A	Tack! Hur länge har du läst svenska?	Kiitos! Kuinka kauan olet opiskellut ruotsia?
+a2_education	A2	Kielikurssilla	4	B	I två år. Jag började när jag flyttade hit.	Kaksi vuotta. Aloitin, kun muutin tänne.
+a2_education	A2	Kielikurssilla	5	A	Ska du skriva provet på fredag?	Aiotko tehdä kokeen perjantaina?
+a2_education	A2	Kielikurssilla	6	B	Ja, men jag är lite nervös. Det är svårt att översätta.	Joo, mutta minua jännittää vähän. Kääntäminen on vaikeaa.
+a2_education	A2	Kielikurssilla	7	A	Vi kan öva tillsammans i morgon om du vill.	Voimme harjoitella yhdessä huomenna, jos haluat.
+a2_education	A2	Kielikurssilla	8	B	Gärna! Tack för hjälpen.	Mielellään! Kiitos avusta.
+a2_verbs	A2	Muuttoapu	1	A	Hej! Kan du hjälpa mig med flytten på lördag?	Hei! Voitko auttaa minua muutossa lauantaina?
+a2_verbs	A2	Muuttoapu	2	B	Absolut. Vad behöver du hjälp med?	Totta kai. Missä tarvitset apua?
+a2_verbs	A2	Muuttoapu	3	A	Vi måste bära soffan och några tunga lådor.	Meidän täytyy kantaa sohva ja muutama painava laatikko.
+a2_verbs	A2	Muuttoapu	4	B	Okej. Har du hyrt en bil?	Selvä. Oletko vuokrannut auton?
+a2_verbs	A2	Muuttoapu	5	A	Ja, jag hämtar den på morgonen. Jag har redan slängt mycket gammalt skräp.	Joo, haen sen aamulla. Olen jo heittänyt pois paljon vanhaa roinaa.
+a2_verbs	A2	Muuttoapu	6	B	Bra. Ska jag ta med något?	Hyvä. Pitääkö minun tuoda jotain?
+a2_verbs	A2	Muuttoapu	7	A	Ta gärna med arbetshandskar. Och jag bjuder på pizza efteråt!	Ota mielellään työhanskat mukaan. Ja tarjoan pizzat jälkeenpäin!
+a2_verbs	A2	Muuttoapu	8	B	Då kommer jag gärna!	Sitten tulen mielelläni!
+b1_environment	B1	Kierrätys taloyhtiössä	1	A	Visste du att vi ska börja sortera matavfall i huset?	Tiesitkö, että talossamme aletaan lajitella biojätettä?
+b1_environment	B1	Kierrätys taloyhtiössä	2	B	Ja, jag läste lappen i trappuppgången. Jag tycker att det är på tiden.	Joo, luin lapun rappukäytävässä. Minusta se on jo aikakin.
+b1_environment	B1	Kierrätys taloyhtiössä	3	A	Jag håller med, men jag undrar om folk verkligen kommer att göra det.	Olen samaa mieltä, mutta mietin, tekevätkö ihmiset sitä oikeasti.
+b1_environment	B1	Kierrätys taloyhtiössä	4	B	Om det är enkelt gör de flesta det. Problemet är när man inte vet var saker ska slängas.	Jos se on helppoa, useimmat tekevät sen. Ongelma on, kun ei tiedä, minne asiat pitää heittää.
+b1_environment	B1	Kierrätys taloyhtiössä	5	A	Det stämmer. Jag vet fortfarande inte vart plastförpackningarna ska.	Totta. En vieläkään tiedä, minne muovipakkaukset kuuluvat.
+b1_environment	B1	Kierrätys taloyhtiössä	6	B	De ska till återvinningsstationen, tillsammans med kartong och glas.	Ne viedään kierrätyspisteeseen pahvin ja lasin kanssa.
+b1_environment	B1	Kierrätys taloyhtiössä	7	A	Den ligger faktiskt ganska långt härifrån.	Se on itse asiassa aika kaukana täältä.
+b1_environment	B1	Kierrätys taloyhtiössä	8	B	Ja, men vi kan ju samåka dit på helgerna.	Joo, mutta voimmehan mennä sinne yhteiskyydillä viikonloppuisin.
+b1_life	B1	Kahvilla ystävän kanssa	1	A	Hur är det med din mamma nu?	Miten äidilläsi nyt menee?
+b1_life	B1	Kahvilla ystävän kanssa	2	B	Bättre, tack. Hon har flyttat till ett äldreboende.	Paremmin, kiitos. Hän on muuttanut palvelutaloon.
+b1_life	B1	Kahvilla ystävän kanssa	3	A	Hur kändes det för dig?	Miltä se sinusta tuntui?
+b1_life	B1	Kahvilla ystävän kanssa	4	B	Det var tungt i början. Det är konstigt när man plötsligt måste ta hand om sina föräldrar.	Alussa se oli raskasta. On outoa, kun yhtäkkiä joutuu huolehtimaan vanhemmistaan.
+b1_life	B1	Kahvilla ystävän kanssa	5	A	Jag förstår. Min pappa blev sjuk förra året, och jag har inte riktigt hunnit smälta det.	Ymmärrän. Isäni sairastui viime vuonna, enkä ole vielä oikein ehtinyt sulatella sitä.
+b1_life	B1	Kahvilla ystävän kanssa	6	B	Det tar tid. Men det är bra att man pratar om det.	Se vie aikaa. Mutta on hyvä, että asiasta puhuu.
+b1_life	B1	Kahvilla ystävän kanssa	7	A	Ja, och jag har börjat minnas så mycket från min barndom.	Niin, ja olen alkanut muistaa niin paljon lapsuudestani.
+b1_life	B1	Kahvilla ystävän kanssa	8	B	Samma här. Vi borde ses oftare.	Samoin täällä. Meidän pitäisi nähdä useammin.
+b2_society	B2	Lautakunnan kokouksen jälkeen	1	A	Hur gick mötet i nämnden i går?	Miten lautakunnan kokous eilen meni?
+b2_society	B2	Lautakunnan kokouksen jälkeen	2	B	Det drog ut på tiden. Frågan om den nya skolan bordlades till slut.	Se venyi. Uutta koulua koskeva asia jätettiin lopulta pöydälle.
+b2_society	B2	Lautakunnan kokouksen jälkeen	3	A	Varför då? Jag trodde att det fanns en majoritet för förslaget.	Miksi? Luulin, että ehdotukselle oli enemmistö.
+b2_society	B2	Lautakunnan kokouksen jälkeen	4	B	Det gjorde det också, men oppositionen ville ha en ny utredning om kostnaderna.	Olikin, mutta oppositio halusi uuden selvityksen kustannuksista.
+b2_society	B2	Lautakunnan kokouksen jälkeen	5	A	Det låter som ett sätt att skjuta upp beslutet.	Kuulostaa keinolta lykätä päätöstä.
+b2_society	B2	Lautakunnan kokouksen jälkeen	6	B	Kanske, men ärligt talat hade underlaget kunnat vara bättre.	Ehkä, mutta rehellisesti sanottuna valmisteluaineisto olisi voinut olla parempi.
+b2_society	B2	Lautakunnan kokouksen jälkeen	7	A	Så vad händer nu?	Mitä nyt tapahtuu?
+b2_society	B2	Lautakunnan kokouksen jälkeen	8	B	Ärendet tas upp igen i december, och då förväntas ett enhälligt beslut.	Asia otetaan uudelleen käsittelyyn joulukuussa, ja silloin odotetaan yksimielistä päätöstä.
+b2_law	B2	Todistajana käräjäoikeudessa	1	A	Är det första gången du vittnar i en rättegång?	Onko tämä ensimmäinen kerta, kun todistat oikeudenkäynnissä?
+b2_law	B2	Todistajana käräjäoikeudessa	2	B	Ja, och jag är ganska nervös. Vad förväntas av mig?	Kyllä, ja jännitän aika paljon. Mitä minulta odotetaan?
+b2_law	B2	Todistajana käräjäoikeudessa	3	A	Du ska bara berätta vad du såg, så noggrant som möjligt.	Sinun pitää vain kertoa, mitä näit, mahdollisimman tarkasti.
+b2_law	B2	Todistajana käräjäoikeudessa	4	B	Men tänk om försvarsadvokaten försöker få mig att motsäga mig själv?	Mutta entä jos puolustusasianajaja yrittää saada minut puhumaan itseäni vastaan?
+b2_law	B2	Todistajana käräjäoikeudessa	5	A	Det händer, men om du håller dig till fakta finns det inget att oroa sig för.	Niin käy joskus, mutta jos pysyt tosiasioissa, ei ole mitään syytä huoleen.
+b2_law	B2	Todistajana käräjäoikeudessa	6	B	Får jag ta hjälp av mina anteckningar?	Saanko käyttää muistiinpanojani apuna?
+b2_law	B2	Todistajana käräjäoikeudessa	7	A	Det beror på. Fråga rättens ordförande innan du börjar.	Riippuu tilanteesta. Kysy oikeuden puheenjohtajalta ennen kuin aloitat.
+b2_law	B2	Todistajana käräjäoikeudessa	8	B	Okej, tack. Det känns lite lättare nu.	Okei, kiitos. Nyt tuntuu vähän helpommalta.
+b2_function	B2	Projektin aikataulu	1	A	Hinner vi bli klara med rapporten före fredag?	Ehdimmekö saada raportin valmiiksi ennen perjantaita?
+b2_function	B2	Projektin aikataulu	2	B	I bästa fall, ja. Men i värsta fall blir den inte klar förrän nästa vecka.	Parhaassa tapauksessa kyllä. Mutta pahimmassa tapauksessa se valmistuu vasta ensi viikolla.
+b2_function	B2	Projektin aikataulu	3	A	Vad beror det på?	Mistä se johtuu?
+b2_function	B2	Projektin aikataulu	4	B	Vi väntar fortfarande på siffrorna från ekonomiavdelningen, och utan dem kan vi inte gå vidare.	Odotamme yhä lukuja talousosastolta, emmekä voi edetä ilman niitä.
+b2_function	B2	Projektin aikataulu	5	A	Jag kan ringa dem. Det är åtminstone värt ett försök.	Voin soittaa heille. Se on ainakin yrittämisen arvoista.
+b2_function	B2	Projektin aikataulu	6	B	Gärna. Men tänk om de inte ens har börjat?	Mielellään. Mutta entä jos he eivät ole edes aloittaneet?
+b2_function	B2	Projektin aikataulu	7	A	Då får vi i första hand fokusera på slutsatserna och lägga till siffrorna senare.	Sitten meidän on keskityttävä ensisijaisesti johtopäätöksiin ja lisättävä luvut myöhemmin.
+b2_function	B2	Projektin aikataulu	8	B	Bra, så gör vi.	Hyvä, tehdään niin.

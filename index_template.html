@@ -525,6 +525,19 @@
   .listen-notice[hidden]{ display:none; }
   #listenAnswerArea[hidden], #listenCard[hidden], #listenScore[hidden]{ display:none; }
   .listen-input-wrap{ display:block; }
+  /* Dialogi-välilehti (vaihe 46): tila-valinta ja repliikkipaneeli */
+  .listen-dlg-modes{ display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin:2px 0 6px; }
+  .listen-dlg-modes[hidden], .listen-dialogue[hidden]{ display:none; }
+  .listen-dlg-modes button{ border:2px solid transparent; background:var(--card-bg); color:var(--ink); padding:4px 12px; border-radius:999px; font-size:13px; cursor:pointer; font-family:inherit; }
+  .listen-dlg-modes button.active{ background:#8e6bbf; color:#fff; }
+  .listen-dialogue{ width:100%; max-width:700px; box-sizing:border-box; margin:6px auto; padding:10px 14px; border-radius:14px; background:var(--card-bg); text-align:left; }
+  .dlg-title{ font-weight:700; margin-bottom:6px; }
+  .dlg-sub{ font-size:13px; opacity:.8; }
+  .dlg-line{ padding:4px 8px; margin:3px 0; border-radius:8px; border-left:4px solid #8e6bbf; }
+  .dlg-line.speaker-B{ border-left-color:#e08a3c; margin-left:18px; }
+  .dlg-line.active{ background:rgba(142,107,191,.18); }
+  .dlg-fi{ display:block; font-size:13px; opacity:.75; }
+  body.self-mode .listen-dlg-modes button.active{ background:var(--accent-dark); }
   body.self-mode .listen-btn{ border-radius:10px; font-weight:600; box-shadow:none; }
   body.self-mode .listen-notice{ border-radius:10px; }
   .btn{
@@ -865,10 +878,30 @@
   .self-daily-btn.active{ background:#5c6bc0; border-color:#5c6bc0; color:#fff; }
   .self-daily-notice{ margin-top:4px; font-size:12px; font-weight:700; color:var(--good); }
   .self-daily-notice:empty{ display:none; }
+  .self-daily-sub{ display:flex; flex-wrap:wrap; gap:2px 12px; margin-top:4px; font-size:12px; color:#7a7189; }
+  .self-daily-sub:empty{ display:none; }
+  .self-challenge-bar{ display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px; margin-top:6px; padding:5px 10px;
+    border-radius:10px; background:#eef0fb; font-size:13px; font-weight:700; }
+  .self-challenge-bar[hidden]{ display:none; }
+  .self-continue{ margin-top:8px; padding:8px 10px; border-radius:10px; background:#f4f2fa; border:1px solid #e2dcf0; }
+  .self-continue[hidden]{ display:none; }
+  .self-continue-head{ display:flex; justify-content:space-between; align-items:center; gap:8px; font-size:13px; }
+  .self-continue-close{ border:0; background:transparent; font-size:20px; line-height:1; cursor:pointer; color:#7a7189; padding:0 4px; font-family:inherit; }
+  .self-continue-text{ margin:4px 0 0; font-size:12px; color:#5b5370; line-height:1.5; white-space:pre-line; }
+  .self-continue-text:empty{ display:none; }
+  .self-continue-btns{ display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
   .adult-set select{ font-family:inherit; font-size:13px; padding:2px 6px; margin:0 6px 0 4px; }
   @media (max-width: 420px){
     .answer-area{ padding:10px 10px; }
   }
+  /* Vaihe 46: kosketusnäytöillä (tabletti) valintanapit vähintään 40 px korkeiksi,
+     jotta ne osuvat sormella luotettavasti (emuloidussa tablettitestissä 27-34 px). */
+  @media (pointer: coarse){
+    .study-switch-btn, .lang-switch-btn, .practice-switch-btn,
+    #gradeFilter, #themeButton, #placementBtn, #focusButton, .backup-btn{ min-height:40px; }
+  }
+  /* Itseopiskelussa palkintotason nimi (esim. "Kärmes") on lapsille suunnattu: näytetään vain tähdet. */
+  body.self-mode #tierLabel, body.self-mode #tierIcon{ display:none; }
 </style>
 </head>
 <body>
@@ -917,9 +950,35 @@
       <span id="dailyStreak"></span>
       <span id="reviewDueLabel">🔁 Kerrattavia: 0</span>
       <button type="button" class="self-daily-btn" id="reviewDueBtn" title="Rajaa harjoitus pelkkiin erääntyneisiin sanoihin" style="display:none">Kertaa erääntyneet</button>
+      <button type="button" class="self-daily-btn" id="reviewHardBtn" title="Palaa tavalliseen harjoitukseen" style="display:none">Lopeta vaikeimpien kertaus</button>
+      <button type="button" class="self-daily-btn" id="continueBtn" title="Jatkovalikko: lisää uusia sanoja, haastekierros, kertaa vaikeimmat" style="display:none">Jatka</button>
     </div>
     <div class="self-daily-bar" id="dailyBar"><div id="dailyFill"></div></div>
+    <div class="self-daily-sub">
+      <span id="forecastLabel">Huomenna kerrattavia: 0</span>
+      <span id="weekLabel"></span>
+    </div>
     <div class="self-daily-notice" id="dailyNotice" role="status"></div>
+    <div class="self-challenge-bar" id="challengeBar" hidden>
+      <span id="challengeLabel">🧗 Haastekierros</span>
+      <span id="challengeTimer"></span>
+      <button type="button" class="self-daily-btn" id="challengeStopBtn">Lopeta kierros</button>
+    </div>
+    <div class="self-continue" id="continuePanel" hidden>
+      <div class="self-continue-head">
+        <b id="continueTitle">Päivän tavoite täynnä – jatketaanko?</b>
+        <button type="button" class="self-continue-close" id="continueClose" aria-label="Sulje">×</button>
+      </div>
+      <div class="self-continue-text" id="continueText"></div>
+      <div class="self-continue-btns" id="continueBtns">
+        <button type="button" class="self-daily-btn" id="contNewBtn">➕ 10 uutta sanaa</button>
+        <button type="button" class="self-daily-btn" id="contChallengeBtn">🧗 Haastekierros</button>
+        <button type="button" class="self-daily-btn" id="contTimedBtn" title="Pikakierros: niin monta tehtävää kuin ehdit 60 sekunnissa">⏱ 60 s</button>
+        <button type="button" class="self-daily-btn" id="contHardBtn">🔁 Kertaa vaikeimmat</button>
+        <button type="button" class="self-daily-btn" id="contResumeBtn" style="display:none">▶ Jatka kierrosta</button>
+        <button type="button" class="self-daily-btn" id="contStopBtn">✋ Lopeta tältä päivältä</button>
+      </div>
+    </div>
   </div>
 
   <main>
@@ -1066,6 +1125,7 @@
 
     <div id="listenPractice" hidden>
       <div class="grammar-tabs infl-tabs" id="listenTabs"></div>
+      <div class="listen-dlg-modes" id="listenDlgModes" hidden></div>
       <div class="listen-notice" id="listenNotice" role="alert" hidden></div>
       <section class="prompt-card listen-card" id="listenCard">
         <div class="prompt-hint" id="listenHint">…</div>
@@ -1075,6 +1135,7 @@
           <button class="btn ghost listen-btn" id="listenReveal" type="button">👁️ Näytä</button>
         </div>
       </section>
+      <div class="listen-dialogue" id="listenDialogue" hidden></div>
       <section class="answer-area" id="listenAnswerArea">
         <div class="answer-input-wrap visible listen-input-wrap" id="listenWriteWrap">
           <input type="text" class="answer-box" id="listenInput" placeholder="Kirjoita kuulemasi..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false">
@@ -1115,7 +1176,7 @@
   </main>
 
   <footer>
-    Sanaseikkailu · pilottiversio · kynä- ja puhesyöttö (vaihe 5)
+    Sanaseikkailu · peruskoulu ja itseopiskelu · ruotsi, englanti, saksa
     <div class="backup-row">
       <button class="backup-btn" id="adultBtn" title="Edistymisen yhteenveto aikuiselle">📊 Aikuisen näkymä</button>
       <button class="backup-btn" id="exportBtn" title="Tallenna edistyminen tiedostoon">💾 Varmuuskopio</button>
@@ -1291,7 +1352,9 @@ function loadLangForMode(mode){
     const saved = localStorage.getItem(langStorageKey(mode));
     if (saved && LANGS[saved] && allowed.includes(saved)) return saved;
   } catch (e) { /* localStorage ei käytettävissä - käytetään oletusta */ }
-  return mode === "self" ? (allowed[0] || "sv") : "en";
+  // Itseopiskelun oletuskieli on SELF_DATA.languages-listan ensimmäinen (ruotsi), ei LANGS-avainten järjestyksen mukainen.
+  if (mode === "self") return SELF_DATA.languages.find(l => allowed.includes(l)) || allowed[0] || "sv";
+  return "en";
 }
 let targetLang = loadLangForMode(studyMode);
 
@@ -1319,6 +1382,8 @@ function selfIndex(){
   if (selfIndexCache) return selfIndexCache;
   const byId = new Map(PRACTICE_WORDS.map(w => [w.id, w]));
   const topicWords = new Map(), topicSets = new Map(), levelWords = new Map(), wordTopics = new Map();
+  // wordLevel: sanan alin taso (indeksi SELF_DATA.levels-listassa), jos sana kuuluu usealle tasolle.
+  const levelOrder = new Map(SELF_DATA.levels.map((l, i) => [l.id, i])), wordLevel = new Map();
   SELF_DATA.levels.forEach(l => levelWords.set(l.id, []));
   const levelSeen = new Map(SELF_DATA.levels.map(l => [l.id, new Set()]));
   SELF_DATA.topics.forEach(t => {
@@ -1326,11 +1391,13 @@ function selfIndex(){
     topicWords.set(t.id, words);
     topicSets.set(t.id, new Set(words.map(w => w.id)));
     words.forEach(w => { if (!wordTopics.has(w.id)) wordTopics.set(w.id, []); wordTopics.get(w.id).push(t.id); });
+    const li = levelOrder.get(t.level);
+    if (li !== undefined) words.forEach(w => { if (!wordLevel.has(w.id) || li < wordLevel.get(w.id)) wordLevel.set(w.id, li); });
     const seen = levelSeen.get(t.level), list = levelWords.get(t.level);
     if (!list) return;
     words.forEach(w => { if (!seen.has(w.id)){ seen.add(w.id); list.push(w); } });
   });
-  selfIndexCache = { topicWords, topicSets, levelWords, wordTopics };
+  selfIndexCache = { topicWords, topicSets, levelWords, wordTopics, wordLevel, levelOrder };
   return selfIndexCache;
 }
 function selfTopicWords(topicId){ return selfIndex().topicWords.get(topicId) || []; }
@@ -1350,6 +1417,9 @@ function selfAllWords(){
 function fiFor(w){ return (w && w["fi_" + targetLang]) || (w && w.fi) || ""; }
 
 let statsCache = {}; // statId -> stat
+let statsReady = false; // true kun tilastot on ladattu kerran (päiväkohtainen automaattisäätö odottaa tätä)
+let reviewHardOnly = false; // "Kertaa vaikeimmat": pooli rajattu heikoimmin meneviin sanoihin (vain itseopiskelu)
+let challenge = null;       // käynnissä oleva haastekierros (vain itseopiskelu), ks. luku "Dynaaminen eteneminen"
 let current = null;
 let direction = "target-fi";
 let activeMode = "keyboard";
@@ -1360,6 +1430,7 @@ let lastProductiveMode = "keyboard";
 function productiveMode(){ return activeMode === "choice" ? lastProductiveMode : activeMode; }
 // Monivalinnan tila: nykyinen kysymys, vaihtoehtopainikkeet, lukitus ja seuraavan sanan ajastin.
 let choiceQuestion = null, choiceButtons = [], choiceLocked = false, choiceDone = false, choiceNextTimer = null;
+let wordNextTimer = null; // kirjoitus-/puhevastauksen jälkeinen siirtymä seuraavaan sanaan
 let selectedThemes = []; // valitut teema-id:t; tyhjä = kaikki teemat
 let themeStrict = false; // true = pysytään tiukasti valituissa teemoissa (ei täydennystä muualta)
 try { themeStrict = localStorage.getItem("themeStrict") === "1"; } catch (e) { /* ei haittaa */ }
@@ -1478,12 +1549,17 @@ function syncLangButtons(){
 
 function selectTargetLang(lang){
   if (!LANGS[lang] || lang === targetLang || !langsForMode(studyMode).includes(lang)) return;
+  if (challenge) challengeFinish(true, true);
   targetLang = lang;
   reviewDueOnly = false;
+  reviewHardOnly = false;
+  closeContinuePanel();
   try { localStorage.setItem(langStorageKey(studyMode), targetLang); } catch (e) { /* ei haittaa */ }
   syncLangButtons();
   PRACTICE_WORDS = practiceWords();
-  updateInflAvailability(); // taivutusvaihtoehto riippuu kielen taivutusdatasta
+  // Taivutusvaihtoehto riippuu kielen taivutusdatasta, ja itseopiskelun Virkkeet-valitsin kielen
+  // virkkeistä (SELF_DATA.sentences[kieli]): kielellä ilman virkkeitä se piilotetaan (ja sanatila palautuu).
+  syncPracticeSwitchUI();
   // Kummallakin kielellä on oma luokka-aste muistissa (esim. saksa voi olla
   // vasta alkanut, vaikka englanti olisi jo pidemmällä). Itseopiskelun taso
   // ei riipu kielestä.
@@ -1666,6 +1742,7 @@ function setupGradeFilter(){
     }
     selectedThemes = [];
     populateCategoryOptions();
+    if (challenge) challengeFinish(true, true);
     current = null;
     initSessionPool();
     pickWord();
@@ -2060,6 +2137,7 @@ async function updateHeaderStats(){
   const all = await getAllStats();
   statsCache = {};
   all.forEach(s => statsCache[s.statId] = s);
+  statsReady = true;
 
   // Palkintotaso lasketaan VALITUN LUOKKA-ASTEEN sanastosta (ei koko kohdekielen
   // sanastosta eikä teemasuodattimesta), jotta mittari vaihtuu heti kun oppilas
@@ -2172,13 +2250,14 @@ function isStartedWord(w){
   return !!st && !isRecognizedOnly(st);
 }
 // Täyttää poolia kolmessa vaiheessa: harjoitellut sanat, tuoreet sanat, testissä tunnistetut.
-function fillPoolTiered(candidates, pool, excludeIds, needed){
+// withNext (vain itseopiskelu): sallitaan osa uusista sanoista seuraavalta tasolta (ks. nextLevelFreshWords).
+function fillPoolTiered(candidates, pool, excludeIds, needed, withNext){
   fillPoolFrom(candidates.filter(isStartedWord), pool, excludeIds, needed);
   const fresh = candidates.filter(w => !statsCache[statId(w)]);
   const recognized = candidates.filter(w => isRecognizedOnly(statsCache[statId(w)]));
   if (studyMode === "self"){
     // Itseopiskelussa uusia sanoja otetaan päivässä rajallinen määrä (kertausjono ei kasva hallitsemattomasti).
-    fillPoolNewLimited(fresh, pool, excludeIds, needed);
+    fillPoolNewLimited(fresh, pool, excludeIds, needed, withNext ? nextLevelFreshWords(excludeIds) : null);
     fillPoolNewLimited(recognized, pool, excludeIds, needed);
     return;
   }
@@ -2190,15 +2269,82 @@ function isFreshWord(w){
   return !st || isRecognizedOnly(st);
 }
 // Päivän kiintiöstä vähennetään tänään jo aloitetut uudet sanat ja poolissa jo olevat vastaamattomat.
-function fillPoolNewLimited(candidates, pool, excludeIds, needed){
+// Uudet sanat otetaan yleisyysjärjestyksessä (zipf_fi, yleisin ensin) pienellä satunnaisuudella:
+// arvonta kolmesta parhaasta ehdokkaasta (painot 3/2/1). Jos sanoilla ei ole zipf-tietoa, järjestys
+// säilyy ennallaan eikä satunnaisuutta käytetä. nextWords = seuraavan tason uudet sanat: niitä
+// otetaan noin 15 % päivän uusista sanoista (ks. NEXT_LEVEL_SHARE).
+const NEW_ZIPF_TOP = 3;
+const NEXT_LEVEL_SHARE = 0.15;   // tavoiteosuus (hyväksytty väli 10-20 %)
+const NEXT_LEVEL_MIN_LEARNED = 0.70; // nykyisen tason sanoista opittu, ennen kuin esimaku alkaa
+const zipfOf = w => typeof w.zipf_fi === "number" ? w.zipf_fi : -1;
+// Palauttaa funktion, joka antaa joka kutsulla seuraavan sanan (tai undefined, kun sanat loppuvat).
+function makeZipfDrawer(list){
+  if (!list.some(w => typeof w.zipf_fi === "number")){
+    let i = 0;
+    return () => list[i++];
+  }
+  const sorted = list.map((w, i) => ({ w, i })).sort((a, b) => (zipfOf(b.w) - zipfOf(a.w)) || (a.i - b.i)).map(x => x.w);
+  return () => {
+    if (!sorted.length) return undefined;
+    const n = Math.min(NEW_ZIPF_TOP, sorted.length);
+    let r = Math.random() * (n * (n + 1) / 2), k = 0;
+    for (; k < n - 1; k++){ r -= (n - k); if (r <= 0) break; }
+    return sorted.splice(k, 1)[0];
+  };
+}
+function fillPoolNewLimited(candidates, pool, excludeIds, needed, nextWords){
   let budget = newWordsLeftToday() - pool.filter(isFreshWord).length;
-  for (const w of candidates){
-    if (pool.length >= needed || budget <= 0) break;
-    if (excludeIds.has(w.id) || isGraduatedWord(w)) continue;
+  if (budget <= 0 || pool.length >= needed) return;
+  const usable = w => !excludeIds.has(w.id) && !isGraduatedWord(w);
+  const draw = makeZipfDrawer(candidates.filter(usable));
+  const drawNext = nextWords && nextWords.length ? makeZipfDrawer(nextWords.filter(usable)) : null;
+  // Tänään käyttöön otetut uudet sanat (vastattu + poolissa odottavat): seuraavan tason osuuden laskentaan.
+  const taken = new Set(dailyNewIdsToday());
+  pool.forEach(w => { if (isFreshWord(w)) taken.add(w.id); });
+  let total = taken.size, nxt = 0;
+  taken.forEach(id => { const w = practiceWordById(id); if (w && isNextLevelWord(w)) nxt += 1; });
+  while (pool.length < needed && budget > 0){
+    const wantNext = !!drawNext && nxt < Math.floor(NEXT_LEVEL_SHARE * (total + 1));
+    let w = wantNext ? (drawNext() || draw()) : (draw() || (drawNext && drawNext()));
+    while (w && excludeIds.has(w.id)) w = wantNext ? (drawNext() || draw()) : (draw() || (drawNext && drawNext()));
+    if (!w) break;
     pool.push(w);
     excludeIds.add(w.id);
-    budget -= 1;
+    budget -= 1; total += 1;
+    if (isNextLevelWord(w)) nxt += 1;
   }
+}
+
+// --- Seuraavan tason esimaku (vaihe 45) ---
+// Kun nykyisen tason sanoista on opittu vähintään 70 % (jokin vaihe graduoitu), osa uusista
+// sanoista otetaan seuraavalta tasolta. Esimaku ei ole käytössä teemarajauksen tai viikon sanojen aikana.
+function isLearnedAny(st){ return stagePenGraduated(st) || stageKeyboardGraduated(st) || stageMicGraduated(st); }
+function levelLearnedShare(levelId){
+  const words = selfLevelWords(levelId);
+  if (!words.length) return 0;
+  return words.filter(w => isLearnedAny(statsCache[statId(w)])).length / words.length;
+}
+// Seuraava taso, jolla on sanoja valitulla kielellä (tai null).
+function nextLevelIdOf(levelId){
+  const ids = selfLevelIds();
+  return ids.slice(ids.indexOf(levelId) + 1).find(id => selfLevelWords(id).length) || null;
+}
+// Onko sana seuraavan tason sana (sen alin taso on valittua tasoa seuraava)?
+function isNextLevelWord(w){
+  if (studyMode !== "self" || !w) return false;
+  const idx = selfIndex();
+  const cur = idx.levelOrder.get(selfLevel), wl = idx.wordLevel.get(w.id);
+  return cur !== undefined && wl !== undefined && wl > cur && wl === idx.levelOrder.get(nextLevelIdOf(selfLevel));
+}
+function nextLevelFreshWords(excludeIds){
+  if (studyMode !== "self" || levelLearnedShare(selfLevel) < NEXT_LEVEL_MIN_LEARNED) return [];
+  const next = nextLevelIdOf(selfLevel);
+  if (!next) return [];
+  return selfLevelWords(next).filter(w => isNextLevelWord(w) && !statsCache[statId(w)] && !(excludeIds && excludeIds.has(w.id)));
+}
+function dailyNewIdsToday(){
+  const d = loadDaily();
+  return d.newDay === localDateKey() ? d.newIds : [];
 }
 // Erääntyneet sanat poolin alkuun ennen muita; ne tulevat mukaan myös jo graduoituina
 // ja (ilman teemarajausta) miltä tasolta tahansa. Vain itseopiskelu.
@@ -2223,7 +2369,7 @@ function topUpPool(pool, sel, excludeIds){
   if (studyMode === "self") fillPoolDue(pool, sel, excludeIds);
   const outside = outsideTopUpAllowed(sel);
   const primary = eligibleWordsForCategoryScope(sel).filter(w => !excludeIds.has(w.id));
-  fillPoolTiered(primary, pool, excludeIds, ACTIVE_POOL_MAX);
+  fillPoolTiered(primary, pool, excludeIds, ACTIVE_POOL_MAX, !(sel && sel.length) && !focusActive());
   if (pool.length < ACTIVE_POOL_MIN && outside && sel.length){
     const sameGrade = wordsForGrade(activeUnit()).filter(w => !excludeIds.has(w.id));
     fillPoolTiered(sameGrade, pool, excludeIds, ACTIVE_POOL_MIN);
@@ -2264,6 +2410,8 @@ function pruneAndRefillSessionPool(){
 }
 
 async function pickWord(){
+  // Haastekierroksella seuraavan tehtävän valitsee kierros, ei tavallinen sanavalinta.
+  if (challenge && !challenge.switching){ challengeAdvance(); return; }
   // Jos edellinen sana juuri täytti koko luokka-asteen, siirrytään ensin
   // automaattisesti seuraavalle luokka-asteelle (ks. maybeAdvanceGrade).
   maybeAdvanceGrade();
@@ -2277,6 +2425,16 @@ async function pickWord(){
     else {
       reviewDueOnly = false;
       showDailyNotice("Kaikki erääntyneet sanat on käyty läpi.");
+      initSessionPool();
+    }
+  }
+  if (!pool && studyMode === "self" && reviewHardOnly){
+    // "Kertaa vaikeimmat": heikoimmin menneet aloitetut sanat.
+    const hard = hardestWords();
+    if (hard.length) pool = hard;
+    else {
+      reviewHardOnly = false;
+      showDailyNotice("Ei enää vaikeita sanoja kerrattavaksi.");
       initSessionPool();
     }
   }
@@ -2310,7 +2468,8 @@ async function pickWord(){
 
 function firstAcceptedAnswer(text){
   // Jos vastauksessa on vaihtoehtoja "/"-merkillä (esim. kohteliaisuusfraasit), näytetään ensimmäinen.
-  return text.split("/")[0].trim();
+  // Suojaus: puuttuva kohdekielen muoto (undefined/null) ei kaada, vaan antaa tyhjän.
+  return String(text == null ? "" : text).split("/")[0].trim();
 }
 
 // Sanan teema kortissa: itseopiskelussa valitun tason aihepiiri (tai ensimmäinen,
@@ -2319,7 +2478,8 @@ function promptCategoryText(w){
   if (studyMode === "self"){
     const inTopic = id => wordInCategory(w, id);
     const t = selfTopicsForLevel(selfLevel).find(t => inTopic(t.id)) || SELF_DATA.topics.find(t => inTopic(t.id));
-    return t ? t.name_fi : "";
+    // Esimaku: sana seuraavalta tasolta (ks. nextLevelFreshWords) merkitään näkyviin.
+    return (t ? t.name_fi : "") + (isNextLevelWord(w) ? (t ? " · " : "") + "seuraava taso" : "");
   }
   return w.category ? categoryName(w.category) : "";
 }
@@ -2369,7 +2529,8 @@ function renderPrompt(){
 }
 
 function acceptedAnswers(){
-  const raw = direction === "target-fi" ? fiFor(current) : current[targetLang];
+  // Suojaus: sanalta, jolta puuttuu kohdekielen muoto, ei kaadu (palautuu [""]); pooli suodattaa tällaiset pois.
+  const raw = String((direction === "target-fi" ? fiFor(current) : (current && current[targetLang])) || "");
   return raw.split("/").map(s => s.trim());
 }
 
@@ -2396,7 +2557,7 @@ function digitsToWords(text, lang){
 }
 
 function normalize(s){
-  return s
+  return String(s == null ? "" : s)
     .trim()
     .toLowerCase()
     .replace(/[.,!?¿¡'"]/g, "")
@@ -2405,7 +2566,7 @@ function normalize(s){
 
 // poistaa suluissa olevat tarkennukset vertailua varten, esim. "anteeksi (huomion herättämiseen)" -> "anteeksi"
 function stripParenthetical(s){
-  return s.replace(/\([^)]*\)/g, "").trim();
+  return String(s == null ? "" : s).replace(/\([^)]*\)/g, "").trim();
 }
 
 // Numeroiden muunto sanoiksi tehdään vain puhetilassa, koska puheentunnistus
@@ -2413,7 +2574,7 @@ function stripParenthetical(s){
 // EI kelpaa sanan tilalle - muuten "viisitoista"-kehotteeseen voisi vastata "15"
 // opettelematta itse sanaa (vaihe 21).
 function canonical(s, convertDigits){
-  let src = s;
+  let src = String(s == null ? "" : s);
   // Itseopiskelun aukolliset ilmaukset: aukko ("...") ja sitä ympäröivät välilyönnit
   // poistuvat, joten "antingen ... eller" ja "antingen eller" ovat sama vastaus.
   if (studyMode === "self") src = src.replace(/\s*(\.{3}|\u2026)\s*/g, " ");
@@ -2493,10 +2654,11 @@ async function recordResult(isCorrect, mode){
     // Kertausaikataulu ja päivälaskuri: vain itseopiskelussa ja vain tuottavista vastauksista.
     if (isFreshWord(current)) dailyNoteNewWord(current);
     srsApply(prev, isCorrect);
-    goalReached = dailyRecordAnswer();
+    goalReached = dailyRecordAnswer(isCorrect, "p");
   }
   statsCache[id] = prev;
   logPractice(isCorrect);
+  challengeNote(prev.wordId, isCorrect);
   await putStat(prev);
   if (studyMode === "self") finishDailyUpdate(goalReached);
 }
@@ -2541,7 +2703,7 @@ async function checkAnswer(userAnswer, mode){
     feedback.appendChild(span);
   }
   await recordResult(isCorrect, usedMode);
-  setTimeout(pickWord, (isCorrect ? 900 : 2000) + (pl ? 800 : 0));
+  wordNextTimer = setTimeout(pickWord, (isCorrect ? 900 : 2000) + (pl ? 800 : 0));
 }
 
 function showNote(text){
@@ -2724,9 +2886,11 @@ async function recordRecognition(word, isCorrect, method, countDaily){
   }
   prev.lastSeen = new Date().toISOString();
   let goalReached = false;
-  if (studyMode === "self" && countDaily !== false) goalReached = dailyRecordAnswer();
+  // Sanelu on tuottava vastaus; monivalinta, yhdistely ja kuullun ymmärtäminen ovat tunnistusta.
+  if (studyMode === "self" && countDaily !== false) goalReached = dailyRecordAnswer(isCorrect, method === "dict" ? "p" : "r");
   statsCache[id] = prev;
   logPractice(isCorrect);
+  challengeNote(word.id, isCorrect);
   await putStat(prev);
   if (studyMode === "self") finishDailyUpdate(goalReached);
 }
@@ -2736,6 +2900,7 @@ function finishDailyUpdate(goalReached){
   if (goalReached){
     const s = dailySummary();
     showDailyNotice(`Päivätavoite täynnä: ${s.count} / ${s.goal}` + (s.streak ? " · " + streakText(s.streak) : ""));
+    if (!challenge) openContinuePanel(); // jatkovalikko heti kun tavoite täyttyy (ei kesken haastekierroksen)
   }
 }
 
@@ -3231,15 +3396,35 @@ let sentenceRecognizing = false;
 let sentenceRecognition = null;
 
 function sentencesForLang(){ return SENTENCE_DATA[targetLang] || []; }
+
+// --- Itseopiskelun virkkeet (vaihe 46) ---
+// SELF_DATA.sentences[kieli] = [{id, topic, level, text, fi, alt?}]. Ne sovitetaan peruskoulun virkkeen
+// muotoon (teksti kenttään [kieli]), jolloin koko virkeharjoitus (tehtävätyypit, matchesSentence,
+// normalizeSentence, tilastot) toimii sellaisenaan. Peruskoulun SENTENCE_DATA ei muutu.
+function selfSentencesForLang(){
+  const raw = (SELF_DATA.sentences || {})[targetLang] || [];
+  return raw.filter(s => s && s.id && s.text).map(s => ({
+    id: s.id, [targetLang]: s.text, fi: s.fi || "", alt: s.alt || [], topic: s.topic, level: s.level, self: true
+  }));
+}
+// Valitun tason virkkeet, rajattuna valittuihin aihepiireihin (tyhjä valinta = kaikki tason aihepiirit).
+function selfSentencePool(){
+  return selfSentencesForLang().filter(s => s.level === selfLevel && (!selectedThemes.length || selectedThemes.includes(s.topic)));
+}
+function selfSentencesAvailable(){ return selfSentencesForLang().length > 0; }
 // Virkkeiden "grade" on samoin opiskeluvuosi (ks. LANG_START_GRADE).
 function sentencesForGrade(g){ return sentencesForLang().filter(s => !s.theme && s.grade + startGrade() - 1 === g); }
 // Koealueen (teeman) virkkeet: jos valittuna on teema, jolla on omia virkkeitä
 // (s.theme), harjoitellaan vain niitä; muuten luokka-asteen tavalliset virkkeet.
 function activeSentenceTheme(){
+  if (studyMode === "self") return null; // itseopiskelussa ei koealueita
   const themed = sentencesForLang().filter(s => s.theme && selectedThemes.includes(s.theme));
   return themed.length ? themed : null;
 }
-function activeSentencePool(){ return activeSentenceTheme() || sentencesForGrade(activeGrade); }
+function activeSentencePool(){
+  if (studyMode === "self") return selfSentencePool();
+  return activeSentenceTheme() || sentencesForGrade(activeGrade);
+}
 function sentenceStatId(sentence){ return `sentence|${targetLang}|${sentence.id}`; }
 function sentenceStat(sentence){ return statsCache[sentenceStatId(sentence)] || null; }
 function isSentenceLearned(sentence){
@@ -3347,6 +3532,14 @@ function speakSentence(text){
 }
 
 function updateSentenceProgressLabel(){
+  if (studyMode === "self"){
+    const sp = selfSentencePool(), n = sp.filter(isSentenceLearned).length;
+    const scope = selectedThemes.length ? selectedThemes.map(categoryName).join(", ") : "kaikki aihepiirit";
+    sentenceProgressLabel.textContent = sp.length
+      ? `Opittu ${n}/${sp.length} virkettä (${selfLevel}, ${scope}, ${LANGS[targetLang].label})`
+      : "Ei vielä virkkeitä tälle tasolle tai valituille aihepiireille.";
+    return;
+  }
   const themedPool = activeSentenceTheme();
   const pool = activeSentencePool();
   const learned = pool.filter(isSentenceLearned).length;
@@ -3400,7 +3593,9 @@ function renderSentenceRound(){
   sentenceRevealBox.textContent = "";
   sentenceAnswerArea.classList.remove("revealed");
   sentenceExerciseLabel.textContent = EXERCISE_TYPE_LABELS[currentExerciseType];
-  sentenceGradeLabel.textContent = `${currentSentence.grade}. luokka`;
+  sentenceGradeLabel.textContent = currentSentence.self
+    ? `${currentSentence.level} · ${categoryName(currentSentence.topic)}`
+    : `${currentSentence.grade}. luokka`;
   sentenceLangPill.textContent = targetLang.toUpperCase();
   sentenceLangPill.className = "lang-pill " + targetLang;
   sentenceFiPrompt.textContent = currentSentence.fi;
@@ -3463,10 +3658,14 @@ async function recordSentenceResult(isCorrect){
     prev.streak = 0;
   }
   prev.lastSeen = new Date().toISOString();
+  // Itseopiskelussa virkevastaus lasketaan päivätavoitteeseen tuottavana vastauksena (kuten sanojen kirjoitus).
+  let goalReached = false;
+  if (studyMode === "self") goalReached = dailyRecordAnswer(isCorrect, "p");
   statsCache[id] = prev;
   logPractice(isCorrect);
   await putStat(prev);
   updateSentenceProgressLabel();
+  if (studyMode === "self") finishDailyUpdate(goalReached);
 }
 
 function checkSentenceAnswer(){
@@ -3580,6 +3779,8 @@ sentenceMicBtn.addEventListener("click", () => {
 // --- Harjoittelutavan valinta: sanat / virkkeet ---
 function setPracticeMode(mode){
   if (mode === practiceMode) return;
+  // Harjoittelutavan vaihto käsin kesken haastekierroksen päättää kierroksen (yhteenveto näytetään).
+  if (challenge && !challenge.switching) challengeFinish(true);
   practiceMode = mode;
   practiceSwitchButtons.forEach(b => {
     const active = b.dataset.practice === mode;
@@ -3605,13 +3806,13 @@ function setPracticeMode(mode){
   if (mode === "listen") startListenRound(true);
 }
 
-// Harjoittelutavan valitsin näkyy molemmissa tiloissa. Itseopiskelussa virkkeet (ei vielä
-// itseopiskelun virkkeitä) ja kielioppi (vain saksa, peruskoulu) ovat piilossa, jolloin
-// valittavana ovat Sanat ja Yhdistä.
+// Harjoittelutavan valitsin näkyy molemmissa tiloissa. Itseopiskelussa virkkeet näkyvät, kun kielellä
+// on itseopiskelun virkkeitä (SELF_DATA.sentences); kielioppi (vain saksa, peruskoulu) on piilossa.
 function syncPracticeSwitchUI(){
   const selfMode = studyMode === "self";
   practiceSwitchEl.style.display = "";
-  sentencesSwitchBtn.style.display = selfMode ? "none" : "";
+  sentencesSwitchBtn.style.display = selfMode && !selfSentencesAvailable() ? "none" : "";
+  if (selfMode && !selfSentencesAvailable() && practiceMode === "sentences") setPracticeMode("words");
   updateGrammarAvailability();
   updateInflAvailability();
 }
@@ -3674,6 +3875,9 @@ function pickMatchWords(n){
   if (studyMode === "self" && reviewDueOnly){
     const due = dueWords();
     if (due.length) base = due;
+  } else if (studyMode === "self" && reviewHardOnly){
+    const hard = hardestWords();
+    if (hard.length) base = hard;
   }
   const chosen = [], ids = new Set();
   const take = list => {
@@ -3686,7 +3890,7 @@ function pickMatchWords(n){
     }
   };
   take(matchOrdered(base));
-  if (chosen.length < n && !(studyMode === "self" && reviewDueOnly)){
+  if (chosen.length < n && !(studyMode === "self" && (reviewDueOnly || reviewHardOnly))){
     take(matchOrdered(eligibleWordsForCategoryScope(selectedThemes)));
     if (chosen.length < n && outsideTopUpAllowed(selectedThemes)) take(matchOrdered(wordsForGrade(activeUnit())));
   }
@@ -4189,7 +4393,10 @@ function startInflRound(rebuildTabs){
   pickInflRound();
 }
 
-function pickInflRound(){ renderInflQuestion(pickInflQuestion()); }
+function pickInflRound(){
+  if (challenge && !challenge.switching){ challengeAdvance(); return; }
+  renderInflQuestion(pickInflQuestion());
+}
 
 function renderInflQuestion(q){
   clearTimeout(inflTimer);
@@ -4267,7 +4474,8 @@ function inflFinish(ok, message){
   st[inflQ.key] = rec;
   inflStatsSave(st);
   logPractice(ok);
-  if (studyMode === "self") finishDailyUpdate(dailyRecordAnswer());
+  if (studyMode === "self") finishDailyUpdate(dailyRecordAnswer(ok, "p"));
+  challengeNote(inflQ.w.id, ok);
   document.getElementById("inflScore").textContent = `Oikein ${inflSession.c}/${inflSession.t}`;
   const delayed = inflQ;
   inflTimer = setTimeout(() => { if (inflQ === delayed && inflLocked) pickInflRound(); },
@@ -4308,15 +4516,20 @@ document.getElementById("inflSkip").addEventListener("click", () => { inflLocked
 //    kuulemansa. Artikkeli saa puuttua (ei kuulu aina selvästi); palaute kertoo koko muodon.
 //  - "comp" Kuullun ymmärtäminen: sana luetaan, valitaan suomennos neljästä (buildChoiceQuestion,
 //    vaihtoehdot suomeksi).
-//  - "sent" Virkesanelu (vain peruskoulu, jos kielellä on virkkeitä): sama kuin sanelu, sisältö SENTENCE_DATA.
+//  - "sent" Virkesanelu: sama kuin sanelu; sisältö peruskoulussa SENTENCE_DATA, itseopiskelussa SELF_DATA.sentences
+//    (valittu taso + aihepiirit, ks. activeSentencePool).
+//  - "dlg" Dialogi (vain itseopiskelu, vaihe 46): SELF_DATA.dialogues (valittu taso + aihepiirit). Kaksi tilaa:
+//    "play" = koko dialogi toistetaan repliikki kerrallaan (A ja B eri äänellä/pitchillä), otsikko näkyy ja repliikit
+//    paljastetaan halutessa suomennoksineen; "dict" = yksi repliikki sanellaan ja tarkistetaan kuten virkesanelu.
 // SISÄLTÖLÄHDE on abstrakti: listenItems(tyyppi) palauttaa kuunneltavia kohteita
 //   { kind, id, key, text (puhuttava), forms (hyväksytyt kirjoitusasut), full (koko muoto palautteeseen),
 //     fi, note (taivutushuomautus), word | sentence }.
-// Uusi sisältö (esim. dialogit) lisätään tekemällä uusi kohdetyyppi (kind) + haara listenItems():ssa;
+// Uusi sisältö lisätään tekemällä uusi kohdetyyppi (kind) + haara listenItems():ssa (kind "dialogue" ja "line" ovat dialogeja);
 // puhe, tarkistus ja kirjaus toimivat kohteen kenttien kautta eivätkä tiedä sisällön alkuperästä.
 // KIRJAUS: sanelu -> dictCorrect/dictWrong/streakDict, ymmärtäminen -> listenCorrect/listenWrong/
 // streakListen (recordRecognition): ei graduoi eikä pidennä kertausväliä; päivätavoitteeseen lasketaan
-// jokainen vastaus itseopiskelussa. Virkesanelun tilasto on laitekohtainen (localStorage listenStats_<kieli>).
+// jokainen vastaus itseopiskelussa. Virkesanelun ja dialogien tilasto on laitekohtainen (localStorage
+// listenStats_<kieli>: "sent:<id>" {c,w}, "dlg:<id>" {p kuuntelua, c/w repliikkisanelut, ok [oikein sanellut repliikit]}).
 const LISTEN_SLOW_RATE = 0.6;     // "🐢 Hitaasti"
 const LISTEN_AUTOPLAY_MS = 300;   // kohteen automaattinen toisto kysymyksen alussa
 const LISTEN_RECENT_MAX = 3;      // viimeisimmät kohteet, joita ei toisteta heti uudelleen
@@ -4329,10 +4542,20 @@ const LISTEN_ARTICLE = {
 const LISTEN_TYPES = [
   { id: "dict", label: "✍️ Sanelu" },
   { id: "comp", label: "👂 Ymmärtäminen" },
-  { id: "sent", label: "📝 Virkesanelu" }
+  { id: "sent", label: "📝 Virkesanelu" },
+  { id: "dlg", label: "💬 Dialogi" }
 ];
+const LISTEN_DLG_MODES = [
+  { id: "play", label: "🎧 Kuuntele dialogi" },
+  { id: "dict", label: "✍️ Sanele repliikki" }
+];
+const LISTEN_PITCH_A = 0.9, LISTEN_PITCH_B = 1.25; // puhujien erottelu, kun laitteessa on vain yksi kohdekielen ääni
 
 let listenType = "dict";     // valittu tehtävätyyppi
+let listenDlgMode = "play";  // dialogin tila: "play" (koko dialogi) | "dict" (repliikin sanelu)
+let listenDlgActive = -1;    // parhaillaan puhuttava repliikki (korostus)
+let listenDlgRevealed = false; // repliikit ja suomennokset näkyvissä (play-tila)
+let listenDlgModeBtns = [];
 let listenQ = null;          // nykyinen kysymys { type, item, options? }
 let listenLocked = false;
 let listenSession = { c: 0, t: 0 };
@@ -4343,6 +4566,8 @@ let listenPlayTimer = null;  // automaattitoisto
 let listenTimer = null;      // siirtymä seuraavaan kysymykseen
 let listenSupportOk = null;  // viimeksi todettu tuki (voiceschanged-tapahtuman vertailuun)
 const listenTabsEl = document.getElementById("listenTabs");
+const listenDlgModesEl = document.getElementById("listenDlgModes");
+const listenDialogueEl = document.getElementById("listenDialogue");
 const listenNoticeEl = document.getElementById("listenNotice");
 const listenCardEl = document.getElementById("listenCard");
 const listenHintEl = document.getElementById("listenHint");
@@ -4378,19 +4603,61 @@ function listenSupport(){
   }
   return { ok: true, msg: "" };
 }
-// Lausuu tekstin kohdekielellä annetulla nopeudella (1 = normaali).
-function listenSpeak(text, rate){
+// Lausuu tekstin kohdekielellä annetulla nopeudella (1 = normaali). opts (valinnainen): { voice, pitch }.
+function listenSpeak(text, rate, opts){
   if (!listenSupport().ok || !text) return false;
+  const u = listenUtterance(text, rate, opts);
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+  return true;
+}
+function listenUtterance(text, rate, opts){
   const u = new SpeechSynthesisUtterance(text);
   u.lang = LANGS[targetLang].speech;
   u.rate = rate || 1;
   try {
-    const v = typeof speechSynthesis.getVoices === "function" ? (speechSynthesis.getVoices() || []).find(x => listenVoiceMatches(x, u.lang)) : null;
+    const v = opts && opts.voice ? opts.voice : (typeof speechSynthesis.getVoices === "function" ? (speechSynthesis.getVoices() || []).find(x => listenVoiceMatches(x, u.lang)) : null);
     if (v) u.voice = v;
   } catch (e) { /* ääni valitaan selaimen oletuksella */ }
+  if (opts && opts.pitch) u.pitch = opts.pitch;
+  return u;
+}
+// Kohdekielen äänet, tarkka kieliversio (esim. sv-SE) ensin.
+function listenTargetVoices(){
+  try {
+    const all = typeof speechSynthesis.getVoices === "function" ? (speechSynthesis.getVoices() || []) : [];
+    const sp = LANGS[targetLang].speech.toLowerCase().replace("_", "-");
+    const mine = all.filter(v => listenVoiceMatches(v, sp));
+    return mine.filter(v => String(v.lang).toLowerCase().replace("_", "-") === sp).concat(mine.filter(v => String(v.lang).toLowerCase().replace("_", "-") !== sp));
+  } catch (e) { return []; }
+}
+// Dialogin puhujat: jos laitteessa on useita kohdekielen ääniä, A ja B saavat eri äänen;
+// muuten sama ääni eri pitchillä.
+function listenSpeakerOpts(speaker){
+  const vs = listenTargetVoices(), b = speaker === "B";
+  if (vs.length >= 2) return { voice: vs[b ? 1 : 0], pitch: 1 };
+  return { voice: vs[0] || null, pitch: b ? LISTEN_PITCH_B : LISTEN_PITCH_A };
+}
+// Toistaa repliikit peräkkäin (selain jonottaa lausunnat); cancel vain kerran alussa.
+function listenSpeakDialogue(lines, rate){
+  if (!listenSupport().ok || !lines || !lines.length) return false;
   speechSynthesis.cancel();
-  speechSynthesis.speak(u);
+  lines.forEach((l, i) => {
+    const u = listenUtterance(l.text, rate, listenSpeakerOpts(l.speaker));
+    u.onstart = () => listenDlgHighlight(i);
+    if (i === lines.length - 1) u.onend = () => listenDlgHighlight(-1);
+    speechSynthesis.speak(u);
+  });
   return true;
+}
+// Toistaa kysymyksen kohteen: koko dialogin tai yksittäisen kohteen (repliikillä oma puhuja).
+function listenPlay(q, rate){
+  if (!q) return false;
+  if (q.type === "dlg" && q.sub === "play"){
+    if (!q.played){ q.played = true; listenDialogueNotePlay(q.item); }
+    return listenSpeakDialogue(q.item.lines, rate);
+  }
+  return listenSpeak(q.item.text, rate, q.item.speaker ? listenSpeakerOpts(q.item.speaker) : null);
 }
 
 // --- Sisältölähde ---
@@ -4417,6 +4684,24 @@ function listenSentenceItem(s){
   return { kind: "sentence", id: s.id, key: "sent:" + s.id, text, forms: sentenceAcceptedForms(s),
     full: text, fi: s.fi || "", note: "", sentence: s };
 }
+// Dialogit: itseopiskelun dialogi -> kuunneltava kohde (kind "dialogue") ja sen repliikit (kind "line").
+function selfDialoguesForLang(){
+  return ((SELF_DATA.dialogues || {})[targetLang] || []).filter(d => d && d.id && Array.isArray(d.lines) && d.lines.length);
+}
+function selfDialoguePool(){
+  return selfDialoguesForLang().filter(d => d.level === selfLevel && (!selectedThemes.length || selectedThemes.includes(d.topic)));
+}
+function listenDialogueItem(d){
+  const lines = (d.lines || []).filter(l => l && l.text).map(l => ({ speaker: l.speaker === "B" ? "B" : "A", text: l.text, fi: l.fi || "" }));
+  if (!lines.length) return null;
+  return { kind: "dialogue", id: d.id, key: "dlg:" + d.id, text: lines.map(l => l.text).join(" "), forms: [],
+    full: d.title_fi || "", fi: d.title_fi || "", note: "", title: d.title_fi || "", lines, dialogue: d };
+}
+function listenLineItem(di, idx){
+  const l = di.lines[idx];
+  return { kind: "line", id: di.id + ":" + idx, key: "dlg:" + di.id + ":" + idx, dialogueId: di.id, lineIdx: idx, speaker: l.speaker,
+    text: l.text, forms: [l.text], full: l.text, fi: l.fi, note: "" };
+}
 function listenWeightedOrder(list, weightOf){
   return list
     .map(x => ({ x, k: Math.pow(Math.random(), 1 / Math.max(0.01, weightOf(x))) }))
@@ -4428,10 +4713,13 @@ function listenWeightedOrder(list, weightOf){
 function listenWordCandidates(){
   pruneAndRefillSessionPool();
   let base = sessionPool.slice();
-  const dueOnly = studyMode === "self" && reviewDueOnly;
-  if (dueOnly){
+  const dueOnly = studyMode === "self" && (reviewDueOnly || reviewHardOnly);
+  if (studyMode === "self" && reviewDueOnly){
     const due = dueWords();
     if (due.length) base = due;
+  } else if (dueOnly){
+    const hard = hardestWords();
+    if (hard.length) base = hard;
   }
   let list = matchOrdered(base);
   const enough = l => l.filter(w => listenWordItem(w)).length > LISTEN_RECENT_MAX;
@@ -4448,6 +4736,10 @@ function listenWordCandidates(){
 }
 // Kuunneltavat kohteet tehtävätyypille, parhaassa järjestyksessä (ensimmäinen valitaan).
 function listenItems(type){
+  if (type === "dlg"){
+    const st = listenStatsLoad();
+    return listenWeightedOrder(selfDialoguePool(), d => inflWeight(st["dlg:" + d.id])).map(listenDialogueItem).filter(Boolean);
+  }
   if (type === "sent"){
     const st = listenStatsLoad();
     return listenWeightedOrder(activeSentencePool(), s => inflWeight(st["sent:" + s.id]))
@@ -4456,7 +4748,11 @@ function listenItems(type){
   return listenWordCandidates().map(listenWordItem).filter(Boolean);
 }
 function listenTypesAvailable(){
-  return LISTEN_TYPES.filter(t => t.id !== "sent" || (studyMode === "school" && sentencesForLang().length > 0));
+  return LISTEN_TYPES.filter(t => {
+    if (t.id === "sent") return studyMode === "self" ? selfSentencesAvailable() : sentencesForLang().length > 0;
+    if (t.id === "dlg") return studyMode === "self" && selfDialoguesForLang().length > 0;
+    return true;
+  });
 }
 
 // Virkesanelun oma tilasto: { "sent:<id>": { c, w } } (ei kosketa virketilastoon eikä graduointiin).
@@ -4470,7 +4766,7 @@ function listenStatsSave(st){ try { localStorage.setItem(listenStatsKey(), JSON.
 // --- Tarkistus ---
 // Sanat: sama normalisointi kuin näppäimistövastauksissa (canonical); virkkeet: normalizeSentence.
 function listenMatches(item, typed){
-  const norm = item.kind === "sentence" ? normalizeSentence : s => canonical(s, false);
+  const norm = item.kind === "sentence" || item.kind === "line" ? normalizeSentence : s => canonical(s, false);
   const t = norm(typed || "");
   return !!t && item.forms.some(f => norm(f) === t);
 }
@@ -4479,6 +4775,20 @@ function listenMatches(item, typed){
 function pickListenQuestion(){
   const items = listenItems(listenType);
   const order = items.filter(it => !listenRecent.includes(it.key)).concat(items.filter(it => listenRecent.includes(it.key)));
+  if (listenType === "dlg"){
+    for (const item of order){
+      if (listenDlgMode === "play") return { type: "dlg", sub: "play", item };
+      // Repliikin sanelu: ensin repliikit, joita ei ole juuri kysytty eikä vielä sanelu oikein.
+      const rec = listenStatsLoad()["dlg:" + item.id] || {};
+      const idxs = item.lines.map((_, i) => i);
+      const fresh = idxs.filter(i => !listenRecent.includes("dlg:" + item.id + ":" + i));
+      const notOk = fresh.filter(i => !(rec.ok || []).includes(i));
+      const pool = notOk.length ? notOk : (fresh.length ? fresh : idxs);
+      const i = pool[Math.floor(Math.random() * pool.length)];
+      return { type: "dlg", sub: "dict", item: listenLineItem(item, i), dialogue: item };
+    }
+    return null;
+  }
   for (const item of order){
     if (listenType === "comp"){
       const cq = buildChoiceQuestion(item.word, choicePools(), { dir: "target-fi", excludeGaps: true });
@@ -4491,6 +4801,7 @@ function pickListenQuestion(){
 }
 
 function buildListenTabs(){
+  if (!listenDlgModeBtns.length) buildListenDlgModes();
   const types = listenTypesAvailable();
   if (!types.some(t => t.id === listenType)) listenType = "dict";
   listenTabsEl.innerHTML = "";
@@ -4505,13 +4816,71 @@ function buildListenTabs(){
     listenTabsEl.appendChild(b);
     listenTabBtns.push(b);
   });
+  syncListenDlgModes();
 }
 function setListenType(id){
   if (!listenTypesAvailable().some(t => t.id === id)) return;
   listenType = id;
   listenTabBtns.forEach(b => b.classList.toggle("active", b.dataset.task === id));
   listenRecent = [];
+  syncListenDlgModes();
   pickListenRound();
+}
+// Dialogin tilavalitsin (Kuuntele dialogi / Sanele repliikki) näkyy vain Dialogi-välilehdellä.
+function buildListenDlgModes(){
+  listenDlgModesEl.innerHTML = "";
+  listenDlgModeBtns = [];
+  LISTEN_DLG_MODES.forEach(m => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.textContent = m.label;
+    b.dataset.dlg = m.id;
+    b.addEventListener("click", () => setListenDlgMode(m.id));
+    listenDlgModesEl.appendChild(b);
+    listenDlgModeBtns.push(b);
+  });
+  syncListenDlgModes();
+}
+function syncListenDlgModes(){
+  listenDlgModesEl.hidden = listenType !== "dlg";
+  listenDlgModeBtns.forEach(b => b.classList.toggle("active", b.dataset.dlg === listenDlgMode));
+}
+function setListenDlgMode(id){
+  if (listenDlgMode === id || !LISTEN_DLG_MODES.some(m => m.id === id)) return;
+  listenDlgMode = id;
+  listenRecent = [];
+  syncListenDlgModes();
+  pickListenRound();
+}
+// Dialogin kuuntelu kirjataan harjoitelluksi (p), ei päivätavoitteeseen eikä oikein/väärin-tilastoon.
+function listenDialogueNotePlay(item){
+  const st = listenStatsLoad(), key = "dlg:" + item.id;
+  const rec = st[key] || { p: 0, c: 0, w: 0, ok: [] };
+  rec.p = (rec.p || 0) + 1;
+  st[key] = rec;
+  listenStatsSave(st);
+}
+function listenDlgHighlight(i){
+  listenDlgActive = i;
+  renderListenDialogue();
+}
+// Repliikkipaneeli: otsikko aina; play-tilassa repliikit (paljastuksen jälkeen tekstit + suomennokset),
+// dict-tilassa vain repliikin numero ja puhuja.
+function renderListenDialogue(){
+  const q = listenQ;
+  if (!q || q.type !== "dlg"){ listenDialogueEl.hidden = true; listenDialogueEl.innerHTML = ""; return; }
+  const d = q.dialogue || q.item;
+  let h = `<div class="dlg-title">💬 ${escHtml(d.title || "Dialogi")}</div>`;
+  if (q.sub === "play"){
+    d.lines.forEach((l, i) => {
+      h += `<div class="dlg-line speaker-${l.speaker}${i === listenDlgActive ? " active" : ""}"><b>${l.speaker}</b> `
+        + (listenDlgRevealed ? `${escHtml(l.text)}<span class="dlg-fi">${escHtml(l.fi)}</span>` : "…") + `</div>`;
+    });
+  } else {
+    h += `<div class="dlg-sub">Repliikki ${q.item.lineIdx + 1}/${d.lines.length} · puhuja ${q.item.speaker}</div>`;
+  }
+  listenDialogueEl.innerHTML = h;
+  listenDialogueEl.hidden = false;
 }
 
 // Näyttää joko ilmoituksen (ei puhetukea: harjoitusta ei voi aloittaa) tai harjoituksen.
@@ -4538,6 +4907,7 @@ function startListenRound(rebuildTabs){
   pickListenRound();
 }
 function pickListenRound(){
+  if (challenge && !challenge.switching){ challengeAdvance(); return; }
   if (!listenApplySupport()){ listenQ = null; return; }
   renderListenQuestion(pickListenQuestion());
 }
@@ -4546,12 +4916,14 @@ function listenHintText(type){
   const lang = LANGS[targetLang].label; // esim. "ruotsiksi"
   if (type === "comp") return "Kuuntele ja valitse suomennos ↓";
   if (type === "sent") return `Kuuntele ja kirjoita virke ${lang} ↓`;
+  if (type === "dlg") return listenDlgMode === "play" ? "Kuuntele dialogi – näytä repliikit tarvittaessa ↓" : `Kuuntele repliikki ja kirjoita se ${lang} ↓`;
   return `Kuuntele ja kirjoita ${lang} ↓`;
 }
 
 function renderListenQuestion(q){
   clearTimeout(listenPlayTimer);
   clearTimeout(listenTimer);
+  if (listenQ && listenQ.type === "dlg" && window.speechSynthesis) speechSynthesis.cancel(); // edellisen dialogin toisto poikki
   listenQ = q;
   listenLocked = false;
   listenFeedbackEl.className = "feedback";
@@ -4562,10 +4934,16 @@ function renderListenQuestion(q){
   listenChoiceBtns = [];
   listenScoreEl.textContent = listenSession.t ? `Oikein ${listenSession.c}/${listenSession.t}` : "";
   const comp = !!q && q.type === "comp";
-  listenWriteWrapEl.classList.toggle("visible", !comp);
+  const dlgPlay = !!q && q.type === "dlg" && q.sub === "play";
+  listenDlgRevealed = false;
+  listenDlgActive = -1;
+  listenWriteWrapEl.classList.toggle("visible", !comp && !dlgPlay);
   listenChoicesEl.classList.toggle("visible", comp);
-  listenCheckBtn.hidden = comp;
+  listenCheckBtn.hidden = comp || dlgPlay;
   listenRevealBtn.hidden = comp;
+  listenRevealBtn.textContent = dlgPlay ? "📜 Näytä repliikit" : "👁️ Näytä";
+  syncListenDlgModes();
+  renderListenDialogue();
   if (!q){
     listenHintEl.textContent = "Tälle valinnalle ei ole vielä kuunneltavaa.";
     listenWriteWrapEl.classList.remove("visible");
@@ -4587,11 +4965,11 @@ function renderListenQuestion(q){
       listenChoicesEl.appendChild(b);
       listenChoiceBtns.push(b);
     });
-  } else {
+  } else if (!dlgPlay){
     listenInputEl.focus({ preventScroll: true });
   }
   // Kohde luetaan automaattisesti; sanaa ei näytetä missään vaiheessa ennen vastausta tai "Näytä"-nappia.
-  listenPlayTimer = setTimeout(() => listenSpeak(q.item.text, 1), LISTEN_AUTOPLAY_MS);
+  listenPlayTimer = setTimeout(() => listenPlay(q, 1), LISTEN_AUTOPLAY_MS);
 }
 
 // Palaute: "🎉 Oikein! en bil · auto · Taivutus: bilen · bilar" - koko muoto, suomennos ja huomautus.
@@ -4621,6 +4999,17 @@ async function finishListen(ok, mode){
   listenTimer = setTimeout(() => { if (listenQ === q && listenLocked) pickListenRound(); }, next);
   if (item.kind === "word"){
     await recordRecognition(item.word, ok, q.type === "comp" ? "listen" : "dict", countDaily);
+  } else if (item.kind === "line"){
+    // Dialogin repliikin sanelu: dialogin tilasto (c/w) ja oikein sanellut repliikit (ok).
+    const st = listenStatsLoad(), key = "dlg:" + item.dialogueId;
+    const rec = st[key] || { p: 0, c: 0, w: 0, ok: [] };
+    if (!Array.isArray(rec.ok)) rec.ok = [];
+    if (ok){ rec.c = (rec.c || 0) + 1; if (!rec.ok.includes(item.lineIdx)) rec.ok.push(item.lineIdx); }
+    else rec.w = (rec.w || 0) + 1;
+    st[key] = rec;
+    listenStatsSave(st);
+    logPractice(ok);
+    if (studyMode === "self" && countDaily) finishDailyUpdate(dailyRecordAnswer(ok, "p"));
   } else {
     const st = listenStatsLoad();
     const rec = st[item.key] || { c: 0, w: 0 };
@@ -4628,7 +5017,7 @@ async function finishListen(ok, mode){
     st[item.key] = rec;
     listenStatsSave(st);
     logPractice(ok);
-    if (studyMode === "self" && countDaily) finishDailyUpdate(dailyRecordAnswer());
+    if (studyMode === "self" && countDaily) finishDailyUpdate(dailyRecordAnswer(ok, "p"));
   }
 }
 
@@ -4653,10 +5042,18 @@ function answerListenChoice(i){
   return finishListen(!!opt.correct, "answer");
 }
 
-listenReplayBtn.addEventListener("click", () => { if (listenQ) listenSpeak(listenQ.item.text, 1); });
-listenSlowBtn.addEventListener("click", () => { if (listenQ) listenSpeak(listenQ.item.text, LISTEN_SLOW_RATE); });
+listenReplayBtn.addEventListener("click", () => { if (listenQ) listenPlay(listenQ, 1); });
+listenSlowBtn.addEventListener("click", () => { if (listenQ) listenPlay(listenQ, LISTEN_SLOW_RATE); });
 listenRevealBtn.addEventListener("click", () => {
-  if (!listenQ || listenLocked || listenQ.type === "comp") return;
+  if (!listenQ || listenQ.type === "comp") return;
+  if (listenQ.type === "dlg" && listenQ.sub === "play"){
+    // Koko dialogin kuuntelussa "Näytä" paljastaa/piilottaa repliikit suomennoksineen (ei vastausta eikä kirjausta).
+    listenDlgRevealed = !listenDlgRevealed;
+    listenRevealBtn.textContent = listenDlgRevealed ? "🙈 Piilota repliikit" : "📜 Näytä repliikit";
+    renderListenDialogue();
+    return;
+  }
+  if (listenLocked) return;
   finishListen(false, "reveal");
 });
 listenCheckBtn.addEventListener("click", answerListenTyped);
@@ -4734,7 +5131,7 @@ function updateFocusUI(){
   focusButton.style.display = studyMode === "school" && wordsMode && focusIds.length ? "" : "none";
   focusButton.classList.toggle("active", focusActive());
   focusButton.setAttribute("aria-pressed", focusActive() ? "true" : "false");
-  const sentenceThemes = practiceMode === "sentences" && sentencesForLang().some(s => s.theme);
+  const sentenceThemes = practiceMode === "sentences" && (studyMode === "self" || sentencesForLang().some(s => s.theme));
   themeButton.style.display = (wordsMode && !focusActive()) || sentenceThemes ? "" : "none";
 }
 
@@ -4859,6 +5256,43 @@ function hardWordsFrom(words){
 
 // Itseopiskelun oma edistyminen: yhteenveto tasoittain ja aihepiireittäin + hankalat sanat.
 // Ei luokka-asteita eikä koealueita.
+// Raportin dynaamisen etenemisen tiedot: kiintiö ja sen muutos, tarkkuus, ennuste, viikkotavoite, haasteet.
+function dynamicSummary(){
+  const d = loadDaily(), key = localDateKey();
+  return {
+    quota: dailyQuota(d), quotaText: newQuotaText(d), auto: d.auto, base: d.newBase,
+    adj: d.adj && d.adj.day === key ? d.adj : null, adjLog: d.adjLog.slice(-5),
+    acc: accToday(d), forecast: tomorrowForecast(), week: weekSummary(d), chal: d.chal[key] || { r: 0, t: 0, ok: 0, up: 0 },
+    newToday: dailyNewIdsToday().length
+  };
+}
+// Virkkeiden ja dialogien määrä tasoittain (vaihe 46). Virke: harjoiteltu = on virketilasto, opittu = isSentenceLearned.
+// Dialogi (listenStats "dlg:<id>"): harjoiteltu = kuunneltu tai repliikkejä sanelty, opittu = kaikki repliikit sanelty oikein.
+function dialogueRecord(d, ls){ return (ls || listenStatsLoad())["dlg:" + d.id] || null; }
+function isDialoguePractised(d, ls){
+  const r = dialogueRecord(d, ls);
+  return !!r && ((r.p || 0) + (r.c || 0) + (r.w || 0)) > 0;
+}
+function isDialogueLearned(d, ls){
+  const r = dialogueRecord(d, ls);
+  if (!r || !Array.isArray(r.ok) || !d.lines.length) return false;
+  return d.lines.every((_, i) => r.ok.includes(i));
+}
+function selfSentenceReport(){
+  const ls = listenStatsLoad();
+  const sents = selfSentencesForLang(), dlgs = selfDialoguesForLang();
+  const levels = SELF_DATA.levels.map(l => {
+    const ss = sents.filter(s => s.level === l.id), ds = dlgs.filter(d => d.level === l.id);
+    return {
+      id: l.id, name: l.name_fi,
+      sentTotal: ss.length, sentSeen: ss.filter(s => !!sentenceStat(s)).length, sentLearned: ss.filter(isSentenceLearned).length,
+      dlgTotal: ds.length, dlgSeen: ds.filter(d => isDialoguePractised(d, ls)).length, dlgLearned: ds.filter(d => isDialogueLearned(d, ls)).length
+    };
+  });
+  const sum = k => levels.reduce((n, l) => n + l[k], 0);
+  return { levels, sentTotal: sum("sentTotal"), sentSeen: sum("sentSeen"), sentLearned: sum("sentLearned"),
+    dlgTotal: sum("dlgTotal"), dlgSeen: sum("dlgSeen"), dlgLearned: sum("dlgLearned") };
+}
 function buildSelfReport(){
   const levels = SELF_DATA.levels.map(l => ({ id: l.id, name: l.name_fi, ...adultStatsFor(selfLevelWords(l.id)) }));
   const topics = SELF_DATA.topics
@@ -4868,7 +5302,11 @@ function buildSelfReport(){
   return {
     self: true, language: targetLang, all: adultStatsFor(words), levels, topics,
     hard: hardWordsFrom(words), days: recentDays(), lastSeen: lastSeenForLang(),
-    srs: srsOverview(), daily: dailySummary()
+    srs: srsOverview(), daily: dailySummary(),
+    // Dynaaminen eteneminen (vaihe 45)
+    dyn: dynamicSummary(), steps: stepDistribution(),
+    // Virkkeet ja dialogit (vaihe 46)
+    sentences: selfSentenceReport()
   };
 }
 
@@ -4923,16 +5361,44 @@ function renderSelfView(r){
      + `Opittu vaiheittain: kynä ${r.all.pen}, näppäimistö ${r.all.keyboard}, puhe ${r.all.mic}.</p>`;
   h += `<div class="adult-section">Päivätavoite</div>`;
   h += `<p class="adult-note">Tänään ${r.daily.count} / ${r.daily.goal} vastausta · putki ${streakText(r.daily.streak) || "0 päivää"} · pisin putki ${r.daily.best} ${r.daily.best === 1 ? "päivä" : "päivää"}.</p>`;
+  const newOpts = NEW_PER_DAY_OPTIONS.includes(r.daily.newPerDay) ? NEW_PER_DAY_OPTIONS : NEW_PER_DAY_OPTIONS.concat(r.daily.newPerDay).sort((a, b) => a - b);
   h += `<p class="adult-note adult-set">Tavoite <select id="dailyGoalSelect">${DAILY_GOALS.map(g => `<option value="${g}"${g === r.daily.goal ? " selected" : ""}>${g}</option>`).join("")}</select> vastausta päivässä · `
-     + `uusia sanoja <select id="newPerDaySelect">${NEW_PER_DAY_OPTIONS.map(g => `<option value="${g}"${g === r.daily.newPerDay ? " selected" : ""}>${g}</option>`).join("")}</select> päivässä.</p>`;
+     + `uusia sanoja <select id="newPerDaySelect">${newOpts.map(g => `<option value="${g}"${g === r.daily.newPerDay ? " selected" : ""}>${g}</option>`).join("")}</select> päivässä.</p>`;
+  h += `<p class="adult-note">${escHtml(r.dyn.quotaText)}</p>`;
+  h += `<p class="adult-note adult-set"><label><input type="checkbox" id="autoNewToggle"${r.dyn.auto ? " checked" : ""}> Säädä uusien sanojen määrää automaattisesti (±5 edellisen päivän tarkkuuden ja kertausjonon mukaan; käsin asetettu arvo on lähtötaso)</label></p>`;
+  if (r.dyn.adjLog.length){
+    h += `<p class="adult-note">Viimeisimmät säädöt: ${r.dyn.adjLog.map(a => `${a.day} ${a.to - a.from > 0 ? "+" : "−"}${Math.abs(a.to - a.from)} (${escHtml(a.reason)})`).join(" · ")}</p>`;
+  }
+  const accTxt = a => a.n ? `${a.pct} % (${a.ok}/${a.n})` : "ei vastauksia";
+  h += `<p class="adult-note">Päivän tarkkuus: tuottavat vastaukset ${accTxt(r.dyn.acc.p)} · tunnistus ${accTxt(r.dyn.acc.r)}.</p>`;
+  h += `<div class="adult-section">Viikkotavoite</div>`;
+  h += `<p class="adult-note">Tällä viikolla uusia sanoja ${r.dyn.week.newWords} / ${r.dyn.week.goalNew}, harjoituspäiviä ${r.dyn.week.days} / ${r.dyn.week.goalDays} (päivä, jona päivätavoite täyttyi).</p>`;
+  h += `<p class="adult-note adult-set">Viikossa uusia sanoja <select id="weekNewSelect">${WEEK_NEW_OPTIONS.map(g => `<option value="${g}"${g === r.dyn.week.goalNew ? " selected" : ""}>${g}</option>`).join("")}</select> · `
+     + `harjoituspäiviä <select id="weekDaysSelect">${WEEK_DAYS_OPTIONS.map(g => `<option value="${g}"${g === r.dyn.week.goalDays ? " selected" : ""}>${g} / 7</option>`).join("")}</select></p>`;
   h += `<div class="adult-section">Kertaus</div><table class="adult-table"><tr><th>Erääntyy</th><th>Sanoja</th></tr>`
      + `<tr><td>Tänään (myös myöhässä olevat)</td><td>${r.srs.today}</td></tr>`
      + `<tr><td>Huomenna</td><td>${r.srs.tomorrow}</td></tr>`
      + `<tr><td>Seuraavan 7 päivän aikana</td><td>${r.srs.week}</td></tr></table>`;
+  h += `<p class="adult-note">Huomenna kerrattavia: ${r.dyn.forecast}.</p>`;
   h += `<table class="adult-table"><tr><th>Kertausväli</th><th>Sanoja</th></tr>`
      + `<tr><td>Alle viikko</td><td>${r.srs.short}</td></tr>`
      + `<tr><td>1-4 viikkoa</td><td>${r.srs.mid}</td></tr>`
      + `<tr><td>Yli kuukausi</td><td>${r.srs.long}</td></tr></table>`;
+  h += `<div class="adult-section">Haasteportaat</div><table class="adult-table"><tr><th>Porras</th><th>Sanoja</th></tr>`;
+  r.steps.forEach((n, i) => {
+    h += `<tr><td>${i} ${STEP_LABELS[i]}</td><td>${n} ${bar(n, r.all.total)}</td></tr>`;
+  });
+  h += `</table><p class="adult-note">Porras: 1 tunnistettu, 2 tuotettu, 3 taivutettu (ohitetaan, jos taivutusdataa ei ole), 4 kuultu (sanelu), 5 virkkeessä (sana esiintyy virkkeessä, jonka olet vastannut oikein). Haastekierros vie jo aloitetut sanat seuraavalle portaalle`
+     + (r.dyn.chal.r ? `; tänään ${r.dyn.chal.r} kierrosta, ${r.dyn.chal.ok}/${r.dyn.chal.t} oikein, portaalla nousi ${r.dyn.chal.up} sanaa` : "") + `.</p>`;
+  if (r.sentences && (r.sentences.sentTotal || r.sentences.dlgTotal)){
+    const sr = r.sentences;
+    h += `<div class="adult-section">Virkkeet ja dialogit tasoittain</div><table class="adult-table"><tr><th>Taso</th><th>Virkkeitä</th><th>Harjoiteltu</th><th>Opittu</th><th>Dialogeja</th><th>Harjoiteltu</th><th>Opittu</th></tr>`;
+    sr.levels.forEach(l => {
+      h += `<tr><td>${escHtml(l.name)}</td><td>${l.sentTotal}</td><td>${l.sentSeen}</td><td>${l.sentLearned} ${bar(l.sentLearned, l.sentTotal)}</td><td>${l.dlgTotal}</td><td>${l.dlgSeen}</td><td>${l.dlgLearned} ${bar(l.dlgLearned, l.dlgTotal)}</td></tr>`;
+    });
+    h += `<tr><td><b>Yhteensä</b></td><td>${sr.sentTotal}</td><td>${sr.sentSeen}</td><td>${sr.sentLearned}</td><td>${sr.dlgTotal}</td><td>${sr.dlgSeen}</td><td>${sr.dlgLearned}</td></tr></table>`;
+    h += `<p class="adult-note">Virke on opittu, kun se on mennyt oikein ${SENTENCE_GRADUATE} kertaa peräkkäin. Dialogi on harjoiteltu, kun sen on kuunnellut tai siitä on sanellut repliikkejä, ja opittu, kun kaikki repliikit on sanellut oikein.</p>`;
+  }
   h += `<div class="adult-section">Tasoittain</div><table class="adult-table"><tr><th>Taso</th><th>Sanoja</th><th>Nähty</th><th>Kynä</th><th>Näppäimistö</th><th>Puhe</th><th>Täysin</th></tr>`;
   r.levels.forEach(l => {
     h += `<tr><td>${escHtml(l.name)}</td><td>${l.total}</td><td>${l.seen}</td><td>${l.pen}</td><td>${l.keyboard}</td><td>${l.mic}</td><td>${l.full} ${bar(l.full, l.total)}</td></tr>`;
@@ -4958,6 +5424,12 @@ function renderSelfView(r){
   const goalSel = document.getElementById("dailyGoalSelect"), newSel = document.getElementById("newPerDaySelect");
   if (goalSel) goalSel.addEventListener("change", () => { setDailyGoal(Number(goalSel.value)); renderAdultView(); });
   if (newSel) newSel.addEventListener("change", () => { setNewPerDay(Number(newSel.value)); renderAdultView(); });
+  const autoTg = document.getElementById("autoNewToggle");
+  if (autoTg) autoTg.addEventListener("change", () => { setAutoNew(autoTg.checked); renderAdultView(); });
+  const wkNew = document.getElementById("weekNewSelect"), wkDays = document.getElementById("weekDaysSelect");
+  const wkChange = () => { setWeekGoals(Number(wkNew.value), Number(wkDays.value)); renderAdultView(); };
+  if (wkNew) wkNew.addEventListener("change", wkChange);
+  if (wkDays) wkDays.addEventListener("change", wkChange);
 }
 
 function renderAdultView(){
@@ -5122,12 +5594,35 @@ function srsOverview(now){
 
 // --- Päivätavoite ja päiväputki: localStorage selfDaily_<kieli> ---
 // { goal, newPerDay, days: {YYYY-MM-DD: vastauksia}, met: [päivät, joina tavoite täyttyi],
-//   best: pisin putki, newDay, newIds: tänään käyttöön otetut uudet sanat }
+//   best: pisin putki, newDay, newIds: tänään käyttöön otetut uudet sanat,
+//   -- dynaaminen eteneminen (vaihe 45) --
+//   auto: uusien sanojen kiintiön automaattisäätö päällä (oletus true),
+//   newBase: käsin asetettu lähtötaso (tieto), adjDay: päivä jona säätö viimeksi tarkistettiin,
+//   adj: tämän päivän säätö {day, from, to, delta, reason}, adjLog: säätöjen historia,
+//   acc: {päivä: {p: [oikein, yht.] tuottavat, r: [oikein, yht.] tunnistus}},
+//   bonusDay + bonus: tämän päivän lisäkiintiö (jatkovalikon "+10 uutta sanaa"),
+//   newLog: {päivä: uusia sanoja}, closedDay: päivä, jona jatkovalikko suljettiin,
+//   wkNew / wkDays: viikkotavoite (uusia sanoja, päivät joina tavoite täyttyi),
+//   chal: {päivä: {r: kierroksia, t: tehtäviä, ok: oikein, up: portaalla noussutta}} }
 function dailyKey(lang){ return "selfDaily_" + (lang || targetLang); }
+function sanitizeCountMap(o){
+  const out = {};
+  if (o && typeof o === "object") Object.keys(o).forEach(k => { if (Number.isFinite(o[k])) out[k] = o[k]; });
+  return out;
+}
 function loadDaily(){
   let d = null;
   try { d = JSON.parse(localStorage.getItem(dailyKey()) || "null"); } catch (e) { d = null; }
   if (!d || typeof d !== "object") d = {};
+  const pair = a => Array.isArray(a) && Number.isFinite(a[0]) && Number.isFinite(a[1]) ? [a[0], a[1]] : [0, 0];
+  const acc = {};
+  if (d.acc && typeof d.acc === "object") Object.keys(d.acc).forEach(k => { const e = d.acc[k] || {}; acc[k] = { p: pair(e.p), r: pair(e.r) }; });
+  const chal = {};
+  if (d.chal && typeof d.chal === "object") Object.keys(d.chal).forEach(k => {
+    const e = d.chal[k] || {};
+    chal[k] = { r: e.r | 0, t: e.t | 0, ok: e.ok | 0, up: e.up | 0 };
+  });
+  const adj = d.adj && typeof d.adj === "object" && typeof d.adj.day === "string" && Number.isFinite(d.adj.delta) ? d.adj : null;
   return {
     goal: DAILY_GOALS.includes(d.goal) ? d.goal : DAILY_GOAL_DEFAULT,
     newPerDay: Number.isInteger(d.newPerDay) && d.newPerDay >= 1 && d.newPerDay <= 200 ? d.newPerDay : SRS_NEW_PER_DAY_DEFAULT,
@@ -5135,7 +5630,20 @@ function loadDaily(){
     met: Array.isArray(d.met) ? d.met : [],
     best: Number.isInteger(d.best) ? d.best : 0,
     newDay: typeof d.newDay === "string" ? d.newDay : "",
-    newIds: Array.isArray(d.newIds) ? d.newIds : []
+    newIds: Array.isArray(d.newIds) ? d.newIds : [],
+    auto: d.auto !== false,
+    newBase: Number.isInteger(d.newBase) ? d.newBase : null,
+    adjDay: typeof d.adjDay === "string" ? d.adjDay : "",
+    adj,
+    adjLog: Array.isArray(d.adjLog) ? d.adjLog.filter(x => x && typeof x.day === "string" && Number.isFinite(x.delta)).slice(-30) : [],
+    acc,
+    bonusDay: typeof d.bonusDay === "string" ? d.bonusDay : "",
+    bonus: Number.isInteger(d.bonus) && d.bonus > 0 ? d.bonus : 0,
+    newLog: sanitizeCountMap(d.newLog),
+    closedDay: typeof d.closedDay === "string" ? d.closedDay : "",
+    wkNew: WEEK_NEW_OPTIONS.includes(d.wkNew) ? d.wkNew : WEEK_NEW_DEFAULT,
+    wkDays: WEEK_DAYS_OPTIONS.includes(d.wkDays) ? d.wkDays : WEEK_DAYS_DEFAULT,
+    chal
   };
 }
 function saveDaily(d){
@@ -5175,17 +5683,44 @@ function setDailyGoal(goal){
   saveDaily(d);
   updateSelfDailyUI();
 }
+// Käsin asetettu uusien sanojen määrä on automaattisäädön lähtötaso: arvo otetaan käyttöön heti,
+// eikä säätö muuta sitä enää saman päivän aikana.
 function setNewPerDay(n){
   if (!NEW_PER_DAY_OPTIONS.includes(n)) return;
   const d = loadDaily();
   d.newPerDay = n;
+  d.newBase = n;
+  d.adj = null;
+  d.adjDay = localDateKey();
   saveDaily(d);
 }
-// Kirjaa yhden tuottavan vastauksen päivälaskuriin; palauttaa true, jos tavoite täyttyi juuri nyt.
-function dailyRecordAnswer(){
+function setAutoNew(on){
+  const d = loadDaily();
+  d.auto = !!on;
+  saveDaily(d);
+}
+function setWeekGoals(newWords, days){
+  const d = loadDaily();
+  if (WEEK_NEW_OPTIONS.includes(newWords)) d.wkNew = newWords;
+  if (WEEK_DAYS_OPTIONS.includes(days)) d.wkDays = days;
+  saveDaily(d);
+  updateSelfDailyUI();
+}
+// Kirjaa yhden vastauksen päivälaskuriin; palauttaa true, jos tavoite täyttyi juuri nyt.
+// ok + kind kirjaavat samalla päivän osumatarkkuuden: kind "p" = tuottava vastaus
+// (kirjoitus, taivutus, sanelu), "r" = tunnistus (valinta, yhdistely, kuullun ymmärtäminen).
+function dailyRecordAnswer(ok, kind){
+  dailyRollover();
   const d = loadDaily();
   const key = localDateKey();
   d.days[key] = (d.days[key] || 0) + 1;
+  if (typeof ok === "boolean" && (kind === "p" || kind === "r")){
+    const e = d.acc[key] = d.acc[key] || { p: [0, 0], r: [0, 0] };
+    e[kind][1] += 1;
+    if (ok) e[kind][0] += 1;
+    const ak = Object.keys(d.acc).sort();
+    while (ak.length > DAYLOG_KEEP_DAYS) delete d.acc[ak.shift()];
+  }
   const keys = Object.keys(d.days).sort();
   while (keys.length > DAYLOG_KEEP_DAYS) delete d.days[keys.shift()];
   const reached = dailyMarkMet(d);
@@ -5195,16 +5730,132 @@ function dailyRecordAnswer(){
 // Uusien sanojen päiväraja: sana kuluttaa kiintiötä vasta kun sille annetaan ensimmäinen
 // vastaus (tai "Näytä sana"), ei jo poolin täytössä, jotta tasonvaihto ei hukkaa kiintiötä.
 function dailyNoteNewWord(word){
+  dailyRollover();
   const d = loadDaily();
   const key = localDateKey();
   if (d.newDay !== key){ d.newDay = key; d.newIds = []; }
   if (d.newIds.includes(word.id)) return;
   d.newIds.push(word.id);
+  d.newLog[key] = (d.newLog[key] || 0) + 1;
+  const lk = Object.keys(d.newLog).sort();
+  while (lk.length > DAYLOG_KEEP_DAYS) delete d.newLog[lk.shift()];
   saveDaily(d);
 }
+// Tämän päivän kiintiö: perusmäärä (mahdollisesti automaattisesti säädetty) + jatkovalikon lisäkiintiö.
+function dailyQuota(d){
+  const key = localDateKey();
+  return d.newPerDay + (d.bonusDay === key ? d.bonus : 0);
+}
 function newWordsLeftToday(){
+  dailyRollover();
   const d = loadDaily();
-  return d.newDay === localDateKey() ? Math.max(0, d.newPerDay - d.newIds.length) : d.newPerDay;
+  const quota = dailyQuota(d);
+  return d.newDay === localDateKey() ? Math.max(0, quota - d.newIds.length) : quota;
+}
+// Jatkovalikon "➕ 10 uutta sanaa": kasvattaa vain tämän päivän kiintiötä.
+function addBonusNewWords(n){
+  dailyRollover();
+  const d = loadDaily();
+  const key = localDateKey();
+  d.bonus = (d.bonusDay === key ? d.bonus : 0) + n;
+  d.bonusDay = key;
+  saveDaily(d);
+  return dailyQuota(d);
+}
+
+// --- Mukautuva uusien sanojen kiintiö (vaihe 45) ---
+// Päivän vaihtuessa (tai päivän ensimmäisellä vastauksella) kiintiötä säädetään edellisen
+// harjoituspäivän tuottavien vastausten osumatarkkuuden ja nyt erääntyvän kertausmäärän mukaan:
+//   tarkkuus < 70 % tai erääntyviä > 3 x päivätavoite  ->  -5 (vähintään 5)
+//   tarkkuus >= 85 % ja erääntyviä < 2 x päivätavoite  ->  +5 (enintään 40)
+//   muuten ennallaan. Alle 10 tuottavan vastauksen päivä ei ole riittävä otos eikä muuta mitään.
+// Säätö tehdään kerran päivässä (adjDay); automaattisäädön voi kytkeä pois (auto = false).
+const NEW_PER_DAY_MIN = 5, NEW_PER_DAY_MAX = 40, AUTO_STEP = 5;
+const AUTO_UP_ACC = 0.85, AUTO_DOWN_ACC = 0.70, AUTO_DUE_UP = 2, AUTO_DUE_DOWN = 3;
+const AUTO_MIN_SAMPLE = 10;
+// Puhdas päätössääntö (testattavissa erikseen): palauttaa null tai { to, delta, reason }.
+function autoAdjustDecision(acc, due, goal, cur){
+  if (acc === null || acc === undefined) return null;
+  const accTxt = "tarkkuus " + Math.round(acc * 100) + " %";
+  if (acc < AUTO_DOWN_ACC || due > AUTO_DUE_DOWN * goal){
+    const to = Math.max(NEW_PER_DAY_MIN, cur - AUTO_STEP);
+    if (to >= cur) return null;
+    return { to, delta: to - cur, reason: acc < AUTO_DOWN_ACC ? accTxt : `kertausjono ${due} yli ${AUTO_DUE_DOWN} × tavoite` };
+  }
+  if (acc >= AUTO_UP_ACC && due < AUTO_DUE_UP * goal){
+    const to = Math.min(NEW_PER_DAY_MAX, cur + AUTO_STEP);
+    if (to <= cur) return null;
+    return { to, delta: to - cur, reason: accTxt };
+  }
+  return null;
+}
+// Edellisen harjoituspäivän (aiempi kuin tänään) päiväkirjaus tai null.
+function lastPracticeDayAcc(d, today){
+  const keys = Object.keys(d.acc).filter(k => k < today && (d.acc[k].p[1] + d.acc[k].r[1]) > 0).sort();
+  if (!keys.length) return null;
+  const k = keys[keys.length - 1];
+  return { day: k, p: d.acc[k].p, r: d.acc[k].r };
+}
+function dailyRollover(){
+  if (studyMode !== "self" || !statsReady) return;
+  const today = localDateKey();
+  let d = loadDaily();
+  if (d.adjDay === today) return;
+  d.adjDay = today;
+  if (d.auto){
+    const prev = lastPracticeDayAcc(d, today);
+    if (prev && prev.p[1] >= AUTO_MIN_SAMPLE){
+      const acc = prev.p[0] / prev.p[1];
+      const due = srsOverview().today; // nyt alkavana päivänä erääntyvät (myös myöhässä olevat)
+      const dec = autoAdjustDecision(acc, due, d.goal, d.newPerDay);
+      if (dec){
+        d.adj = { day: today, from: d.newPerDay, to: dec.to, delta: dec.delta, reason: dec.reason };
+        d.adjLog.push(d.adj);
+        d.adjLog = d.adjLog.slice(-30);
+        d.newPerDay = dec.to;
+      }
+    }
+  }
+  saveDaily(d);
+}
+// "Uusia sanoja tänään 15 (+5: tarkkuus 91 %)" - kiintiö ja sen muutoksen syy.
+function newQuotaText(d){
+  d = d || loadDaily();
+  const key = localDateKey();
+  const parts = [];
+  if (d.adj && d.adj.day === key) parts.push((d.adj.delta > 0 ? "+" : "−") + Math.abs(d.adj.delta) + ": " + d.adj.reason);
+  if (d.bonusDay === key && d.bonus) parts.push("lisäkiintiö +" + d.bonus);
+  return `Uusia sanoja tänään ${dailyQuota(d)}` + (parts.length ? ` (${parts.join("; ")})` : "");
+}
+// Päivän tarkkuus: { p: {ok, n, pct}, r: {...} } (pct = null, jos vastauksia ei ole).
+function accToday(d){
+  d = d || loadDaily();
+  const e = d.acc[localDateKey()] || { p: [0, 0], r: [0, 0] };
+  const f = a => ({ ok: a[0], n: a[1], pct: a[1] ? Math.round(100 * a[0] / a[1]) : null });
+  return { p: f(e.p), r: f(e.r) };
+}
+// Ennuste: huomiseksi aikataulutettujen kertaussanojen määrä.
+function tomorrowForecast(){ return srsOverview().tomorrow; }
+
+// --- Viikkotavoite (vaihe 45): uusia sanoja viikossa ja harjoituspäiviä viikossa ---
+// Viikko alkaa maanantaista. Harjoituspäivä = päivä, jona päivätavoite täyttyi.
+const WEEK_NEW_OPTIONS = [30, 50, 70, 100, 150], WEEK_NEW_DEFAULT = 70;
+const WEEK_DAYS_OPTIONS = [3, 4, 5, 6, 7], WEEK_DAYS_DEFAULT = 5;
+function weekDayKeys(){
+  const day = new Date();
+  day.setDate(day.getDate() - ((day.getDay() + 6) % 7));
+  const keys = [];
+  for (let i = 0; i < 7; i++){ keys.push(localDateKey(day)); day.setDate(day.getDate() + 1); }
+  return keys;
+}
+function weekSummary(d){
+  d = d || loadDaily();
+  const keys = weekDayKeys(), met = new Set(d.met);
+  return {
+    newWords: keys.reduce((a, k) => a + (d.newLog[k] || 0), 0),
+    days: keys.filter(k => met.has(k)).length,
+    goalNew: d.wkNew, goalDays: d.wkDays
+  };
 }
 
 // "Kertaa erääntyneet": pooli rajataan pelkkiin erääntyneisiin, kunnes ne on käyty.
@@ -5213,6 +5864,7 @@ function setReviewDueOnly(on){
   if (studyMode !== "self") return;
   if (on && !dueWords().length) on = false;
   reviewDueOnly = !!on;
+  if (reviewDueOnly) reviewHardOnly = false; // vain yksi rajaus kerrallaan
   updateSelfDailyUI();
   current = null;
   pickWord();
@@ -5227,6 +5879,10 @@ const reviewDueBtnEl = document.getElementById("reviewDueBtn");
 const dailyBarEl = document.getElementById("dailyBar");
 const dailyFillEl = document.getElementById("dailyFill");
 const dailyNoticeEl = document.getElementById("dailyNotice");
+const reviewHardBtnEl = document.getElementById("reviewHardBtn");
+const continueBtnEl = document.getElementById("continueBtn");
+const forecastLabelEl = document.getElementById("forecastLabel");
+const weekLabelEl = document.getElementById("weekLabel");
 let dailyNoticeTimer = null;
 
 function streakText(n){ return n > 0 ? "🔥 " + n + (n === 1 ? " päivä" : " päivää") : ""; }
@@ -5237,6 +5893,7 @@ function showDailyNotice(text){
 }
 function updateSelfDailyUI(){
   if (studyMode !== "self") return;
+  dailyRollover(); // päivän vaihtuessa uusien sanojen kiintiön automaattisäätö (kerran päivässä)
   const s = dailySummary();
   dailyLabelEl.textContent = `Tänään ${s.count} / ${s.goal}`;
   dailyStreakEl.textContent = streakText(s.streak);
@@ -5247,11 +5904,21 @@ function updateSelfDailyUI(){
   reviewDueBtnEl.style.display = (n > 0 || reviewDueOnly) ? "" : "none";
   reviewDueBtnEl.textContent = reviewDueOnly ? "Lopeta kertaus" : "Kertaa erääntyneet";
   reviewDueBtnEl.classList.toggle("active", reviewDueOnly);
+  reviewHardBtnEl.style.display = reviewHardOnly ? "" : "none";
+  // Jatka-nappi: kun päivän tavoite on täynnä (tai keskeneräinen haastekierros odottaa)
+  continueBtnEl.style.display = (s.count >= s.goal || !!savedChallenge()) && !challenge ? "" : "none";
+  forecastLabelEl.textContent = "Huomenna kerrattavia: " + tomorrowForecast();
+  weekLabelEl.textContent = weekText();
 }
 reviewDueBtnEl.addEventListener("click", (e) => { if (e && e.stopPropagation) e.stopPropagation(); setReviewDueOnly(!reviewDueOnly); });
 document.getElementById("selfDaily").addEventListener("click", () => {
   openAdultView(); // palkin napautus avaa Oma edistyminen -näkymän
 });
+// Viikkotavoite tiiviisti palkin yhteydessä: "Viikko: 34/70 uutta · 3/5 pv"
+function weekText(){
+  const w = weekSummary();
+  return `Viikko: ${w.newWords}/${w.goalNew} uutta · ${w.days}/${w.goalDays} pv`;
+}
 
 // "Näytä sana" lasketaan väärin menneeksi aikataulussa (laskureihin ei kosketa).
 async function srsOnReveal(word){
@@ -5267,6 +5934,422 @@ async function srsOnReveal(word){
   statsCache[id] = prev;
   await putStat(prev);
   updateSelfDailyUI();
+}
+
+// --- Dynaaminen eteneminen päivätavoitteen jälkeen (vaihe 45, vain itseopiskelu) ---
+// 1) Jatkovalikko, kun päivätavoite täyttyy; 2) mukautuva kiintiö (ks. dailyRollover) ja ennuste;
+// 3) sanan haasteportaat (wordStep) ja haastekierros; 4) yleisyysjärjestys ja seuraavan tason esimaku
+// (ks. fillPoolNewLimited). Peruskoulu ei käytä mitään tämän lohkon toiminnoista.
+const continuePanelEl = document.getElementById("continuePanel");
+const continueTitleEl = document.getElementById("continueTitle");
+const continueTextEl = document.getElementById("continueText");
+const continueBtnsEl = document.getElementById("continueBtns");
+const contResumeBtnEl = document.getElementById("contResumeBtn");
+const challengeBarEl = document.getElementById("challengeBar");
+const challengeLabelEl = document.getElementById("challengeLabel");
+const challengeTimerEl = document.getElementById("challengeTimer");
+const BONUS_NEW = 10;          // jatkovalikon "➕ 10 uutta sanaa"
+const HARD_POOL_SIZE = 15;     // "Kertaa vaikeimmat": montako heikointa sanaa
+
+// "Kertaa erääntyneet" ja "Kertaa vaikeimmat" -rajaukset pois
+function stopFocusModes(){ reviewDueOnly = false; reviewHardOnly = false; }
+
+// --- Jatkovalikko ---
+function openContinuePanel(){
+  if (studyMode !== "self") return;
+  continueTitleEl.textContent = "Päivän tavoite täynnä – jatketaanko?";
+  continueTextEl.textContent = newQuotaText() + "\nHuomenna kerrattavia: " + tomorrowForecast();
+  continueBtnsEl.hidden = false;
+  contResumeBtnEl.style.display = savedChallenge() && !challenge ? "" : "none";
+  continuePanelEl.hidden = false;
+}
+function closeContinuePanel(){ continuePanelEl.hidden = true; }
+function toggleContinuePanel(){ if (continuePanelEl.hidden) openContinuePanel(); else closeContinuePanel(); }
+function continueMoreNew(){
+  stopFocusModes();
+  addBonusNewWords(BONUS_NEW);
+  closeContinuePanel();
+  showDailyNotice(newQuotaText());
+  initSessionPool();
+  updateSelfDailyUI();
+}
+function continueHardest(){
+  closeContinuePanel();
+  setReviewHardOnly(true);
+}
+// Päivän yhteenveto ("Lopeta tältä päivältä"): paneeli muuttuu yhteenvedoksi eikä aukea enää itsestään.
+function daySummaryLines(){
+  const d = loadDaily(), s = dailySummary(), a = accToday(d), w = weekSummary(d);
+  const lines = [`Vastauksia ${s.count} / ${s.goal}` + (s.streak ? " · " + streakText(s.streak) : "")];
+  if (a.p.n) lines.push(`Tuottavat vastaukset: ${a.p.pct} % oikein (${a.p.ok}/${a.p.n})`);
+  if (a.r.n) lines.push(`Tunnistus: ${a.r.pct} % oikein (${a.r.ok}/${a.r.n})`);
+  lines.push(`Uusia sanoja tänään ${dailyNewIdsToday().length}`);
+  const ch = d.chal[localDateKey()];
+  if (ch && ch.r) lines.push(`Haastekierroksia ${ch.r}, portaalla nousi ${ch.up} sanaa`);
+  lines.push("Huomenna kerrattavia: " + tomorrowForecast());
+  lines.push(`Viikko: ${w.newWords}/${w.goalNew} uutta sanaa · ${w.days}/${w.goalDays} harjoituspäivää`);
+  return lines;
+}
+function continueStop(){
+  const d = loadDaily();
+  d.closedDay = localDateKey();
+  saveDaily(d);
+  continueTitleEl.textContent = "Hyvää työtä – yhteenveto tältä päivältä";
+  continueTextEl.textContent = daySummaryLines().join("\n");
+  continueBtnsEl.hidden = true;
+  continuePanelEl.hidden = false;
+}
+function bindSelfBtn(id, fn){
+  document.getElementById(id).addEventListener("click", (e) => { if (e && e.stopPropagation) e.stopPropagation(); fn(); });
+}
+bindSelfBtn("continueBtn", toggleContinuePanel);
+bindSelfBtn("continueClose", closeContinuePanel);
+bindSelfBtn("contNewBtn", continueMoreNew);
+bindSelfBtn("contChallengeBtn", () => startChallengeRound({ timed: false }));
+bindSelfBtn("contTimedBtn", () => startChallengeRound({ timed: true }));
+bindSelfBtn("contHardBtn", continueHardest);
+bindSelfBtn("contResumeBtn", () => challengeResume());
+bindSelfBtn("contStopBtn", continueStop);
+bindSelfBtn("reviewHardBtn", () => setReviewHardOnly(false));
+bindSelfBtn("challengeStopBtn", () => challengeFinish(false));
+continuePanelEl.addEventListener("click", (e) => { if (e && e.stopPropagation) e.stopPropagation(); });
+challengeBarEl.addEventListener("click", (e) => { if (e && e.stopPropagation) e.stopPropagation(); });
+
+// --- Kertaa vaikeimmat ---
+// Vaikeuspisteet: virheiden määrä x virheosuus (kaikista menetelmistä); pitkä oikeiden putki puolittaa pisteet.
+function hardScore(st){
+  const wrong = (st.incorrectCount || 0) + (st.choiceWrong || 0) + (st.matchWrong || 0) + (st.dictWrong || 0) + (st.listenWrong || 0);
+  if (!wrong) return 0;
+  const right = (st.correctCount || 0) + (st.choiceCorrect || 0) + (st.matchCorrect || 0) + (st.dictCorrect || 0) + (st.listenCorrect || 0);
+  return wrong * wrong / (wrong + right) * ((st.streakCorrect || 0) >= 3 ? 0.5 : 1);
+}
+// Heikoimmin menneet ALOITETUT sanat (pelkästään tunnistetut eivät ole mukana).
+// Jos virheellisiä sanoja on alle viisi, täydennetään lyhimmän oikeiden putken sanoilla.
+function hardestWords(n){
+  const limit = n || HARD_POOL_SIZE;
+  const started = selfAllWords().filter(isStartedWord).map(w => ({ w, st: statsCache[statId(w)] }));
+  const scored = started.filter(x => hardScore(x.st) > 0).sort((a, b) => hardScore(b.st) - hardScore(a.st));
+  const out = scored.slice(0, limit).map(x => x.w);
+  if (out.length && out.length < 5){
+    const have = new Set(out.map(w => w.id));
+    started.filter(x => !have.has(x.w.id))
+      .sort((a, b) => (a.st.streakCorrect || 0) - (b.st.streakCorrect || 0))
+      .slice(0, 5 - out.length).forEach(x => out.push(x.w));
+  }
+  return out;
+}
+function setReviewHardOnly(on){
+  if (studyMode !== "self") return;
+  if (on && !hardestWords().length){
+    showDailyNotice("Ei vielä vaikeita sanoja kerrattavaksi.");
+    on = false;
+  }
+  reviewHardOnly = !!on;
+  if (reviewHardOnly) reviewDueOnly = false;
+  updateSelfDailyUI();
+  current = null;
+  pickWord();
+  if (practiceMode === "match") startMatchRound();
+  if (practiceMode === "listen") startListenRound(false);
+}
+
+// --- Sanan haasteportaat ---
+// 0 uusi -> 1 tunnistettu (valinta/yhdistely/kuuntelu oikein tai tasotestissä tunnistettu)
+// -> 2 tuotettu (jokin vaihe läpäisty tai oikeiden putki >= 2) -> 3 taivutettu (jokin taivutustehtävä
+// oikein; ohitetaan, jos sanalla ei ole taivutusdataa) -> 4 kuultu (sanelu oikein)
+// -> 5 virkkeessä (vaihe 46: sana esiintyy itseopiskelun virkkeessä, jonka käyttäjä on vastannut oikein).
+// Porras johdetaan kokonaan olemassa olevista tilastokentistä (statsCache + inflStats_<kieli>).
+const STEP_LABELS = ["Uusi", "Tunnistettu", "Tuotettu", "Taivutettu", "Kuultu", "Virkkeessä"];
+const STEP_PRODUCED_STREAK = 2;
+function stepContext(){ return { infl: inflStatsLoad(), tasks: inflTasks(), sent: null }; }
+
+// Porras 5: virkkeet, jotka käyttäjä on harjoitellut oikein (virkeharjoitus tai virkesanelu), normalisoituina
+// ja välilyönneillä ympäröityinä ("sanaraja"). Yksinkertainen sanavertailu: sanan kohdekielinen muoto
+// (artikkeli ja sulkutarkenteet pois) löytyy virkkeestä kokonaisena sanana tai sanaparina. Taivutetut muodot
+// eivät tunnistu - se on tietoinen rajaus, jotta porras ei ylitä (väärä positiivinen on pahempi kuin puuttuva).
+function practisedSentenceTexts(ctx){
+  if (ctx.sent) return ctx.sent;
+  const ls = listenStatsLoad(), out = [];
+  selfSentencesForLang().forEach(s => {
+    const st = statsCache[sentenceStatId(s)];
+    const ok = (st && (st.correctCount || 0) > 0) || ((ls["sent:" + s.id] || {}).c || 0) > 0;
+    if (ok) sentenceAcceptedForms(s).forEach(f => out.push(" " + normalizeSentence(f) + " "));
+  });
+  ctx.sent = out;
+  return out;
+}
+function wordSentenceForms(w){
+  const re = LISTEN_ARTICLE[targetLang], out = [];
+  String(w[targetLang] || "").split("/").forEach(a => {
+    if (a.includes("...")) return;
+    let f = stripParenthetical(a).trim();
+    const m = re && re.exec(f);
+    if (m) f = m[2];
+    f = normalizeSentence(f);
+    if (f.length >= 2 && !sentenceStopwords().has(f) && !out.includes(f)) out.push(f);
+  });
+  return out;
+}
+function wordInPractisedSentence(w, ctx){
+  const texts = practisedSentenceTexts(ctx);
+  if (!texts.length) return false;
+  return wordSentenceForms(w).some(f => texts.some(t => t.includes(" " + f + " ")));
+}
+function wordInflTasks(w, ctx){ return (ctx || stepContext()).tasks.filter(t => inflFieldsFor(w, t)); }
+function stepInflDone(w, ctx){
+  const c = ctx || stepContext();
+  return c.tasks.some(t => ((c.infl[t.id + ":" + w.id] || {}).c || 0) >= 1);
+}
+function wordStep(w, ctx){
+  const st = statsCache[statId(w)];
+  if (!st) return 0;
+  const produced = stagePenPassed(st) || stageKeyboardPassed(st) || stageMicPassed(st) || (st.streakCorrect || 0) >= STEP_PRODUCED_STREAK;
+  const recognized = produced || !!st.recognized ||
+    ((st.choiceCorrect || 0) + (st.matchCorrect || 0) + (st.listenCorrect || 0) + (st.dictCorrect || 0) + (st.correctCount || 0)) > 0;
+  if (!recognized) return 0;
+  if (!produced) return 1;
+  const c = ctx || stepContext();
+  if (wordInflTasks(w, c).length && !stepInflDone(w, c)) return 2;
+  if (!((st.dictCorrect || 0) > 0)) return 3;
+  if (wordInPractisedSentence(w, c)) return 5;
+  return 4;
+}
+// Portaiden jakauma itseopiskelun sanoille: taulukko [porras 0..5].
+function stepDistribution(){
+  const ctx = stepContext(), counts = [0, 0, 0, 0, 0, 0];
+  selfAllWords().forEach(w => { counts[wordStep(w, ctx)] += 1; });
+  return counts;
+}
+// Seuraavan portaan tavoite sanalle: { from, to }. Taivutusportaan ohitus: ilman taivutusdataa 2 -> 4.
+function nextStepTarget(w, ctx){
+  const from = wordStep(w, ctx);
+  if (from >= 4) return { from, to: from }; // portaat 4-5: vain kertausta
+  let to = from + 1;
+  if (to === 3 && !wordInflTasks(w, ctx).length) to = 4;
+  return { from, to };
+}
+
+// --- Haastekierros ---
+// 10 tehtävää jo aloitetuista sanoista; kullekin sanalle seuraavan portaan harjoitus olemassa olevilla
+// harjoitusfunktioilla: tunnistus -> monivalinta, tuotto -> kirjoitus, taivutus -> taivutustehtävä,
+// kuuntelu -> sanelu. Suunta on aina suomi -> kohdekieli. Pikakierros ("⏱ 60 s") päättyy ajan loppuessa.
+const CHALLENGE_SIZE = 10, CHALLENGE_MIN = 3, CHALLENGE_TIMED_MS = 60000;
+const CHALLENGE_STEP_WEIGHT = [2, 3, 3, 3, 1, 1]; // portailla 4-5 vain kertausta
+function challengeCandidates(){
+  return selfAllWords().filter(w => !!statsCache[statId(w)] && w[targetLang] && fiFor(w));
+}
+function challengeTaskFor(w, ctx){
+  const { from, to } = nextStepTarget(w, ctx);
+  const t = { w, from, to, dir: "fi-target", kind: "type" };
+  if (to === 1) t.kind = "choice";
+  else if (to === 3){
+    const tasks = wordInflTasks(w, ctx);
+    const fresh = tasks.filter(x => !((ctx.infl[x.id + ":" + w.id] || {}).c));
+    const list = fresh.length ? fresh : tasks;
+    t.kind = "infl";
+    t.inflTask = list[Math.floor(Math.random() * list.length)];
+  } else if (to === 4 && from < 4 && listenSupport().ok && listenWordItem(w)) t.kind = "dict";
+  return t;
+}
+function buildChallengeTasks(n){
+  const ctx = stepContext();
+  const ordered = challengeCandidates()
+    .map(w => {
+      const wt = CHALLENGE_STEP_WEIGHT[wordStep(w, ctx)] * (isWordDue(w) ? 2 : 1);
+      return { w, k: Math.pow(Math.random(), 1 / Math.max(0.01, wt)) };
+    })
+    .sort((a, b) => b.k - a.k).map(x => x.w);
+  return ordered.slice(0, n).map(w => challengeTaskFor(w, ctx));
+}
+function startChallengeRound(opts){
+  if (studyMode !== "self" || challenge) return false;
+  const tasks = buildChallengeTasks(CHALLENGE_SIZE);
+  if (tasks.length < CHALLENGE_MIN){
+    showDailyNotice(`Haastekierrokseen tarvitaan vähintään ${CHALLENGE_MIN} aloitettua sanaa.`);
+    return false;
+  }
+  beginChallenge(tasks, { timed: !!(opts && opts.timed), idx: -1, results: [] });
+  return true;
+}
+function beginChallenge(tasks, o){
+  stopFocusModes();
+  closeContinuePanel();
+  clearTimeout(wordNextTimer);
+  clearTimeout(choiceNextTimer);
+  challenge = {
+    tasks, idx: o.idx, results: o.results, timed: !!o.timed, endsAt: o.timed ? Date.now() + CHALLENGE_TIMED_MS : 0,
+    prevPractice: practiceMode, prevMode: activeMode, switching: false, tick: null
+  };
+  challengeBarEl.hidden = false;
+  updateSelfDailyUI();
+  challengeAdvance();
+  if (challenge && challenge.timed) challengeTick();
+}
+// Siirtyy seuraavaan tehtävään (kutsutaan, kun edellinen on käsitelty tai ohitettu) tai päättää kierroksen.
+function challengeAdvance(){
+  const c = challenge;
+  if (!c) return;
+  if (c.idx >= 0 && !c.results[c.idx]) c.results[c.idx] = { ok: false, skipped: true }; // vastaamatta = ohitettu
+  if (c.timed && Date.now() >= c.endsAt){ challengeFinish(false); return; }
+  c.idx += 1;
+  if (c.idx >= c.tasks.length){ challengeFinish(false); return; }
+  challengeShowTask(c.tasks[c.idx]);
+  updateChallengeBar();
+  challengeSave();
+}
+// Näyttää tehtävän sen harjoitusmuodon omalla näkymällä (vaihtaa harjoittelutavan tarvittaessa).
+function challengeShowTask(t){
+  const c = challenge;
+  c.switching = true;
+  try {
+    // Edellisen tehtävän jäljellä olevat siirtymäajastimet pois, jottei vanha ajastin ohita uutta tehtävää.
+    clearTimeout(wordNextTimer);
+    clearTimeout(choiceNextTimer);
+    clearTimeout(inflTimer);
+    clearTimeout(listenTimer);
+    clearTimeout(listenPlayTimer);
+    if (t.kind === "infl"){
+      setPracticeMode("infl");
+      renderInflQuestion(inflMakeQuestion(t.w, t.inflTask));
+    } else if (t.kind === "dict"){
+      setPracticeMode("listen");
+      listenType = "dict";
+      buildListenTabs();
+      renderListenQuestion({ type: "dict", item: listenWordItem(t.w) });
+    } else {
+      setPracticeMode("words");
+      const want = t.kind === "choice" ? "choice" : "keyboard";
+      if (activeMode !== want) setMode(want);
+      current = t.w;
+      direction = t.dir;
+      renderPrompt();
+    }
+  } finally {
+    c.switching = false;
+  }
+}
+// Harjoitusfunktiot ilmoittavat vastauksen tänne (recordResult, recordRecognition, inflFinish).
+function challengeNote(wordId, ok){
+  const c = challenge;
+  if (!c || c.switching || c.idx < 0) return;
+  const t = c.tasks[c.idx];
+  if (!t || t.w.id !== wordId || c.results[c.idx]) return;
+  c.results[c.idx] = { ok: !!ok };
+  updateChallengeBar();
+  challengeSave();
+}
+function challengeTick(){
+  const c = challenge;
+  if (!c || !c.timed) return;
+  clearTimeout(c.tick);
+  if (c.endsAt - Date.now() <= 0){ challengeFinish(false); return; }
+  updateChallengeBar();
+  c.tick = setTimeout(challengeTick, 500);
+}
+function updateChallengeBar(){
+  const c = challenge;
+  challengeBarEl.hidden = !c;
+  if (!c) return;
+  challengeLabelEl.textContent = (c.timed ? "⏱ Pikakierros " : "🧗 Haastekierros ") +
+    `${Math.min(c.idx + 1, c.tasks.length)}/${c.tasks.length} · oikein ${c.results.filter(r => r && r.ok).length}`;
+  challengeTimerEl.textContent = c.timed ? Math.max(0, Math.ceil((c.endsAt - Date.now()) / 1000)) + " s" : "";
+}
+// Yhteenveto: montako sanaa nousi portaalla (kirjataan myös päivän tietoihin).
+function challengeSummary(c){
+  const ctx = stepContext();
+  const rows = c.tasks.map((t, i) => ({ t, r: c.results[i] || null, after: wordStep(t.w, ctx) }));
+  const answered = rows.filter(x => x.r && !x.r.skipped);
+  const ups = answered.filter(x => x.after > x.t.from);
+  return {
+    total: c.tasks.length, answered: answered.length, ok: answered.filter(x => x.r.ok).length,
+    skipped: rows.length - answered.length, up: ups.length,
+    ups: ups.map(x => ({ id: x.t.w.id, word: firstAcceptedAnswer(x.t.w[targetLang]), from: x.t.from, to: x.after }))
+  };
+}
+// aborted = käyttäjä vaihtoi tilaa/kieltä/harjoittelutapaa kesken kierroksen (ei palauteta harjoittelutapaa);
+// silent = ei yhteenvetoa (tilan, kielen tai tason vaihto).
+function challengeFinish(aborted, silent){
+  const c = challenge;
+  if (!c) return null;
+  clearTimeout(c.tick);
+  const sum = challengeSummary(c);
+  challenge = null;
+  challengeClearSaved();
+  challengeBarEl.hidden = true;
+  if (sum.answered > 0){
+    const d = loadDaily(), key = localDateKey();
+    const e = d.chal[key] = d.chal[key] || { r: 0, t: 0, ok: 0, up: 0 };
+    e.r += 1; e.t += sum.answered; e.ok += sum.ok; e.up += sum.up;
+    const ck = Object.keys(d.chal).sort();
+    while (ck.length > DAYLOG_KEEP_DAYS) delete d.chal[ck.shift()];
+    saveDaily(d);
+  }
+  clearTimeout(wordNextTimer);
+  if (activeMode !== c.prevMode) setMode(c.prevMode);
+  if (silent) return sum;
+  if (!aborted && practiceMode !== c.prevPractice) setPracticeMode(c.prevPractice);
+  if (!aborted && practiceMode === "words"){ current = null; pickWord(); }
+  showChallengeSummary(c, sum);
+  updateSelfDailyUI();
+  return sum;
+}
+function showChallengeSummary(c, sum){
+  continueTitleEl.textContent = c.timed ? "Pikakierros valmis" : "Haastekierros valmis";
+  const lines = [`Oikein ${sum.ok} / ${sum.answered}` + (sum.skipped ? ` · ohitettu ${sum.skipped}` : "") +
+    ` · portaalla nousi ${sum.up} ${sum.up === 1 ? "sana" : "sanaa"}`];
+  sum.ups.slice(0, 6).forEach(u => lines.push(`${u.word}: ${STEP_LABELS[u.from]} → ${STEP_LABELS[u.to]}`));
+  if (sum.ups.length > 6) lines.push(`… ja ${sum.ups.length - 6} muuta`);
+  continueTextEl.textContent = lines.join("\n");
+  continueBtnsEl.hidden = false;
+  contResumeBtnEl.style.display = "none";
+  continuePanelEl.hidden = false;
+}
+
+// Kierroksen tila localStorageen (selfChallenge_<kieli>): keskeytynyt tavallinen kierros voidaan jatkaa
+// samana päivänä. Pikakierrosta ei tallenneta.
+function challengeStorageKey(){ return "selfChallenge_" + targetLang; }
+function challengeSave(){
+  const c = challenge;
+  if (!c || c.timed) return;
+  try {
+    localStorage.setItem(challengeStorageKey(), JSON.stringify({
+      day: localDateKey(), idx: c.idx,
+      tasks: c.tasks.map(t => ({ id: t.w.id, kind: t.kind, dir: t.dir, from: t.from, to: t.to, task: t.inflTask ? t.inflTask.id : null })),
+      results: c.tasks.map((t, i) => { const r = c.results[i]; return r ? (r.skipped ? 0 : (r.ok ? 1 : -1)) : null; })
+    }));
+  } catch (e) { /* ei haittaa */ }
+}
+function challengeClearSaved(){ try { localStorage.removeItem(challengeStorageKey()); } catch (e) { /* ei haittaa */ } }
+function savedChallenge(){
+  if (studyMode !== "self") return null;
+  let o = null;
+  try { o = JSON.parse(localStorage.getItem(challengeStorageKey()) || "null"); } catch (e) { o = null; }
+  if (!o || o.day !== localDateKey() || !Array.isArray(o.tasks) || !o.tasks.length || !Number.isInteger(o.idx)) return null;
+  return o;
+}
+function challengeResume(){
+  const sv = savedChallenge();
+  if (!sv || challenge) return false;
+  const tasks = [], results = [];
+  const infl = inflTasks();
+  sv.tasks.forEach((t, i) => {
+    const w = practiceWordById(t.id);
+    if (!w) return;
+    const task = { w, kind: t.kind, dir: t.dir || "fi-target", from: t.from | 0, to: t.to | 0 };
+    if (t.kind === "infl"){
+      task.inflTask = infl.find(x => x.id === t.task);
+      if (!task.inflTask) task.kind = "type";
+    }
+    const r = Array.isArray(sv.results) ? sv.results[i] : null;
+    results[tasks.length] = r === null || r === undefined ? undefined : (r === 0 ? { ok: false, skipped: true } : { ok: r === 1 });
+    tasks.push(task);
+  });
+  if (!tasks.length){ challengeClearSaved(); return false; }
+  // Jatketaan ensimmäisestä vastaamattomasta tehtävästä.
+  let next = results.findIndex(r => !r);
+  if (next < 0) next = tasks.length;
+  beginChallenge(tasks, { timed: false, idx: next - 1, results });
+  return true;
 }
 
 // --- Opiskelutilan vaihto: peruskoulu <-> itseopiskelu ---
@@ -5301,6 +6384,9 @@ function syncStudyModeUI(){
 
 function setStudyMode(mode){
   if ((mode !== "school" && mode !== "self") || mode === studyMode) return;
+  if (challenge) challengeFinish(true, true);
+  reviewHardOnly = false;
+  closeContinuePanel();
   if (studyMode === "school") schoolGradeSnapshot = { lang: targetLang, grade: activeGrade };
   studyMode = mode;
   reviewDueOnly = false;
@@ -5309,7 +6395,7 @@ function setStudyMode(mode){
   targetLang = loadLangForMode(studyMode);
   PRACTICE_WORDS = practiceWords();
   if (studyMode === "self"){
-    // Virkkeet ja kielioppi eivät kuulu itseopiskeluun; sanat ja yhdistely kuuluvat.
+    // Kielioppi ei kuulu itseopiskeluun; virkepooli vaihtuu tilan mukana, joten palataan sanatilaan.
     if (practiceMode === "sentences" || practiceMode === "grammar") setPracticeMode("words");
   } else {
     activeGrade = loadOrDetectGrade(targetLang);
@@ -5327,6 +6413,7 @@ function setStudyMode(mode){
   current = null;
   initSessionPool();
   pickWord();
+  if (practiceMode === "sentences"){ currentSentence = null; pickSentenceRound(); } // peruskouluun palatessa vaihtuu virkepooli
   if (practiceMode === "match") startMatchRound();
   if (practiceMode === "infl") startInflRound(true);
   if (practiceMode === "listen") startListenRound(true);
@@ -5638,6 +6725,8 @@ document.addEventListener("keydown", (e) => {
 window.addEventListener("resize", () => { if (activeMode === "pen") setupPenPad(); });
 
 (async function init(){
+  continuePanelEl.hidden = true; // jatkovalikko ja haastekierroksen palkki näkyvät vasta tarvittaessa
+  challengeBarEl.hidden = true;
   syncStudyModeUI(); // tilavalitsin, kielinapit ja aikuisen näkymän tekstit tilan mukaan
   activeGrade = loadOrDetectGrade(targetLang); // ennen DB:tä -> oletus 1. luokka
   loadFocus();

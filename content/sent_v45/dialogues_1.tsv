@@ -1,0 +1,89 @@
+topic	level	title_fi	line	speaker	sv	fi
+a1_greetings	A1	Uusi naapuri	1	A	Hej! Välkommen till huset.	Hei! Tervetuloa taloon.
+a1_greetings	A1	Uusi naapuri	2	B	Tack! Jag heter Emma. Och du?	Kiitos! Olen Emma. Entä sinä?
+a1_greetings	A1	Uusi naapuri	3	A	Jag heter Mikko. Trevligt att träffas!	Olen Mikko. Hauska tavata!
+a1_greetings	A1	Uusi naapuri	4	B	Detsamma! Bor du på andra våningen?	Samoin! Asutko toisessa kerroksessa?
+a1_greetings	A1	Uusi naapuri	5	A	Ja, och jag jobbar hemma. Säg till om du behöver hjälp.	Kyllä, ja teen töitä kotona. Sano, jos tarvitset apua.
+a1_greetings	A1	Uusi naapuri	6	B	Tack så mycket, det är snällt.	Kiitos paljon, se on ystävällistä.
+a1_greetings	A1	Uusi naapuri	7	A	Ingen orsak. Ha det bra!	Eipä kestä. Pärjäile!
+a1_greetings	A1	Uusi naapuri	8	B	Tack, du med. Vi ses!	Kiitos, samoin. Nähdään!
+a1_body	A1	Apteekissa	1	A	Hej! Kan jag hjälpa dig?	Hei! Voinko auttaa?
+a1_body	A1	Apteekissa	2	B	Ja, tack. Jag har ont i halsen.	Kyllä, kiitos. Kurkkuuni sattuu.
+a1_body	A1	Apteekissa	3	A	Har du feber också?	Onko sinulla myös kuumetta?
+a1_body	A1	Apteekissa	4	B	Nej, men jag är väldigt trött.	Ei, mutta olen tosi väsynyt.
+a1_body	A1	Apteekissa	5	A	Ta de här tabletterna tre gånger om dagen.	Ota näitä tabletteja kolme kertaa päivässä.
+a1_body	A1	Apteekissa	6	B	Okej. Ska jag ta dem med mat?	Selvä. Pitääkö ne ottaa ruoan kanssa?
+a1_body	A1	Apteekissa	7	A	Ja, det är bäst. Krya på dig!	Kyllä, se on parasta. Parane pian!
+a1_body	A1	Apteekissa	8	B	Tack så mycket, hej då!	Kiitos paljon, heippa!
+a1_free_time	A1	Mitä teet vapaa-ajalla?	1	A	Vad gör du på fritiden?	Mitä teet vapaa-ajallasi?
+a1_free_time	A1	Mitä teet vapaa-ajalla?	2	B	Jag springer och simmar. Och du?	Juoksen ja uin. Entä sinä?
+a1_free_time	A1	Mitä teet vapaa-ajalla?	3	A	Jag spelar i ett band.	Soitan bändissä.
+a1_free_time	A1	Mitä teet vapaa-ajalla?	4	B	Kul! Vad spelar du?	Kiva! Mitä soitat?
+a1_free_time	A1	Mitä teet vapaa-ajalla?	5	A	Gitarr. Vi spelar på en bar på fredag.	Kitaraa. Soitamme eräässä baarissa perjantaina.
+a1_free_time	A1	Mitä teet vapaa-ajalla?	6	B	Vilken musik spelar ni?	Millaista musiikkia soitatte?
+a1_free_time	A1	Mitä teet vapaa-ajalla?	7	A	Mest rock. Vill du komma och lyssna?	Enimmäkseen rockia. Haluatko tulla kuuntelemaan?
+a1_free_time	A1	Mitä teet vapaa-ajalla?	8	B	Ja, gärna!	Kyllä, mielelläni!
+a2_travel	A2	Hotellin vastaanotossa	1	A	God kväll! Välkommen till hotellet.	Hyvää iltaa! Tervetuloa hotelliin.
+a2_travel	A2	Hotellin vastaanotossa	2	B	Tack. Jag har bokat ett enkelrum för två nätter.	Kiitos. Olen varannut yhden hengen huoneen kahdeksi yöksi.
+a2_travel	A2	Hotellin vastaanotossa	3	A	Får jag se ditt pass?	Saanko nähdä passisi?
+a2_travel	A2	Hotellin vastaanotossa	4	B	Ja, varsågod. Mitt flyg var försenat, därför kommer jag så sent.	Kyllä, olkaa hyvä. Lentoni oli myöhässä, siksi tulen näin myöhään.
+a2_travel	A2	Hotellin vastaanotossa	5	A	Inga problem. Här är nyckeln. Rummet ligger på fjärde våningen.	Ei hätää. Tässä on avain. Huone on neljännessä kerroksessa.
+a2_travel	A2	Hotellin vastaanotossa	6	B	Tack. När börjar frukosten?	Kiitos. Milloin aamiainen alkaa?
+a2_travel	A2	Hotellin vastaanotossa	7	A	Klockan sju. Vill du ha väckning?	Kello seitsemän. Haluatko herätyksen?
+a2_travel	A2	Hotellin vastaanotossa	8	B	Ja, gärna klockan halv sju.	Kyllä, mielellään puoli seitsemältä.
+a2_work	A2	Työhaastattelu	1	A	Välkommen! Berätta lite om dig själv.	Tervetuloa! Kerro vähän itsestäsi.
+a2_work	A2	Työhaastattelu	2	B	Jag har jobbat som sekreterare i sex år.	Olen työskennellyt sihteerinä kuusi vuotta.
+a2_work	A2	Työhaastattelu	3	A	Varför sökte du den här tjänsten?	Miksi hait tätä paikkaa?
+a2_work	A2	Työhaastattelu	4	B	Jag vill jobba i ett större team.	Haluan työskennellä isommassa tiimissä.
+a2_work	A2	Työhaastattelu	5	A	Hos oss jobbar man ibland skift. Går det bra?	Meillä tehdään joskus vuorotyötä. Sopiiko se?
+a2_work	A2	Työhaastattelu	6	B	Ja, det går bra. Hur ser arbetstiden ut annars?	Kyllä, se sopii. Millaiset työajat muuten ovat?
+a2_work	A2	Työhaastattelu	7	A	Oftast från åtta till fyra. Vi hör av oss nästa vecka.	Yleensä kahdeksasta neljään. Otamme yhteyttä ensi viikolla.
+a2_work	A2	Työhaastattelu	8	B	Tack för att jag fick komma!	Kiitos, että sain tulla!
+a2_culture_sport	A2	Eilinen ottelu	1	A	Såg du matchen i går?	Näitkö eilisen ottelun?
+a2_culture_sport	A2	Eilinen ottelu	2	B	Ja, vilken match! Vi vann till slut.	Joo, mikä ottelu! Me voitimme lopulta.
+a2_culture_sport	A2	Eilinen ottelu	3	A	Vem gjorde det sista målet?	Kuka teki viimeisen maalin?
+a2_culture_sport	A2	Eilinen ottelu	4	B	En ung spelare som precis har kommit till laget.	Nuori pelaaja, joka on juuri tullut joukkueeseen.
+a2_culture_sport	A2	Eilinen ottelu	5	A	Målvakten var också riktigt bra.	Maalivahtikin oli tosi hyvä.
+a2_culture_sport	A2	Eilinen ottelu	6	B	Absolut. Nu har vi en chans i mästerskapet.	Ehdottomasti. Nyt meillä on mahdollisuus mestaruuteen.
+a2_culture_sport	A2	Eilinen ottelu	7	A	Ska vi titta på nästa match tillsammans?	Katsotaanko seuraava ottelu yhdessä?
+a2_culture_sport	A2	Eilinen ottelu	8	B	Gärna, jag tar med chips!	Mielelläni, tuon sipsejä!
+b1_career	B1	Kehityskeskustelu	1	A	Hur tycker du att det första året har gått?	Miten ensimmäinen vuosi on mielestäsi mennyt?
+b1_career	B1	Kehityskeskustelu	2	B	Bra, men jag skulle vilja ta mer ansvar.	Hyvin, mutta haluaisin ottaa enemmän vastuuta.
+b1_career	B1	Kehityskeskustelu	3	A	Vad tänker du på mer konkret?	Mitä tarkalleen ottaen ajattelet?
+b1_career	B1	Kehityskeskustelu	4	B	Jag skulle gärna leda nästa projekt med kunden i Åbo.	Vetäisin mielelläni seuraavaa projektia turkulaisen asiakkaan kanssa.
+b1_career	B1	Kehityskeskustelu	5	A	Det låter bra. Du har ju redan erfarenhet av planeringen.	Kuulostaa hyvältä. Sinullahan on jo kokemusta suunnittelusta.
+b1_career	B1	Kehityskeskustelu	6	B	Precis, och jag känner kunden ganska väl.	Juuri niin, ja tunnen asiakkaan aika hyvin.
+b1_career	B1	Kehityskeskustelu	7	A	Då föreslår jag det för ledningen redan den här veckan.	Ehdotan sitä sitten johdolle jo tällä viikolla.
+b1_career	B1	Kehityskeskustelu	8	B	Tack, det uppskattar jag verkligen.	Kiitos, arvostan sitä todella.
+b1_law	B1	Murron ilmoittaminen	1	A	Polisen, vad har hänt?	Poliisi, mitä on tapahtunut?
+b1_law	B1	Murron ilmoittaminen	2	B	Jag vill anmäla ett inbrott. Någon har varit i vår lägenhet.	Haluan ilmoittaa murrosta. Joku on käynyt asunnossamme.
+b1_law	B1	Murron ilmoittaminen	3	A	Är någon skadad, och är gärningsmannen kvar?	Onko joku loukkaantunut, ja onko tekijä vielä paikalla?
+b1_law	B1	Murron ilmoittaminen	4	B	Nej, vi var bortresta, och dörren var öppen när vi kom hem.	Ei, olimme matkoilla, ja ovi oli auki, kun tulimme kotiin.
+b1_law	B1	Murron ilmoittaminen	5	A	Rör ingenting innan polisen har varit där.	Älkää koskeko mihinkään ennen kuin poliisi on käynyt paikalla.
+b1_law	B1	Murron ilmoittaminen	6	B	Okej. Vad gäller sedan för försäkringen?	Selvä. Miten vakuutuksen kanssa sitten toimitaan?
+b1_law	B1	Murron ilmoittaminen	7	A	Ni får ett diarienummer som ni skickar till försäkringsbolaget.	Saatte diaarinumeron, jonka lähetätte vakuutusyhtiölle.
+b1_law	B1	Murron ilmoittaminen	8	B	Tack, då väntar vi här.	Kiitos, odotamme sitten täällä.
+b1_finland_nordic	B1	Muutto Vaasaan	1	A	Hej! Jag har hört att du flyttar till Vasa.	Hei! Kuulin, että muutat Vaasaan.
+b1_finland_nordic	B1	Muutto Vaasaan	2	B	Ja, jag har fått jobb där. Talar man mest svenska i Vasa?	Kyllä, sain sieltä töitä. Puhutaanko Vaasassa enimmäkseen ruotsia?
+b1_finland_nordic	B1	Muutto Vaasaan	3	A	Nej, majoriteten är finskspråkig, men många kan svenska.	Ei, enemmistö on suomenkielisiä, mutta moni osaa ruotsia.
+b1_finland_nordic	B1	Muutto Vaasaan	4	B	Bra, för min finska är inte så bra än.	Hyvä, sillä suomeni ei ole vielä kovin hyvää.
+b1_finland_nordic	B1	Muutto Vaasaan	5	A	Glöm inte att anmäla dig till FPA när du har flyttat.	Älä unohda ilmoittautua Kelaan, kun olet muuttanut.
+b1_finland_nordic	B1	Muutto Vaasaan	6	B	Vad är FPA för något?	Mikä Kela oikein on?
+b1_finland_nordic	B1	Muutto Vaasaan	7	A	Folkpensionsanstalten. Den sköter bland annat barnbidrag och sjukdagpenning.	Kansaneläkelaitos. Se hoitaa muun muassa lapsilisät ja sairauspäivärahat.
+b1_finland_nordic	B1	Muutto Vaasaan	8	B	Tack, det ska jag komma ihåg.	Kiitos, pidän sen mielessä.
+b2_culture	B2	Puheenaiheena uusi sarja	1	A	Har du hunnit se den nya dramaserien som alla pratar om?	Oletko ehtinyt katsoa sitä uutta draamasarjaa, josta kaikki puhuvat?
+b2_culture	B2	Puheenaiheena uusi sarja	2	B	Ja, jag sträcktittade på hela säsongen i helgen.	Joo, ahmin koko kauden viikonloppuna.
+b2_culture	B2	Puheenaiheena uusi sarja	3	A	Vad tyckte du om sista episoden? Jag tyckte att slutet var förutsägbart.	Mitä pidit viimeisestä jaksosta? Minusta loppu oli ennalta arvattava.
+b2_culture	B2	Puheenaiheena uusi sarja	4	B	Jag håller inte med. Den bröt ju mot ett av genrens största tabun.	Olen eri mieltä. Sehän rikkoi yhtä lajityypin suurimmista tabuista.
+b2_culture	B2	Puheenaiheena uusi sarja	5	A	Sant, men det kändes mer som ett jippo för att skapa rabalder.	Totta, mutta se tuntui enemmän tempulta, jolla haluttiin herättää kohua.
+b2_culture	B2	Puheenaiheena uusi sarja	6	B	Kanske, men skaparna har sagt att det var planerat från början.	Ehkä, mutta tekijät ovat sanoneet, että se oli suunniteltu alusta asti.
+b2_culture	B2	Puheenaiheena uusi sarja	7	A	I så fall hade de kunnat bygga upp det bättre.	Siinä tapauksessa he olisivat voineet pohjustaa sitä paremmin.
+b2_culture	B2	Puheenaiheena uusi sarja	8	B	Vi får väl se om det blir en andra säsong.	Katsotaan, tuleeko toinen kausi.
+b2_describe	B2	Asuntonäytön jälkeen	1	A	Hur gick visningen av lägenheten?	Miten asuntonäyttö meni?
+b2_describe	B2	Asuntonäytön jälkeen	2	B	Den var betydligt större än jag hade trott, och ljuset var utmärkt.	Asunto oli huomattavasti isompi kuin olin luullut, ja valo oli erinomainen.
+b2_describe	B2	Asuntonäytön jälkeen	3	A	Låter lovande. Fanns det några nackdelar?	Kuulostaa lupaavalta. Oliko siinä joitain huonoja puolia?
+b2_describe	B2	Asuntonäytön jälkeen	4	B	Badrummet var på sina ställen rejält slitet, så det måste renoveras.	Kylpyhuone oli paikoin todella kulunut, joten se täytyy remontoida.
+b2_describe	B2	Asuntonäytön jälkeen	5	A	Det kan bli dyrt. Har du fått ytterligare information om föreningens ekonomi?	Se voi tulla kalliiksi. Oletko saanut lisätietoja taloyhtiön taloudesta?
+b2_describe	B2	Asuntonäytön jälkeen	6	B	Ja, och den verkar vara i gott skick, åtminstone på papperet.	Kyllä, ja se näyttää olevan hyvässä kunnossa, ainakin paperilla.
+b2_describe	B2	Asuntonäytön jälkeen	7	A	Då skulle jag nog lägga ett bud. Lägenheter i det området är ju eftertraktade.	Tekisin siinä tapauksessa varmaan tarjouksen. Sen alueen asunnot ovat kuitenkin haluttuja.
+b2_describe	B2	Asuntonäytön jälkeen	8	B	Jag funderar på saken och bestämmer mig slutgiltigt i morgon.	Mietin asiaa ja päätän lopullisesti huomenna.

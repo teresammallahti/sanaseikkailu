@@ -1,0 +1,521 @@
+id	taso	aihepiiri	pos	fi	sv_text	sv_infl	en_text	en_infl	de_text	de_infl
+greetings_phrases_hello	A1	a1_greetings	interj	hei / moi / terve	hej		hello		hallo	
+s_a1_good_evening	A1	a1_greetings	phrase	hyvää iltaa	god kväll		good evening		guten Abend	
+greetings_phrases_see_you_later	A1	a1_greetings	phrase	nähdään myöhemmin / nähdään	vi ses senare / vi ses		see you later		bis später	
+s_a1_yes_please	A1	a1_greetings	phrase	kyllä kiitos / mielelläni	ja tack		yes, please		ja, bitte / gerne	
+s_a1_pardon	A1	a1_greetings	phrase	anteeksi, mitä sanoit?	vad sa du / förlåt, vad sa du		pardon? / sorry?		wie bitte?	
+phrases_4_of_course	A1	a1_greetings	adv	tietysti / totta kai / tietenkin	självklart / såklart / visst / förstås / naturligtvis		Of course!		natürlich / selbstverständlich / klar	
+s_a1_can_you_repeat_that	A1	a1_greetings	phrase	voitko toistaa? / voitko sanoa uudestaan?	kan du upprepa det / kan du säga det igen		can you repeat that? / could you say that again?		kannst du das wiederholen? / kannst du das noch einmal sagen?	
+s_a1_just_a_moment	A1	a1_greetings	phrase	hetkinen / hetki vain	ett ögonblick / vänta lite		just a moment / one moment		einen Moment / Moment mal	
+s_a1_have_a_nice_day	A1	a1_greetings	phrase	hyvää päivänjatkoa	ha en bra dag / ha en trevlig dag		have a nice day		schönen Tag noch / einen schönen Tag noch	
+s_a1_thanks_for_last_time	A1	a1_greetings	phrase	kiitos viimeisestä (kerrasta)	tack för senast		thanks for last time / thanks for the other day		danke für das letzte Mal	
+s_a1_how_do_you_spell_it	A1	a1_personal	phrase	miten se kirjoitetaan? / miten se tavataan?	hur stavas det		how do you spell it?		wie schreibt man das?	
+s_a1_date_of_birth	A1	a1_personal	n	syntymäaika	ett födelsedatum	def=födelsedatumet;pl=födelsedatum	date of birth	pl=dates of birth	das Geburtsdatum	pl=die Geburtsdaten
+s_a1_postcode	A1	a1_personal	n	postinumero	ett postnummer	def=postnumret;pl=postnummer	postcode	pl=postcodes	die Postleitzahl	pl=die Postleitzahlen
+places_4_hometown	A1	a1_personal	n	kotikaupunki	en hemstad	def=hemstaden;pl=hemstäder	hometown	pl=hometowns	die Heimatstadt	pl=die Heimatstädte
+countries_finland	A1	a1_personal	n	Suomi	Finland		Finland		Finnland	
+communication_9_language	A1	a1_personal	n	kieli	ett språk	def=språket;pl=språk	language	pl=languages	die Sprache	pl=die Sprachen
+s_a1_what_do_you_do_for_a_living	A1	a1_personal	phrase	mitä teet työksesi?	vad jobbar du med / vad arbetar du med / Vad jobbar du med? / Vad arbetar du med?		what do you do for a living? / what do you do?		was machst du beruflich? / was bist du von Beruf?	
+s_a1_fill_in	A1	a1_personal	v	täyttää (lomake)	fylla i	pres=fyller i;pret=fyllde i;sup=fyllt i	fill in / fill out	past=filled in;pp=filled in	ausfüllen	pret=füllte aus;pp=hat ausgefüllt;pres3=füllt aus
+numbers_four	A1	a1_numbers	num	neljä	fyra		four		vier	
+numbers_ten	A1	a1_numbers	num	kymmenen	tio		ten		zehn	
+numbers_sixteen	A1	a1_numbers	num	kuusitoista	sexton		sixteen		sechzehn	
+numbers_4_thirty	A1	a1_numbers	num	kolmekymmentä	trettio / tretti		thirty		dreißig	
+numbers_4_ninety	A1	a1_numbers	num	yhdeksänkymmentä	nittio		ninety		neunzig	
+s_a1_third	A1	a1_numbers	num	kolmas	tredje		third		dritte	
+s_a1_ninth	A1	a1_numbers	num	yhdeksäs	nionde		ninth		neunte	
+s_a1_one_and_a_half	A1	a1_numbers	phrase	puolitoista	en och en halv / ett och ett halvt		one and a half		anderthalb / eineinhalb	
+s_a1_everything	A1	a1_numbers	pron	kaikki (yksikkö, esim. kaikki on hyvin)	allt		everything		alles	
+s_a1_how_many	A1	a1_numbers	phrase	kuinka monta? / kuinka monta	hur många		how many?		wie viele?	
+s_a1_centimetre	A1	a1_numbers	n	senttimetri / sentti (mitta)	en centimeter	def=centimetern;pl=centimeter	centimetre	pl=centimetres	der Zentimeter	pl=die Zentimeter
+s_a1_per_cent	A1	a1_numbers	n	prosentti	en procent	def=procenten;pl=procent	per cent	pl=per cent	das Prozent	pl=die Prozente
+phrases_4_what_time_is_it	A1	a1_time	phrase	Mitä kello on?	vad är klockan / hur mycket är klockan		What time is it?		Wie spät ist es?	
+aikasanat_2_hour	A1	a1_time	n	tunti	en timme	def=timmen;pl=timmar	hour	pl=hours	die Stunde	pl=die Stunden
+aikasanat_2_day	A1	a1_time	n	päivä	en dag	def=dagen;pl=dagar	day	pl=days	der Tag	pl=die Tage
+s_a1_midnight	A1	a1_time	n	keskiyö	midnatt	def=midnatten	midnight	pl=midnights	die Mitternacht	
+aikasanat_2_today	A1	a1_time	adv	tänään	i dag / idag		today		heute	
+weekdays_tuesday	A1	a1_time	n	tiistai	tisdag / en tisdag	def=tisdagen;pl=tisdagar	Tuesday	pl=Tuesdays	Dienstag	pl=die Dienstage
+aikasanat_2_weekend	A1	a1_time	n	viikonloppu	en helg / ett veckoslut	def=helgen;pl=helger	weekend	pl=weekends	das Wochenende	pl=die Wochenenden
+calendar_4_june	A1	a1_time	n	kesäkuu	juni		June		der Juni	
+calendar_4_december	A1	a1_time	n	joulukuu	december		December	pl=Decembers	der Dezember	pl=die Dezember
+time_4_week	A1	a1_time	n	viikko	en vecka	def=veckan;pl=veckor	week	pl=weeks	die Woche	pl=die Wochen
+time_4_later	A1	a1_time	adv	myöhemmin	senare		later		später	
+s_a1_rarely	A1	a1_time	adv	harvoin	sällan		rarely / seldom		selten	
+s_a1_last_week	A1	a1_time	phrase	viime viikolla	förra veckan		last week		letzte Woche	
+s_a1_family_member	A1	a1_family	n	perheenjäsen	en familjemedlem	def=familjemedlemmen;pl=familjemedlemmar	family member	pl=family members	das Familienmitglied	pl=die Familienmitglieder
+people_4_boy	A1	a1_family	n	poika (ei tyttö)	en pojke / en kille	def=pojken;pl=pojkar	boy	pl=boys	der Junge	pl=die Jungen
+family_grandma	A1	a1_family	n	isoäiti (äidin äiti) / mummo / mummi	en mormor	def=mormodern;pl=mormödrar	grandmother / grandma	pl=grandmothers	die Großmutter	pl=die Großmütter
+s_a1_uncle_father_s_brother	A1	a1_family	n	setä (isän veli)	en farbror	def=farbrodern;pl=farbröder	uncle	pl=uncles	der Onkel	pl=die Onkel
+s_a1_wife	A1	a1_family	n	vaimo	en fru / en hustru	def=frun;pl=fruar	wife	pl=wives	die Ehefrau / die Frau	pl=die Ehefrauen
+school_people_friend	A1	a1_family	n	ystävä / kaveri	en vän / en kompis	def=vännen;pl=vänner	friend	pl=friends	der Freund / die Freundin	pl=die Freunde / die Freundinnen
+people_4_human	A1	a1_family	n	ihminen	en människa	def=människan;pl=människor	human	pl=humans	der Mensch	pl=die Menschen
+verbs2_4_look_like	A1	a1_appearance	v	näyttää (joltakin)	se ut	pres=ser ut;pret=såg ut;sup=sett ut	look like	past=looked like;pp=looked like	aussehen	pret=sah aus;pp=hat ausgesehen;pres3=sieht aus
+s_a1_of_medium_height	A1	a1_appearance	adj	keskipitkä	medellång	neut=medellångt;apl=medellånga	of medium height		mittelgroß	
+body_4_cute	A1	a1_appearance	adj	söpö / suloinen	söt	neut=sött;apl=söta	cute		süß / niedlich	
+s_a1_dark_haired	A1	a1_appearance	adj	tummahiuksinen	mörkhårig	neut=mörkhårigt;apl=mörkhåriga	dark-haired		dunkelhaarig	
+appearance_long_hair	A1	a1_appearance	phrase	pitkät hiukset / pitkä tukka	långt hår		long hair		lange Haare	
+s_a1_moustache	A1	a1_appearance	n	viikset	en mustasch	def=mustaschen;pl=mustascher	moustache	pl=moustaches	der Schnurrbart	pl=die Schnurrbärte
+s_a1_personality	A1	a1_appearance	n	persoonallisuus / luonne	en personlighet	def=personligheten;pl=personligheter	personality / character	pl=personalities	die Persönlichkeit / der Charakter	pl=die Persönlichkeiten
+personality_calm	A1	a1_appearance	adj	rauhallinen / tyyni	lugn	neut=lugnt;apl=lugna	calm		ruhig	
+personality_sporty	A1	a1_appearance	adj	urheilullinen	sportig	neut=sportigt;apl=sportiga	sporty		sportlich	
+body_parts_head	A1	a1_body	n	pää	ett huvud	def=huvudet;pl=huvuden	head	pl=heads	der Kopf	pl=die Köpfe
+body_4_finger	A1	a1_body	n	sormi	ett finger	def=fingret;pl=fingrar	finger	pl=fingers	der Finger	pl=die Finger
+body_4_back	A1	a1_body	n	selkä	en rygg	def=ryggen;pl=ryggar	back	pl=backs	der Rücken	pl=die Rücken
+body_parts_ear	A1	a1_body	n	korva	ett öra	def=örat;pl=öron	ear	pl=ears	das Ohr	pl=die Ohren
+adj_4_sleepy	A1	a1_body	adj	uninen	sömnig	neut=sömnigt;apl=sömniga	sleepy		schläfrig / müde	
+s_a1_i_don_t_feel_well	A1	a1_body	phrase	Voin huonosti.	jag mår dåligt / jag mår inte bra		I don't feel well / I feel unwell		mir geht es schlecht / mir geht es nicht gut	
+s_a1_be_cold	A1	a1_body	v	palella	frysa	pres=fryser;pret=frös;sup=frusit	be cold / feel cold	past=was cold;pp=been cold	frieren	pret=fror;pp=hat gefroren;pres3=friert
+s_a1_plaster	A1	a1_body	n	laastari	ett plåster	def=plåstret;pl=plåster	plaster	pl=plasters	das Pflaster	pl=die Pflaster
+s_a1_terraced_house	A1	a1_home	n	rivitalo	ett radhus	def=radhuset;pl=radhus	terraced house	pl=terraced houses	das Reihenhaus	pl=die Reihenhäuser
+house_rooms_kitchen	A1	a1_home	n	keittiö	ett kök	def=köket;pl=kök	kitchen	pl=kitchens	die Küche	pl=die Küchen
+s_a1_study	A1	a1_home	n	työhuone	ett arbetsrum	def=arbetsrummet;pl=arbetsrum	study	pl=studies	das Arbeitszimmer	pl=die Arbeitszimmer
+s_a1_stairs	A1	a1_home	n	portaat / porras	en trappa	def=trappan;pl=trappor	stairs / staircase	pl=stairs	die Treppe	pl=die Treppen
+s_a1_key	A1	a1_home	n	avain / avaimet	en nyckel / nycklar	def=nyckeln;pl=nycklar	key	pl=keys	der Schlüssel	pl=die Schlüssel
+house_rooms_table	A1	a1_home	n	pöytä	ett bord	def=bordet;pl=bord	table	pl=tables	der Tisch	pl=die Tische
+home_4_bookcase	A1	a1_home	n	kirjahylly	en bokhylla	def=bokhyllan;pl=bokhyllor	bookcase	pl=bookcases	das Bücherregal	pl=die Bücherregale
+s_a1_curtain	A1	a1_home	n	verho	en gardin	def=gardinen;pl=gardiner	curtain	pl=curtains	der Vorhang / die Gardine	pl=die Vorhänge
+s_a1_pillow	A1	a1_home	n	tyyny	en kudde	def=kudden;pl=kuddar	pillow	pl=pillows	das Kissen / das Kopfkissen	pl=die Kissen
+home_4_dishwasher	A1	a1_home	n	astianpesukone	en diskmaskin	def=diskmaskinen;pl=diskmaskiner	dishwasher	pl=dishwashers	die Spülmaschine / die Geschirrspülmaschine	pl=die Spülmaschinen
+home_4_television	A1	a1_home	n	televisio / TV	en tv / en teve	def=tv:n;pl=tv:ar	television	pl=televisions	der Fernseher	pl=die Fernseher
+s_a1_cutlery	A1	a1_home	n	aterimet	bestick	def=besticket;pl=bestick	cutlery		das Besteck	
+s_a1_towel	A1	a1_home	n	pyyhe	en handduk	def=handduken;pl=handdukar	towel	pl=towels	das Handtuch	pl=die Handtücher
+home_4_hairbrush	A1	a1_home	n	hiusharja	en hårborste	def=hårborsten;pl=hårborstar	hairbrush	pl=hairbrushes	die Haarbürste	pl=die Haarbürsten
+food_savoury_dinner	A1	a1_food	n	päivällinen / illallinen	en middag	def=middagen;pl=middagar	dinner	pl=dinners	das Abendessen	pl=die Abendessen
+s_a1_rye_bread	A1	a1_food	n	ruisleipä	rågbröd	def=rågbrödet	rye bread		das Roggenbrot	pl=die Roggenbrote
+s_a1_ham	A1	a1_food	n	kinkku	skinka	def=skinkan	ham		der Schinken	pl=die Schinken
+food_savoury_chicken	A1	a1_food	n	kana	kyckling	def=kycklingen;pl=kycklingar	chicken	pl=chickens	das Hähnchen / das Hühnchen	pl=die Hähnchen / die Hühnchen
+s_a1_yoghurt	A1	a1_food	n	jogurtti	yoghurt	def=yoghurten	yoghurt	pl=yoghurts	der Joghurt	pl=die Joghurts
+s_a1_cereal	A1	a1_food	n	murot / aamiaismurot	flingor	def=flingorna;pl=flingor	cereal / breakfast cereal		die Frühstücksflocken / die Cornflakes	pl=die Frühstücksflocken
+s_a1_steak	A1	a1_food	n	pihvi	en biff	def=biffen;pl=biffar	steak	pl=steaks	das Steak	pl=die Steaks
+s_a1_pepper	A1	a1_food	n	pippuri	peppar	def=pepparn	pepper		der Pfeffer	
+food_4_biscuit	A1	a1_food	n	keksi	ett kex / en kaka	def=kexet;pl=kex	biscuit	pl=biscuits	der Keks	pl=die Kekse
+food_4_sweets	A1	a1_food	n	karkit / makeiset / karkki	godis	def=godiset	sweets	pl=sweets	die Süßigkeiten	pl=die Süßigkeiten
+fruit_apple	A1	a1_food	n	omena	ett äpple	def=äpplet;pl=äpplen	apple	pl=apples	der Apfel	pl=die Äpfel
+fruit_grape	A1	a1_food	n	viinirypäle / rypäle	en vindruva	def=vindruvan;pl=vindruvor	grape	pl=grapes	die Weintraube / die Traube	pl=die Weintrauben / die Trauben
+food_4_carrot	A1	a1_food	n	porkkana	en morot	def=moroten;pl=morötter	carrot	pl=carrots	die Karotte / die Möhre	pl=die Karotten
+s_a1_mushroom	A1	a1_food	n	sieni	en svamp	def=svampen;pl=svampar	mushroom	pl=mushrooms	der Pilz	pl=die Pilze
+s_a1_coffee	A1	a1_food	n	kahvi	kaffe	def=kaffet	coffee	pl=coffees	der Kaffee	pl=die Kaffees
+s_a1_bottle	A1	a1_food	n	pullo	en flaska	def=flaskan;pl=flaskor	bottle	pl=bottles	die Flasche	pl=die Flaschen
+home_4_cup	A1	a1_food	n	kuppi	en kopp	def=koppen;pl=koppar	cup	pl=cups	die Tasse	pl=die Tassen
+adj_4_delicious	A1	a1_food	adj	herkullinen	läcker / jättegod / god	neut=läckert;apl=läckra	delicious		lecker / köstlich	
+s_a1_disgusting	A1	a1_food	adj	pahan makuinen / ällöttävä	äcklig	neut=äckligt;apl=äckliga	disgusting		eklig / ekelhaft	
+places_town_shop	A1	a1_shopping	n	kauppa / myymälä	en affär / en butik	def=affären;pl=affärer	shop	pl=shops	das Geschäft / der Laden	pl=die Geschäfte / die Läden
+money_7_customer	A1	a1_shopping	n	asiakas	en kund	def=kunden;pl=kunder	customer	pl=customers	der Kunde / die Kundin	pl=die Kunden
+shopping_buy	A1	a1_shopping	v	ostaa	köpa	pres=köper;pret=köpte;sup=köpt	buy	past=bought;pp=bought	kaufen	pret=kaufte;pp=hat gekauft;pres3=kauft
+money_7_change	A1	a1_shopping	n	vaihtoraha	växel	def=växeln	change		das Wechselgeld / das Kleingeld	
+s_a1_free_of_charge	A1	a1_shopping	adj	ilmainen	gratis	neut=gratis;apl=gratis	free / free of charge		kostenlos / gratis / umsonst	
+s_a1_i_m_just_looking	A1	a1_shopping	phrase	Katselen vain.	jag tittar bara		I'm just looking		Ich schaue mich nur um	
+s_a1_size	A1	a1_shopping	n	koko (vaatteen)	en storlek	def=storleken;pl=storlekar	size	pl=sizes	die Größe	pl=die Größen
+clothes_4_hoodie	A1	a1_shopping	n	huppari / huppupaita	en huvtröja / en hoodie	def=huvtröjan;pl=huvtröjor	hoodie	pl=hoodies	der Hoodie / der Kapuzenpullover	pl=die Hoodies
+clothes_dress	A1	a1_shopping	n	mekko	en klänning	def=klänningen;pl=klänningar	dress	pl=dresses	das Kleid	pl=die Kleider
+clothes_4_pyjamas	A1	a1_shopping	n	pyjama / yöpuku	en pyjamas	def=pyjamasen;pl=pyjamasar	pyjamas		der Schlafanzug / der Pyjama	pl=die Schlafanzüge
+clothes_4_cap	A1	a1_shopping	n	lippalakki / lippis	en keps	def=kepsen;pl=kepsar	cap	pl=caps	die Schirmmütze / die Kappe	pl=die Schirmmützen
+s_a1_pocket	A1	a1_shopping	n	tasku	en ficka	def=fickan;pl=fickor	pocket	pl=pockets	die Tasche / die Hosentasche	pl=die Taschen
+colours_yellow	A1	a1_shopping	adj	keltainen	gul	neut=gult;apl=gula	yellow		gelb	
+colours_brown	A1	a1_shopping	adj	ruskea	brun	neut=brunt;apl=bruna	brown		braun	
+s_a1_district	A1	a1_town	n	kaupunginosa	en stadsdel	def=stadsdelen;pl=stadsdelar	district	pl=districts	der Stadtteil	pl=die Stadtteile
+places_4_road	A1	a1_town	n	tie	en väg	def=vägen;pl=vägar	road	pl=roads	die Straße / der Weg	pl=die Straßen
+places_4_building	A1	a1_town	n	rakennus	en byggnad	def=byggnaden;pl=byggnader	building	pl=buildings	das Gebäude	pl=die Gebäude
+places_4_cinema	A1	a1_town	n	elokuvateatteri	en biograf / en bio	def=biografen;pl=biografer	cinema	pl=cinemas	das Kino	pl=die Kinos
+s_a1_bus_station	A1	a1_town	n	linja-autoasema / bussiasema	en busstation	def=busstationen;pl=busstationer	bus station	pl=bus stations	der Busbahnhof	pl=die Busbahnhöfe
+travel_map	A1	a1_town	n	kartta	en karta	def=kartan;pl=kartor	map	pl=maps	die Karte / die Landkarte	pl=die Karten / die Landkarten
+transport_bicycle	A1	a1_town	n	polkupyörä / pyörä / fillari	en cykel	def=cykeln;pl=cyklar	bicycle	pl=bicycles	das Fahrrad / das Rad	pl=die Fahrräder / die Räder
+town_7_straight_on	A1	a1_town	adv	suoraan / suoraan eteenpäin	rakt fram		straight on		geradeaus	
+prepositions_behind	A1	a1_town	prep	takana	bakom		behind		hinter	
+verbs1_4_drive	A1	a1_town	v	ajaa	köra	pres=kör;pret=körde;sup=kört	drive	past=drove;pp=driven	fahren	pret=fuhr;pp=ist gefahren;pres3=fährt
+verbs1_4_arrive	A1	a1_town	v	saapua / tulla perille	komma fram / anlända	pres=kommer fram;pret=kom fram;sup=kommit fram	arrive	past=arrived;pp=arrived	ankommen	pret=kam an;pp=ist angekommen;pres3=kommt an
+s_a1_when_does_the_bus_leave	A1	a1_town	phrase	Milloin bussi lähtee? / Mihin aikaan bussi lähtee?	När går bussen?		When does the bus leave? / What time does the bus leave?		Wann fährt der Bus? / Wann fährt der Bus ab?	
+s_a1_wash_oneself	A1	a1_daily	v	peseytyä	tvätta sig	pres=tvättar sig;pret=tvättade sig;sup=tvättat sig	wash / have a wash	past=washed;pp=washed	sich waschen	pret=wusch sich;pp=hat sich gewaschen;pres3=wäscht sich
+s_a1_put_on_make_up	A1	a1_daily	v	meikata	sminka sig	pres=sminkar sig;pret=sminkade sig;sup=sminkat sig	put on make-up / do one's make-up	past=put on make-up;pp=put on make-up	sich schminken	pret=schminkte sich;pp=hat sich geschminkt;pres3=schminkt sich
+paivarutiinit_have_breakfast	A1	a1_daily	v	syödä aamiaista / syödä aamupalaa	äta frukost	pres=äter frukost;pret=åt frukost;sup=ätit frukost	have breakfast	past=had breakfast;pp=had breakfast	frühstücken	pret=frühstückte;pp=hat gefrühstückt;pres3=frühstückt
+s_a1_leave_home	A1	a1_daily	v	lähteä kotoa	gå hemifrån	pres=går hemifrån;pret=gick hemifrån;sup=gått hemifrån	leave home	past=left home;pp=left home	das Haus verlassen / von zu Hause weggehen	pret=verließ das Haus;pp=hat das Haus verlassen;pres3=verlässt das Haus
+s_a1_clean	A1	a1_daily	v	siivota	städa	pres=städar;pret=städade;sup=städat	clean / tidy	past=cleaned;pp=cleaned	putzen / aufräumen	pret=putzte;pp=hat geputzt;pres3=putzt
+verbs1_4_rest	A1	a1_daily	v	levätä	vila	pres=vilar;pret=vilade;sup=vilat	rest	past=rested;pp=rested	sich ausruhen / ruhen	pret=ruhte sich aus;pp=hat sich ausgeruht;pres3=ruht sich aus
+verbs1_4_hurry	A1	a1_daily	v	kiirehtiä / pitää kiirettä	skynda sig	pres=skyndar sig;pret=skyndade sig;sup=skyndat sig	hurry	past=hurried;pp=hurried	sich beeilen	pret=beeilte sich;pp=hat sich beeilt;pres3=beeilt sich
+s_a1_stand	A1	a1_daily	v	seistä	stå	pres=står;pret=stod;sup=stått	stand	past=stood;pp=stood	stehen	pret=stand;pp=hat gestanden;pres3=steht
+verbs1_4_close	A1	a1_daily	v	sulkea	stänga	pres=stänger;pret=stängde;sup=stängt	close	past=closed;pp=closed	schließen / zumachen	pret=schloss;pp=hat geschlossen;pres3=schließt
+adjectives_boring	A1	a1_free_time	adj	tylsä / pitkäveteinen	tråkig	neut=tråkigt;apl=tråkiga	boring		langweilig	
+verbs_action_watch_tv	A1	a1_free_time	v	katsoa televisiota / katsoa telkkaria / katsoa tv:tä	titta på tv / se på tv	pres=tittar på tv;pret=tittade på tv;sup=tittat på tv	watch television	past=watched television;pp=watched television	fernsehen	pret=sah fern;pp=hat ferngesehen;pres3=sieht fern
+people_4_singer	A1	a1_free_time	n	laulaja	en sångare	def=sångaren;pl=sångare	singer	pl=singers	der Sänger / die Sängerin	pl=die Sänger
+verbs_action_dance	A1	a1_free_time	v	tanssia	dansa	pres=dansar;pret=dansade;sup=dansat	dance	past=danced;pp=danced	tanzen	pret=tanzte;pp=hat getanzt;pres3=tanzt
+verbs2_4_knit	A1	a1_free_time	v	neuloa	sticka	pres=stickar;pret=stickade;sup=stickat	knit	past=knitted;pp=knitted	stricken	pret=strickte;pp=hat gestrickt;pres3=strickt
+s_a1_meet_friends	A1	a1_free_time	v	tavata ystäviä	träffa vänner / träffa kompisar	pres=träffar vänner;pret=träffade vänner;sup=träffat vänner	meet friends	past=met friends;pp=met friends	Freunde treffen	pret=traf Freunde;pp=hat Freunde getroffen;pres3=trifft Freunde
+verbs_action_run	A1	a1_free_time	v	juosta	springa	pres=springer;pret=sprang;sup=sprungit	run	past=ran;pp=run	rennen / laufen	pret=rannte;pp=ist gerannt;pres3=rennt
+sports_skiing	A1	a1_free_time	n	hiihto / hiihtäminen	skidåkning	def=skidåkningen	skiing		das Skifahren / das Skilaufen	
+s_a1_yoga	A1	a1_free_time	n	jooga	yoga	def=yogan	yoga		das Yoga	
+s_a1_weather_forecast	A1	a1_weather	n	sääennuste	en väderprognos	def=väderprognosen;pl=väderprognoser	weather forecast	pl=weather forecasts	der Wetterbericht / die Wettervorhersage	pl=die Wetterberichte
+nature_7_sunny	A1	a1_weather	adj	aurinkoinen	solig	neut=soligt;apl=soliga	sunny		sonnig	
+s_a1_snow	A1	a1_weather	v	sataa lunta	snöa	pres=snöar;pret=snöade;sup=snöat	snow	past=snowed;pp=snowed	schneien	pret=schneite;pp=hat geschneit;pres3=schneit
+nature_7_cloudy	A1	a1_weather	adj	pilvinen	molnig	neut=molnigt;apl=molniga	cloudy		bewölkt / wolkig	
+adj_4_wet	A1	a1_weather	adj	märkä	blöt / våt	neut=blött;apl=blöta	wet		nass	
+nature_7_river	A1	a1_weather	n	joki	en å / en flod / en älv	def=ån;pl=åar	river	pl=rivers	der Fluss	pl=die Flüsse
+nature_4_star	A1	a1_weather	n	tähti	en stjärna	def=stjärnan;pl=stjärnor	star	pl=stars	der Stern	pl=die Sterne
+s_a1_workplace	A1	a1_work_study	n	työpaikka (paikka)	en arbetsplats	def=arbetsplatsen;pl=arbetsplatser	workplace	pl=workplaces	der Arbeitsplatz	pl=die Arbeitsplätze
+s_a1_task	A1	a1_work_study	n	tehtävä / tehtävä (koulussa) / harjoitustehtävä / tehtävä (vastuu)	en uppgift	def=uppgiften;pl=uppgifter	task / exercise	pl=tasks	die Aufgabe	pl=die Aufgaben
+s_a1_practical_nurse	A1	a1_work_study	n	lähihoitaja	en undersköterska / en närvårdare	def=undersköterskan;pl=undersköterskor	practical nurse / healthcare assistant	pl=practical nurses	der Pflegehelfer / die Pflegehelferin	pl=die Pflegehelfer
+professions_driver	A1	a1_work_study	n	kuljettaja	en chaufför / en förare	def=chauffören;pl=chaufförer	driver	pl=drivers	der Fahrer / die Fahrerin	pl=die Fahrer / die Fahrerinnen
+school_subjects_school	A1	a1_work_study	n	koulu	en skola	def=skolan;pl=skolor	school	pl=schools	die Schule	pl=die Schulen
+school_subjects_classroom	A1	a1_work_study	n	luokkahuone	ett klassrum	def=klassrummet;pl=klassrum	classroom	pl=classrooms	das Klassenzimmer / der Klassenraum	pl=die Klassenzimmer / die Klassenräume
+verbs2_4_teach	A1	a1_work_study	v	opettaa	undervisa / lära ut	pres=undervisar;pret=undervisade;sup=undervisat	teach	past=taught;pp=taught	unterrichten / lehren	pret=unterrichtete;pp=hat unterrichtet;pres3=unterrichtet
+school_4_page	A1	a1_work_study	n	sivu	en sida	def=sidan;pl=sidor	page	pl=pages	die Seite	pl=die Seiten
+pronouns_4_you	A1	a1_core	pron	sinä	du		you		du	
+s_a1_you_plural	A1	a1_core	pron	te	ni		you		ihr	
+pronouns_4_us	A1	a1_core	pron	meidät / meitä / meille	oss		us		uns	
+pronouns_4_her	A1	a1_core	pron	hänen (naisen)	hennes		her		ihr / ihre	
+little_4_this	A1	a1_core	pron	tämä	den här / det här		this		dieser / diese / dieses / das hier	
+s_a1_some	A1	a1_core	pron	jotkut / muutama	några		some / a few		einige / ein paar	
+s_a1_self	A1	a1_core	pron	itse	själv / själva		oneself / myself / yourself / themselves		selbst / selber	
+s_a1_where_to	A1	a1_core	adv	mihin / minne	vart		where to / where		wohin	
+little_4_whose	A1	a1_core	pron	kenen	vems		whose		wessen	
+prepositions_above	A1	a1_core	prep	yläpuolella	ovanför		above		über	
+s_a1_for	A1	a1_core	prep	varten	för		for		für	
+s_a1_around	A1	a1_core	prep	ympäri / ympärillä	runt / omkring		around		um / um ... herum	
+little_4_than	A1	a1_core	conj	kuin (vertailussa: suurempi kuin)	än		than		als	
+sidesanat_5_already	A1	a1_core	adv	jo	redan		already		schon	
+s_a1_there_to	A1	a1_core	adv	sinne	dit		there		dorthin / dahin / hin	
+s_a1_down	A1	a1_core	adv	alas	ner / ned		down		hinunter / runter / nach unten	
+little_4_again	A1	a1_core	adv	taas / uudelleen / uudestaan	igen		again		wieder / noch einmal	
+s_a1_gladly	A1	a1_core	adv	mielellään	gärna		gladly / with pleasure		gern / gerne	
+verbs1_4_come	A1	a1_verbs	v	tulla	komma	pres=kommer;pret=kom;sup=kommit	come	past=came;pp=come	kommen	pret=kam;pp=ist gekommen;pres3=kommt
+verbs_communication_say	A1	a1_verbs	v	sanoa	säga	pres=säger;pret=sa;sup=sagt	say	past=said;pp=said	sagen	pret=sagte;pp=hat gesagt;pres3=sagt
+verbs1_4_know	A1	a1_verbs	v	tietää	veta	pres=vet;pret=visste;sup=vetat	know	past=knew;pp=known	wissen	pret=wusste;pp=hat gewusst;pres3=weiß
+perusverbit_can	A1	a1_verbs	v	osata / voida / pystyä	kunna	pres=kan;pret=kunde;sup=kunnat	can	past=could	können	pret=konnte;pp=hat gekonnt;pres3=kann
+perusverbit_see	A1	a1_verbs	v	nähdä	se	pres=ser;pret=såg;sup=sett	see	past=saw;pp=seen	sehen	pret=sah;pp=hat gesehen;pres3=sieht
+s_a1_live_be_alive	A1	a1_verbs	v	elää	leva	pres=lever;pret=levde;sup=levt	live	past=lived;pp=lived	leben	pret=lebte;pp=hat gelebt;pres3=lebt
+s_a1_carry	A1	a1_verbs	v	kantaa	bära	pres=bär;pret=bar;sup=burit	carry	past=carried;pp=carried	tragen	pret=trug;pp=hat getragen;pres3=trägt
+verbs1_4_pull	A1	a1_verbs	v	vetää	dra	pres=drar;pret=drog;sup=dragit	pull	past=pulled;pp=pulled	ziehen	pret=zog;pp=hat gezogen;pres3=zieht
+opposites_big	A1	a1_adjectives	adj	iso / suuri	stor	neut=stort;apl=stora	big		groß	
+opposites_easy	A1	a1_adjectives	adj	helppo	lätt	neut=lätt;apl=lätta	easy		einfach	
+adj_4_warm	A1	a1_adjectives	adj	lämmin	varm	neut=varmt;apl=varma	warm		warm	
+adj_4_thin	A1	a1_adjectives	adj	ohut	tunn	neut=tunt;apl=tunna	thin		dünn	
+s_a1_right_correct	A1	a1_adjectives	adj	oikea (ei väärä) / oikein	rätt / riktig / korrekt	neut=rätt;apl=rätta	right / correct		richtig / korrekt	
+adj_4_dark	A1	a1_adjectives	adj	pimeä / tumma	mörk	neut=mörkt;apl=mörka	dark		dunkel	
+s_a1_rich	A1	a1_adjectives	adj	rikas	rik	neut=rikt;apl=rika	rich		reich	
+travel_journey	A2	a2_travel	n	matka	en resa	def=resan;pl=resor	journey	pl=journeys	die Reise	pl=die Reisen
+travel_luggage	A2	a2_travel	n	matkatavarat	bagage	def=bagaget	luggage		das Gepäck	
+s_a2_confirm	A2	a2_travel	v	vahvistaa (varaus)	bekräfta	pres=bekräftar;pret=bekräftade;sup=bekräftat	confirm	past=confirmed;pp=confirmed	bestätigen	pret=bestätigte;pp=hat bestätigt;pres3=bestätigt
+s_a2_hostel	A2	a2_travel	n	retkeilymaja / hostelli	ett vandrarhem	def=vandrarhemmet;pl=vandrarhem	hostel / youth hostel	pl=hostels	die Jugendherberge / das Hostel	pl=die Jugendherbergen
+s_a2_be_included	A2	a2_travel	v	sisältyä (hintaan)	ingå	pres=ingår;pret=ingick;sup=ingått	be included	past=was included;pp=been included	inbegriffen sein / enthalten sein	pret=war inbegriffen;pp=ist inbegriffen gewesen;pres3=ist inbegriffen
+people_4_guide	A2	a2_travel	n	opas	en guide	def=guiden;pl=guider	guide	pl=guides	der Fremdenführer / die Fremdenführerin / der Reiseleiter / die Reiseleiterin	pl=die Fremdenführer
+travel_holiday	A2	a2_travel	n	loma	en semester / ett lov	def=semestern;pl=semestrar	holiday	pl=holidays	der Urlaub / die Ferien	pl=die Urlaube
+travel_8_border	A2	a2_travel	n	raja	en gräns	def=gränsen;pl=gränser	border	pl=borders	die Grenze	pl=die Grenzen
+travel_souvenir	A2	a2_travel	n	matkamuisto	en souvenir	def=souveniren;pl=souvenirer	souvenir	pl=souvenirs	das Souvenir / das Andenken	pl=die Souvenirs / die Andenken
+s_a2_fly	A2	a2_travel	v	lentää	flyga	pres=flyger;pret=flög;sup=flugit	fly	past=flew;pp=flown	fliegen	pret=flog;pp=ist geflogen;pres3=fliegt
+s_a2_gate	A2	a2_travel	n	portti (lentokentällä) / lähtöportti	en gate	def=gaten;pl=gater	gate	pl=gates	das Gate / der Flugsteig	pl=die Gates
+s_a2_one_way_ticket	A2	a2_travel	n	menolippu / yhdensuuntainen lippu	en enkelbiljett	def=enkelbiljetten;pl=enkelbiljetter	single ticket / one-way ticket / single	pl=single tickets	die einfache Fahrkarte / das Einzelticket	pl=die einfachen Fahrkarten
+s_a2_delayed	A2	a2_travel	adj	myöhässä (oleva) / viivästynyt	försenad	neut=försenat;apl=försenade	delayed / late		verspätet	
+s_a2_unpack	A2	a2_travel	v	purkaa (matkalaukku)	packa upp	pres=packar upp;pret=packade upp;sup=packat upp	unpack	past=unpacked;pp=unpacked	auspacken	pret=packte aus;pp=hat ausgepackt;pres3=packt aus
+s_a2_pedestrian	A2	a2_transport	n	jalankulkija	en fotgängare	def=fotgängaren;pl=fotgängare	pedestrian	pl=pedestrians	der Fußgänger / die Fußgängerin	pl=die Fußgänger
+s_a2_traffic_rule	A2	a2_transport	n	liikennesääntö	en trafikregel	def=trafikregeln;pl=trafikregler	traffic rule	pl=traffic rules	die Verkehrsregel	pl=die Verkehrsregeln
+s_a2_turn	A2	a2_transport	v	kääntyä	svänga	pres=svänger;pret=svängde;sup=svängt	turn	past=turned;pp=turned	abbiegen	pret=bog ab;pp=ist abgebogen;pres3=biegt ab
+s_a2_park	A2	a2_transport	v	pysäköidä / parkkeerata	parkera	pres=parkerar;pret=parkerade;sup=parkerat	park	past=parked;pp=parked	parken	pret=parkte;pp=hat geparkt;pres3=parkt
+s_a2_electric_car	A2	a2_transport	n	sähköauto	en elbil	def=elbilen;pl=elbilar	electric car	pl=electric cars	das Elektroauto / das E-Auto	pl=die Elektroautos
+s_a2_garage	A2	a2_transport	n	korjaamo / autokorjaamo	en bilverkstad / en verkstad	def=bilverkstaden;pl=bilverkstäder	garage / car repair shop	pl=garages	die Autowerkstatt / die Werkstatt	pl=die Autowerkstätten
+s_a2_overtake	A2	a2_transport	v	ohittaa (autolla)	köra om	pres=kör om;pret=körde om;sup=kört om	overtake	past=overtook;pp=overtaken	überholen	pret=überholte;pp=hat überholt;pres3=überholt
+s_a2_monthly_pass	A2	a2_transport	n	kuukausilippu	ett månadskort	def=månadskortet;pl=månadskort	monthly pass / monthly ticket	pl=monthly passes	die Monatskarte	pl=die Monatskarten
+s_a2_commute	A2	a2_transport	v	kulkea työmatkoja / pendelöidä / kulkea töihin toiselle paikkakunnalle	pendla	pres=pendlar;pret=pendlade;sup=pendlat	commute	past=commuted;pp=commuted	pendeln	pret=pendelte;pp=ist gependelt;pres3=pendelt
+s_a2_ask_the_way	A2	a2_transport	phrase	kysyä tietä	fråga om vägen		ask the way		nach dem Weg fragen	
+s_a2_balance	A2	a2_services	n	saldo	ett saldo	def=saldot;pl=saldon	balance	pl=balances	der Kontostand / das Guthaben	pl=die Kontostände
+s_a2_transfer	A2	a2_services	n	tilisiirto	en överföring	def=överföringen;pl=överföringar	bank transfer / transfer	pl=bank transfers	die Überweisung	pl=die Überweisungen
+school_4_letter_kirje	A2	a2_services	n	kirje	ett brev	def=brevet;pl=brev	letter (kirje)	pl=letters	der Brief	pl=die Briefe
+s_a2_delivery	A2	a2_services	n	toimitus	en leverans	def=leveransen;pl=leveranser	delivery	pl=deliveries	die Lieferung	pl=die Lieferungen
+s_a2_sign	A2	a2_services	v	allekirjoittaa	skriva under / underteckna	pres=skriver under;pret=skrev under;sup=skrivit under	sign	past=signed;pp=signed	unterschreiben	pret=unterschrieb;pp=hat unterschrieben;pres3=unterschreibt
+s_a2_appointment_booking	A2	a2_services	n	ajanvaraus	en tidsbokning	def=tidsbokningen;pl=tidsbokningar	appointment booking / booking an appointment	pl=appointment bookings	die Terminvereinbarung / die Terminbuchung	pl=die Terminvereinbarungen
+s_a2_insurance	A2	a2_services	n	vakuutus	en försäkring	def=försäkringen;pl=försäkringar	insurance		die Versicherung	pl=die Versicherungen
+s_a2_residence_permit	A2	a2_services	n	oleskelulupa	ett uppehållstillstånd	def=uppehållstillståndet;pl=uppehållstillstånd	residence permit	pl=residence permits	die Aufenthaltserlaubnis / die Aufenthaltsgenehmigung	pl=die Aufenthaltserlaubnisse
+s_a2_customer_service	A2	a2_services	n	asiakaspalvelu	kundtjänst / kundservice	def=kundtjänsten	customer service		der Kundendienst / der Kundenservice	
+s_a2_wait_a_moment	A2	a2_services	phrase	Odottakaa hetki.	Vänta ett ögonblick		wait a moment / just a moment		Warten Sie einen Moment / Warten Sie einen Augenblick	
+s_a2_ambulance	A2	a2_health	n	ambulanssi	en ambulans	def=ambulansen;pl=ambulanser	ambulance	pl=ambulances	der Krankenwagen / der Rettungswagen	pl=die Krankenwagen
+s_a2_symptom	A2	a2_health	n	oire	ett symtom	def=symtomet;pl=symtom	symptom	pl=symptoms	das Symptom	pl=die Symptome
+s_a2_runny_nose	A2	a2_health	n	nuha	snuva	def=snuvan	runny nose / cold	pl=runny noses	der Schnupfen	
+health_7_sore_throat	A2	a2_health	phrase	kurkkukipu	ont i halsen / halsont		sore throat		die Halsschmerzen	
+s_a2_vomit	A2	a2_health	v	oksentaa	kräkas / spy	pres=kräks;pret=kräktes;sup=kräkts	vomit / be sick	past=vomited;pp=vomited	sich übergeben / erbrechen	pret=übergab sich;pp=hat sich übergeben;pres3=übergibt sich
+s_a2_allergic	A2	a2_health	adj	allerginen	allergisk	neut=allergiskt;apl=allergiska	allergic		allergisch	
+s_a2_blood_test	A2	a2_health	n	verikoe	ett blodprov	def=blodprovet;pl=blodprov	blood test	pl=blood tests	die Blutprobe / der Bluttest	pl=die Blutproben
+s_a2_dose	A2	a2_health	n	annos (lääkettä)	en dos	def=dosen;pl=doser	dose	pl=doses	die Dosis	pl=die Dosen
+s_a2_bone	A2	a2_health	n	luu	ett ben	def=benet;pl=ben	bone	pl=bones	der Knochen	pl=die Knochen
+s_a2_breathe	A2	a2_health	v	hengittää	andas	pres=andas;pret=andades;sup=andats	breathe	past=breathed;pp=breathed	atmen	pret=atmete;pp=hat geatmet;pres3=atmet
+s_a2_medical_certificate	A2	a2_health	n	lääkärintodistus	ett läkarintyg	def=läkarintyget;pl=läkarintyg	medical certificate / sick note	pl=medical certificates	das Attest / das ärztliche Attest	pl=die Atteste
+s_a2_i_need_a_doctor	A2	a2_health	phrase	Tarvitsen lääkäriä.	Jag behöver en läkare		I need a doctor		Ich brauche einen Arzt	
+s_a2_rented_flat	A2	a2_housing	n	vuokra-asunto	en hyresrätt / en hyreslägenhet	def=hyresrätten;pl=hyresrätter	rented flat	pl=rented flats	die Mietwohnung	pl=die Mietwohnungen
+s_a2_block_of_flats	A2	a2_housing	n	kerrostalo	ett flerbostadshus / ett lägenhetshus / ett höghus / ett hyreshus	def=flerbostadshuset;pl=flerbostadshus	block of flats	pl=blocks of flats	das Mehrfamilienhaus / der Wohnblock	pl=die Mehrfamilienhäuser
+s_a2_spacious	A2	a2_housing	adj	tilava	rymlig	neut=rymligt;apl=rymliga	spacious / roomy		geräumig	
+s_a2_balcony	A2	a2_housing	n	parveke	en balkong	def=balkongen;pl=balkonger	balcony	pl=balconies	der Balkon	pl=die Balkone
+chores_4_do_the_laundry	A2	a2_housing	v	pestä pyykkiä	tvätta	pres=tvättar;pret=tvättade;sup=tvättat	do the laundry	past=did the laundry;pp=done the laundry	Wäsche waschen	pret=wusch Wäsche;pp=hat Wäsche gewaschen;pres3=wäscht Wäsche
+s_a2_dishes	A2	a2_housing	n	tiskit / likaiset astiat	disk	def=disken	dishes / washing-up	pl=dishes	der Abwasch / das schmutzige Geschirr	
+chores_4_clear_the_snow	A2	a2_housing	v	luoda lunta	skotta snö	pres=skottar snö;pret=skottade snö;sup=skottat snö	clear the snow	past=cleared the snow;pp=cleared the snow	Schnee schippen / Schnee räumen	pret=schippte Schnee;pp=hat Schnee geschippt;pres3=schippt Schnee
+s_a2_pipe	A2	a2_housing	n	putki	ett rör	def=röret;pl=rör	pipe	pl=pipes	das Rohr	pl=die Rohre
+s_a2_mould	A2	a2_housing	n	home (kosteusvaurio)	mögel	def=möglet	mould		der Schimmel	
+s_a2_socket	A2	a2_housing	n	pistorasia	ett eluttag / ett uttag	def=eluttaget;pl=eluttag	socket / power socket	pl=sockets	die Steckdose	pl=die Steckdosen
+cooking_7_boil	A2	a2_cooking	v	keittää / kiehua	koka	pres=kokar;pret=kokade;sup=kokat	boil	past=boiled;pp=boiled	kochen	pret=kochte;pp=hat gekocht;pres3=kocht
+s_a2_grate	A2	a2_cooking	v	raastaa	riva	pres=river;pret=rev;sup=rivit	grate	past=grated;pp=grated	reiben / raspeln	pret=rieb;pp=hat gerieben;pres3=reibt
+s_a2_melt	A2	a2_cooking	v	sulattaa (voita) / sulaa	smälta	pres=smälter;pret=smälte;sup=smält	melt	past=melted;pp=melted	schmelzen	pret=schmolz;pp=hat geschmolzen;pres3=schmilzt
+s_a2_yeast	A2	a2_cooking	n	hiiva	jäst	def=jästen	yeast		die Hefe	
+s_a2_grater	A2	a2_cooking	n	raastin	ett rivjärn	def=rivjärnet;pl=rivjärn	grater	pl=graters	die Reibe	pl=die Reiben
+s_a2_slice	A2	a2_cooking	n	viipale	en skiva	def=skivan;pl=skivor	slice	pl=slices	die Scheibe	pl=die Scheiben
+s_a2_vegan	A2	a2_cooking	adj	vegaaninen	vegansk	neut=veganskt;apl=veganska	vegan		vegan	
+s_a2_a_table_for_two_please	A2	a2_cooking	phrase	Pöytä kahdelle, kiitos.	Ett bord för två, tack		A table for two, please		Einen Tisch für zwei, bitte / Einen Tisch für zwei Personen, bitte	
+s_a2_main_course	A2	a2_cooking	n	pääruoka	en varmrätt / en huvudrätt	def=varmrätten;pl=varmrätter	main course	pl=main courses	das Hauptgericht / der Hauptgang	pl=die Hauptgerichte
+s_a2_takeaway	A2	a2_cooking	n	noutoruoka	hämtmat	def=hämtmaten	takeaway / takeaway food	pl=takeaways	das Essen zum Mitnehmen	
+s_a2_job_search	A2	a2_work	n	työnhaku	jobbsökande / jobbsökning	def=jobbsökandet	job search / job hunting		die Jobsuche / die Arbeitssuche	
+s_a2_applicant	A2	a2_work	n	hakija / työnhakija	en sökande	def=sökanden;pl=sökande	applicant / job applicant	pl=applicants	der Bewerber / die Bewerberin	pl=die Bewerber
+s_a2_earn	A2	a2_work	v	ansaita / tienata	tjäna	pres=tjänar;pret=tjänade;sup=tjänat	earn	past=earned;pp=earned	verdienen	pret=verdiente;pp=hat verdient;pres3=verdient
+s_a2_working_week	A2	a2_work	n	työviikko	en arbetsvecka	def=arbetsveckan;pl=arbetsveckor	working week	pl=working weeks	die Arbeitswoche	pl=die Arbeitswochen
+s_a2_director	A2	a2_work	n	johtaja	en direktör	def=direktören;pl=direktörer	director / manager	pl=directors	der Direktor / die Direktorin / der Leiter	pl=die Direktoren
+s_a2_department	A2	a2_work	n	osasto / osasto (yrityksessä)	en avdelning	def=avdelningen;pl=avdelningar	department	pl=departments	die Abteilung	pl=die Abteilungen
+s_a2_employment_contract	A2	a2_work	n	työsopimus	ett anställningsavtal	def=anställningsavtalet;pl=anställningsavtal	employment contract	pl=employment contracts	der Arbeitsvertrag	pl=die Arbeitsverträge
+s_a2_part_time_job	A2	a2_work	n	osa-aikatyö	ett deltidsjobb	def=deltidsjobbet;pl=deltidsjobb	part-time job	pl=part-time jobs	der Teilzeitjob / die Teilzeitstelle	pl=die Teilzeitjobs
+s_a2_lose_one_s_job	A2	a2_work	v	menettää työpaikkansa	förlora jobbet	pres=förlorar jobbet;pret=förlorade jobbet;sup=förlorat jobbet	lose one's job	past=lost one's job;pp=lost one's job	seinen Job verlieren / seine Arbeit verlieren	pret=verlor seinen Job;pp=hat seinen Job verloren;pres3=verliert seinen Job
+s_a2_unemployment_fund	A2	a2_work	n	työttömyyskassa	en a-kassa / en arbetslöshetskassa	def=a-kassan;pl=a-kassor	unemployment fund	pl=unemployment funds	die Arbeitslosenkasse	pl=die Arbeitslosenkassen
+s_a2_intern	A2	a2_work	n	harjoittelija	en praktikant	def=praktikanten;pl=praktikanter	intern / trainee	pl=interns	der Praktikant / die Praktikantin	pl=die Praktikanten
+s_a2_warehouse	A2	a2_work	n	varasto	ett lager	def=lagret;pl=lager	warehouse / storeroom	pl=warehouses	das Lager	pl=die Lager
+s_a2_cashier	A2	a2_work	n	kassanhoitaja / kassa (henkilö)	en kassör / en kassörska	def=kassören;pl=kassörer	cashier	pl=cashiers	der Kassierer / die Kassiererin	pl=die Kassierer
+work_8_lawyer	A2	a2_work	n	lakimies / juristi / asianajaja	en jurist / en advokat	def=juristen;pl=jurister	lawyer	pl=lawyers	der Jurist / der Rechtsanwalt / der Anwalt	pl=die Juristen
+s_a2_comprehensive_school	A2	a2_education	n	peruskoulu	en grundskola	def=grundskolan;pl=grundskolor	comprehensive school	pl=comprehensive schools	die Gesamtschule	pl=die Gesamtschulen
+s_a2_university_of_applied_sciences	A2	a2_education	n	ammattikorkeakoulu / AMK	en yrkeshögskola	def=yrkeshögskolan;pl=yrkeshögskolor	university of applied sciences	pl=universities of applied sciences	die Fachhochschule	pl=die Fachhochschulen
+s_a2_lecture	A2	a2_education	n	luento	en föreläsning	def=föreläsningen;pl=föreläsningar	lecture	pl=lectures	die Vorlesung	pl=die Vorlesungen
+s_a2_presentation	A2	a2_education	n	esitelmä	ett föredrag / en presentation	def=föredraget;pl=föredrag	presentation / talk	pl=presentations	das Referat / der Vortrag / die Präsentation	pl=die Referate
+education_9_mark	A2	a2_education	n	arvosana	ett betyg	def=betyget;pl=betyg	mark	pl=marks	die Note	pl=die Noten
+s_a2_beginner	A2	a2_education	n	aloittelija / vasta-alkaja	en nybörjare	def=nybörjaren;pl=nybörjare	beginner	pl=beginners	der Anfänger / die Anfängerin	pl=die Anfänger
+s_a2_grammar	A2	a2_education	n	kielioppi	grammatik	def=grammatiken	grammar		die Grammatik	pl=die Grammatiken
+s_a2_verb	A2	a2_education	n	verbi	ett verb	def=verbet;pl=verb	verb	pl=verbs	das Verb	pl=die Verben
+s_a2_how_do_you_say_in_swedish	A2	a2_education	phrase	miten sanotaan ... ruotsiksi?	hur säger man ... på svenska		how do you say ... in Swedish?		wie sagt man ... auf Schwedisch?	
+s_a2_voicemail	A2	a2_communication	n	vastaaja / puhelinvastaaja	en röstbrevlåda / en telefonsvarare	def=röstbrevlådan;pl=röstbrevlådor	voicemail / answering machine	pl=voicemails	die Mailbox / der Anrufbeantworter	pl=die Mailboxen
+technology_message	A2	a2_communication	n	viesti	ett meddelande	def=meddelandet;pl=meddelanden	message	pl=messages	die Nachricht	pl=die Nachrichten
+s_a2_notification	A2	a2_communication	n	ilmoitus (puhelimessa)	en notis	def=notisen;pl=notiser	notification	pl=notifications	die Benachrichtigung / die Mitteilung	pl=die Benachrichtigungen
+s_a2_take_a_picture	A2	a2_communication	v	ottaa kuva	ta en bild / ta ett foto	pres=tar en bild;pret=tog en bild;sup=tagit en bild	take a picture / take a photo	past=took a picture;pp=taken a picture	ein Foto machen / ein Bild machen	pret=machte ein Foto;pp=hat ein Foto gemacht;pres3=macht ein Foto
+s_a2_button	A2	a2_communication	n	nappi / painike	en knapp	def=knappen;pl=knappar	button	pl=buttons	der Knopf / die Taste	pl=die Knöpfe
+s_a2_browser	A2	a2_communication	n	selain	en webbläsare	def=webbläsaren;pl=webbläsare	browser / web browser	pl=browsers	der Browser	pl=die Browser
+s_a2_install	A2	a2_communication	v	asentaa	installera	pres=installerar;pret=installerade;sup=installerat	install	past=installed;pp=installed	installieren	pret=installierte;pp=hat installiert;pres3=installiert
+money_7_save	A2	a2_communication	v	tallentaa (tiedosto) / säästää (rahaa)	spara	pres=sparar;pret=sparade;sup=sparat	save	past=saved;pp=saved	speichern / sparen	pret=speicherte;pp=hat gespeichert;pres3=speichert
+s_a2_profile	A2	a2_communication	n	profiili	en profil	def=profilen;pl=profiler	profile	pl=profiles	das Profil	pl=die Profile
+s_a2_feel	A2	a2_feelings	v	tuntea itsensä (joksikin) / tuntea olonsa (joksikin)	känna sig	pres=känner sig;pret=kände sig;sup=känt sig	feel	past=felt;pp=felt	sich fühlen	pret=fühlte sich;pp=hat sich gefühlt;pres3=fühlt sich
+s_a2_happy	A2	a2_feelings	adj	onnellinen	lycklig	neut=lyckligt;apl=lyckliga	happy		glücklich	
+adj_4_angry	A2	a2_feelings	adj	vihainen	arg	neut=argt;apl=arga	angry		wütend / böse	
+myself_scared	A2	a2_feelings	adj	peloissaan / pelästynyt / pelokas	rädd	apl=rädda	scared		ängstlich	
+general_4_worry	A2	a2_feelings	n	huoli	oro	def=oron	worry	pl=worries	die Sorge	pl=die Sorgen
+feelings_surprised	A2	a2_feelings	adj	yllättynyt	överraskad / förvånad	neut=överraskat;apl=överraskade	surprised		überrascht	
+opinions_8_grateful	A2	a2_feelings	adj	kiitollinen	tacksam	neut=tacksamt;apl=tacksamma	grateful		dankbar	
+feelings_jealous	A2	a2_feelings	adj	kateellinen	avundsjuk	neut=avundsjukt;apl=avundsjuka	jealous		eifersüchtig / neidisch	
+s_a2_homesickness	A2	a2_feelings	n	koti-ikävä	hemlängtan	def=hemlängtan	homesickness		das Heimweh	
+s_a2_what_a_pity	A2	a2_feelings	phrase	harmi! / sääli!	vad synd / synd		what a pity / what a shame / pity / shame		wie schade / schade	
+s_a2_think	A2	a2_feelings	v	olla jotakin mieltä / minusta (mielipide)	tycka	pres=tycker;pret=tyckte;sup=tyckt	think	past=thought;pp=thought	finden / meinen	pret=fand;pp=hat gefunden;pres3=findet
+s_a2_it_doesn_t_matter	A2	a2_feelings	phrase	sillä ei ole väliä / ihan sama	det spelar ingen roll		it doesn't matter / it makes no difference		das spielt keine Rolle / das ist egal	
+s_a2_friendship	A2	a2_relationships	n	ystävyys	vänskap / en vänskap	def=vänskapen;pl=vänskaper	friendship	pl=friendships	die Freundschaft	pl=die Freundschaften
+s_a2_fall_in_love	A2	a2_relationships	v	rakastua	bli kär	pres=blir kär;pret=blev kär;sup=blivit kär	fall in love	past=fell in love;pp=fallen in love	sich verlieben	pret=verliebte sich;pp=hat sich verliebt;pres3=verliebt sich
+s_a2_hug_2	A2	a2_relationships	n	halaus	en kram	def=kramen;pl=kramar	hug	pl=hugs	die Umarmung	pl=die Umarmungen
+culture_8_wedding	A2	a2_relationships	n	häät	ett bröllop	def=bröllopet;pl=bröllop	wedding	pl=weddings	die Hochzeit	pl=die Hochzeiten
+s_a2_break_up	A2	a2_relationships	v	erota (seurustelukumppanista) / erota (parisuhteesta) / lopettaa suhde	göra slut	pres=gör slut;pret=gjorde slut;sup=gjort slut	break up / split up	past=broke up;pp=broken up	Schluss machen / sich trennen	pret=machte Schluss;pp=hat Schluss gemacht;pres3=macht Schluss
+s_a2_invitation	A2	a2_relationships	n	kutsu	en inbjudan	def=inbjudan;pl=inbjudningar	invitation	pl=invitations	die Einladung	pl=die Einladungen
+s_a2_birthday_party	A2	a2_relationships	n	syntymäpäiväjuhlat	en födelsedagsfest / ett födelsedagskalas	def=födelsedagsfesten;pl=födelsedagsfester	birthday party	pl=birthday parties	die Geburtstagsfeier / die Geburtstagsparty	pl=die Geburtstagsfeiern
+calendar_4_new_year_s_eve	A2	a2_relationships	n	uudenvuodenaatto	nyårsafton	def=nyårsaftonen;pl=nyårsaftnar	New Year's Eve		das Silvester / der Silvesterabend	
+s_a2_mother_s_day	A2	a2_relationships	n	äitienpäivä	mors dag / morsdag	def=mors dag	Mother's Day		der Muttertag	pl=die Muttertage
+animals_cat	A2	a2_nature	n	kissa	en katt	def=katten;pl=katter	cat	pl=cats	die Katze	pl=die Katzen
+animals_4_goat	A2	a2_nature	n	vuohi	en get	def=geten;pl=getter	goat	pl=goats	die Ziege	pl=die Ziegen
+animals_4_bear	A2	a2_nature	n	karhu	en björn	def=björnen;pl=björnar	bear	pl=bears	der Bär	pl=die Bären
+s_a2_hare	A2	a2_nature	n	jänis	en hare	def=haren;pl=harar	hare	pl=hares	der Hase	pl=die Hasen
+s_a2_insect	A2	a2_nature	n	hyönteinen	en insekt	def=insekten;pl=insekter	insect	pl=insects	das Insekt	pl=die Insekten
+s_a2_butterfly	A2	a2_nature	n	perhonen	en fjäril	def=fjärilen;pl=fjärilar	butterfly	pl=butterflies	der Schmetterling	pl=die Schmetterlinge
+s_a2_birch	A2	a2_nature	n	koivu	en björk	def=björken;pl=björkar	birch	pl=birches	die Birke	pl=die Birken
+s_a2_pick_berries	A2	a2_nature	v	marjastaa / poimia marjoja	plocka bär	pres=plockar bär;pret=plockade bär;sup=plockat bär	pick berries	past=picked berries;pp=picked berries	Beeren pflücken / Beeren sammeln	pret=pflückte Beeren;pp=hat Beeren gepflückt;pres3=pflückt Beeren
+nature_4_hill	A2	a2_nature	n	mäki / kukkula	en backe / en kulle	def=backen;pl=backar	hill	pl=hills	der Hügel	pl=die Hügel
+verbs2_4_hike	A2	a2_nature	v	vaeltaa / patikoida	vandra	pres=vandrar;pret=vandrade;sup=vandrat	hike	past=hiked;pp=hiked	wandern	pret=wanderte;pp=ist gewandert;pres3=wandert
+s_a2_hunt	A2	a2_nature	v	metsästää	jaga	pres=jagar;pret=jagade;sup=jagat	hunt	past=hunted;pp=hunted	jagen	pret=jagte;pp=hat gejagt;pres3=jagt
+sports_4_goalkeeper	A2	a2_culture_sport	n	maalivahti	en målvakt	def=målvakten;pl=målvakter	goalkeeper	pl=goalkeepers	der Torwart / der Torhüter	pl=die Torwarte
+s_a2_spectator	A2	a2_culture_sport	n	katsoja (yleisö, esim. ottelussa)	en åskådare	def=åskådaren;pl=åskådare	spectator	pl=spectators	der Zuschauer / die Zuschauerin	pl=die Zuschauer
+sports_events_8_draw	A2	a2_culture_sport	adv	tasapeli	oavgjort		draw		das Unentschieden / unentschieden	
+free_time_7_competition	A2	a2_culture_sport	n	kilpailu	en tävling / konkurrens	def=tävlingen;pl=tävlingar	competition	pl=competitions	der Wettbewerb / der Wettkampf	pl=die Wettbewerbe
+places_4_stadium	A2	a2_culture_sport	n	stadion	en arena / ett stadion	def=arenan;pl=arenor	stadium	pl=stadiums	das Stadion	pl=die Stadien
+s_a2_golf	A2	a2_culture_sport	n	golf	golf	def=golfen	golf		das Golf	
+culture_8_theatre	A2	a2_culture_sport	n	teatteri	en teater	def=teatern;pl=teatrar	theatre	pl=theatres	das Theater	pl=die Theater
+s_a2_exhibition	A2	a2_culture_sport	n	näyttely	en utställning	def=utställningen;pl=utställningar	exhibition	pl=exhibitions	die Ausstellung	pl=die Ausstellungen
+s_a2_crime_novel	A2	a2_culture_sport	n	dekkari / salapoliisiromaani	en deckare	def=deckaren;pl=deckare	crime novel / detective story	pl=crime novels	der Krimi / der Kriminalroman	pl=die Krimis
+s_a2_tv_series	A2	a2_culture_sport	n	tv-sarja / sarja	en tv-serie	def=tv-serien;pl=tv-serier	TV series / series	pl=TV series	die Fernsehserie / die Serie	pl=die Fernsehserien
+s_a2_bring_along	A2	a2_verbs	v	ottaa mukaan / tuoda mukanaan	ta med	pres=tar med;pret=tog med;sup=tagit med	bring along / take along / bring	past=brought along;pp=brought along	mitnehmen / mitbringen	pret=nahm mit;pp=hat mitgenommen;pres3=nimmt mit
+money_7_borrow	A2	a2_verbs	v	lainata (joltakulta)	låna	pres=lånar;pret=lånade;sup=lånat	borrow	past=borrowed;pp=borrowed	ausleihen / sich leihen	pret=lieh aus;pp=hat ausgeliehen;pres3=leiht aus
+s_a2_drop	A2	a2_verbs	v	pudottaa / hukata	tappa	pres=tappar;pret=tappade;sup=tappat	drop / lose	past=dropped;pp=dropped	fallen lassen / verlieren	pret=ließ fallen;pp=hat fallen lassen;pres3=lässt fallen
+s_a2_notice	A2	a2_verbs	v	huomata / huomata (panna merkille)	märka / lägga märke till	pres=märker;pret=märkte;sup=märkt	notice	past=noticed;pp=noticed	bemerken / merken	pret=bemerkte;pp=hat bemerkt;pres3=bemerkt
+verbs2_4_promise	A2	a2_verbs	v	luvata	lova	pres=lovar;pret=lovade;sup=lovat	promise	past=promised;pp=promised	versprechen	pret=versprach;pp=hat versprochen;pres3=verspricht
+s_a2_dare	A2	a2_verbs	v	uskaltaa	våga	pres=vågar;pret=vågade;sup=vågat	dare	past=dared;pp=dared	wagen / sich trauen	pret=wagte;pp=hat gewagt;pres3=wagt
+s_a2_compare	A2	a2_verbs	v	verrata	jämföra	pres=jämför;pret=jämförde;sup=jämfört	compare	past=compared;pp=compared	vergleichen	pret=verglich;pp=hat verglichen;pres3=vergleicht
+verbs2_4_weigh	A2	a2_verbs	v	painaa (painoltaan) / punnita	väga	pres=väger;pret=vägde;sup=vägt	weigh	past=weighed;pp=weighed	wiegen	pret=wog;pp=hat gewogen;pres3=wiegt
+s_a2_care_about	A2	a2_verbs	v	välittää (jostakin)	bry sig om	pres=bryr sig om;pret=brydde sig om;sup=brytt sig om	care about	past=cared about;pp=cared about	sich kümmern um / sich interessieren für	pret=kümmerte sich um;pp=hat sich gekümmert um;pres3=kümmert sich um
+verbs2_4_create	A2	a2_verbs	v	luoda	skapa	pres=skapar;pret=skapade;sup=skapat	create	past=created;pp=created	schaffen / erschaffen / kreieren	pret=schuf;pp=hat geschaffen;pres3=schafft
+s_a2_lie	A2	a2_verbs	v	valehdella	ljuga	pres=ljuger;pret=ljög;sup=ljugit	lie / tell lies	past=lied;pp=lied	lügen	pret=log;pp=hat gelogen;pres3=lügt
+s_a2_cancel_2	A2	a2_verbs	v	perua / peruuttaa / perua (tapahtuma)	ställa in	pres=ställer in;pret=ställde in;sup=ställt in	cancel / call off	past=cancelled;pp=cancelled	absagen / stornieren	pret=sagte ab;pp=hat abgesagt;pres3=sagt ab
+s_a2_before_conj	A2	a2_adverbs	conj	ennen kuin	innan		before		bevor	
+little_4_if	A2	a2_adverbs	conj	jos	om		if		wenn / falls	
+time_4_suddenly	A2	a2_adverbs	adv	yhtäkkiä / äkkiä	plötsligt		suddenly		plötzlich	
+little_4_at_least	A2	a2_adverbs	adv	ainakin	åtminstone		at least		zumindest / wenigstens / mindestens	
+s_a2_even	A2	a2_adverbs	adv	jopa	till och med		even		sogar	
+s_a2_on_purpose	A2	a2_adverbs	adv	tahallaan	med flit / med avsikt		on purpose / deliberately		absichtlich / mit Absicht	
+s_a2_at_the_same_time	A2	a2_adverbs	adv	samaan aikaan	samtidigt		at the same time		gleichzeitig	
+s_a2_but_rather	A2	a2_adverbs	conj	vaan (ei tätä vaan tuota)	utan		but		sondern	
+connectors_9_possible	A2	a2_describe	adj	mahdollinen	möjlig	neut=möjligt;apl=möjliga	possible		möglich	
+s_a2_busy	A2	a2_describe	adj	kiireinen / varattu	upptagen	neut=upptaget;apl=upptagna	busy / engaged		beschäftigt / besetzt	
+s_a2_messy	A2	a2_describe	adj	sotkuinen	stökig	neut=stökigt;apl=stökiga	messy / untidy		unordentlich	
+s_a2_old_fashioned	A2	a2_describe	adj	vanhanaikainen	gammaldags / omodern	neut=gammaldags;apl=gammaldags	old-fashioned		altmodisch	
+s_a2_real	A2	a2_describe	adj	todellinen / aito	riktig / verklig	neut=riktigt;apl=riktiga	real / genuine		echt / wirklich	
+s_a2_round	A2	a2_describe	adj	pyöreä	rund	neut=runt;apl=runda	round		rund	
+adj_4_careful	A2	a2_describe	adj	varovainen	försiktig	neut=försiktigt;apl=försiktiga	careful		vorsichtig	
+s_a2_unusual	A2	a2_describe	adj	harvinainen / epätavallinen	ovanlig / sällsynt	neut=ovanligt;apl=ovanliga	rare / unusual		selten / ungewöhnlich	
+s_a2_certain	A2	a2_describe	adj	tietty	viss	neut=visst;apl=vissa	certain		bestimmt / gewiss	
+society_9_parliament	B1	b1_society	n	eduskunta / parlamentti	en riksdag / ett parlament	def=riksdagen;pl=riksdagar	parliament	pl=parliaments	das Parlament	pl=die Parlamente
+s_b1_parliamentary_election	B1	b1_society	n	eduskuntavaalit	ett riksdagsval	def=riksdagsvalet;pl=riksdagsval	parliamentary election / general election	pl=parliamentary elections	die Parlamentswahl	pl=die Parlamentswahlen
+s_b1_be_elected	B1	b1_society	phrase	tulla valituksi	bli vald		be elected		gewählt werden	
+s_b1_political	B1	b1_society	adj	poliittinen	politisk	neut=politiskt;apl=politiska	political		politisch	
+s_b1_pay_tax	B1	b1_society	phrase	maksaa veroa	betala skatt		pay tax / pay taxes		Steuern zahlen	
+s_b1_housing_allowance	B1	b1_society	n	asumistuki	ett bostadsbidrag	def=bostadsbidraget;pl=bostadsbidrag	housing allowance / housing benefit	pl=housing allowances	das Wohngeld	
+s_b1_equal	B1	b1_society	adj	tasa-arvoinen	jämställd / jämlik	neut=jämställt;apl=jämställda	equal		gleichberechtigt / gleich	
+s_b1_power	B1	b1_society	n	valta	makt	def=makten	power	pl=powers	die Macht	pl=die Mächte
+s_b1_conservative	B1	b1_society	adj	konservatiivinen	konservativ	neut=konservativt;apl=konservativa	conservative		konservativ	
+s_b1_administration	B1	b1_society	n	hallinto	en förvaltning	def=förvaltningen;pl=förvaltningar	administration	pl=administrations	die Verwaltung	pl=die Verwaltungen
+s_b1_member_state	B1	b1_society	n	jäsenvaltio	en medlemsstat / ett medlemsland	def=medlemsstaten;pl=medlemsstater	member state	pl=member states	der Mitgliedstaat / das Mitgliedsland	pl=die Mitgliedstaaten
+s_b1_seek_asylum	B1	b1_society	phrase	hakea turvapaikkaa	söka asyl		seek asylum / apply for asylum		Asyl beantragen / um Asyl bitten	
+s_b1_demonstrate	B1	b1_society	v	osoittaa mieltä	demonstrera	pres=demonstrerar;pret=demonstrerade;sup=demonstrerat	demonstrate / protest	past=demonstrated;pp=demonstrated	demonstrieren	pret=demonstrierte;pp=hat demonstriert;pres3=demonstriert
+s_b1_economic	B1	b1_economy	adj	taloudellinen	ekonomisk	neut=ekonomiskt;apl=ekonomiska	economic / financial		wirtschaftlich / finanziell	
+s_b1_interest	B1	b1_economy	n	korko	en ränta	def=räntan;pl=räntor	interest		die Zinsen / der Zins	pl=die Zinsen
+s_b1_pay_the_bills	B1	b1_economy	phrase	maksaa laskut	betala räkningar / betala räkningarna		pay the bills		die Rechnungen bezahlen	
+s_b1_stock_exchange	B1	b1_economy	n	pörssi	en börs	def=börsen;pl=börser	stock exchange	pl=stock exchanges	die Börse	pl=die Börsen
+s_b1_the_price_falls	B1	b1_economy	phrase	hinta laskee	priset sjunker		the price falls / the price goes down		der Preis sinkt / der Preis fällt	
+s_b1_offer	B1	b1_economy	n	tarjous (kaupassa)	ett erbjudande / ett extrapris	def=erbjudandet;pl=erbjudanden	offer / special offer	pl=offers	das Angebot / das Sonderangebot	pl=die Angebote
+s_b1_guarantee	B1	b1_economy	n	takuu	en garanti	def=garantin;pl=garantier	guarantee / warranty	pl=guarantees	die Garantie	pl=die Garantien
+s_b1_demand	B1	b1_economy	n	kysyntä	efterfrågan	def=efterfrågan	demand		die Nachfrage	
+s_b1_recession	B1	b1_economy	n	taantuma / lama	en lågkonjunktur / en recession	def=lågkonjunkturen;pl=lågkonjunkturer	recession	pl=recessions	die Rezession	pl=die Rezessionen
+s_b1_import	B1	b1_economy	n	tuonti	import	def=importen	import	pl=imports	der Import / die Einfuhr	pl=die Importe
+s_b1_finance	B1	b1_economy	v	rahoittaa	finansiera	pres=finansierar;pret=finansierade;sup=finansierat	finance / fund	past=financed;pp=financed	finanzieren	pret=finanzierte;pp=hat finanziert;pres3=finanziert
+s_b1_poverty	B1	b1_economy	n	köyhyys	fattigdom	def=fattigdomen	poverty		die Armut	
+s_b1_qualification	B1	b1_career	n	pätevyys (muodollinen kelpoisuus)	en behörighet	def=behörigheten;pl=behörigheter	qualification / eligibility	pl=qualifications	die Qualifikation / die Befähigung	pl=die Qualifikationen
+s_b1_work_experience	B1	b1_career	n	työkokemus	en arbetslivserfarenhet / en arbetserfarenhet	def=arbetslivserfarenheten;pl=arbetslivserfarenheter	work experience		die Berufserfahrung	
+s_b1_permanent_job	B1	b1_career	phrase	vakituinen työpaikka	en fast anställning / ett fast jobb / en tillsvidareanställning		permanent job		die Festanstellung / die feste Stelle	
+s_b1_promotion	B1	b1_career	n	ylennys	en befordran	def=befordran;pl=befordringar	promotion	pl=promotions	die Beförderung	pl=die Beförderungen
+s_b1_trade_union	B1	b1_career	n	ammattiliitto	ett fackförbund / facket	def=fackförbundet;pl=fackförbund	trade union / union	pl=trade unions	die Gewerkschaft	pl=die Gewerkschaften
+s_b1_work_from_home	B1	b1_career	phrase	tehdä etätöitä	jobba hemifrån / arbeta på distans / jobba på distans / arbeta hemifrån		work from home / work remotely		im Homeoffice arbeiten / von zu Hause arbeiten / von zu Hause aus arbeiten	
+s_b1_mentor	B1	b1_career	n	mentori	en mentor	def=mentorn;pl=mentorer	mentor	pl=mentors	der Mentor / die Mentorin	pl=die Mentoren
+s_b1_ambitious	B1	b1_career	adj	kunnianhimoinen	ambitiös	neut=ambitiöst;apl=ambitiösa	ambitious		ehrgeizig / ambitioniert	
+s_b1_start_a_company	B1	b1_career	phrase	perustaa yritys	starta ett företag / starta företag / grunda ett företag		start a company / set up a company / start a business		ein Unternehmen gründen / eine Firma gründen	
+environment_8_climate	B1	b1_environment	n	ilmasto	ett klimat	def=klimatet;pl=klimat	climate	pl=climates	das Klima	pl=die Klimate
+sustainability_9_carbon_footprint	B1	b1_environment	n	hiilijalanjälki	ett klimatavtryck / ett koldioxidavtryck	def=klimatavtrycket;pl=klimatavtryck	carbon footprint	pl=carbon footprints	der CO2-Fußabdruck / der ökologische Fußabdruck	pl=die CO2-Fußabdrücke
+s_b1_recycling	B1	b1_environment	n	kierrätys	återvinning	def=återvinningen	recycling		das Recycling	
+s_b1_food_waste	B1	b1_environment	n	biojäte	matavfall	def=matavfallet	food waste / biowaste		der Biomüll / die Lebensmittelabfälle	
+s_b1_litter	B1	b1_environment	v	roskata	skräpa ner	pres=skräpar ner;pret=skräpade ner;sup=skräpat ner	litter / drop litter	past=littered;pp=littered	Müll liegen lassen / Müll wegwerfen	pret=ließ Müll liegen;pp=hat Müll liegen lassen;pres3=lässt Müll liegen
+s_b1_solar_energy	B1	b1_environment	n	aurinkoenergia	solenergi	def=solenergin	solar energy / solar power		die Solarenergie / die Sonnenenergie	
+s_b1_power_plant	B1	b1_environment	n	voimalaitos	ett kraftverk	def=kraftverket;pl=kraftverk	power station / power plant	pl=power stations	das Kraftwerk	pl=die Kraftwerke
+s_b1_eutrophication	B1	b1_environment	n	rehevöityminen	övergödning	def=övergödningen	eutrophication		die Eutrophierung / die Überdüngung	
+s_b1_organic	B1	b1_environment	adj	luomu- / ekologinen	ekologisk	neut=ekologiskt;apl=ekologiska	organic		Bio- / biologisch / ökologisch	
+s_b1_die_out	B1	b1_environment	v	kuolla sukupuuttoon	dö ut	pres=dör ut;pret=dog ut;sup=dött ut	die out / become extinct	past=died out;pp=died out	aussterben	pret=starb aus;pp=ist ausgestorben;pres3=stirbt aus
+s_b1_forest_fire	B1	b1_environment	n	metsäpalo	en skogsbrand	def=skogsbranden;pl=skogsbränder	forest fire / wildfire	pl=forest fires	der Waldbrand	pl=die Waldbrände
+s_b1_science	B1	b1_science_tech	n	tiede	en vetenskap	def=vetenskapen;pl=vetenskaper	science	pl=sciences	die Wissenschaft	pl=die Wissenschaften
+s_b1_professor	B1	b1_science_tech	n	professori	en professor	def=professorn;pl=professorer	professor	pl=professors	der Professor / die Professorin	pl=die Professoren
+s_b1_measurement	B1	b1_science_tech	n	mittaus	en mätning	def=mätningen;pl=mätningar	measurement	pl=measurements	die Messung	pl=die Messungen
+s_b1_phenomenon	B1	b1_science_tech	n	ilmiö	ett fenomen	def=fenomenet;pl=fenomen	phenomenon	pl=phenomena	das Phänomen	pl=die Phänomene
+science_9_discover	B1	b1_science_tech	v	löytää (jotain uutta) / havaita	upptäcka	pres=upptäcker;pret=upptäckte;sup=upptäckt	discover	past=discovered;pp=discovered	entdecken	pret=entdeckte;pp=hat entdeckt;pres3=entdeckt
+s_b1_innovation	B1	b1_science_tech	n	innovaatio	en innovation	def=innovationen;pl=innovationer	innovation	pl=innovations	die Innovation	pl=die Innovationen
+s_b1_automatic	B1	b1_science_tech	adj	automaattinen	automatisk	neut=automatiskt;apl=automatiska	automatic		automatisch	
+school_4_robot	B1	b1_science_tech	n	robotti	en robot	def=roboten;pl=robotar	robot	pl=robots	der Roboter	pl=die Roboter
+school_4_coding	B1	b1_science_tech	n	ohjelmointi / koodaus	programmering	def=programmeringen	coding		das Programmieren	
+s_b1_cloud_service	B1	b1_science_tech	n	pilvipalvelu	en molntjänst	def=molntjänsten;pl=molntjänster	cloud service	pl=cloud services	der Clouddienst / der Cloud-Dienst	pl=die Clouddienste
+s_b1_chatbot	B1	b1_science_tech	n	keskustelurobotti / chatbot	en chattbot / en chattrobot	def=chattboten;pl=chattbotar	chatbot	pl=chatbots	der Chatbot	pl=die Chatbots
+school_4_front_page	B1	b1_media	n	etusivu	en förstasida	def=förstasidan;pl=förstasidor	front page	pl=front pages	die Titelseite / die Startseite	pl=die Titelseiten
+s_b1_report_2	B1	b1_media	n	reportaasi	ett reportage	def=reportaget;pl=reportage	report / feature	pl=reports	die Reportage	pl=die Reportagen
+s_b1_editor_in_chief	B1	b1_media	n	päätoimittaja	en chefredaktör	def=chefredaktören;pl=chefredaktörer	editor-in-chief	pl=editors-in-chief	der Chefredakteur / die Chefredakteurin	pl=die Chefredakteure
+s_b1_reader	B1	b1_media	n	lukija	en läsare	def=läsaren;pl=läsare	reader	pl=readers	der Leser / die Leserin	pl=die Leser
+s_b1_public_service_media	B1	b1_media	phrase	julkisen palvelun media	public service		public service media / public service broadcasting		die öffentlich-rechtlichen Medien / der öffentlich-rechtliche Rundfunk	
+media_8_post	B1	b1_media	n	julkaisu (somessa) / päivitys	ett inlägg	def=inlägget;pl=inlägg	post	pl=posts	der Beitrag / der Post	pl=die Beiträge
+s_b1_fake_news	B1	b1_media	n	valeuutinen	en falsk nyhet / fake news	def=den falska nyheten;pl=falska nyheter	fake news / false news story		die Falschmeldung / die Fake News	pl=die Falschmeldungen
+s_b1_freedom_of_the_press	B1	b1_media	n	lehdistönvapaus	pressfrihet / tryckfrihet	def=pressfriheten	freedom of the press / press freedom		die Pressefreiheit	
+people_4_writer	B1	b1_culture	n	kirjailija / kirjoittaja	en författare	def=författaren;pl=författare	writer	pl=writers	der Schriftsteller / die Schriftstellerin / der Autor / die Autorin	pl=die Schriftsteller
+s_b1_holiday	B1	b1_culture	n	juhlapyhä / juhla (vuotuinen)	en högtid	def=högtiden;pl=högtider	holiday / public holiday / festival	pl=holidays	der Feiertag / das Fest	pl=die Feiertage
+s_b1_work	B1	b1_culture	n	teos	ett verk	def=verket;pl=verk	work / work of art	pl=works	das Werk	pl=die Werke
+koe1_4_ballet	B1	b1_culture	n	baletti	en balett	def=baletten;pl=baletter	ballet	pl=ballets	das Ballett	pl=die Ballette
+s_b1_plot	B1	b1_culture	n	juoni	en handling	def=handlingen;pl=handlingar	plot	pl=plots	die Handlung	pl=die Handlungen
+s_b1_handicraft	B1	b1_culture	n	käsityö (taito)	ett hantverk	def=hantverket;pl=hantverk	handicraft / craft	pl=handicrafts	das Kunsthandwerk / die Handarbeit	
+s_b1_historical	B1	b1_culture	adj	historiallinen	historisk	neut=historiskt;apl=historiska	historical		historisch / geschichtlich	
+s_b1_century	B1	b1_culture	n	vuosisata	ett århundrade / ett sekel	def=århundradet;pl=århundraden	century	pl=centuries	das Jahrhundert	pl=die Jahrhunderte
+s_b1_mosque	B1	b1_culture	n	moskeija	en moské	def=moskén;pl=moskéer	mosque	pl=mosques	die Moschee	pl=die Moscheen
+s_b1_pray	B1	b1_culture	v	rukoilla	be	pres=ber;pret=bad;sup=bett	pray	past=prayed;pp=prayed	beten	pret=betete;pp=hat gebetet;pres3=betet
+s_b1_fitness	B1	b1_wellbeing	n	kunto (fyysinen)	kondition	def=konditionen	fitness / condition		die Kondition / die Fitness	
+s_b1_vitamin	B1	b1_wellbeing	n	vitamiini	ett vitamin	def=vitaminet;pl=vitaminer	vitamin	pl=vitamins	das Vitamin	pl=die Vitamine
+s_b1_gain_weight	B1	b1_wellbeing	v	lihoa	gå upp i vikt	pres=går upp i vikt;pret=gick upp i vikt;sup=gått upp i vikt	gain weight / put on weight	past=gained weight;pp=gained weight	zunehmen	pret=nahm zu;pp=hat zugenommen;pres3=nimmt zu
+sustainability_9_lifestyle	B1	b1_wellbeing	n	elämäntapa	en livsstil	def=livsstilen;pl=livsstilar	lifestyle	pl=lifestyles	der Lebensstil / die Lebensweise	pl=die Lebensstile
+s_b1_meditate	B1	b1_wellbeing	v	meditoida	meditera	pres=mediterar;pret=mediterade;sup=mediterat	meditate	past=meditated;pp=meditated	meditieren	pret=meditierte;pp=hat meditiert;pres3=meditiert
+s_b1_loneliness	B1	b1_wellbeing	n	yksinäisyys	ensamhet	def=ensamheten	loneliness		die Einsamkeit	
+s_b1_vaccinate	B1	b1_wellbeing	v	rokottaa	vaccinera	pres=vaccinerar;pret=vaccinerade;sup=vaccinerat	vaccinate	past=vaccinated;pp=vaccinated	impfen	pret=impfte;pp=hat geimpft;pres3=impft
+s_b1_recovery	B1	b1_wellbeing	n	toipuminen	återhämtning	def=återhämtningen	recovery		die Erholung / die Genesung	
+s_b1_infect	B1	b1_wellbeing	v	tartuttaa	smitta	pres=smittar;pret=smittade;sup=smittat	infect	past=infected;pp=infected	anstecken / infizieren	pret=steckte an;pp=hat angesteckt;pres3=steckt an
+s_b1_alcohol	B1	b1_wellbeing	n	alkoholi	alkohol	def=alkoholen	alcohol		der Alkohol	
+s_b1_court	B1	b1_law	n	tuomioistuin / oikeus (instituutio)	en domstol	def=domstolen;pl=domstolar	court / court of law	pl=courts	das Gericht	pl=die Gerichte
+s_b1_steal	B1	b1_law	v	varastaa	stjäla	pres=stjäl;pret=stal;sup=stulit	steal	past=stole;pp=stolen	stehlen	pret=stahl;pp=hat gestohlen;pres3=stiehlt
+s_b1_murder	B1	b1_law	n	murha	ett mord	def=mordet;pl=mord	murder	pl=murders	der Mord	pl=die Morde
+s_b1_threaten	B1	b1_law	v	uhata	hota	pres=hotar;pret=hotade;sup=hotat	threaten	past=threatened;pp=threatened	drohen / bedrohen	pret=drohte;pp=hat gedroht;pres3=droht
+s_b1_prosecutor	B1	b1_law	n	syyttäjä	en åklagare	def=åklagaren;pl=åklagare	prosecutor	pl=prosecutors	der Staatsanwalt / die Staatsanwältin	pl=die Staatsanwälte
+s_b1_suspect	B1	b1_law	v	epäillä (rikoksesta)	misstänka	pres=misstänker;pret=misstänkte;sup=misstänkt	suspect	past=suspected;pp=suspected	verdächtigen	pret=verdächtigte;pp=hat verdächtigt;pres3=verdächtigt
+s_b1_police_report	B1	b1_law	n	rikosilmoitus	en polisanmälan	def=polisanmälan;pl=polisanmälningar	police report	pl=police reports	die Anzeige / die Strafanzeige	pl=die Anzeigen
+s_b1_illegal	B1	b1_law	adj	laiton	olaglig	neut=olagligt;apl=olagliga	illegal		illegal / gesetzwidrig	
+s_b1_emergency	B1	b1_law	n	hätätilanne	en nödsituation	def=nödsituationen;pl=nödsituationer	emergency	pl=emergencies	der Notfall / die Notlage	pl=die Notfälle
+s_b1_first_aid	B1	b1_law	n	ensiapu	första hjälpen	def=första hjälpen	first aid		die Erste Hilfe	
+s_b1_be_born	B1	b1_life	v	syntyä	födas	pres=föds;pret=föddes;sup=fötts	be born	past=was born;pp=been born	geboren werden / zur Welt kommen	pret=wurde geboren;pp=ist geboren worden;pres3=wird geboren
+s_b1_become_an_adult	B1	b1_life	v	aikuistua	bli vuxen	pres=blir vuxen;pret=blev vuxen;sup=blivit vuxen	become an adult / grow up	past=became an adult;pp=become an adult	erwachsen werden	pret=wurde erwachsen;pp=ist erwachsen geworden;pres3=wird erwachsen
+s_b1_age	B1	b1_life	v	ikääntyä / vanheta	åldras	pres=åldras;pret=åldrades;sup=åldrats	age / grow old / get older	past=aged;pp=aged	altern / älter werden	pret=alterte;pp=ist gealtert;pres3=altert
+s_b1_bring_up	B1	b1_life	v	kasvattaa (lasta)	uppfostra	pres=uppfostrar;pret=uppfostrade;sup=uppfostrat	bring up / raise	past=brought up;pp=brought up	erziehen / großziehen	pret=erzog;pp=hat erzogen;pres3=erzieht
+s_b1_confirmation	B1	b1_life	n	rippijuhla / konfirmaatio	en konfirmation	def=konfirmationen;pl=konfirmationer	confirmation	pl=confirmations	die Konfirmation	pl=die Konfirmationen
+relationships_7_trust	B1	b1_life	n	luottamus	ett förtroende / tillit	def=förtroendet;pl=förtroenden	trust		das Vertrauen	
+s_b1_remember	B1	b1_life	v	muistella / muistaa	minnas	pres=minns;pret=mindes;sup=mints	remember / reminisce	past=remembered;pp=remembered	sich erinnern / zurückdenken	pret=erinnerte sich;pp=hat sich erinnert;pres3=erinnert sich
+verbs2_4_bury	B1	b1_life	v	haudata	begrava	pres=begraver;pret=begravde;sup=begravt	bury	past=buried;pp=buried	begraben / beerdigen	pret=begrub;pp=hat begraben;pres3=begräbt
+s_b1_on_the_other_hand	B1	b1_opinions	phrase	toisaalta	å andra sidan		on the other hand		andererseits / auf der anderen Seite	
+s_b1_justify	B1	b1_opinions	v	perustella	motivera / argumentera för	pres=motiverar;pret=motiverade;sup=motiverat	justify / give reasons for	past=justified;pp=justified	begründen	pret=begründete;pp=hat begründet;pres3=begründet
+s_b1_convinced	B1	b1_opinions	adj	vakuuttunut	övertygad	neut=övertygat;apl=övertygade	convinced		überzeugt	
+s_b1_position_stance	B1	b1_opinions	n	kanta	en ståndpunkt	def=ståndpunkten;pl=ståndpunkter	position / stance / standpoint	pl=positions	der Standpunkt / die Haltung	pl=die Standpunkte
+s_b1_doubt	B1	b1_opinions	v	epäillä (olla epävarma)	tvivla	pres=tvivlar;pret=tvivlade;sup=tvivlat	doubt	past=doubted;pp=doubted	zweifeln / bezweifeln	pret=zweifelte;pp=hat gezweifelt;pres3=zweifelt
+s_b1_state	B1	b1_opinions	v	todeta	konstatera	pres=konstaterar;pret=konstaterade;sup=konstaterat	state / note	past=stated;pp=stated	feststellen	pret=stellte fest;pp=hat festgestellt;pres3=stellt fest
+s_b1_may_i_say_something	B1	b1_opinions	phrase	saanko sanoa jotain?	får jag säga något		may I say something? / can I say something?		darf ich etwas sagen?	
+s_b1_prejudice	B1	b1_opinions	n	ennakkoluulo	en fördom	def=fördomen;pl=fördomar	prejudice	pl=prejudices	das Vorurteil	pl=die Vorurteile
+s_b1_the_most_important_thing_is_th	B1	b1_opinions	phrase	tärkeintä on, että	det viktigaste är att		the most important thing is that		das Wichtigste ist, dass	
+s_b1_consequence	B1	b1_abstract	n	seuraus	en konsekvens / en följd	def=konsekvensen;pl=konsekvenser	consequence	pl=consequences	die Folge / die Konsequenz	pl=die Folgen
+s_b1_meaning	B1	b1_abstract	n	merkitys	en betydelse	def=betydelsen;pl=betydelser	meaning / significance	pl=meanings	die Bedeutung	pl=die Bedeutungen
+s_b1_information	B1	b1_abstract	n	tieto (informaatio)	information	def=informationen	information		die Information	pl=die Informationen
+s_b1_disadvantage	B1	b1_abstract	n	haitta	en nackdel	def=nackdelen;pl=nackdelar	disadvantage / drawback	pl=disadvantages	der Nachteil	pl=die Nachteile
+s_b1_value	B1	b1_abstract	n	arvo	ett värde	def=värdet;pl=värden	value	pl=values	der Wert	pl=die Werte
+s_b1_system	B1	b1_abstract	n	järjestelmä	ett system	def=systemet;pl=system	system	pl=systems	das System	pl=die Systeme
+s_b1_attention	B1	b1_abstract	n	huomio	uppmärksamhet	def=uppmärksamheten	attention		die Aufmerksamkeit	
+general_4_rule	B1	b1_abstract	n	sääntö	en regel	def=regeln;pl=regler	rule	pl=rules	die Regel	pl=die Regeln
+s_b1_opportunity	B1	b1_abstract	n	tilaisuus	ett tillfälle	def=tillfället;pl=tillfällen	opportunity / occasion	pl=opportunities	die Gelegenheit	pl=die Gelegenheiten
+s_b1_doubt_2	B1	b1_abstract	n	epäilys	ett tvivel	def=tvivlet;pl=tvivel	doubt	pl=doubts	der Zweifel	pl=die Zweifel
+s_b1_detail	B1	b1_abstract	n	yksityiskohta	en detalj	def=detaljen;pl=detaljer	detail	pl=details	das Detail / die Einzelheit	pl=die Details
+s_b1_description	B1	b1_abstract	n	kuvaus	en beskrivning	def=beskrivningen;pl=beskrivningar	description	pl=descriptions	die Beschreibung	pl=die Beschreibungen
+s_b1_opposite	B1	b1_abstract	n	vastakohta	en motsats	def=motsatsen;pl=motsatser	opposite	pl=opposites	das Gegenteil	pl=die Gegenteile
+s_b1_likely	B1	b1_abstract	adj	todennäköinen	sannolik / trolig	neut=sannolikt;apl=sannolika	likely / probable		wahrscheinlich	
+s_b1_effective	B1	b1_abstract	adj	tehokas	effektiv	neut=effektivt;apl=effektiva	effective / efficient		effektiv / wirksam / effizient	
+phrasal_9_come_up_with	B1	b1_verbs	v	keksiä (idea)	komma på	pres=kommer på;pret=kom på;sup=kommit på	come up with	past=came up with;pp=come up with	sich ausdenken / auf etwas kommen	pret=dachte sich aus;pp=hat sich ausgedacht;pres3=denkt sich aus
+s_b1_give_in	B1	b1_verbs	v	antaa periksi (taipua)	ge efter	pres=ger efter;pret=gav efter;sup=gett efter	give in	past=gave in;pp=given in	nachgeben	pret=gab nach;pp=hat nachgegeben;pres3=gibt nach
+s_b1_move_on	B1	b1_verbs	v	jatkaa eteenpäin	gå vidare	pres=går vidare;pret=gick vidare;sup=gått vidare	move on	past=moved on;pp=moved on	weitermachen / weitergehen	pret=machte weiter;pp=hat weitergemacht;pres3=macht weiter
+s_b1_get_hold_of	B1	b1_verbs	v	saada käsiinsä / tavoittaa	få tag på / få tag i	pres=får tag på;pret=fick tag på;sup=fått tag på	get hold of	past=got hold of;pp=got hold of	auftreiben / erreichen	pret=trieb auf;pp=hat aufgetrieben;pres3=treibt auf
+s_b1_take_responsibility	B1	b1_verbs	v	ottaa vastuu	ta ansvar	pres=tar ansvar;pret=tog ansvar;sup=tagit ansvar	take responsibility	past=took responsibility;pp=taken responsibility	Verantwortung übernehmen	pret=übernahm Verantwortung;pp=hat Verantwortung übernommen;pres3=übernimmt Verantwortung
+s_b1_think_over	B1	b1_verbs	v	harkita / miettiä tarkkaan	tänka över	pres=tänker över;pret=tänkte över;sup=tänkt över	think over / consider	past=thought over;pp=thought over	überlegen / sich überlegen	pret=überlegte;pp=hat überlegt;pres3=überlegt
+s_b1_cope_with	B1	b1_verbs	v	suoriutua (jostakin)	klara av	pres=klarar av;pret=klarade av;sup=klarat av	cope with / manage	past=coped with;pp=coped with	bewältigen / schaffen	pret=bewältigte;pp=hat bewältigt;pres3=bewältigt
+s_b1_refrain_from	B1	b1_verbs	v	jättää tekemättä	låta bli	pres=låter bli;pret=lät bli;sup=låtit bli	refrain from / not do	past=refrained from;pp=refrained from	unterlassen / bleiben lassen / es lassen	pret=unterließ;pp=hat unterlassen;pres3=unterlässt
+s_b1_regret	B1	b1_verbs	v	katua	ångra	pres=ångrar;pret=ångrade;sup=ångrat	regret	past=regretted;pp=regretted	bereuen	pret=bereute;pp=hat bereut;pres3=bereut
+s_b1_expect	B1	b1_verbs	v	odottaa (olettaa)	förvänta sig	pres=förväntar sig;pret=förväntade sig;sup=förväntat sig	expect	past=expected;pp=expected	erwarten	pret=erwartete;pp=hat erwartet;pres3=erwartet
+s_b1_worsen	B1	b1_verbs	v	huonontaa	försämra	pres=försämrar;pret=försämrade;sup=försämrat	worsen / make worse	past=worsened;pp=worsened	verschlechtern	pret=verschlechterte;pp=hat verschlechtert;pres3=verschlechtert
+s_b1_carry_out	B1	b1_verbs	v	toteuttaa	genomföra	pres=genomför;pret=genomförde;sup=genomfört	carry out / implement	past=carried out;pp=carried out	durchführen / umsetzen	pret=führte durch;pp=hat durchgeführt;pres3=führt durch
+s_b1_lose	B1	b1_verbs	v	menettää	förlora / mista	pres=förlorar;pret=förlorade;sup=förlorat	lose	past=lost;pp=lost	verlieren	pret=verlor;pp=hat verloren;pres3=verliert
+s_b1_solve	B1	b1_verbs	v	ratkaista (ongelma)	lösa	pres=löser;pret=löste;sup=löst	solve	past=solved;pp=solved	lösen	pret=löste;pp=hat gelöst;pres3=löst
+s_b1_motivate	B1	b1_verbs	v	motivoida	motivera	pres=motiverar;pret=motiverade;sup=motiverat	motivate	past=motivated;pp=motivated	motivieren	pret=motivierte;pp=hat motiviert;pres3=motiviert
+s_b1_react	B1	b1_verbs	v	reagoida	reagera	pres=reagerar;pret=reagerade;sup=reagerat	react	past=reacted;pp=reacted	reagieren	pret=reagierte;pp=hat reagiert;pres3=reagiert
+s_b1_inform	B1	b1_verbs	v	ilmoittaa (tiedottaa)	meddela	pres=meddelar;pret=meddelade;sup=meddelat	inform / notify	past=informed;pp=informed	mitteilen / informieren / benachrichtigen	pret=teilte mit;pp=hat mitgeteilt;pres3=teilt mit
+s_b1_spend	B1	b1_verbs	v	viettää (aikaa)	tillbringa	pres=tillbringar;pret=tillbringade;sup=tillbringat	spend	past=spent;pp=spent	verbringen	pret=verbrachte;pp=hat verbracht;pres3=verbringt
+s_b1_to_begin_with	B1	b1_connectors	adv	aluksi	till att börja med / inledningsvis / till en början		to begin with / at first / initially		zunächst / anfangs / zu Beginn	
+connectors_9_however	B1	b1_connectors	adv	kuitenkin	dock / emellertid		however		jedoch / allerdings	
+s_b1_even_if	B1	b1_connectors	conj	vaikka (jopa jos)	även om		even if		auch wenn / selbst wenn	
+s_b1_as_a_result_of	B1	b1_connectors	prep	jonkin seurauksena	till följd av / som en följd av		as a result of		infolge / als Folge von	
+s_b1_in_the_same_way	B1	b1_connectors	adv	samalla tavalla	på samma sätt		in the same way		auf die gleiche Weise / genauso	
+s_b1_mainly	B1	b1_connectors	adv	pääasiassa / lähinnä	huvudsakligen / främst		mainly		hauptsächlich / vor allem	
+s_b1_provided_that	B1	b1_connectors	conj	edellyttäen että	förutsatt att		provided that / providing that		vorausgesetzt, dass / sofern	
+s_b1_in_general	B1	b1_connectors	adv	yleisesti ottaen	i allmänhet / generellt sett		in general / generally		im Allgemeinen / allgemein	
+s_b1_the_nordic_countries	B1	b1_finland_nordic	n	Pohjoismaat	Norden / de nordiska länderna	def=Norden	the Nordic countries		die nordischen Länder / der Norden	
+s_b1_wellbeing_services_county	B1	b1_finland_nordic	n	hyvinvointialue	ett välfärdsområde	def=välfärdsområdet;pl=välfärdsområden	wellbeing services county	pl=wellbeing services counties	der Wohlfahrtsbezirk	pl=die Wohlfahrtsbezirke
+s_b1_compulsory_swedish	B1	b1_finland_nordic	phrase	pakollinen ruotsi	obligatorisk svenska		compulsory Swedish		Pflichtschwedisch / obligatorisches Schwedisch	
+s_b1_sami	B1	b1_finland_nordic	n	saamelainen	en same	def=samen;pl=samer	Sami	pl=Sami	der Same / die Samin	pl=die Samen
+s_b1_lapland	B1	b1_finland_nordic	n	Lappi	Lappland	def=Lappland	Lapland		Lappland	
+s_b1_take_a_sauna	B1	b1_finland_nordic	v	saunoa	basta / bada bastu	pres=bastar;pret=bastade;sup=bastat	have a sauna / take a sauna	past=had a sauna;pp=had a sauna	in die Sauna gehen / saunieren	pret=ging in die Sauna;pp=ist in die Sauna gegangen;pres3=geht in die Sauna
+s_b1_conscription	B1	b1_finland_nordic	n	asevelvollisuus	värnplikt	def=värnplikten	conscription / compulsory military service / national service		die Wehrpflicht	

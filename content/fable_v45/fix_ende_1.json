@@ -1,0 +1,289 @@
+[
+ {
+  "id": "school_4_letter_kirje",
+  "field": "en_text",
+  "old": "letter (kirje)",
+  "new": "letter",
+  "reason": "vastauksessa oli suomenkielinen sulkutarkenne; oppija ei voi kirjoittaa sitä"
+ },
+ {
+  "id": "weekdays_tuesday",
+  "field": "de_text",
+  "old": "Dienstag",
+  "new": "der Dienstag / Dienstag",
+  "reason": "saksan substantiivilta puuttui artikkeli (vrt. der Juni)"
+ },
+ {
+  "id": "money_7_change",
+  "field": "de_text",
+  "old": "das Wechselgeld / das Kleingeld",
+  "new": "das Wechselgeld / das Rückgeld",
+  "reason": "Kleingeld = pikkuraha/kolikot, ei vaihtoraha; Rückgeld on oikea synonyymi"
+ },
+ {
+  "id": "feelings_jealous",
+  "field": "de_text",
+  "old": "eifersüchtig / neidisch",
+  "new": "neidisch / eifersüchtig",
+  "reason": "kateellinen = neidisch; eifersüchtig on ensisijaisesti mustasukkainen"
+ },
+ {
+  "id": "feelings_jealous",
+  "field": "en_text",
+  "old": "jealous",
+  "new": "jealous / envious",
+  "reason": "kateellinen = myös envious"
+ },
+ {
+  "id": "s_a2_care_about",
+  "field": "de_infl",
+  "old": "pret=kümmerte sich um;pp=hat sich gekümmert um;pres3=kümmert sich um",
+  "new": "pret=kümmerte sich um;pp=hat sich um ... gekümmert;pres3=kümmert sich um",
+  "reason": "perfektin sanajärjestys: prepositio ei tule partisiipin jälkeen"
+ },
+ {
+  "id": "s_b1_eutrophication",
+  "field": "taso",
+  "old": "B1",
+  "new": "B2",
+  "reason": "erikoistermi, selvästi B1-tasoa vaativampi"
+ },
+ {
+  "id": "greetings_phrases_hello",
+  "field": "en_text",
+  "old": "hello",
+  "new": "hello / hi",
+  "reason": "kehotteessa moi/hei; hi on hyvin yleinen vastaus"
+ },
+ {
+  "id": "greetings_phrases_see_you_later",
+  "field": "en_text",
+  "old": "see you later",
+  "new": "see you later / see you",
+  "reason": "kehotteen synonyymi \"nähdään\" = see you"
+ },
+ {
+  "id": "greetings_phrases_see_you_later",
+  "field": "de_text",
+  "old": "bis später",
+  "new": "bis später / bis dann",
+  "reason": "kehotteen synonyymi \"nähdään\" = bis dann"
+ },
+ {
+  "id": "s_a1_yes_please",
+  "field": "en_text",
+  "old": "yes, please",
+  "new": "yes, please / yes please",
+  "reason": "pilkuton muoto on yleinen; sisäinen pilkku ei saa kaataa vastausta"
+ },
+ {
+  "id": "s_a1_have_a_nice_day",
+  "field": "en_text",
+  "old": "have a nice day",
+  "new": "have a nice day / have a good day",
+  "reason": "yleinen vaihtoehto"
+ },
+ {
+  "id": "s_a1_per_cent",
+  "field": "en_text",
+  "old": "per cent",
+  "new": "per cent / percent",
+  "reason": "yhteen kirjoitettu muoto on hyvin yleinen"
+ },
+ {
+  "id": "family_grandma",
+  "field": "de_text",
+  "old": "die Großmutter",
+  "new": "die Großmutter / die Oma",
+  "reason": "kehotteessa mummo/mummi = Oma"
+ },
+ {
+  "id": "people_4_human",
+  "field": "en_text",
+  "old": "human",
+  "new": "human / human being / person",
+  "reason": "ihminen = yleisimmin person / human being"
+ },
+ {
+  "id": "appearance_long_hair",
+  "field": "de_text",
+  "old": "lange Haare",
+  "new": "lange Haare / langes Haar",
+  "reason": "yleinen yksikkömuotoinen vaihtoehto"
+ },
+ {
+  "id": "home_4_television",
+  "field": "en_text",
+  "old": "television",
+  "new": "television / TV",
+  "reason": "kehotteessa TV; hyvin yleinen vastaus"
+ },
+ {
+  "id": "s_a1_yoghurt",
+  "field": "en_text",
+  "old": "yoghurt",
+  "new": "yoghurt / yogurt",
+  "reason": "molemmat kirjoitusasut käytössä brittienglannissa"
+ },
+ {
+  "id": "s_a1_wash_oneself",
+  "field": "en_text",
+  "old": "wash / have a wash",
+  "new": "wash / have a wash / wash oneself",
+  "reason": "oppija kirjoittaa todennäköisesti refleksiivimuodon"
+ },
+ {
+  "id": "s_a1_clean",
+  "field": "en_text",
+  "old": "clean / tidy",
+  "new": "clean / tidy / tidy up / clean up",
+  "reason": "siivota = yleisesti tidy up / clean up"
+ },
+ {
+  "id": "verbs_action_watch_tv",
+  "field": "en_text",
+  "old": "watch television",
+  "new": "watch television / watch TV",
+  "reason": "watch TV on yleisin muoto"
+ },
+ {
+  "id": "s_a1_self",
+  "field": "en_text",
+  "old": "oneself / myself / yourself / themselves",
+  "new": "oneself / myself / yourself / himself / herself / themselves",
+  "reason": "himself/herself puuttuivat, vaikka muut persoonat hyväksytään"
+ },
+ {
+  "id": "opposites_easy",
+  "field": "de_text",
+  "old": "einfach",
+  "new": "einfach / leicht",
+  "reason": "leicht on yhtä yleinen vastine"
+ },
+ {
+  "id": "travel_journey",
+  "field": "en_text",
+  "old": "journey",
+  "new": "journey / trip",
+  "reason": "matka = hyvin usein trip"
+ },
+ {
+  "id": "travel_luggage",
+  "field": "en_text",
+  "old": "luggage",
+  "new": "luggage / baggage",
+  "reason": "yleinen synonyymi"
+ },
+ {
+  "id": "s_a2_ask_the_way",
+  "field": "en_text",
+  "old": "ask the way",
+  "new": "ask the way / ask for directions",
+  "reason": "yleisin luonteva ilmaus"
+ },
+ {
+  "id": "s_a2_balance",
+  "field": "de_text",
+  "old": "der Kontostand / das Guthaben",
+  "new": "der Kontostand / der Saldo / das Guthaben",
+  "reason": "suora vastine der Saldo puuttui"
+ },
+ {
+  "id": "s_a2_vomit",
+  "field": "en_text",
+  "old": "vomit / be sick",
+  "new": "vomit / be sick / throw up",
+  "reason": "hyvin yleinen puhekielinen vaihtoehto"
+ },
+ {
+  "id": "chores_4_do_the_laundry",
+  "field": "en_text",
+  "old": "do the laundry",
+  "new": "do the laundry / do the washing",
+  "reason": "brittienglannin tavallisin ilmaus"
+ },
+ {
+  "id": "chores_4_clear_the_snow",
+  "field": "en_text",
+  "old": "clear the snow",
+  "new": "clear the snow / shovel snow / shovel the snow",
+  "reason": "luoda lunta = shovel snow"
+ },
+ {
+  "id": "education_9_mark",
+  "field": "en_text",
+  "old": "mark",
+  "new": "mark / grade",
+  "reason": "grade on hyvin yleinen vastaus"
+ },
+ {
+  "id": "myself_scared",
+  "field": "en_text",
+  "old": "scared",
+  "new": "scared / afraid / frightened",
+  "reason": "yleiset synonyymit"
+ },
+ {
+  "id": "calendar_4_new_year_s_eve",
+  "field": "de_text",
+  "old": "das Silvester / der Silvesterabend",
+  "new": "das Silvester / Silvester / der Silvesterabend",
+  "reason": "Silvester käytetään yleensä ilman artikkelia"
+ },
+ {
+  "id": "money_7_borrow",
+  "field": "de_text",
+  "old": "ausleihen / sich leihen",
+  "new": "ausleihen / sich leihen / leihen / sich ausleihen",
+  "reason": "yleiset muodot puuttuivat"
+ },
+ {
+  "id": "s_a2_but_rather",
+  "field": "en_text",
+  "old": "but",
+  "new": "but / but rather",
+  "reason": "vaan = but rather; erottaa mutta-sanasta"
+ },
+ {
+  "id": "s_b1_work_experience",
+  "field": "de_text",
+  "old": "die Berufserfahrung",
+  "new": "die Berufserfahrung / die Arbeitserfahrung",
+  "reason": "sananmukainen yleinen vaihtoehto"
+ },
+ {
+  "id": "s_b1_food_waste",
+  "field": "en_text",
+  "old": "food waste / biowaste",
+  "new": "food waste / biowaste / organic waste",
+  "reason": "biojäte = yleisesti organic waste"
+ },
+ {
+  "id": "school_4_coding",
+  "field": "en_text",
+  "old": "coding",
+  "new": "coding / programming",
+  "reason": "kehotteen päämuoto ohjelmointi = programming"
+ },
+ {
+  "id": "school_4_coding",
+  "field": "de_text",
+  "old": "das Programmieren",
+  "new": "das Programmieren / die Programmierung",
+  "reason": "yleinen vaihtoehto"
+ },
+ {
+  "id": "s_b1_opportunity",
+  "field": "en_text",
+  "old": "opportunity / occasion",
+  "new": "opportunity / occasion / chance",
+  "reason": "tilaisuus = usein chance"
+ },
+ {
+  "id": "s_b1_the_nordic_countries",
+  "field": "en_text",
+  "old": "the Nordic countries",
+  "new": "the Nordic countries / Nordic countries",
+  "reason": "englannin substantiivit muuten ilman artikkelia; hyväksy myös artikkeliton"
+ }
+]

@@ -1,0 +1,89 @@
+topic	level	sv	fi	alt
+a1_greetings	A1	Hej, hur mår du?	Hei, mitä kuuluu?	Hej, hur är det?
+a1_greetings	A1	Jag mår bra, tack. Och du?	Voin hyvin, kiitos. Entä sinä?	Bra, tack. Och du?
+a1_greetings	A1	Trevligt att träffas!	Hauska tavata!	Kul att träffas!
+a1_greetings	A1	Ursäkta, kan du hjälpa mig?	Anteeksi, voitko auttaa minua?	Förlåt, kan du hjälpa mig?
+a1_greetings	A1	Jag förstår inte. Vad betyder det här?	En ymmärrä. Mitä tämä tarkoittaa?	
+a1_greetings	A1	Tack så mycket för hjälpen!	Kiitos paljon avusta!	Stort tack för hjälpen!
+a1_greetings	A1	Vi ses i morgon. Ha det bra!	Nähdään huomenna. Pärjäile!	Vi ses imorgon. Ha det bra!
+a1_greetings	A1	Lycka till i morgon!	Onnea huomiseen!	Lycka till imorgon!
+a1_body	A1	Jag har ont i huvudet.	Minulla on päänsärkyä.	Jag har huvudvärk.
+a1_body	A1	Jag har ont i ryggen.	Selkääni sattuu.	Ryggen gör ont. || Det gör ont i ryggen.
+a1_body	A1	Jag är trött i dag.	Olen väsynyt tänään.	Jag är trött idag. || I dag är jag trött. || Idag är jag trött.
+a1_body	A1	Hon är sjuk och stannar hemma.	Hän on sairas ja jää kotiin.	
+a1_body	A1	Jag måste gå till läkaren.	Minun täytyy mennä lääkäriin.	Jag måste gå till en läkare. || Jag måste gå till doktorn.
+a1_body	A1	Ta en tablett två gånger om dagen.	Ota yksi tabletti kaksi kertaa päivässä.	Ta en tablett två gånger per dag.
+a1_body	A1	Finns det ett apotek här i närheten?	Onko täällä lähellä apteekkia?	Finns det ett apotek i närheten?
+a1_body	A1	Krya på dig!	Parane pian!	
+a1_free_time	A1	Jag tycker om musik.	Pidän musiikista.	
+a1_free_time	A1	På fritiden läser jag mycket.	Vapaa-ajallani luen paljon.	Jag läser mycket på fritiden.
+a1_free_time	A1	Vi spelar innebandy på torsdagar.	Pelaamme salibandya torstaisin.	På torsdagar spelar vi innebandy.
+a1_free_time	A1	Han springer fem kilometer varje morgon.	Hän juoksee viisi kilometriä joka aamu.	Varje morgon springer han fem kilometer.
+a1_free_time	A1	Ska vi gå på bio i kväll?	Mennäänkö elokuviin tänä iltana?	Ska vi gå på bio ikväll?
+a1_free_time	A1	Min dotter spelar gitarr.	Tyttäreni soittaa kitaraa.	
+a1_free_time	A1	Jag tycker att fotboll är tråkigt.	Minusta jalkapallo on tylsää.	Jag tycker fotboll är tråkigt.
+a1_free_time	A1	Vi träffar vänner på lördag.	Tapaamme ystäviä lauantaina.	På lördag träffar vi vänner. || Vi träffar kompisar på lördag.
+a2_travel	A2	Vi har bokat ett dubbelrum på hotellet.	Olemme varanneet hotellista kahden hengen huoneen.	
+a2_travel	A2	Flyget var försenat i två timmar.	Lento oli kaksi tuntia myöhässä.	Flyget var två timmar försenat.
+a2_travel	A2	När vi kom fram var receptionen redan stängd.	Kun pääsimme perille, vastaanotto oli jo kiinni.	När vi var framme var receptionen redan stängd.
+a2_travel	A2	Förra sommaren reste vi till Italien.	Viime kesänä matkustimme Italiaan.	Vi reste till Italien förra sommaren. || I somras reste vi till Italien. || Vi reste till Italien i somras.
+a2_travel	A2	Kan du bekräfta bokningen via e-post?	Voitko vahvistaa varauksen sähköpostitse?	Kan du bekräfta bokningen per e-post? || Kan ni bekräfta bokningen via e-post?
+a2_travel	A2	Planet lyfte först efter midnatt.	Kone nousi ilmaan vasta puolenyön jälkeen.	Flyget lyfte först efter midnatt.
+a2_travel	A2	Jag beställde väckning klockan sex.	Tilasin herätyksen kello kuudeksi.	Jag beställde en väckning klockan sex.
+a2_travel	A2	Glöm inte att växla pengar innan du åker.	Älä unohda vaihtaa rahaa ennen kuin lähdet.	Glöm inte att växla pengar innan du reser. || Glöm inte växla pengar innan du åker.
+a2_work	A2	Hon har fått jobb på ett lager.	Hän on saanut työpaikan varastosta.	Hon har fått ett jobb på ett lager.
+a2_work	A2	Jag skickade min ansökan i förra veckan.	Lähetin hakemukseni viime viikolla.	Jag skickade in min ansökan i förra veckan. || I förra veckan skickade jag min ansökan.
+a2_work	A2	Chefen sa att projektet var klart.	Esihenkilö sanoi, että projekti oli valmis.	Chefen sade att projektet var klart. || Chefen sa att projektet var färdigt.
+a2_work	A2	Han har jobbat skift i tio år.	Hän on tehnyt vuorotyötä kymmenen vuotta.	Han har arbetat skift i tio år.
+a2_work	A2	Firman anställde fem nya personer i våras.	Yritys palkkasi keväällä viisi uutta ihmistä.	Företaget anställde fem nya personer i våras. || I våras anställde firman fem nya personer. || I våras anställde företaget fem nya personer.
+a2_work	A2	Min pappa är pensionerad sedan förra året.	Isäni on ollut eläkkeellä viime vuodesta asti.	Min far är pensionerad sedan förra året. || Min pappa är pensionär sedan förra året.
+a2_work	A2	Jag är ledig på fredag eftersom jag har jobbat mycket.	Olen vapaalla perjantaina, koska olen tehnyt paljon töitä.	Jag är ledig på fredag eftersom jag har arbetat mycket. || På fredag är jag ledig eftersom jag har jobbat mycket.
+a2_work	A2	Fick du någon feedback efter intervjun?	Saitko mitään palautetta haastattelun jälkeen?	Fick du någon återkoppling efter intervjun?
+a2_culture_sport	A2	Vårt lag vann matchen i går.	Joukkueemme voitti ottelun eilen.	Vårt lag vann matchen igår. || I går vann vårt lag matchen. || Igår vann vårt lag matchen.
+a2_culture_sport	A2	Han gjorde två mål i första perioden.	Hän teki kaksi maalia ensimmäisessä erässä.	Han gjorde två mål i den första perioden.
+a2_culture_sport	A2	Har du sett den nya tv-serien?	Oletko nähnyt sen uuden tv-sarjan?	
+a2_culture_sport	A2	Jag läser nyheterna varje morgon innan jag går till jobbet.	Luen uutiset joka aamu ennen kuin lähden töihin.	Varje morgon läser jag nyheterna innan jag går till jobbet. || Jag läser nyheterna varje morgon innan jag åker till jobbet.
+a2_culture_sport	A2	Utställningen på museet var mycket intressant.	Museon näyttely oli hyvin kiinnostava.	Utställningen på museet var väldigt intressant.
+a2_culture_sport	A2	Publiken var nöjd efter föreställningen.	Yleisö oli tyytyväinen esityksen jälkeen.	Efter föreställningen var publiken nöjd.
+a2_culture_sport	A2	Han har hållit på med golf i många år.	Hän on harrastanut golfia monta vuotta.	Han har spelat golf i många år.
+a2_culture_sport	A2	Efter förlusten var spelarna besvikna.	Tappion jälkeen pelaajat olivat pettyneitä.	Spelarna var besvikna efter förlusten.
+b1_career	B1	Efter tio år i samma bransch ville hon prova något nytt.	Kymmenen vuoden jälkeen samalla alalla hän halusi kokeilla jotain uutta.	Efter tio år i samma bransch ville hon testa något nytt. || Hon ville prova något nytt efter tio år i samma bransch.
+b1_career	B1	Jag tror att ett bra kontaktnät är viktigare än en masterexamen.	Uskon, että hyvä kontaktiverkosto on tärkeämpi kuin maisterin tutkinto.	Jag tror att ett bra nätverk är viktigare än en masterexamen.
+b1_career	B1	Hon startade ett eget företag eftersom hon inte trivdes som anställd.	Hän perusti oman yrityksen, koska hän ei viihtynyt työntekijänä.	Hon startade ett eget företag för att hon inte trivdes som anställd. || Hon startade eget företag eftersom hon inte trivdes som anställd.
+b1_career	B1	Ledningen har bestämt att alla avdelningar ska samarbeta mer.	Johto on päättänyt, että kaikkien osastojen pitää tehdä enemmän yhteistyötä.	Ledningen har beslutat att alla avdelningar ska samarbeta mer.
+b1_career	B1	Det är krävande att leda ett team som aldrig har jobbat ihop.	On vaativaa johtaa tiimiä, joka ei ole koskaan tehnyt töitä yhdessä.	Det är krävande att leda ett team som aldrig har arbetat tillsammans. || Det är krävande att leda ett team som aldrig har jobbat tillsammans.
+b1_career	B1	Min chef sa att min presentation var den bästa på mötet.	Esihenkilöni sanoi, että esitykseni oli kokouksen paras.	Min chef sade att min presentation var den bästa på mötet. || Min chef sa att min presentation var bäst på mötet.
+b1_career	B1	Om man vill byta bransch behöver man ofta utbilda sig igen.	Jos haluaa vaihtaa alaa, täytyy usein kouluttautua uudelleen.	Om man vill byta bransch måste man ofta utbilda sig igen. || Vill man byta bransch behöver man ofta utbilda sig igen.
+b1_career	B1	Facket förhandlar med arbetsgivaren för att undvika en strejk.	Ammattiliitto neuvottelee työnantajan kanssa välttääkseen lakon.	Facket förhandlar med arbetsgivaren för att slippa en strejk.
+b1_law	B1	Polisen misstänker att inbrottet skedde under natten.	Poliisi epäilee, että murto tapahtui yön aikana.	Polisen misstänker att inbrottet hände under natten.
+b1_law	B1	Om man ser en olycka ska man ringa 112.	Jos näkee onnettomuuden, pitää soittaa numeroon 112.	Om man ser en olycka måste man ringa 112. || Ser man en olycka ska man ringa 112.
+b1_law	B1	Hon anmälde brottet till polisen dagen efter.	Hän ilmoitti rikoksesta poliisille seuraavana päivänä.	Dagen efter anmälde hon brottet till polisen.
+b1_law	B1	Jag tycker inte att straffet var rättvist.	Minusta rangaistus ei ollut oikeudenmukainen.	Jag tycker att straffet inte var rättvist.
+b1_law	B1	Mannen dömdes till fängelse eftersom han hade använt våld.	Mies tuomittiin vankeuteen, koska hän oli käyttänyt väkivaltaa.	Mannen dömdes till fängelse för att han hade använt våld.
+b1_law	B1	Vittnet berättade att hon inte hade sett angriparen.	Todistaja kertoi, ettei hän ollut nähnyt hyökkääjää.	Vittnet sa att hon inte hade sett angriparen.
+b1_law	B1	Alla har rätt till en advokat, även den som är skyldig.	Kaikilla on oikeus asianajajaan, myös sillä, joka on syyllinen.	Alla har rätt till en advokat, också den som är skyldig.
+b1_law	B1	Brandmännen räddade två personer ur det brinnande huset.	Palomiehet pelastivat kaksi ihmistä palavasta talosta.	Brandmännen räddade två personer från det brinnande huset. || Brandmännen räddade två människor ur det brinnande huset.
+b1_finland_nordic	B1	I Finland finns det två officiella språk, finska och svenska.	Suomessa on kaksi virallista kieltä, suomi ja ruotsi.	Finland har två officiella språk, finska och svenska.
+b1_finland_nordic	B1	Debatten om obligatorisk svenska har pågått i många år.	Keskustelu pakollisesta ruotsista on jatkunut monta vuotta.	Diskussionen om obligatorisk svenska har pågått i många år.
+b1_finland_nordic	B1	Åland är självstyrt och nästan helt svenskspråkigt.	Ahvenanmaa on itsehallinnollinen ja lähes täysin ruotsinkielinen.	Åland är självstyrande och nästan helt svenskspråkigt.
+b1_finland_nordic	B1	Efter studentexamen gör många unga män sin värnplikt.	Ylioppilastutkinnon jälkeen monet nuoret miehet suorittavat asepalveluksensa.	Många unga män gör sin värnplikt efter studentexamen.
+b1_finland_nordic	B1	Min farfar berättade ofta om vinterkriget när jag var liten.	Isoisäni kertoi usein talvisodasta, kun olin pieni.	Min morfar berättade ofta om vinterkriget när jag var liten.
+b1_finland_nordic	B1	Skogsindustrin har länge varit viktig för Finlands ekonomi.	Metsäteollisuus on pitkään ollut tärkeä Suomen taloudelle.	Skogsindustrin har varit viktig för Finlands ekonomi länge.
+b1_finland_nordic	B1	På midsommar tänder man bål runt om i Finland.	Juhannuksena poltetaan kokkoja ympäri Suomea.	På midsommar tänder man bål i hela Finland. || Under midsommar tänder man bål runt om i Finland.
+b1_finland_nordic	B1	Det sägs att sisu är något typiskt finskt som är svårt att översätta.	Sanotaan, että sisu on jotain tyypillisen suomalaista, jota on vaikea kääntää.	Man säger att sisu är något typiskt finskt som är svårt att översätta.
+b2_culture	B2	Om filmen hade fått mer synlighet skulle den ha blivit en succé.	Jos elokuva olisi saanut enemmän näkyvyyttä, siitä olisi tullut menestys.	Om filmen hade fått större synlighet skulle den ha blivit en succé. || Hade filmen fått mer synlighet skulle den ha blivit en succé. || Om filmen hade fått mer synlighet hade den blivit en succé.
+b2_culture	B2	Den nya upplagan av romanen har redigerats av författarens dotter.	Romaanin uuden painoksen on toimittanut kirjailijan tytär.	Författarens dotter har redigerat den nya upplagan av romanen.
+b2_culture	B2	Juryn ansåg att kollektionen bröt mot flera tabun inom modevärlden.	Tuomaristo katsoi, että mallisto rikkoi useita muotimaailman tabuja.	Juryn tyckte att kollektionen bröt mot flera tabun inom modevärlden. || Juryn ansåg att kollektionen bröt mot flera tabun i modevärlden.
+b2_culture	B2	Trailern orsakade rabalder redan innan serien hade premiär.	Traileri aiheutti kohua jo ennen kuin sarjalla oli ensi-ilta.	Trailern väckte rabalder redan innan serien hade premiär. || Trailern orsakade ett rabalder redan innan serien hade premiär.
+b2_culture	B2	Upphovsmannen borde få ersättning varje gång låten spelas på radio.	Tekijän pitäisi saada korvaus aina, kun kappale soitetaan radiossa.	Upphovsmannen borde få ersättning varje gång låten spelas i radio.
+b2_culture	B2	Huvudtränaren ändrade uppställningen i halvtid.	Päävalmentaja muutti kokoonpanoa puoliajalla.	I halvtid ändrade huvudtränaren uppställningen. || Huvudtränaren ändrade på uppställningen i halvtid.
+b2_culture	B2	Mittfältarens passning ledde till matchens enda mål.	Keskikenttäpelaajan syöttö johti ottelun ainoaan maaliin.	
+b2_culture	B2	Bildning handlar inte bara om kunskap utan också om förmågan att förstå andra.	Sivistyksessä ei ole kyse vain tiedosta vaan myös kyvystä ymmärtää muita.	Bildning handlar inte bara om kunskap utan även om förmågan att förstå andra. || Bildning handlar inte enbart om kunskap utan också om förmågan att förstå andra.
+b2_describe	B2	Priserna har stigit betydligt snabbare än lönerna.	Hinnat ovat nousseet huomattavasti nopeammin kuin palkat.	Priserna har ökat betydligt snabbare än lönerna.
+b2_describe	B2	Projektet blev försenat till stor del på grund av dålig planering.	Projekti viivästyi suurelta osin huonon suunnittelun vuoksi.	Projektet försenades till stor del på grund av dålig planering. || Projektet blev till stor del försenat på grund av dålig planering.
+b2_describe	B2	Om vi hade haft ytterligare en vecka skulle resultatet ha blivit utmärkt.	Jos meillä olisi ollut vielä viikko lisää, tulos olisi ollut erinomainen.	Om vi hade haft en vecka till skulle resultatet ha blivit utmärkt. || Hade vi haft ytterligare en vecka skulle resultatet ha blivit utmärkt. || Om vi hade haft ytterligare en vecka hade resultatet blivit utmärkt.
+b2_describe	B2	Så småningom förstod hon att beslutet var slutgiltigt.	Vähitellen hän ymmärsi, että päätös oli lopullinen.	Hon förstod så småningom att beslutet var slutgiltigt.
+b2_describe	B2	Vägen är på sina ställen kraftigt skadad efter vintern.	Tie on paikoin pahasti vaurioitunut talven jäljiltä.	Vägen är kraftigt skadad på sina ställen efter vintern. || Efter vintern är vägen på sina ställen kraftigt skadad.
+b2_describe	B2	Det var knappast en slump, utan han gjorde det helt medvetet.	Se tuskin oli sattumaa, vaan hän teki sen täysin tarkoituksella.	Det var knappast en tillfällighet, utan han gjorde det helt medvetet.
+b2_describe	B2	Hon är överlägset den mest eftertraktade experten inom området.	Hän on ylivoimaisesti alan halutuin asiantuntija.	Hon är överlägset den mest eftertraktade experten på området.
+b2_describe	B2	Trots att det regnade kraftigt fortsatte festivalen för fullt hela kvällen.	Vaikka satoi rankasti, festivaali jatkui täysillä koko illan.	Fast det regnade kraftigt fortsatte festivalen för fullt hela kvällen. || Trots att det regnade kraftigt pågick festivalen för fullt hela kvällen.

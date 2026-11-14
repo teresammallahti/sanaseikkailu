@@ -1,0 +1,156 @@
+[
+ {
+  "id": "svs_a1_time_4",
+  "field": "alt",
+  "old": "I morgon ses vi.",
+  "new": "I morgon ses vi. || Vi ses imorgon. || Imorgon ses vi.",
+  "reason": "imorgon-kirjoitusasu puuttui"
+ },
+ {
+  "id": "svs_a1_time_8",
+  "field": "alt",
+  "old": "I kväll åker vi till Stockholm. || Vi reser till Stockholm i kväll.",
+  "new": "I kväll åker vi till Stockholm. || Vi reser till Stockholm i kväll. || Vi åker till Stockholm ikväll. || Ikväll åker vi till Stockholm.",
+  "reason": "ikväll-kirjoitusasu puuttui"
+ },
+ {
+  "id": "svs_a1_shopping_2",
+  "field": "alt",
+  "old": "",
+  "new": "Jag bara tittar, tack.",
+  "reason": "yleinen vaihtoehtoinen sanajärjestys"
+ },
+ {
+  "id": "svs_a1_shopping_3",
+  "field": "alt",
+  "old": "Finns den i en större storlek?",
+  "new": "Finns den i en större storlek? || Har ni den i större storlek? || Finns den i större storlek?",
+  "reason": "artikkeliton muoto on yhtä yleinen"
+ },
+ {
+  "id": "svs_a1_shopping_7",
+  "field": "alt",
+  "old": "Den blåa skjortan passar bra.",
+  "new": "Den blåa skjortan passar bra. || Den blå skjortan sitter bra. || Den blåa skjortan sitter bra.",
+  "reason": "\"istuu hyvin\" = sitter bra on todennäköisin käännös"
+ },
+ {
+  "id": "svs_a1_core_4",
+  "field": "alt",
+  "old": "Jag vet redan det.",
+  "new": "Jag vet redan det. || Det vet jag redan.",
+  "reason": "yleinen sanajärjestys"
+ },
+ {
+  "id": "svs_a1_core_8",
+  "field": "alt",
+  "old": "Jag förstår inte någonting.",
+  "new": "Jag förstår inte någonting. || Jag förstår inget.",
+  "reason": "yleinen synonyymi"
+ },
+ {
+  "id": "svs_a2_health_1",
+  "field": "alt",
+  "old": "Jag har haft feber sen i går.",
+  "new": "Jag har haft feber sen i går. || Jag har haft feber sedan igår. || Jag har haft feber sen igår.",
+  "reason": "igår-kirjoitusasu puuttui"
+ },
+ {
+  "id": "svs_a2_health_2",
+  "field": "alt",
+  "old": "Doktorn undersökte mitt ben.",
+  "new": "Doktorn undersökte mitt ben. || Läkaren undersökte min fot. || Doktorn undersökte min fot.",
+  "reason": "suomen \"jalka\" voi olla myös fot"
+ },
+ {
+  "id": "svs_a2_health_3",
+  "field": "alt",
+  "old": "Pappa ramlade och bröt benet. || Min far ramlade och bröt benet.",
+  "new": "Pappa ramlade och bröt benet. || Min far ramlade och bröt benet. || Min pappa föll och bröt benet. || Min pappa ramlade och bröt foten.",
+  "reason": "kaatui = föll; \"jalka\" voi olla myös fot"
+ },
+ {
+  "id": "svs_a2_feelings_3",
+  "field": "alt",
+  "old": "Jag kunde tyvärr inte komma i går. || I går kunde jag tyvärr inte komma.",
+  "new": "Jag kunde tyvärr inte komma i går. || I går kunde jag tyvärr inte komma. || Tyvärr kunde jag inte komma igår. || Jag kunde tyvärr inte komma igår. || Igår kunde jag tyvärr inte komma.",
+  "reason": "igår-kirjoitusasu puuttui"
+ },
+ {
+  "id": "svs_a2_describe_2",
+  "field": "alt",
+  "old": "Förra året köpte vi en begagnad bil.",
+  "new": "Förra året köpte vi en begagnad bil. || Vi köpte en begagnad bil i fjol.",
+  "reason": "yleinen synonyymi (i fjol)"
+ },
+ {
+  "id": "svs_b1_media_2",
+  "field": "fi",
+  "old": "Lehti julkaisi artikkelin faktantarkistamatta sitä.",
+  "new": "Lehti julkaisi artikkelin tarkistamatta sen faktoja.",
+  "reason": "\"faktantarkistamatta\" ei ole luontevaa suomea"
+ },
+ {
+  "id": "svs_b1_media_3",
+  "field": "alt",
+  "old": "Många unga får sina nyheter från sociala medier istället för från tidningar. || Många unga får sina nyheter via sociala medier i stället för från tidningar.",
+  "new": "Många unga får sina nyheter från sociala medier istället för från tidningar. || Många unga får sina nyheter via sociala medier i stället för från tidningar. || Många unga får sina nyheter via sociala medier istället för från tidningar.",
+  "reason": "istället-kirjoitusasu puuttui via-muodosta"
+ },
+ {
+  "id": "svs_b1_media_6",
+  "field": "alt",
+  "old": "Yttrandefrihet är viktig, men den betyder inte att man får sprida lögner.",
+  "new": "Yttrandefrihet är viktig, men den betyder inte att man får sprida lögner. || Yttrandefriheten är viktig, men det betyder inte att man får sprida lögner.",
+  "reason": "\"det betyder inte\" on hyvin todennäköinen vastaus"
+ },
+ {
+  "id": "svs_b1_abstract_5",
+  "field": "alt",
+  "old": "Det var ett modigt försök, fast det inte lyckades.",
+  "new": "Det var ett modigt försök, fast det inte lyckades. || Det var ett modigt försök, trots att det inte lyckades.",
+  "reason": "trots att on tosiasiallisen vaikka-lauseen luontevin vastine"
+ },
+ {
+  "id": "svs_b2_science_5",
+  "field": "alt",
+  "old": "Upptäckten anses vara ett av de största genombrotten inom den genetiska forskningen. || Upptäckten anses vara ett av de största genombrotten i genetisk forskning.",
+  "new": "Upptäckten anses vara ett av de största genombrotten inom den genetiska forskningen. || Upptäckten anses vara ett av de största genombrotten i genetisk forskning. || Upptäckten anses vara ett av de största genombrotten inom genforskningen. || Upptäckten anses vara ett av de största genombrotten inom genforskning.",
+  "reason": "geenitutkimus = genforskning on luontevin vastine"
+ },
+ {
+  "id": "svs_b2_science_7",
+  "field": "alt",
+  "old": "Doktorsavhandlingen handlar om hur man kan använda radar för att mäta snöns tjocklek.",
+  "new": "Doktorsavhandlingen handlar om hur man kan använda radar för att mäta snöns tjocklek. || Avhandlingen handlar om hur radar kan användas för att mäta snöns tjocklek. || Avhandlingen handlar om hur man kan använda radar för att mäta snöns tjocklek.",
+  "reason": "väitöskirja = myös pelkkä avhandling"
+ },
+ {
+  "id": "svs_b2_communication_3",
+  "field": "alt",
+  "old": "Citatet togs ur sitt sammanhang och fick därför en helt annan betydelse.",
+  "new": "Citatet togs ur sitt sammanhang och fick därför en helt annan betydelse. || Citatet rycktes ur sitt sammanhang och fick därför en helt annan betydelse.",
+  "reason": "rycka ur sitt sammanhang on idiomaattisin ilmaus"
+ },
+ {
+  "id": "svs_b2_communication_4",
+  "field": "alt",
+  "old": "Hade du gett ett förtydligande direkt, hade diskussionen blivit mer konstruktiv. || Om du hade gett ett förtydligande genast, hade diskussionen blivit mer konstruktiv.",
+  "new": "Hade du gett ett förtydligande direkt, hade diskussionen blivit mer konstruktiv. || Om du hade gett ett förtydligande genast, hade diskussionen blivit mer konstruktiv. || Om du hade gett ett förtydligande direkt, skulle diskussionen ha blivit mer konstruktiv.",
+  "reason": "skulle ha -konditionaali on hyvin todennäköinen vastaus"
+ },
+ {
+  "id": "svd_b1_abstract_2",
+  "field": "fi",
+  "old": "Mikä luulet, että on syynä?",
+  "new": "Mikä luulet olevan syynä?",
+  "reason": "kömpelö suomi (\"Mikä luulet, että on syynä?\")"
+ },
+ {
+  "id": "svd_b1_abstract_6",
+  "field": "sv",
+  "old": "Ett annat alternativ är att skjuta upp deadline två veckor.",
+  "new": "Ett annat alternativ är att skjuta upp deadlinen två veckor.",
+  "reason": "määräinen muoto tarvitaan (deadlinen)"
+ }
+]

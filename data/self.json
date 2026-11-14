@@ -2,7 +2,9 @@
  "description": "Itseopiskelutila aikuiselle (vaihe 39). CEFR-tasot ja aikuisen aihepiirit; aihepiirin käsitteet listattu eksplisiittisesti (concepts). Ensimmäisenä kielenä ruotsi; kieli on itseopiskelussa käytettävissä, kun sillä on muotoja aihepiirin käsitteille (languages).",
  "status": "sv A1-B1 Fable-tarkistettu (v40); en/de ja B2-laajennus Opus-luonnos (v43), Fable-tarkistus odottaa",
  "languages": [
-  "sv"
+  "sv",
+  "en",
+  "de"
  ],
  "levels": [
   {
@@ -244,8 +246,6 @@
     "k_ykkonen",
     "k_yhteensa",
     "k_parikymmenta",
-    "k_kymmenisen",
-    "k_kymmenkunta",
     "k_nelonen",
     "k_kakkonen",
     "k_korkeus"
@@ -3787,7 +3787,6 @@
     "environment_8_pollution",
     "s_b1_pollute",
     "s_b1_chemical",
-    "s_b1_eutrophication",
     "s_b1_nature_conservation",
     "environment_8_protect",
     "sustainability_9_sustainable",
@@ -5031,7 +5030,9 @@
     "k_reuna",
     "k_vaihtelu",
     "k_mielenkiinto",
-    "k_yksityisesti"
+    "k_yksityisesti",
+    "k_villa",
+    "k_kymmenkunta"
    ]
   },
   {
@@ -6227,7 +6228,6 @@
     "k_veto",
     "k_veto_2",
     "k_karki",
-    "k_villa",
     "k_miehisto",
     "k_kaunotar",
     "k_vayla",
@@ -6403,7 +6403,9 @@
     "k_lohko",
     "k_ahneus",
     "k_illuusio",
-    "k_ennatysmaara"
+    "k_ennatysmaara",
+    "s_b1_eutrophication",
+    "k_kymmenisen"
    ]
   },
   {
@@ -7095,9 +7097,5 @@
     "k_raueta_tyhjiin"
    ]
   }
- ],
- "languages_ready": [
-  "en",
-  "de"
  ]
 }

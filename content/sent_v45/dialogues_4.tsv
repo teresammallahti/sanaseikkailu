@@ -1,0 +1,81 @@
+topic	level	title_fi	line	speaker	sv	fi
+a1_time	A1	Milloin nähdään?	1	A	Hej! Har du tid i morgon?	Hei! Onko sinulla aikaa huomenna?
+a1_time	A1	Milloin nähdään?	2	B	Ja, men bara på kvällen.	Joo, mutta vain illalla.
+a1_time	A1	Milloin nähdään?	3	A	Okej. Vad sägs om klockan sju?	Okei. Mitä sanot kello seitsemästä?
+a1_time	A1	Milloin nähdään?	4	B	Det är lite tidigt. Jag jobbar till sex.	Se on vähän aikaisin. Olen töissä kuuteen asti.
+a1_time	A1	Milloin nähdään?	5	A	Halv åtta, då?	Puoli kahdeksan sitten?
+a1_time	A1	Milloin nähdään?	6	B	Perfekt. Hur länge har du tid?	Täydellistä. Kuinka pitkään sinulla on aikaa?
+a1_time	A1	Milloin nähdään?	7	A	En timme ungefär. Sedan måste jag hem.	Noin tunnin. Sitten minun pitää lähteä kotiin.
+a1_time	A1	Milloin nähdään?	8	B	Okej, vi ses i morgon!	Okei, nähdään huomenna!
+a1_shopping	A1	Vaatekaupassa	1	A	Hej! Kan jag hjälpa dig?	Hei! Voinko auttaa?
+a1_shopping	A1	Vaatekaupassa	2	B	Ja, tack. Jag letar efter ett par jeans.	Kyllä, kiitos. Etsin farkkuja.
+a1_shopping	A1	Vaatekaupassa	3	A	Vilken storlek har du?	Mikä koko sinulla on?
+a1_shopping	A1	Vaatekaupassa	4	B	Trettiotvå, tror jag.	Kolmekymmentäkaksi, luulen.
+a1_shopping	A1	Vaatekaupassa	5	A	Här är ett par i blått och ett i svart.	Tässä on yhdet sinisinä ja yhdet mustina.
+a1_shopping	A1	Vaatekaupassa	6	B	Vad kostar de svarta?	Paljonko mustat maksavat?
+a1_shopping	A1	Vaatekaupassa	7	A	De kostar sexhundra kronor.	Ne maksavat kuusisataa kruunua.
+a1_shopping	A1	Vaatekaupassa	8	B	Bra, jag tar dem.	Hyvä, otan ne.
+a1_core	A1	Kahvitauolla	1	A	Vill du ha kaffe?	Haluatko kahvia?
+a1_core	A1	Kahvitauolla	2	B	Nej tack, inte nu.	Ei kiitos, ei nyt.
+a1_core	A1	Kahvitauolla	3	A	Varför inte?	Miksi ei?
+a1_core	A1	Kahvitauolla	4	B	Jag sover så dåligt.	Nukun niin huonosti.
+a1_core	A1	Kahvitauolla	5	A	Vill du ha te, då?	Haluatko sitten teetä?
+a1_core	A1	Kahvitauolla	6	B	Ja, gärna. Och lite mjölk också.	Kyllä, mielelläni. Ja vähän maitoa myös.
+a1_core	A1	Kahvitauolla	7	A	Här. Med socker eller utan?	Tässä. Sokerilla vai ilman?
+a1_core	A1	Kahvitauolla	8	B	Utan, tack.	Ilman, kiitos.
+a2_health	A2	Lääkärin vastaanotolla	1	A	Hej, vad kan jag hjälpa dig med i dag?	Hei, miten voin auttaa tänään?
+a2_health	A2	Lääkärin vastaanotolla	2	B	Jag har haft ont i halsen och feber i tre dagar.	Minulla on ollut kurkkukipua ja kuumetta kolme päivää.
+a2_health	A2	Lääkärin vastaanotolla	3	A	Har du några andra symtom?	Onko sinulla muita oireita?
+a2_health	A2	Lääkärin vastaanotolla	4	B	Ja, jag är väldigt trött och näsan är igensatt.	Kyllä, olen todella väsynyt ja nenä on tukossa.
+a2_health	A2	Lääkärin vastaanotolla	5	A	Jag ska undersöka dig. Andas djupt, tack.	Tutkin sinut. Hengitä syvään, kiitos.
+a2_health	A2	Lääkärin vastaanotolla	6	B	Är det något allvarligt?	Onko se jotain vakavaa?
+a2_health	A2	Lääkärin vastaanotolla	7	A	Nej, det är en vanlig förkylning. Du blir snart frisk.	Ei, se on tavallinen flunssa. Paranet pian.
+a2_health	A2	Lääkärin vastaanotolla	8	B	Skönt att höra. Tack så mycket!	Hyvä kuulla. Kiitos paljon!
+a2_feelings	A2	Uusi työpaikka	1	A	Hur känns det på det nya jobbet?	Miltä uudessa työpaikassa tuntuu?
+a2_feelings	A2	Uusi työpaikka	2	B	Bra, faktiskt. Jag är ganska nöjd.	Hyvältä, itse asiassa. Olen aika tyytyväinen.
+a2_feelings	A2	Uusi työpaikka	3	A	Vad skönt! Du var ju så orolig innan.	Mahtavaa! Olithan niin huolissasi etukäteen.
+a2_feelings	A2	Uusi työpaikka	4	B	Ja, jag var rädd att jag inte skulle klara det.	Niin, pelkäsin, etten pärjäisi.
+a2_feelings	A2	Uusi työpaikka	5	A	Och kollegorna, då?	Entä työkaverit?
+a2_feelings	A2	Uusi työpaikka	6	B	De är trevliga. Men jag saknar er lite.	He ovat mukavia. Mutta kaipaan teitä vähän.
+a2_feelings	A2	Uusi työpaikka	7	A	Vi saknar dig också! Ses vi på fredag?	Mekin kaipaamme sinua! Nähdäänkö perjantaina?
+a2_feelings	A2	Uusi työpaikka	8	B	Absolut, det ser jag fram emot.	Ehdottomasti, odotan sitä innolla.
+a2_describe	A2	Asuntonäytön jälkeen	1	A	Vad tyckte du om lägenheten?	Mitä pidit asunnosta?
+a2_describe	A2	Asuntonäytön jälkeen	2	B	Den var ljus och ganska bekväm.	Se oli valoisa ja aika mukava.
+a2_describe	A2	Asuntonäytön jälkeen	3	A	Men var inte köket lite trångt?	Mutta eikö keittiö ollut vähän ahdas?
+a2_describe	A2	Asuntonäytön jälkeen	4	B	Jo, och badrummet var inte särskilt rent.	Olihan, eikä kylpyhuone ollut kovin siisti.
+a2_describe	A2	Asuntonäytön jälkeen	5	A	Läget är ändå perfekt. Nära till allt.	Sijainti on silti täydellinen. Kaikki on lähellä.
+a2_describe	A2	Asuntonäytön jälkeen	6	B	Det stämmer. Och priset är rimligt.	Totta. Ja hinta on kohtuullinen.
+a2_describe	A2	Asuntonäytön jälkeen	7	A	Ska vi titta på den igen på lördag?	Katsotaanko se uudelleen lauantaina?
+a2_describe	A2	Asuntonäytön jälkeen	8	B	Gärna. Den är kanske den enda vi har råd med.	Mielellään. Se on ehkä ainoa, johon meillä on varaa.
+b1_media	B1	Toimituksessa	1	A	Har du hunnit läsa min text om kommunvalet?	Oletko ehtinyt lukea tekstini kuntavaaleista?
+b1_media	B1	Toimituksessa	2	B	Ja, den är bra, men rubriken är lite för lång.	Kyllä, se on hyvä, mutta otsikko on vähän liian pitkä.
+b1_media	B1	Toimituksessa	3	A	Okej. Har du något förslag?	Okei. Onko sinulla ehdotusta?
+b1_media	B1	Toimituksessa	4	B	Kanske något kortare som väcker intresse direkt.	Ehkä jotain lyhyempää, joka herättää kiinnostuksen heti.
+b1_media	B1	Toimituksessa	5	A	Och siffrorna från enkäten, stämmer de?	Entä kyselyn luvut, pitävätkö ne paikkansa?
+b1_media	B1	Toimituksessa	6	B	Jag har inte kontrollerat dem än. Vilken källa använde du?	En ole vielä tarkistanut niitä. Mitä lähdettä käytit?
+b1_media	B1	Toimituksessa	7	A	Kommunens egen statistik. Jag skickar länken till dig.	Kunnan omia tilastoja. Lähetän linkin sinulle.
+b1_media	B1	Toimituksessa	8	B	Bra. Då kan vi publicera texten i eftermiddag.	Hyvä. Sitten voimme julkaista tekstin iltapäivällä.
+b1_abstract	B1	Projektipalaverissa	1	A	Vi har ett problem med tidsplanen.	Meillä on ongelma aikataulun kanssa.
+b1_abstract	B1	Projektipalaverissa	2	B	Vad tror du är orsaken?	Mikä luulet, että on syynä?
+b1_abstract	B1	Projektipalaverissa	3	A	Vi har för få personer i teamet och för många uppgifter.	Tiimissä on liian vähän ihmisiä ja liian paljon tehtäviä.
+b1_abstract	B1	Projektipalaverissa	4	B	Finns det någon möjlighet att få hjälp från en annan avdelning?	Onko mahdollista saada apua toiselta osastolta?
+b1_abstract	B1	Projektipalaverissa	5	A	Kanske, men det är inte säkert att de har tid.	Ehkä, mutta ei ole varmaa, että heillä on aikaa.
+b1_abstract	B1	Projektipalaverissa	6	B	Ett annat alternativ är att skjuta upp deadline två veckor.	Toinen vaihtoehto on lykätä määräaikaa kahdella viikolla.
+b1_abstract	B1	Projektipalaverissa	7	A	Det vore en bra lösning, men kunden måste godkänna det.	Se olisi hyvä ratkaisu, mutta asiakkaan täytyy hyväksyä se.
+b1_abstract	B1	Projektipalaverissa	8	B	Då ringer jag kunden i eftermiddag och förklarar situationen.	Soitan sitten asiakkaalle iltapäivällä ja selitän tilanteen.
+b2_science	B2	Laboratoriossa	1	A	Har du sett de senaste avläsningarna från sensorn?	Oletko nähnyt anturin viimeisimmät lukemat?
+b2_science	B2	Laboratoriossa	2	B	Ja, och de ser konstiga ut. Spänningen hoppar upp och ner utan någon tydlig orsak.	Kyllä, ja ne näyttävät oudoilta. Jännite heittelee ylös ja alas ilman selvää syytä.
+b2_science	B2	Laboratoriossa	3	A	Kan det vara ett fel i installationen?	Voisiko kyse olla asennusvirheestä?
+b2_science	B2	Laboratoriossa	4	B	Möjligen. Strömbrytaren byttes ut förra veckan, så det vore ingen överraskning.	Mahdollisesti. Katkaisin vaihdettiin viime viikolla, joten se ei olisi yllätys.
+b2_science	B2	Laboratoriossa	5	A	Då borde vi kontrollera kopplingen innan vi drar några slutsatser.	Sitten meidän pitäisi tarkistaa kytkentä ennen kuin teemme johtopäätöksiä.
+b2_science	B2	Laboratoriossa	6	B	Håller med. Om felet sitter i själva sensorn måste hela mätserien göras om.	Samaa mieltä. Jos vika on itse anturissa, koko mittaussarja täytyy tehdä uudelleen.
+b2_science	B2	Laboratoriossa	7	A	Det vore olyckligt, med tanke på tidsplanen.	Se olisi ikävää aikataulun kannalta.
+b2_science	B2	Laboratoriossa	8	B	Ja, men hellre det än opålitliga resultat.	Niin, mutta parempi se kuin epäluotettavat tulokset.
+b2_communication	B2	Palautekeskustelu esityksen jälkeen	1	A	Tack för presentationen. Får jag ge lite konstruktiv kritik?	Kiitos esityksestä. Saanko antaa vähän rakentavaa kritiikkiä?
+b2_communication	B2	Palautekeskustelu esityksen jälkeen	2	B	Självklart, det vore värdefullt.	Totta kai, se olisi arvokasta.
+b2_communication	B2	Palautekeskustelu esityksen jälkeen	3	A	Innehållet var starkt, men du använde många förkortningar utan att förklara dem.	Sisältö oli vahva, mutta käytit paljon lyhenteitä selittämättä niitä.
+b2_communication	B2	Palautekeskustelu esityksen jälkeen	4	B	Det har du rätt i. Jag glömmer lätt att inte alla jobbar med samma saker som jag.	Siinä olet oikeassa. Unohdan helposti, etteivät kaikki tee töitä samojen asioiden parissa kuin minä.
+b2_communication	B2	Palautekeskustelu esityksen jälkeen	5	A	En kort förteckning över begreppen i början skulle kunna hjälpa publiken.	Lyhyt luettelo käsitteistä alussa voisi auttaa yleisöä.
+b2_communication	B2	Palautekeskustelu esityksen jälkeen	6	B	Bra idé. Var det något mer?	Hyvä idea. Oliko vielä jotain?
+b2_communication	B2	Palautekeskustelu esityksen jälkeen	7	A	Bara att jämförelsen mellan de två modellerna kunde ha varit tydligare.	Vain se, että kahden mallin vertailu olisi voinut olla selkeämpi.
+b2_communication	B2	Palautekeskustelu esityksen jälkeen	8	B	Uppfattat. Jag lägger till en översikt före nästa möte.	Selvä. Lisään yleiskatsauksen ennen seuraavaa kokousta.

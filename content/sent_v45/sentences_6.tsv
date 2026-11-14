@@ -1,0 +1,81 @@
+topic	level	sv	fi	alt
+a1_appearance	A1	Hon har långt blont hår.	Hänellä on pitkät vaaleat hiukset.	Han har långt blont hår. || Hon har långt, blont hår. || Han har långt, blont hår.
+a1_appearance	A1	Min bror är lång och smal.	Veljeni on pitkä ja hoikka.	
+a1_appearance	A1	Hur ser din nya chef ut?	Miltä uusi esimiehesi näyttää?	
+a1_appearance	A1	Han har bruna ögon och skägg.	Hänellä on ruskeat silmät ja parta.	Hon har bruna ögon och skägg. || Han har bruna ögon och ett skägg.
+a1_appearance	A1	Min dotter är blyg men nyfiken.	Tyttäreni on ujo mutta utelias.	
+a1_appearance	A1	Du liknar din mamma.	Sinä muistutat äitiäsi.	Du är lik din mamma. || Du liknar din mor.
+a1_appearance	A1	Vår granne är snäll och ärlig.	Naapurimme on kiltti ja rehellinen.	
+a1_appearance	A1	Han är alltid lugn och trevlig.	Hän on aina rauhallinen ja mukava.	Hon är alltid lugn och trevlig.
+a1_daily	A1	Jag vaknar klockan sex.	Herään kello kuusi.	
+a1_daily	A1	Vi äter frukost tillsammans.	Syömme aamiaista yhdessä.	Vi äter frukost ihop.
+a1_daily	A1	Han duschar och klär på sig.	Hän käy suihkussa ja pukeutuu.	Hon duschar och klär på sig.
+a1_daily	A1	Jag har bråttom i dag.	Minulla on kiire tänään.	I dag har jag bråttom. || Jag har bråttom idag. || Idag har jag bråttom.
+a1_daily	A1	Hon går hemifrån klockan åtta.	Hän lähtee kotoa kello kahdeksan.	Han går hemifrån klockan åtta. || Klockan åtta går hon hemifrån. || Klockan åtta går han hemifrån.
+a1_daily	A1	Kan du ta ut soporna?	Voitko viedä roskat?	
+a1_daily	A1	På kvällen läser jag en bok.	Illalla luen kirjaa.	Jag läser en bok på kvällen.
+a1_daily	A1	Vi går och lägger oss klockan elva.	Menemme nukkumaan kello yksitoista.	Klockan elva går vi och lägger oss.
+a1_adjectives	A1	Huset är stort och gammalt.	Talo on iso ja vanha.	
+a1_adjectives	A1	Kaffet är för varmt.	Kahvi on liian kuumaa.	Kaffet är för hett.
+a1_adjectives	A1	Den nya bilen är dyr.	Uusi auto on kallis.	
+a1_adjectives	A1	Den här väskan är tung.	Tämä laukku on painava.	
+a1_adjectives	A1	Det är kallt ute i dag.	Ulkona on tänään kylmä.	I dag är det kallt ute. || Det är kallt ute idag. || Idag är det kallt ute.
+a1_adjectives	A1	Svenska är inte så svårt.	Ruotsi ei ole niin vaikeaa.	
+a1_adjectives	A1	Lägenheten är liten men fin.	Asunto on pieni mutta kiva.	
+a1_adjectives	A1	Bussen är långsam och full.	Bussi on hidas ja täynnä.	
+a2_cooking	A2	Vi bokade ett bord för fyra personer.	Varasimme pöydän neljälle hengelle.	Vi bokade ett bord för fyra.
+a2_cooking	A2	Jag skulle vilja beställa dagens lunch.	Haluaisin tilata päivän lounaan.	
+a2_cooking	A2	Hon skar löken och stekte den i smör.	Hän pilkkoi sipulin ja paistoi sen voissa.	Han skar löken och stekte den i smör.
+a2_cooking	A2	Kan vi betala var för sig?	Voimmeko maksaa erikseen?	
+a2_cooking	A2	Rör om hela tiden när du värmer såsen.	Sekoita koko ajan, kun lämmität kastiketta.	Rör hela tiden om när du värmer såsen.
+a2_cooking	A2	Servitören frågade om vi ville ha något att dricka.	Tarjoilija kysyi, halusimmeko jotain juotavaa.	
+a2_cooking	A2	Har du någonsin ätit rå fisk?	Oletko koskaan syönyt raakaa kalaa?	
+a2_cooking	A2	Vi bjöd våra vänner på middag i lördags.	Kutsuimme ystävämme illalliselle viime lauantaina.	I lördags bjöd vi våra vänner på middag.
+a2_nature	A2	Vi såg en älg i skogen i går.	Näimme hirven metsässä eilen.	I går såg vi en älg i skogen. || Vi såg en älg i skogen igår. || Igår såg vi en älg i skogen.
+a2_nature	A2	Hunden sprang efter en räv.	Koira juoksi ketun perässä.	
+a2_nature	A2	Löven har redan fallit från björkarna.	Lehdet ovat jo pudonneet koivuista.	Löven har redan fallit av björkarna.
+a2_nature	A2	Vi hyrde en stuga vid en lugn vik.	Vuokrasimme mökin rauhallisen lahden rannalta.	
+a2_nature	A2	Stigen går upp till toppen av backen.	Polku nousee mäen huipulle.	
+a2_nature	A2	När det blev varmt kom fåglarna tillbaka.	Kun tuli lämmin, linnut palasivat.	Fåglarna kom tillbaka när det blev varmt.
+a2_nature	A2	Det finns både vargar och björnar i Finland.	Suomessa on sekä susia että karhuja.	I Finland finns det både vargar och björnar.
+a2_nature	A2	På landet luktade det blommor och hö.	Maalla tuoksui kukilta ja heinältä.	Det luktade blommor och hö på landet.
+b1_economy	B1	Jag tycker att priserna har stigit för mycket det senaste året.	Minusta hinnat ovat nousseet liikaa viimeisen vuoden aikana.	Jag tycker att priserna har stigit för mycket under det senaste året.
+b1_economy	B1	Företaget exporterar de flesta av sina produkter till Tyskland.	Yritys vie suurimman osan tuotteistaan Saksaan.	Bolaget exporterar de flesta av sina produkter till Tyskland. || Företaget exporterar de flesta produkterna till Tyskland.
+b1_economy	B1	Om man inte betalar tillbaka lånet i tid blir det dyrt.	Jos lainaa ei maksa takaisin ajoissa, siitä tulee kallista.	Om man inte betalar tillbaka lånet i tid, blir det dyrt.
+b1_economy	B1	Försäljningen ökade eftersom efterfrågan var större än väntat.	Myynti kasvoi, koska kysyntä oli odotettua suurempaa.	Försäljningen ökade för att efterfrågan var större än väntat. || Försäljningen ökade eftersom efterfrågan var större än man hade väntat.
+b1_economy	B1	Jag är fortfarande skyldig min bror tusen euro.	Olen yhä velkaa veljelleni tuhat euroa.	Jag är fortfarande skyldig min bror 1000 euro. || Jag är skyldig min bror tusen euro fortfarande.
+b1_economy	B1	Många konsumenter returnerar varor som de har köpt på nätet.	Monet kuluttajat palauttavat tavaroita, jotka he ovat ostaneet netistä.	Många konsumenter returnerar varor som de köpt på nätet. || Många konsumenter returnerar varor som de har köpt på internet.
+b1_economy	B1	Det är svårt att säga om investeringen kommer att löna sig.	On vaikea sanoa, kannattaako investointi.	Det är svårt att säga om investeringen lönar sig.
+b1_economy	B1	Den inhemska konsumtionen är viktig för Finlands ekonomi.	Kotimainen kulutus on tärkeää Suomen taloudelle.	
+b1_wellbeing	B1	Jag tycker att sömn är lika viktig som kost och motion.	Minusta uni on yhtä tärkeää kuin ruokavalio ja liikunta.	Jag tycker att sömnen är lika viktig som kosten och motionen.
+b1_wellbeing	B1	Läkaren sa att stress kan påverka både hjärtat och hjärnan.	Lääkäri sanoi, että stressi voi vaikuttaa sekä sydämeen että aivoihin.	Läkaren sade att stress kan påverka både hjärtat och hjärnan. || Läkaren sa att stressen kan påverka både hjärtat och hjärnan.
+b1_wellbeing	B1	Han slutade röka eftersom han ville förbättra sin kondition.	Hän lopetti tupakoinnin, koska hän halusi parantaa kuntoaan.	Hon slutade röka eftersom hon ville förbättra sin kondition. || Han slutade röka för att han ville förbättra sin kondition. || Hon slutade röka för att hon ville förbättra sin kondition.
+b1_wellbeing	B1	Det är lättare att förebygga en sjukdom än att behandla den.	On helpompaa ehkäistä sairaus kuin hoitaa sitä.	Det är enklare att förebygga en sjukdom än att behandla den.
+b1_wellbeing	B1	Många som lider av depression söker inte hjälp.	Monet masennuksesta kärsivät eivät hae apua.	Många som har depression söker inte hjälp.
+b1_wellbeing	B1	Om man dricker för mycket alkohol kan man bli beroende.	Jos juo liikaa alkoholia, voi tulla riippuvaiseksi.	Om man dricker för mycket alkohol, kan man bli beroende.
+b1_wellbeing	B1	Jag mår illa när jag inte har ätit på hela dagen.	Minulla on huono olo, kun en ole syönyt koko päivänä.	Jag mår illa när jag inte ätit på hela dagen.
+b1_wellbeing	B1	Det var en stor lättnad när operationen gick bra.	Oli suuri helpotus, kun leikkaus meni hyvin.	
+b1_connectors	B1	Jag gillar både te och kaffe, men framför allt kaffe.	Pidän sekä teestä että kahvista, mutta ennen kaikkea kahvista.	Jag tycker om både te och kaffe, men framför allt kaffe.
+b1_connectors	B1	Vi stannade hemma på grund av det dåliga vädret.	Jäimme kotiin huonon sään takia.	På grund av det dåliga vädret stannade vi hemma.
+b1_connectors	B1	Trots att det regnade gick vi ut och promenerade.	Vaikka satoi, lähdimme ulos kävelylle.	Vi gick ut och promenerade trots att det regnade. || Trots att det regnade gick vi ut på en promenad.
+b1_connectors	B1	Han varken ringde eller skickade ett meddelande i går.	Hän ei soittanut eikä lähettänyt viestiä eilen.	Hon varken ringde eller skickade ett meddelande i går. || Han varken ringde eller skickade ett meddelande igår. || Hon varken ringde eller skickade ett meddelande igår.
+b1_connectors	B1	Du kan antingen ta bussen eller cykla till jobbet.	Voit joko mennä bussilla tai pyöräillä töihin.	Du kan antingen åka buss eller cykla till jobbet.
+b1_connectors	B1	Medan jag lagade mat dukade barnen bordet.	Sillä aikaa kun minä laitoin ruokaa, lapset kattoivat pöydän.	Barnen dukade bordet medan jag lagade mat. || Medan jag lagade maten dukade barnen bordet.
+b1_connectors	B1	Vi måste gå nu, annars missar vi det sista tåget hem.	Meidän täytyy lähteä nyt, muuten myöhästymme viimeisestä junasta kotiin.	Vi måste gå nu, annars missar vi sista tåget hem.
+b1_connectors	B1	I stället för att klaga borde vi försöka hitta en lösning.	Valittamisen sijaan meidän pitäisi yrittää löytää ratkaisu.	Istället för att klaga borde vi försöka hitta en lösning. || Vi borde försöka hitta en lösning i stället för att klaga. || Vi borde försöka hitta en lösning istället för att klaga.
+b2_environment	B2	I gläntan växte det sippor trots att det fortfarande var frost på morgnarna.	Aukiolla kasvoi vuokkoja, vaikka aamuisin oli vielä hallaa.	Det växte sippor i gläntan trots att det fortfarande var frost på morgnarna. || I gläntan växte det sippor trots att det fortfarande var frost på morgonen.
+b2_environment	B2	Torv bildas långsamt i myrar under tusentals år.	Turve muodostuu hitaasti soissa tuhansien vuosien aikana.	Torven bildas långsamt i myrar under tusentals år. || Torv bildas långsamt på myrar under tusentals år.
+b2_environment	B2	Om konstgödsel användes mindre skulle den biologiska mångfalden kunna öka.	Jos keinolannoitetta käytettäisiin vähemmän, luonnon monimuotoisuus voisi lisääntyä.	Om man använde mindre konstgödsel skulle den biologiska mångfalden kunna öka. || Om mindre konstgödsel användes skulle den biologiska mångfalden kunna öka.
+b2_environment	B2	Den kalla sommaren ledde till missväxt i stora delar av landet.	Kylmä kesä johti katoon suuressa osassa maata.	Den kalla sommaren ledde till missväxt i en stor del av landet. || Den kalla sommaren orsakade missväxt i stora delar av landet.
+b2_environment	B2	Udden skyddar den lilla viken mot vågorna när det blåser från väster.	Niemi suojaa pientä lahtea aalloilta, kun tuulee lännestä.	Udden skyddar den lilla viken från vågorna när det blåser från väster. || Udden skyddar den lilla viken mot vågorna när det blåser västlig vind.
+b2_environment	B2	Snöstormen gjorde det omöjligt att ta sig fram genom den karga terrängen.	Lumimyrsky teki mahdottomaksi edetä karun maaston läpi.	Snöstormen gjorde det omöjligt att komma fram genom den karga terrängen.
+b2_environment	B2	Åsen bildades av grus och sten som lämnades kvar efter istiden.	Harju muodostui sorasta ja kivistä, jotka jäivät jäljelle jääkauden jälkeen.	Åsen bildades av grus och stenar som lämnades kvar efter istiden. || Åsen bildades av grus och sten som blev kvar efter istiden.
+b2_environment	B2	Rovdjur som lodjur och varg spelar en viktig roll i ekosystemet.	Petoeläimet, kuten ilves ja susi, ovat tärkeässä roolissa ekosysteemissä.	Rovdjur såsom lodjur och varg spelar en viktig roll i ekosystemet. || Rovdjur som lodjuret och vargen spelar en viktig roll i ekosystemet.
+b2_verbs	B2	Regeringen borde ta itu med problemet innan det förvärras ytterligare.	Hallituksen pitäisi tarttua ongelmaan ennen kuin se pahenee entisestään.	Regeringen borde ta itu med problemet innan det blir ännu värre.
+b2_verbs	B2	Förslaget granskades noggrant av experter innan det slutligen godkändes.	Ehdotuksen tarkastivat huolellisesti asiantuntijat, ennen kuin se lopulta hyväksyttiin.	Experter granskade förslaget noggrant innan det slutligen godkändes. || Förslaget granskades noggrant av experter innan det till slut godkändes.
+b2_verbs	B2	Om polisen hade ingripit tidigare hade olyckan kanske kunnat undvikas.	Jos poliisi olisi puuttunut aiemmin, onnettomuus olisi ehkä voitu välttää.	Om polisen hade ingripit tidigare skulle olyckan kanske ha kunnat undvikas. || Hade polisen ingripit tidigare hade olyckan kanske kunnat undvikas.
+b2_verbs	B2	Företaget försöker effektivisera produktionen utan att äventyra säkerheten.	Yritys yrittää tehostaa tuotantoa vaarantamatta turvallisuutta.	Bolaget försöker effektivisera produktionen utan att äventyra säkerheten.
+b2_verbs	B2	Kan du kort sammanfatta de viktigaste slutsatserna i rapporten inför mötet?	Voitko tiivistää lyhyesti raportin tärkeimmät johtopäätökset palaveria varten?	Kan du kort sammanfatta rapportens viktigaste slutsatser inför mötet? || Kan du sammanfatta de viktigaste slutsatserna i rapporten kort inför mötet?
+b2_verbs	B2	De nya reglerna försvårar situationen för små företag som vill exportera.	Uudet säännöt vaikeuttavat vientiä haluavien pienten yritysten tilannetta.	De nya reglerna försvårar läget för små företag som vill exportera.
+b2_verbs	B2	Resultatet återspeglar hur svårt det är att tillämpa lagen i praktiken.	Tulos heijastaa sitä, kuinka vaikeaa lakia on soveltaa käytännössä.	Resultatet speglar hur svårt det är att tillämpa lagen i praktiken.
+b2_verbs	B2	Vi får inte nöja oss med halvmesyrer när så mycket står på spel.	Emme saa tyytyä puolinaisiin toimiin, kun niin paljon on pelissä.	Vi får inte nöja oss med halvmesyrer när det står så mycket på spel.

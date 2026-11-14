@@ -1,0 +1,226 @@
+[
+ {
+  "id": "k_ulosajo",
+  "field": "fi",
+  "old": "ulosajo",
+  "new": "ulosotto",
+  "reason": "Vastineet (utmätning, debt enforcement, Zwangsvollstreckung) tarkoittavat ulosottoa; ulosajo on tieltä suistuminen"
+ },
+ {
+  "id": "k_nykya",
+  "field": "fi",
+  "old": "nykyä / nykyään",
+  "new": "tätä nykyä",
+  "reason": "'nykyä' ei ole itsenäinen sana, ja 'nykyään' on jo sanastossa (s_a2_nowadays)"
+ },
+ {
+  "id": "k_kaupunginvaltuusto",
+  "field": "sv_text",
+  "old": "ett kommunfullmäktige / ett stadsfullmäktige",
+  "new": "stadsfullmäktige / kommunfullmäktige",
+  "reason": "Kaupunginvaltuusto on stadsfullmäktige; kommunfullmäktige on kunnanvaltuuston (oma käsite) päämuoto; artikkeliton kuten k_kunnanvaltuusto"
+ },
+ {
+  "id": "k_kaupunginvaltuusto",
+  "field": "sv_infl",
+  "old": "def=kommunfullmäktige;pl=kommunfullmäktige",
+  "new": "def=stadsfullmäktige;pl=stadsfullmäktige",
+  "reason": "Taivutus uuden päämuodon mukaan"
+ },
+ {
+  "id": "k_valtioneuvosto",
+  "field": "sv_text",
+  "old": "en regering",
+  "new": "ett statsråd / en regering",
+  "reason": "Valtioneuvosto on ruotsiksi statsrådet; regering hyväksytään vaihtoehtona"
+ },
+ {
+  "id": "k_valtioneuvosto",
+  "field": "sv_infl",
+  "old": "def=regeringen;pl=regeringar",
+  "new": "def=statsrådet;pl=statsråd",
+  "reason": "Taivutus uuden päämuodon mukaan"
+ },
+ {
+  "id": "k_kulloinkin",
+  "field": "sv_text",
+  "old": "för tillfället / vid varje tillfälle",
+  "new": "vid varje tillfälle / i varje enskilt fall",
+  "reason": "'för tillfället' tarkoittaa 'tällä hetkellä', ei 'kulloinkin'"
+ },
+ {
+  "id": "k_poistua",
+  "field": "sv_text",
+  "old": "lämna / avlägsna sig",
+  "new": "avlägsna sig / gå ut / lämna",
+  "reason": "Poistua on intransitiivinen; lämna vaatii objektin, joten ei päämuodoksi"
+ },
+ {
+  "id": "k_poistua",
+  "field": "sv_infl",
+  "old": "pres=lämnar;pret=lämnade;sup=lämnat",
+  "new": "pres=avlägsnar sig;pret=avlägsnade sig;sup=avlägsnat sig",
+  "reason": "Taivutus uuden päämuodon mukaan"
+ },
+ {
+  "id": "k_poistua",
+  "field": "de_text",
+  "old": "verlassen / weggehen",
+  "new": "weggehen / hinausgehen / verlassen",
+  "reason": "Poistua on intransitiivinen; verlassen vaatii objektin, joten ei päämuodoksi"
+ },
+ {
+  "id": "k_poistua",
+  "field": "de_infl",
+  "old": "pret=verließ;pp=hat verlassen;pres3=verlässt",
+  "new": "pret=ging weg;pp=ist weggegangen;pres3=geht weg",
+  "reason": "Taivutus uuden päämuodon mukaan (apuverbi sein)"
+ },
+ {
+  "id": "k_niemi",
+  "field": "en_text",
+  "old": "peninsula / point",
+  "new": "headland / cape / point / peninsula",
+  "reason": "Niemi on headland/cape; peninsula on niemimaa, jätetty vaihtoehdoksi"
+ },
+ {
+  "id": "k_niemi",
+  "field": "en_infl",
+  "old": "pl=peninsulas",
+  "new": "pl=headlands",
+  "reason": "Taivutus uuden päämuodon mukaan"
+ },
+ {
+  "id": "k_syke",
+  "field": "sv_infl",
+  "old": "def=pulsen;pl=pulser",
+  "new": "def=pulsen;pl=pulsar",
+  "reason": "Sanan puls monikko on pulsar"
+ },
+ {
+  "id": "k_homo",
+  "field": "sv_infl",
+  "old": "def=homosexuellen;pl=homosexuella",
+  "new": "def=den homosexuella;pl=homosexuella",
+  "reason": "Substantivoitu adjektiivi: määräinen muoto on den homosexuella, ei homosexuellen"
+ },
+ {
+  "id": "k_korkeimmillaan",
+  "field": "de_text",
+  "old": "höchstens / maximal",
+  "new": "am höchsten / höchstens / maximal",
+  "reason": "Päämerkitys 'korkeimmassa arvossaan' on am höchsten; höchstens on korkeintaan"
+ },
+ {
+  "id": "k_puolesta",
+  "field": "sv_text",
+  "old": "för / för ... räkning",
+  "new": "för / å någons vägnar / för någons räkning",
+  "reason": "'för ... räkning' kolmella pisteellä ei ole kirjoitettavissa oleva vastaus; lisätty yleinen å någons vägnar"
+ },
+ {
+  "id": "k_kymmenisen",
+  "field": "taso",
+  "old": "A1",
+  "new": "B2",
+  "reason": "Likimääräinen -isen-lukusana ei ole A1-sanastoa; kolmisen ja viitisen ovat B2"
+ },
+ {
+  "id": "k_koripallo",
+  "field": "sv_text",
+  "old": "basket",
+  "new": "basket / basketboll",
+  "reason": "Basketboll on yleinen vaihtoehto"
+ },
+ {
+  "id": "k_toisinpain",
+  "field": "en_text",
+  "old": "the other way round",
+  "new": "the other way round / the other way around / vice versa",
+  "reason": "Yleiset vaihtoehdot puuttuivat"
+ },
+ {
+  "id": "k_pyoralla",
+  "field": "en_text",
+  "old": "by bike",
+  "new": "by bike / by bicycle",
+  "reason": "Yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "k_puheenaihe",
+  "field": "en_text",
+  "old": "topic",
+  "new": "topic of conversation / topic / talking point",
+  "reason": "Pelkkä topic on aihe; puheenaihe on topic of conversation"
+ },
+ {
+  "id": "k_puheenaihe",
+  "field": "en_infl",
+  "old": "pl=topics",
+  "new": "pl=topics of conversation",
+  "reason": "Taivutus uuden päämuodon mukaan"
+ },
+ {
+  "id": "k_kiertaa_2",
+  "field": "en_text",
+  "old": "avoid / get around",
+  "new": "get around / circumvent / evade / avoid",
+  "reason": "Kiertää (esim. lakia) on get around/circumvent; pelkkä avoid on välttää"
+ },
+ {
+  "id": "k_kiertaa_2",
+  "field": "en_infl",
+  "old": "past=avoided;pp=avoided",
+  "new": "past=got around;pp=got around",
+  "reason": "Taivutus uuden päämuodon mukaan"
+ },
+ {
+  "id": "k_arabia",
+  "field": "de_text",
+  "old": "das Arabisch",
+  "new": "das Arabisch / Arabisch",
+  "reason": "Kielen nimi kirjoitetaan saksassa yleensä ilman artikkelia"
+ },
+ {
+  "id": "k_isannoitsija",
+  "field": "sv_text",
+  "old": "en fastighetsförvaltare / en förvaltare",
+  "new": "en disponent / en fastighetsförvaltare / en förvaltare",
+  "reason": "Suomen isännöitsijä on suomenruotsissa disponent"
+ },
+ {
+  "id": "k_isannoitsija",
+  "field": "sv_infl",
+  "old": "def=fastighetsförvaltaren;pl=fastighetsförvaltare",
+  "new": "def=disponenten;pl=disponenter",
+  "reason": "Taivutus uuden päämuodon mukaan"
+ },
+ {
+  "id": "k_lantinen",
+  "field": "sv_text",
+  "old": "västlig",
+  "new": "västlig / västra",
+  "reason": "Västra on yleinen vastine (västra Finland)"
+ },
+ {
+  "id": "k_arviointi",
+  "field": "sv_text",
+  "old": "en utvärdering",
+  "new": "en utvärdering / en bedömning",
+  "reason": "Bedömning on yleinen vastine"
+ },
+ {
+  "id": "k_turha",
+  "field": "de_text",
+  "old": "unnötig / sinnlos",
+  "new": "unnötig / sinnlos / nutzlos",
+  "reason": "Yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "k_riippumatta",
+  "field": "sv_text",
+  "old": "oavsett",
+  "new": "oavsett / oberoende av",
+  "reason": "Yleinen vaihtoehto puuttui"
+ }
+]

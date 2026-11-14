@@ -1,0 +1,317 @@
+[
+ {
+  "id": "k_tarjolla",
+  "field": "sv_text",
+  "old": "att tillgå",
+  "new": "att tillgå / tillgänglig",
+  "reason": "yleinen vastine puuttui"
+ },
+ {
+  "id": "k_tarjolla",
+  "field": "en_text",
+  "old": "on offer",
+  "new": "on offer / available",
+  "reason": "yleinen vastine puuttui"
+ },
+ {
+  "id": "k_tarjolla",
+  "field": "de_text",
+  "old": "zu haben",
+  "new": "erhältlich / zu haben / im Angebot",
+  "reason": "yleiset vastineet puuttuivat"
+ },
+ {
+  "id": "k_poikkeuksellisesti",
+  "field": "de_text",
+  "old": "ausnahmsweise",
+  "new": "ausnahmsweise / außergewöhnlich",
+  "reason": "toinen merkitys (poikkeuksellisen) puuttui, en/sv kattavat sen"
+ },
+ {
+  "id": "k_kosteus",
+  "field": "sv_text",
+  "old": "fukt",
+  "new": "fukt / fuktighet",
+  "reason": "yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "k_kypsa",
+  "field": "fi",
+  "old": "kypsä",
+  "new": "kypsä (hedelmä; ihminen)",
+  "reason": "ilman tarkennetta voi tarkoittaa myös kypsennettyä ruokaa"
+ },
+ {
+  "id": "k_joustaa",
+  "field": "en_text",
+  "old": "be flexible / give",
+  "new": "be flexible / give way",
+  "reason": "pelkkä 'give' harhaanjohtava hyväksytty vastaus"
+ },
+ {
+  "id": "k_helle",
+  "field": "sv_text",
+  "old": "en hetta / värme",
+  "new": "hetta / värme",
+  "reason": "ainesana ilman artikkelia"
+ },
+ {
+  "id": "k_tuoreeltaan",
+  "field": "fi",
+  "old": "tuoreeltaan",
+  "new": "tuoreeltaan (heti tapahtuman jälkeen)",
+  "reason": "tarkenne tarpeen"
+ },
+ {
+  "id": "k_tuoreeltaan",
+  "field": "sv_text",
+  "old": "färsk / genast",
+  "new": "genast / direkt efteråt",
+  "reason": "'färsk' on adjektiivi eikä vastaa adverbia"
+ },
+ {
+  "id": "k_tuoreeltaan",
+  "field": "en_text",
+  "old": "fresh / straight away",
+  "new": "straight away / right afterwards",
+  "reason": "'fresh' ei vastaa merkitystä"
+ },
+ {
+  "id": "k_tuoreeltaan",
+  "field": "de_text",
+  "old": "frisch / sofort",
+  "new": "sofort / gleich danach",
+  "reason": "'frisch' ei vastaa merkitystä"
+ },
+ {
+  "id": "k_sisalle",
+  "field": "de_text",
+  "old": "hinein / nach drinnen",
+  "new": "hinein / herein / nach drinnen",
+  "reason": "yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "k_rock",
+  "field": "de_text",
+  "old": "die Rockmusik",
+  "new": "die Rockmusik / der Rock",
+  "reason": "yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "k_maisteri",
+  "field": "sv_text",
+  "old": "en masterexamen",
+  "new": "en masterexamen / en magisterexamen",
+  "reason": "suomenruotsissa yleinen magisterexamen puuttui"
+ },
+ {
+  "id": "k_talvisin",
+  "field": "sv_text",
+  "old": "på vintrarna",
+  "new": "på vintrarna / på vintern",
+  "reason": "yleinen vaihtoehto puuttui (vrt. syksyisin)"
+ },
+ {
+  "id": "k_ilme",
+  "field": "sv_text",
+  "old": "en min",
+  "new": "en min / ett ansiktsuttryck",
+  "reason": "yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "k_tunturi",
+  "field": "de_infl",
+  "old": "pl=die Fjelle",
+  "new": "pl=die Fjells",
+  "reason": "Fjell-sanan monikko on Fjells"
+ },
+ {
+  "id": "k_ajella",
+  "field": "fi",
+  "old": "ajella",
+  "new": "ajella (autolla)",
+  "reason": "ajella tarkoittaa myös parran ajamista"
+ },
+ {
+  "id": "k_kiire",
+  "field": "sv_text",
+  "old": "en brådska",
+  "new": "brådska",
+  "reason": "ainesana ilman artikkelia"
+ },
+ {
+  "id": "k_yrittajyys",
+  "field": "sv_text",
+  "old": "ett entreprenörskap / ett företagande",
+  "new": "entreprenörskap / företagande",
+  "reason": "ainesanat ilman artikkelia"
+ },
+ {
+  "id": "k_elavalta",
+  "field": "fi",
+  "old": "elävältä",
+  "new": "elävältä (esim. haudata elävältä)",
+  "reason": "ilman tarkennetta voi tarkoittaa 'näyttää elävältä'"
+ },
+ {
+  "id": "k_kauhu",
+  "field": "sv_text",
+  "old": "en skräck",
+  "new": "skräck",
+  "reason": "ainesana ilman artikkelia"
+ },
+ {
+  "id": "k_tasapainottaa",
+  "field": "de_text",
+  "old": "ausgleichen",
+  "new": "ausgleichen / ausbalancieren",
+  "reason": "yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "k_alykkyys",
+  "field": "sv_text",
+  "old": "en intelligens",
+  "new": "intelligens",
+  "reason": "ainesana ilman artikkelia"
+ },
+ {
+  "id": "k_panna_vireille",
+  "field": "fi",
+  "old": "panna vireille",
+  "new": "panna vireille (esim. kanne)",
+  "reason": "tarkenne tarpeen, vastineet oikeuskielisiä"
+ },
+ {
+  "id": "k_pyynto",
+  "field": "de_text",
+  "old": "die Bitte",
+  "new": "die Bitte / die Anfrage",
+  "reason": "yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "k_turvapaikka",
+  "field": "sv_infl",
+  "old": "def=asylen",
+  "new": "def=asylet",
+  "reason": "asyl on ett-sukuinen"
+ },
+ {
+  "id": "k_tahka",
+  "field": "en_text",
+  "old": "ear (of grain)",
+  "new": "ear / ear of grain",
+  "reason": "sulkutarkenne vastauksessa esti täsmäämisen"
+ },
+ {
+  "id": "k_tahka",
+  "field": "fi",
+  "old": "tähkä",
+  "new": "tähkä (viljan)",
+  "reason": "tarkenne siirretty kehotteeseen"
+ },
+ {
+  "id": "k_myoden",
+  "field": "fi",
+  "old": "myöden (jotakin pitkin)",
+  "new": "myöten / myöden (jotakin pitkin)",
+  "reason": "myöden on harvinainen rinnakkaismuoto; yleiskielen muoto myöten ensin"
+ },
+ {
+  "id": "k_laajasti",
+  "field": "de_text",
+  "old": "weitgehend / umfassend",
+  "new": "umfassend / weithin",
+  "reason": "weitgehend = suurelta osin, ei laajasti"
+ },
+ {
+  "id": "k_feminismi",
+  "field": "sv_text",
+  "old": "en feminism",
+  "new": "feminism",
+  "reason": "abstrakti ainesana ilman artikkelia"
+ },
+ {
+  "id": "k_saada_osakseen",
+  "field": "sv_infl",
+  "old": "pres=rönar;pret=rönte;sup=rönt",
+  "new": "pres=röner;pret=rönte;sup=rönt",
+  "reason": "rönan preesens on röner"
+ },
+ {
+  "id": "k_lasnaolo",
+  "field": "sv_text",
+  "old": "en närvaro",
+  "new": "närvaro",
+  "reason": "abstrakti ainesana ilman artikkelia"
+ },
+ {
+  "id": "k_ylosalaisin",
+  "field": "sv_text",
+  "old": "upp och ner",
+  "new": "upp och ner / upp och ned",
+  "reason": "yleinen kirjoitusasu puuttui"
+ },
+ {
+  "id": "k_havittaja",
+  "field": "de_text",
+  "old": "das Kampfflugzeug",
+  "new": "das Kampfflugzeug / das Jagdflugzeug / der Kampfjet",
+  "reason": "yleiset vaihtoehdot puuttuivat"
+ },
+ {
+  "id": "k_tulitauko",
+  "field": "de_text",
+  "old": "die Waffenruhe",
+  "new": "die Waffenruhe / der Waffenstillstand",
+  "reason": "yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "k_tulitauko",
+  "field": "en_text",
+  "old": "ceasefire",
+  "new": "ceasefire / truce",
+  "reason": "yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "k_verohallinto",
+  "field": "sv_text",
+  "old": "en skattemyndighet",
+  "new": "en skattemyndighet / en skatteförvaltning",
+  "reason": "Suomessa käytetty nimitys puuttui"
+ },
+ {
+  "id": "k_kasitys",
+  "field": "en_text",
+  "old": "idea / notion / understanding",
+  "new": "idea / notion / understanding / view",
+  "reason": "yleinen vastine puuttui"
+ },
+ {
+  "id": "k_jumissa",
+  "field": "de_text",
+  "old": "fest / blockiert",
+  "new": "festgefahren / blockiert / fest",
+  "reason": "pelkkä 'fest' epäluonteva päämuotona"
+ },
+ {
+  "id": "k_hyoty",
+  "field": "sv_text",
+  "old": "en nytta",
+  "new": "nytta",
+  "reason": "ainesana ilman artikkelia"
+ },
+ {
+  "id": "k_ei_minnekaan",
+  "field": "en_text",
+  "old": "nowhere / anywhere",
+  "new": "nowhere / not anywhere",
+  "reason": "pelkkä 'anywhere' ei ole kielteinen"
+ },
+ {
+  "id": "k_kupari",
+  "field": "sv_infl",
+  "old": "def=koppern",
+  "new": "def=kopparn",
+  "reason": "määräinen muoto väärin kirjoitettu"
+ }
+]

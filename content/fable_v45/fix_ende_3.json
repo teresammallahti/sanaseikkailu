@@ -1,0 +1,387 @@
+[
+ {
+  "id": "countries_finnish",
+  "field": "en_text",
+  "old": "Finnish (kansalaisuus)",
+  "new": "Finnish",
+  "reason": "vastauksessa suomenkielinen sulkutarkenne, jota oppija ei voi kirjoittaa"
+ },
+ {
+  "id": "fruit_orange",
+  "field": "en_text",
+  "old": "orange (hedelmä)",
+  "new": "orange",
+  "reason": "vastauksessa suomenkielinen sulkutarkenne, jota oppija ei voi kirjoittaa"
+ },
+ {
+  "id": "weekdays_thursday",
+  "field": "de_text",
+  "old": "Donnerstag",
+  "new": "der Donnerstag",
+  "reason": "artikkeli puuttui (saksan substantiivit artikkelin kanssa)"
+ },
+ {
+  "id": "sidesanat_5_still",
+  "field": "de_text",
+  "old": "trotzdem / immer noch",
+  "new": "immer noch / noch immer / noch",
+  "reason": "trotzdem = 'silti' (englannin still-homonyymi); edelleen/yhä = immer noch"
+ },
+ {
+  "id": "s_a1_bun",
+  "field": "de_text",
+  "old": "die Zimtschnecke / das süße Brötchen",
+  "new": "das süße Brötchen / das Hefebrötchen / die Zimtschnecke",
+  "reason": "Zimtschnecke = korvapuusti, ei yleinen pulla; yleisvastine päämuodoksi"
+ },
+ {
+  "id": "s_a1_bun",
+  "field": "de_infl",
+  "old": "pl=die Zimtschnecken",
+  "new": "pl=die süßen Brötchen",
+  "reason": "monikko uuden päämuodon mukaan"
+ },
+ {
+  "id": "verbs2_4_take_care_of",
+  "field": "de_infl",
+  "old": "pret=kümmerte sich;pp=hat sich gekümmert;pres3=kümmert sich",
+  "new": "pret=kümmerte sich um;pp=hat sich um ... gekümmert;pres3=kümmert sich um",
+  "reason": "taivutus päämuodon 'sich kümmern um' mukaan (prepositio puuttui)"
+ },
+ {
+  "id": "s_a1_finnish_language",
+  "field": "de_text",
+  "old": "das Finnisch / die finnische Sprache",
+  "new": "das Finnisch / Finnisch / das Finnische / die finnische Sprache",
+  "reason": "kielen nimi kirjoitetaan yleensä ilman artikkelia; oppija kirjoittaa todennäköisesti 'Finnisch'"
+ },
+ {
+  "id": "greetings_phrases_goodbye",
+  "field": "en_text",
+  "old": "goodbye",
+  "new": "goodbye / bye / bye-bye",
+  "reason": "kehotteessa hei hei / moikka -> bye"
+ },
+ {
+  "id": "s_a1_happy_birthday",
+  "field": "de_text",
+  "old": "alles Gute zum Geburtstag",
+  "new": "alles Gute zum Geburtstag / herzlichen Glückwunsch zum Geburtstag",
+  "reason": "hyvin yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "technology_email",
+  "field": "en_text",
+  "old": "email",
+  "new": "email / e-mail",
+  "reason": "yleinen kirjoitusasu puuttui"
+ },
+ {
+  "id": "numbers_4_thousand",
+  "field": "en_text",
+  "old": "thousand",
+  "new": "thousand / a thousand / one thousand",
+  "reason": "sv/de hyväksyvät 'yksi tuhat' -muodon, en ei"
+ },
+ {
+  "id": "family_father",
+  "field": "en_text",
+  "old": "father",
+  "new": "father / dad",
+  "reason": "kehote isä / iskä, sv pappa -> dad"
+ },
+ {
+  "id": "family_father",
+  "field": "de_text",
+  "old": "der Vater",
+  "new": "der Vater / der Papa",
+  "reason": "kehote isä / iskä, sv pappa -> Papa"
+ },
+ {
+  "id": "family_grandpa",
+  "field": "de_text",
+  "old": "der Großvater",
+  "new": "der Großvater / der Opa",
+  "reason": "en hyväksyy grandpa, kehotteessa ukki/vaari -> Opa"
+ },
+ {
+  "id": "home_4_basement",
+  "field": "en_text",
+  "old": "basement",
+  "new": "basement / cellar",
+  "reason": "cellar on kellarin yleinen vastine"
+ },
+ {
+  "id": "s_a1_sauce",
+  "field": "de_text",
+  "old": "die Soße",
+  "new": "die Soße / die Sauce",
+  "reason": "yleinen rinnakkainen kirjoitusasu"
+ },
+ {
+  "id": "s_a1_fridge",
+  "field": "en_text",
+  "old": "fridge",
+  "new": "fridge / refrigerator",
+  "reason": "yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "chores_4_do_the_shopping",
+  "field": "en_text",
+  "old": "do the shopping",
+  "new": "do the shopping / go shopping",
+  "reason": "yleinen vaihtoehto (käydä kaupassa / tehdä ostoksia)"
+ },
+ {
+  "id": "s_a1_town_hall",
+  "field": "en_text",
+  "old": "town hall",
+  "new": "town hall / city hall",
+  "reason": "yleinen vaihtoehto puuttui"
+ },
+ {
+  "id": "town_7_far",
+  "field": "en_text",
+  "old": "far",
+  "new": "far / far away",
+  "reason": "kaukana = far away; de hyväksyy weit weg"
+ },
+ {
+  "id": "places_dir_4_in_the_middle",
+  "field": "en_text",
+  "old": "in the middle",
+  "new": "in the middle / in the middle of",
+  "reason": "prepositiona (sv mitt i) in the middle of"
+ },
+ {
+  "id": "places_dir_4_in_the_middle",
+  "field": "de_text",
+  "old": "in der Mitte / mitten",
+  "new": "in der Mitte / mitten / mitten in / in der Mitte von",
+  "reason": "prepositiona mitten in"
+ },
+ {
+  "id": "s_a1_wash_one_s_hands",
+  "field": "en_text",
+  "old": "wash one's hands",
+  "new": "wash one's hands / wash your hands / wash hands",
+  "reason": "oppija ei todennäköisesti kirjoita one's-muotoa"
+ },
+ {
+  "id": "free_time_7_spare_time",
+  "field": "en_text",
+  "old": "spare time",
+  "new": "spare time / free time / leisure time",
+  "reason": "free time on yleisin vastine"
+ },
+ {
+  "id": "verbs1_4_finish",
+  "field": "en_text",
+  "old": "finish",
+  "new": "finish / stop / end",
+  "reason": "kehote lopettaa / loppua (sv sluta, de aufhören) -> stop, end"
+ },
+ {
+  "id": "professions_shop_assistant",
+  "field": "en_text",
+  "old": "shop assistant",
+  "new": "shop assistant / sales assistant / salesperson",
+  "reason": "yleiset vaihtoehdot puuttuivat"
+ },
+ {
+  "id": "school_objects_pen",
+  "field": "de_text",
+  "old": "der Kugelschreiber / der Kuli",
+  "new": "der Kugelschreiber / der Kuli / der Stift",
+  "reason": "kehote 'kynä' -> der Stift on todennäköisin vastaus"
+ },
+ {
+  "id": "little_4_also",
+  "field": "en_text",
+  "old": "also",
+  "new": "also / too / as well",
+  "reason": "yleiset vaihtoehdot puuttuivat"
+ },
+ {
+  "id": "perusverbit_have",
+  "field": "en_text",
+  "old": "have",
+  "new": "have / have got / own",
+  "reason": "kehotteessa 'omistaa' (sv äga) -> own"
+ },
+ {
+  "id": "perusverbit_have",
+  "field": "de_text",
+  "old": "haben",
+  "new": "haben / besitzen",
+  "reason": "kehotteessa 'omistaa' -> besitzen"
+ },
+ {
+  "id": "verbs1_4_have_to",
+  "field": "en_text",
+  "old": "have to",
+  "new": "have to / must",
+  "reason": "must on yleinen vastine (sv måste, de müssen)"
+ },
+ {
+  "id": "phrasal_9_look_for",
+  "field": "en_text",
+  "old": "look for",
+  "new": "look for / search for / seek",
+  "reason": "sv hyväksyy söka; yleiset vaihtoehdot"
+ },
+ {
+  "id": "places_4_lorry",
+  "field": "en_text",
+  "old": "lorry",
+  "new": "lorry / truck",
+  "reason": "truck on hyvin yleinen vastaus"
+ },
+ {
+  "id": "s_a2_cash_machine",
+  "field": "en_text",
+  "old": "cash machine / cashpoint",
+  "new": "cash machine / cashpoint / ATM",
+  "reason": "ATM on hyvin yleinen"
+ },
+ {
+  "id": "s_a2_studio_flat",
+  "field": "en_text",
+  "old": "studio flat",
+  "new": "studio flat / studio / studio apartment",
+  "reason": "yleiset vaihtoehdot"
+ },
+ {
+  "id": "work_8_salary",
+  "field": "en_text",
+  "old": "salary",
+  "new": "salary / wage / wages / pay",
+  "reason": "palkka = myös wage/pay (de hyväksyy Lohn)"
+ },
+ {
+  "id": "s_a2_pension",
+  "field": "de_text",
+  "old": "die Rente",
+  "new": "die Rente / die Pension",
+  "reason": "Pension on yleinen vastine (virkamieseläke, Itävalta/Sveitsi)"
+ },
+ {
+  "id": "future_high_school",
+  "field": "en_text",
+  "old": "high school",
+  "new": "high school / upper secondary school",
+  "reason": "brittienglannissa lukio = upper secondary school; high school on amerikanenglantia"
+ },
+ {
+  "id": "future_exam",
+  "field": "en_text",
+  "old": "exam",
+  "new": "exam / test / examination",
+  "reason": "kehote koe -> test"
+ },
+ {
+  "id": "future_exam",
+  "field": "de_text",
+  "old": "die Prüfung",
+  "new": "die Prüfung / der Test / die Klausur",
+  "reason": "koe/tentti -> Test, Klausur"
+ },
+ {
+  "id": "animals_4_viper",
+  "field": "en_text",
+  "old": "viper",
+  "new": "viper / adder",
+  "reason": "kyy on brittienglanniksi adder"
+ },
+ {
+  "id": "sports_events_8_score",
+  "field": "en_text",
+  "old": "score",
+  "new": "score / score a goal",
+  "reason": "oppija kirjoittaa todennäköisesti koko ilmauksen (de: ein Tor schießen)"
+ },
+ {
+  "id": "verbs2_4_get_ready",
+  "field": "en_text",
+  "old": "get ready",
+  "new": "get ready / prepare",
+  "reason": "valmistautua = myös prepare (de sich vorbereiten)"
+ },
+ {
+  "id": "verbs2_4_take_care_of",
+  "field": "en_text",
+  "old": "take care of",
+  "new": "take care of / look after",
+  "reason": "look after on yleinen brittivastine"
+ },
+ {
+  "id": "places_dir_4_alone",
+  "field": "de_text",
+  "old": "allein",
+  "new": "allein / alleine",
+  "reason": "alleine on yhtä yleinen muoto"
+ },
+ {
+  "id": "adj_4_normal",
+  "field": "en_text",
+  "old": "normal",
+  "new": "normal / ordinary / usual",
+  "reason": "kehote tavallinen -> ordinary/usual (de gewöhnlich)"
+ },
+ {
+  "id": "opposites_loud",
+  "field": "en_text",
+  "old": "loud",
+  "new": "loud / noisy",
+  "reason": "äänekäs = myös noisy"
+ },
+ {
+  "id": "s_b1_cooperation",
+  "field": "en_text",
+  "old": "cooperation",
+  "new": "cooperation / co-operation / collaboration",
+  "reason": "yleiset vaihtoehdot"
+ },
+ {
+  "id": "s_b1_priest",
+  "field": "en_text",
+  "old": "priest",
+  "new": "priest / pastor / vicar",
+  "reason": "de hyväksyy Pfarrer; luterilainen pappi = pastor/vicar"
+ },
+ {
+  "id": "s_b1_sentence_2",
+  "field": "en_text",
+  "old": "sentence",
+  "new": "sentence / convict",
+  "reason": "tuomita = myös convict (de verurteilen)"
+ },
+ {
+  "id": "communication_9_conversation",
+  "field": "en_text",
+  "old": "conversation",
+  "new": "conversation / discussion",
+  "reason": "sv/de hyväksyvät diskussion/Diskussion"
+ },
+ {
+  "id": "s_b1_effect",
+  "field": "en_text",
+  "old": "effect / impact",
+  "new": "effect / impact / influence",
+  "reason": "de hyväksyy Einfluss, sv påverkan"
+ },
+ {
+  "id": "relationships_7_get_along",
+  "field": "en_text",
+  "old": "get along",
+  "new": "get along / get on",
+  "reason": "get on on brittienglannin muoto"
+ },
+ {
+  "id": "connectors_9_despite",
+  "field": "en_text",
+  "old": "despite",
+  "new": "despite / in spite of",
+  "reason": "yleinen vaihtoehto puuttui"
+ }
+]

@@ -1,0 +1,226 @@
+[
+ {
+  "id": "svs_a1_family_4",
+  "field": "alt",
+  "old": "",
+  "new": "Min bror har en ny tjej.",
+  "reason": "Yleinen synonyymi tjej."
+ },
+ {
+  "id": "svs_a1_family_8",
+  "field": "alt",
+  "old": "",
+  "new": "Han är min bäste vän.",
+  "reason": "Maskuliininen e-muoto (bäste vän) on oikea ja yleinen."
+ },
+ {
+  "id": "svs_a1_town_4",
+  "field": "alt",
+  "old": "Jag tar bussen till jobbet. || Jag åker bussen till jobbet. || Jag åker buss till arbetet.",
+  "new": "Jag tar bussen till jobbet. || Jag åker bussen till jobbet. || Jag åker buss till arbetet. || Jag åker till jobbet med buss. || Jag åker till jobbet med bussen. || Jag tar bussen till arbetet. || Jag åker med bussen till jobbet.",
+  "reason": "Suomen sanajärjestystä seuraavat ja muut yleiset oikeat muodot puuttuivat."
+ },
+ {
+  "id": "svs_a1_town_5",
+  "field": "alt",
+  "old": "Vi stiger av på nästa station.",
+  "new": "Vi stiger av på nästa station. || Vi går av vid nästa station. || Vi går av på nästa station.",
+  "reason": "gå av on yhtä yleinen kuin stiga av."
+ },
+ {
+  "id": "svs_a1_town_8",
+  "field": "alt",
+  "old": "Jag går till tunnelbanan till fots.",
+  "new": "Jag går till tunnelbanan till fots. || Jag promenerar till tunnelbanan.",
+  "reason": "Luonteva tapa sanoa sama asia."
+ },
+ {
+  "id": "svs_a1_verbs_4",
+  "field": "alt",
+  "old": "",
+  "new": "Hon talar med sin chef.",
+  "reason": "tala/prata ovat synonyymeja."
+ },
+ {
+  "id": "svs_a2_housing_1",
+  "field": "alt",
+  "old": "Förra året flyttade vi till en hyresrätt.",
+  "new": "Förra året flyttade vi till en hyresrätt. || Vi flyttade till en hyreslägenhet förra året. || Förra året flyttade vi till en hyreslägenhet. || Vi flyttade till en hyresrätt i fjol.",
+  "reason": "hyreslägenhet on yleinen synonyymi; i fjol = viime vuonna."
+ },
+ {
+  "id": "svs_a2_housing_3",
+  "field": "sv",
+  "old": "Hyran blev dyrare efter renoveringen.",
+  "new": "Hyran blev högre efter renoveringen.",
+  "reason": "Vuokra on ruotsissa hög/låg, ei dyr; \"hyran blev dyrare\" on puhekielinen sekamuoto. Malliksi normin mukainen muoto."
+ },
+ {
+  "id": "svs_a2_housing_3",
+  "field": "fi",
+  "old": "Vuokra kallistui remontin jälkeen.",
+  "new": "Vuokra nousi remontin jälkeen.",
+  "reason": "Kehote vastaamaan uutta mallivastausta (blev högre)."
+ },
+ {
+  "id": "svs_a2_housing_3",
+  "field": "alt",
+  "old": "Hyran blev högre efter renoveringen. || Efter renoveringen blev hyran dyrare.",
+  "new": "Hyran blev dyrare efter renoveringen. || Efter renoveringen blev hyran högre. || Efter renoveringen blev hyran dyrare. || Hyran höjdes efter renoveringen. || Hyran gick upp efter renoveringen.",
+  "reason": "Alt päivitetty uuden mallivastauksen mukaan; lisätty höjdes/gick upp."
+ },
+ {
+  "id": "svs_a2_relationships_1",
+  "field": "alt",
+  "old": "För fem år sedan träffades vi på en fest. || Vi träffades på en fest för fem år sen.",
+  "new": "För fem år sedan träffades vi på en fest. || Vi träffades på en fest för fem år sen. || För fem år sen träffades vi på en fest. || Vi träffades för fem år sedan på en fest. || Vi träffades för fem år sen på en fest.",
+  "reason": "sen-muoto puuttui käänteisestä järjestyksestä; ajanmääre voi olla myös ennen paikkaa."
+ },
+ {
+  "id": "svs_a2_relationships_4",
+  "field": "alt",
+  "old": "Han fyller fyrtio på lördag. || På lördag fyller han fyrtio år.",
+  "new": "Han fyller fyrtio på lördag. || På lördag fyller han fyrtio år. || På lördag fyller han fyrtio.",
+  "reason": "Yhdistelmä (etinen ajanmääre + ilman år) puuttui."
+ },
+ {
+  "id": "svs_a2_relationships_5",
+  "field": "alt",
+  "old": "Hon bad om ursäkt eftersom hon kom sent.",
+  "new": "Hon bad om ursäkt eftersom hon kom sent. || Hon bad om ursäkt för att hon var sen. || Hon bad om ursäkt för att hon kom för sent.",
+  "reason": "Hyvin todennäköiset oikeat vastaukset."
+ },
+ {
+  "id": "svs_a2_relationships_6",
+  "field": "alt",
+  "old": "Vi har hållit kontakten sen skolan.",
+  "new": "Vi har hållit kontakten sen skolan. || Vi har hållit kontakten sedan skoltiden. || Vi har hållit kontakten sen skoltiden.",
+  "reason": "Kehote \"kouluajoista asti\" ohjaa suoraan muotoon skoltiden."
+ },
+ {
+  "id": "svs_b1_society_3",
+  "field": "alt",
+  "old": "",
+  "new": "Riksdagen godkände den nya lagen med stor majoritet.",
+  "reason": "godkänna on todennäköinen ja oikea vastaus sanalle \"hyväksyi\"."
+ },
+ {
+  "id": "svs_b1_society_4",
+  "field": "fi",
+  "old": "Moni osoitti mieltään, koska he eivät olleet tyytyväisiä uudistukseen.",
+  "new": "Monet osoittivat mieltään, koska he eivät olleet tyytyväisiä uudistukseen.",
+  "reason": "Suomen lukukongruenssi: \"Moni ... he eivät olleet\" on virheellinen."
+ },
+ {
+  "id": "svs_b1_society_5",
+  "field": "fi",
+  "old": "Tasa-arvo on tärkeää nykyaikaisessa yhteiskunnassa.",
+  "new": "Sukupuolten tasa-arvo on tärkeää nykyaikaisessa yhteiskunnassa.",
+  "reason": "jämställdhet = sukupuolten tasa-arvo; pelkkä \"tasa-arvo\" ohjaa yhtä hyvin sanaan jämlikhet."
+ },
+ {
+  "id": "svs_b1_culture_3",
+  "field": "alt",
+  "old": "",
+  "new": "Konstnären som målade tavlan var inte känd under sin livstid.",
+  "reason": "\"eläessään\" = myös under sin livstid."
+ },
+ {
+  "id": "svs_b1_culture_8",
+  "field": "alt",
+  "old": "Det var en fantastisk stämning på konserten.",
+  "new": "Det var en fantastisk stämning på konserten. || Det var fantastisk stämning på konserten.",
+  "reason": "Artikkeliton muoto on tässä rakenteessa hyvin yleinen."
+ },
+ {
+  "id": "svs_b1_verbs_5",
+  "field": "alt",
+  "old": "",
+  "new": "Jag vill göra mig av med alla gamla papper innan vi flyttar.",
+  "reason": "göra sig av med on yleinen synonyymi."
+ },
+ {
+  "id": "svs_b2_health_2",
+  "field": "alt",
+  "old": "Om tumören hade upptäckts tidigare hade den kunnat behandlas med medicin. || Om tumören upptäckts tidigare hade den kunnat behandlas med medicin. || Hade tumören upptäckts tidigare, hade den kunnat behandlas med medicin. || Om tumören hade upptäckts tidigare, hade den kunnat behandlas med läkemedel.",
+  "new": "Om tumören hade upptäckts tidigare hade den kunnat behandlas med medicin. || Om tumören upptäckts tidigare hade den kunnat behandlas med medicin. || Hade tumören upptäckts tidigare, hade den kunnat behandlas med medicin. || Om tumören hade upptäckts tidigare, hade den kunnat behandlas med läkemedel. || Om tumören hade upptäckts tidigare skulle den ha kunnat behandlas med medicin. || Om tumören hade upptäckts tidigare hade den kunnat behandlas med läkemedel.",
+  "reason": "skulle ha kunnat -konditionaali on oikea ja todennäköinen; läkemedel myös pilkuttomassa muodossa (välimerkit eivät vaikuta, mutta yhdenmukaisuuden vuoksi)."
+ },
+ {
+  "id": "svs_b2_health_3",
+  "field": "alt",
+  "old": "",
+  "new": "Ett högt saltintag kan leda till förhöjt blodtryck. || Ett högt intag av salt kan leda till högt blodtryck.",
+  "reason": "Yhdyssana saltintag on yleinen; högt blodtryck todennäköinen vastaus."
+ },
+ {
+  "id": "svs_b2_health_8",
+  "field": "fi",
+  "old": "Ylilääkäri arveli, että potilaan oireyhtymä on todennäköisesti synnynnäinen eikä infektion aiheuttama.",
+  "new": "Ylilääkäri katsoi, että potilaan oireyhtymä on todennäköisesti synnynnäinen eikä infektion aiheuttama.",
+  "reason": "mena = olla jotakin mieltä, katsoa; \"arveli\" ohjaa verbiin tro/anta."
+ },
+ {
+  "id": "svs_b2_health_8",
+  "field": "alt",
+  "old": "Överläkaren menade att patientens syndrom troligen är medfött och inte orsakat av en infektion. || Överläkaren trodde att patientens syndrom sannolikt är medfött och inte orsakat av en infektion.",
+  "new": "Överläkaren menade att patientens syndrom troligen är medfött och inte orsakat av en infektion. || Överläkaren trodde att patientens syndrom sannolikt är medfött och inte orsakat av en infektion. || Överläkaren ansåg att patientens syndrom sannolikt är medfött och inte orsakat av en infektion.",
+  "reason": "anse vastaa uutta kehotetta (katsoi)."
+ },
+ {
+  "id": "svs_b2_abstract_2",
+  "field": "alt",
+  "old": "Det finns inget bevis för att metoden faktiskt fungerar i praktiken.",
+  "new": "Det finns inget bevis för att metoden faktiskt fungerar i praktiken. || Det finns inga bevis för att metoden verkligen fungerar i praktiken.",
+  "reason": "\"todella\" = myös verkligen."
+ },
+ {
+  "id": "svs_b2_abstract_4",
+  "field": "fi",
+  "old": "Keskustelu sai odottamattoman käänteen, kun talous otettiin puheeksi.",
+  "new": "Keskustelu sai odottamattoman käänteen, kun talous tuli puheeksi.",
+  "reason": "komma på tal = tulla puheeksi; \"otettiin puheeksi\" olisi togs upp."
+ },
+ {
+  "id": "svs_b2_abstract_6",
+  "field": "alt",
+  "old": "Det finns en tydlig tendens att unga människor flyttar till storstäderna. || Det finns en tydlig tendens att unga flyttar till de stora städerna.",
+  "new": "Det finns en tydlig tendens att unga människor flyttar till storstäderna. || Det finns en tydlig tendens att unga flyttar till de stora städerna. || Det finns en tydlig tendens till att unga flyttar till storstäderna.",
+  "reason": "tendens till att on yhtä oikea rakenne."
+ },
+ {
+  "id": "svd_a1_family_1",
+  "field": "sv",
+  "old": "Vem är det på bilden?",
+  "new": "Vilka är det på bilden?",
+  "reason": "Vastaus on \"min familj\" (useita henkilöitä), joten kysymys monikossa."
+ },
+ {
+  "id": "svd_a1_family_1",
+  "field": "fi",
+  "old": "Kuka kuvassa on?",
+  "new": "Keitä kuvassa on?",
+  "reason": "Suomennos uuden sv:n mukaan."
+ },
+ {
+  "id": "svd_a2_relationships_1",
+  "field": "sv",
+  "old": "Hej! Jag fyller trettio nästa lördag. Vill du komma på festen?",
+  "new": "Hej! Jag fyller trettio på lördag. Vill du komma på festen?",
+  "reason": "\"nästa lördag\" tulkitaan ruotsissa usein seuraavan viikon lauantaiksi ja on ristiriidassa lopun \"vi ses på lördag\" kanssa; \"ensi lauantaina\" = på lördag."
+ },
+ {
+  "id": "svd_b1_culture_3",
+  "field": "fi",
+  "old": "Niin, valokuvaajalla oli hyvin henkilökohtainen tyyli.",
+  "new": "Niin, valokuvaajalla oli hyvin persoonallinen tyyli.",
+  "reason": "personlig stil = persoonallinen tyyli, ei henkilökohtainen."
+ },
+ {
+  "id": "svd_b2_abstract_2",
+  "field": "fi",
+  "old": "Kohtuullista. Myynti on laskenut koko alalla, ei vain meillä.",
+  "new": "Järkevää. Myynti on laskenut koko alalla, ei vain meillä.",
+  "reason": "Rimligt tarkoittaa tässä \"järkevää/perusteltua\", ei \"kohtuullista\"."
+ }
+]

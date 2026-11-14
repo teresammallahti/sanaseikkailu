@@ -1,0 +1,275 @@
+[
+ {
+  "id": "svs_a1_personal_7",
+  "field": "fi",
+  "old": "Oletko naimisissa vai sinkku? |",
+  "new": "Oletko naimisissa vai sinkku?",
+  "reason": "Kehotteen lopussa ylimääräinen ' |' (vientijäänne), joka näkyisi oppijalle."
+ },
+ {
+  "id": "svs_a1_home_1",
+  "field": "fi",
+  "old": "Asumme pienessä asunnossa. |",
+  "new": "Asumme pienessä asunnossa.",
+  "reason": "Kehotteen lopussa ylimääräinen ' |' (vientijäänne), joka näkyisi oppijalle."
+ },
+ {
+  "id": "svs_a1_weather_2",
+  "field": "fi",
+  "old": "Aurinko paistaa ja taivas on sininen. |",
+  "new": "Aurinko paistaa ja taivas on sininen.",
+  "reason": "Kehotteen lopussa ylimääräinen ' |' (vientijäänne), joka näkyisi oppijalle."
+ },
+ {
+  "id": "svs_a1_weather_4",
+  "field": "fi",
+  "old": "Millainen sää Tukholmassa on? |",
+  "new": "Millainen sää Tukholmassa on?",
+  "reason": "Kehotteen lopussa ylimääräinen ' |' (vientijäänne), joka näkyisi oppijalle."
+ },
+ {
+  "id": "svs_a2_verbs_6",
+  "field": "fi",
+  "old": "Älä unohda palauttaa kirjaa. |",
+  "new": "Älä unohda palauttaa kirjaa.",
+  "reason": "Kehotteen lopussa ylimääräinen ' |' (vientijäänne), joka näkyisi oppijalle."
+ },
+ {
+  "id": "svs_a1_personal_1",
+  "field": "alt",
+  "old": "Jag heter Anna och jag kommer från Finland.",
+  "new": "Jag heter Anna och jag kommer från Finland. || Mitt namn är Anna och jag kommer från Finland. || Jag heter Anna och är från Finland. || Jag heter Anna och jag är från Finland.",
+  "reason": "'Nimeni on' ohjaa myös muotoon 'Mitt namn är'; 'är från' on yleinen vastine ilmaukselle 'olen kotoisin'."
+ },
+ {
+  "id": "svs_a1_personal_3",
+  "field": "alt",
+  "old": "Hur stavar man ditt efternamn?",
+  "new": "Hur stavar man ditt efternamn? || Hur stavar du ditt efternamn?",
+  "reason": "Yleinen oikea vaihtoehto."
+ },
+ {
+  "id": "svs_a1_personal_8",
+  "field": "alt",
+  "old": "Han är svensk men han bor i Finland. || Han är svensk, men han bor i Finland.",
+  "new": "Han är svensk men han bor i Finland. || Han är svensk, men han bor i Finland. || Hon är svensk men bor i Finland. || Hon är svensk men hon bor i Finland.",
+  "reason": "'Hän' on monitulkintainen; myös hon-muoto on oikein (adjektiivi svensk ei taivu)."
+ },
+ {
+  "id": "svs_a1_home_4",
+  "field": "alt",
+  "old": "Det finns en bastu i källaren.",
+  "new": "Det finns en bastu i källaren. || Huset har bastu i källaren. || Det finns en bastu i husets källare.",
+  "reason": "Luontevat vaihtoehdot; artikkeliton 'har bastu' on yleinen."
+ },
+ {
+  "id": "svs_a1_home_5",
+  "field": "alt",
+  "old": "Vi har inte någon hiss, bara en trappa.",
+  "new": "Vi har inte någon hiss, bara en trappa. || Vi har ingen hiss, bara trappor. || Vi har inte någon hiss, bara trappor.",
+  "reason": "'Portaat' kääntyy hyvin todennäköisesti monikoksi 'trappor'."
+ },
+ {
+  "id": "svs_a1_home_7",
+  "field": "alt",
+  "old": "I kväll är jag hemma. || Jag är hemma ikväll.",
+  "new": "I kväll är jag hemma. || Jag är hemma ikväll. || Ikväll är jag hemma.",
+  "reason": "Puuttuva ikväll-kirjoitusasu käänteisellä sanajärjestyksellä."
+ },
+ {
+  "id": "svs_a1_weather_3",
+  "field": "alt",
+  "old": "I Helsingfors snöar det.",
+  "new": "I Helsingfors snöar det. || Det snöar i Helsinki. || I Helsinki snöar det.",
+  "reason": "Yhdenmukaisuus: Helsinki hyväksytään jo virkkeessä svs_a1_personal_5."
+ },
+ {
+  "id": "svs_a1_weather_4",
+  "field": "alt",
+  "old": "",
+  "new": "Vad är det för väder i Stockholm?",
+  "reason": "Yleinen oikea vaihtoehto puuttui (alt oli tyhjä)."
+ },
+ {
+  "id": "svs_a1_weather_6",
+  "field": "alt",
+  "old": "Det regnar och blåser i morgon. || Imorgon regnar det och blåser.",
+  "new": "Det regnar och blåser i morgon. || Imorgon regnar det och blåser. || Det regnar och blåser imorgon. || I morgon regnar och blåser det. || Imorgon regnar och blåser det.",
+  "reason": "Puuttuvat imorgon-kirjoitusasu ja oikea sanajärjestysvaihtoehto."
+ },
+ {
+  "id": "svs_a1_weather_7",
+  "field": "alt",
+  "old": "Det är fint väder, vi går till stranden.",
+  "new": "Det är vackert väder, så vi går till stranden.",
+  "reason": "Vanha alt oli pilkulla yhdistetty päälauseketju (satsradning) eikä vastannut sanaa 'joten'; tilalle yleinen synonyymi."
+ },
+ {
+  "id": "svs_a2_transport_1",
+  "field": "alt",
+  "old": "Jag var sen i morse för att det var bilkö på riksvägen. || I morse var jag sen eftersom det var bilkö på riksvägen.",
+  "new": "Jag var sen i morse för att det var bilkö på riksvägen. || I morse var jag sen eftersom det var bilkö på riksvägen. || Jag var försenad i morse eftersom det var bilkö på riksvägen. || Jag var sen i morse eftersom det var kö på riksvägen.",
+  "reason": "Yleiset synonyymit (försenad; kö)."
+ },
+ {
+  "id": "svs_a2_transport_3",
+  "field": "alt",
+  "old": "Sväng till vänster efter tunneln.",
+  "new": "Sväng till vänster efter tunneln. || Sväng åt vänster efter tunneln. || Ta vänster efter tunneln.",
+  "reason": "Yleiset oikeat vaihtoehdot."
+ },
+ {
+  "id": "svs_a2_transport_6",
+  "field": "alt",
+  "old": "Hur kommer jag härifrån till centralstationen?",
+  "new": "Hur kommer jag härifrån till centralstationen? || Hur tar jag mig till centralstationen härifrån?",
+  "reason": "Yleinen oikea vaihtoehto."
+ },
+ {
+  "id": "svs_a2_transport_7",
+  "field": "alt",
+  "old": "Hon stannade för att ladda sin bil.",
+  "new": "Hon stannade för att ladda sin bil. || Han stannade för att ladda bilen. || Han stannade för att ladda sin bil.",
+  "reason": "'Hän' on monitulkintainen; han-muoto hyväksyttävä."
+ },
+ {
+  "id": "svs_a2_education_2",
+  "field": "alt",
+  "old": "Jag studerade japanska när jag var på universitetet. || Jag läste japanska när jag studerade på universitetet.",
+  "new": "Jag studerade japanska när jag var på universitetet. || Jag läste japanska när jag studerade på universitetet. || Jag läste japanska när jag gick på universitetet. || Jag studerade japanska när jag gick på universitetet.",
+  "reason": "'Gå på universitetet' on riikinruotsissa luontevin ilmaus."
+ },
+ {
+  "id": "svs_a2_education_3",
+  "field": "alt",
+  "old": "Hon blev godkänd i provet. || Hon klarade provet.",
+  "new": "Hon klarade provet. || Han blev godkänd på provet. || Han klarade provet. || Hon fick godkänt på provet.",
+  "reason": "'Godkänd i provet' ei ole riikinruotsia (prepositio on 'på'; 'i' käytetään oppiaineesta); 'hän' monitulkintainen, lisätty han-muodot."
+ },
+ {
+  "id": "svs_a2_education_4",
+  "field": "alt",
+  "old": "I går rättade läraren våra övningar. || Läraren rättade våra övningar igår.",
+  "new": "I går rättade läraren våra övningar. || Läraren rättade våra övningar igår. || Igår rättade läraren våra övningar.",
+  "reason": "Puuttuva igår-kirjoitusasu käänteisellä sanajärjestyksellä."
+ },
+ {
+  "id": "svs_a2_education_7",
+  "field": "alt",
+  "old": "Han talar arabiska flytande eftersom han växte upp i Egypten. || Han talar flytande arabiska för att han växte upp i Egypten.",
+  "new": "Han talar arabiska flytande eftersom han växte upp i Egypten. || Han talar flytande arabiska för att han växte upp i Egypten. || Hon talar flytande arabiska eftersom hon växte upp i Egypten. || Han pratar flytande arabiska eftersom han växte upp i Egypten. || Hon pratar flytande arabiska eftersom hon växte upp i Egypten.",
+  "reason": "'Hän' on monitulkintainen; lisäksi pratar on yleinen synonyymi."
+ },
+ {
+  "id": "svs_a2_verbs_2",
+  "field": "alt",
+  "old": "I går orkade jag inte gå till gymmet. || Jag orkade inte gå till gymmet igår.",
+  "new": "I går orkade jag inte gå till gymmet. || Jag orkade inte gå till gymmet igår. || Igår orkade jag inte gå till gymmet.",
+  "reason": "Puuttuva igår-kirjoitusasu käänteisellä sanajärjestyksellä."
+ },
+ {
+  "id": "svs_a2_verbs_5",
+  "field": "alt",
+  "old": "Först kände jag inte igen honom.",
+  "new": "Först kände jag inte igen honom. || Jag kände inte igen henne först. || Först kände jag inte igen henne. || Jag kände inte igen honom i början. || Jag kände inte igen henne i början.",
+  "reason": "'Häntä' on monitulkintainen (honom/henne); 'i början' yleinen vastine sanalle 'aluksi'."
+ },
+ {
+  "id": "svs_a2_verbs_7",
+  "field": "alt",
+  "old": "Vill du följa med på bio ikväll? || Vill du följa med på bio i kväll?",
+  "new": "Vill du följa med på bio ikväll? || Vill du gå med på bio i kväll? || Vill du gå med på bio ikväll?",
+  "reason": "Alt sisälsi mallivastauksen kaksoiskappaleen; tilalle yleinen synonyymi."
+ },
+ {
+  "id": "svs_b1_environment_1",
+  "field": "alt",
+  "old": "Jag tycker att vi bör spara mer energi hemma. || Jag anser att vi borde spara mer energi hemma.",
+  "new": "Jag tycker att vi bör spara mer energi hemma. || Jag anser att vi borde spara mer energi hemma. || Jag tycker vi borde spara mer energi hemma.",
+  "reason": "Att-sanan poisjättö tycker-verbin jälkeen on hyvin yleistä ja oikein."
+ },
+ {
+  "id": "svs_b1_environment_2",
+  "field": "alt",
+  "old": "Många arter dör ut eftersom deras miljö inte är skyddad längre. || Många arter dör ut för att deras miljö inte längre är skyddad.",
+  "new": "Många arter dör ut eftersom deras miljö inte är skyddad längre. || Många arter dör ut för att deras miljö inte längre är skyddad. || Många arter dör ut eftersom deras livsmiljö inte längre är skyddad. || Många arter dör ut eftersom deras livsmiljö inte är skyddad längre.",
+  "reason": "Kehotteen 'elinympäristö' on täsmällisesti 'livsmiljö', joten oppija tuottaa sen todennäköisesti."
+ },
+ {
+  "id": "svs_b1_environment_6",
+  "field": "sv",
+  "old": "Vindkraft har blivit billigare, så fler länder satsar på den.",
+  "new": "Vindkraft har blivit billigare, så allt fler länder satsar på den.",
+  "reason": "Kehotteen 'yhä useammat' = 'allt fler'; mallivastauksen pelkkä 'fler' ei vastannut kehotetta."
+ },
+ {
+  "id": "svs_b1_environment_6",
+  "field": "alt",
+  "old": "Vindkraften har blivit billigare, så fler länder satsar på den. || Vindkraft har blivit billigare, så allt fler länder satsar på den.",
+  "new": "Vindkraften har blivit billigare, så allt fler länder satsar på den. || Vindkraft har blivit billigare, så fler länder satsar på den. || Vindkraften har blivit billigare, så fler länder satsar på den.",
+  "reason": "Alt päivitetty uuden mallivastauksen mukaiseksi (allt fler / fler, vindkraft / vindkraften)."
+ },
+ {
+  "id": "svs_b1_environment_7",
+  "field": "alt",
+  "old": "Om jordklotet fortsätter att värmas upp kommer det att bli fler katastrofer. || Om jorden fortsätter att värmas upp blir det fler katastrofer.",
+  "new": "Om jordklotet fortsätter att värmas upp kommer det att bli fler katastrofer. || Om jorden fortsätter att värmas upp blir det fler katastrofer. || Om jorden fortsätter att värmas upp kommer det bli fler katastrofer. || Om jorden fortsätter värmas upp kommer det att bli fler katastrofer.",
+  "reason": "'Kommer' ilman att-sanaa ja 'fortsätter' ilman att-sanaa ovat nykyruotsissa yleisiä ja hyväksyttyjä."
+ },
+ {
+  "id": "svs_b1_life_2",
+  "field": "alt",
+  "old": "Jag flyttade hemifrån när jag var 19. || Jag flyttade hemifrån när jag var nitton år.",
+  "new": "Jag flyttade hemifrån när jag var 19. || Jag flyttade hemifrån när jag var nitton år. || Jag flyttade hemifrån när jag var 19 år. || Jag flyttade hemifrån när jag var nitton år gammal.",
+  "reason": "Puuttuvat todennäköiset muodot."
+ },
+ {
+  "id": "svs_b1_life_8",
+  "field": "alt",
+  "old": "De gick isär efter 20 år, men de är fortfarande goda vänner. || De gick isär efter tjugo år men är fortfarande goda vänner.",
+  "new": "De gick isär efter 20 år, men de är fortfarande goda vänner. || De gick isär efter tjugo år men är fortfarande goda vänner. || De skilde sig efter tjugo år, men de är fortfarande goda vänner. || De skilde sig efter 20 år, men de är fortfarande goda vänner. || De gick isär efter tjugo år, men de är fortfarande bra vänner. || De separerade efter tjugo år, men de är fortfarande goda vänner.",
+  "reason": "'He erosivat' kääntyy todennäköisimmin 'skilde sig'; lisätty myös yleiset synonyymit."
+ },
+ {
+  "id": "svs_b2_society_1",
+  "field": "fi",
+  "old": "Ehdotus hyväksyttiin valiokunnassa yksimielisesti.",
+  "new": "Ehdotus hyväksyttiin komiteassa yksimielisesti.",
+  "reason": "Valiokunta on ruotsiksi 'utskott'; 'kommitté' = komitea. Kehote ohjasi väärään sanaan."
+ },
+ {
+  "id": "svs_b2_law_1",
+  "field": "alt",
+  "old": "Den åtalade förnekade brottet trots att det fanns starka bevis. || Den åtalade nekade till brottet fast det fanns starka bevis.",
+  "new": "Den åtalade förnekade brottet trots att det fanns starka bevis. || Den åtalade nekade till brottet fast det fanns starka bevis. || Den tilltalade nekade till brottet trots att det fanns starka bevis. || Den tilltalade förnekade brottet trots att det fanns starka bevis.",
+  "reason": "Ruotsin oikeuskielessä syytetty on oikeudenkäynnissä 'den tilltalade'; hyvin todennäköinen oikea vastaus."
+ },
+ {
+  "id": "svs_b2_function_2",
+  "field": "alt",
+  "old": "Han kunde inte ens laga mat, ännu mindre baka bröd.",
+  "new": "Han kunde inte ens laga mat, ännu mindre baka bröd. || Hon kunde inte ens laga mat, än mindre baka bröd. || Hon kunde inte ens laga mat, ännu mindre baka bröd.",
+  "reason": "'Hän' on monitulkintainen; hon-muoto hyväksyttävä."
+ },
+ {
+  "id": "svs_b2_function_3",
+  "field": "alt",
+  "old": "Hon svarar i regel på mejl samma dag. || I regel svarar hon på e-post samma dag. || I regel svarar hon på mejlen samma dag.",
+  "new": "Hon svarar i regel på mejl samma dag. || I regel svarar hon på e-post samma dag. || I regel svarar hon på mejlen samma dag. || I regel svarar han på mejl samma dag. || Han svarar i regel på mejl samma dag. || I regel svarar han på e-post samma dag. || I regel svarar han på mejlen samma dag.",
+  "reason": "'Hän' on monitulkintainen; han-muodot hyväksyttävä."
+ },
+ {
+  "id": "svd_b1_life_8",
+  "field": "fi",
+  "old": "Samoin täällä. Meidän pitäisi nähdä useammin.",
+  "new": "Sama täällä. Meidän pitäisi nähdä useammin.",
+  "reason": "'Samoin täällä' ei ole suomea; 'Samma här' = 'Sama täällä'."
+ },
+ {
+  "id": "svd_b2_law_4",
+  "field": "fi",
+  "old": "Mutta entä jos puolustusasianajaja yrittää saada minut puhumaan itseäni vastaan?",
+  "new": "Mutta entä jos puolustusasianajaja yrittää saada minut puhumaan ristiin?",
+  "reason": "'Motsäga sig själv' = puhua ristiin / olla ristiriidassa itsensä kanssa; 'puhua itseään vastaan' tarkoittaa eri asiaa."
+ }
+]

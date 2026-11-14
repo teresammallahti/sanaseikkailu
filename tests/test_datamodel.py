@@ -28,6 +28,7 @@ check("kielikohtainen kehote vain kielille joilla muoto", all(f"fi_{l}" not in w
 byid = {w["id"]: w for w in vocab["words"]}
 for lang in sdata["languages"]:
     check(f"itseopiskelu {lang}: jokaisella tasolla sanoja", all(any(byid[c].get(lang) for t in sdata["topics"] if t["level"] == L for c in t["concepts"]) for L in ("A1", "A2", "B1", "B2")))
+check("zipf_fi kopioituu käsitteeltä sanalle (uusien sanojen yleisyysjärjestys)", all(w.get("zipf_fi") == c.get("zipf_fi") for w, c in zip(vocab["words"], m["concepts"])) and sum(1 for w in vocab["words"] if isinstance(w.get("zipf_fi"), (int, float))) > 6500)
 check("vain itseopiskelun käsitteillä ei koulun teemaa eikä de_only-lippua", all(not w.get("de_only") for w in vocab["words"] if w.get("self_only")))
 print(f"\n{'0 FAIL' if not fails else str(fails) + ' FAIL'}")
 sys.exit(1 if fails else 0)
