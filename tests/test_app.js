@@ -6129,6 +6129,229 @@ test('Suojaus: itseopiskelun sana ilman kohdekielen muotoa ei kaada (acceptedAns
 });
 
 
+// ---------------- Tähtimittari: laajuus ja osittainen edistyminen (vaihe 48) ----------------
+// Tilasto, jossa näppäimistöputki on n (muut nollia); best-kenttä valinnainen.
+function kbStat(app, id, n, best) {
+  const st = { statId: app.run(`statId({id: ${JSON.stringify(id)}})`), wordId: id, language: 'en', level: '4lk',
+    correctCount: n, incorrectCount: 0, streakCorrect: n, streakTargetFi: 0, streakFiTarget: 0, streakKeyboard: n, streakMic: 0 };
+  if (best !== undefined) st.bestStreakKeyboard = best;
+  return st;
+}
+const tierKb = (app) => J(app, 'tierByMode.keyboard');
+
+test('Mittari: laajuus ilman rajausta = luokka-asteen sanat, otsikossa luokka', async () => {
+  const app = await boot({ localStorage: { grade_en: '4' } });
+  app.run('activeGrade = 4; selectedThemes = [];');
+  await app.run('updateHeaderStats()');
+  const t = tierKb(app);
+  assert.strictEqual(t.total, app.run('wordsForGrade(4).length'));
+  assert.strictEqual(t.scopeLabel, '4. luokka');
+  assert.ok(app.elements.tierBadge.title.includes('4. luokka'));
+  app.dispose();
+});
+
+test('Mittari: koeteema rajaa laajuuden teeman sanoihin (myös muiden luokkien sanat), nimi näkyy', async () => {
+  const app = await boot({ localStorage: { grade_en: '4' } });
+  app.run('activeGrade = 4; selectedThemes = ["koe1_4"];');
+  await app.run('updateHeaderStats()');
+  const t = tierKb(app);
+  const expected = app.run('PRACTICE_WORDS.filter(w => wordInCategory(w, "koe1_4")).length');
+  assert.strictEqual(t.total, expected);
+  assert.ok(t.total > 100 && t.total < app.run('wordsForGrade(4).length'));
+  const outside = app.run('PRACTICE_WORDS.filter(w => wordInCategory(w, "koe1_4") && wordGrade(w) !== 4).length');
+  assert.ok(outside > 0, 'teemassa on muiden luokkien sanoja');
+  assert.strictEqual(t.scopeLabel, 'Koe 1');
+  assert.ok(app.elements.tierBadge.title.includes(`Koe 1: opittu 0/${expected}`), app.elements.tierBadge.title);
+  app.run('openTierModal()');
+  assert.ok(app.elements.tierModalSubtitle.textContent.includes(`opittu 0/${expected}`));
+  assert.ok(app.elements.tierModalSubtitle.textContent.includes('Koe 1'));
+  app.dispose();
+});
+
+test('Mittari: tavallinen teema laskee vain teeman sanat; usean teeman valinta yhdistää', async () => {
+  const app = await boot();
+  const ids = J(app, 'VOCAB.categories.filter(c => c.grade === 1 && !c.exam).slice(0, 2).map(c => c.id)');
+  app.run(`selectedThemes = [${JSON.stringify(ids[0])}];`);
+  await app.run('updateHeaderStats()');
+  const n1 = app.run(`eligibleWordsForCategoryScope(selectedThemes).length`);
+  assert.strictEqual(tierKb(app).total, n1);
+  app.run(`selectedThemes = ${JSON.stringify(ids)};`);
+  await app.run('updateHeaderStats()');
+  assert.strictEqual(tierKb(app).total, app.run('eligibleWordsForCategoryScope(selectedThemes).length'));
+  assert.strictEqual(tierKb(app).scopeLabel, '2 teemaa');
+  app.dispose();
+});
+
+test('Mittari: Viikon sanat päällä -> laajuus on viikon sanat', async () => {
+  const app = await boot();
+  app.elements.focusInput.value = 'apple, banana, teacher, red, blue';
+  await app.elements.focusSave.click();
+  await app.flush(30);
+  assert.strictEqual(app.run('focusActive()'), true);
+  await app.run('updateHeaderStats()');
+  const t = tierKb(app);
+  assert.strictEqual(t.total, 5);
+  assert.strictEqual(t.scopeLabel, 'Viikon sanat');
+  assert.ok(app.elements.tierBadge.title.includes('Viikon sanat: opittu 0/5'));
+  // yksi graduoitu sana viidestä = 1/5 -> 6 askelta = 1 taso + 1 tähti
+  const id = app.run('focusIds[0]');
+  app.db.data.set(app.run(`statId({id: ${JSON.stringify(id)}})`), learnedStat(app, id));
+  await app.run('updateHeaderStats()');
+  const t1 = tierKb(app);
+  assert.strictEqual(t1.n, 1);
+  assert.ok(Math.abs(t1.exactSteps - 6) < 1e-9, 'yksi graduoitu viidestä = 6 askelta: ' + t1.exactSteps);
+  assert.strictEqual(t1.majorIndex * 5 + t1.stars, 6);
+  app.dispose();
+});
+
+test('Mittari: osittainen edistyminen - yksi oikea vastaus nostaa palkkia, virhe ei laske', async () => {
+  const app = await boot();
+  app.run('selectedThemes = []; activeMode = "keyboard"; lastProductiveMode = "keyboard";');
+  setWord(app, 'numbers_two');
+  await app.run('updateHeaderStats()');
+  const before = tierKb(app);
+  assert.strictEqual(before.share, 0);
+  await app.run('recordResult(true, "keyboard")');
+  await app.run('updateHeaderStats()');
+  const one = tierKb(app);
+  assert.ok(Math.abs(one.share - 0.2) < 1e-9, 'yksi oikea = 1/5 sanasta: ' + one.share);
+  assert.ok(one.exactSteps > before.exactSteps);
+  await app.run('recordResult(true, "keyboard")');
+  await app.run('updateHeaderStats()');
+  const two = tierKb(app);
+  assert.ok(Math.abs(two.share - 0.4) < 1e-9);
+  await app.run('recordResult(false, "keyboard")');
+  await app.run('updateHeaderStats()');
+  const after = tierKb(app);
+  assert.strictEqual(J(app, 'statsCache[statId(current)].streakKeyboard'), 0, 'putki nollautuu');
+  assert.ok(Math.abs(after.share - 0.4) < 1e-9, 'palkki ei laske virheestä: ' + after.share);
+  assert.strictEqual(after.exactSteps, two.exactSteps);
+  // uusi putki alle parhaan ei nosta; ylittäessään nostaa
+  for (let i = 0; i < 2; i++) await app.run('recordResult(true, "keyboard")');
+  await app.run('updateHeaderStats()');
+  assert.ok(Math.abs(tierKb(app).share - 0.4) < 1e-9);
+  await app.run('recordResult(true, "keyboard")');
+  await app.run('updateHeaderStats()');
+  assert.ok(Math.abs(tierKb(app).share - 0.6) < 1e-9);
+  app.dispose();
+});
+
+test('Mittari: best-kentät tallentuvat recordResultissa (kynä = heikomman suunnan putki, mikrofoni)', async () => {
+  const app = await boot();
+  setWord(app, 'numbers_two', 'target-fi');
+  await app.run('recordResult(true, "pen")');
+  let s = app.db.data.get(app.run('statId(current)'));
+  assert.strictEqual(s.bestStreakPen, 0, 'toista suuntaa ei ole tehty -> putki 0');
+  app.run('direction = "fi-target"');
+  await app.run('recordResult(true, "pen")');
+  s = app.db.data.get(app.run('statId(current)'));
+  assert.strictEqual(s.bestStreakPen, 1);
+  app.run('direction = "target-fi"');
+  await app.run('recordResult(true, "pen")');
+  await app.run('recordResult(false, "pen")');
+  s = app.db.data.get(app.run('statId(current)'));
+  assert.strictEqual(s.streakTargetFi, 0);
+  assert.strictEqual(s.bestStreakPen, 1, 'ei laske virheestä');
+  await app.run('recordResult(true, "keyboard")');
+  await app.run('recordResult(true, "keyboard")');
+  await app.run('recordResult(false, "keyboard")');
+  await app.run('recordResult(true, "mic")');
+  s = app.db.data.get(app.run('statId(current)'));
+  assert.strictEqual(s.bestStreakKeyboard, 2);
+  assert.strictEqual(s.streakKeyboard, 0);
+  assert.strictEqual(s.bestStreakMic, 1);
+  app.dispose();
+});
+
+test('Mittari: kynän osuus = heikomman suunnan paras putki / 3', async () => {
+  const app = await boot();
+  const f = (o) => app.run(`wordTierShare(${JSON.stringify(o)}, "pen")`);
+  assert.strictEqual(f({ streakTargetFi: 2, streakFiTarget: 0 }), 0);
+  assert.ok(Math.abs(f({ streakTargetFi: 2, streakFiTarget: 1 }) - 1 / 3) < 1e-9);
+  assert.ok(Math.abs(f({ streakTargetFi: 0, streakFiTarget: 0, bestStreakPen: 2 }) - 2 / 3) < 1e-9);
+  assert.strictEqual(f({ streakTargetFi: 3, streakFiTarget: 3 }), 1);
+  assert.strictEqual(app.run('wordTierShare({ streakMic: 3 }, "mic")'), 0.5);
+  assert.strictEqual(app.run('wordTierShare({ bestStreakMic: 9 }, "mic")'), 1, 'katto 1');
+  assert.strictEqual(app.run('wordTierShare(undefined, "keyboard")'), 0);
+  app.dispose();
+});
+
+test('Mittari: vanha tilasto ilman best-kenttiä käyttää nykyistä putkea, graduoitu sana = 1', async () => {
+  const probe = await boot();
+  const stats = [kbStat(probe, 'numbers_two', 2), learnedStat(probe, 'numbers_three')];
+  probe.dispose();
+  stats.forEach(s => { delete s.bestStreakKeyboard; delete s.bestStreakPen; delete s.bestStreakMic; });
+  const app = await boot({ stats, localStorage: { grade_en: '1' } });
+  app.run('activeGrade = 1; selectedThemes = [];');
+  await app.run('updateHeaderStats()');
+  const t = tierKb(app);
+  assert.ok(Math.abs(t.share - (0.4 + 1)) < 1e-9, 'share ' + t.share);
+  assert.strictEqual(t.n, 1);
+  // graduoitu sana pysyy 1:nä, vaikka putki katkeaisi
+  setWord(app, 'numbers_three');
+  await app.run('recordResult(false, "keyboard")');
+  await app.run('updateHeaderStats()');
+  assert.ok(Math.abs(tierKb(app).share - 1.4) < 1e-9);
+  assert.strictEqual(app.db.data.get(app.run('statId(current)')).bestStreakKeyboard, 5);
+  app.dispose();
+});
+
+test('Mittari: tähdet ja palkki lasketaan samasta summasta (10 sanaa x 3 oikein, Koe 1)', async () => {
+  const probe = await boot();
+  const ids = J(probe, 'PRACTICE_WORDS.filter(w => wordInCategory(w, "koe1_4")).slice(0, 10).map(w => w.id)');
+  const stats = ids.map(id => kbStat(probe, id, 3));
+  probe.dispose();
+  const app = await boot({ stats, localStorage: { grade_en: '4' } });
+  app.run('activeGrade = 4; selectedThemes = ["koe1_4"];');
+  await app.run('updateHeaderStats()');
+  const t = tierKb(app);
+  const total = t.total;
+  assert.ok(Math.abs(t.share - 6) < 1e-9);
+  assert.ok(Math.abs(t.exactSteps - 6 / total * 30) < 1e-9);
+  assert.strictEqual(t.majorIndex * 5 + t.stars, Math.floor(6 / total * 30));
+  assert.ok(t.exactSteps > 1, 'vähintään yksi tähti: ' + t.exactSteps);
+  // koko 4. luokan laajuus: sama työ näkyy paljon vähemmän
+  app.run('selectedThemes = [];');
+  await app.run('updateHeaderStats()');
+  assert.ok(tierKb(app).exactSteps < t.exactSteps);
+  app.dispose();
+});
+
+test('Mittari: isGradeComplete ennallaan (osittainen edistyminen ei riitä)', async () => {
+  const probe = await boot();
+  const stats = grade1Ids(probe).map(id => kbStat(probe, id, 4));
+  probe.dispose();
+  const app = await boot({ stats, localStorage: { grade_en: '1' } });
+  assert.strictEqual(app.run('isGradeComplete(1)'), false);
+  app.dispose();
+});
+
+test('Mittari: itseopiskelussa laajuus = valitut aihepiirit tai taso', async () => {
+  const app = await boot({ localStorage: { studyMode: 'self', targetLang_self: 'en' } });
+  await app.flush(40);
+  assert.strictEqual(app.run('studyMode'), 'self');
+  app.run('selectedThemes = [];');
+  await app.run('updateHeaderStats()');
+  let t = tierKb(app);
+  assert.strictEqual(t.total, app.run('selfLevelWords(selfLevel).length'));
+  assert.ok(t.scopeLabel.startsWith('taso '));
+  const topic = J(app, 'selfTopicsForLevel(selfLevel)[0].id');
+  app.run(`selectedThemes = [${JSON.stringify(topic)}];`);
+  await app.run('updateHeaderStats()');
+  t = tierKb(app);
+  assert.strictEqual(t.total, app.run('eligibleWordsForCategoryScope(selectedThemes).length'));
+  assert.ok(t.total > 0 && t.total < app.run('selfLevelWords(selfLevel).length'));
+  assert.strictEqual(t.scopeLabel, app.run(`categoryName(${JSON.stringify(topic)})`));
+  // osittainen edistyminen toimii myös itseopiskelussa
+  const w = app.run('eligibleWordsForCategoryScope(selectedThemes)[0].id');
+  app.run(`current = VOCAB.words.find(x => x.id === ${JSON.stringify(w)}); direction = "target-fi";`);
+  await app.run('recordResult(true, "keyboard")');
+  await app.run('updateHeaderStats()');
+  assert.ok(Math.abs(tierKb(app).share - 0.2) < 1e-9);
+  app.dispose();
+});
+
+
 (async () => {
   const filter = process.argv[2];
   for (const t of tests) {

@@ -1990,6 +1990,29 @@ function stageMicGraduated(stat){
 function isFullyLearned(stat){
   return stagePenGraduated(stat) && stageKeyboardGraduated(stat) && stageMicGraduated(stat);
 }
+// Piirtovaiheen putki: graduointi vaatii molemmat suunnat (ks. stagePenGraduated),
+// joten putki on heikomman suunnan putki.
+function penStreak(stat){
+  return stat ? Math.min(stat.streakTargetFi || 0, stat.streakFiTarget || 0) : 0;
+}
+// Menetelmän graduointikynnys ja paras putki (vanhoissa tilastoissa nykyinen putki).
+const MODE_GRADUATE = { pen: PEN_GRADUATE, keyboard: KEYBOARD_GRADUATE, mic: MIC_GRADUATE };
+function bestStreakFor(stat, mode){
+  if (!stat) return 0;
+  if (mode === "pen") return Math.max(stat.bestStreakPen || 0, penStreak(stat));
+  if (mode === "keyboard") return Math.max(stat.bestStreakKeyboard || 0, stat.streakKeyboard || 0);
+  if (mode === "mic") return Math.max(stat.bestStreakMic || 0, stat.streakMic || 0);
+  return 0;
+}
+// Sanan osuus tähtimittarissa valitussa tavassa: min(paras putki / graduointikynnys, 1).
+// Graduoitu sana on aina 1 (myös jos best-kenttää ei ole tai putki on katkennut).
+function wordTierShare(stat, mode){
+  if (!stat) return 0;
+  const check = MODE_GRADUATED_CHECK[mode];
+  if (check && check(stat)) return 1;
+  return Math.min(bestStreakFor(stat, mode) / MODE_GRADUATE[mode], 1);
+}
+
 // Kertoo, onko sana Pass-tasolla PARHAILLAAN VALITUSSA harjoittelutavassa
 // (näyttötiheyden puolitusta varten). Koska syöttötapa ei enää vaihdu
 // automaattisesti (ks. activeMode-kommentti yllä), tämä katsoo aina sitä
@@ -2005,8 +2028,8 @@ function stageStatusForWord(word){
 }
 
 // --- Palkintotasot: 6 päätasoa x 5 tähteä = 30 yhtä suurta askelta ---
-// Lasketaan aina prosenttiosuutena opituista sanoista koko senhetkisestä
-// kohdekielen sanastosta, joten taso mukautuu automaattisesti, jos sanastoon
+// Lasketaan aina osuutena harjoiteltavan kokonaisuuden sanoista (osittainen edistyminen
+// mukaan lukien, ks. wordTierShare), joten taso mukautuu automaattisesti, jos sanastoon
 // lisätään sanoja (taso laskee) tai sanasto pilkotaan pienemmäksi kokonaisuudeksi
 // (taso nousee) - eteneminen on tallessa sanakohtaisesti, ei tasoa kohti.
 const LEVELS = ["Kärmes", "Basiliski", "Aarnikotka", "Hydra", "Traakki", "Lohikäärme"];
@@ -2058,7 +2081,7 @@ function renderTierBadge(){
   tierIcon.textContent = LEVEL_ICONS[t.majorIndex];
   tierLabelEl.textContent = tierLabel(t.majorIndex);
   tierStarsEl.textContent = "★".repeat(t.stars) + "☆".repeat(5 - t.stars);
-  tierBadge.title = `${MODE_NAMES[pm] || ""}: opittu ${t.n}/${wordsForGrade(activeUnit()).length} sanaa (${unitLabel()}, ${LANGS[targetLang].label}) — klikkaa nähdäksesi koko asteikon`;
+  tierBadge.title = `${MODE_NAMES[pm] || ""} · ${t.scopeLabel}: opittu ${t.n}/${t.total} sanaa (${LANGS[targetLang].label}) — klikkaa nähdäksesi koko asteikon`;
   // Nykyisen tason maskotti isona, himmeänä taustakuvana sana- ja kirjoituslaatikossa (vaihe 18).
   // Itseopiskelussa (aikuinen) taustakuva jätetään pois.
   document.documentElement.style.setProperty("--tier-bg-icon",
@@ -2086,9 +2109,8 @@ function renderTierModalContent(){
   const pm = productiveMode();
   const t = tierByMode[pm] || tierByMode.keyboard;
   if (!t) return;
-  const gradeWordCount = wordsForGrade(activeUnit()).length;
   tierModalSubtitle.textContent =
-    `${MODE_NAMES[pm] || ""} · ${unitLabel()} · ${LANGS[targetLang].label} · opittu ${t.n}/${gradeWordCount} sanaa`;
+    `${MODE_NAMES[pm] || ""} · ${t.scopeLabel} · ${LANGS[targetLang].label} · opittu ${t.n}/${t.total} sanaa`;
   tierScaleList.innerHTML = "";
   LEVELS.forEach((name, i) => {
     const row = document.createElement("div");
@@ -2133,21 +2155,36 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && tierModalOverlay.classList.contains("visible")) closeTierModal();
 });
 
+// Mittarin laajuuden nimi badge-titleen ja palkintoasteikkomodaaliin.
+function tierScopeLabel(){
+  if (focusActive()) return "Viikon sanat";
+  if (selectedThemes.length) return themeButtonLabel();
+  return unitLabel();
+}
+
 async function updateHeaderStats(){
   const all = await getAllStats();
   statsCache = {};
   all.forEach(s => statsCache[s.statId] = s);
   statsReady = true;
 
-  // Palkintotaso lasketaan VALITUN LUOKKA-ASTEEN sanastosta (ei koko kohdekielen
-  // sanastosta eikä teemasuodattimesta), jotta mittari vaihtuu heti kun oppilas
-  // vaihtaa luokka-astetta. Jokaiselle menetelmälle laskettu erikseen (ks. yllä).
-  const gradeWordsList = wordsForGrade(activeUnit());
+  // Palkintotaso lasketaan HARJOITELTAVASTA KOKONAISUUDESTA: valituista teemoista
+  // (myös koeteemat), Viikon sanoista tai ilman rajausta koko luokka-asteen (itseopiskelussa
+  // tason) sanoista - sama joukko, josta aktiivijoukko muodostetaan (activeWordPool).
+  // Jokainen sana tuo mittariin osuuden min(paras putki / graduointikynnys, 1) valitussa
+  // tavassa, joten palkki liikkuu jokaisesta oikeasta vastauksesta eikä putoa virheestä.
+  const scopeWords = activeWordPool();
+  const scopeLabel = tierScopeLabel();
   ["pen", "keyboard", "mic"].forEach(mode => {
     const check = MODE_GRADUATED_CHECK[mode];
-    const n = gradeWordsList.filter(w => check(statsCache[statId(w)])).length;
-    const { majorIndex, stars, exactSteps } = tierState(n, gradeWordsList.length);
-    tierByMode[mode] = { n, majorIndex, stars, exactSteps };
+    let n = 0, share = 0;
+    scopeWords.forEach(w => {
+      const st = statsCache[statId(w)];
+      if (check(st)) n += 1;
+      share += wordTierShare(st, mode);
+    });
+    const { majorIndex, stars, exactSteps } = tierState(share, scopeWords.length);
+    tierByMode[mode] = { n, total: scopeWords.length, scopeLabel, share, majorIndex, stars, exactSteps };
   });
   renderTierBadge();
   updateSelfDailyUI();
@@ -2623,6 +2660,11 @@ async function recordResult(isCorrect, mode){
     streakKeyboard: 0,
     streakMic: 0
   };
+  // Paras putki päivitetään ENNEN putken nollausta: vanhasta tilastosta (best-kenttä puuttuu)
+  // pitkä putki tallentuu parhaaksi, vaikka ensimmäinen vastaus olisi virhe.
+  const bestPen = Math.max(prev.bestStreakPen || 0, penStreak(prev));
+  const bestKeyboard = Math.max(prev.bestStreakKeyboard || 0, prev.streakKeyboard || 0);
+  const bestMic = Math.max(prev.bestStreakMic || 0, prev.streakMic || 0);
   if (isCorrect){
     prev.correctCount += 1;
     prev.streakCorrect = (prev.streakCorrect || 0) + 1;
@@ -2648,6 +2690,11 @@ async function recordResult(isCorrect, mode){
       prev.streakMic = 0;
     }
   }
+  // Paras putki per menetelmä (tähtimittarin osittaista edistymistä varten): ei koskaan
+  // laske virheen takia. Vanhoissa tilastoissa kentät puuttuvat -> lähtöarvo nykyinen putki.
+  prev.bestStreakPen = Math.max(bestPen, penStreak(prev));
+  prev.bestStreakKeyboard = Math.max(bestKeyboard, prev.streakKeyboard || 0);
+  prev.bestStreakMic = Math.max(bestMic, prev.streakMic || 0);
   prev.lastSeen = new Date().toISOString();
   let goalReached = false;
   if (studyMode === "self"){

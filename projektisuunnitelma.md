@@ -352,11 +352,13 @@ Vinkki: Chromen valikko → "Lisää aloitusnäyttöön" avaa sovelluksen kokoru
 45. **Fable-tarkistus: sanakirjasto, virkkeet ja dialogit (vaihe 45)** — ✅ Käyttäjän komennosta. Sanakirjasto: 545 korjausta (3392 uutta käsitettä + en/de 3118 käsitteelle; mm. puuttuvat yleiset vaihtoehdot, artikkelit, das Biathlon, Rückgeld, letztere). Koulun englannin sulkutarkenteet (orange (hedelmä) jne.) palautettiin, koska ne erottavat koulussa samannäköiset sanat. Opus kirjoitti ruotsin itseopiskeluun 496 virkettä ja 62 dialogia (8 + 1 / aihepiiri); Fable 221 korjausta (enimmäkseen han/hon- ja idag/i dag -vaihtoehtoja). Korjaukset `tools/apply_fable_v46.py`, raportit `content/fable_v45/`, `content/sent_v45/`. Sanasto v22.
 46. **Virkkeet ja dialogit, en/de itseopiskeluun, tablettitestaus (vaihe 46)** — ✅ Sonnet: 📝 Virkkeet itseopiskelussa (taso + aihepiirit), Kuuntele: 💬 Dialogi (koko dialogi / repliikkisanelu, A/B eri äänet) ja virkesanelu; porras 5 "virkkeessä" käytössä. Englanti ja saksa käyttöön itseopiskelussa (kaikki harjoitukset paitsi virkkeet/dialogit, jotka vain ruotsiksi). Emuloitu tablettitesti (iPad 810 px, Galaxy Tab S4 712 px, Playwright): ei vaakavieritystä, ei virheitä, lataus ~0,5 s; valintanapit olivat 27–34 px → kosketusnäytöillä vähintään 40 px; itseopiskelussa palkintotason nimi (Kärmes) piiloon. 287 + 13 testiä, Artifact v42. Oikea tablettitesti käyttäjällä.
 
+47. **Tähtimittarin korjaus (vaihe 47)** — ✅ Käyttäjän havainto: lapsi harjoitteli paljon englantia, mutta mittari ei liikkunut. Syyt: 4. luokalla 948 sanaa (kirjasanasto), joten tähti vaati ~32 graduoitua sanaa; vain graduointi (5 putkea näppäimistöllä) näkyi; teemaa (Koe 1) harjoiteltaessa mittari laski koko luokka-astetta. Sonnet: mittari lasketaan harjoiteltavasta joukosta (valitut teemat/koeteema, Viikon sanat, itseopiskelun aihepiirit) ja jokainen sana tuo osuuden min(paras putki / kynnys, 1) – palkki liikkuu jokaisesta oikeasta vastauksesta eikä putoa virheestä (uudet kentät `bestStreakPen/Keyboard/Mic`). 298 testiä, Artifact v43. Avoin: "Kaikki teemat" 4. luokalla on yhä 948 sanaa – harkitaan 4. lk kirjasanaston erottamista omaksi kokonaisuudekseen.
+
 > Muistutussääntö: kun aloitatte uuden vaiheen, mainitkaa se — Claude tarkistaa suunnitelman ja muistuttaa, mikä malli kannattaa olla käytössä.
 
 ## Seuraavaksi käyttäjältä
 
-1. **Push GitHubiin** — käyttäjä päätti vaiheessa 37, ettei pushata vielä; vaiheet 44–46 odottavat paikallisina committeina. Kun aika koittaa, aja koneellasi allekkain:
+1. **Push GitHubiin** — käyttäjä päätti vaiheessa 37, ettei pushata vielä; vaiheet 44–47 odottavat paikallisina committeina. Kun aika koittaa, aja koneellasi allekkain:
 
    ```powershell
    cd "G:\01 AI\05 Kieliohjelma"
