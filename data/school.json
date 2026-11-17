@@ -416,177 +416,202 @@
   {
    "id": "animals_4",
    "name_fi": "Eläimet",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "food_4",
    "name_fi": "Ruoka ja juomat",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "home_4",
    "name_fi": "Koti ja kodin esineet",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "chores_4",
    "name_fi": "Kotityöt",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "nature_4",
    "name_fi": "Luonto ja sää",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "body_4",
    "name_fi": "Keho ja ulkonäkö",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "people_4",
    "name_fi": "Ihmiset ja ammatit",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "fantasy_4",
    "name_fi": "Sadut ja mielikuvitus",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "places_4",
    "name_fi": "Paikat ja kulkuneuvot",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "clothes_4",
    "name_fi": "Vaatteet ja asusteet",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "school_4",
    "name_fi": "Koulu, kirjat ja tekniikka",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "hobbies_4",
    "name_fi": "Harrastukset, leikit ja juhlat",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "sports_4",
    "name_fi": "Urheilu ja talvilajit",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "calendar_4",
    "name_fi": "Kuukaudet ja juhlapäivät",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "time_4",
    "name_fi": "Aika ja ajanilmaukset",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "numbers_4",
    "name_fi": "Luvut ja mitat",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "countries_4",
    "name_fi": "Maat ja kielet",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "pronouns_4",
    "name_fi": "Persoonapronominit",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "little_4",
    "name_fi": "Kysymys- ja pikkusanat",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "places_dir_4",
    "name_fi": "Suunnat ja paikkasanat",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "general_4",
    "name_fi": "Yleisiä sanoja",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "verbs1_4",
    "name_fi": "Verbit 1",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "verbs2_4",
    "name_fi": "Verbit 2",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "adj_4",
    "name_fi": "Adjektiivit",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "phrases_4",
    "name_fi": "Fraasit ja huudahdukset",
-   "group": "ops",
-   "grade": 4,
-   "no_de": true
+   "group": "book",
+   "grade": null,
+   "no_de": true,
+   "book_grade": 4
   },
   {
    "id": "koe1_4",

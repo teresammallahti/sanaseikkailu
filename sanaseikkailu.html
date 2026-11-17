@@ -177,7 +177,11 @@
     padding:8px 12px; border-radius:12px; background:#f4f2fa;
     font-weight:600; cursor:pointer;
   }
-  .theme-row input{ width:20px; height:20px; }
+  .theme-row input{ width:20px; height:20px; flex-shrink:0; }
+  .theme-row .theme-name{ flex:1; min-width:0; }
+  .theme-row .theme-count{ font-size:12px; font-weight:700; color:#7a7189; white-space:nowrap; }
+  .theme-book-head{ font-weight:800; font-size:13px; color:#5d5470; margin-top:10px; }
+  .theme-book-all{ background:#e8e2f7; }
   .theme-sep{ font-size:12px; color:#7a7189; margin:6px 0 0; }
   .theme-actions{ display:flex; gap:8px; margin-bottom:8px; }
   .theme-actions button{
@@ -225,6 +229,15 @@
     align-self:flex-end;
     margin-top:-10px;
   }
+  /* Tähtimittarin laskuririvi (vaihe 49): "Opittu X/Y · seuraavaan tähteen N sanaa" vasemmalla,
+     prosentti oikealla; rivi taittuu kapealla näytöllä (ei vaakavieritystä). */
+  .progress-row{
+    width:100%; display:flex; flex-wrap:wrap; justify-content:space-between;
+    align-items:baseline; gap:2px 10px; margin-top:-10px;
+  }
+  .progress-row .progress-label{ margin-top:0; align-self:auto; margin-left:auto; }
+  .tier-counter{ font-size:12px; font-weight:700; color:#5d5470; min-width:0; overflow-wrap:anywhere; }
+  .tier-counter:empty{ display:none; }
   .prompt-card{
     width:100%;
     background:var(--card-bg);
@@ -773,6 +786,15 @@
     letter-spacing:1px;
     font-size:1.1em;
   }
+  .tier-theme-head{ margin:16px 0 6px; font-size:13px; font-weight:800; color:#5d5470; }
+  .tier-theme-head:empty{ display:none; }
+  .tier-theme-list{ display:flex; flex-direction:column; gap:2px; }
+  .tier-theme-row{
+    display:flex; justify-content:space-between; gap:10px; padding:5px 10px;
+    border-radius:10px; background:#f8f6ff; font-size:13px;
+  }
+  .tier-theme-row .tier-theme-name{ min-width:0; overflow-wrap:anywhere; }
+  .tier-theme-row .tier-theme-count{ font-weight:800; white-space:nowrap; }
 
 
   /* Tiivis asettelu (vaihe 23): pystysuunnassa tabletilla näytön alareunan
@@ -806,7 +828,8 @@
   .btn{ padding:9px 22px; }
   .feedback{ min-height:30px; padding:4px 10px; }
   .feedback:empty{ display:none; }
-  .progress-label{ margin-top:-6px; }
+  .progress-label{ margin-top:0; }
+  .progress-row{ margin-top:-6px; }
   footer{ margin-top:6px; }
 
   button#focusButton{
@@ -979,7 +1002,10 @@
     <div id="wordPractice">
       <div style="width:100%">
         <div class="progress-bar"><div id="progressFill"></div></div>
-        <div class="progress-label" id="progressLabel">Seuraavaan tähteen: 0%</div>
+        <div class="progress-row">
+          <div class="tier-counter" id="tierCounter"></div>
+          <div class="progress-label" id="progressLabel">Seuraavaan tähteen: 0%</div>
+        </div>
       </div>
 
       <section class="prompt-card">
@@ -1232,6 +1258,8 @@
       <h2 class="modal-title">Palkintoasteikko</h2>
       <p class="modal-subtitle" id="tierModalSubtitle"></p>
       <div class="tier-scale-list" id="tierScaleList"></div>
+      <div class="tier-theme-head" id="tierThemeHead"></div>
+      <div class="tier-theme-list" id="tierThemeList"></div>
     </div>
   </div>
 </div>
@@ -1264,7 +1292,7 @@ const VOCAB = {
     "created": "2026-09-02",
     "changelog": "v2: lisätty POPS-pohjaiset kategoriat (perhe, minä itse, harrastukset, tervehdykset/arkifraasit, värit, numerot) tiedostosta pops_ehdotukset.md käyttäjän hyväksynnän jälkeen. Lisätty pysyvä id-kenttä jokaiselle sanalle edistymisen seurantaa varten. v3: korvattu puhekieliset/lyhennetyt muodot kirjakielisillä ja perusmuotoisilla (grandma->grandmother/isoäiti, grandpa->grandfather/isoisä, PE->physical education, RE->religious education, watch TV->watch television). id-kentät säilytetty ennallaan, jotta tallennettu edistyminen ei katoa. v4: lisätty täydennyksiä olemassa oleviin kategorioihin (colours: purple/brown/grey; opposites: 8 uutta vastaparia) sekä kuusi uutta kategoriaa (weather_seasons, animals, house_rooms, body_parts, clothes, school_objects) POPS 2014 -aihepiirien ja yleisen 4. luokan sanaston perusteella, käyttäjän hyväksynnän jälkeen (ehdotukset_v4.md). Kaikille uusille sanoille pysyvä id, olemassa olevat id:t eivät muuttuneet. v5: lisätty saksankieliset käännökset (kenttä 'de') kaikille 260 sanalle, artikkelien (der/die/das) kanssa substantiiveille - vakiintuneen saksan opetuskäytännön mukaisesti suku opetellaan heti sanan mukana. Sama sanasto ja kategoriat kuin englannissa/suomessa, id:t muuttumattomat. v6: Sanat järjestetty OPSin teemojen mukaan. Teemat personality, opposites, verbs_action ja verbs_communication yhdistetty teemaan 'yleissanat' (group=general). Kaikki muut teemat merkitty group=ops paitsi gaming_minecraft ja gaming_fortnite, jotka merkitty group=hobby (vain manuaalisesti valittavissa, ei mukana 'kaikki teemat' -kierrossa tai yleissanojen varasanastona). v7: sanasto ryhmitelty peruskoulun luokka-asteille 1-6 (uusi 'grade'-kenttä kategorioilla, group=hobby-kategoriat pysyvät luokka-asteettomina). Palautettu personality/opposites/verbs_action/verbs_communication omiksi kategorioikseen (v6:n yleissanat-yhdistäminen ei ole enää tarpeen, koska luokka-asteet hoitavat täydennyksen). Lisätty 138 uutta sanaa (luokka 1: perusverbit; luokka 4: päivärutiinit; luokka 5: ammatit/urheilu/kulkuvälineet/sijaintisanat/tunteet/ostokset; luokka 6: matkustaminen/teknologia/mennyt aika/kuvailevat sanat/maat ja kansallisuudet/tulevaisuus). Lisätty monimerkityksisille sanoille vaihtoehtoisia suomennoksia (esim. land = laskeutua/maa). v8 (vaihe 21): numerot laajennettu 0-20 (zero, eleven-twenty; uudet id:t, vanhat ennallaan). Monitulkintaiset sanat tarkennettu sulkutarkenteella (English/Finnish kouluaine vs. kansalaisuus, orange hedelmä vs. väri) ja 'pyöräily' eroteltu ('pyörällä ajaminen' = riding a bike, 'pyöräily (urheilulaji)' = cycling). Kategorioiden grade tarkoittaa nyt kielen opiskeluvuotta: englanti alkaa 1. luokalla, saksa 4. luokalla (sovellus siirtää luokka-asteen kielen mukaan). v9 (vaihe 25): lisätty 67 sanaa, jotka esiintyvät harjoitusvirkkeissä (SENTENCE_DATA.en) mutta puuttuivat sanastosta. Sanat sijoitettu olemassa oleviin kategorioihin (mm. perusverbit, perhe, harrastukset, koti, ruoka) sekä kolmeen uuteen kategoriaan: aikasanat_2 (Aikasanat, 2. lk), yleissanat_3 (Aika- ja yleissanat, 3. lk) ja sidesanat_5 (Sidesanat ja täsmentimet, 5. lk). Sanan luokka on pääsääntöisesti enintään sen virkkeen luokka, jossa sana ensimmäisen kerran esiintyy. Olemassa olevat id:t ennallaan. Fable-tarkistuksen korjaukset: fun = hauskaa / hauskanpito, favourite = lempi / suosikki, learn ja understand siirretty Toimintaverbeihin. Vaihe 26: lisätty eat, drink, very, cake, school (saksan virkkeitä varten); pie-sanan saksa tarkennettu (Kuchen siirretty sanalle cake). v10 (vaihe 28): yläkoulun sanasto 7.–9. lk, englanti, ei saksaa. Lisätty 224 sanaa ja 21 uutta kategoriaa (group=ops, grade 7/8/9) POPS 2014 englannin A1-oppimäärän vuosiluokkien 7–9 aihepiirien ja tavoitetason A2.2–B1.1 mukaan: 7. lk vapaa-aika, terveys, ruoanlaitto, ostokset ja raha, kaupunki ja reittiohjeet, sää ja luonto, ihmissuhteet; 8. lk media, matkailu, ympäristö, työelämä, kulttuuri ja juhlat, urheilutapahtumat, tunteet ja mielipiteet; 9. lk yhteiskunta, koulutus, tiede ja teknologia, kestävä kehitys ja elämäntavat, viestintä, liittosanat ja abstraktit sanat, phrasal verbit. Yläkoulun sanoilla ei ole de-kenttää (saksa ei käytä luokkien 7–9 kategorioita). Olemassa olevat id:t ja kategoriat ennallaan. Fable-tarkistuksen korjaukset: change, far, habit, work experience, scientist; pay ja exam tarkennettu törmäysten vuoksi. v11 (vaihe 30): lisätty 871 sanaa 4. luokan oppikirjan aakkosellisesta sanastosta (suomi–englanti) 25 uuteen 4. luokan kategoriaan (_4, no_de=true: ei saksaa). Opus-karsinta ja Fable-tarkistus (britti-englanti, törmäykset). v12 (vaihe 31): koealue 'Koe 1' (koe1_4, exam=true, lang=en): oppikirjan Unit 1-3 -sanat poimittu olemassa olevista sanoista lisäteemana (word.also) + 3 uutta sanaa; turn = kääntyä / vuoro, hide + olla piilossa. v13 (vaihe 32): saksan koealue 'Koe 1' (koe1_de, exam=true, lang=de, grade 1 = app 4. lk): oppikirjan Los geht's! 1 Lektion 1-3 -sanat poimittu olemassa olevista sanoista lisäteemana (word.also) + uudet sanat/fraasit (de_only=true: eivät ilmesty englannin harjoitukseen). Vaihe 32: englannin sanoille lisätty yleisiä suomennossynonyymejä (n. 270 sanaa; esim. funny = hassu / hauska). Vaihe 33: saksan sanoille lisätty suomennos- ja saksavaihtoehtoja; saksan virkkeet opiskeluvuosille 4-6 (60 uutta). v15 (vaihe 35): saksan substantiiveille monikkomuoto (de_pl, ~175 sanaa), näytetään palautteessa. v16 (vaihe 36): Fable-tarkistuksen korjaukset (englannin ja saksan synonyymit, monikot). v17 (vaihe 37): ruotsin sv-kenttä 481 sanalle (rikssvenska, en/ett-artikkelit; kappaletta laskemattomilla ja monikkosanoilla ei artikkelia) ja ruotsin virkkeet 60.",
     "notes": "Koottu 4. luokan englannin oppikirjan (skannattu, Scan_20260902_162833.pdf) teemojen pohjalta ilman kirjan kuvia tai tekstiä, täydennetty POPS 2014 (Englanti A-oppimäärä vl 3-6) aihepiirien mukaan. Rakenne on geneerinen (language_target/level -kentät), jotta samaa muotoa voi käyttää myöhemmin saksalle ja muille luokka-asteille.",
-    "version": "v22",
+    "version": "v23",
     "language_targets": [
       "en",
       "de",
@@ -1671,177 +1699,202 @@ const VOCAB = {
     {
       "id": "animals_4",
       "name_fi": "Eläimet",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "food_4",
       "name_fi": "Ruoka ja juomat",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "home_4",
       "name_fi": "Koti ja kodin esineet",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "chores_4",
       "name_fi": "Kotityöt",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "nature_4",
       "name_fi": "Luonto ja sää",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "body_4",
       "name_fi": "Keho ja ulkonäkö",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "people_4",
       "name_fi": "Ihmiset ja ammatit",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "fantasy_4",
       "name_fi": "Sadut ja mielikuvitus",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "places_4",
       "name_fi": "Paikat ja kulkuneuvot",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "clothes_4",
       "name_fi": "Vaatteet ja asusteet",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "school_4",
       "name_fi": "Koulu, kirjat ja tekniikka",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "hobbies_4",
       "name_fi": "Harrastukset, leikit ja juhlat",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "sports_4",
       "name_fi": "Urheilu ja talvilajit",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "calendar_4",
       "name_fi": "Kuukaudet ja juhlapäivät",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "time_4",
       "name_fi": "Aika ja ajanilmaukset",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "numbers_4",
       "name_fi": "Luvut ja mitat",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "countries_4",
       "name_fi": "Maat ja kielet",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "pronouns_4",
       "name_fi": "Persoonapronominit",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "little_4",
       "name_fi": "Kysymys- ja pikkusanat",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "places_dir_4",
       "name_fi": "Suunnat ja paikkasanat",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "general_4",
       "name_fi": "Yleisiä sanoja",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "verbs1_4",
       "name_fi": "Verbit 1",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "verbs2_4",
       "name_fi": "Verbit 2",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "adj_4",
       "name_fi": "Adjektiivit",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "phrases_4",
       "name_fi": "Fraasit ja huudahdukset",
-      "group": "ops",
-      "grade": 4,
-      "no_de": true
+      "group": "book",
+      "grade": null,
+      "no_de": true,
+      "book_grade": 4
     },
     {
       "id": "koe1_4",
@@ -111094,6 +111147,9 @@ const tierModalOverlay = document.getElementById("tierModalOverlay");
 const tierModalClose = document.getElementById("tierModalClose");
 const tierModalSubtitle = document.getElementById("tierModalSubtitle");
 const tierScaleList = document.getElementById("tierScaleList");
+const tierThemeHead = document.getElementById("tierThemeHead");
+const tierThemeList = document.getElementById("tierThemeList");
+const tierCounter = document.getElementById("tierCounter");
 const hearBtn = document.getElementById("hearBtn");
 const themeButton = document.getElementById("themeButton");
 const themeModalOverlay = document.getElementById("themeModalOverlay");
@@ -111276,7 +111332,9 @@ function startGrade(){ return LANG_START_GRADE[targetLang] || 1; }
 function gradesForLang(){ return GRADES.filter(g => g >= startGrade()); }
 function maxGrade(){ return GRADES[GRADES.length - 1]; }
 
-// Kategorian luokka-aste VALITULLA kielellä (null = harrasteteema).
+// Kategorian luokka-aste VALITULLA kielellä (null = harraste- tai kirjateema).
+// Kirjateemat (group=book, vaihe 49) ovat kirjan sanastoa: niillä ei ole luokka-astetta
+// (grade=null), vaan book_grade kertoo kirjan luokka-asteen valikon otsikkoa varten.
 function categoryGrade(c){
   if (!c || c.grade == null) return null;
   return c.grade + startGrade() - 1;
@@ -111287,6 +111345,12 @@ function categoryGrade(c){
 function wordInCategory(w, id){
   if (studyMode === "self") return selfIndex().topicSets.has(id) && selfIndex().topicSets.get(id).has(w.id);
   return w.category === id || (Array.isArray(w.also) && w.also.includes(id));
+}
+// Kirjasanaston teema (group=book): ei kuulu minkään luokka-asteen sanoihin eikä harrasteteemoihin.
+function isBookCategory(id){
+  if (studyMode === "self") return false;
+  const c = VOCAB.categories.find(x => x.id === id);
+  return !!(c && c.group === "book");
 }
 function isExamCategory(id){
   if (studyMode === "self") return false; // koeteemat eivät kuulu itseopiskeluun
@@ -111306,6 +111370,8 @@ function wordsForGrade(g){
 
 // Luokka-aste on "valmis" kun KAIKKI sen sanat on opittu kokonaan (kaikki
 // kolme vaihetta graduoitu) - sama tiukka kriteeri kuin kokonaisedistymisessä.
+// Kirjasanasto (group=book) ei kuulu luokka-asteen sanoihin (wordsForGrade), joten se ei
+// vaikuta valmistumiseen eikä luokka-asteen automaattiseen päättelyyn.
 function isGradeComplete(g){
   const list = wordsForGrade(g);
   return list.length > 0 && list.every(w => isFullyLearned(statsCache[statId(w)]));
@@ -111430,13 +111496,26 @@ function selectableCategories(){
     // Valitun tason aihepiirit (vain ne, joissa on sanoja valitulla kielellä).
     return selfTopicsForLevel(selfLevel).map(t => ({ id: t.id, name_fi: t.name_fi, group: "ops" }));
   }
-  const langOk = c => !c.lang || c.lang === targetLang;
   if (practiceMode === "sentences"){
     const themed = new Set(sentencesForLang().filter(s => s.theme).map(s => s.theme));
     return VOCAB.categories.filter(c => themed.has(c.id));
   }
+  return selectableWordCategories();
+}
+
+// Sanateemat valikkoon (ja palkintoasteikon teemataulukkoon): valitun luokka-asteen teemat,
+// harrasteteemat, koeteemat ja kirjasanaston teemat. Kirjateemat näytetään englannissa
+// AINA (eivät vain kun luokka-aste >= 4): ruudun luokka-aste päätellään oppilaan edistymisestä,
+// eikä se välttämättä vastaa koulun kirjaa. Kirjateema näkyy vain, jos sillä on sanoja
+// valitulla kielellä (saksassa/ruotsissa kirjasanastoa ei ole).
+function selectableWordCategories(){
+  if (studyMode === "self") return selectableCategories();
+  const langOk = c => !c.lang || c.lang === targetLang;
+  const withWords = new Set();
+  PRACTICE_WORDS.forEach(w => { withWords.add(w.category); (w.also || []).forEach(x => withWords.add(x)); });
   return VOCAB.categories.filter(c => langOk(c) &&
-    (categoryGrade(c) === activeGrade || c.group === "hobby" || c.exam));
+    (categoryGrade(c) === activeGrade || c.group === "hobby" || c.exam ||
+     (c.group === "book" && withWords.has(c.id))));
 }
 
 function themeButtonLabel(){
@@ -111452,12 +111531,51 @@ function sanitizeSelectedThemes(){
   selectedThemes = selectedThemes.filter(id => ok.has(id));
 }
 
+// Teeman sanat (koulussa kategorian sanat myös lisäteemana, itseopiskelussa aihepiirin sanat).
+function categoryWords(id){
+  if (studyMode === "self") return selfTopicWords(id);
+  return PRACTICE_WORDS.filter(w => wordInCategory(w, id));
+}
+// Teeman opitut sanat valitulla syöttötavalla: { n: opittu, total: sanoja }.
+function themeProgress(id){
+  const check = MODE_GRADUATED_CHECK[productiveMode()] || stageKeyboardGraduated;
+  const words = categoryWords(id);
+  let n = 0;
+  words.forEach(w => { if (check(statsCache[statId(w)])) n += 1; });
+  return { n, total: words.length };
+}
+function themeCountText(id){
+  const p = themeProgress(id);
+  return p.n + "/" + p.total;
+}
+// Valikon X/Y-laskuririvit: { el, ids } (ids = yhden teeman id tai koko kirjan teemojen id:t).
+let themeCountEls = [];
+// Päivittää X/Y-laskurit valikon riveille uudelleenrakentamatta listaa.
+function updateThemeCounts(){
+  if (practiceMode === "sentences") return;
+  themeCountEls.forEach(({ el, ids }) => {
+    if (ids.length === 1) el.textContent = themeCountText(ids[0]);
+    else {
+      const check = MODE_GRADUATED_CHECK[productiveMode()] || stageKeyboardGraduated;
+      const seen = new Set(); let n = 0;
+      ids.forEach(id => categoryWords(id).forEach(w => {
+        if (seen.has(w.id)) return;
+        seen.add(w.id);
+        if (check(statsCache[statId(w)])) n += 1;
+      }));
+      el.textContent = n + "/" + seen.size;
+    }
+  });
+}
+
 function populateCategoryOptions(){
   sanitizeSelectedThemes();
   themeButton.textContent = themeButtonLabel();
   themeStrictToggle.checked = themeStrict;
   themeList.innerHTML = "";
+  themeCountEls = [];
   const cats = selectableCategories();
+  const showCounts = practiceMode !== "sentences";
   const addRow = (c) => {
     const row = document.createElement("label");
     row.className = "theme-row";
@@ -111467,17 +111585,62 @@ function populateCategoryOptions(){
     box.checked = selectedThemes.includes(c.id);
     box.addEventListener("change", () => toggleTheme(c.id, box.checked));
     const span = document.createElement("span");
+    span.className = "theme-name";
     span.textContent = c.name_fi;
     row.appendChild(box);
     row.appendChild(span);
+    if (showCounts){
+      const cnt = document.createElement("span");
+      cnt.className = "theme-count";
+      themeCountEls.push({ el: cnt, ids: [c.id] });
+      row.appendChild(cnt);
+    }
     themeList.appendChild(row);
   };
   cats.filter(c => c.exam).forEach(addRow);
-  cats.filter(c => c.group !== "hobby" && !c.exam).forEach(addRow);
+  cats.filter(c => c.group !== "hobby" && c.group !== "book" && !c.exam).forEach(addRow);
   cats.filter(c => c.group === "hobby").forEach(addRow);
+  // Oma osio kirjan sanastolle (kirjan luokka-asteittain) + pikavalinta "Koko kirjan sanasto".
+  const books = cats.filter(c => c.group === "book");
+  const bookGrades = Array.from(new Set(books.map(c => c.book_grade))).sort((a, b) => (a || 0) - (b || 0));
+  bookGrades.forEach(bg => {
+    const list = books.filter(c => c.book_grade === bg);
+    const head = document.createElement("div");
+    head.className = "theme-sep theme-book-head";
+    head.textContent = "📘 Kirjan sanasto" + (bg ? " (" + bg + ". lk)" : "");
+    themeList.appendChild(head);
+    const all = document.createElement("label");
+    all.className = "theme-row theme-book-all";
+    all.dataset.cat = "__book__" + (bg || "");
+    const allBox = document.createElement("input");
+    allBox.type = "checkbox";
+    allBox.checked = list.every(c => selectedThemes.includes(c.id));
+    allBox.addEventListener("change", () => toggleBookAll(list.map(c => c.id), allBox.checked));
+    const allName = document.createElement("span");
+    allName.className = "theme-name";
+    allName.textContent = "Koko kirjan sanasto";
+    all.appendChild(allBox);
+    all.appendChild(allName);
+    if (showCounts){
+      const cnt = document.createElement("span");
+      cnt.className = "theme-count";
+      themeCountEls.push({ el: cnt, ids: list.map(c => c.id) });
+      all.appendChild(cnt);
+    }
+    themeList.appendChild(all);
+    list.forEach(addRow);
+  });
+  updateThemeCounts();
   themeModalSubtitle.textContent = selectedThemes.length
     ? `Valittu ${selectedThemes.length} teemaa (${unitLabel()})`
     : "Voit valita useita teemoja. Ei valintaa = kaikki teemat.";
+}
+
+// "Koko kirjan sanasto": valitsee kaikki kirjan teemat kerralla (tai poistaa valinnan).
+function toggleBookAll(ids, on){
+  const rest = selectedThemes.filter(x => !ids.includes(x));
+  selectedThemes = on ? rest.concat(ids) : rest;
+  applyThemeChange();
 }
 
 function applyThemeChange(){
@@ -111534,15 +111697,15 @@ function activeWordPool(){
 }
 
 // Sanat, jotka voivat kiertää automaattisessa aktiivijoukossa valitulla luokka-asteella
-// ja teemarajauksella (sel = lista teema-id:itä, tyhjä = kaikki). Harrasteteemat
-// (group=hobby, esim. Minecraft/Fortnite) ohittavat luokka-asterajauksen - ne ovat
-// vain käsin valittavissa. Usean teeman valinta = teemojen sanat yhdessä.
+// ja teemarajauksella (sel = lista teema-id:itä, tyhjä = kaikki). Harraste- ja kirjateemat
+// (group=hobby, esim. Minecraft/Fortnite; group=book, vaihe 49) ohittavat luokka-asterajauksen -
+// ne ovat vain käsin valittavissa eivätkä kuulu "Kaikki teemat" -pooliin. Usean teeman valinta = teemojen sanat yhdessä.
 function eligibleWordsForCategoryScope(sel){
   if (focusActive()) return PRACTICE_WORDS.filter(w => focusIds.includes(w.id));
   if (!sel || !sel.length) return wordsForGrade(activeUnit());
   const gradeIds = new Set(wordsForGrade(activeUnit()).map(w => w.id));
   return PRACTICE_WORDS.filter(w => sel.some(id => wordInCategory(w, id) &&
-    (categoryGroup(id) === "hobby" || isExamCategory(id) || gradeIds.has(w.id))));
+    (categoryGroup(id) === "hobby" || categoryGroup(id) === "book" || isExamCategory(id) || gradeIds.has(w.id))));
 }
 
 // Onko täydennys valittujen teemojen ulkopuolelta sallittu: ei tiukassa tilassa,
@@ -111587,69 +111750,111 @@ function fillFromOtherGrades(pool, sel, excludeIds){
 }
 
 // --- Kolmivaiheinen oppimispolku: piirrä -> kirjoita -> puhu ---
-// Vaihe 1 (piirto): sana pitää saada kerran oikein KUMPAANKIN suuntaan
-// (kohdekieli->suomi ja suomi->kohdekieli) ilman että väliin tulee väärä
-// vastaus siinä suunnassa. Vaihe 2 (näppäimistö) ja vaihe 3 (puhe) eivät
-// erottele suuntaa: kumpi tahansa suunta kelpaa, kunhan peräkkäisiä oikeita
-// vastauksia kertyy vaadittu määrä ilman yhtäkään väärää välissä.
+// Vaihe 49: kaikilla kolmella syöttötavalla (kynä, näppäimistö, puhe) sana on OPITTU, kun se
+// on vastattu kerran oikein KUMPAANKIN suuntaan (kohdekieli->suomi ja suomi->kohdekieli)
+// kyseisellä tavalla eli 2 oikeaa vastausta / tapa (1 / suunta). Perustelu: sama sana
+// näkyy ruudulla silti toistakymmentä kertaa (kertaus, eri tavat), joten vanhat rajat
+// (kynä 3+3, näppäimistö 5, puhe 6 peräkkäistä) vaativat ~1000 sanalla kymmeniätuhansia toistoja.
+// Suuntalaskurit ovat tapakohtaisia:
+//   kynä:        streakTargetFi / streakFiTarget
+//   näppäimistö: kbTF / kbFT
+//   puhe:        micTF / micFT
+// (TF = kohdekieli->suomi, FT = suomi->kohdekieli; puheessakin kysytään kumpaakin suuntaa,
+// joten puheelle ei tarvita erillistä "2 peräkkäistä" -sääntöä). Väärä vastaus nollaa vain
+// kyseisen tavan ja suunnan laskurin; muut suunnat ja tavat säilyvät.
 //
 // Jokaisella vaiheella on KAKSI kynnystä:
-// - "Pass": alkuperäinen oppimiskriteeri - kun täyttyy, sanan näyttötiheys
-//   puolittuu, jotta fokus siirtyy muihin vielä opeteltaviin sanoihin.
-// - "Graduate": Pass + 2 lisäkertaa oikein samalla tavalla - kun täyttyy,
-//   sana siirtyy pysyvästi hierarkiassa seuraavalle vaiheelle (piirto -> näppäimistö
-//   -> puhe) eikä sitä enää näytetä alemmalla vaiheella, paitsi harvakseltaan kertauksena.
-const PEN_PASS = 1, PEN_GRADUATE = 3;
-const KEYBOARD_PASS = 3, KEYBOARD_GRADUATE = 5;
-const MIC_PASS = 4, MIC_GRADUATE = 6;
+// - "Pass": yksi oikea jompaankumpaan suuntaan - täyttyessään sanan näyttötiheys puolittuu,
+//   jotta fokus siirtyy muihin vielä opeteltaviin sanoihin.
+// - "Graduate": oikea molempiin suuntiin - sana on opittu tällä tavalla ja siirtyy pois
+//   aktiivijoukosta (näytetään enää harvakseltaan kertauksena).
+const DIR_PASS = 1;       // oikeita jommassakummassa suunnassa Pass-tasolle
+const DIR_GRADUATE = 1;   // oikeita KUMMASSAKIN suunnassa graduointiin (yht. 2 vastausta)
 
-function stagePenPassed(stat){
-  return !!stat
-    && (stat.streakTargetFi || 0) >= PEN_PASS
-    && (stat.streakFiTarget || 0) >= PEN_PASS;
+// Tapakohtaiset kentät: nykyiset suuntalaskurit, paras koskaan saavutettu (tähtimittarin
+// osittainen edistyminen) sekä vanhan mallin kentät siirtymälogiikkaa varten.
+const MODE_DIR_FIELDS = {
+  pen:      { tf: "streakTargetFi", ft: "streakFiTarget", bestTf: "bestPenTF", bestFt: "bestPenFT",
+              legacy: null, legacyBest: "bestStreakPen" },
+  keyboard: { tf: "kbTF", ft: "kbFT", bestTf: "bestKbTF", bestFt: "bestKbFT",
+              legacy: "streakKeyboard", legacyBest: "bestStreakKeyboard" },
+  mic:      { tf: "micTF", ft: "micFT", bestTf: "bestMicTF", bestFt: "bestMicFT",
+              legacy: "streakMic", legacyBest: "bestStreakMic" }
+};
+// Vanhan mallin raja, jonka täyttänyt sana on graduoitu uusilla rajoilla (siirtymä):
+// näppäimistö/puhe: nykyinen peräkkäisten putki >= 2; kynän suuntalaskurit ovat jo samat.
+const LEGACY_MIGRATE_STREAK = 2;
+
+// Tavan nykyiset suuntalaskurit [TF, FT]. Vanhassa tilastossa (uusia kenttiä ei ole vielä
+// kirjoitettu) näppäimistön/puheen putki >= 2 tulkitaan oikeaksi molempiin suuntiin, jottei
+// mikään aiemmin opittu muutu opitsemattomaksi. Kynän laskurit ovat suoraan kentissä.
+function modeDirs(stat, mode){
+  if (!stat) return [0, 0];
+  const f = MODE_DIR_FIELDS[mode];
+  if (f.legacy && stat[f.tf] === undefined && stat[f.ft] === undefined){
+    const q = (stat[f.legacy] || 0) >= LEGACY_MIGRATE_STREAK ? 1 : 0;
+    return [q, q];
+  }
+  return [stat[f.tf] || 0, stat[f.ft] || 0];
 }
-function stagePenGraduated(stat){
-  return !!stat
-    && (stat.streakTargetFi || 0) >= PEN_GRADUATE
-    && (stat.streakFiTarget || 0) >= PEN_GRADUATE;
+function modePassedBy(stat, mode){
+  const [tf, ft] = modeDirs(stat, mode);
+  return tf >= DIR_PASS || ft >= DIR_PASS;
 }
-function stageKeyboardPassed(stat){
-  return !!stat && (stat.streakKeyboard || 0) >= KEYBOARD_PASS;
+function modeGraduatedBy(stat, mode){
+  const [tf, ft] = modeDirs(stat, mode);
+  return tf >= DIR_GRADUATE && ft >= DIR_GRADUATE;
 }
-function stageKeyboardGraduated(stat){
-  return !!stat && (stat.streakKeyboard || 0) >= KEYBOARD_GRADUATE;
-}
-function stageMicPassed(stat){
-  return !!stat && (stat.streakMic || 0) >= MIC_PASS;
-}
-function stageMicGraduated(stat){
-  return !!stat && (stat.streakMic || 0) >= MIC_GRADUATE;
-}
+function stagePenPassed(stat){ return modePassedBy(stat, "pen"); }
+function stagePenGraduated(stat){ return modeGraduatedBy(stat, "pen"); }
+function stageKeyboardPassed(stat){ return modePassedBy(stat, "keyboard"); }
+function stageKeyboardGraduated(stat){ return modeGraduatedBy(stat, "keyboard"); }
+function stageMicPassed(stat){ return modePassedBy(stat, "mic"); }
+function stageMicGraduated(stat){ return modeGraduatedBy(stat, "mic"); }
 // Sana on täysin opittu vasta kun kaikki kolme vaihetta on graduoitu.
 function isFullyLearned(stat){
   return stagePenGraduated(stat) && stageKeyboardGraduated(stat) && stageMicGraduated(stat);
 }
-// Piirtovaiheen putki: graduointi vaatii molemmat suunnat (ks. stagePenGraduated),
-// joten putki on heikomman suunnan putki.
-function penStreak(stat){
-  return stat ? Math.min(stat.streakTargetFi || 0, stat.streakFiTarget || 0) : 0;
-}
-// Menetelmän graduointikynnys ja paras putki (vanhoissa tilastoissa nykyinen putki).
-const MODE_GRADUATE = { pen: PEN_GRADUATE, keyboard: KEYBOARD_GRADUATE, mic: MIC_GRADUATE };
-function bestStreakFor(stat, mode){
+// Paras koskaan saavutettu suuntamäärä tavassa (0, 1 tai 2): ei laske virheestä. Vanhoissa
+// tilastoissa (best-kenttiä ei vielä ole) johdetaan vanhasta parhaasta putkesta
+// (näppäimistö/puhe: min(paras putki, 2); kynä: paras putki >= 1 = molemmat suunnat).
+function bestDirCount(stat, mode){
   if (!stat) return 0;
-  if (mode === "pen") return Math.max(stat.bestStreakPen || 0, penStreak(stat));
-  if (mode === "keyboard") return Math.max(stat.bestStreakKeyboard || 0, stat.streakKeyboard || 0);
-  if (mode === "mic") return Math.max(stat.bestStreakMic || 0, stat.streakMic || 0);
-  return 0;
+  const f = MODE_DIR_FIELDS[mode];
+  const [tf, ft] = modeDirs(stat, mode);
+  if (stat[f.bestTf] !== undefined || stat[f.bestFt] !== undefined){
+    return ((stat[f.bestTf] || 0) > 0 || tf > 0 ? 1 : 0) + ((stat[f.bestFt] || 0) > 0 || ft > 0 ? 1 : 0);
+  }
+  const cur = (tf > 0 ? 1 : 0) + (ft > 0 ? 1 : 0);
+  const lb = stat[f.legacyBest] || 0;
+  const legacy = mode === "pen" ? (lb >= 1 ? 2 : 0)
+    : Math.min(2, Math.max(lb, stat[f.legacy] || 0));
+  return Math.max(cur, legacy);
 }
-// Sanan osuus tähtimittarissa valitussa tavassa: min(paras putki / graduointikynnys, 1).
-// Graduoitu sana on aina 1 (myös jos best-kenttää ei ole tai putki on katkennut).
+// Kirjaa tuloksen tavan suuntalaskureihin ja parhaisiin (kutsutaan recordResultista).
+// Siirtää samalla vanhan mallin tilan uusiin kenttiin, jotta mikään opittu ei katoa.
+function applyDirResult(stat, mode, dir, isCorrect){
+  const f = MODE_DIR_FIELDS[mode];
+  const bestBefore = bestDirCount(stat, mode);
+  const [tf0, ft0] = modeDirs(stat, mode);
+  let tf = tf0, ft = ft0;
+  const key = dir === "target-fi" ? "tf" : "ft";
+  if (isCorrect){ if (key === "tf") tf += 1; else ft += 1; }
+  else { if (key === "tf") tf = 0; else ft = 0; }
+  stat[f.tf] = tf; stat[f.ft] = ft;
+  // Paras: aiempi paras (myös vanhasta mallista johdettu) + nykyinen tila.
+  let bt = (stat[f.bestTf] || 0), bf = (stat[f.bestFt] || 0);
+  if (stat[f.bestTf] === undefined && stat[f.bestFt] === undefined){
+    bt = bestBefore >= 1 ? 1 : 0; bf = bestBefore >= 2 ? 1 : 0;
+  }
+  stat[f.bestTf] = Math.max(bt, tf); stat[f.bestFt] = Math.max(bf, ft);
+}
+// Sanan osuus tähtimittarissa valitussa tavassa: suunnat oikein / 2 (paras koskaan
+// saavutettu, ei laske virheestä). Graduoitu sana on aina 1.
 function wordTierShare(stat, mode){
   if (!stat) return 0;
-  const check = MODE_GRADUATED_CHECK[mode];
-  if (check && check(stat)) return 1;
-  return Math.min(bestStreakFor(stat, mode) / MODE_GRADUATE[mode], 1);
+  if (modeGraduatedBy(stat, mode)) return 1;
+  return bestDirCount(stat, mode) / 2;
 }
 
 // Kertoo, onko sana Pass-tasolla PARHAILLAAN VALITUSSA harjoittelutavassa
@@ -111687,6 +111892,23 @@ function tierState(masteredN, totalN){
   const majorIndex = Math.min(LEVELS.length - 1, Math.floor(stepsEarned / 5));
   const stars = stepsEarned - majorIndex * 5;
   return { majorIndex, stars, exactSteps };
+}
+
+// Montako kokonaista opittua sanaa (n) vielä tarvitaan seuraavaan tähteen, ylöspäin pyöristettynä:
+// yksi tähti = total / 30 sanaa. Seuraava tähti on nykyisen (osittainen edistyminen mukana
+// laskettu) askelmäärän seuraava kokonaisluku. Täysi mittari / ei sanoja = 0.
+function wordsToNextStar(n, total, exactSteps){
+  if (!total || n >= total || exactSteps >= TOTAL_TIER_STEPS) return 0;
+  const target = Math.floor(exactSteps) + 1;
+  return Math.max(1, Math.ceil(target * total / TOTAL_TIER_STEPS - 1e-9) - n);
+}
+// Laskuririvi mittarin alla: "Koe 1: opittu 12/113 · seuraavaan tähteen 3 sanaa".
+function tierCounterText(t){
+  if (!t) return "";
+  const head = `${t.scopeLabel}: opittu ${t.n}/${t.total}`;
+  if (!t.total) return head;
+  if (!t.needed) return head + " · kaikki tähdet täynnä";
+  return head + ` · seuraavaan tähteen ${t.needed} ${t.needed === 1 ? "sana" : "sanaa"}`;
 }
 
 // Tasonimi näytetään aina ilman tähtimäärää sanoina - tähtien määrä näkyy
@@ -111737,6 +111959,7 @@ function renderTierBadge(){
   const pct = Math.round(progressToNext * 100);
   progressFill.style.width = pct + "%";
   progressLabel.textContent = isMaxed ? "Kaikki tähdet täynnä! ✨" : `Seuraavaan tähteen: ${pct}%`;
+  tierCounter.textContent = tierCounterText(t);
 }
 
 // --- Palkintoasteikko-modaali (vaihe 18) ---
@@ -111774,6 +111997,34 @@ function renderTierModalContent(){
     row.appendChild(info);
     tierScaleList.appendChild(row);
   });
+  renderTierThemeTable(pm);
+}
+
+// Taulukko teemoittain (X/Y opittu valitulla tavalla): valikon teemat, myös kirja- ja koeteemat.
+function renderTierThemeTable(pm){
+  tierThemeList.innerHTML = "";
+  const self = studyMode === "self";
+  const cats = selectableWordCategories();
+  if (!cats.length){ tierThemeHead.textContent = ""; return; }
+  tierThemeHead.textContent = (self ? "Aihepiireittäin" : "Teemoittain") + " (" + (MODE_NAMES[pm] || "").toLowerCase() + ", opittu/sanoja)";
+  const ordered = cats.filter(c => c.exam)
+    .concat(cats.filter(c => c.group !== "hobby" && c.group !== "book" && !c.exam))
+    .concat(cats.filter(c => c.group === "hobby"))
+    .concat(cats.filter(c => c.group === "book"));
+  ordered.forEach(c => {
+    const row = document.createElement("div");
+    row.className = "tier-theme-row";
+    row.dataset.cat = c.id;
+    const name = document.createElement("span");
+    name.className = "tier-theme-name";
+    name.textContent = (c.group === "book" ? "📘 " : "") + c.name_fi;
+    const cnt = document.createElement("span");
+    cnt.className = "tier-theme-count";
+    cnt.textContent = themeCountText(c.id);
+    row.appendChild(name);
+    row.appendChild(cnt);
+    tierThemeList.appendChild(row);
+  });
 }
 
 function openTierModal(){
@@ -111810,8 +112061,10 @@ async function updateHeaderStats(){
   // Palkintotaso lasketaan HARJOITELTAVASTA KOKONAISUUDESTA: valituista teemoista
   // (myös koeteemat), Viikon sanoista tai ilman rajausta koko luokka-asteen (itseopiskelussa
   // tason) sanoista - sama joukko, josta aktiivijoukko muodostetaan (activeWordPool).
-  // Jokainen sana tuo mittariin osuuden min(paras putki / graduointikynnys, 1) valitussa
-  // tavassa, joten palkki liikkuu jokaisesta oikeasta vastauksesta eikä putoa virheestä.
+  // Jokainen sana tuo mittariin osuuden (suunnat oikein / 2, paras koskaan saavutettu) valitussa
+  // tavassa, joten palkki liikkuu jokaisesta uudesta suunnasta eikä putoa virheestä (ks. wordTierShare).
+  // Laskuririvi: X = kokonaan opitut sanat (graduoitu valitussa tavassa), N = montako kokonaista
+  // sanaa vielä tarvitaan seuraavaan tähteen (ks. wordsToNextStar).
   const scopeWords = activeWordPool();
   const scopeLabel = tierScopeLabel();
   ["pen", "keyboard", "mic"].forEach(mode => {
@@ -111819,15 +112072,20 @@ async function updateHeaderStats(){
     let n = 0, share = 0;
     scopeWords.forEach(w => {
       const st = statsCache[statId(w)];
-      if (check(st)) n += 1;
-      share += wordTierShare(st, mode);
+      // Laskuri ei putoa virheestä: sana lasketaan opituksi, jos se on nyt graduoitu tai on
+      // joskus ollut kokonaan oikein molempiin suuntiin (paras saavutettu osuus = 1).
+      const sh = wordTierShare(st, mode);
+      if (check(st) || sh >= 1) n += 1;
+      share += sh;
     });
     const { majorIndex, stars, exactSteps } = tierState(share, scopeWords.length);
-    tierByMode[mode] = { n, total: scopeWords.length, scopeLabel, share, majorIndex, stars, exactSteps };
+    tierByMode[mode] = { n, total: scopeWords.length, scopeLabel, share, majorIndex, stars, exactSteps,
+      needed: wordsToNextStar(n, scopeWords.length, exactSteps) };
   });
   renderTierBadge();
   updateSelfDailyUI();
   populateGradeOptions(); // päivittää valmiiden luokka-asteiden vihreän merkinnän
+  if (themeModalOverlay.classList.contains("visible")) updateThemeCounts(); // X/Y valitulla tavalla
   if (practiceMode === "sentences") updateSentenceProgressLabel();
 }
 
@@ -112299,41 +112557,22 @@ async function recordResult(isCorrect, mode){
     streakKeyboard: 0,
     streakMic: 0
   };
-  // Paras putki päivitetään ENNEN putken nollausta: vanhasta tilastosta (best-kenttä puuttuu)
-  // pitkä putki tallentuu parhaaksi, vaikka ensimmäinen vastaus olisi virhe.
-  const bestPen = Math.max(prev.bestStreakPen || 0, penStreak(prev));
-  const bestKeyboard = Math.max(prev.bestStreakKeyboard || 0, prev.streakKeyboard || 0);
-  const bestMic = Math.max(prev.bestStreakMic || 0, prev.streakMic || 0);
+  // Vaihe 49: suuntalaskurit ja paras saavutettu suuntamäärä tavoittain (kynä, näppäimistö, puhe).
+  // Väärä vastaus nollaa vain käytetyn tavan ja kysytyn suunnan laskurin. Siirtymä: vanhan mallin
+  // tila (putki >= 2) siirtyy samalla uusiin kenttiin (ks. applyDirResult).
   if (isCorrect){
     prev.correctCount += 1;
     prev.streakCorrect = (prev.streakCorrect || 0) + 1;
-    if (mode === "pen"){
-      // Piirtovaihe: suunnat lasketaan erikseen, kuten aiemmassa ⭐-mittarissa.
-      if (direction === "target-fi") prev.streakTargetFi = (prev.streakTargetFi || 0) + 1;
-      else prev.streakFiTarget = (prev.streakFiTarget || 0) + 1;
-    } else if (mode === "keyboard"){
-      prev.streakKeyboard = (prev.streakKeyboard || 0) + 1;
-    } else if (mode === "mic"){
-      prev.streakMic = (prev.streakMic || 0) + 1;
-    }
   } else {
     prev.incorrectCount += 1;
     prev.streakCorrect = 0;
-    // Vain käytetyn vaiheen (ja piirrossa vain kysytyn suunnan) laskuri nollautuu.
-    if (mode === "pen"){
-      if (direction === "target-fi") prev.streakTargetFi = 0;
-      else prev.streakFiTarget = 0;
-    } else if (mode === "keyboard"){
-      prev.streakKeyboard = 0;
-    } else if (mode === "mic"){
-      prev.streakMic = 0;
-    }
   }
-  // Paras putki per menetelmä (tähtimittarin osittaista edistymistä varten): ei koskaan
-  // laske virheen takia. Vanhoissa tilastoissa kentät puuttuvat -> lähtöarvo nykyinen putki.
-  prev.bestStreakPen = Math.max(bestPen, penStreak(prev));
-  prev.bestStreakKeyboard = Math.max(bestKeyboard, prev.streakKeyboard || 0);
-  prev.bestStreakMic = Math.max(bestMic, prev.streakMic || 0);
+  if (mode === "pen" || mode === "keyboard" || mode === "mic"){
+    applyDirResult(prev, mode, direction, isCorrect);
+    // Vanhat peräkkäisputket pidetään ajan tasalla (raportit/yhteensopivuus); oppiminen ei käytä niitä.
+    if (mode === "keyboard") prev.streakKeyboard = isCorrect ? (prev.streakKeyboard || 0) + 1 : 0;
+    if (mode === "mic") prev.streakMic = isCorrect ? (prev.streakMic || 0) + 1 : 0;
+  }
   prev.lastSeen = new Date().toISOString();
   let goalReached = false;
   if (studyMode === "self"){
@@ -119313,13 +119552,23 @@ function buildSelfReport(){
 function buildProgressReport(){
   if (studyMode === "self") return buildSelfReport();
   const grades = gradesForLang().map(g => ({ grade: g, ...adultStatsFor(wordsForGrade(g)) }));
-  const themes = VOCAB.categories
+  const themeRows = VOCAB.categories
     .filter(c => PRACTICE_WORDS.some(w => wordInCategory(w, c.id)))
     .map(c => ({
-      id: c.id, name: c.name_fi, hobby: c.group === "hobby", grade: categoryGrade(c),
+      id: c.id, name: c.name_fi, hobby: c.group === "hobby", book: c.group === "book",
+      grade: categoryGrade(c), bookGrade: c.book_grade || null,
       ...adultStatsFor(PRACTICE_WORDS.filter(w => wordInCategory(w, c.id)))
     }))
     .sort((a, b) => (a.hobby - b.hobby) || ((a.grade || 0) - (b.grade || 0)) || a.name.localeCompare(b.name, "fi"));
+  // Kirjasanasto (vaihe 49) omana ryhmänään: ei sekoitu luokka-asteittaisiin teemoihin eikä harrasteisiin.
+  const themes = themeRows.filter(t => !t.book);
+  const bookThemes = themeRows.filter(t => t.book)
+    .sort((a, b) => ((a.bookGrade || 0) - (b.bookGrade || 0)) || a.name.localeCompare(b.name, "fi"));
+  const bookWordIds = new Set();
+  bookThemes.forEach(t => PRACTICE_WORDS.filter(w => wordInCategory(w, t.id)).forEach(w => bookWordIds.add(w.id)));
+  const book = bookThemes.length
+    ? { themes: bookThemes, ...adultStatsFor(PRACTICE_WORDS.filter(w => bookWordIds.has(w.id))) }
+    : null;
   const all = adultStatsFor(PRACTICE_WORDS);
   // Koealueet (exam-teemat): sanojen ja koealueen omien virkkeiden valmius sekä heikoimmat sanat.
   const exams = VOCAB.categories
@@ -119345,7 +119594,7 @@ function buildProgressReport(){
     return { grade: g, total: list.length, seen, mastered };
   });
   const lastSeen = lastSeenForLang();
-  return { language: targetLang, all, grades, themes, exams, hard, days, sentences: sentenceStats, sentenceTotal: sents.length, lastSeen };
+  return { language: targetLang, all, grades, themes, book, exams, hard, days, sentences: sentenceStats, sentenceTotal: sents.length, lastSeen };
 }
 
 function escHtml(t){ return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
@@ -119461,6 +119710,16 @@ function renderAdultView(){
     h += `<tr><td>${escHtml(t.name)}</td><td>${t.hobby ? "harraste" : t.grade}</td><td>${t.total}</td><td>${t.seen}</td><td>${t.keyboard}</td><td>${t.full} ${bar(t.full, t.total)}</td></tr>`;
   });
   h += `</table>`;
+  if (r.book){
+    // Kirjasanasto ei kuulu luokka-asteisiin (kirjateemat ryhmänä "book"): oma taulukkonsa.
+    const bgs = Array.from(new Set(r.book.themes.map(t => t.bookGrade).filter(Boolean)));
+    h += `<div class="adult-section">📘 Kirjan sanasto${bgs.length ? " (" + bgs.join(", ") + ". lk)" : ""}</div><table class="adult-table"><tr><th>Teema</th><th>Sanoja</th><th>Nähty</th><th>Näppäimistö</th><th>Täysin</th></tr>`;
+    r.book.themes.forEach(t => {
+      h += `<tr><td>${escHtml(t.name)}</td><td>${t.total}</td><td>${t.seen}</td><td>${t.keyboard}</td><td>${t.full} ${bar(t.full, t.total)}</td></tr>`;
+    });
+    h += `<tr><td><b>Yhteensä</b></td><td>${r.book.total}</td><td>${r.book.seen}</td><td>${r.book.keyboard}</td><td>${r.book.full}</td></tr></table>`;
+    h += `<p class="adult-note">Kirjan sanasto on erillään luokka-asteista: se ei vaikuta luokka-asteen valmistumiseen eikä "Kaikki teemat" -valintaan, vaan se valitaan teemavalikon osiosta.</p>`;
+  }
   h += `<div class="adult-section">Hankalat sanat</div>`;
   if (r.hard.length){
     h += `<table class="adult-table"><tr><th>Sana</th><th>Suomeksi</th><th>Väärin</th><th>Yrityksiä</th></tr>`;
@@ -120055,7 +120314,7 @@ function setReviewHardOnly(on){
 
 // --- Sanan haasteportaat ---
 // 0 uusi -> 1 tunnistettu (valinta/yhdistely/kuuntelu oikein tai tasotestissä tunnistettu)
-// -> 2 tuotettu (jokin vaihe läpäisty tai oikeiden putki >= 2) -> 3 taivutettu (jokin taivutustehtävä
+// -> 2 tuotettu (jokin vaihe läpäisty eli yksi oikea jompaankumpaan suuntaan, vaihe 49, tai oikeiden putki >= 2) -> 3 taivutettu (jokin taivutustehtävä
 // oikein; ohitetaan, jos sanalla ei ole taivutusdataa) -> 4 kuultu (sanelu oikein)
 // -> 5 virkkeessä (vaihe 46: sana esiintyy itseopiskelun virkkeessä, jonka käyttäjä on vastannut oikein).
 // Porras johdetaan kokonaan olemassa olevista tilastokentistä (statsCache + inflStats_<kieli>).

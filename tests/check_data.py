@@ -61,6 +61,11 @@ for c in cats:
     g, grp = c.get("grade"), c.get("group")
     if grp == "hobby":
         if g is not None: err("Categories", f"hobby category '{c['id']}' has grade {g}")
+    elif grp == "book":
+        # Kirjasanasto (vaihe 49): ei luokka-astetta, mutta kirjan luokka-aste (book_grade) pakollinen
+        if g is not None: err("Categories", f"book category '{c['id']}' has grade {g} (pitää olla null)")
+        if not (isinstance(c.get("book_grade"), int) and 1 <= c["book_grade"] <= MAX_GRADE):
+            err("Categories", f"book category '{c['id']}' has invalid book_grade {c.get('book_grade')!r}")
     elif not (isinstance(g, int) and 1 <= g <= MAX_GRADE):
         err("Categories", f"category '{c['id']}' (group={grp}) has invalid grade {g!r}")
 
@@ -196,7 +201,10 @@ for g in (1, 2, 3):
 info("Swedish", f"{len(svw)} words with sv, {len(SV_SENTS)} sentences ({dict(svg)})")
 
 # ---------- stats ----------
-info("Words per grade", ", ".join(f"g{g}: {wpg[g]}" for g in range(1, MAX_GRADE + 1)) + f", ungraded(hobby): {wpg[None]}")
+_bookcats = {c["id"] for c in cats if c.get("group") == "book"}
+_nbook = sum(1 for w in words if w.get("category") in _bookcats)
+_nhobby = wpg[None] - _nbook  # wpg[None] sisältää myös kirjasanat (grade=null)
+info("Words per grade", ", ".join(f"g{g}: {wpg[g]}" for g in range(1, MAX_GRADE + 1)) + f", ungraded(hobby): {_nhobby}, book: {_nbook} (ei luokkakohtaisissa)")
 for c in cats:
     info("Words per category", f"{c['id']} (grade {c['grade']}, {c['group']}): {used[c['id']]}")
 info("Sentences per grade", ", ".join(f"g{g}: {spg[g]}" for g in range(1, MAX_GRADE + 1)) + f" (total {len(sents)})")

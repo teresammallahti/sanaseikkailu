@@ -602,7 +602,7 @@ Sanaseikkailu data check: 1616 words, 93 categories, 338 sentences
   - 481 words with sv, 60 sentences ({1: 20, 2: 20, 3: 20})
 
 [Words per grade] (1)
-  - g1: 126, g2: 78, g3: 88, g4: 949, g5: 70, g6: 63, g7: 74, g8: 75, g9: 75, ungraded(hobby): 18
+  - g1: 126, g2: 78, g3: 88, g4: 78, g5: 70, g6: 63, g7: 74, g8: 75, g9: 75, ungraded(hobby): 18, book: 871 (ei luokkakohtaisissa)
 
 [Words per category] (93)
   - school_people (grade 3, ops): 7
@@ -671,31 +671,31 @@ Sanaseikkailu data check: 1616 words, 93 categories, 338 sentences
   - communication_9 (grade 9, ops): 10
   - connectors_9 (grade 9, ops): 13
   - phrasal_9 (grade 9, ops): 11
-  - animals_4 (grade 4, ops): 63
-  - food_4 (grade 4, ops): 59
-  - home_4 (grade 4, ops): 37
-  - chores_4 (grade 4, ops): 13
-  - nature_4 (grade 4, ops): 43
-  - body_4 (grade 4, ops): 17
-  - people_4 (grade 4, ops): 27
-  - fantasy_4 (grade 4, ops): 21
-  - places_4 (grade 4, ops): 35
-  - clothes_4 (grade 4, ops): 23
-  - school_4 (grade 4, ops): 40
-  - hobbies_4 (grade 4, ops): 40
-  - sports_4 (grade 4, ops): 36
-  - calendar_4 (grade 4, ops): 19
-  - time_4 (grade 4, ops): 22
-  - numbers_4 (grade 4, ops): 20
-  - countries_4 (grade 4, ops): 24
-  - pronouns_4 (grade 4, ops): 17
-  - little_4 (grade 4, ops): 47
-  - places_dir_4 (grade 4, ops): 23
-  - general_4 (grade 4, ops): 51
-  - verbs1_4 (grade 4, ops): 57
-  - verbs2_4 (grade 4, ops): 63
-  - adj_4 (grade 4, ops): 58
-  - phrases_4 (grade 4, ops): 16
+  - animals_4 (grade None, book): 63
+  - food_4 (grade None, book): 59
+  - home_4 (grade None, book): 37
+  - chores_4 (grade None, book): 13
+  - nature_4 (grade None, book): 43
+  - body_4 (grade None, book): 17
+  - people_4 (grade None, book): 27
+  - fantasy_4 (grade None, book): 21
+  - places_4 (grade None, book): 35
+  - clothes_4 (grade None, book): 23
+  - school_4 (grade None, book): 40
+  - hobbies_4 (grade None, book): 40
+  - sports_4 (grade None, book): 36
+  - calendar_4 (grade None, book): 19
+  - time_4 (grade None, book): 22
+  - numbers_4 (grade None, book): 20
+  - countries_4 (grade None, book): 24
+  - pronouns_4 (grade None, book): 17
+  - little_4 (grade None, book): 47
+  - places_dir_4 (grade None, book): 23
+  - general_4 (grade None, book): 51
+  - verbs1_4 (grade None, book): 57
+  - verbs2_4 (grade None, book): 63
+  - adj_4 (grade None, book): 58
+  - phrases_4 (grade None, book): 16
   - koe1_4 (grade 4, ops): 3
   - koe1_de (grade 1, ops): 37
 
@@ -709,12 +709,12 @@ Sanaseikkailu data check: 1616 words, 93 categories, 338 sentences
   - grade 1: 25/36 = 69.4%
   - grade 2: 41/53 = 77.4%
   - grade 3: 52/63 = 82.5%
-  - grade 4: 483/538 = 89.8%
-  - grade 5: 75/89 = 84.3%
-  - grade 6: 92/113 = 81.4%
-  - grade 7: 91/112 = 81.2%
-  - grade 8: 109/127 = 85.8%
-  - grade 9: 114/136 = 83.8%
+  - grade 4: 252/538 = 46.8%
+  - grade 5: 65/89 = 73.0%
+  - grade 6: 76/113 = 67.3%
+  - grade 7: 78/112 = 69.6%
+  - grade 8: 92/127 = 72.4%
+  - grade 9: 98/136 = 72.1%
 
 [Top 30 sentence words NOT in vocabulary at all] (1)
   - mia(8), leo(8), max(7), anna(6), emma(6), going(3), can't(2), tom(2), taller(2), hiding(2), won(2), way(2), forgot(2), causes(2), ella(1), faster(1), ran(1), caught(1), fancy(1), grandad(1), stopped(1), slid(1), fireworks(1), won't(1), pupils(1), keep(1), postman(1), knitting(1), smith(1), doing(1)

@@ -36,7 +36,8 @@ function setWord(app, id, dir) {
 function learnedStat(app, id) {
   const sid = app.run(`statId({id: ${JSON.stringify(id)}})`);
   return { statId: sid, wordId: id, language: 'en', level: '4lk', correctCount: 20, incorrectCount: 0,
-    streakCorrect: 6, streakTargetFi: 3, streakFiTarget: 3, streakKeyboard: 5, streakMic: 6 };
+    streakCorrect: 6, streakTargetFi: 3, streakFiTarget: 3, streakKeyboard: 5, streakMic: 6,
+    kbTF: 3, kbFT: 2, micTF: 3, micFT: 3 }; // vaihe 49: suuntalaskurit (opittu = molemmat >= 1)
 }
 function grade1Ids(app) { return J(app, 'wordsForGrade(1).map(w => w.id)'); }
 
@@ -61,7 +62,9 @@ test('Boot: luokka-asteen valinnassa 9 vaihtoehtoa', async () => {
 test('Boot: teemavalikko sisältää "all" + luokka-asteen teemat + harrasteteemat', async () => {
   const app = await boot();
   const expected = app.run('VOCAB.categories.filter(c => (c.grade === 1 && !c.exam) || c.group === "hobby" || (c.exam && (!c.lang || c.lang === "en"))).length');
-  assert.strictEqual(app.elements.themeList._children.length, expected);
+  // + kirjasanaston osio (vaihe 49): otsikko, "Koko kirjan sanasto" -rivi ja kirjateemat
+  const books = app.run('VOCAB.categories.filter(c => c.group === "book").length');
+  assert.strictEqual(app.elements.themeList._children.length, expected + books + 2);
   assert.strictEqual(app.elements.themeButton.textContent, 'Kaikki teemat');
   app.dispose();
 });
@@ -394,48 +397,137 @@ test('recordResult: tallentuu tietokantaan ja säilyy updateHeaderStats:in jälk
 });
 
 // ---------------- Vaihekynnykset ----------------
-test('Vaiheet: näppäimistö 3/5', async () => {
+test('Vaiheet: näppäimistö 2 oikeaa (1 / suunta): Pass = yksi suunta, graduointi = molemmat', async () => {
   const app = await boot();
-  const f = (n, k) => app.run(`${k}({streakKeyboard: ${n}})`);
-  assert.strictEqual(f(2, 'stageKeyboardPassed'), false);
-  assert.strictEqual(f(3, 'stageKeyboardPassed'), true);
-  assert.strictEqual(f(4, 'stageKeyboardGraduated'), false);
-  assert.strictEqual(f(5, 'stageKeyboardGraduated'), true);
+  const f = (o, k) => app.run(`${k}(${JSON.stringify(o)})`);
+  assert.strictEqual(f({}, 'stageKeyboardPassed'), false);
+  assert.strictEqual(f({ kbTF: 1, kbFT: 0 }, 'stageKeyboardPassed'), true);
+  assert.strictEqual(f({ kbTF: 0, kbFT: 1 }, 'stageKeyboardPassed'), true);
+  assert.strictEqual(f({ kbTF: 1, kbFT: 0 }, 'stageKeyboardGraduated'), false);
+  assert.strictEqual(f({ kbTF: 5, kbFT: 0 }, 'stageKeyboardGraduated'), false, 'toistot yhteen suuntaan eivät riitä');
+  assert.strictEqual(f({ kbTF: 1, kbFT: 1 }, 'stageKeyboardGraduated'), true);
   assert.strictEqual(app.run('stageKeyboardPassed(null)'), false);
+  assert.strictEqual(app.run('stageKeyboardGraduated(null)'), false);
   app.dispose();
 });
 
-test('Vaiheet: mikrofoni 4/6', async () => {
+test('Vaiheet: mikrofoni 2 oikeaa (1 / suunta)', async () => {
   const app = await boot();
-  const f = (n, k) => app.run(`${k}({streakMic: ${n}})`);
-  assert.strictEqual(f(3, 'stageMicPassed'), false);
-  assert.strictEqual(f(4, 'stageMicPassed'), true);
-  assert.strictEqual(f(5, 'stageMicGraduated'), false);
-  assert.strictEqual(f(6, 'stageMicGraduated'), true);
+  const f = (o, k) => app.run(`${k}(${JSON.stringify(o)})`);
+  assert.strictEqual(f({ micTF: 0, micFT: 0 }, 'stageMicPassed'), false);
+  assert.strictEqual(f({ micTF: 1, micFT: 0 }, 'stageMicPassed'), true);
+  assert.strictEqual(f({ micTF: 0, micFT: 3 }, 'stageMicGraduated'), false);
+  assert.strictEqual(f({ micTF: 1, micFT: 1 }, 'stageMicGraduated'), true);
   app.dispose();
 });
 
-test('Vaiheet: kynä 1/3 molempiin suuntiin', async () => {
+test('Vaiheet: kynä 2 oikeaa (1 / suunta): Pass = yksi suunta, graduointi = molemmat', async () => {
   const app = await boot();
   const p = (a, b, k) => app.run(`${k}({streakTargetFi: ${a}, streakFiTarget: ${b}})`);
-  assert.strictEqual(p(1, 0, 'stagePenPassed'), false);
-  assert.strictEqual(p(0, 1, 'stagePenPassed'), false);
-  assert.strictEqual(p(1, 1, 'stagePenPassed'), true);
-  assert.strictEqual(p(3, 2, 'stagePenGraduated'), false);
-  assert.strictEqual(p(2, 3, 'stagePenGraduated'), false);
+  assert.strictEqual(p(0, 0, 'stagePenPassed'), false);
+  assert.strictEqual(p(1, 0, 'stagePenPassed'), true);
+  assert.strictEqual(p(0, 1, 'stagePenPassed'), true);
+  assert.strictEqual(p(1, 0, 'stagePenGraduated'), false);
+  assert.strictEqual(p(3, 0, 'stagePenGraduated'), false);
+  assert.strictEqual(p(0, 2, 'stagePenGraduated'), false);
+  assert.strictEqual(p(1, 1, 'stagePenGraduated'), true);
   assert.strictEqual(p(3, 3, 'stagePenGraduated'), true);
   app.dispose();
 });
 
 test('Vaiheet: isFullyLearned vaatii kaikki kolme', async () => {
   const app = await boot();
-  const full = { streakTargetFi: 3, streakFiTarget: 3, streakKeyboard: 5, streakMic: 6 };
+  const full = { streakTargetFi: 1, streakFiTarget: 1, kbTF: 1, kbFT: 1, micTF: 1, micFT: 1 };
   const t = (o) => app.run(`isFullyLearned(${JSON.stringify(o)})`);
   assert.strictEqual(t(full), true);
-  assert.strictEqual(t({ ...full, streakMic: 5 }), false);
-  assert.strictEqual(t({ ...full, streakKeyboard: 4 }), false);
-  assert.strictEqual(t({ ...full, streakFiTarget: 2 }), false);
+  assert.strictEqual(t({ ...full, micFT: 0 }), false);
+  assert.strictEqual(t({ ...full, kbTF: 0 }), false);
+  assert.strictEqual(t({ ...full, streakFiTarget: 0 }), false);
   assert.strictEqual(app.run('isFullyLearned(undefined)'), false);
+  app.dispose();
+});
+
+// ---------------- Oppimisrajat (vaihe 49): suuntalaskurit tavoittain ----------------
+test('Oppimisrajat: kaikki tavat - oikea molempiin suuntiin graduoi, yksi suunta vain Pass', async () => {
+  for (const [mode, tf, ft, graduated, passed] of [
+    ['pen', 'streakTargetFi', 'streakFiTarget', 'stagePenGraduated', 'stagePenPassed'],
+    ['keyboard', 'kbTF', 'kbFT', 'stageKeyboardGraduated', 'stageKeyboardPassed'],
+    ['mic', 'micTF', 'micFT', 'stageMicGraduated', 'stageMicPassed']
+  ]) {
+    const app = await boot();
+    const id = 'numbers_two';
+    const st = () => app.run(`statsCache[statId({id: "${id}"})]`);
+    const ok = () => app.run(`${graduated}(statsCache[statId({id: "${id}"})])`);
+    const pass = () => app.run(`${passed}(statsCache[statId({id: "${id}"})])`);
+    setWord(app, id, 'target-fi');
+    await app.run(`recordResult(true, "${mode}")`);
+    assert.strictEqual(J(app, `statsCache[statId({id: "${id}"})]`)[tf], 1, mode);
+    assert.strictEqual(pass(), true, mode + ' Pass = yksi oikea');
+    assert.strictEqual(ok(), false, mode + ' yksi suunta ei graduoi');
+    setWord(app, id, 'target-fi');
+    await app.run(`recordResult(true, "${mode}")`);
+    assert.strictEqual(ok(), false, mode + ': toinen oikea samaan suuntaan ei graduoi');
+    setWord(app, id, 'fi-target');
+    await app.run(`recordResult(true, "${mode}")`);
+    assert.strictEqual(J(app, `statsCache[statId({id: "${id}"})]`)[ft], 1, mode);
+    assert.strictEqual(ok(), true, mode + ' molemmat suunnat -> graduoitu');
+    app.dispose();
+  }
+});
+
+test('Oppimisrajat: väärä vastaus nollaa vain oman tavan ja suunnan laskurin', async () => {
+  const app = await boot();
+  const id = 'numbers_two';
+  const S = () => J(app, `statsCache[statId({id: "${id}"})]`);
+  for (const m of ['pen', 'keyboard', 'mic']) {
+    for (const d of ['target-fi', 'fi-target']) { setWord(app, id, d); await app.run(`recordResult(true, "${m}")`); }
+  }
+  let st = S();
+  assert.deepStrictEqual([st.streakTargetFi, st.streakFiTarget, st.kbTF, st.kbFT, st.micTF, st.micFT], [1, 1, 1, 1, 1, 1]);
+  setWord(app, id, 'target-fi');
+  await app.run('recordResult(false, "keyboard")');
+  st = S();
+  assert.deepStrictEqual([st.streakTargetFi, st.streakFiTarget, st.kbTF, st.kbFT, st.micTF, st.micFT], [1, 1, 0, 1, 1, 1]);
+  assert.strictEqual(app.run(`stageKeyboardGraduated(statsCache[statId({id: "${id}"})])`), false);
+  assert.strictEqual(app.run(`stageKeyboardPassed(statsCache[statId({id: "${id}"})])`), true, 'toinen suunta pitää Pass-tason');
+  assert.strictEqual(app.run(`stageMicGraduated(statsCache[statId({id: "${id}"})])`), true);
+  assert.strictEqual(app.run(`stagePenGraduated(statsCache[statId({id: "${id}"})])`), true);
+  setWord(app, id, 'fi-target');
+  await app.run('recordResult(false, "mic")');
+  st = S();
+  assert.deepStrictEqual([st.kbTF, st.kbFT, st.micTF, st.micFT], [0, 1, 1, 0]);
+  setWord(app, id, 'fi-target');
+  await app.run('recordResult(false, "pen")');
+  st = S();
+  assert.deepStrictEqual([st.streakTargetFi, st.streakFiTarget], [1, 0]);
+  app.dispose();
+});
+
+test('Oppimisrajat: siirtymä - vanhoilla rajoilla opittu pysyy opittuna, vanhat tilastot tulkitaan uusilla rajoilla', async () => {
+  const app = await boot();
+  const g = (o, k) => app.run(`${k}(${JSON.stringify(o)})`);
+  // Vanha graduointi (näppäimistö 5, puhe 6, kynä 3+3) -> graduoitu
+  assert.strictEqual(g({ streakKeyboard: 5 }, 'stageKeyboardGraduated'), true);
+  assert.strictEqual(g({ streakMic: 6 }, 'stageMicGraduated'), true);
+  assert.strictEqual(g({ streakTargetFi: 3, streakFiTarget: 3 }, 'stagePenGraduated'), true);
+  // Uusi raja riittää: putki >= 2 / kynän molemmat suunnat >= 1
+  assert.strictEqual(g({ streakKeyboard: 2 }, 'stageKeyboardGraduated'), true);
+  assert.strictEqual(g({ streakMic: 2 }, 'stageMicGraduated'), true);
+  assert.strictEqual(g({ streakTargetFi: 1, streakFiTarget: 1 }, 'stagePenGraduated'), true);
+  assert.strictEqual(g({ streakKeyboard: 1 }, 'stageKeyboardGraduated'), false);
+  assert.strictEqual(g({ streakMic: 1 }, 'stageMicGraduated'), false);
+  assert.strictEqual(g({ streakKeyboard: 1 }, 'stageKeyboardPassed'), false, 'putki 1 = suunta tuntematon, ei vielä Pass-siirtymää');
+  assert.strictEqual(g({ streakKeyboard: 2 }, 'stageKeyboardPassed'), true);
+  assert.strictEqual(g({ streakTargetFi: 3, streakFiTarget: 3, streakKeyboard: 5, streakMic: 6 }, 'isFullyLearned'), true);
+  // Siirtynyt tila säilyy recordResultissa: väärä vastaus yhteen suuntaan nollaa vain sen
+  const id = 'numbers_two';
+  app.run(`statsCache[statId({id: "${id}"})] = ${JSON.stringify({ statId: app.run(`statId({id: "${id}"})`), wordId: id, language: 'en', correctCount: 9, incorrectCount: 0, streakCorrect: 5, streakKeyboard: 5, streakMic: 0 })}`);
+  setWord(app, id, 'target-fi');
+  await app.run('recordResult(false, "keyboard")');
+  const st = J(app, `statsCache[statId({id: "${id}"})]`);
+  assert.deepStrictEqual([st.kbTF, st.kbFT], [0, 1], 'siirretty molemmat -> virhe nollaa vain TF');
+  assert.strictEqual(st.bestKbTF, 1);
+  assert.strictEqual(st.bestKbFT, 1);
   app.dispose();
 });
 
@@ -477,11 +569,14 @@ test('Luokka-asteet: harrasteteemat eivät koskaan wordsForGrade:ssa', async () 
   app.dispose();
 });
 
-test('Luokka-asteet: jokainen sana kuuluu täsmälleen yhteen luokkaan tai harrasteeseen', async () => {
+test('Luokka-asteet: jokainen sana kuuluu täsmälleen yhteen luokkaan, harrasteeseen tai kirjasanastoon', async () => {
   const app = await boot();
   const total = [1, 2, 3, 4, 5, 6, 7, 8, 9].reduce((a, g) => a + app.run(`wordsForGrade(${g}).length`), 0);
   const hobby = app.run('PRACTICE_WORDS.filter(w => categoryGroup(w.category) === "hobby").length');
-  assert.strictEqual(total + hobby, app.run('PRACTICE_WORDS.length'));
+  // Kirjasanasto (group=book, vaihe 49) on oma ryhmänsä: ei luokassa eikä harrasteissa
+  const book = app.run('PRACTICE_WORDS.filter(w => categoryGroup(w.category) === "book").length');
+  assert.ok(book > 0, 'kirjasanoja on');
+  assert.strictEqual(total + hobby + book, app.run('PRACTICE_WORDS.length'));
   app.dispose();
 });
 
@@ -516,7 +611,7 @@ test('Luokka-asteet: yksi sana vajaa -> ei valmis, ei etene', async () => {
   const ids = grade1Ids(app);
   ids.forEach((id, i) => {
     const st = learnedStat(app, id);
-    if (i === 0) st.streakMic = 5;
+    if (i === 0) { st.streakMic = 0; st.micTF = 0; st.micFT = 0; } // yksi sana ilman puhevaihetta
     app.run(`statsCache[${JSON.stringify(st.statId)}] = ${JSON.stringify(st)}`);
   });
   app.run('activeGrade = 1');
@@ -787,7 +882,7 @@ test('Virkkeet: pickSentenceRound valitsee aktiivisen luokan virkkeen', async ()
 
 test('Tietomalli v2: kielikohtainen suomen kehote (fiFor) ja ruotsin Fable-korjaukset', async () => {
   const app = await boot({ localStorage: { targetLang: 'sv' } });
-  assert.strictEqual(app.run('VOCAB.meta.version'), 'v22');
+  assert.strictEqual(app.run('VOCAB.meta.version'), 'v23');
   assert.strictEqual(app.run('fiFor(VOCAB.words.find(w => w.id === "weather_seasons_spring"))'), 'kevät');
   assert.strictEqual(app.run('VOCAB.words.find(w => w.id === "weather_seasons_snow").sv'), 'snö');
   app.run('selectTargetLang("en")');
@@ -2178,7 +2273,7 @@ test('Itseopiskelu: "Oma edistyminen" - yhteenveto tasoittain ja aihepiireittäi
   assert.strictEqual(app.elements.adultTitle.textContent, 'Oma edistyminen');
   // Hankala sana: väärin 3 kertaa
   const st = learnedStat(app, 'zz_a1_2');
-  Object.assign(st, { language: 'sv', incorrectCount: 3, correctCount: 1, streakKeyboard: 0, streakMic: 0, streakTargetFi: 0, streakFiTarget: 0 });
+  Object.assign(st, { language: 'sv', incorrectCount: 3, correctCount: 1, streakKeyboard: 0, streakMic: 0, streakTargetFi: 0, streakFiTarget: 0, kbTF: 0, kbFT: 0, micTF: 0, micFT: 0 });
   app.run(`statsCache[${JSON.stringify(st.statId)}] = ${JSON.stringify(st)};`);
   const r = J(app, 'buildProgressReport()');
   assert.strictEqual(r.self, true);
@@ -3198,7 +3293,7 @@ test('Monivalinta: kirjaus on tunnistusta - oma laskuri/streak, ei graduoi, ei m
   const app = await boot();
   await toSelf(app);
   const sched = { srsInterval: 4, srsEase: 2.3, srsDue: WEEK_AGO };
-  seedStat(app, 'zz_a1_1', Object.assign({ correctCount: 3, streakCorrect: 2, streakKeyboard: 4 }, sched));
+  seedStat(app, 'zz_a1_1', Object.assign({ correctCount: 3, streakCorrect: 2, streakKeyboard: 1 }, sched));
   await app.run('updateHeaderStats()');
   await toChoice(app);
   for (let i = 0; i < 12; i++) {
@@ -3210,7 +3305,7 @@ test('Monivalinta: kirjaus on tunnistusta - oma laskuri/streak, ei graduoi, ei m
   assert.strictEqual(st.streakChoice, 12);
   assert.strictEqual(st.correctCount, 3, 'tuottava oikein-laskuri ei kasva');
   assert.strictEqual(st.streakCorrect, 2);
-  assert.strictEqual(st.streakKeyboard, 4, 'tuottava streak ei kasva (eikä graduoidu: 4 < 5)');
+  assert.strictEqual(st.streakKeyboard, 1, 'tuottava streak ei kasva (eikä graduoidu: 1 < 2)');
   assert.strictEqual(st.incorrectCount, 0);
   assert.strictEqual(st.srsInterval, 4); assert.strictEqual(st.srsEase, 2.3); assert.strictEqual(st.srsDue, WEEK_AGO, 'kertausväli ei pidene');
   assert.strictEqual(app.run('stageKeyboardGraduated(statsCache[statId({id: "zz_a1_1"})])'), false);
@@ -3221,7 +3316,7 @@ test('Monivalinta: kirjaus on tunnistusta - oma laskuri/streak, ei graduoi, ei m
   st = dbStat(app, 'zz_a1_1');
   assert.strictEqual(st.choiceWrong, 1);
   assert.strictEqual(st.streakChoice, 0);
-  assert.strictEqual(st.streakKeyboard, 4, 'väärä monivalinta ei nollaa tuottavaa edistymistä');
+  assert.strictEqual(st.streakKeyboard, 1, 'väärä monivalinta ei nollaa tuottavaa edistymistä');
   assert.strictEqual(st.streakCorrect, 2);
   assert.strictEqual(st.incorrectCount, 0, 'tuottava virhelaskuri ei kasva');
   assert.strictEqual(st.srsInterval, 4); assert.strictEqual(st.srsDue, WEEK_AGO, 'väärä tunnistus ei lyhennä väliäkään');
@@ -3247,18 +3342,20 @@ test('Monivalinta: virhe ei nollaa tuottavaa edistymistä - tuottava vastaus gra
   const app = await boot();
   const id = app.run('PRACTICE_WORDS[0].id');
   await app.run('updateHeaderStats()');
-  // Näppäimistöllä 4 oikein (graduointiin tarvitaan 5), välissä monivalinta
+  // Näppäimistöllä 4 oikein samaan suuntaan (graduointiin tarvitaan molemmat suunnat), välissä monivalinta
   for (let i = 0; i < 4; i++) { setWord(app, id, 'fi-target'); await app.run(`checkAnswer(acceptedAnswers()[0], "keyboard")`); }
   await toChoice(app);
   for (let i = 0; i < 6; i++) { showWord(app, id, 'target-fi'); await pickChoice(app, i % 2 === 0); }
   let st = app.run(`statsCache[statId({id: ${JSON.stringify(id)}})]`);
   assert.strictEqual(st.streakKeyboard, 4);
+  assert.strictEqual(st.kbFT, 4);
+  assert.strictEqual(st.kbTF || 0, 0, 'monivalinta ei kirjaa suuntalaskuria');
   assert.strictEqual(app.run(`isGraduatedWord({id: ${JSON.stringify(id)}})`), false, 'monivalinta ei graduoi');
   await app.modeButtons[1].click();
   await app.flush(20);
-  setWord(app, id, 'fi-target');
+  setWord(app, id, 'target-fi');
   await app.run(`checkAnswer(acceptedAnswers()[0], "keyboard")`);
-  assert.strictEqual(app.run(`isGraduatedWord({id: ${JSON.stringify(id)}})`), true, 'tuottava viides oikea graduoi');
+  assert.strictEqual(app.run(`isGraduatedWord({id: ${JSON.stringify(id)}})`), true, 'tuottava oikea toiseen suuntaan graduoi');
   app.dispose();
 });
 
@@ -4449,7 +4546,7 @@ test('Kuuntele: tilastokentät omissa kentissään - ei graduoi, ei kosketa kert
   await toSelf(app);
   mockNow(app, '2026-07-10T09:00:00');
   const nowTs = app.run('Date.now()');
-  seedStat(app, 'zl_seed', { correctCount: 3, streakCorrect: 2, streakKeyboard: 4, srsInterval: 6, srsEase: 2.4, srsDue: nowTs + 6 * 86400000 });
+  seedStat(app, 'zl_seed', { correctCount: 3, streakCorrect: 2, streakKeyboard: 1, srsInterval: 6, srsEase: 2.4, srsDue: nowTs + 6 * 86400000 });
   await app.run('updateHeaderStats()');
   await toListen(app);
   const w = Object.assign({}, SV_BIL, { id: 'zl_seed' });
@@ -4460,7 +4557,7 @@ test('Kuuntele: tilastokentät omissa kentissään - ei graduoi, ei kosketa kert
   assert.strictEqual(st.dictWrong, 1);
   assert.strictEqual(st.streakDict, 0);
   assert.strictEqual(st.recogHeat, 1);
-  [['correctCount', 3], ['incorrectCount', 0], ['streakCorrect', 2], ['streakKeyboard', 4], ['srsInterval', 6], ['srsEase', 2.4], ['srsDue', nowTs + 6 * 86400000]]
+  [['correctCount', 3], ['incorrectCount', 0], ['streakCorrect', 2], ['streakKeyboard', 1], ['srsInterval', 6], ['srsEase', 2.4], ['srsDue', nowTs + 6 * 86400000]]
     .forEach(([k, v]) => assert.strictEqual(st[k], v, k));
   assert.strictEqual(app.run('isFullyLearned(statsCache[statId({id:"zl_seed"})])'), false);
   assert.strictEqual(app.run('stageKeyboardGraduated(statsCache[statId({id:"zl_seed"})])'), false);
@@ -6138,6 +6235,12 @@ function kbStat(app, id, n, best) {
   return st;
 }
 const tierKb = (app) => J(app, 'tierByMode.keyboard');
+// Vaihe 49: tilasto suuntalaskureilla (näppäimistö tf = kohdekieli->suomi, ft = suomi->kohdekieli)
+function kbDirStat(app, id, tf, ft) {
+  return { statId: app.run(`statId({id: ${JSON.stringify(id)}})`), wordId: id, language: 'en', level: '4lk',
+    correctCount: tf + ft, incorrectCount: 0, streakCorrect: tf + ft, streakTargetFi: 0, streakFiTarget: 0,
+    streakKeyboard: 0, streakMic: 0, kbTF: tf, kbFT: ft, micTF: 0, micFT: 0 };
+}
 
 test('Mittari: laajuus ilman rajausta = luokka-asteen sanat, otsikossa luokka', async () => {
   const app = await boot({ localStorage: { grade_en: '4' } });
@@ -6157,7 +6260,7 @@ test('Mittari: koeteema rajaa laajuuden teeman sanoihin (myös muiden luokkien s
   const t = tierKb(app);
   const expected = app.run('PRACTICE_WORDS.filter(w => wordInCategory(w, "koe1_4")).length');
   assert.strictEqual(t.total, expected);
-  assert.ok(t.total > 100 && t.total < app.run('wordsForGrade(4).length'));
+  assert.ok(t.total > 100, 'koeteemassa yli 100 sanaa: ' + t.total);
   const outside = app.run('PRACTICE_WORDS.filter(w => wordInCategory(w, "koe1_4") && wordGrade(w) !== 4).length');
   assert.ok(outside > 0, 'teemassa on muiden luokkien sanoja');
   assert.strictEqual(t.scopeLabel, 'Koe 1');
@@ -6204,111 +6307,117 @@ test('Mittari: Viikon sanat päällä -> laajuus on viikon sanat', async () => {
   app.dispose();
 });
 
-test('Mittari: osittainen edistyminen - yksi oikea vastaus nostaa palkkia, virhe ei laske', async () => {
+test('Mittari: osittainen edistyminen - yksi suunta = puoli sanaa, virhe ei laske, molemmat suunnat = 1', async () => {
   const app = await boot();
   app.run('selectedThemes = []; activeMode = "keyboard"; lastProductiveMode = "keyboard";');
-  setWord(app, 'numbers_two');
+  setWord(app, 'numbers_two', 'target-fi');
   await app.run('updateHeaderStats()');
   const before = tierKb(app);
   assert.strictEqual(before.share, 0);
   await app.run('recordResult(true, "keyboard")');
   await app.run('updateHeaderStats()');
   const one = tierKb(app);
-  assert.ok(Math.abs(one.share - 0.2) < 1e-9, 'yksi oikea = 1/5 sanasta: ' + one.share);
+  assert.ok(Math.abs(one.share - 0.5) < 1e-9, 'yksi suunta = 1/2 sanasta: ' + one.share);
   assert.ok(one.exactSteps > before.exactSteps);
+  assert.strictEqual(one.n, 0, 'ei vielä kokonaan opittu');
   await app.run('recordResult(true, "keyboard")');
   await app.run('updateHeaderStats()');
-  const two = tierKb(app);
-  assert.ok(Math.abs(two.share - 0.4) < 1e-9);
+  assert.ok(Math.abs(tierKb(app).share - 0.5) < 1e-9, 'toinen oikea samaan suuntaan ei lisää');
   await app.run('recordResult(false, "keyboard")');
   await app.run('updateHeaderStats()');
   const after = tierKb(app);
-  assert.strictEqual(J(app, 'statsCache[statId(current)].streakKeyboard'), 0, 'putki nollautuu');
-  assert.ok(Math.abs(after.share - 0.4) < 1e-9, 'palkki ei laske virheestä: ' + after.share);
-  assert.strictEqual(after.exactSteps, two.exactSteps);
-  // uusi putki alle parhaan ei nosta; ylittäessään nostaa
-  for (let i = 0; i < 2; i++) await app.run('recordResult(true, "keyboard")');
-  await app.run('updateHeaderStats()');
-  assert.ok(Math.abs(tierKb(app).share - 0.4) < 1e-9);
+  assert.strictEqual(J(app, 'statsCache[statId(current)].kbTF'), 0, 'suunnan laskuri nollautuu');
+  assert.ok(Math.abs(after.share - 0.5) < 1e-9, 'palkki ei laske virheestä: ' + after.share);
+  assert.strictEqual(after.exactSteps, one.exactSteps);
+  // toinen suunta oikein -> koko sana (1) ja kokonaan opittu
+  app.run('direction = "fi-target"');
   await app.run('recordResult(true, "keyboard")');
   await app.run('updateHeaderStats()');
-  assert.ok(Math.abs(tierKb(app).share - 0.6) < 1e-9);
+  assert.ok(Math.abs(tierKb(app).share - 1) < 1e-9, 'molemmat suunnat parhaimmillaan = 1: ' + tierKb(app).share);
   app.dispose();
 });
 
-test('Mittari: best-kentät tallentuvat recordResultissa (kynä = heikomman suunnan putki, mikrofoni)', async () => {
+test('Mittari: best-kentät tallentuvat recordResultissa (kynä, näppäimistö, mikrofoni suunnittain)', async () => {
   const app = await boot();
   setWord(app, 'numbers_two', 'target-fi');
   await app.run('recordResult(true, "pen")');
   let s = app.db.data.get(app.run('statId(current)'));
-  assert.strictEqual(s.bestStreakPen, 0, 'toista suuntaa ei ole tehty -> putki 0');
+  assert.deepStrictEqual([s.bestPenTF, s.bestPenFT], [1, 0], 'toista suuntaa ei ole tehty');
   app.run('direction = "fi-target"');
   await app.run('recordResult(true, "pen")');
   s = app.db.data.get(app.run('statId(current)'));
-  assert.strictEqual(s.bestStreakPen, 1);
+  assert.deepStrictEqual([s.bestPenTF, s.bestPenFT], [1, 1]);
   app.run('direction = "target-fi"');
   await app.run('recordResult(true, "pen")');
   await app.run('recordResult(false, "pen")');
   s = app.db.data.get(app.run('statId(current)'));
   assert.strictEqual(s.streakTargetFi, 0);
-  assert.strictEqual(s.bestStreakPen, 1, 'ei laske virheestä');
+  assert.strictEqual(s.bestPenTF, 2, 'paras ei laske virheestä');
   await app.run('recordResult(true, "keyboard")');
   await app.run('recordResult(true, "keyboard")');
   await app.run('recordResult(false, "keyboard")');
+  app.run('direction = "fi-target"');
   await app.run('recordResult(true, "mic")');
   s = app.db.data.get(app.run('statId(current)'));
-  assert.strictEqual(s.bestStreakKeyboard, 2);
+  assert.deepStrictEqual([s.kbTF, s.kbFT, s.bestKbTF, s.bestKbFT], [0, 0, 2, 0]);
   assert.strictEqual(s.streakKeyboard, 0);
-  assert.strictEqual(s.bestStreakMic, 1);
+  assert.deepStrictEqual([s.micTF, s.micFT, s.bestMicTF, s.bestMicFT], [0, 1, 0, 1]);
   app.dispose();
 });
 
-test('Mittari: kynän osuus = heikomman suunnan paras putki / 3', async () => {
+test('Mittari: sanan osuus = suunnat oikein / 2 (paras koskaan), graduoitu = 1', async () => {
   const app = await boot();
-  const f = (o) => app.run(`wordTierShare(${JSON.stringify(o)}, "pen")`);
-  assert.strictEqual(f({ streakTargetFi: 2, streakFiTarget: 0 }), 0);
-  assert.ok(Math.abs(f({ streakTargetFi: 2, streakFiTarget: 1 }) - 1 / 3) < 1e-9);
-  assert.ok(Math.abs(f({ streakTargetFi: 0, streakFiTarget: 0, bestStreakPen: 2 }) - 2 / 3) < 1e-9);
-  assert.strictEqual(f({ streakTargetFi: 3, streakFiTarget: 3 }), 1);
-  assert.strictEqual(app.run('wordTierShare({ streakMic: 3 }, "mic")'), 0.5);
-  assert.strictEqual(app.run('wordTierShare({ bestStreakMic: 9 }, "mic")'), 1, 'katto 1');
+  const f = (o, m) => app.run(`wordTierShare(${JSON.stringify(o)}, ${JSON.stringify(m || 'pen')})`);
+  assert.strictEqual(f({ streakTargetFi: 0, streakFiTarget: 0 }), 0);
+  assert.strictEqual(f({ streakTargetFi: 2, streakFiTarget: 0 }), 0.5);
+  assert.strictEqual(f({ streakTargetFi: 0, streakFiTarget: 0, bestPenTF: 3, bestPenFT: 0 }), 0.5, 'paras säilyy');
+  assert.strictEqual(f({ streakTargetFi: 0, streakFiTarget: 0, bestPenTF: 1, bestPenFT: 1 }), 1);
+  assert.strictEqual(f({ streakTargetFi: 1, streakFiTarget: 1 }), 1);
+  assert.strictEqual(f({ micTF: 0, micFT: 1 }, 'mic'), 0.5);
+  assert.strictEqual(f({ micTF: 1, micFT: 1 }, 'mic'), 1);
+  assert.strictEqual(f({ micTF: 0, micFT: 0, bestMicTF: 1, bestMicFT: 1 }, 'mic'), 1, 'paras molemmat = 1 vaikka virhe nollasi');
   assert.strictEqual(app.run('wordTierShare(undefined, "keyboard")'), 0);
   app.dispose();
 });
 
-test('Mittari: vanha tilasto ilman best-kenttiä käyttää nykyistä putkea, graduoitu sana = 1', async () => {
+test('Mittari: vanha tilasto ilman best-kenttiä johdetaan vanhasta putkesta, graduoitu sana = 1', async () => {
   const probe = await boot();
-  const stats = [kbStat(probe, 'numbers_two', 2), learnedStat(probe, 'numbers_three')];
+  const stats = [kbStat(probe, 'numbers_two', 1), learnedStat(probe, 'numbers_three')];
   probe.dispose();
-  stats.forEach(s => { delete s.bestStreakKeyboard; delete s.bestStreakPen; delete s.bestStreakMic; });
+  stats.forEach(s => { delete s.bestStreakKeyboard; delete s.bestStreakPen; delete s.bestStreakMic; delete s.kbTF; delete s.kbFT; delete s.micTF; delete s.micFT; });
   const app = await boot({ stats, localStorage: { grade_en: '1' } });
   app.run('activeGrade = 1; selectedThemes = [];');
   await app.run('updateHeaderStats()');
   const t = tierKb(app);
-  assert.ok(Math.abs(t.share - (0.4 + 1)) < 1e-9, 'share ' + t.share);
+  // vanha putki 1 = yksi suunta (0,5) + vanhoilla rajoilla graduoitu (näppäimistö 5) = 1
+  assert.ok(Math.abs(t.share - 1.5) < 1e-9, 'share ' + t.share);
   assert.strictEqual(t.n, 1);
-  // graduoitu sana pysyy 1:nä, vaikka putki katkeaisi
-  setWord(app, 'numbers_three');
+  // graduoitu sana pysyy 1:nä, vaikka suunnan laskuri nollautuisi
+  setWord(app, 'numbers_three', 'target-fi');
   await app.run('recordResult(false, "keyboard")');
   await app.run('updateHeaderStats()');
-  assert.ok(Math.abs(tierKb(app).share - 1.4) < 1e-9);
-  assert.strictEqual(app.db.data.get(app.run('statId(current)')).bestStreakKeyboard, 5);
+  assert.ok(Math.abs(tierKb(app).share - 1.5) < 1e-9);
+  const st = app.db.data.get(app.run('statId(current)'));
+  assert.deepStrictEqual([st.kbTF, st.kbFT], [0, 1], 'siirretty tila: vain TF nollautui');
+  assert.ok(st.bestKbTF >= 1 && st.bestKbFT >= 1);
+  assert.strictEqual(app.run('stageKeyboardGraduated(statsCache[statId(current)])'), false);
+  assert.strictEqual(app.run('stageKeyboardPassed(statsCache[statId(current)])'), true);
   app.dispose();
 });
 
-test('Mittari: tähdet ja palkki lasketaan samasta summasta (10 sanaa x 3 oikein, Koe 1)', async () => {
+test('Mittari: tähdet ja palkki lasketaan samasta summasta (10 sanaa x yksi suunta, Koe 1)', async () => {
   const probe = await boot();
   const ids = J(probe, 'PRACTICE_WORDS.filter(w => wordInCategory(w, "koe1_4")).slice(0, 10).map(w => w.id)');
-  const stats = ids.map(id => kbStat(probe, id, 3));
+  const stats = ids.map(id => kbDirStat(probe, id, 1, 0)); // 10 sanaa, yksi suunta kukin
   probe.dispose();
   const app = await boot({ stats, localStorage: { grade_en: '4' } });
   app.run('activeGrade = 4; selectedThemes = ["koe1_4"];');
   await app.run('updateHeaderStats()');
   const t = tierKb(app);
   const total = t.total;
-  assert.ok(Math.abs(t.share - 6) < 1e-9);
-  assert.ok(Math.abs(t.exactSteps - 6 / total * 30) < 1e-9);
-  assert.strictEqual(t.majorIndex * 5 + t.stars, Math.floor(6 / total * 30));
+  assert.ok(Math.abs(t.share - 5) < 1e-9);
+  assert.ok(Math.abs(t.exactSteps - 5 / total * 30) < 1e-9);
+  assert.strictEqual(t.majorIndex * 5 + t.stars, Math.floor(5 / total * 30));
   assert.ok(t.exactSteps > 1, 'vähintään yksi tähti: ' + t.exactSteps);
   // koko 4. luokan laajuus: sama työ näkyy paljon vähemmän
   app.run('selectedThemes = [];');
@@ -6347,10 +6456,298 @@ test('Mittari: itseopiskelussa laajuus = valitut aihepiirit tai taso', async () 
   app.run(`current = VOCAB.words.find(x => x.id === ${JSON.stringify(w)}); direction = "target-fi";`);
   await app.run('recordResult(true, "keyboard")');
   await app.run('updateHeaderStats()');
-  assert.ok(Math.abs(tierKb(app).share - 0.2) < 1e-9);
+  assert.ok(Math.abs(tierKb(app).share - 0.5) < 1e-9);
   app.dispose();
 });
 
+
+// ---------------- Kirjasanasto erillään luokka-asteesta (vaihe 49) ----------------
+const bookCatIds = (app) => J(app, 'VOCAB.categories.filter(c => c.group === "book").map(c => c.id)');
+const bookWordIdSet = (app) => new Set(J(app, 'PRACTICE_WORDS.filter(w => categoryGroup(w.category) === "book").map(w => w.id)'));
+
+test('Kirjasanasto: aineistossa 25 kirjateemaa (grade null, book_grade 4), koeteema ennallaan', async () => {
+  const app = await boot();
+  const cats = J(app, 'VOCAB.categories.filter(c => c.group === "book")');
+  assert.strictEqual(cats.length, 25);
+  cats.forEach(c => { assert.strictEqual(c.grade, null, c.id); assert.strictEqual(c.book_grade, 4, c.id); });
+  const koe = J(app, 'VOCAB.categories.find(c => c.id === "koe1_4")');
+  assert.ok(koe.exam && koe.group !== 'book');
+  app.dispose();
+});
+
+test('Kirjasanasto: kirjasanat eivät kuulu minkään luokka-asteen sanoihin eivätkä harrasteisiin; englannin 4. lk ~77 sanaa', async () => {
+  const app = await boot();
+  const book = bookWordIdSet(app);
+  assert.ok(book.size > 800, 'kirjasanoja ' + book.size);
+  for (let g = 1; g <= 9; g++) {
+    const ids = J(app, `wordsForGrade(${g}).map(w => w.id)`);
+    assert.ok(!ids.some(id => book.has(id)), 'kirjasana luokan ' + g + ' sanoissa');
+  }
+  const n4 = app.run('wordsForGrade(4).length');
+  assert.ok(n4 > 60 && n4 < 100, 'englannin 4. luokka: ' + n4);
+  assert.ok(!J(app, 'PRACTICE_WORDS.filter(w => categoryGroup(w.category) === "hobby").map(w => w.id)').some(id => book.has(id)), 'kirjasanat eivät sekoitu harrasteisiin');
+  app.dispose();
+});
+
+test('Kirjasanasto: luokan valmius ja luokan päättely eivät huomioi kirjasanoja', async () => {
+  const probe = await boot();
+  const stats = [];
+  for (const g of [1, 2, 3, 4]) J(probe, `wordsForGrade(${g}).map(w => w.id)`).forEach(id => stats.push(learnedStat(probe, id)));
+  probe.dispose();
+  const app = await boot({ stats });
+  assert.strictEqual(app.run('isGradeComplete(4)'), true, 'kirjasanat eivät estä 4. luokan valmistumista');
+  assert.strictEqual(app.run('detectFrontierGrade()'), 5);
+  assert.strictEqual(app.run('activeGrade'), 5);
+  app.dispose();
+});
+
+test('Kirjasanasto: "Kaikki teemat" -pooli ei sisällä kirjasanoja (luokat 1 ja 4, aktiivipooli ja täydennys)', async () => {
+  const app = await boot();
+  const book = bookWordIdSet(app);
+  for (const g of [1, 4]) {
+    app.run(`activeGrade = ${g}; selectedThemes = []; initSessionPool();`);
+    assert.ok(!poolIds(app).some(id => book.has(id)), 'kirjasana poolissa luokalla ' + g);
+    assert.ok(!J(app, 'activeWordPool().map(w => w.id)').some(id => book.has(id)));
+    assert.ok(!J(app, 'eligibleWordsForCategoryScope([]).map(w => w.id)').some(id => book.has(id)));
+  }
+  // pickWord ei nosta kirjasanaa myöskään kertauksena
+  for (let i = 0; i < 30; i++) { await app.run('pickWord()'); assert.ok(!book.has(app.run('current.id'))); }
+  app.dispose();
+});
+
+test('Kirjasanasto: teemavalikossa oma osio, jonka teemat valitaan, pooli ja mittari toimivat kirjateemalla', async () => {
+  const app = await boot();
+  const cats = J(app, 'themeList._children.map(o => o.dataset.cat)');
+  const books = bookCatIds(app);
+  books.forEach(id => assert.ok(cats.includes(id), 'kirjateema puuttuu valikosta: ' + id));
+  assert.ok(cats.includes('__book__4'), 'Koko kirjan sanasto -pikavalinta');
+  const kids = app.elements.themeList._children;
+  assert.ok(kids.some(k => /Kirjan sanasto \(4\. lk\)/.test(k.textContent)), 'osion otsikko');
+  // valitse kirjateema: pooli = kirjateeman sanat
+  app.run('selectedThemes = ["animals_4"]; applyThemeChange();');
+  await app.flush(20);
+  const sc = J(app, 'eligibleWordsForCategoryScope(selectedThemes).map(w => w.id)');
+  assert.ok(sc.length > 10);
+  assert.ok(sc.every(id => app.run(`wordInCategory(VOCAB.words.find(w => w.id === ${JSON.stringify(id)}), "animals_4")`)));
+  assert.ok(poolIds(app).length >= 10);
+  assert.ok(app.run('sessionPool.filter(w => wordInCategory(w, "animals_4")).length') >= 10);
+  assert.strictEqual(app.elements.themeButton.textContent, app.run('categoryName("animals_4")'));
+  await app.run('updateHeaderStats()');
+  const t = tierKb(app);
+  assert.strictEqual(t.total, sc.length);
+  assert.strictEqual(t.scopeLabel, app.run('categoryName("animals_4")'));
+  // tiukka rajaus: pelkät kirjateeman sanat
+  app.run('setThemeStrict(true)');
+  assert.ok(poolIds(app).every(id => sc.includes(id)), 'tiukassa tilassa vain valitun kirjateeman sanat');
+  app.run('setThemeStrict(false)');
+  app.dispose();
+});
+
+test('Kirjasanasto: "Koko kirjan sanasto" valitsee kaikki kirjateemat ja poistaa valinnan; harrasteteema ei sekoitu', async () => {
+  const app = await boot();
+  const books = bookCatIds(app);
+  const all = app.elements.themeList._children.find(r => r.dataset.cat === '__book__4');
+  const box = all._children[0];
+  box.checked = true;
+  await box.dispatch('change', {});
+  await app.flush(20);
+  assert.deepStrictEqual(J(app, 'selectedThemes').sort(), books.slice().sort());
+  assert.strictEqual(app.elements.themeButton.textContent, '25 teemaa');
+  await app.run('updateHeaderStats()');
+  const t = tierKb(app);
+  const expected = app.run('PRACTICE_WORDS.filter(w => categoryGroup(w.category) === "book").length');
+  assert.strictEqual(t.total, expected, 'laajuus = koko kirjan sanasto');
+  const all2 = app.elements.themeList._children.find(r => r.dataset.cat === '__book__4');
+  assert.strictEqual(all2._children[0].checked, true);
+  all2._children[0].checked = false;
+  await all2._children[0].dispatch('change', {});
+  await app.flush(20);
+  assert.strictEqual(app.run('selectedThemes.length'), 0);
+  // harrasteteeman kanssa: molemmat valittavissa yhtä aikaa, eri ryhmiä
+  const hobby = J(app, 'VOCAB.categories.filter(c => c.group === "hobby").map(c => c.id)')[0];
+  app.run(`selectedThemes = ["animals_4", ${JSON.stringify(hobby)}]; applyThemeChange();`);
+  assert.strictEqual(app.run('categoryGroup("animals_4")'), 'book');
+  assert.strictEqual(app.run(`categoryGroup(${JSON.stringify(hobby)})`), 'hobby');
+  app.dispose();
+});
+
+test('Kirjasanasto: saksassa ei kirjateemoja valikossa (ei saksankielisiä sanoja), ei kaadu', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de' } });
+  const cats = J(app, 'themeList._children.map(o => o.dataset.cat)');
+  assert.ok(!cats.some(c => String(c).startsWith('__book__') || /_4$/.test(String(c)) && bookCatIds(app).includes(c)));
+  assert.strictEqual(app.asyncErrors.length, 0);
+  app.dispose();
+});
+
+// ---------------- Laskuririvi, teemavalikon X/Y ja asteikkotaulukko (vaihe 49) ----------------
+test('Laskuri: wordsToNextStar - 113 sanaa: tähti = 113/30 sanaa, ylöspäin pyöristettynä', async () => {
+  const app = await boot();
+  const f = (n, total, steps) => app.run(`wordsToNextStar(${n}, ${total}, ${steps})`);
+  assert.strictEqual(f(0, 113, 0), 4, 'ceil(113/30) = 4');
+  assert.strictEqual(f(3, 113, 3 / 113 * 30), 1, 'ceil(113/30)=4, 3 opittu -> 1 puuttuu');
+  assert.strictEqual(f(4, 113, 4 / 113 * 30), 4, '4 opittu = 1,06 tähteä, seuraava (2.) ceil(7,53)=8 -> 4 sanaa');
+  assert.strictEqual(f(0, 30, 0), 1);
+  assert.strictEqual(f(5, 30, 5), 1);
+  assert.strictEqual(f(113, 113, 30), 0);
+  assert.strictEqual(f(0, 0, 0), 0);
+  // osittainen edistyminen voi viedä tähden edelle: silti vähintään 1 sana ja yli opittujen
+  assert.ok(f(1, 113, 2.5) >= 1);
+  app.dispose();
+});
+
+test('Laskuri: rivi mittarin alla "Koe 1: opittu X/Y · seuraavaan tähteen N sanaa" (koeteema)', async () => {
+  const probe = await boot();
+  const ids = J(probe, 'PRACTICE_WORDS.filter(w => wordInCategory(w, "koe1_4")).slice(0, 12).map(w => w.id)');
+  const stats = ids.map(id => learnedStat(probe, id));
+  probe.dispose();
+  const app = await boot({ stats, localStorage: { grade_en: '4' } });
+  app.run('activeGrade = 4; selectedThemes = ["koe1_4"];');
+  await app.run('updateHeaderStats()');
+  const t = tierKb(app);
+  const total = t.total;
+  assert.strictEqual(t.n, 12);
+  const target = Math.floor(t.exactSteps) + 1;
+  const need = Math.ceil(target * total / 30 - 1e-9) - 12;
+  assert.strictEqual(t.needed, need);
+  const txt = app.elements.tierCounter.textContent;
+  assert.strictEqual(txt, `Koe 1: opittu 12/${total} · seuraavaan tähteen ${need} ${need === 1 ? 'sana' : 'sanaa'}`);
+  // oikeiden sanojen lisääminen pienentää N:ää, kunnes tähti täyttyy
+  assert.ok(need >= 1 && need <= Math.ceil(total / 30));
+  app.dispose();
+});
+
+test('Laskuri: laajuuden nimi - luokka, kirjateema, viikon sanat; N pienenee opitun sanan myötä', async () => {
+  const app = await boot();
+  await app.run('updateHeaderStats()');
+  assert.ok(app.elements.tierCounter.textContent.startsWith('1. luokka: opittu 0/'), app.elements.tierCounter.textContent);
+  const total1 = app.run('wordsForGrade(1).length');
+  assert.ok(app.elements.tierCounter.textContent.endsWith(`seuraavaan tähteen ${Math.ceil(total1 / 30)} sanaa`) ||
+    app.elements.tierCounter.textContent.endsWith('seuraavaan tähteen 1 sana'));
+  // kirjateema
+  app.run('selectedThemes = ["animals_4"];');
+  await app.run('updateHeaderStats()');
+  const name = app.run('categoryName("animals_4")');
+  assert.ok(app.elements.tierCounter.textContent.startsWith(name + ': opittu 0/'), app.elements.tierCounter.textContent);
+  // sana opitaan: X kasvaa
+  const w = app.run('eligibleWordsForCategoryScope(selectedThemes)[0].id');
+  setWord(app, w, 'target-fi'); await app.run('recordResult(true, "keyboard")');
+  setWord(app, w, 'fi-target'); await app.run('recordResult(true, "keyboard")');
+  await app.run('updateHeaderStats()');
+  assert.ok(app.elements.tierCounter.textContent.startsWith(name + ': opittu 1/'), app.elements.tierCounter.textContent);
+  // täysi mittari
+  app.run('selectedThemes = [];');
+  app.dispose();
+});
+
+test('Laskuri: kapea pystynäkymä - rivi taittuu, ei vaakavieritystä (CSS: flex-wrap, overflow-wrap)', async () => {
+  const fs = require('fs');
+  const css = fs.readFileSync(require('path').join(__dirname, '..', 'index.html'), 'utf8').replace(/\s+/g, '');
+  assert.ok(/\.progress-row\{[^}]*flex-wrap:wrap/.test(css), 'progress-row taittuu');
+  assert.ok(/\.tier-counter\{[^}]*overflow-wrap:anywhere/.test(css), 'laskuri taittuu eikä leveä');
+  assert.ok(/\.theme-row\.theme-name\{[^}]*min-width:0/.test(css), 'teemarivin nimi supistuu');
+});
+
+test('Teemavalikko: jokaisen teeman perässä X/Y valitulla syöttötavalla (myös kirja- ja koeteema)', async () => {
+  const probe = await boot();
+  const bookIds = J(probe, 'PRACTICE_WORDS.filter(w => wordInCategory(w, "animals_4")).slice(0, 3).map(w => w.id)');
+  const koeIds = J(probe, 'PRACTICE_WORDS.filter(w => wordInCategory(w, "koe1_4")).slice(0, 2).map(w => w.id)');
+  const stats = bookIds.concat(koeIds).map(id => learnedStat(probe, id));
+  probe.dispose();
+  const app = await boot({ stats, localStorage: { grade_en: '4' } });
+  app.run('activeGrade = 4; populateCategoryOptions();');
+  await app.run('updateHeaderStats()');
+  app.run('populateCategoryOptions()');
+  const row = (id) => app.elements.themeList._children.find(r => r.dataset.cat === id);
+  const cnt = (id) => row(id)._children[2].textContent;
+  const total = (id) => app.run(`PRACTICE_WORDS.filter(w => wordInCategory(w, ${JSON.stringify(id)})).length`);
+  assert.strictEqual(cnt('animals_4'), `3/${total('animals_4')}`);
+  assert.strictEqual(cnt('koe1_4'), `${J(app, 'PRACTICE_WORDS.filter(w => wordInCategory(w, "koe1_4") && statsCache[statId(w)]).length')}/${total('koe1_4')}`);
+  // luokan 4 tavallinen teema ilman edistymistä
+  const normal = J(app, 'VOCAB.categories.filter(c => c.grade === 1 && !c.exam && c.group !== "hobby").map(c => c.id)')[0];
+  assert.ok(normal);
+  // koko kirjan rivi: summa
+  const allRow = row('__book__4');
+  assert.ok(/^3\/\d+$/.test(allRow._children[2].textContent), allRow._children[2].textContent);
+  // syöttötavan vaihto: kynällä (learnedStat on kaikissa tavoissa) sama 3 mutta laskuri seuraa tilaa
+  app.run('activeMode = "pen"; lastProductiveMode = "pen"; updateThemeCounts();');
+  assert.strictEqual(cnt('animals_4'), `3/${total('animals_4')}`);
+  app.run('statsCache[statId(PRACTICE_WORDS.find(w => wordInCategory(w, "animals_4")))] = { streakTargetFi: 0, streakFiTarget: 0 }; updateThemeCounts();');
+  assert.strictEqual(cnt('animals_4'), `2/${total('animals_4')}`);
+  app.dispose();
+});
+
+test('Palkintoasteikkomodaali: taulukko teemoittain (X/Y), kirja- ja koeteemat mukana', async () => {
+  const probe = await boot();
+  const ids = J(probe, 'PRACTICE_WORDS.filter(w => wordInCategory(w, "animals_4")).slice(0, 2).map(w => w.id)');
+  const stats = ids.map(id => learnedStat(probe, id));
+  probe.dispose();
+  const app = await boot({ stats });
+  await app.run('updateHeaderStats()');
+  app.run('openTierModal()');
+  const rows = app.elements.tierThemeList._children;
+  assert.ok(rows.length > 25, 'rivejä ' + rows.length);
+  const r = rows.find(x => x.dataset.cat === 'animals_4');
+  assert.ok(r, 'kirjateema taulukossa');
+  assert.ok(r.textContent.includes('📘'));
+  assert.ok(r.textContent.endsWith(`2/${app.run('PRACTICE_WORDS.filter(w => wordInCategory(w, "animals_4")).length')}`), r.textContent);
+  assert.ok(rows.some(x => x.dataset.cat === 'koe1_4'), 'koeteema taulukossa');
+  assert.ok(app.elements.tierThemeHead.textContent.includes('Teemoittain'));
+  assert.strictEqual(app.elements.tierScaleList._children.length, 6, 'asteikko ennallaan');
+  app.dispose();
+});
+
+test('Aikuisen raportti: kirjateemat omana ryhmänään, eivät luokissa eivätkä harrasteissa', async () => {
+  const probe = await boot();
+  const ids = J(probe, 'PRACTICE_WORDS.filter(w => wordInCategory(w, "animals_4")).slice(0, 2).map(w => w.id)');
+  const stats = ids.map(id => learnedStat(probe, id));
+  probe.dispose();
+  const app = await boot({ stats });
+  const r = J(app, 'buildProgressReport()');
+  assert.ok(r.book, 'book-ryhmä');
+  assert.strictEqual(r.book.themes.length, 25);
+  assert.ok(r.book.themes.every(t => t.book && t.bookGrade === 4));
+  assert.ok(!r.themes.some(t => t.book), 'ei sekoitu teemoihin');
+  assert.ok(!r.themes.some(t => bookCatIds(app).includes(t.id)));
+  assert.strictEqual(r.book.total, app.run('PRACTICE_WORDS.filter(w => categoryGroup(w.category) === "book").length'));
+  assert.strictEqual(r.book.full, 2);
+  const g4 = r.grades.find(g => g.grade === 4);
+  assert.strictEqual(g4.total, app.run('wordsForGrade(4).length'));
+  app.run('renderAdultView()');
+  const html = app.elements.adultContent.innerHTML;
+  assert.ok(html.includes('Kirjan sanasto'));
+  assert.strictEqual(app.asyncErrors.length, 0);
+  app.dispose();
+});
+
+test('Oppimisrajat: Pass = yksi oikea jompaankumpaan suuntaan (stageStatusForWord, wordStep tuotettu)', async () => {
+  const app = await boot();
+  const id = 'numbers_two';
+  app.run('activeMode = "keyboard"; lastProductiveMode = "keyboard";');
+  setWord(app, id, 'target-fi');
+  await app.run('recordResult(true, "keyboard")');
+  const w = app.run(`VOCAB.words.find(x => x.id === ${JSON.stringify(id)})`);
+  assert.strictEqual(J(app, `stageStatusForWord(VOCAB.words.find(x => x.id === ${JSON.stringify(id)}))`).passed, true);
+  assert.ok(app.run(`wordStep(VOCAB.words.find(x => x.id === ${JSON.stringify(id)}), { tasks: [], infl: {}, sent: [] })`) >= 2, 'tuotettu-porras yhdellä oikealla');
+  assert.ok(w);
+  app.dispose();
+});
+
+test('Oppimisrajat: yhden sanan oppiminen vaatii 2 oikeaa vastausta tavalla (1 / suunta); puhe samoin', async () => {
+  const app = await boot();
+  const id = 'numbers_two';
+  for (const mode of ['keyboard', 'mic', 'pen']) {
+    let n = 0;
+    const learned = () => app.run(`stage${mode === 'keyboard' ? 'Keyboard' : mode === 'mic' ? 'Mic' : 'Pen'}Graduated(statsCache[statId({id: "${id}"})])`);
+    for (const d of ['target-fi', 'fi-target']) {
+      assert.strictEqual(learned(), false);
+      setWord(app, id, d); await app.run(`recordResult(true, "${mode}")`); n++;
+    }
+    assert.strictEqual(n, 2);
+    assert.strictEqual(learned(), true, mode);
+  }
+  assert.strictEqual(app.run(`isFullyLearned(statsCache[statId({id: "${id}"})])`), true, 'kaikki kolme tapaa -> 6 vastausta');
+  app.dispose();
+});
 
 (async () => {
   const filter = process.argv[2];
