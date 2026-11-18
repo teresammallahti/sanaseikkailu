@@ -356,6 +356,8 @@ Vinkki: Chromen valikko → "Lisää aloitusnäyttöön" avaa sovelluksen kokoru
 
 48. **Kirjasanasto erilleen, keveämmät oppimisrajat, mittarin laskurit (vaihe 48)** — ✅ Käyttäjän päätös. Kirjan sanasto (25 teemaa, 870 sanaa) on oma kokonaisuutensa (`group: "book"`), ei luokka-asteen sanoja; englannin 4. lk = 78 sanaa. Teemavalikossa osio "📘 Kirjan sanasto (4. lk)" + "Koko kirjan sanasto". Oppimisrajat: sana opittu tavalla, kun se on vastattu kerran oikein kumpaankin suuntaan (kynä 2, näppäimistö 2, puhe 2; ennen 3+3 / 5 / 6 peräkkäin); väärä nollaa vain tavan ja suunnan; vanhat opitut pysyvät opittuina (kentät `kbTF/kbFT/micTF/micFT`, `best*`). Mittarin alla "Koe 1: opittu X/Y · seuraavaan tähteen N sanaa" (X ei putoa virheestä), teemavalikossa X/Y joka teemalle, palkintoasteikossa taulukko teemoittain. Sanasto v23, 317 testiä, Artifact v44. Commit odottaa (laite ei ollut yhteydessä).
 
+49. **📈 Tilastot (vaihe 49)** — ✅ Sonnet: alapalkin nappi avaa Tilastot-ikkunan: päivittäin opitut sanat menetelmittäin (kynä / näppäimistö / puhe) pinottuna pylväskaaviona ja taulukkona, jaksot 7 / 30 pv / kaikki, kielivalinta, vastaukset ja oikeat päivälokista, kokonaismäärät ja "Opittu ennen tilastoinnin alkua". Sana kirjataan menetelmää kohden vain kerran (sanatilaston `learnedAt`, kulkee varmuuskopiossa); päiväkohtainen `learnLog` ja `dayLog` mukana varmuuskopiossa. 327 testiä, Artifact v45.
+
 > Muistutussääntö: kun aloitatte uuden vaiheen, mainitkaa se — Claude tarkistaa suunnitelman ja muistuttaa, mikä malli kannattaa olla käytössä.
 
 ## Seuraavaksi käyttäjältä

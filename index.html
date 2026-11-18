@@ -913,6 +913,29 @@
   .self-continue-text{ margin:4px 0 0; font-size:12px; color:#5b5370; line-height:1.5; white-space:pre-line; }
   .self-continue-text:empty{ display:none; }
   .self-continue-btns{ display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+  /* Tilastot-välilehti (vaihe 50): pinottu pylväskaavio, taulukko ja valitsimet */
+  :root{ --st-pen:#7e57c2; --st-kb:#26a69a; --st-mic:#ef6c00; }
+  body.self-mode{ --st-pen:#5c6bc0; --st-kb:#78909c; --st-mic:#9e8a6a; }
+  .stats-pick{ display:flex; flex-wrap:wrap; gap:6px; margin:6px 0; align-items:center; }
+  .stats-pick .lbl{ font-size:12px; color:#7a7189; font-weight:700; margin-right:2px; }
+  .stats-pick button{ border:2px solid #e2dcf0; background:#fff; color:var(--ink); border-radius:999px; padding:6px 12px;
+    font:inherit; font-size:13px; font-weight:700; cursor:pointer; min-height:36px; }
+  .stats-pick button.active{ background:var(--accent); border-color:var(--accent); color:#fff; }
+  body.self-mode .stats-pick button{ border-width:1px; font-weight:600; border-radius:10px; }
+  body.self-mode .stats-pick button.active{ background:var(--accent-dark); border-color:var(--accent-dark); }
+  .stats-chart{ width:100%; height:auto; display:block; margin:6px 0 2px; }
+  .stats-chart .axis{ stroke:#d9d3e6; stroke-width:1; }
+  .stats-chart .tick{ font-size:10px; fill:#7a7189; }
+  .stats-chart .sel{ fill:rgba(126,87,194,0.12); }
+  body.self-mode .stats-chart .sel{ fill:rgba(92,107,192,0.12); }
+  .st-pen{ fill:var(--st-pen); } .st-kb{ fill:var(--st-kb); } .st-mic{ fill:var(--st-mic); }
+  .stats-legend{ display:flex; flex-wrap:wrap; gap:4px 14px; font-size:12px; margin:2px 0 6px; }
+  .stats-legend i{ display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:4px; vertical-align:-1px; }
+  .stats-detail{ font-size:13px; min-height:20px; margin:4px 0; padding:6px 10px; background:#f4f2fa; border-radius:10px; }
+  .stats-detail:empty{ display:none; }
+  .stats-table tr.sum td, .stats-table tr.sum th{ font-weight:800; border-top:2px solid #d9d3e6; }
+  .stats-table tr.row-pick td{ background:#f4f2fa; }
+  .stats-table td.dim{ color:#7a7189; }
   .adult-set select{ font-family:inherit; font-size:13px; padding:2px 6px; margin:0 6px 0 4px; }
   @media (max-width: 420px){
     .answer-area{ padding:10px 10px; }
@@ -1205,6 +1228,7 @@
     Sanaseikkailu · peruskoulu ja itseopiskelu · ruotsi, englanti, saksa
     <div class="backup-row">
       <button class="backup-btn" id="adultBtn" title="Edistymisen yhteenveto aikuiselle">📊 Aikuisen näkymä</button>
+      <button class="backup-btn" id="statsBtn" title="Päivittäin opitut sanat menetelmittäin">📈 Tilastot</button>
       <button class="backup-btn" id="exportBtn" title="Tallenna edistyminen tiedostoon">💾 Varmuuskopio</button>
       <button class="backup-btn" id="importBtn" title="Tuo edistyminen varmuuskopiotiedostosta">📂 Tuo varmuuskopio</button>
       <input type="file" id="importFile" accept="application/json" hidden>
@@ -1246,6 +1270,15 @@
       </div>
       </div>
       <div id="adultContent"></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="statsModalOverlay">
+    <div class="modal-card wide">
+      <button class="modal-close" id="statsModalClose" aria-label="Sulje">✕</button>
+      <h2 class="modal-title">📈 Tilastot</h2>
+      <p class="modal-subtitle">Päivittäin opitut sanat menetelmittäin</p>
+      <div id="statsContent"></div>
     </div>
   </div>
 
@@ -112574,7 +112607,18 @@ async function recordResult(isCorrect, mode){
     prev.streakCorrect = 0;
   }
   if (mode === "pen" || mode === "keyboard" || mode === "mic"){
+    // Vaihe 50: oppimistilastointi. Ennen tuloksen kirjausta tarkistetaan, oliko sana jo opittu
+    // tässä tavassa; jos oli mutta päivämäärää ei ole, se merkitään "ennen" (ei keksitä päivää).
+    const gradCheck = MODE_GRADUATED_CHECK[mode];
+    const wasLearned = gradCheck(prev);
+    if (wasLearned) learnedAtMark(prev, mode, LEARNED_BEFORE);
     applyDirResult(prev, mode, direction, isCorrect);
+    // Ensimmäinen hyväksytty oppiminen tavassa: kirjataan päivälle vain kerran (learnedAt kulkee varmuuskopiossa).
+    if (!wasLearned && gradCheck(prev) && !learnedAtGet(prev, mode)){
+      const day = localDateKey();
+      learnedAtMark(prev, mode, day);
+      logLearned(mode, prev.wordId, day);
+    }
     // Vanhat peräkkäisputket pidetään ajan tasalla (raportit/yhteensopivuus); oppiminen ei käytä niitä.
     if (mode === "keyboard") prev.streakKeyboard = isCorrect ? (prev.streakKeyboard || 0) + 1 : 0;
     if (mode === "mic") prev.streakMic = isCorrect ? (prev.streakMic || 0) + 1 : 0;
@@ -113227,7 +113271,10 @@ async function exportBackup(){
     exported_at: new Date().toISOString(),
     language_targets: Object.keys(LANGS),
     level: VOCAB.meta.level,
-    stats
+    stats,
+    // Vaihe 50: päiväloki ja oppimisloki (vanha tuonti ohittaa kentät, jotka sillä ei ole)
+    dayLog: loadDayLog(),
+    learnLog: loadLearnLog()
   };
   const blob = new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
@@ -113240,6 +113287,45 @@ async function exportBackup(){
   a.remove();
   URL.revokeObjectURL(url);
   showBackupNote(`Tallennettu ${stats.length} sanan tiedot.`);
+}
+
+// Varmuuskopion päivälokien yhdistäminen päiväkohtaisesti (vaihe 50). Yhdistäminen on idempotentti:
+// sama varmuuskopio kahdesti tuotuna ei kasvata lukuja (suurempi arvo voittaa, sanalistat yhdistetään).
+function mergeDayLog(local, incoming){
+  const out = Object.assign({}, local);
+  Object.keys(incoming || {}).forEach(day => {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || !incoming[day] || typeof incoming[day] !== "object") return;
+    const entry = (out[day] = Object.assign({}, out[day] || {}));
+    Object.keys(incoming[day]).forEach(lang => {
+      const inc = incoming[day][lang];
+      if (!inc || typeof inc.a !== "number" || typeof inc.c !== "number") return;
+      const cur = entry[lang];
+      // Valitaan se kielen päivämerkintä, jossa vastauksia on enemmän (a ja c pysyvät yhdessä johdonmukaisina).
+      if (!cur || inc.a > cur.a) entry[lang] = { a: inc.a, c: Math.min(inc.c, inc.a) };
+    });
+  });
+  const keys = Object.keys(out).sort();
+  while (keys.length > DAYLOG_KEEP_DAYS) delete out[keys.shift()];
+  return out;
+}
+function mergeLearnLog(local, incoming){
+  const out = JSON.parse(JSON.stringify(local || {}));
+  Object.keys(incoming || {}).forEach(day => {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || !incoming[day] || typeof incoming[day] !== "object") return;
+    const entry = (out[day] = out[day] || {});
+    Object.keys(incoming[day]).forEach(lang => {
+      const inc = incoming[day][lang];
+      if (!inc || typeof inc !== "object") return;
+      const cur = (entry[lang] = entry[lang] || { pen: 0, keyboard: 0, mic: 0 });
+      LEARN_MODES.forEach(m => { cur[m] = Math.max(cur[m] || 0, Number.isFinite(inc[m]) ? inc[m] : 0); });
+      const ws = Array.isArray(cur.words) ? cur.words : [];
+      (Array.isArray(inc.words) ? inc.words : []).forEach(id => {
+        if (typeof id === "string" && ws.length < LEARNLOG_MAX_WORDS && !ws.includes(id)) ws.push(id);
+      });
+      cur.words = ws;
+    });
+  });
+  return out;
 }
 
 async function importBackupFile(file){
@@ -113262,6 +113348,11 @@ async function importBackupFile(file){
       imported++;
     }
   }
+  // Vaihe 50: päivälokit yhdistetään päiväkohtaisesti, jos varmuuskopiossa ne ovat (vanhassa ei ole).
+  try {
+    if (data.dayLog && typeof data.dayLog === "object") localStorage.setItem(DAYLOG_KEY, JSON.stringify(mergeDayLog(loadDayLog(), data.dayLog)));
+    if (data.learnLog && typeof data.learnLog === "object") localStorage.setItem(LEARNLOG_KEY, JSON.stringify(mergeLearnLog(loadLearnLog(), data.learnLog)));
+  } catch (e) { /* ei haittaa */ }
   await updateHeaderStats();
   showBackupNote(`Tuotu ${imported} sanan tiedot.`);
 }
@@ -119454,6 +119545,57 @@ function logPractice(isCorrect){
   } catch (e) { /* ei haittaa */ }
 }
 
+// --- Oppimistilasto (vaihe 50): päivittäin opitut sanat menetelmittäin ---
+// learnLog (localStorage) = { "YYYY-MM-DD": { <kieli>: { pen, keyboard, mic, words: [id…] } } }.
+// Yksittäinen sana lasketaan menetelmää kohden vain kerran: sanatilaston kenttä
+// learnedAt = { pen: "YYYY-MM-DD" | "ennen", keyboard: …, mic: … } kulkee varmuuskopiossa,
+// joten unohdettu ja uudelleen opittu sana ei kirjaudu toista kertaa. Arvo "ennen" tarkoittaa
+// sanaa, joka oli jo opittu ennen tilastoinnin alkua (päivää ei tiedetä eikä keksitä).
+// "Ennen"-merkintä ei vaikuta päivälaskentaan: päiväluvut tulevat vain learnLogista.
+const LEARNLOG_KEY = "learnLog";
+const LEARNLOG_MAX_WORDS = 200; // sana-id:itä tallennetaan enintään näin monta päivässä ja kielessä
+const LEARNED_BEFORE = "ennen";
+const LEARN_MODES = ["pen", "keyboard", "mic"];
+function learnedAtGet(stat, mode){ return (stat && stat.learnedAt && stat.learnedAt[mode]) || null; }
+function learnedAtMark(stat, mode, value){
+  if (learnedAtGet(stat, mode)) return;
+  if (!stat.learnedAt || typeof stat.learnedAt !== "object") stat.learnedAt = {};
+  stat.learnedAt[mode] = value;
+}
+function loadLearnLog(){
+  try {
+    const o = JSON.parse(localStorage.getItem(LEARNLOG_KEY) || "{}");
+    return o && typeof o === "object" && !Array.isArray(o) ? o : {};
+  } catch (e) { return {}; }
+}
+function logLearned(mode, wordId, day){
+  try {
+    const log = loadLearnLog();
+    const key = day || localDateKey();
+    const entry = (log[key] = log[key] || {});
+    const l = (entry[targetLang] = entry[targetLang] || { pen: 0, keyboard: 0, mic: 0 });
+    l[mode] = (l[mode] || 0) + 1;
+    if (!Array.isArray(l.words)) l.words = [];
+    if (wordId && l.words.length < LEARNLOG_MAX_WORDS && !l.words.includes(wordId)) l.words.push(wordId);
+    localStorage.setItem(LEARNLOG_KEY, JSON.stringify(log));
+  } catch (e) { /* ei haittaa */ }
+}
+// Kielen sanatilastot, jotka ovat NYT opittuja tavassa, ja niistä ne, joilla ei ole päivämäärää (ennen tilastoinnin alkua).
+function learnedCountsFor(lang){
+  const r = { now: { pen: 0, keyboard: 0, mic: 0 }, before: { pen: 0, keyboard: 0, mic: 0 } };
+  Object.keys(statsCache).forEach(k => {
+    const st = statsCache[k];
+    if (!st || st.language !== lang || typeof st.wordId !== "string" || st.sentenceId) return;
+    LEARN_MODES.forEach(m => {
+      if (!MODE_GRADUATED_CHECK[m](st)) return;
+      r.now[m] += 1;
+      const at = learnedAtGet(st, m);
+      if (!at || at === LEARNED_BEFORE) r.before[m] += 1;
+    });
+  });
+  return r;
+}
+
 function adultStatsFor(words){
   const r = { total: words.length, seen: 0, pen: 0, keyboard: 0, mic: 0, full: 0 };
   words.forEach(w => {
@@ -119753,6 +119895,173 @@ document.getElementById("adultModalClose").addEventListener("click", closeAdultV
 adultModalOverlay.addEventListener("click", (e) => { if (e.target === adultModalOverlay) closeAdultView(); });
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && adultModalOverlay.classList.contains("visible")) closeAdultView();
+});
+
+// --- Tilastot-välilehti (vaihe 50) ---
+// Kielivalinta (oletus nykyinen kieli), jakso 7 / 30 päivää / kaikki, pinottu pylväskaavio
+// (inline SVG), taulukko päivittäin sekä päivän vastaukset ja oikeat (dayLog) samalla rivillä.
+const STATS_PERIODS = [7, 30, "all"];
+const STATS_CHART_MAX_DAYS = 120; // "kaikki"-jaksolla kaavioon otetaan enintään viimeiset 120 päivää
+const statsState = { lang: null, period: 7, day: null };
+const statsModalOverlay = document.getElementById("statsModalOverlay");
+
+function statsLangs(){ return langsForMode(studyMode); }
+
+// Päivän luvut kielelle: kynä/näppäimistö/puhe (learnLog) sekä vastaukset ja oikeat (dayLog).
+function statsDayRow(day, lang, ll, dl){
+  const l = (ll[day] || {})[lang] || {};
+  const a = (dl[day] || {})[lang] || {};
+  const pen = l.pen || 0, keyboard = l.keyboard || 0, mic = l.mic || 0;
+  return { date: day, pen, keyboard, mic, total: pen + keyboard + mic,
+    answers: a.a || 0, correct: a.c || 0, words: Array.isArray(l.words) ? l.words : [] };
+}
+// Jakson päivälista (uusin ensin): 7/30 = viimeiset N päivää tänään mukaan lukien, "all" = kaikki päivät,
+// joilta on jotain tietoa (opittuja sanoja tai vastauksia) kielelle.
+function statsPeriodDays(lang, period, ll, dl){
+  const days = [];
+  if (period === "all"){
+    const set = new Set();
+    [ll, dl].forEach(log => Object.keys(log).forEach(d => {
+      const e = (log[d] || {})[lang];
+      if (e && ((e.pen || 0) + (e.keyboard || 0) + (e.mic || 0) + (e.a || 0)) > 0) set.add(d);
+    }));
+    return Array.from(set).sort().reverse();
+  }
+  for (let i = 0; i < period; i++){ const d = new Date(); d.setDate(d.getDate() - i); days.push(localDateKey(d)); }
+  return days;
+}
+// Kaavion päivät (vanhin ensin, yhtenäinen aikajana ilman aukkoja).
+function statsChartDays(lang, period, ll, dl){
+  if (period !== "all") return statsPeriodDays(lang, period, ll, dl).slice().reverse();
+  const known = statsPeriodDays(lang, "all", ll, dl);
+  if (!known.length) return [];
+  const first = known[known.length - 1];
+  const out = [];
+  const d = new Date();
+  for (let i = 0; i < 4000; i++){
+    const k = localDateKey(d);
+    out.push(k);
+    if (k <= first) break;
+    d.setDate(d.getDate() - 1);
+  }
+  return out.slice(0, STATS_CHART_MAX_DAYS).reverse();
+}
+function statsBuild(){
+  const ll = loadLearnLog(), dl = loadDayLog();
+  const lang = statsState.lang, period = statsState.period;
+  const days = statsPeriodDays(lang, period, ll, dl).map(d => statsDayRow(d, lang, ll, dl));
+  const chart = statsChartDays(lang, period, ll, dl).map(d => statsDayRow(d, lang, ll, dl));
+  const sum = { pen: 0, keyboard: 0, mic: 0, total: 0, answers: 0, correct: 0 };
+  days.forEach(r => { Object.keys(sum).forEach(k => { sum[k] += r[k]; }); });
+  // Koko tilastointiaikana kirjatut (kaikki päivät) ja nykyiset opitut sanat tavoittain.
+  const logged = { pen: 0, keyboard: 0, mic: 0 };
+  Object.keys(ll).forEach(d => { const e = (ll[d] || {})[lang]; if (e) LEARN_MODES.forEach(m => { logged[m] += e[m] || 0; }); });
+  return { lang, period, days, chart, sum, logged, counts: learnedCountsFor(lang) };
+}
+function statsDayLabel(d){ return Number(d.slice(8)) + "." + Number(d.slice(5, 7)) + "."; }
+function statsWordText(id, lang){
+  const w = VOCAB.words.find(x => x.id === id);
+  return w && w[lang] ? firstAcceptedAnswer(w[lang]) : id;
+}
+function statsDetailText(r, lang){
+  if (!r) return "";
+  let t = `${statsDayLabel(r.date)}: ✏️ kynä ${r.pen}, ⌨️ näppäimistö ${r.keyboard}, 🎤 puhe ${r.mic} = ${r.total} opittua sanaa · ${r.answers} vastausta, ${r.correct} oikein`;
+  if (r.words.length) t += ` · sanat: ${r.words.map(id => statsWordText(id, lang)).join(", ")}`;
+  return t;
+}
+// Pinottu pylväskaavio: kynä alimmaisena, sitten näppäimistö ja puhe. Jokaisella pylväällä on otsikko (title)
+// ja napautettava peittoalue (data-sact="day"), joka näyttää päivän luvut kaavion alla.
+function statsChartSvg(chart){
+  const W = 640, H = 170, padL = 26, padR = 6, padT = 8, padB = 22;
+  const n = chart.length;
+  if (!n) return "";
+  const max = Math.max(1, ...chart.map(r => r.total));
+  const top = max <= 4 ? 4 : max <= 10 ? Math.ceil(max / 2) * 2 : Math.ceil(max / 5) * 5; // kaavion yläraja
+  const iw = W - padL - padR, ih = H - padT - padB, slot = iw / n, bw = Math.max(1, slot * 0.72);
+  const y = v => padT + ih - ih * v / top;
+  let s = `<svg class="stats-chart" id="statsChart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Päivittäin opitut sanat menetelmittäin">`;
+  [0, 0.5, 1].forEach(f => {
+    const v = Math.round(top * f), yy = y(v);
+    s += `<line class="axis" x1="${padL}" x2="${W - padR}" y1="${yy}" y2="${yy}"/><text class="tick" x="${padL - 4}" y="${yy + 3}" text-anchor="end">${v}</text>`;
+  });
+  const every = Math.max(1, Math.ceil(n / 8));
+  chart.forEach((r, i) => {
+    const x = padL + i * slot, bx = x + (slot - bw) / 2;
+    const sel = statsState.day === r.date;
+    const tip = `${statsDayLabel(r.date)}: kynä ${r.pen}, näppäimistö ${r.keyboard}, puhe ${r.mic} (yht. ${r.total})`;
+    s += `<g data-sact="day" data-val="${r.date}"><title>${tip}</title>`;
+    if (sel) s += `<rect class="sel" x="${x}" y="${padT}" width="${slot}" height="${ih}"/>`;
+    let acc = 0;
+    [["pen", "st-pen"], ["keyboard", "st-kb"], ["mic", "st-mic"]].forEach(([k, cls]) => {
+      const v = r[k];
+      if (!v) return;
+      s += `<rect class="${cls}" x="${bx.toFixed(2)}" y="${y(acc + v).toFixed(2)}" width="${bw.toFixed(2)}" height="${(ih * v / top).toFixed(2)}"/>`;
+      acc += v;
+    });
+    s += `<rect x="${x.toFixed(2)}" y="${padT}" width="${slot.toFixed(2)}" height="${ih}" fill="transparent" data-sact="day" data-val="${r.date}"/></g>`;
+    if (i % every === 0 || i === n - 1) s += `<text class="tick" x="${(x + slot / 2).toFixed(1)}" y="${H - 6}" text-anchor="middle">${statsDayLabel(r.date)}</text>`;
+  });
+  return s + `</svg>`;
+}
+function renderStats(){
+  const el = document.getElementById("statsContent");
+  if (!el) return;
+  const langs = statsLangs();
+  if (!statsState.lang || !langs.includes(statsState.lang)) statsState.lang = langs.includes(targetLang) ? targetLang : langs[0];
+  const d = statsBuild();
+  const per = p => p === "all" ? "Kaikki" : p + " päivää";
+  let h = `<div class="stats-pick"><span class="lbl">Kieli</span>`
+    + langs.map(l => `<button type="button" data-sact="lang" data-val="${l}" class="${l === d.lang ? "active" : ""}">${LANGS[l].flag} ${LANGS[l].label}</button>`).join("")
+    + `</div><div class="stats-pick"><span class="lbl">Jakso</span>`
+    + STATS_PERIODS.map(p => `<button type="button" data-sact="period" data-val="${p}" class="${p === d.period ? "active" : ""}">${per(p)}</button>`).join("")
+    + `</div>`;
+  h += `<div class="adult-section">Opitut sanat päivittäin</div>`;
+  h += d.sum.total || d.chart.some(r => r.total) ? statsChartSvg(d.chart)
+    : `<p class="adult-note">Ei vielä kirjattuja opittuja sanoja tällä jaksolla.</p>`;
+  h += `<div class="stats-legend"><span><i style="background:var(--st-pen)"></i>✏️ Kynä</span>`
+    + `<span><i style="background:var(--st-kb)"></i>⌨️ Näppäimistö</span><span><i style="background:var(--st-mic)"></i>🎤 Puhe</span></div>`;
+  const pickRow = statsState.day ? d.days.concat(d.chart).find(r => r.date === statsState.day) : null;
+  h += `<div class="stats-detail" id="statsDetail">${escHtml(statsDetailText(pickRow, d.lang))}</div>`;
+  if (d.period === "all" && d.chart.length >= STATS_CHART_MAX_DAYS) h += `<p class="adult-note">Kaaviossa viimeiset ${STATS_CHART_MAX_DAYS} päivää; taulukossa kaikki päivät.</p>`;
+  h += `<table class="adult-table stats-table"><tr><th>Päivä</th><th>✏️ Kynä</th><th>⌨️ Näppäimistö</th><th>🎤 Puhe</th><th>Yhteensä</th><th>Vastauksia</th><th>Oikein</th></tr>`;
+  h += `<tr class="sum"><td>Jakso yhteensä</td><td>${d.sum.pen}</td><td>${d.sum.keyboard}</td><td>${d.sum.mic}</td><td>${d.sum.total}</td><td>${d.sum.answers}</td><td>${d.sum.correct}</td></tr>`;
+  d.days.forEach(r => {
+    h += `<tr class="${statsState.day === r.date ? "row-pick" : ""}"><td>${r.date}</td><td>${r.pen}</td><td>${r.keyboard}</td><td>${r.mic}</td><td>${r.total}</td>`
+      + `<td class="dim">${r.answers}</td><td class="dim">${r.correct}</td></tr>`;
+  });
+  h += `</table>`;
+  h += `<div class="adult-section">Opitut sanat yhteensä</div><table class="adult-table stats-table"><tr><th></th><th>✏️ Kynä</th><th>⌨️ Näppäimistö</th><th>🎤 Puhe</th></tr>`
+    + `<tr><td>Opittu nyt (kaikki)</td><td>${d.counts.now.pen}</td><td>${d.counts.now.keyboard}</td><td>${d.counts.now.mic}</td></tr>`
+    + `<tr><td>Kirjattu tilastoinnin aikana</td><td>${d.logged.pen}</td><td>${d.logged.keyboard}</td><td>${d.logged.mic}</td></tr></table>`;
+  h += `<p class="adult-note" id="statsBefore">Opittu ennen tilastoinnin alkua: kynä ${d.counts.before.pen}, näppäimistö ${d.counts.before.keyboard}, puhe ${d.counts.before.mic}.</p>`;
+  h += `<p class="adult-note">Sana lasketaan menetelmää kohden vain kerran, kun se ensimmäisen kerran opitaan (oikein molempiin suuntiin); unohtaminen ja uudelleen oppiminen ei kasvata lukua. "Opittu nyt" ei siksi aina ole sama kuin ennen-rivin ja kirjattujen summa. Vastaukset ja oikeat tulevat päivälokista, joka säilyy 60 päivää.</p>`;
+  el.innerHTML = h;
+}
+function statsSetLang(l){ if (statsLangs().includes(l)){ statsState.lang = l; statsState.day = null; renderStats(); } }
+function statsSetPeriod(p){ p = p === "all" ? "all" : Number(p); if (STATS_PERIODS.includes(p)){ statsState.period = p; statsState.day = null; renderStats(); } }
+function statsPickDay(day){ statsState.day = statsState.day === day ? null : day; renderStats(); }
+function openStats(){
+  statsState.lang = statsLangs().includes(targetLang) ? targetLang : statsLangs()[0];
+  statsState.day = null;
+  renderStats();
+  statsModalOverlay.classList.add("visible");
+}
+function closeStats(){ statsModalOverlay.classList.remove("visible"); }
+document.getElementById("statsBtn").addEventListener("click", openStats);
+document.getElementById("statsModalClose").addEventListener("click", closeStats);
+statsModalOverlay.addEventListener("click", (e) => { if (e.target === statsModalOverlay) closeStats(); });
+// Valitsimet ja pylväät käsitellään yhdellä kuuntelijalla (sisältö piirretään uudelleen valinnoissa).
+document.getElementById("statsContent").addEventListener("click", (e) => {
+  let t = e.target;
+  while (t && !(t.dataset && t.dataset.sact)) t = t.parentNode || null;
+  if (!t) return;
+  const act = t.dataset.sact, val = t.dataset.val;
+  if (act === "lang") statsSetLang(val);
+  else if (act === "period") statsSetPeriod(val);
+  else if (act === "day") statsPickDay(val);
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && statsModalOverlay.classList.contains("visible")) closeStats();
 });
 
 // --- Kertausjärjestelmä (välitetty toisto) ja päivätavoite (vain itseopiskelu) ---

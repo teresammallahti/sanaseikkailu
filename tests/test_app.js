@@ -6749,6 +6749,248 @@ test('Oppimisrajat: yhden sanan oppiminen vaatii 2 oikeaa vastausta tavalla (1 /
   app.dispose();
 });
 
+// ---------------- Tilastot: päivittäin opitut sanat menetelmittäin (vaihe 50) ----------------
+const learnLog = (app) => JSON.parse(app.storage.getItem('learnLog') || '{}');
+async function learnWord(app, id, mode) {
+  for (const d of ['target-fi', 'fi-target']) { setWord(app, id, d); await app.run(`recordResult(true, "${mode}")`); }
+}
+// Rivi taulukosta: solut päivälle (tekstinä)
+function statsRow(html, date) {
+  const m = new RegExp('<tr[^>]*><td>' + date + '</td>(.*?)</tr>').exec(html);
+  return m ? m[1].replace(/<\/td><td[^>]*>|<td[^>]*>/g, ' ').replace(/<\/td>/g, '').trim().split(/\s+/).map(Number) : null;
+}
+
+test('Tilastot: oppiminen kirjautuu oikealle päivälle ja menetelmälle, sana + id tallentuu', async () => {
+  const app = await boot();
+  mockNow(app, '2026-07-10T12:00:00');
+  setWord(app, 'numbers_two', 'target-fi');
+  await app.run('recordResult(true, "pen")');
+  assert.deepStrictEqual(learnLog(app), {}, 'yksi suunta ei vielä ole oppiminen');
+  await learnWord(app, 'numbers_two', 'pen');
+  let log = learnLog(app);
+  assert.strictEqual(log['2026-07-10'].en.pen, 1);
+  assert.ok(!log['2026-07-10'].en.keyboard);
+  assert.deepStrictEqual(log['2026-07-10'].en.words, ['numbers_two']);
+  assert.strictEqual(J(app, 'statsCache[statId({id:"numbers_two"})].learnedAt').pen, '2026-07-10');
+  // Seuraavana päivänä toinen sana näppäimistöllä ja kolmas puheella
+  mockNow(app, '2026-07-11T09:00:00');
+  await learnWord(app, 'numbers_three', 'keyboard');
+  await learnWord(app, 'numbers_four', 'mic');
+  await learnWord(app, 'numbers_four', 'pen');
+  log = learnLog(app);
+  assert.strictEqual(log['2026-07-11'].en.keyboard, 1);
+  assert.strictEqual(log['2026-07-11'].en.mic, 1);
+  assert.strictEqual(log['2026-07-11'].en.pen, 1);
+  assert.strictEqual(log['2026-07-10'].en.pen, 1, 'edellisen päivän luku ei muutu');
+  assert.strictEqual(app.asyncErrors.length, 0);
+  app.dispose();
+});
+
+test('Tilastot: sama sana ei kirjaudu kahdesti (virhe + uudelleenoppiminen, ylimääräiset oikeat)', async () => {
+  const app = await boot();
+  mockNow(app, '2026-07-10T12:00:00');
+  await learnWord(app, 'numbers_two', 'keyboard');
+  setWord(app, 'numbers_two', 'target-fi');
+  await app.run('recordResult(true, "keyboard")'); // jo opittu: ei uutta kirjausta
+  await app.run('recordResult(false, "keyboard")'); // unohtuu yhdessä suunnassa
+  assert.strictEqual(app.run('stageKeyboardGraduated(statsCache[statId({id:"numbers_two"})])'), false);
+  mockNow(app, '2026-07-12T12:00:00');
+  await app.run('recordResult(true, "keyboard")'); // opitaan uudelleen toisena päivänä
+  assert.strictEqual(app.run('stageKeyboardGraduated(statsCache[statId({id:"numbers_two"})])'), true);
+  const log = learnLog(app);
+  assert.strictEqual(log['2026-07-10'].en.keyboard, 1);
+  assert.strictEqual(log['2026-07-12'], undefined, 'uudelleenoppimista ei lasketa');
+  // Eri menetelmä saman sanan kohdalla lasketaan erikseen
+  await learnWord(app, 'numbers_two', 'mic');
+  assert.strictEqual(learnLog(app)['2026-07-12'].en.mic, 1);
+  app.dispose();
+});
+
+test('Tilastot: kieli kirjataan targetLangin mukaan', async () => {
+  const app = await boot({ localStorage: { targetLang: 'de' } });
+  mockNow(app, '2026-07-10T12:00:00');
+  await learnWord(app, 'numbers_two', 'pen');
+  const e = learnLog(app)['2026-07-10'];
+  assert.strictEqual(e.de.pen, 1);
+  assert.strictEqual(e.en, undefined);
+  app.dispose();
+});
+
+test('Tilastot: sanalista rajataan 200:aan, laskuri jatkaa', async () => {
+  const app = await boot();
+  mockNow(app, '2026-07-10T12:00:00');
+  for (let i = 0; i < 205; i++) app.run('logLearned("pen", "x' + i + '", "2026-07-10")');
+  const e = learnLog(app)['2026-07-10'].en;
+  assert.strictEqual(e.pen, 205);
+  assert.strictEqual(e.words.length, 200);
+  app.dispose();
+});
+
+test('Tilastot: vanhat opitut -> "ennen tilastoinnin alkua" -rivi, ei keksittyä päivää, ei päivälukuun', async () => {
+  const app = await boot();
+  mockNow(app, '2026-07-10T12:00:00');
+  app.run(`(() => { const put = (id, extra) => { const sid = statId({id}); statsCache[sid] = Object.assign({ statId: sid, wordId: id, language: 'en', level: VOCAB.meta.level, correctCount: 5, incorrectCount: 0, streakCorrect: 5, streakKeyboard: 0, streakMic: 0 }, extra); };
+    put('numbers_two', { streakTargetFi: 1, streakFiTarget: 1 });
+    put('numbers_three', { streakTargetFi: 1, streakFiTarget: 1, kbTF: 1, kbFT: 1 });
+    put('numbers_four', { kbTF: 1, kbFT: 1, micTF: 2, micFT: 1 });
+    put('numbers_five', { streakKeyboard: 3 }); // vanha malli: putki >= 2 tulkitaan opituksi
+  })()`);
+  app.run('openStats()');
+  const html = app.elements.statsContent.innerHTML;
+  assert.ok(html.includes('Opittu ennen tilastoinnin alkua: kynä 2, näppäimistö 3, puhe 1.'), html.match(/Opittu ennen[^<]*/)[0]);
+  assert.deepStrictEqual(learnLog(app), {});
+  assert.ok(app.elements.statsModalOverlay.classList.contains('visible'));
+  // Vanha opittu sana unohtuu ja opitaan uudelleen: ei tule päivälle, merkintä "ennen" pysyy
+  setWord(app, 'numbers_two', 'target-fi');
+  await app.run('recordResult(false, "pen")');
+  assert.strictEqual(J(app, 'statsCache[statId({id:"numbers_two"})].learnedAt').pen, 'ennen');
+  await app.run('recordResult(true, "pen")');
+  assert.strictEqual(app.run('stagePenGraduated(statsCache[statId({id:"numbers_two"})])'), true);
+  assert.deepStrictEqual(learnLog(app), {}, 'uudelleenoppiminen ei kirjaudu päivälle');
+  // Uusi sana kirjautuu normaalisti ja ennen-rivi pysyy samana
+  await learnWord(app, 'numbers_six', 'pen');
+  assert.strictEqual(learnLog(app)['2026-07-10'].en.pen, 1);
+  app.run('renderStats()');
+  assert.ok(app.elements.statsContent.innerHTML.includes('kynä 2, näppäimistö 3, puhe 1.'));
+  app.dispose();
+});
+
+async function seedStatsLog(app) {
+  app.storage.setItem('learnLog', JSON.stringify({
+    '2026-07-10': { en: { pen: 2, keyboard: 1, mic: 0, words: ['numbers_two', 'numbers_three'] }, de: { pen: 5, keyboard: 0, mic: 0 } },
+    '2026-07-08': { en: { pen: 0, keyboard: 3, mic: 1 } },
+    '2026-06-20': { en: { pen: 4, keyboard: 0, mic: 0 } },
+    '2026-04-01': { en: { pen: 1, keyboard: 1, mic: 1 } }
+  }));
+  app.storage.setItem('dayLog', JSON.stringify({
+    '2026-07-10': { en: { a: 30, c: 24 }, de: { a: 9, c: 9 } },
+    '2026-07-09': { en: { a: 10, c: 5 } }
+  }));
+}
+
+test('Tilastot: välilehden avaus, taulukon luvut, summarivi, jaksovalinta ja kielivalinta', async () => {
+  const app = await boot();
+  mockNow(app, '2026-07-10T12:00:00');
+  await seedStatsLog(app);
+  await app.elements.statsBtn.click();
+  assert.ok(app.elements.statsModalOverlay.classList.contains('visible'));
+  assert.strictEqual(app.run('statsState.lang'), 'en');
+  assert.strictEqual(app.run('statsState.period'), 7);
+  let html = app.elements.statsContent.innerHTML;
+  assert.ok(html.includes('<svg') && html.includes('st-pen') && html.includes('Kynä') && html.includes('Puhe'));
+  assert.deepStrictEqual(statsRow(html, '2026-07-10'), [2, 1, 0, 3, 30, 24]);
+  assert.deepStrictEqual(statsRow(html, '2026-07-09'), [0, 0, 0, 0, 10, 5]);
+  assert.deepStrictEqual(statsRow(html, '2026-07-08'), [0, 3, 1, 4, 0, 0]);
+  assert.strictEqual(statsRow(html, '2026-06-20'), null, '7 pv jaksolla ei kesäkuun riviä');
+  assert.ok(html.includes('<tr class="sum"><td>Jakso yhteensä</td><td>2</td><td>4</td><td>1</td><td>7</td><td>40</td><td>29</td></tr>'));
+  assert.strictEqual((html.match(/<tr class="[^"]*"><td>2026-/g) || []).length + (html.match(/<tr><td>2026-/g) || []).length, 7);
+  // Jakso 30 päivää
+  await app.elements.statsContent.dispatch('click', { target: { dataset: { sact: 'period', val: '30' } } });
+  html = app.elements.statsContent.innerHTML;
+  assert.deepStrictEqual(statsRow(html, '2026-06-20'), [4, 0, 0, 4, 0, 0]);
+  assert.ok(html.includes('<tr class="sum"><td>Jakso yhteensä</td><td>6</td><td>4</td><td>1</td><td>11</td><td>40</td><td>29</td></tr>'));
+  assert.strictEqual(statsRow(html, '2026-04-01'), null);
+  // Kaikki: vain päivät, joilta on tietoa
+  app.run('statsSetPeriod("all")');
+  html = app.elements.statsContent.innerHTML;
+  assert.deepStrictEqual(statsRow(html, '2026-04-01'), [1, 1, 1, 3, 0, 0]);
+  assert.strictEqual(statsRow(html, '2026-07-07'), null);
+  assert.ok(html.includes('<tr class="sum"><td>Jakso yhteensä</td><td>7</td><td>5</td><td>2</td><td>14</td><td>40</td><td>29</td></tr>'));
+  assert.ok(html.includes('Kirjattu tilastoinnin aikana</td><td>7</td><td>5</td><td>2</td>'));
+  // Kielivalinta: saksa
+  app.run('statsSetLang("de")');
+  html = app.elements.statsContent.innerHTML;
+  assert.deepStrictEqual(statsRow(html, '2026-07-10'), [5, 0, 0, 5, 9, 9]);
+  assert.strictEqual(statsRow(html, '2026-07-08'), null);
+  // Päivän napautus näyttää luvut
+  app.run('statsSetLang("en")');
+  await app.elements.statsContent.dispatch('click', { target: { dataset: { sact: 'day', val: '2026-07-10' } } });
+  const det = app.elements.statsContent.innerHTML.match(/id="statsDetail">([^<]*)</)[1];
+  assert.ok(det.includes('kynä 2') && det.includes('näppäimistö 1') && det.includes('30 vastausta') && det.includes('sanat: '), det);
+  await app.elements.statsModalClose.click();
+  assert.ok(!app.elements.statsModalOverlay.classList.contains('visible'));
+  assert.strictEqual(app.asyncErrors.length, 0);
+  app.dispose();
+});
+
+test('Tilastot: tyhjä lokiasetelma ei kaadu, rikkinäinen learnLog ohitetaan', async () => {
+  const app = await boot({ localStorage: { learnLog: '{rikki' } });
+  mockNow(app, '2026-07-10T12:00:00');
+  app.run('openStats()');
+  const html = app.elements.statsContent.innerHTML;
+  assert.ok(html.includes('Ei vielä kirjattuja') && html.includes('Opittu ennen tilastoinnin alkua: kynä 0, näppäimistö 0, puhe 0.'));
+  await learnWord(app, 'numbers_two', 'pen'); // kirjaus korvaa rikkinäisen lokin
+  assert.strictEqual(learnLog(app)['2026-07-10'].en.pen, 1);
+  app.dispose();
+});
+
+test('Tilastot: itseopiskelu - kirjaus, välilehti ja vain itseopiskelun kielet', async () => {
+  const app = await boot();
+  await toSelf(app);
+  mockNow(app, '2026-07-10T12:00:00');
+  assert.ok(app.run('document.body.classList.contains("self-mode")'));
+  await learnWord(app, 'zz_a1_2', 'keyboard');
+  assert.strictEqual(learnLog(app)['2026-07-10'].sv.keyboard, 1);
+  await app.elements.statsBtn.click();
+  assert.strictEqual(app.run('statsState.lang'), 'sv');
+  const html = app.elements.statsContent.innerHTML;
+  assert.deepStrictEqual(statsRow(html, '2026-07-10'), [0, 1, 0, 1, 2, 2]);
+  const langs = J(app, 'statsLangs()');
+  assert.ok(langs.includes('sv') && langs.length === J(app, 'langsForMode("self")').length);
+  // Peruskoulun puolella sama loki ja kieli en näkyvät omina
+  app.dispose();
+  const school = await boot();
+  mockNow(school, '2026-07-10T12:00:00');
+  await learnWord(school, 'numbers_two', 'mic');
+  await school.elements.statsBtn.click();
+  assert.deepStrictEqual(statsRow(school.elements.statsContent.innerHTML, '2026-07-10'), [0, 0, 1, 1, 2, 2]);
+  assert.strictEqual(J(school, 'statsLangs()').length, 3);
+  school.dispose();
+});
+
+test('Tilastot: varmuuskopion vienti sisältää learnedAt, dayLog ja learnLog; tuonti yhdistää päiväkohtaisesti', async () => {
+  const a = await boot();
+  mockNow(a, '2026-07-10T12:00:00');
+  await learnWord(a, 'numbers_two', 'pen');
+  a.run('URL.createObjectURL = (b) => { globalThis.__blob = b; return "blob:x"; }');
+  await a.run('exportBackup()');
+  const exported = JSON.parse(a.run('globalThis.__blob').parts[0]);
+  assert.strictEqual(exported.stats[0].learnedAt.pen, '2026-07-10');
+  assert.strictEqual(exported.learnLog['2026-07-10'].en.pen, 1);
+  assert.strictEqual(exported.dayLog['2026-07-10'].en.a, 2);
+  a.dispose();
+  // Tuonti toiselle laitteelle, jolla on omaa dataa samalta päivältä
+  const b = await boot({ localStorage: {
+    learnLog: JSON.stringify({ '2026-07-10': { en: { pen: 0, keyboard: 2, mic: 0, words: ['kb1'] } }, '2026-07-09': { en: { pen: 1, keyboard: 0, mic: 0 } } }),
+    dayLog: JSON.stringify({ '2026-07-10': { en: { a: 1, c: 1 } }, '2026-07-09': { en: { a: 4, c: 2 } } })
+  } });
+  const file = { text: async () => JSON.stringify(exported) };
+  await b.run('importBackupFile').call(null, file);
+  await b.run('importBackupFile').call(null, file); // toinen tuonti ei kasvata lukuja
+  const ll = JSON.parse(b.storage.getItem('learnLog'));
+  assert.deepStrictEqual([ll['2026-07-10'].en.pen, ll['2026-07-10'].en.keyboard], [1, 2]);
+  assert.deepStrictEqual(ll['2026-07-10'].en.words.sort(), ['kb1', 'numbers_two']);
+  assert.strictEqual(ll['2026-07-09'].en.pen, 1);
+  const dl = JSON.parse(b.storage.getItem('dayLog'));
+  assert.deepStrictEqual(dl['2026-07-10'].en, { a: 2, c: 2 });
+  assert.deepStrictEqual(dl['2026-07-09'].en, { a: 4, c: 2 });
+  assert.strictEqual(J(b, 'statsCache["en|4lk|numbers_two"].learnedAt').pen, '2026-07-10');
+  b.dispose();
+});
+
+test('Tilastot: vanha varmuuskopio (ei dayLog/learnLog-kenttiä) tuodaan ja jättää lokit ennalleen', async () => {
+  const app = await boot({ localStorage: { learnLog: JSON.stringify({ '2026-07-10': { en: { pen: 1, keyboard: 0, mic: 0 } } }) } });
+  const stats = [{ statId: 'en|4lk|numbers_two', wordId: 'numbers_two', language: 'en', level: '4lk', correctCount: 3, incorrectCount: 0, streakCorrect: 3, streakTargetFi: 1, streakFiTarget: 1 }];
+  await app.run('importBackupFile').call(null, { text: async () => JSON.stringify({ app: 'sanaseikkailu', stats }) });
+  assert.ok(/Tuotu 1 /.test(app.elements.backupNote.textContent));
+  assert.strictEqual(JSON.parse(app.storage.getItem('learnLog'))['2026-07-10'].en.pen, 1);
+  assert.strictEqual(app.storage.getItem('dayLog'), null);
+  // Epäkelpo loki-kenttä ei kaada tuontia
+  await app.run('importBackupFile').call(null, { text: async () => JSON.stringify({ stats, dayLog: 'x', learnLog: { 'huono': 1, '2026-07-01': 5 } }) });
+  assert.strictEqual(app.asyncErrors.length, 0);
+  app.dispose();
+});
+
 (async () => {
   const filter = process.argv[2];
   for (const t of tests) {
